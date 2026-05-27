@@ -1,0 +1,65 @@
+<launch>
+  <!--
+  vlm_navigation.launch - VLM 视觉语言导航完整启动文件
+
+  架构说明:
+    PX4/Gazebo (底层仿真)
+      | MAVROS
+    setpoint_bridge (飞控接口中间层)
+      | /uav/goal_pose + /uav/state_cmd
+    vlm_navigation (算法层: VLM + 深度投影)
+      | 相机话题 /rgb/image_raw, /depth/image_raw
+
+  使用方法:
+    1. 先在终端启动 PX4 SITL + Gazebo:
+       cd ~/毕业设计 && ./scripts_start_px4_sitl_gazebo.sh
+       (等待 PX4 完全启动, Gazebo 界面出现)
+
+    2. 然后在新终端启动此 launch:
+       cd ~/毕业设计/ws && source devel/setup.bash && roslaunch uav_vln_bringup vlm_navigation.launch
+
+    3. (可选) 启动后通过 rqt_image_view 查看调试图像:
+       rosrun rqt_image_view rqt_image_view /uav/vlm_debug_image
+  -->
+
+  <!-- ===== MAVROS (飞控桥接) ===== -->
+  <include file="$(find uav_vln_bringup)/launch/mavros_px4_sitl.launch">
+    <arg name="fcu_url" value="udp://:14540@127.0.0.1:14557" />
+  </include>
+
+  <!-- ===== setpoint_bridge (飞控接口中间层) ===== -->
+  <node pkg="uav_vln_bringup" type="setpoint_bridge.py" name="setpoint_bridge" output="screen">
+    <param name="setpoint_rate" value="20" />
+    <param name="takeoff_alt" value="2.0" />
+    <param name="goal_timeout" value="2.0" />
+    <param name="approach_dist" value="1.0" />
+  </node>
+
+  <!-- ===== vlm_navigation (VLM 视觉语言导航算法层) ===== -->
+  <node pkg="uav_vln_bringup" type="vlm_navigation.py" name="vlm_navigation" output="screen">
+
+    <!-- VLM API 配置 -->
+    <param name="vlm_provider" value="qwen" />
+    <param name="vlm_api_key" value="sk-faeac5f4c6794a88b8f631c003d429ed" />
+    <param name="vlm_model" value="qwen-vl-max" />
+    <param name="vlm_prompt" value="前方黄色障碍物像素坐标是什么?请只返回(u,v)格式的坐标" />
+
+    <!-- 相机参数 (depth_camera 模型: cameraName=camera, robotNamespace=空) -->
+    <param name="camera_topic_rgb" value="/camera/rgb/image_raw" />
+    <param name="camera_topic_depth" value="/camera/depth/image_raw" />
+    <param name="depth_scale" value="1.0" />
+
+    <!-- 导航参数 -->
+    <param name="approach_dist" value="1.0" />
+    <param name="trigger_rate" value="0.2" />
+
+    <!-- 相机内参 (默认 iris_depth_camera 参数, 启动后会从 CameraInfo 自动获取) -->
+    <param name="cam_fx" value="430.0" />
+    <param name="cam_fy" value="430.0" />
+    <param name="cam_cx" value="424.0" />
+    <param name="cam_cy" value="240.0" />
+    <param name="cam_width" value="848" />
+    <param name="cam_height" value="480" />
+  </node>
+
+</launch>

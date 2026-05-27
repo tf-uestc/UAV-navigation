@@ -1,0 +1,40 @@
+# ROS build 产物
+ws/devel/
+ws/build/
+ws/install/
+ws/logs/
+
+# EGO-Planner（外部依赖，单独克隆）
+ego-planner/
+
+# PX4-Autopilot（外部依赖，单独克隆）
+PX4-Autopilot/
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# VS Code
+.vscode/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# 大文件 / 二进制文件
+*.bag
+*.pdf
+*.docx
+*.zip
+*.tar.gz
+
+# 开题相关
+开题/
+
+# 日志
+日志.md
+debug.md
