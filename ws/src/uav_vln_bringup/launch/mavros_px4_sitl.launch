@@ -6,4 +6,24 @@
     <arg name="fcu_url" value="$(arg fcu_url)" />
     <arg name="gcs_url" value="$(arg gcs_url)" />
   </include>
+
+  <!-- ====== F3: local_position TF 发送（map→base_link） ====== -->
+  <!-- 在 px4.launch 之后加载，覆盖 YAML 默认值 false -->
+  <rosparam param="/mavros/local_position/tf/send" subst_value="True">true</rosparam>
+  <rosparam param="/mavros/local_position/tf/frame_id" subst_value="False">map</rosparam>
+  <rosparam param="/mavros/local_position/tf/child_frame_id" subst_value="False">base_link</rosparam>
+
+  <!-- ====== F3: global_position TF 发送（map→odom） ====== -->
+  <rosparam param="/mavros/global_position/tf/send" subst_value="True">true</rosparam>
+  <rosparam param="/mavros/global_position/tf/frame_id" subst_value="False">map</rosparam>
+  <rosparam param="/mavros/global_position/tf/child_frame_id" subst_value="False">odom</rosparam>
+
+  <!-- ====== F3: 相机静态 TF ====== -->
+  <!-- base_link → camera_link: 相机装在机头前方 0.1m（从 SDF <pose>0.1 0 0</pose>） -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="cam_mount_tf"
+        args="0.1 0 0 0 0 0 base_link camera_link"/>
+
+  <!-- camera_link → camera_link_optical: ROS 光学系标准旋转（FLU→RDF） -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="cam_optical_tf"
+        args="0 0 0 -1.5708 0 -1.5708 camera_link camera_link_optical"/>
 </launch>

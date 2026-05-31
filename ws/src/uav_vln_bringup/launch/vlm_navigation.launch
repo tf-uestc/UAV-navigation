@@ -45,8 +45,8 @@
     <param name="vlm_prompt" value="前方黄色障碍物像素坐标是什么?请只返回(u,v)格式的坐标" />
 
     <!-- 相机参数 (depth_camera 模型: cameraName=camera, robotNamespace=空) -->
-    <param name="camera_topic_rgb" value="/camera/rgb/image_raw" />
-    <param name="camera_topic_depth" value="/camera/depth/image_raw" />
+    <param name="camera_topic_rgb" value="/iris_depth_camera/camera/rgb/image_raw" />
+    <param name="camera_topic_depth" value="/iris_depth_camera/camera/depth/image_raw" />
     <param name="depth_scale" value="1.0" />
 
     <!-- 导航参数 -->
