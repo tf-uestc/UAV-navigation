@@ -16,6 +16,9 @@ __pycache__/
 *.pyo
 *.egg-info/
 
+# 环境变量（含 API Key）
+.env
+
 # VS Code
 .vscode/
 

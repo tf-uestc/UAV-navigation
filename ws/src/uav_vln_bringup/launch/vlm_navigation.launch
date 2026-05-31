@@ -40,7 +40,7 @@
 
     <!-- VLM API 配置 -->
     <param name="vlm_provider" value="qwen" />
-    <param name="vlm_api_key" value="sk-faeac5f4c6794a88b8f631c003d429ed" />
+    <param name="vlm_api_key" value="$(env VLM_API_KEY)" />
     <param name="vlm_model" value="qwen-vl-max" />
     <param name="vlm_prompt" value="前方黄色障碍物像素坐标是什么?请只返回(u,v)格式的坐标" />
 

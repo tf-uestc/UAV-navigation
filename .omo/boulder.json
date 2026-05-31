@@ -1,0 +1,94 @@
+{
+  "schema_version": 2,
+  "active_work_id": "f2-vlm-grounding-766b1a2e",
+  "works": {
+    "tf-chain-fix-68861f46": {
+      "work_id": "tf-chain-fix-68861f46",
+      "active_plan": "/home/tf/毕业设计/.omo/plans/tf-chain-fix.md",
+      "plan_name": "tf-chain-fix",
+      "status": "completed",
+      "started_at": "2026-05-31T10:56:00.715Z",
+      "updated_at": "2026-05-31T11:06:15.235Z",
+      "session_ids": [
+        "opencode:ses_18293db43ffefq34TDoSVXbRVO",
+        "opencode:ses_182506f9cffeZ1f9WBIiGbJ3om",
+        "opencode:ses_182504034ffeFwsCM1OfN101G1",
+        "opencode:ses_182501b01ffekvl53ewgUt5QHw"
+      ],
+      "session_origins": {
+        "opencode:ses_18293db43ffefq34TDoSVXbRVO": "direct",
+        "opencode:ses_182506f9cffeZ1f9WBIiGbJ3om": "appended",
+        "opencode:ses_182504034ffeFwsCM1OfN101G1": "appended",
+        "opencode:ses_182501b01ffekvl53ewgUt5QHw": "appended"
+      },
+      "agent": "atlas",
+      "ended_at": "2026-05-31T11:06:15.235Z",
+      "elapsed_ms": 614520
+    },
+    "f2-vlm-grounding-766b1a2e": {
+      "work_id": "f2-vlm-grounding-766b1a2e",
+      "active_plan": "/home/tf/毕业设计/.omo/plans/f2-vlm-grounding.md",
+      "plan_name": "f2-vlm-grounding",
+      "status": "active",
+      "started_at": null,
+      "updated_at": "2026-05-31T12:54:36.231Z",
+      "session_ids": [
+        "opencode:ses_1820b8cb3ffe4v0rl7p7lMwY1T",
+        "opencode:ses_181e9e354ffeUBnLdD2qVR8jHm",
+        "opencode:ses_181e9bf96ffeZqWsBeTYUe6gV4",
+        "opencode:ses_181e99bc9ffeBxXHEY4ajE152b"
+      ],
+      "session_origins": {
+        "opencode:ses_1820b8cb3ffe4v0rl7p7lMwY1T": "direct",
+        "opencode:ses_181e9e354ffeUBnLdD2qVR8jHm": "appended",
+        "opencode:ses_181e9bf96ffeZqWsBeTYUe6gV4": "appended",
+        "opencode:ses_181e99bc9ffeBxXHEY4ajE152b": "appended"
+      },
+      "agent": "atlas",
+      "task_sessions": {
+        "todo:1": {
+          "task_key": "todo:1",
+          "task_label": "1",
+          "task_title": "**Replace hardcoded API key in `docs/可行性分析.md:91`**: Change `sk-faeac5f4c6794a88b8f631c003d429ed` to `sk-xxx` placeholder",
+          "session_id": "opencode:ses_181e68840ffefT3sPz63QJOBUS",
+          "agent": "Sisyphus-Junior",
+          "category": "quick",
+          "started_at": "2026-05-31T12:47:21.940Z",
+          "status": "running",
+          "updated_at": "2026-05-31T12:54:36.231Z"
+        }
+      }
+    }
+  },
+  "active_plan": "/home/tf/毕业设计/.omo/plans/f2-vlm-grounding.md",
+  "plan_name": "f2-vlm-grounding",
+  "status": "active",
+  "started_at": null,
+  "updated_at": "2026-05-31T12:54:36.231Z",
+  "session_ids": [
+    "opencode:ses_1820b8cb3ffe4v0rl7p7lMwY1T",
+    "opencode:ses_181e9e354ffeUBnLdD2qVR8jHm",
+    "opencode:ses_181e9bf96ffeZqWsBeTYUe6gV4",
+    "opencode:ses_181e99bc9ffeBxXHEY4ajE152b"
+  ],
+  "session_origins": {
+    "opencode:ses_1820b8cb3ffe4v0rl7p7lMwY1T": "direct",
+    "opencode:ses_181e9e354ffeUBnLdD2qVR8jHm": "appended",
+    "opencode:ses_181e9bf96ffeZqWsBeTYUe6gV4": "appended",
+    "opencode:ses_181e99bc9ffeBxXHEY4ajE152b": "appended"
+  },
+  "agent": "atlas",
+  "task_sessions": {
+    "todo:1": {
+      "task_key": "todo:1",
+      "task_label": "1",
+      "task_title": "**Replace hardcoded API key in `docs/可行性分析.md:91`**: Change `sk-faeac5f4c6794a88b8f631c003d429ed` to `sk-xxx` placeholder",
+      "session_id": "opencode:ses_181e68840ffefT3sPz63QJOBUS",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "started_at": "2026-05-31T12:47:21.940Z",
+      "status": "running",
+      "updated_at": "2026-05-31T12:54:36.231Z"
+    }
+  }
+}

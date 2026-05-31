@@ -161,6 +161,7 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 catkin_install_python(PROGRAMS
+  scripts/detector_node.py
   scripts/setpoint_bridge.py
   scripts/vlm_navigation.py
   scripts/takeoff_land.py
