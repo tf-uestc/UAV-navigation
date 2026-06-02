@@ -38,6 +38,10 @@ class DummyDetector(Detector):
     depth pixels in the box.
     """
 
+    def __init__(self, **kwargs):
+        """Accept and ignore any extra kwargs (e.g. api_key from env)."""
+        super().__init__()
+
     def detect(self,
                rgb: np.ndarray,
                depth: np.ndarray,

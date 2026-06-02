@@ -6,18 +6,16 @@ visual grounding capability (bbox output) with depth fusion.
 """
 import base64
 import json
-import logging
 import re
 from typing import Optional, Tuple
 
 import cv2
 import numpy as np
 import requests
+import rospy
 from sensor_msgs.msg import CameraInfo
 
 from base_detector import Detection, Detector
-
-logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # Prompt template and bbox parsing patterns
@@ -74,7 +72,7 @@ class QwenVLGroundingDetector(Detector):
         h, w = rgb.shape[:2]
         bbox = self._parse_bbox(raw_text, w, h)
         if bbox is None:
-            logger.warning("Failed to parse bbox from: %s", raw_text[:100])
+            rospy.logwarn("Failed to parse bbox from: %s", raw_text[:100])
             return None
 
         x1, y1, x2, y2 = bbox
@@ -125,7 +123,7 @@ class QwenVLGroundingDetector(Detector):
         success, buffer = cv2.imencode(".jpg", bgr,
                                        [cv2.IMWRITE_JPEG_QUALITY, 85])
         if not success:
-            logger.error("Failed to encode image to JPEG")
+            rospy.logerr("Failed to encode image to JPEG")
             return None
 
         image_b64 = base64.b64encode(buffer).decode("utf-8")
@@ -149,7 +147,7 @@ class QwenVLGroundingDetector(Detector):
         }
 
         try:
-            logger.info("Querying DashScope (%s)...", self.model)
+            rospy.loginfo("Querying DashScope (%s)...", self.model)
             resp = requests.post(
                 API_URL, headers=headers, json=payload,
                 timeout=self.timeout,
@@ -157,17 +155,17 @@ class QwenVLGroundingDetector(Detector):
             resp.raise_for_status()
             result = resp.json()
             content = result["choices"][0]["message"]["content"]
-            logger.info("VLM response (%d chars)", len(content))
+            rospy.loginfo("VLM response (%d chars)", len(content))
             return content
 
         except requests.exceptions.Timeout:
-            logger.error("API request timed out after %.1fs", self.timeout)
+            rospy.logerr("API request timed out after %.1fs", self.timeout)
             return None
         except requests.exceptions.RequestException as e:
-            logger.error("API request failed: %s", e)
+            rospy.logerr("API request failed: %s", e)
             return None
         except (KeyError, IndexError, json.JSONDecodeError) as e:
-            logger.error("Failed to parse API response: %s", e)
+            rospy.logerr("Failed to parse API response: %s", e)
             return None
 
     @staticmethod

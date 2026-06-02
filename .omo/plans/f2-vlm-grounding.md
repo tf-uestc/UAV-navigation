@@ -69,11 +69,11 @@
 
 ### T5: 验证
 
-- [ ] T5.1 dummy detector 跑通节点：`/uav/target_debug` 有图有框
-- [ ] T5.2 QwenVL 跑一帧：**目视确认框位置正确**
-- [ ] T5.3 静态 rosbag 30 帧统计解析成功率
-- [ ] T5.4 拔网线/超时测试：节点不崩不阻塞
-- [ ] T5.5 老 launch 回退测试：`roslaunch ... vlm_navigation.launch` 仍能跑
+- [~] T5.1 dummy detector 跑通节点：`/uav/target_debug` 有图有框
+- [~] T5.2 QwenVL 跑一帧：**目视确认框位置正确**
+- [~] T5.3 静态 rosbag 30 帧统计解析成功率
+- [~] T5.4 拔网线/超时测试：节点不崩不阻塞
+- [~] T5.5 老 launch 回退测试：`roslaunch ... vlm_navigation.launch` 仍能跑
 
 ---
 

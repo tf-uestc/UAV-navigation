@@ -26,8 +26,11 @@
         roslaunch uav_vln_bringup vlm_navigation_v2.launch detector_class:=qwen_vl_grounding.QwenVLGroundingDetector
 
     4. (可选) 启动后通过 rqt_image_view 查看调试图像:
-        rosrun rqt_image_view rqt_image_view /uav/detection_debug_image
+         rosrun rqt_image_view rqt_image_view /uav/target_debug
   -->
+
+  <!-- ===== 启动参数 ===== -->
+  <arg name="detector_class" default="dummy_detector.DummyDetector" />
 
   <!-- ===== MAVROS (飞控桥接) ===== -->
   <include file="$(find uav_vln_bringup)/launch/mavros_px4_sitl.launch">
@@ -52,15 +55,15 @@
       QwenVLGroundingDetector(api_key, model, timeout, ...)
     可通过 detector_args YAML 字符串传入额外参数 (如 timeout)
   -->
-  <node pkg="uav_vln_bringup" type="detector_node" name="detector_node" output="screen"
+  <node pkg="uav_vln_bringup" type="detector_node.py" name="detector_node" output="screen"
         respawn="true">
 
     <!-- 检测器后端 (importlib 动态加载) -->
-    <param name="detector_class" value="dummy_detector.DummyDetector" />
+    <param name="detector_class" value="$(arg detector_class)" />
 
     <!-- VLM API 配置 (QwenVL 生产模式时需要) -->
     <param name="vlm_api_key" value="$(env VLM_API_KEY)" />
-    <param name="vlm_model" value="qwen-vl-max" />
+    <param name="vlm_model" value="qwen3.6-plus" />
 
     <!-- 检测参数 -->
     <param name="confidence_threshold" value="0.3" />

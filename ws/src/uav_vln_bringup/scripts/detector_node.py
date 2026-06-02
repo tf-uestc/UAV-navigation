@@ -37,10 +37,15 @@ import cv2
 import numpy as np
 import rospy
 import tf2_ros
+import tf2_geometry_msgs  # Required for PointStamped transform support
 from cv_bridge import CvBridge
 from geometry_msgs.msg import Point, PointStamped
 from sensor_msgs.msg import CameraInfo, Image
 from std_msgs.msg import Header, String
+
+# Ensure scripts/ directory is on PYTHONPATH so detector modules are importable
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from base_detector import Detection, Detector
 
@@ -69,6 +74,9 @@ class DetectorNode:
         detector_args = rospy.get_param("~detector_args", {})
         if vlm_api_key and "api_key" not in detector_args:
             detector_args["api_key"] = vlm_api_key
+        vlm_model = rospy.get_param("~vlm_model", "")
+        if vlm_model and "model" not in detector_args:
+            detector_args["model"] = vlm_model
         self.detector = self._load_detector(cls_path, detector_args)
         rospy.loginfo("[detector] Loaded detector: %s", cls_path)
 
@@ -102,9 +110,9 @@ class DetectorNode:
 
         # --- Publishers ---
         self.pub_target = rospy.Publisher(
-            "/uav/target_world", PointStamped, queue_size=1
+            "/uav/target_world", PointStamped, queue_size=1, latch=True
         )
-        self.pub_debug = rospy.Publisher("/uav/target_debug", Image, queue_size=1)
+        self.pub_debug = rospy.Publisher("/uav/target_debug", Image, queue_size=1, latch=True)
 
         rospy.loginfo("[detector] DetectorNode initialized successfully")
 

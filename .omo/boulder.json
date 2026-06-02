@@ -29,9 +29,9 @@
       "work_id": "f2-vlm-grounding-766b1a2e",
       "active_plan": "/home/tf/毕业设计/.omo/plans/f2-vlm-grounding.md",
       "plan_name": "f2-vlm-grounding",
-      "status": "active",
+      "status": "completed",
       "started_at": null,
-      "updated_at": "2026-05-31T12:54:36.231Z",
+      "updated_at": "2026-06-02T02:52:23.684Z",
       "session_ids": [
         "opencode:ses_1820b8cb3ffe4v0rl7p7lMwY1T",
         "opencode:ses_181e9e354ffeUBnLdD2qVR8jHm",
@@ -57,14 +57,15 @@
           "status": "running",
           "updated_at": "2026-05-31T12:54:36.231Z"
         }
-      }
+      },
+      "ended_at": "2026-06-02T02:52:23.684Z"
     }
   },
   "active_plan": "/home/tf/毕业设计/.omo/plans/f2-vlm-grounding.md",
   "plan_name": "f2-vlm-grounding",
-  "status": "active",
+  "status": "completed",
   "started_at": null,
-  "updated_at": "2026-05-31T12:54:36.231Z",
+  "updated_at": "2026-06-02T02:52:23.684Z",
   "session_ids": [
     "opencode:ses_1820b8cb3ffe4v0rl7p7lMwY1T",
     "opencode:ses_181e9e354ffeUBnLdD2qVR8jHm",
@@ -90,5 +91,6 @@
       "status": "running",
       "updated_at": "2026-05-31T12:54:36.231Z"
     }
-  }
+  },
+  "ended_at": "2026-06-02T02:52:23.684Z"
 }
