@@ -163,7 +163,6 @@ include_directories(
 catkin_install_python(PROGRAMS
   scripts/detector_node.py
   scripts/setpoint_bridge.py
-  scripts/vlm_navigation.py
   scripts/takeoff_land.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

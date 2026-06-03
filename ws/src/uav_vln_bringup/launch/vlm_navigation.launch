@@ -1,26 +1,32 @@
 <launch>
   <!--
-  vlm_navigation.launch - VLM 视觉语言导航完整启动文件
+  vlm_navigation.launch - VLM 视觉语言导航
+  (模块化架构: MAVROS + setpoint_bridge + detector_node)
 
-  架构说明:
-    PX4/Gazebo (底层仿真)
-      | MAVROS
-    setpoint_bridge (飞控接口中间层)
-      | /uav/goal_pose + /uav/state_cmd
-    vlm_navigation (算法层: VLM + 深度投影)
-      | 相机话题 /rgb/image_raw, /depth/image_raw
+  架构:
+    detector_node 支持通过 detector_class 参数切换不同检测器后端
+    默认使用 qwen_vl_grounding.QwenVLGroundingDetector
 
   使用方法:
+    detector_class 参数:
+      - "qwen_vl_grounding.QwenVLGroundingDetector" → 使用 Qwen-VL 模型进行视觉定位 (默认)
+
     1. 先在终端启动 PX4 SITL + Gazebo:
-       cd ~/毕业设计 && ./scripts_start_px4_sitl_gazebo.sh
-       (等待 PX4 完全启动, Gazebo 界面出现)
+        WORLD=search_rescue ./scripts_start_px4_sitl_gazebo.sh
 
     2. 然后在新终端启动此 launch:
-       cd ~/毕业设计/ws && source devel/setup.bash && roslaunch uav_vln_bringup vlm_navigation.launch
+        source ws/devel/setup.bash
+        roslaunch uav_vln_bringup vlm_navigation.launch
 
-    3. (可选) 启动后通过 rqt_image_view 查看调试图像:
-       rosrun rqt_image_view rqt_image_view /uav/vlm_debug_image
+    3. 切换检测器 (启动时传参):
+        roslaunch uav_vln_bringup vlm_navigation.launch detector_class:=qwen_vl_grounding.QwenVLGroundingDetector
+
+    4. (可选) 通过 rqt_image_view 查看调试图像:
+        rosrun rqt_image_view rqt_image_view /uav/target_debug
   -->
+
+  <!-- ===== 启动参数 ===== -->
+  <arg name="detector_class" default="qwen_vl_grounding.QwenVLGroundingDetector" />
 
   <!-- ===== MAVROS (飞控桥接) ===== -->
   <include file="$(find uav_vln_bringup)/launch/mavros_px4_sitl.launch">
@@ -35,31 +41,34 @@
     <param name="approach_dist" value="1.0" />
   </node>
 
-  <!-- ===== vlm_navigation (VLM 视觉语言导航算法层) ===== -->
-  <node pkg="uav_vln_bringup" type="vlm_navigation.py" name="vlm_navigation" output="screen">
+  <!-- ===== detector_node (VLM 目标检测) ===== -->
+  <!--
+    detector_class 参数: qwen_vl_grounding.QwenVLGroundingDetector (默认)
 
-    <!-- VLM API 配置 -->
-    <param name="vlm_provider" value="qwen" />
+    QwenVLGroundingDetector 构造函数签名:
+      QwenVLGroundingDetector(api_key, model, timeout, ...)
+    可通过 detector_args YAML 字符串传入额外参数 (如 timeout)
+  -->
+  <node pkg="uav_vln_bringup" type="detector_node.py" name="detector_node" output="screen"
+        respawn="true">
+
+    <!-- 检测器后端 (importlib 动态加载) -->
+    <param name="detector_class" value="$(arg detector_class)" />
+
+    <!-- VLM API 配置 (QwenVL 生产模式时需要) -->
     <param name="vlm_api_key" value="$(env VLM_API_KEY)" />
-    <param name="vlm_model" value="qwen-vl-max" />
-    <param name="vlm_prompt" value="前方黄色障碍物像素坐标是什么?请只返回(u,v)格式的坐标" />
+    <param name="vlm_model" value="qwen3.6-plus" />
 
-    <!-- 相机参数 (depth_camera 模型: cameraName=camera, robotNamespace=空) -->
-    <param name="camera_topic_rgb" value="/iris_depth_camera/camera/rgb/image_raw" />
-    <param name="camera_topic_depth" value="/iris_depth_camera/camera/depth/image_raw" />
-    <param name="depth_scale" value="1.0" />
-
-    <!-- 导航参数 -->
-    <param name="approach_dist" value="1.0" />
+    <!-- 检测参数 -->
+    <param name="confidence_threshold" value="0.3" />
     <param name="trigger_rate" value="0.2" />
 
-    <!-- 相机内参 (默认 iris_depth_camera 参数, 启动后会从 CameraInfo 自动获取) -->
-    <param name="cam_fx" value="430.0" />
-    <param name="cam_fy" value="430.0" />
-    <param name="cam_cx" value="424.0" />
-    <param name="cam_cy" value="240.0" />
-    <param name="cam_width" value="848" />
-    <param name="cam_height" value="480" />
+    <!-- TF 坐标帧配置
+         F3 TF 链条: camera_link_optical → camera_link → base_link → odom → map
+         目标帧: map (最终导航目标发布在该帧下)
+         相机光学帧: camera_link_optical (深度相机光学坐标系) -->
+    <param name="target_frame" value="map" />
+    <param name="camera_optical_frame" value="camera_link_optical" />
   </node>
 
 </launch>

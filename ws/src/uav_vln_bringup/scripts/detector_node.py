@@ -70,7 +70,7 @@ class DetectorNode:
             vlm_api_key = os.environ.get("VLM_API_KEY", "")
 
         # --- Load detector via importlib ---
-        cls_path = rospy.get_param("~detector_class", "dummy_detector.DummyDetector")
+        cls_path = rospy.get_param("~detector_class", "qwen_vl_grounding.QwenVLGroundingDetector")
         detector_args = rospy.get_param("~detector_args", {})
         if vlm_api_key and "api_key" not in detector_args:
             detector_args["api_key"] = vlm_api_key

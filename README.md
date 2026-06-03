@@ -32,7 +32,9 @@ VLM (视觉理解) → 目标点 → EGO-Planner (避障轨迹) → MAVROS → P
 │           │   ├── mavros_px4_sitl.launch # MAVROS 启动
 │           │   └── takeoff_land_demo.launch
 │           ├── scripts/                   # Python 脚本
-│           │   ├── vlm_navigation.py      # VLM 导航主程序
+│           │   ├── detector_node.py       # 目标检测节点（模块化）
+│           │   ├── base_detector.py       # Detector 抽象基类
+│           │   ├── qwen_vl_grounding.py   # Qwen-VL 检测器实现
 │           │   ├── setpoint_bridge.py     # 目标点桥接
 │           │   └── takeoff_land.py        # 起飞降落
 │           ├── CMakeLists.txt

@@ -45,7 +45,7 @@ class QwenVLGroundingDetector(Detector):
     a Detection with 3D camera-optical coordinates.
     """
 
-    def __init__(self, api_key: str, model: str = "qwen-vl-max",
+    def __init__(self, api_key: str, model: str = "qwen3.6-plus",
                  timeout: float = 30.0) -> None:
         self.api_key = api_key
         self.model = model

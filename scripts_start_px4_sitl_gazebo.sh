@@ -119,7 +119,7 @@ echo "=========================================="
 echo ""
 
 # 启动仿真（不使用 exec，以便脚本结束后可以继续运行其他命令）
-cmake --build build/px4_sitl_default --target "gazebo-classic_${MODEL}__${WORLD}"
+make px4_sitl gazebo-classic_${MODEL}
 
 # 仿真结束后清理 roscore
 if [ -n "$ROSCORE_PID" ]; then
