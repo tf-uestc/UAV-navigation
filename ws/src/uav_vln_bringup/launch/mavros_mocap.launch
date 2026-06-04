@@ -1,0 +1,39 @@
+<launch>
+  <!--
+  mavros_mocap.launch — 动捕真机 MAVROS 配置
+
+  使用场景：室内动捕系统（VICON / OptiTrack / VRPN）替代 Gazebo 仿真
+
+  典型链路:
+    VRPN Client → /vrpn_client_node/<rigid_body>/pose
+      → relay 到 /mavros/vision_pose/pose
+      → PX4 EKF2 融合 → /mavros/local_position/pose
+
+  用法（开发机上）:
+    roslaunch uav_vln_bringup mavros_mocap.launch
+
+  真机接入前需要确认的 PX4 参数:
+    EKF2_AID_MASK = 24     (vision position + vision yaw, disable GPS)
+    EKF2_HGT_MODE = 3      (vision height)
+    EKF2_EV_DELAY = 0      (motion capture default)
+    EKF2_EV_POS_X/Y/Z = 0  (sensor offset, 按实际安装调整)
+
+  参考:
+    PX4 External Position Estimation:
+    https://docs.px4.io/main/en/ros/external_position_estimation.html
+  -->
+
+  <!-- VRPN Client (需手动启动，不包含在 launch 内) -->
+  <!-- 例: rosrun vrpn_client_ros vrpn_client_ros __ns:=vrpn _server:=192.168.1.100 -->
+
+  <!-- Relay: VRPN pose → MAVROS vision pose -->
+  <!-- <node pkg="topic_tools" type="relay" name="vision_relay"
+        args="/vrpn_client_node/uas/pose /mavros/vision_pose/pose" /> -->
+
+  <!-- MAVROS (与仿真共用 mavros_px4_sitl.launch，但 fcu_url 改为串口) -->
+  <include file="$(find uav_vln_bringup)/launch/mavros_px4_sitl.launch">
+    <!-- <arg name="fcu_url" value="/dev/ttyACM0:921600" /> -->
+    <arg name="fcu_url" value="udp://:14540@127.0.0.1:14557" />
+  </include>
+
+</launch>

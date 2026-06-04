@@ -1,0 +1,58 @@
+<launch>
+  <!--
+  test_planner_dummy.launch — Dummy planner end-to-end test
+
+  包含:
+    mavros (飞控桥接)
+    tf_healthcheck (TF 完整性检查)
+    setpoint_bridge (飞控接口)
+    planner_node (dummy 直线规划)
+    trajectory_follower (轨迹→setpoint)
+
+  不含:
+    detector_node (测试时手动发 /uav/target_world)
+    EGO-Planner
+    depth_to_cloud
+
+  测试步骤:
+    1. 先启动 PX4 SITL + Gazebo
+    2. roslaunch uav_vln_bringup test_planner_dummy.launch
+    3. 起飞:  rostopic pub -1 /uav/state_cmd std_msgs/String "data: 'takeoff'"
+    4. 发目标: rostopic pub -1 /uav/target_world geometry_msgs/PointStamped "{header: {frame_id: 'map'}, point: {x: 3, y: 2, z: 2}}"
+    5. 验证:  rostopic hz /uav/goal_pose (≥ 20Hz)
+              rostopic echo /uav/planner_status (OK)
+  -->
+
+  <arg name="planner_class" default="planning.dummy_planner.DummyPlanner"/>
+
+  <!-- ===== MAVROS ===== -->
+  <include file="$(find uav_vln_bringup)/launch/mavros_px4_sitl.launch">
+    <arg name="fcu_url" value="udp://:14540@127.0.0.1:14557"/>
+  </include>
+
+  <!-- ===== TF 完整性检查 ===== -->
+  <node pkg="uav_vln_bringup" type="tf_healthcheck.py" name="tf_healthcheck"
+        required="true" output="screen"/>
+
+  <!-- ===== setpoint_bridge ===== -->
+  <node pkg="uav_vln_bringup" type="setpoint_bridge.py" name="setpoint_bridge"
+        output="screen">
+    <param name="setpoint_rate" value="20"/>
+    <param name="takeoff_alt" value="2.0"/>
+    <param name="goal_timeout" value="2.0"/>
+    <param name="approach_dist" value="1.0"/>
+  </node>
+
+  <!-- ===== planner_node (dummy) ===== -->
+  <node pkg="uav_vln_bringup" type="planner_node.py" name="planner_node"
+        output="screen">
+    <param name="planner_class" value="$(arg planner_class)"/>
+  </node>
+
+  <!-- ===== trajectory_follower ===== -->
+  <node pkg="uav_vln_bringup" type="trajectory_follower.py"
+        name="trajectory_follower" output="screen">
+    <param name="publish_rate" value="30.0"/>
+  </node>
+
+</launch>

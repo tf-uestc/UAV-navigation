@@ -1,0 +1,57 @@
+<launch>
+  <!--
+  test_planner_ego.launch — EGO-Planner integration test
+
+  包含:
+    mavros + tf_healthcheck + setpoint_bridge
+    ego_planner (core nodes)
+    planner_node (EgoPlannerAdapter)
+    trajectory_follower
+
+  测试步骤:
+    1. 启动 PX4 SITL + Gazebo
+    2. roslaunch uav_vln_bringup test_planner_ego.launch
+    3. 检查: rostopic echo /uav/planner_status → READY
+    4. 起飞: rostopic pub -1 /uav/state_cmd std_msgs/String "data: 'takeoff'"
+    5. 发目标: rostopic pub -1 /uav/target_world geometry_msgs/PointStamped ..."
+    6. 验证: rostopic hz /planning/bspline (规划后有输出)
+            rostopic hz /uav/trajectory (轨迹发布)
+            RViz 显示 /uav/trajectory (Path)
+            RViz 显示 EGO 占据栅格 Marker
+  -->
+
+  <!-- ===== MAVROS ===== -->
+  <include file="$(find uav_vln_bringup)/launch/mavros_px4_sitl.launch">
+    <arg name="fcu_url" value="udp://:14540@127.0.0.1:14557"/>
+  </include>
+
+  <!-- ===== TF 完整性检查 ===== -->
+  <node pkg="uav_vln_bringup" type="tf_healthcheck.py" name="tf_healthcheck"
+        required="true" output="screen"/>
+
+  <!-- ===== EGO-Planner 核心 ===== -->
+  <include file="$(find uav_vln_bringup)/launch/ego_planner.launch"/>
+
+  <!-- ===== setpoint_bridge (零改动) ===== -->
+  <node pkg="uav_vln_bringup" type="setpoint_bridge.py" name="setpoint_bridge"
+        output="screen">
+    <param name="setpoint_rate" value="20"/>
+    <param name="takeoff_alt" value="2.0"/>
+    <param name="goal_timeout" value="2.0"/>
+    <param name="approach_dist" value="1.0"/>
+  </node>
+
+  <!-- ===== planner_node (EGO) ===== -->
+  <node pkg="uav_vln_bringup" type="planner_node.py" name="planner_node"
+        output="screen">
+    <param name="planner_class"
+           value="planning.ego_adapter.EgoPlannerAdapter"/>
+  </node>
+
+  <!-- ===== trajectory_follower ===== -->
+  <node pkg="uav_vln_bringup" type="trajectory_follower.py"
+        name="trajectory_follower" output="screen">
+    <param name="publish_rate" value="30.0"/>
+  </node>
+
+</launch>

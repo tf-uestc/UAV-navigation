@@ -46,7 +46,7 @@ class QwenVLGroundingDetector(Detector):
     """
 
     def __init__(self, api_key: str, model: str = "qwen3.6-plus",
-                 timeout: float = 30.0) -> None:
+                 timeout: float = 90.0) -> None:
         self.api_key = api_key
         self.model = model
         self.timeout = timeout

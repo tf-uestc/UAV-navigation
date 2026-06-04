@@ -1,0 +1,86 @@
+<launch>
+  <!--
+  vlm_navigation_full.launch — 完整导航链路 (F2 + F4)
+
+  包含:
+    MAVROS + tf_healthcheck (飞控 + TF 检查)
+    depth_to_cloud (深度→点云)
+    ego_planner (EGO 核心节点)
+    detector_node (VLM 目标检测)
+    planner_node (EgoPlannerAdapter)
+    trajectory_follower (轨迹→setpoint)
+    setpoint_bridge (飞控接口, 零改动)
+
+  要求环境变量:
+    EGO_WORKSPACE  — EGO-Planner 独立 workspace 路径
+    VLM_API_KEY    — DashScope API key
+
+  使用方法:
+    1. 启动 PX4 SITL + Gazebo:
+        WORLD=search_rescue ./scripts_start_px4_sitl_gazebo.sh
+
+    2. 启动完整链路:
+        roslaunch uav_vln_bringup vlm_navigation_full.launch
+
+    3. 起飞:
+        rostopic pub -1 /uav/state_cmd std_msgs/String "data: 'takeoff'"
+
+    4. VLM 检测 + 导航:
+        rostopic pub -1 /uav/instruction std_msgs/String \
+          "data: '{\"target\":{\"text\":\"红色支架\"}}'"
+  -->
+
+  <!-- ===== MAVROS ===== -->
+  <include file="$(find uav_vln_bringup)/launch/mavros_px4_sitl.launch">
+    <arg name="fcu_url" value="udp://:14540@127.0.0.1:14557"/>
+  </include>
+
+  <!-- ===== TF 完整性检查 ===== -->
+  <node pkg="uav_vln_bringup" type="tf_healthcheck.py" name="tf_healthcheck"
+        required="true" output="screen"/>
+
+  <!-- ===== EGO-Planner + 深度→点云 ===== -->
+  <include file="$(find uav_vln_bringup)/launch/ego_planner.launch"/>
+
+  <!-- ===== detector_node (VLM 视觉检测) ===== -->
+  <node pkg="uav_vln_bringup" type="detector_node.py" name="detector_node"
+        output="screen">
+    <param name="detector_class"
+           value="qwen_vl_grounding.QwenVLGroundingDetector"/>
+    <param name="vlm_api_key" value="$(env VLM_API_KEY)"/>
+    <param name="vlm_model" value="qwen3.6-plus"/>
+
+    <param name="camera_topic_rgb"
+           value="/iris_depth_camera/camera/rgb/image_raw"/>
+    <param name="camera_topic_depth"
+           value="/iris_depth_camera/camera/depth/image_raw"/>
+    <param name="camera_topic_info"
+           value="/iris_depth_camera/camera/depth/camera_info"/>
+
+    <param name="target_frame" value="map"/>
+    <param name="camera_optical_frame" value="camera_link_optical"/>
+  </node>
+
+  <!-- ===== planner_node (EGO) ===== -->
+  <node pkg="uav_vln_bringup" type="planner_node.py" name="planner_node"
+        output="screen">
+    <param name="planner_class"
+           value="planning.ego_adapter.EgoPlannerAdapter"/>
+  </node>
+
+  <!-- ===== trajectory_follower ===== -->
+  <node pkg="uav_vln_bringup" type="trajectory_follower.py"
+        name="trajectory_follower" output="screen">
+    <param name="publish_rate" value="30.0"/>
+  </node>
+
+  <!-- ===== setpoint_bridge (飞控接口, 零改动) ===== -->
+  <node pkg="uav_vln_bringup" type="setpoint_bridge.py" name="setpoint_bridge"
+        output="screen">
+    <param name="setpoint_rate" value="20"/>
+    <param name="takeoff_alt" value="2.0"/>
+    <param name="goal_timeout" value="2.0"/>
+    <param name="approach_dist" value="1.0"/>
+  </node>
+
+</launch>

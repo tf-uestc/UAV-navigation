@@ -207,8 +207,12 @@ class DetectorNode:
                 )
 
                 # TF transform camera → map
+                # Use rospy.Time(0) for latest available transform.
+                # The image timestamp may be tens of seconds old after a
+                # slow VLM API call, and tf2 will reject it with
+                # "would require extrapolation into the past".
                 point_map = self._transform_to_map(
-                    detection.point_camera, rgb_msg.header.stamp
+                    detection.point_camera, rospy.Time(0)
                 )
                 if point_map is not None:
                     ps = PointStamped(

@@ -162,8 +162,11 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 catkin_install_python(PROGRAMS
   scripts/detector_node.py
+  scripts/planner_node.py
   scripts/setpoint_bridge.py
   scripts/takeoff_land.py
+  scripts/tf_healthcheck.py
+  scripts/trajectory_follower.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

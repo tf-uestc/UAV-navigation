@@ -1,0 +1,66 @@
+<launch>
+  <!--
+  ego_planner.launch — EGO-Planner 核心节点 (不含仿真器)
+
+  包含:
+    ego_planner_node      — 规划核心 + grid_map 占据栅格
+    waypoint_generator    — 目标点管理 (manual-lonely-waypoint)
+    depth_to_cloud        — 深度图 → 点云 (depth_image_proc nodelet)
+
+  不含:
+    traj_server           — SO3 控制器前端（我们用 trajectory_follower）
+    SO3 控制器/四旋翼模拟器
+    pcl_render_node / mockamap
+
+  话题 remap 说明:
+    输入:  /grid_map/odom       ← /mavros/local_position/odom
+          /grid_map/cloud       ← /camera/depth/points
+          /grid_map/depth       ← /iris_depth_camera/camera/depth/image_raw
+          /grid_map/pose        ← /mavros/local_position/pose
+          /move_base_simple/goal ← EgoPlannerAdapter 发布
+    输出:  /planning/bspline    → EgoPlannerAdapter 订阅
+
+  要求: EGO workspace 必须先 source:
+    source $EGO_WORKSPACE/devel/setup.bash
+  -->
+
+  <arg name="ego_workspace" default=""/>
+
+  <!-- ===== 深度 → 点云 (nodelet, 零代码) ===== -->
+  <node pkg="nodelet" type="nodelet" name="depth_to_cloud_manager"
+        args="manager"/>
+
+  <node pkg="nodelet" type="nodelet" name="depth_to_cloud"
+        args="load depth_image_proc/point_cloud_xyz depth_to_cloud_manager">
+    <remap from="image_rect"  to="/iris_depth_camera/camera/depth/image_raw"/>
+    <remap from="camera_info" to="/iris_depth_camera/camera/depth/camera_info"/>
+    <remap from="points"      to="/camera/depth/points"/>
+  </node>
+
+  <!-- ===== EGO Planner 核心 ===== -->
+  <node pkg="ego_planner" name="ego_planner_node" type="ego_planner_node"
+        output="screen">
+    <!-- 里程计 (Odometry msg, EGO 需要) -->
+    <remap from="/grid_map/odom"  to="/mavros/local_position/odom"/>
+    <remap from="/odom_world"     to="/mavros/local_position/odom"/>
+
+    <!-- 深度感知 -->
+    <remap from="/grid_map/cloud" to="/camera/depth/points"/>
+    <remap from="/grid_map/depth" to="/iris_depth_camera/camera/depth/image_raw"/>
+    <remap from="/grid_map/pose"  to="/mavros/local_position/pose"/>
+
+    <!-- 参数 -->
+    <rosparam command="load"
+              file="$(find uav_vln_bringup)/config/ego_planner_params.yaml"/>
+  </node>
+
+  <!-- ===== 航点生成器 ===== -->
+  <node pkg="waypoint_generator" name="waypoint_generator"
+        type="waypoint_generator" output="screen">
+    <remap from="~odom"                 to="/mavros/local_position/odom"/>
+    <remap from="~goal"                 to="/move_base_simple/goal"/>
+    <remap from="~traj_start_trigger"   to="/traj_start_trigger"/>
+    <param name="waypoint_type" value="manual-lonely-waypoint"/>
+  </node>
+
+</launch>
