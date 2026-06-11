@@ -81,7 +81,8 @@ class DetectorNode:
         rospy.loginfo("[detector] Loaded detector: %s", cls_path)
 
         # --- TF ---
-        self.tf_buffer = tf2_ros.Buffer()
+        # Buffer 120s to retain TF history for VLM API delays (up to ~90s)
+        self.tf_buffer = tf2_ros.Buffer(rospy.Duration(120.0))
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer)
         self.target_frame = rospy.get_param("~target_frame", "map")
         self.camera_optical_frame = rospy.get_param(
@@ -185,6 +186,9 @@ class DetectorNode:
             )
             return
 
+        # Save image timestamp for historically-correct TF lookup
+        image_stamp = rgb_msg.header.stamp
+
         try:
             # Convert ROS images to numpy
             bgr = self.bridge.imgmsg_to_cv2(rgb_msg, "bgr8")
@@ -207,12 +211,11 @@ class DetectorNode:
                 )
 
                 # TF transform camera → map
-                # Use rospy.Time(0) for latest available transform.
-                # The image timestamp may be tens of seconds old after a
-                # slow VLM API call, and tf2 will reject it with
-                # "would require extrapolation into the past".
+                # Use image timestamp for correct historical TF lookup.
+                # Falls back to latest TF if the image is older than
+                # the TF buffer cache (120s).
                 point_map = self._transform_to_map(
-                    detection.point_camera, rospy.Time(0)
+                    detection.point_camera, image_stamp
                 )
                 if point_map is not None:
                     ps = PointStamped(
@@ -263,9 +266,12 @@ class DetectorNode:
     def _transform_to_map(self, point_camera, stamp):
         """Transform a 3D point from camera_optical frame to map frame.
 
+        Uses the provided stamp for historically-correct TF lookup.
+        Falls back to latest available TF if the stamp is too old.
+
         Args:
             point_camera: (x, y, z) tuple in camera_optical frame.
-            stamp:        Timestamp for the TF lookup.
+            stamp:        Image timestamp for TF lookup.
 
         Returns:
             (x, y, z) tuple in map frame, or None on TF failure.
@@ -276,7 +282,7 @@ class DetectorNode:
         )
         try:
             ps_map = self.tf_buffer.transform(
-                ps_cam, self.target_frame, rospy.Duration(1.0)
+                ps_cam, self.target_frame, rospy.Duration(2.0)
             )
             return (ps_map.point.x, ps_map.point.y, ps_map.point.z)
         except (
@@ -284,8 +290,24 @@ class DetectorNode:
             tf2_ros.ConnectivityException,
             tf2_ros.ExtrapolationException,
         ) as e:
-            rospy.logwarn("[detector] TF transform failed: %s", e)
-            return None
+            rospy.logwarn(
+                "[detector] TF at image time failed (%s), falling back to latest",
+                e,
+            )
+            # Fallback: use latest available TF
+            try:
+                ps_cam.header.stamp = rospy.Time(0)
+                ps_map = self.tf_buffer.transform(
+                    ps_cam, self.target_frame, rospy.Duration(1.0)
+                )
+                return (ps_map.point.x, ps_map.point.y, ps_map.point.z)
+            except (
+                tf2_ros.LookupException,
+                tf2_ros.ConnectivityException,
+                tf2_ros.ExtrapolationException,
+            ) as e2:
+                rospy.logwarn("[detector] TF fallback also failed: %s", e2)
+                return None
 
     # ------------------------------------------------------------------
     # Debug image drawing

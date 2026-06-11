@@ -186,14 +186,10 @@ class QwenVLGroundingDetector(Detector):
             return None
 
         # Normalization heuristic:
-        # Qwen may output coords normalized to [0,1000] or raw pixels.
-        bbox_w = x2 - x1
-        bbox_h = y2 - y1
-        bbox_area_ratio = (bbox_w * bbox_h) / (img_w * img_h) if (img_w * img_h) > 0 else 0.0
-
-        if max(x1, y1, x2, y2) <= 1000 and (img_w > 1000 or img_h > 1000
-                                             or bbox_area_ratio < 0.5):
-            # Normalized → scale to pixel coordinates
+        # Qwen-VL always outputs coords in [0, 1000] normalised space.
+        # When any image dimension ≤ 1000, the coords cannot be raw
+        # pixels and must be normalised.
+        if max(x1, y1, x2, y2) <= 1000 and (img_w <= 1000 or img_h <= 1000):
             x1 = int(x1 * img_w / 1000)
             y1 = int(y1 * img_h / 1000)
             x2 = int(x2 * img_w / 1000)
@@ -214,9 +210,11 @@ class QwenVLGroundingDetector(Detector):
     @staticmethod
     def _depth_in_bbox(depth: np.ndarray, x1: int, y1: int,
                        x2: int, y2: int) -> Optional[float]:
-        """Compute median depth inside bbox region.
+        """Compute median depth in the central region of the bbox.
 
-        Requires ≥30% valid depth pixels.  Returns None otherwise.
+        Uses the inner 50% area to reduce background contamination
+        from bbox edges.  Requires ≥30% valid depth pixels.
+        Returns None if insufficient valid depth is found.
         """
         h, w = depth.shape
         x1 = max(0, min(x1, w - 1))
@@ -224,7 +222,17 @@ class QwenVLGroundingDetector(Detector):
         y1 = max(0, min(y1, h - 1))
         y2 = max(y1 + 1, min(y2, h))
 
-        patch = depth[y1:y2, x1:x2]
+        # Restrict to center 50% of each dimension (25% area)
+        bbox_w = x2 - x1
+        bbox_h = y2 - y1
+        margin_x = bbox_w // 4
+        margin_y = bbox_h // 4
+        cx1 = x1 + margin_x
+        cx2 = max(cx1 + 1, x2 - margin_x)
+        cy1 = y1 + margin_y
+        cy2 = max(cy1 + 1, y2 - margin_y)
+
+        patch = depth[cy1:cy2, cx1:cx2]
         valid = patch[(~np.isnan(patch)) & (patch > 0) & np.isfinite(patch)]
 
         if valid.size < 0.3 * patch.size:
