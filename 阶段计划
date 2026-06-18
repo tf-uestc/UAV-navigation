@@ -1,2 +1,17 @@
-这周完成环境搭建，mavros和px4实现，熟悉起飞降落操作，在gazebo里有飞机
-需要周末看看论文，现在的vln如何实现
+## 当前进度 (2026-06-18)
+
+- ✅ 环境搭建完成：ROS + Gazebo + PX4 SITL + MAVROS
+- ✅ 基础飞控：起飞/悬停/降落 Offboard 闭环
+- ✅ VLM 检测：Qwen-VL grounding → 3D 定位 → TF → map 坐标
+- ✅ EGO-Planner 集成：端到端链路（指令 → 检测 → 规划 → 飞行）
+- ✅ Bug 修复与精度提升：TF 时间戳修正、bbox 归一化、深度融合优化
+- ✅ 鲁棒性加固：防崩溃守卫、后台线程规划、并发保护
+
+## 下一步待办
+
+1. **状态控制实现**：多状态 FSM（IDLE → TAKEOFF → SEARCHING → TARGET_FOUND → APPROACHING → HOVER）
+   - 无目标时自主搜索（旋转扫描策略）
+   - 目标丢失时恢复搜索
+2. **Prompt 对比实验**："直接返回 bbox" vs "返回像素坐标值"
+   - 固定场景 + 重复测试
+   - 对比指标：检测成功率、坐标偏差、定位误差、API 延迟

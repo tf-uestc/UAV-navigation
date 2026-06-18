@@ -14,6 +14,7 @@ Params:
 import importlib
 import os
 import sys
+import threading
 
 import rospy
 from geometry_msgs.msg import PointStamped, PoseStamped, Point, Quaternion
@@ -44,6 +45,7 @@ class PlannerNode:
         # --- State ---
         self._current_pose: PoseStamped = PoseStamped()
         self._mission_ok = True
+        self._planning: bool = False
 
         # --- Subscribers ---
         rospy.Subscriber(
@@ -103,25 +105,47 @@ class PlannerNode:
             rospy.logwarn_throttle(5.0, "[planner] Planner not ready")
             return
 
-        self._publish_status("PLANNING")
-
-        start = self._current_pose.pose.position
-        goal = msg.point
-
-        traj = self.planner.plan(start, goal)
-        if traj is None:
-            self._publish_status("FAIL")
-            rospy.logerr("[planner] Planning failed")
+        # Run planning in background thread to avoid blocking ROS callbacks.
+        # Guard against concurrent planning on rapid target arrivals — only
+        # one planning thread runs at a time to avoid corrupting planner state.
+        if self._planning:
+            rospy.loginfo("[planner] Already planning — skipping duplicate target")
             return
-
-        path_msg = self._trajectory_to_path(traj)
-        self._traj_pub.publish(path_msg)
-        self._publish_status("OK")
-        rospy.loginfo(
-            "[planner] Trajectory published: %d points, %.2f s",
-            len(traj.points),
-            traj.points[-1].t_from_start if traj.points else 0.0,
+        self._planning = True
+        thread = threading.Thread(
+            target=self._run_planning, args=(msg,), daemon=True
         )
+        thread.start()
+
+    def _run_planning(self, msg: PointStamped) -> None:
+        try:
+            self._publish_status("PLANNING")
+
+            start = self._current_pose.pose.position
+            goal = msg.point
+
+            try:
+                traj = self.planner.plan(start, goal)
+            except Exception as e:
+                rospy.logerr("[planner] Planning exception: %s", e)
+                self._publish_status("FAIL")
+                return
+
+            if traj is None:
+                self._publish_status("FAIL")
+                rospy.logerr("[planner] Planning failed")
+                return
+
+            path_msg = self._trajectory_to_path(traj)
+            self._traj_pub.publish(path_msg)
+            self._publish_status("OK")
+            rospy.loginfo(
+                "[planner] Trajectory published: %d points, %.2f s",
+                len(traj.points),
+                traj.points[-1].t_from_start if traj.points else 0.0,
+            )
+        finally:
+            self._planning = False
 
     # ------------------------------------------------------------------
     # Trajectory → nav_msgs/Path conversion

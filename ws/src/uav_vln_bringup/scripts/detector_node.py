@@ -178,11 +178,12 @@ class DetectorNode:
             depth_msg = self.latest_depth
             cam_info = self.latest_cam_info
 
-        if rgb_msg is None or depth_msg is None:
+        if rgb_msg is None or depth_msg is None or cam_info is None:
             rospy.logwarn(
-                "[detector] Waiting for images (rgb=%s depth=%s)...",
+                "[detector] Waiting for sensor data (rgb=%s depth=%s cam_info=%s)...",
                 rgb_msg is not None,
                 depth_msg is not None,
+                cam_info is not None,
             )
             return
 

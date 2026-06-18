@@ -8,6 +8,7 @@ import tf2_ros
 
 REQUIRED_TRANSFORMS = [
     ("map", "base_link"),
+    ("base_link", "camera_link"),
     ("base_link", "camera_link_optical"),
     ("map", "camera_link_optical"),
 ]

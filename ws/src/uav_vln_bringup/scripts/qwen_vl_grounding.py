@@ -185,11 +185,11 @@ class QwenVLGroundingDetector(Detector):
         else:
             return None
 
-        # Normalization heuristic:
-        # Qwen-VL always outputs coords in [0, 1000] normalised space.
-        # When any image dimension ≤ 1000, the coords cannot be raw
-        # pixels and must be normalised.
-        if max(x1, y1, x2, y2) <= 1000 and (img_w <= 1000 or img_h <= 1000):
+        # Normalization: Qwen-VL always outputs coords in [0, 1000]
+        # normalised space, regardless of image resolution.  We must
+        # always de-normalise when the values fall in that range,
+        # even if both image dimensions exceed 1000 px.
+        if max(x1, y1, x2, y2) <= 1000:
             x1 = int(x1 * img_w / 1000)
             y1 = int(y1 * img_h / 1000)
             x2 = int(x2 * img_w / 1000)

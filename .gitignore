@@ -35,6 +35,13 @@ Thumbs.db
 *.zip
 *.tar.gz
 
+# 下载的仿真模型库（外部参考，不上传）
+simulation/gazebo_models-master/
+simulation/gazebo_models_worlds_collection-master/
+
+# 测试脚本与数据
+test/
+
 # 开题相关
 开题/
 

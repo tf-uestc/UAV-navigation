@@ -27,7 +27,10 @@ source .env   # exports VLM_API_KEY
 roslaunch uav_vln_bringup vlm_navigation.launch
 
 # Mode B: Full pipeline (VLM → planner → follower → bridge)
-# Requires EGO-Planner workspace sourced first
+# IMPORTANT: source EGO workspace BEFORE main workspace, or the main
+# workspace's CMAKE_PREFIX_PATH will be wiped out
+source $EGO_WORKSPACE/devel/setup.bash 2>/dev/null || source ws/src/ego-planner/devel/setup.bash
+source ws/devel/setup.bash
 roslaunch uav_vln_bringup vlm_navigation_full.launch
 # Or the EGO integration test (no VLM, manual target):
 roslaunch uav_vln_bringup test_planner_ego.launch
@@ -125,3 +128,4 @@ Calls DashScope's OpenAI-compatible API with a base64-encoded JPEG image and a g
 1. `scripts_start_px4_sitl_gazebo.sh` starts roscore (if not running), sets Gazebo plugin/model paths pointing to `simulation/px4_gazebo_classic/`, then runs `make px4_sitl gazebo-classic_${MODEL}` in the PX4 directory — this spawns the drone and loads the specified world.
 2. After Gazebo + PX4 are running, launch one of the ROS launch files to start the navigation pipeline.
 3. Send `takeoff` command via `/uav/state_cmd`, then send a detection instruction via `/uav/instruction`.
+
