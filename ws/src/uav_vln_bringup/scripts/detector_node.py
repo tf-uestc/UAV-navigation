@@ -63,6 +63,9 @@ class DetectorNode:
         self.latest_rgb = None
         self.latest_depth = None
         self.latest_cam_info = None
+        self._detecting = False
+        self._active_request_id = None
+        self._detect_lock = threading.Lock()
 
         # --- API key resolution ---
         vlm_api_key = rospy.get_param("~vlm_api_key", "")
@@ -77,6 +80,9 @@ class DetectorNode:
         vlm_model = rospy.get_param("~vlm_model", "")
         if vlm_model and "model" not in detector_args:
             detector_args["model"] = vlm_model
+        vlm_timeout = rospy.get_param("~vlm_timeout", None)
+        if vlm_timeout is not None and "timeout" not in detector_args:
+            detector_args["timeout"] = vlm_timeout
         self.detector = self._load_detector(cls_path, detector_args)
         rospy.loginfo("[detector] Loaded detector: %s", cls_path)
 
@@ -114,6 +120,9 @@ class DetectorNode:
             "/uav/target_world", PointStamped, queue_size=1, latch=True
         )
         self.pub_debug = rospy.Publisher("/uav/target_debug", Image, queue_size=1, latch=True)
+        self.pub_status = rospy.Publisher(
+            "/uav/detector_status", String, queue_size=10
+        )
 
         rospy.loginfo("[detector] DetectorNode initialized successfully")
 
@@ -151,46 +160,66 @@ class DetectorNode:
         try:
             data = json.loads(msg.data)
             target_text = data.get("target", {}).get("text", "")
+            request_id = int(data.get("request_id", 0))
         except (json.JSONDecodeError, KeyError) as e:
             rospy.logwarn("[detector] Malformed instruction: %s", msg.data[:100])
+            return
+        except (TypeError, ValueError):
+            rospy.logwarn("[detector] Invalid request_id in instruction: %s", msg.data[:100])
             return
 
         if not target_text:
             rospy.logwarn("[detector] Instruction has empty target text")
             return
 
-        rospy.loginfo("[detector] Received instruction, target=%s", target_text)
+        with self._detect_lock:
+            if self._detecting:
+                rospy.logwarn(
+                    "[detector] Detection already running (active req=%s), "
+                    "rejecting req=%s",
+                    self._active_request_id,
+                    request_id,
+                )
+                self._publish_status(request_id, "BUSY")
+                return
+            self._detecting = True
+            self._active_request_id = request_id
+
+        rospy.loginfo("[detector] Received instruction, target=%s req=%s",
+                      target_text, request_id)
+        self._publish_status(request_id, "STARTED")
         thread = threading.Thread(
-            target=self._run_detection, args=(target_text,), daemon=True
+            target=self._run_detection, args=(target_text, request_id), daemon=True
         )
         thread.start()
 
     # ------------------------------------------------------------------
     # Detection pipeline (runs in background thread — never blocks ROS)
     # ------------------------------------------------------------------
-    def _run_detection(self, target_text):
+    def _run_detection(self, target_text, request_id=0):
         """Full detection → TF → publish pipeline."""
         t_start = time.time()
 
-        # Snapshot latest sensor data under lock
-        with self.lock:
-            rgb_msg = self.latest_rgb
-            depth_msg = self.latest_depth
-            cam_info = self.latest_cam_info
-
-        if rgb_msg is None or depth_msg is None or cam_info is None:
-            rospy.logwarn(
-                "[detector] Waiting for sensor data (rgb=%s depth=%s cam_info=%s)...",
-                rgb_msg is not None,
-                depth_msg is not None,
-                cam_info is not None,
-            )
-            return
-
-        # Save image timestamp for historically-correct TF lookup
-        image_stamp = rgb_msg.header.stamp
-
         try:
+            # Snapshot latest sensor data under lock
+            with self.lock:
+                rgb_msg = self.latest_rgb
+                depth_msg = self.latest_depth
+                cam_info = self.latest_cam_info
+
+            if rgb_msg is None or depth_msg is None or cam_info is None:
+                rospy.logwarn(
+                    "[detector] Waiting for sensor data (rgb=%s depth=%s cam_info=%s)...",
+                    rgb_msg is not None,
+                    depth_msg is not None,
+                    cam_info is not None,
+                )
+                self._publish_status(request_id, "FAILED")
+                return
+
+            # Save image timestamp for historically-correct TF lookup
+            image_stamp = rgb_msg.header.stamp
+
             # Convert ROS images to numpy
             bgr = self.bridge.imgmsg_to_cv2(rgb_msg, "bgr8")
             depth = self.bridge.imgmsg_to_cv2(depth_msg, "passthrough")
@@ -223,6 +252,7 @@ class DetectorNode:
                         header=Header(
                             stamp=rgb_msg.header.stamp,
                             frame_id=self.target_frame,
+                            seq=request_id,
                         ),
                         point=Point(
                             x=point_map[0], y=point_map[1], z=point_map[2]
@@ -236,10 +266,14 @@ class DetectorNode:
                         point_map[2],
                         self.target_frame,
                     )
+                    self._publish_status(request_id, "SUCCEEDED")
+                else:
+                    self._publish_status(request_id, "FAILED")
 
                 debug_img = self._draw_debug(bgr, detection, elapsed)
             else:
                 rospy.logwarn("[detector] Detection returned None")
+                self._publish_status(request_id, "FAILED")
                 debug_img = self._draw_failure(bgr, "Detection returned None", elapsed)
 
             # Publish debug image
@@ -247,6 +281,7 @@ class DetectorNode:
 
         except Exception as e:
             rospy.logerr("[detector] Detection error: %s", e)
+            self._publish_status(request_id, "FAILED")
             # Attempt to publish a failure debug image even on error
             try:
                 with self.lock:
@@ -260,6 +295,20 @@ class DetectorNode:
                     )
             except Exception:
                 rospy.logerr("[detector] Could not publish failure debug image")
+        finally:
+            with self._detect_lock:
+                if self._active_request_id == request_id:
+                    self._detecting = False
+                    self._active_request_id = None
+
+    def _publish_status(self, request_id, status):
+        """Publish detector request lifecycle status as JSON."""
+        msg = String()
+        msg.data = json.dumps({
+            "request_id": int(request_id or 0),
+            "status": status,
+        })
+        self.pub_status.publish(msg)
 
     # ------------------------------------------------------------------
     # TF: camera_optical → map

@@ -313,6 +313,12 @@ class SetpointBridge:
                     dz = self.goal_pose.pose.position.z - self.current_pose.pose.position.z
                     dist = math.sqrt(dx*dx + dy*dy + dz*dz)
 
+                    # Extract yaw from goal pose (quaternion → euler yaw)
+                    gq = self.goal_pose.pose.orientation
+                    sy = 2.0 * (gq.w * gq.z + gq.x * gq.y)
+                    cy = 1.0 - 2.0 * (gq.y * gq.y + gq.z * gq.z)
+                    goal_yaw = math.atan2(sy, cy)
+
                     # 构造带 approach_dist 偏移的目标点
                     if dist > self.approach_dist:
                         # 还没到目标：朝目标方向前进，但停在 approach_dist 处
@@ -320,13 +326,17 @@ class SetpointBridge:
                         sp = self._make_pose(
                             self.current_pose.pose.position.x + dx * ratio,
                             self.current_pose.pose.position.y + dy * ratio,
-                            self.current_pose.pose.position.z + dz * ratio)
+                            self.current_pose.pose.position.z + dz * ratio,
+                            yaw=goal_yaw)
                     else:
-                        # 已进入 approach_dist 范围，悬停在当前位置
+                        # 已进入 approach_dist 范围，横向悬停在当前位置，
+                        # 但高度继续保持目标高度，避免在低空/地面附近
+                        # 因“当前位置悬停”把 setpoint 压到地面。
                         sp = self._make_pose(
                             self.current_pose.pose.position.x,
                             self.current_pose.pose.position.y,
-                            self.current_pose.pose.position.z)
+                            self.goal_pose.pose.position.z,
+                            yaw=goal_yaw)
                         rospy.loginfo_throttle(2.0, "[Bridge] Approached goal (dist=%.2f <= %.2f)",
                                                dist, self.approach_dist)
 

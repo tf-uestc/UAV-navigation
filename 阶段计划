@@ -1,17 +1,21 @@
-## 当前进度 (2026-06-18)
+## 当前进度 (2026-06-22)
 
 - ✅ 环境搭建完成：ROS + Gazebo + PX4 SITL + MAVROS
 - ✅ 基础飞控：起飞/悬停/降落 Offboard 闭环
 - ✅ VLM 检测：Qwen-VL grounding → 3D 定位 → TF → map 坐标
 - ✅ EGO-Planner 集成：端到端链路（指令 → 检测 → 规划 → 飞行）
 - ✅ Bug 修复与精度提升：TF 时间戳修正、bbox 归一化、深度融合优化
-- ✅ 鲁棒性加固：防崩溃守卫、后台线程规划、并发保护
+- ✅ 鲁棒性加固：防崩溃守卫、后台线程规划、并发保护、接口审计
+- ✅ 持续搜索：mission_manager.py (698行)，4状态 FSM (IDLE→SEARCHING→APPROACHING→HOVER)
+  - 偏航 8 角度扫描 + 弓字形覆盖搜索
+  - 接近中持续 VLM 修正目标位置
+  - 地理围栏安全裁剪
+  - 不改现有节点，通过重发 /uav/instruction 触发 VLM
 
 ## 下一步待办
 
-1. **状态控制实现**：多状态 FSM（IDLE → TAKEOFF → SEARCHING → TARGET_FOUND → APPROACHING → HOVER）
-   - 无目标时自主搜索（旋转扫描策略）
-   - 目标丢失时恢复搜索
+1. **仿真验证**：启动 PX4 SITL + Gazebo，运行 mission_manager 完整搜索流程
 2. **Prompt 对比实验**："直接返回 bbox" vs "返回像素坐标值"
    - 固定场景 + 重复测试
    - 对比指标：检测成功率、坐标偏差、定位误差、API 延迟
+3. **多帧 VLM 实验（OnFly 混合记忆）**：对比单帧 vs 多帧（含初始帧+关键帧）的检测效果

@@ -1,0 +1,19 @@
+# Mission Manager parameters
+search_height: 2.0
+search_center_x: 0.0
+search_center_y: 0.0
+search_vlm_interval: 5.0
+approach_vlm_interval: 2.0
+approach_vlm_timeout: 20.0
+pause_for_vlm_in_approach: true
+max_miss: 5
+approach_distance: 2.0
+max_search_rounds: 3
+max_api_calls: 200
+geofence:
+  x_min: -50.0
+  x_max: 50.0
+  y_min: -50.0
+  y_max: 50.0
+  z_min: 1.0
+  z_max: 20.0

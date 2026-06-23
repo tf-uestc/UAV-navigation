@@ -94,11 +94,11 @@ optimization:
   lambda_feasibility: 0.1
   lambda_fitness: 1.0
   dist0: 0.5
-  max_vel: 1.5
-  max_acc: 2.0
+  max_vel: 0.8
+  max_acc: 0.8
 
 # --- B-spline Limits ---
 bspline:
-  limit_vel: 1.5
-  limit_acc: 2.0
+  limit_vel: 0.8
+  limit_acc: 0.8
   limit_ratio: 1.1

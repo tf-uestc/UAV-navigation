@@ -7,6 +7,9 @@ ws/logs/
 # EGO-Planner（外部依赖，单独克隆）
 ego-planner/
 
+# 外部资料/依赖，不上传
+outside/
+
 # PX4-Autopilot（外部依赖，单独克隆）
 PX4-Autopilot/
 

@@ -9,6 +9,7 @@ Params:
                            planning.dummy_planner.DummyPlanner).
   ~planner_args   (dict)  Keyword arguments forwarded to the planner
                            constructor.
+  ~target_topic   (str)   Target topic to consume (default /uav/target_world).
 """
 
 import importlib
@@ -46,10 +47,12 @@ class PlannerNode:
         self._current_pose: PoseStamped = PoseStamped()
         self._mission_ok = True
         self._planning: bool = False
+        self._pending_target = None
 
         # --- Subscribers ---
+        target_topic = rospy.get_param("~target_topic", "/uav/target_world")
         rospy.Subscriber(
-            "/uav/target_world", PointStamped,
+            target_topic, PointStamped,
             self._on_target, queue_size=1,
         )
         rospy.Subscriber(
@@ -69,7 +72,8 @@ class PlannerNode:
             "/uav/planner_status", String, queue_size=10, latch=True,
         )
 
-        rospy.loginfo("[planner] PlannerNode initialized")
+        rospy.loginfo("[planner] PlannerNode initialized (target_topic=%s)",
+                      target_topic)
 
     # ------------------------------------------------------------------
     # Importlib loader
@@ -109,8 +113,13 @@ class PlannerNode:
         # Guard against concurrent planning on rapid target arrivals — only
         # one planning thread runs at a time to avoid corrupting planner state.
         if self._planning:
-            rospy.loginfo("[planner] Already planning — skipping duplicate target")
+            self._pending_target = msg
+            rospy.loginfo("[planner] Already planning — queued latest target")
             return
+        self._start_planning(msg)
+
+    def _start_planning(self, msg: PointStamped) -> None:
+        """Start one background planning job."""
         self._planning = True
         thread = threading.Thread(
             target=self._run_planning, args=(msg,), daemon=True
@@ -118,6 +127,7 @@ class PlannerNode:
         thread.start()
 
     def _run_planning(self, msg: PointStamped) -> None:
+        success = False
         try:
             self._publish_status("PLANNING")
 
@@ -131,14 +141,15 @@ class PlannerNode:
                 self._publish_status("FAIL")
                 return
 
-            if traj is None:
+            if traj is None or not traj.points:
                 self._publish_status("FAIL")
-                rospy.logerr("[planner] Planning failed")
+                rospy.logerr("[planner] Planning failed or returned empty trajectory")
                 return
 
             path_msg = self._trajectory_to_path(traj)
             self._traj_pub.publish(path_msg)
             self._publish_status("OK")
+            success = True
             rospy.loginfo(
                 "[planner] Trajectory published: %d points, %.2f s",
                 len(traj.points),
@@ -146,6 +157,13 @@ class PlannerNode:
             )
         finally:
             self._planning = False
+            if success and self._pending_target is not None and self._mission_ok:
+                next_msg = self._pending_target
+                self._pending_target = None
+                rospy.loginfo("[planner] Planning pending latest target")
+                self._start_planning(next_msg)
+            elif not success:
+                self._pending_target = None
 
     # ------------------------------------------------------------------
     # Trajectory → nav_msgs/Path conversion

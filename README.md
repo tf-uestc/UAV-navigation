@@ -19,6 +19,7 @@
 | 轨迹规划 | `ego_adapter.py` → `planner_node.py` | EGO-Planner C++ 节点桥接 |
 | 轨迹播放 | `trajectory_follower.py` | 30Hz 线性插值，输出 goal_pose 流 |
 | 飞控接口 | `setpoint_bridge.py` | FSM 状态机，MAVROS Offboard 控制（稳定，零改动） |
+| 任务管理 | `mission_manager.py` | 持续搜索 FSM（IDLE→SEARCHING→APPROACHING→HOVER），偏航扫描 + 弓字形覆盖 ★ |
 
 ## 目录结构
 
@@ -36,11 +37,13 @@
 │       │   │   ├── mavros_mocap.launch          # MAVROS + 动捕
 │       │   │   └── takeoff_land_demo.launch     # 起飞降落演示
 │       │   ├── config/
-│       │   │   └── ego_planner_params.yaml
+│       │   │   ├── ego_planner_params.yaml
+│       │   │   └── mission_params.yaml          # 任务搜索参数
 │       │   ├── scripts/
 │       │   │   ├── base_detector.py         # Detector ABC + Detection 数据类
 │       │   │   ├── qwen_vl_grounding.py     # Qwen-VL 检测器实现
 │       │   │   ├── detector_node.py         # 检测 ROS 节点
+│       │   │   ├── mission_manager.py       # 任务状态机 + 持续搜索 ★
 │       │   │   ├── planner_node.py          # 规划 ROS 节点 (importlib 加载)
 │       │   │   ├── trajectory_follower.py   # 轨迹→setpoint 插值播放
 │       │   │   ├── setpoint_bridge.py       # 飞控 FSM (不可修改)
@@ -97,7 +100,15 @@ cd /home/tf/毕业设计
 WORLD=search_rescue ./scripts_start_px4_sitl_gazebo.sh
 ```
 
-### 3. 启动完整导航链路（终端 2）
+### 3. 编译（首次或修改代码后）
+
+```bash
+cd /home/tf/毕业设计/ws
+source /opt/ros/noetic/setup.bash
+catkin_make
+```
+
+### 4. 启动完整导航链路（终端 2）
 
 ```bash
 cd /home/tf/毕业设计/ws
@@ -108,7 +119,7 @@ source /home/tf/毕业设计/.env
 roslaunch uav_vln_bringup vlm_navigation_full.launch
 ```
 
-### 4. 发送指令（终端 3）
+### 5. 发送指令（终端 3）
 
 ```bash
 # 起飞
@@ -119,7 +130,7 @@ rostopic pub -1 /uav/instruction std_msgs/String "data: '{\"target\":{\"text\":\
 rostopic pub -1 /uav/state_cmd std_msgs/String "data: 'land'"
 ```
 
-### 5. 查看调试图像（终端 4）
+### 6. 查看调试图像（终端 4）
 
 ```bash
 rosrun rqt_image_view rqt_image_view /uav/target_debug
@@ -158,7 +169,7 @@ map → odom → base_link → camera_link → camera_link_optical
 | VLM 检测 + 3D 定位 | ✅ 完成 | Qwen-VL grounding → TF → map 坐标 |
 | EGO-Planner 集成 | ✅ 完成 | 端到端：指令→检测→规划→飞行 |
 | Bug 修复 + 精度提升 | ✅ 完成 | TF 时间戳修正、bbox 归一化、深度融合优化 |
-| 状态控制 + 持续搜索 | 🔜 下一步 | 多状态 FSM、自主搜索策略 |
+| 状态控制 + 持续搜索 | ✅ 完成 | 偏航扫描 + 弓字形搜索，接近中持续 VLM 修正 |
 | Prompt 对比实验 | 🔜 下一步 | "直接返回 bbox" vs "返回像素坐标" 效果对比 |
 
 ## 相关项目

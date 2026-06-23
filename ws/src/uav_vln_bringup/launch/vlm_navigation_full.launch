@@ -49,6 +49,7 @@
            value="qwen_vl_grounding.QwenVLGroundingDetector"/>
     <param name="vlm_api_key" value="$(env VLM_API_KEY)"/>
     <param name="vlm_model" value="qwen3.6-plus"/>
+    <param name="vlm_timeout" value="20.0"/>
 
     <param name="camera_topic_rgb"
            value="/iris_depth_camera/camera/rgb/image_raw"/>
@@ -66,6 +67,7 @@
         output="screen">
     <param name="planner_class"
            value="planning.ego_adapter.EgoPlannerAdapter"/>
+    <param name="target_topic" value="/uav/approach_target"/>
   </node>
 
   <!-- ===== trajectory_follower ===== -->
@@ -74,12 +76,18 @@
     <param name="publish_rate" value="30.0"/>
   </node>
 
+  <!-- ===== mission_manager (任务状态机 + 持续搜索) ===== -->
+  <node pkg="uav_vln_bringup" type="mission_manager.py" name="mission_manager"
+        output="screen">
+    <rosparam file="$(find uav_vln_bringup)/config/mission_params.yaml" command="load"/>
+  </node>
+
   <!-- ===== setpoint_bridge (飞控接口, 零改动) ===== -->
   <node pkg="uav_vln_bringup" type="setpoint_bridge.py" name="setpoint_bridge"
         output="screen">
     <param name="setpoint_rate" value="20"/>
     <param name="takeoff_alt" value="2.0"/>
-    <param name="goal_timeout" value="2.0"/>
+    <param name="goal_timeout" value="30.0"/>
     <param name="approach_dist" value="1.0"/>
   </node>
 
