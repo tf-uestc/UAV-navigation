@@ -16,11 +16,12 @@ import rospy
 from sensor_msgs.msg import CameraInfo
 
 from base_detector import Detection, Detector
+from navigation_core.perception import parse_bbox, validate_intrinsics
 
 # ---------------------------------------------------------------------------
 # Prompt template and bbox parsing patterns
 # ---------------------------------------------------------------------------
-DEFAULT_PROMPT = "请框出图中的{target}。只输出一个框,不要解释。"
+DEFAULT_PROMPT = "查找目标：{target}。图像宽{width}高{height}。只输出JSON，不要解释。"
 
 PATTERNS = [
     # Qwen2-VL format: <|box_start|>(x1,y1),(x2,y2)<|box_end|>
@@ -46,10 +47,15 @@ class QwenVLGroundingDetector(Detector):
     """
 
     def __init__(self, api_key: str, model: str = "qwen3.6-plus",
-                 timeout: float = 90.0) -> None:
+                 timeout: float = 90.0, coordinate_system: str = "pixel",
+                 allow_legacy_bbox: bool = False) -> None:
         self.api_key = api_key
         self.model = model
         self.timeout = timeout
+        if coordinate_system not in ('pixel', 'normalized_1000'):
+            raise ValueError('unsupported bbox coordinate system')
+        self.coordinate_system = coordinate_system
+        self.allow_legacy_bbox = allow_legacy_bbox
 
     # ------------------------------------------------------------------
     # Public interface
@@ -63,6 +69,9 @@ class QwenVLGroundingDetector(Detector):
 
         Returns a Detection on success, or None if any stage fails.
         """
+        validate_intrinsics(cam_info.K)
+        if rgb.shape[:2] != depth.shape[:2]:
+            raise ValueError('RGB/depth must be aligned')
         # 1. Call VLM API
         raw_text = self._call_api(rgb, target_text)
         if raw_text is None:
@@ -70,7 +79,7 @@ class QwenVLGroundingDetector(Detector):
 
         # 2. Parse bbox from response
         h, w = rgb.shape[:2]
-        bbox = self._parse_bbox(raw_text, w, h)
+        bbox = self._parse_bbox(raw_text, w, h, self.coordinate_system, self.allow_legacy_bbox)
         if bbox is None:
             rospy.logwarn("Failed to parse bbox from: %s", raw_text[:100])
             return None
@@ -116,7 +125,11 @@ class QwenVLGroundingDetector(Detector):
 
         Returns None on any error (timeout, network, parse).
         """
-        prompt = DEFAULT_PROMPT.format(target=target_text)
+        prompt = DEFAULT_PROMPT.format(target=target_text, width=rgb.shape[1], height=rgb.shape[0])
+        prompt += "坐标协议为" + self.coordinate_system + "，bbox顺序为[x1,y1,x2,y2]，仅一个目标。"
+        prompt += "找到时格式：" + json.dumps(
+            {"found": True, "bbox": [0, 0, 10, 10], "coordinate_system": self.coordinate_system})
+        prompt += '；未找到时只输出{"found":false}。禁止猜测不可见目标。'
 
         # Encode image as base64 JPEG (cv2.imencode expects BGR)
         bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
@@ -155,6 +168,8 @@ class QwenVLGroundingDetector(Detector):
             resp.raise_for_status()
             result = resp.json()
             content = result["choices"][0]["message"]["content"]
+            if not isinstance(content, str):
+                return None
             rospy.loginfo("VLM response (%d chars)", len(content))
             return content
 
@@ -169,43 +184,9 @@ class QwenVLGroundingDetector(Detector):
             return None
 
     @staticmethod
-    def _parse_bbox(text: str, img_w: int,
-                    img_h: int) -> Optional[Tuple[int, int, int, int]]:
-        """Extract pixel-coordinate bbox from VLM text response.
-
-        Tries 3 regex patterns in order (Qwen2-VL, classic, fallback),
-        then applies the normalized→pixel heuristic when coordinates
-        appear to be in the [0,1000] convention.
-        """
-        for pattern in PATTERNS:
-            m = re.search(pattern, text)
-            if m:
-                x1, y1, x2, y2 = (int(m.group(i)) for i in range(1, 5))
-                break
-        else:
-            return None
-
-        # Normalization: Qwen-VL always outputs coords in [0, 1000]
-        # normalised space, regardless of image resolution.  We must
-        # always de-normalise when the values fall in that range,
-        # even if both image dimensions exceed 1000 px.
-        if max(x1, y1, x2, y2) <= 1000:
-            x1 = int(x1 * img_w / 1000)
-            y1 = int(y1 * img_h / 1000)
-            x2 = int(x2 * img_w / 1000)
-            y2 = int(y2 * img_h / 1000)
-
-        # Clamp to image bounds
-        x1 = max(0, min(x1, img_w - 1))
-        y1 = max(0, min(y1, img_h - 1))
-        x2 = max(0, min(x2, img_w - 1))
-        y2 = max(0, min(y2, img_h - 1))
-
-        # Ensure non-degenerate
-        if x2 <= x1 or y2 <= y1:
-            return None
-
-        return (x1, y1, x2, y2)
+    def _parse_bbox(text, img_w, img_h, coordinate_system="pixel", allow_legacy=False):
+        """Never infer coordinate units from their numerical range."""
+        return parse_bbox(text, img_w, img_h, coordinate_system, allow_legacy)
 
     @staticmethod
     def _depth_in_bbox(depth: np.ndarray, x1: int, y1: int,

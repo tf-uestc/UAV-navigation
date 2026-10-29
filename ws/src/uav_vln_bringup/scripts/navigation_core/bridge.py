@@ -34,24 +34,28 @@ def reference_from_pose(position,q,frame_id):
     return Reference(position,quaternion_yaw(q))
 
 class BridgeDecisions:
-    def __init__(self,prestream=2.,takeoff_timeout=15.,goal_timeout=2.,max_pose_age=1.):
-        if not all(finite(v) and v>0 for v in (prestream,takeoff_timeout,goal_timeout,max_pose_age)):
+    def __init__(self,prestream=2.,takeoff_timeout=15.,goal_timeout=2.,max_pose_age=1.,landing_timeout=30.):
+        if not all(finite(v) and v>0 for v in (prestream,takeoff_timeout,goal_timeout,max_pose_age,landing_timeout)):
             raise ValueError("invalid bridge timeouts")
         self.prestream,self.takeoff_timeout,self.goal_timeout,self.max_pose_age=prestream,takeoff_timeout,goal_timeout,max_pose_age
         self.mode="IDLE"; self.anchor=self.goal=None; self.goal_at=None
         self.started=self.last_now=None; self.sent={}; self.reason=""
         self.auto_mode="AUTO.LAND"
         self.last_actual=None
+        self.landing_timeout=landing_timeout
+        self.was_offboard=False
     def command(self,command,feedback,now,height=2.):
         if not finite(now): raise ValueError("invalid bridge clock")
         actual=Reference(feedback.position,feedback.yaw)
         if command in ("LAND","EMERGENCY","RTL"):
             self.anchor,self.mode=actual,"LANDING"
+            self.started=now
             self.auto_mode="AUTO.RTL" if command=="RTL" else "AUTO.LAND"
             self.goal=None
         elif command=="HOVER":
             if self.mode!="HOLD": self.anchor=actual
             self.mode="HOLD"
+            self.was_offboard=feedback.armed and feedback.mode=="OFFBOARD"
         elif command=="TAKEOFF":
             if self.mode not in ("IDLE","HOLD","FAILED") or not feedback.connected or not feedback.landed or feedback.pose_age>self.max_pose_age:
                 return False
@@ -59,14 +63,17 @@ class BridgeDecisions:
             self.anchor=Reference((feedback.position[0],feedback.position[1],height),feedback.yaw)
             self.started,self.mode=now,"PRESTREAM"
             self.sent={}
+            self.was_offboard=False
         elif command=="GOTO":
             if self.goal is None or self.goal_at is None or now-self.goal_at>self.goal_timeout: return False
-            if not feedback.connected or not feedback.armed or feedback.mode!="OFFBOARD": return False
+            if not feedback.connected or not feedback.armed or feedback.mode!="OFFBOARD" or feedback.pose_age>self.max_pose_age: return False
             self.mode="TRACK"
+            self.was_offboard=True
         elif command=="MOTOR_STOP":
             if not feedback.landed: return False
             self.mode="GROUND_DISARM"
         else: return False
+        self.reason=""
         return True
     def set_goal(self,reference,now,feedback,frame_id="map",kind="TRAJECTORY",standoff=1.):
         if not isinstance(reference,Reference) or not finite(now) or frame_id!="map":
@@ -104,12 +111,20 @@ class BridgeDecisions:
             self._fail("takeoff_timeout")
             return Decision(self.mode,self.anchor,(),self.reason)
         actions=()
+        if self.mode=="LANDING" and now-self.started>=self.landing_timeout:
+            self._fail("landing_timeout")
+            return Decision(self.mode,self.anchor,(),self.reason)
+        if self.mode=="HOLD" and self.was_offboard and (not feedback.armed or feedback.mode!="OFFBOARD"):
+            self._fail("offboard_lost")
+            return Decision(self.mode,self.anchor,(),self.reason)
         if self.mode=="PRESTREAM" and now-self.started>=self.prestream: self.mode="WAIT_ARM"
         if self.mode=="WAIT_ARM":
             if feedback.armed: self.mode="WAIT_OFFBOARD"
             else: actions=self._action("ARM",now)
         if self.mode=="WAIT_OFFBOARD":
-            if feedback.mode=="OFFBOARD": self.mode="CLIMB"
+            if feedback.mode=="OFFBOARD":
+                self.mode="CLIMB"
+                self.was_offboard=True
             else: actions=self._action("SET_OFFBOARD",now)
         if self.mode=="CLIMB":
             if not feedback.armed or feedback.mode!="OFFBOARD":
@@ -129,6 +144,8 @@ class BridgeDecisions:
                 else: self.mode="COMPLETE"
             elif feedback.mode!=self.auto_mode: actions=self._action(self.auto_mode,now)
         elif self.mode=="GROUND_DISARM":
-            if feedback.landed: actions=self._action("DISARM",now)
+            if feedback.landed:
+                if feedback.armed: actions=self._action("DISARM",now)
+                else: self.mode="COMPLETE"
             else: self._fail("airborne_motor_stop_rejected")
         return Decision(self.mode,self.anchor,actions,self.reason)

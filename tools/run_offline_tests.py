@@ -25,14 +25,16 @@ def main():
     for path in paths:
         digest.update(path.relative_to(ROOT).as_posix().encode())
         digest.update(path.read_bytes())
-    header=("UTC: "+datetime.now(timezone.utc).isoformat()+"\nPython: "+platform.python_version()+
+    import numpy
+    header=("NumPy: "+numpy.__version__+"\nUTC: "+datetime.now(timezone.utc).isoformat()+"\nPython: "+platform.python_version()+
             "\nPlatform: "+platform.platform()+"\nSource/test SHA256: "+digest.hexdigest()+
             "\nScope: offline logic and ROS-shaped stand-ins; ROS/PX4/Gazebo not exercised.\n\n")
     text=header+output.getvalue()
     if args.log:
         log=args.log if args.log.is_absolute() else ROOT/args.log
         log.parent.mkdir(parents=True,exist_ok=True)
-        log.write_text(text,encoding="utf-8")
+        with log.open("w",encoding="utf-8",newline="\n") as handle:
+            handle.write(text)
     print("Offline: {} tests, {} failures, {} errors; {}".format(
         result.testsRun,len(result.failures),len(result.errors),"PASS" if result.wasSuccessful() else "FAIL"))
     if not result.wasSuccessful(): print(output.getvalue())

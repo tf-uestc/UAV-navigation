@@ -1,0 +1,3 @@
+# Core decision tests use the standard library. Image-array/wrapper tests need NumPy.
+# The exact tested NumPy/Python versions are captured in each evidence log.
+numpy>=1.19,<3

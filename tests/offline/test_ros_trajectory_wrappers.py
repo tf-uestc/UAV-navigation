@@ -40,3 +40,32 @@ class RosTrajectoryTests(unittest.TestCase):
             f._tick(None)
             self.assertEqual(f._goal_pub.messages[-1].pose.position.x,10)
         self.assertEqual(path.poses[-1].header.stamp,before.poses[-1].header.stamp)
+
+
+    def test_search_heading_and_pause_do_not_bank_yaw_rate(self):
+        m=load_node("trajectory_follower"); Time.current=100
+        f=m.TrajectoryFollower()
+        p=PoseStamped(); p.pose.orientation=Quaternion(*quaternion(0))
+        f._on_pose(p)
+        p.pose.orientation=Quaternion(*quaternion(math.pi)); f._on_pose(p)
+        def path(start, desired):
+            a=PoseStamped(header=Header(stamp=Time(start),frame_id="map"))
+            b=PoseStamped(header=Header(stamp=Time(start+1),frame_id="map"))
+            a.pose.orientation=b.pose.orientation=Quaternion(*quaternion(desired))
+            return PathMessage(header=Header(stamp=Time(start),frame_id="map"),poses=[a,b])
+        f._on_traj(path(100,math.pi)); Time.current=100.05; f._tick(None)
+        q=f._goal_pub.messages[-1].pose.orientation
+        self.assertAlmostEqual(abs(quaternion_yaw((q.x,q.y,q.z,q.w))),math.pi)
+        f._on_traj(PathMessage()); Time.current=160; f._tick(None)
+        f._on_traj(path(160,0)); Time.current=160.05; f._tick(None)
+        q=f._goal_pub.messages[-1].pose.orientation
+        self.assertLessEqual(abs(math.pi-quaternion_yaw((q.x,q.y,q.z,q.w))),.040000001)
+
+    def test_cancelled_follower_rejects_late_path(self):
+        from _support import String
+        m=load_node("trajectory_follower"); Time.current=100
+        f=m.TrajectoryFollower(); f._on_pose(PoseStamped())
+        p=PoseStamped(header=Header(stamp=Time(100),frame_id="map"))
+        path=PathMessage(header=Header(stamp=Time(100),frame_id="map"),poses=[p])
+        f._on_cancel(String("cancel")); f._on_traj(path); f._tick(None)
+        self.assertFalse(f._goal_pub.messages)

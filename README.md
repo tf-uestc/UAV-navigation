@@ -1,5 +1,31 @@
 # UAV-VLN-Navigation
 
+## Windows 离线修复分支状态
+
+本分支正在按 docs/reviews/windows_tasks_2026-10-29.txt 实施。
+离线通过不等于 ROS、Gazebo、PX4 飞行验证通过；Ubuntu 清单仍需执行。
+不要将旧 README 中的历史运行进度当作本修复分支的仿真验收结果。
+
+在仓库根目录运行：
+
+    python -m pip install -r requirements-offline.txt
+    python tools/run_offline_tests.py --log test-results/offline.txt
+    python tools/run_offline_replay.py --output test-results/replay.json
+
+测试不访问真实 API，不需要 ROS。核心逻辑使用标准库，图像数组测试使用 NumPy。
+每份结果记录实际解释器、NumPy 版本及代码/测试摘要；Python 3.8 实测留 Ubuntu U01。
+也可使用 python -m unittest discover -s tests/offline -p "test_*.py" -v。
+
+接口迁移说明：
+
+- 检测业务结果使用 /uav/detection_result 的版本化 JSON String，mission_id/request_id 独立于 Header.seq。
+- /uav/target_world 保留为无任务身份的可视化/直接模式输出，任务管理器不再用它驱动接近。
+- Path.header.stamp 为绝对起始时间，逐点时间戳也为绝对时间；生产者与跟随器必须同步升级。
+- navigation_core/bridge.py 是离线决策核心，尚未替换旧 setpoint_bridge.py。
+- 控制唯一发布者、实际 EGO 目标确认/连续重规划、相机标定和飞控接线仍须 Ubuntu U03-U08 验证。
+- 深度+odom与点云双路建图问题、EGO 目标 z=1 硬编码尚待实际版本核对；当前不得宣称完整避障闭环已验证。
+
+
 基于视觉大模型（VLM）的无人机自主搜救导航系统 —— 硕士毕业设计。
 
 ## 项目简介

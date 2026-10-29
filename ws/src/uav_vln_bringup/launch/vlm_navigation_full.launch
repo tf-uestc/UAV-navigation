@@ -50,6 +50,7 @@
     <param name="vlm_api_key" value="$(env VLM_API_KEY)"/>
     <param name="vlm_model" value="qwen3.6-plus"/>
     <param name="vlm_timeout" value="20.0"/>
+    <param name="managed_requests_only" value="true"/>
 
     <param name="camera_topic_rgb"
            value="/iris_depth_camera/camera/rgb/image_raw"/>

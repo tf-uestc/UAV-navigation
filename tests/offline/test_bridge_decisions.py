@@ -75,3 +75,17 @@ class BridgeTests(unittest.TestCase):
         b.set_goal(Reference((10,0,2),0),0,f,kind="DIRECT_GOAL",standoff=1)
         b.command("GOTO",f,0)
         self.assertEqual(b.tick(Feedback((5,0,2),0,armed=True,mode="OFFBOARD",landed=False),1).reference.position,(9,0,2))
+
+
+    def test_hold_detects_mode_loss_and_landing_has_deadline(self):
+        b=BridgeDecisions()
+        f=Feedback((0,0,2),1,armed=True,mode="OFFBOARD",landed=False)
+        b.command("HOVER",f,0)
+        dropped=Feedback((.1,0,2),1,armed=True,mode="POSCTL",landed=False)
+        self.assertEqual(b.tick(dropped,1).reason,"offboard_lost")
+        b.command("LAND",dropped,2)
+        self.assertEqual(b.tick(dropped,2).reason,"")
+        result=b.tick(dropped,32)
+        self.assertEqual(result.mode,"FAILED")
+        self.assertEqual(result.reason,"landing_timeout")
+        self.assertNotIn("DISARM",result.actions)

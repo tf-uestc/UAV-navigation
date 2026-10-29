@@ -48,6 +48,8 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from base_detector import Detection, Detector
+from navigation_core.contracts import DetectionResult, RequestKey, vector3
+from navigation_core.perception import normalize_depth, validate_snapshot, validate_intrinsics
 
 
 class DetectorNode:
@@ -65,7 +67,12 @@ class DetectorNode:
         self.latest_cam_info = None
         self._detecting = False
         self._active_request_id = None
+        self._active_mission_id = None
         self._detect_lock = threading.Lock()
+
+        self._managed_only = rospy.get_param('~managed_requests_only', False)
+        self._max_skew = rospy.get_param('~max_image_skew', .05)
+        self._max_image_age = rospy.get_param('~max_image_age', 1.0)
 
         # --- API key resolution ---
         vlm_api_key = rospy.get_param("~vlm_api_key", "")
@@ -100,6 +107,17 @@ class DetectorNode:
         if trigger_on_start:
             rospy.loginfo("[detector] trigger_on_start=true (future feature)")
 
+        # --- Publishers ---
+        self.pub_target = rospy.Publisher(
+            "/uav/target_world", PointStamped, queue_size=1, latch=False
+        )
+        self.pub_debug = rospy.Publisher("/uav/target_debug", Image, queue_size=1, latch=True)
+        self.pub_status = rospy.Publisher(
+            "/uav/detector_status", String, queue_size=10
+        )
+
+        self.pub_result = rospy.Publisher("/uav/detection_result", String, queue_size=10)
+
         # --- Subscribers ---
         camera_rgb = rospy.get_param(
             "~camera_topic_rgb", "/iris_depth_camera/camera/rgb/image_raw"
@@ -114,15 +132,6 @@ class DetectorNode:
         rospy.Subscriber(camera_depth, Image, self._cb_depth, queue_size=1)
         rospy.Subscriber(camera_info, CameraInfo, self._cb_cam_info, queue_size=1)
         rospy.Subscriber("/uav/instruction", String, self._cb_instruction, queue_size=1)
-
-        # --- Publishers ---
-        self.pub_target = rospy.Publisher(
-            "/uav/target_world", PointStamped, queue_size=1, latch=True
-        )
-        self.pub_debug = rospy.Publisher("/uav/target_debug", Image, queue_size=1, latch=True)
-        self.pub_status = rospy.Publisher(
-            "/uav/detector_status", String, queue_size=10
-        )
 
         rospy.loginfo("[detector] DetectorNode initialized successfully")
 
@@ -144,220 +153,127 @@ class DetectorNode:
     # Sensor callbacks (fast, minimal work)
     # ------------------------------------------------------------------
     def _cb_rgb(self, msg):
-        self.latest_rgb = msg
+        with self.lock:
+            self.latest_rgb = msg
 
     def _cb_depth(self, msg):
-        self.latest_depth = msg
+        with self.lock:
+            self.latest_depth = msg
 
     def _cb_cam_info(self, msg):
-        self.latest_cam_info = msg
+        with self.lock:
+            self.latest_cam_info = msg
 
-    # ------------------------------------------------------------------
-    # Instruction callback — triggers detection in background thread
-    # ------------------------------------------------------------------
     def _cb_instruction(self, msg):
-        """Parse JSON instruction and spawn a detection thread."""
         try:
             data = json.loads(msg.data)
+            if not isinstance(data, dict):
+                raise ValueError("instruction must be an object")
             target_text = data.get("target", {}).get("text", "")
-            request_id = int(data.get("request_id", 0))
-        except (json.JSONDecodeError, KeyError) as e:
-            rospy.logwarn("[detector] Malformed instruction: %s", msg.data[:100])
+            if not isinstance(target_text, str) or not target_text.strip():
+                raise ValueError("target text required")
+            if self._managed_only and not data.get("_mission_mgr_trigger", False):
+                return
+            mission_id = data.get("mission_id", "")
+            request_id = data.get("request_id", 0)
+            if mission_id:
+                RequestKey(mission_id, request_id)
+            elif self._managed_only:
+                raise ValueError("managed request requires business IDs")
+        except (ValueError, TypeError, AttributeError, KeyError):
+            rospy.logwarn("[detector] Invalid instruction")
             return
-        except (TypeError, ValueError):
-            rospy.logwarn("[detector] Invalid request_id in instruction: %s", msg.data[:100])
-            return
-
-        if not target_text:
-            rospy.logwarn("[detector] Instruction has empty target text")
-            return
-
         with self._detect_lock:
-            if self._detecting:
-                rospy.logwarn(
-                    "[detector] Detection already running (active req=%s), "
-                    "rejecting req=%s",
-                    self._active_request_id,
-                    request_id,
-                )
-                self._publish_status(request_id, "BUSY")
-                return
-            self._detecting = True
-            self._active_request_id = request_id
+            busy = self._detecting
+            if not busy:
+                self._detecting = True
+                self._active_request_id, self._active_mission_id = request_id, mission_id
+        if busy:
+            self._publish_terminal(mission_id, request_id, target_text, "BUSY", 0., None, "detector_busy")
+            return
+        self._publish_status(request_id, "STARTED", mission_id)
+        threading.Thread(target=self._run_detection,
+                         args=(target_text, request_id, mission_id), daemon=True).start()
 
-        rospy.loginfo("[detector] Received instruction, target=%s req=%s",
-                      target_text, request_id)
-        self._publish_status(request_id, "STARTED")
-        thread = threading.Thread(
-            target=self._run_detection, args=(target_text, request_id), daemon=True
-        )
-        thread.start()
-
-    # ------------------------------------------------------------------
-    # Detection pipeline (runs in background thread — never blocks ROS)
-    # ------------------------------------------------------------------
-    def _run_detection(self, target_text, request_id=0):
-        """Full detection → TF → publish pipeline."""
-        t_start = time.time()
-
+    def _run_detection(self, target_text, request_id=0, mission_id=""):
+        started = time.monotonic()
+        capture = 0.
+        point = None
+        status, reason = "FAILED", "no_observation"
+        bgr = None
         try:
-            # Snapshot latest sensor data under lock
             with self.lock:
-                rgb_msg = self.latest_rgb
-                depth_msg = self.latest_depth
-                cam_info = self.latest_cam_info
-
-            if rgb_msg is None or depth_msg is None or cam_info is None:
-                rospy.logwarn(
-                    "[detector] Waiting for sensor data (rgb=%s depth=%s cam_info=%s)...",
-                    rgb_msg is not None,
-                    depth_msg is not None,
-                    cam_info is not None,
-                )
-                self._publish_status(request_id, "FAILED")
-                return
-
-            # Save image timestamp for historically-correct TF lookup
-            image_stamp = rgb_msg.header.stamp
-
-            # Convert ROS images to numpy
+                rgb_msg, depth_msg, info = self.latest_rgb, self.latest_depth, self.latest_cam_info
+            if rgb_msg is None or depth_msg is None or info is None:
+                raise ValueError("sensor_data_unavailable")
+            capture = rgb_msg.header.stamp.to_sec()
+            if capture <= 0:
+                raise ValueError("camera_clock_not_initialized")
             bgr = self.bridge.imgmsg_to_cv2(rgb_msg, "bgr8")
-            depth = self.bridge.imgmsg_to_cv2(depth_msg, "passthrough")
-
-            # Convert BGR → RGB (Detector contract expects RGB)
+            depth = normalize_depth(self.bridge.imgmsg_to_cv2(depth_msg, "passthrough"), depth_msg.encoding)
+            validate_snapshot(capture, depth_msg.header.stamp.to_sec(), rospy.Time.now().to_sec(),
+                              bgr.shape, depth.shape, rgb_msg.header.frame_id, depth_msg.header.frame_id,
+                              self._max_skew, self._max_image_age)
+            validate_intrinsics(info.K)
+            if info.width != depth.shape[1] or info.height != depth.shape[0]:
+                raise ValueError("camera_info_size_mismatch")
             rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
-
-            # Run detector
-            detection = self.detector.detect(rgb, depth, target_text, cam_info)
-            elapsed = time.time() - t_start
-
-            if detection is not None:
-                rospy.loginfo(
-                    "[detector] Detected: bbox=%s center=%s depth=%.2f conf=%.2f",
-                    detection.bbox,
-                    detection.center,
-                    detection.depth_m,
-                    detection.confidence,
-                )
-
-                # TF transform camera → map
-                # Use image timestamp for correct historical TF lookup.
-                # Falls back to latest TF if the image is older than
-                # the TF buffer cache (120s).
-                point_map = self._transform_to_map(
-                    detection.point_camera, image_stamp
-                )
-                if point_map is not None:
-                    ps = PointStamped(
-                        header=Header(
-                            stamp=rgb_msg.header.stamp,
-                            frame_id=self.target_frame,
-                            seq=request_id,
-                        ),
-                        point=Point(
-                            x=point_map[0], y=point_map[1], z=point_map[2]
-                        ),
-                    )
-                    self.pub_target.publish(ps)
-                    rospy.loginfo(
-                        "[detector] Published target: (%.2f, %.2f, %.2f) in %s",
-                        point_map[0],
-                        point_map[1],
-                        point_map[2],
-                        self.target_frame,
-                    )
-                    self._publish_status(request_id, "SUCCEEDED")
-                else:
-                    self._publish_status(request_id, "FAILED")
-
-                debug_img = self._draw_debug(bgr, detection, elapsed)
+            detection = self.detector.detect(rgb, depth, target_text, info)
+            if detection is None:
+                reason = "no_valid_detection"
             else:
-                rospy.logwarn("[detector] Detection returned None")
-                self._publish_status(request_id, "FAILED")
-                debug_img = self._draw_failure(bgr, "Detection returned None", elapsed)
-
-            # Publish debug image
-            self.pub_debug.publish(self.bridge.cv2_to_imgmsg(debug_img, "bgr8"))
-
-        except Exception as e:
-            rospy.logerr("[detector] Detection error: %s", e)
-            self._publish_status(request_id, "FAILED")
-            # Attempt to publish a failure debug image even on error
-            try:
-                with self.lock:
-                    rgb_msg_err = self.latest_rgb
-                if rgb_msg_err is not None:
-                    bgr_err = self.bridge.imgmsg_to_cv2(rgb_msg_err, "bgr8")
-                    t_elapsed = time.time() - t_start
-                    fail_img = self._draw_failure(bgr_err, str(e), t_elapsed)
-                    self.pub_debug.publish(
-                        self.bridge.cv2_to_imgmsg(fail_img, "bgr8")
-                    )
-            except Exception:
-                rospy.logerr("[detector] Could not publish failure debug image")
+                point = self._transform_to_map(detection.point_camera, rgb_msg.header.stamp)
+                if point is None:
+                    reason = "historical_tf_unavailable"
+                else:
+                    point = vector3(tuple(float(v) for v in point))
+                    status, reason = "SUCCEEDED", ""
+                    legacy = PointStamped(header=Header(stamp=rgb_msg.header.stamp, frame_id="map"),
+                                          point=Point(*point))
+                    self.pub_target.publish(legacy)  # Visualization/direct legacy mode only.
+                try:
+                    self.pub_debug.publish(self.bridge.cv2_to_imgmsg(
+                        self._draw_debug(bgr, detection, time.monotonic()-started), "bgr8"))
+                except Exception:
+                    rospy.logwarn("[detector] Debug image unavailable")
+        except Exception as exc:
+            status, point = "FAILED", None
+            reason = str(exc)
+            rospy.logwarn("[detector] Observation rejected: %s", reason)
         finally:
-            with self._detect_lock:
-                if self._active_request_id == request_id:
-                    self._detecting = False
-                    self._active_request_id = None
-
-    def _publish_status(self, request_id, status):
-        """Publish detector request lifecycle status as JSON."""
-        msg = String()
-        msg.data = json.dumps({
-            "request_id": int(request_id or 0),
-            "status": status,
-        })
-        self.pub_status.publish(msg)
-
-    # ------------------------------------------------------------------
-    # TF: camera_optical → map
-    # ------------------------------------------------------------------
-    def _transform_to_map(self, point_camera, stamp):
-        """Transform a 3D point from camera_optical frame to map frame.
-
-        Uses the provided stamp for historically-correct TF lookup.
-        Falls back to latest available TF if the stamp is too old.
-
-        Args:
-            point_camera: (x, y, z) tuple in camera_optical frame.
-            stamp:        Image timestamp for TF lookup.
-
-        Returns:
-            (x, y, z) tuple in map frame, or None on TF failure.
-        """
-        ps_cam = PointStamped(
-            header=Header(stamp=stamp, frame_id=self.camera_optical_frame),
-            point=Point(x=point_camera[0], y=point_camera[1], z=point_camera[2]),
-        )
-        try:
-            ps_map = self.tf_buffer.transform(
-                ps_cam, self.target_frame, rospy.Duration(2.0)
-            )
-            return (ps_map.point.x, ps_map.point.y, ps_map.point.z)
-        except (
-            tf2_ros.LookupException,
-            tf2_ros.ConnectivityException,
-            tf2_ros.ExtrapolationException,
-        ) as e:
-            rospy.logwarn(
-                "[detector] TF at image time failed (%s), falling back to latest",
-                e,
-            )
-            # Fallback: use latest available TF
             try:
-                ps_cam.header.stamp = rospy.Time(0)
-                ps_map = self.tf_buffer.transform(
-                    ps_cam, self.target_frame, rospy.Duration(1.0)
-                )
-                return (ps_map.point.x, ps_map.point.y, ps_map.point.z)
-            except (
-                tf2_ros.LookupException,
-                tf2_ros.ConnectivityException,
-                tf2_ros.ExtrapolationException,
-            ) as e2:
-                rospy.logwarn("[detector] TF fallback also failed: %s", e2)
-                return None
+                self._publish_terminal(mission_id, request_id, target_text, status, capture, point, reason)
+            finally:
+                with self._detect_lock:
+                    if (self._active_mission_id, self._active_request_id) == (mission_id, request_id):
+                        self._detecting = False
+                        self._active_request_id = self._active_mission_id = None
+
+    def _publish_terminal(self, mission_id, request_id, target_text, status, capture, point, reason):
+        completed = rospy.Time.now().to_sec()
+        if completed < capture:
+            status, capture, point, reason = "FAILED", 0., None, "clock_reset"
+        if mission_id:
+            result = DetectionResult(RequestKey(mission_id, request_id), target_text, status,
+                                     capture, completed, point, "map", reason)
+            self.pub_result.publish(String(data=result.to_json()))
+        self._publish_status(request_id, status, mission_id)
+
+    def _publish_status(self, request_id, status, mission_id=""):
+        self.pub_status.publish(String(data=json.dumps(
+            {"mission_id": mission_id, "request_id": request_id, "status": status})))
+
+    def _transform_to_map(self, point_camera, stamp):
+        if stamp.to_sec() <= 0:
+            return None
+        point = PointStamped(header=Header(stamp=stamp, frame_id=self.camera_optical_frame),
+                             point=Point(*point_camera))
+        try:
+            transformed = self.tf_buffer.transform(point, self.target_frame, rospy.Duration(2.))
+            return (transformed.point.x, transformed.point.y, transformed.point.z)
+        except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+            # An old image must never be transformed with the current camera pose.
+            return None
 
     # ------------------------------------------------------------------
     # Debug image drawing

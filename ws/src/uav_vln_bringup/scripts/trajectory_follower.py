@@ -6,12 +6,15 @@ This compatibility transport has no EGO goal acknowledgement; U05/U06 must
 validate the complete continuous trajectory/ownership interface before flight.
 """
 import copy
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 import threading
 import uuid
 import rospy
 from geometry_msgs.msg import PoseStamped, Point, Quaternion
 from nav_msgs.msg import Path as PathMsg
-from std_msgs.msg import Header
+from std_msgs.msg import Header, String
 from navigation_core.trajectory import Sample, TimedTrajectory, TrajectoryBuffer
 from navigation_core.yaw import YawPolicy, quaternion, quaternion_yaw
 
@@ -27,13 +30,17 @@ class TrajectoryFollower:
         self._generation = self._sequence = 0
         self._buffer.begin("path-compat", self._generation, self._epoch)
         self._yaw = None
+        self._actual_yaw = None
+        self._enabled = True
         self._yaw_last_time = None
         self._yaw_rate = rospy.get_param("~yaw_rate_limit", .8)
         self._traj = None
         self._goal_pub = rospy.Publisher("/uav/goal_pose", PoseStamped, queue_size=10)
+        rospy.Subscriber("/uav/cancel_planning", String, self._on_cancel, queue_size=10)
+        rospy.Subscriber("/uav/mission_status", String, self._on_mission_state, queue_size=10)
         rospy.Subscriber("/uav/trajectory", PathMsg, self._on_traj, queue_size=1)
         rospy.Subscriber("/mavros/local_position/pose", PoseStamped, self._on_pose, queue_size=1)
-        rospy.Timer(rospy.Duration(1.0/rate), self._tick)
+        rospy.Timer(rospy.Duration(1.0/rate), self._tick, reset=True)
 
     def _on_pose(self, msg):
         q = msg.pose.orientation
@@ -42,8 +49,25 @@ class TrajectoryFollower:
         except ValueError:
             return
         with self._lock:
-            if self._yaw is None:
+            self._actual_yaw = yaw
+            if self._yaw is None or self._buffer.active is None:
                 self._yaw = YawPolicy(yaw, self._yaw_rate)
+                self._yaw_last_time = rospy.Time.now().to_sec()
+
+    def _on_cancel(self, _msg):
+        with self._lock:
+            self._enabled = False
+            self._buffer.cancel()
+            self._traj = None
+
+    def _on_mission_state(self, msg):
+        if msg.data in ("IDLE", "SEARCHING", "HOVER"):
+            self._on_cancel(msg)
+        elif msg.data == "APPROACHING":
+            with self._lock:
+                self._enabled = True
+                self._generation += 1
+                self._buffer.begin("path-compat", self._generation, self._epoch)
 
     @staticmethod
     def _snapshot(path, sequence, generation, epoch):
@@ -65,6 +89,9 @@ class TrajectoryFollower:
                 self._buffer.begin("path-compat",self._generation,self._epoch)
                 self._traj = None
                 return
+            if not self._enabled:
+                return
+            inactive = self._buffer.active is None
             self._sequence += 1
             try:
                 trajectory = self._snapshot(msg,self._sequence,self._generation,self._epoch)
@@ -79,13 +106,19 @@ class TrajectoryFollower:
             except (ValueError,TypeError) as exc:
                 rospy.logerr("[follower] Invalid timed path: %s",exc)
                 return
+            if inactive and self._actual_yaw is not None:
+                self._yaw = YawPolicy(self._actual_yaw, self._yaw_rate)
+                self._yaw_last_time = rospy.Time.now().to_sec()
             self._traj = copy.deepcopy(msg)
 
     def _tick(self, _event):
         with self._lock:
             now = rospy.Time.now().to_sec()
             sample = self._buffer.sample(now)
+            if self._buffer.reason == "clock_reset":
+                self._enabled = False
             if sample is None or self._yaw is None:
+                self._yaw_last_time = now
                 return
             dt = 0.0 if self._yaw_last_time is None else max(0.,now-self._yaw_last_time)
             self._yaw_last_time = now

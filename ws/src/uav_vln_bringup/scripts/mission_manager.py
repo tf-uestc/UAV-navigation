@@ -39,9 +39,14 @@ Params:
   ~geofence/x_min/x_max/y_min/y_max/z_min/z_max (float) — Geofence bounds
 """
 import json
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 import math
 import threading
 import time
+import uuid
+from functools import wraps
 
 import rospy
 from geometry_msgs.msg import Point, PointStamped, PoseStamped, Quaternion
@@ -50,6 +55,11 @@ from std_msgs.msg import Header, String
 from tf.transformations import quaternion_from_euler
 
 from ego_planner.msg import Bspline
+from nav_msgs.msg import Odometry
+from navigation_core.targets import observation_goal, ArrivalTracker, TargetEstimator
+from navigation_core.contracts import DetectionResult, vector3
+from navigation_core.yaw import quaternion_yaw
+from navigation_core.lifecycle import RequestRegistry, WaitBudget, CallBudget
 
 # ==============================================================================
 # Constants
@@ -69,16 +79,46 @@ SEARCH_OFFSET = 4.0    # metres — lateral offset from search centre for each l
 MISSION_TRIGGER_KEY = "_mission_mgr_trigger"
 
 
+def _serialized(method):
+    @wraps(method)
+    def call(self, *args, **kwargs):
+        with self._state_lock:
+            return method(self, *args, **kwargs)
+    return call
+
+
 class MissionManager:
     """Mission state machine managing the search-to-approach lifecycle.
 
     The search loop runs in a background daemon thread and is interruptible
     via the ``_search_active`` flag. APPROACHING VLM re-triggers and arrival
-    checks happen on a 10 Hz ROS timer.
+    checks happen on a 10 Hz wall-clock supervisor.
     """
 
     def __init__(self):
         rospy.init_node("mission_manager")
+        self._state_lock = threading.RLock()
+        self._clock = time.monotonic
+        self._mission_id = None
+        self._last_ros_time = rospy.Time.now().to_sec()
+        self._shutdown = threading.Event()
+        self._requests = RequestRegistry()
+        self._plan_wait = WaitBudget(rospy.get_param("~plan_retries", 2))
+        self._plan_timeout = rospy.get_param("~plan_timeout", 12.)
+        self._search_timeout = rospy.get_param("~search_vlm_timeout", 20.)
+        self._search_budget = CallBudget(rospy.get_param("~max_api_calls", 200),
+                                        rospy.get_param("~max_search_seconds", 600.))
+        self._last_approach_mono = self._clock()
+        self._plan_key = 0
+        self._plan_requires_hold = True
+        self._planner_ready = True
+        self._last_plan_message = None
+        self._hover_goal = None
+        self._navigation_goal = None
+        self._pose_mono = self._velocity_mono = None
+        self._velocity = None
+        self._arrival = ArrivalTracker()
+        self._target_estimator = TargetEstimator()
 
         # ==================================================================
         # Parameters
@@ -129,11 +169,33 @@ class MissionManager:
         self._trajectory_after_target = False
 
         # ==================================================================
+        # Publishers
+        # ==================================================================
+        self._instruction_pub = rospy.Publisher(
+            "/uav/instruction", String, queue_size=1,
+        )
+        self._goal_pub = rospy.Publisher(
+            "/uav/goal_pose", PoseStamped, queue_size=10,
+        )
+        self._traj_pub = rospy.Publisher(
+            "/uav/trajectory", PathMsg, queue_size=1, latch=True,
+        )
+        self._approach_target_pub = rospy.Publisher(
+            "/uav/approach_target", PointStamped, queue_size=1, latch=True,
+        )
+        self._status_pub = rospy.Publisher(
+            "/uav/mission_status", String, queue_size=10,
+        )
+
+        self._cancel_pub = rospy.Publisher("/uav/cancel_planning", String, queue_size=10)
+        # ==================================================================
         # Subscribers
         # ==================================================================
         rospy.Subscriber(
             "/uav/instruction", String, self._on_instruction, queue_size=1,
         )
+        rospy.Subscriber("/mavros/local_position/odom", Odometry, self._on_velocity, queue_size=1)
+        rospy.Subscriber("/uav/detection_result", String, self._on_detection_result, queue_size=10)
         rospy.Subscriber(
             "/uav/target_world", PointStamped, self._on_target_world, queue_size=1,
         )
@@ -154,25 +216,6 @@ class MissionManager:
         )
         rospy.Subscriber(
             "/uav/trajectory", PathMsg, self._on_trajectory, queue_size=1,
-        )
-
-        # ==================================================================
-        # Publishers
-        # ==================================================================
-        self._instruction_pub = rospy.Publisher(
-            "/uav/instruction", String, queue_size=1,
-        )
-        self._goal_pub = rospy.Publisher(
-            "/uav/goal_pose", PoseStamped, queue_size=10,
-        )
-        self._traj_pub = rospy.Publisher(
-            "/uav/trajectory", PathMsg, queue_size=1, latch=True,
-        )
-        self._approach_target_pub = rospy.Publisher(
-            "/uav/approach_target", PointStamped, queue_size=1, latch=True,
-        )
-        self._status_pub = rospy.Publisher(
-            "/uav/mission_status", String, queue_size=10,
         )
 
         rospy.loginfo("[mission] MissionManager initialized (state=%s)", self._state)
@@ -295,157 +338,188 @@ class MissionManager:
     # ROS callbacks
     # ======================================================================
     def _on_pose(self, msg):
-        """Cache the latest drone pose from MAVROS."""
-        self._current_pose = msg
+        try:
+            vector3((msg.pose.position.x, msg.pose.position.y, msg.pose.position.z))
+            q = msg.pose.orientation
+            quaternion_yaw((q.x, q.y, q.z, q.w))
+            if msg.header.frame_id != "map":
+                raise ValueError("pose frame must be map")
+        except ValueError:
+            with self._state_lock:
+                self._pose_mono = None
+            return
+        with self._state_lock:
+            self._current_pose = msg
+            self._pose_mono = self._clock()
+
+    def _on_velocity(self, msg):
+        v = msg.twist.twist.linear
+        try:
+            velocity = vector3((v.x, v.y, v.z))
+        except ValueError:
+            return
+        with self._state_lock:
+            # Arrival uses the rotation-invariant speed norm, not body velocity direction.
+            self._velocity = velocity
+            self._velocity_mono = self._clock()
 
     def _on_bspline(self, msg):
         """Monitor EGO-Planner health (minimal — subscription keeps the
         connection alive for status awareness)."""
         pass
 
+    @_serialized
     def _on_instruction(self, msg):
-        """Handle an incoming mission instruction.
-
-        External instructions (without the internal trigger marker) start
-        or restart the search mission. Self-triggered instructions from
-        the mission manager are ignored.
-        """
         try:
             data = json.loads(msg.data)
-        except json.JSONDecodeError:
-            rospy.logwarn("[mission] Malformed instruction JSON")
+            if not isinstance(data, dict):
+                raise ValueError("object required")
+            if data.get(MISSION_TRIGGER_KEY, False):
+                return
+            target = data.get("target", {}).get("text", "")
+            if not isinstance(target, str) or not target.strip():
+                raise ValueError("target required")
+        except (ValueError, TypeError, AttributeError):
+            rospy.logwarn("[mission] Invalid instruction")
             return
-
-        # Ignore self-triggered instructions carrying the marker key
-        if data.pop(MISSION_TRIGGER_KEY, False):
-            return
-
-        target_text = data.get("target", {}).get("text", "")
-        if not target_text:
-            rospy.logwarn("[mission] Instruction has empty target text")
-            return
-
-        rospy.loginfo("[mission] External instruction received: target=%s", target_text)
-        self._target_text = target_text
-        self._miss_count = 0
-        self._search_round = 0
+        self._last_ros_time = rospy.Time.now().to_sec()
+        self._mission_id = uuid.uuid4().hex
+        self._requests.begin(self._mission_id)
+        self._search_budget.begin(self._clock())
+        self._plan_wait.cancel()
+        self._cancel_pub.publish(String(data=self._mission_id))
+        self._target_text = target
+        self._last_target = self._last_valid_target = None
+        self._navigation_goal = None
+        self._target_estimator.reset()
+        self._miss_count = self._search_round = 0
         self._detection_in_flight = False
         self._pending_detection_request_id = None
-
-        if self._state == STATE_IDLE:
-            self._set_state(STATE_SEARCHING)
-        elif self._state in (STATE_SEARCHING, STATE_APPROACHING, STATE_HOVER):
-            rospy.loginfo(
-                "[mission] New target while %s — resetting to SEARCHING", self._state,
-            )
-            self._set_state(STATE_SEARCHING)
+        if self._state == STATE_SEARCHING:
+            self._clear_trajectory()
+        self._set_state(STATE_SEARCHING)
 
     def _on_target_world(self, msg):
-        """Handle a VLM detection result published to /uav/target_world.
+        # Bare PointStamped carries no reliable task/request identity.
+        # It remains a visualization/direct-mode topic, never a managed result.
+        rospy.loginfo_throttle(5., "[mission] Ignoring legacy target_world; awaiting identified result")
 
-        - Clears the in-flight detection flag for matching detections.
-        - In SEARCHING: transitions to APPROACHING.
-        - In APPROACHING: validates request_id before forwarding to planner.
-        - In other states: logs and ignores.
-        """
-        rospy.loginfo(
-            "[mission] Target world: (%.2f, %.2f, %.2f) in %s req=%s",
-            msg.point.x, msg.point.y, msg.point.z,
-            msg.header.frame_id,
-            getattr(msg.header, "seq", 0),
-        )
-
+    @_serialized
+    def _on_detection_result(self, msg):
+        try:
+            result = DetectionResult.from_json(msg.data)
+        except (ValueError, TypeError, KeyError):
+            rospy.logwarn("[mission] Invalid detection result")
+            return
+        if not self._check_clock_epoch():
+            return
+        if self._state not in (STATE_SEARCHING, STATE_APPROACHING):
+            return
+        if not self._requests.resolve(result, self._clock(),
+                                      rospy.Time.now().to_sec(), self._approach_vlm_timeout + 5.):
+            rospy.loginfo("[mission] Rejected result: %s", self._requests.reason)
+            if self._requests.reason == "timeout":
+                self._detection_in_flight = False
+                self._pending_detection_request_id = None
+                if self._state == STATE_APPROACHING:
+                    self._handle_approach_vlm_timeout()
+                else:
+                    self._miss_count += 1
+            return
+        self._detection_in_flight = False
+        self._pending_detection_request_id = None
+        if result.status != "SUCCEEDED":
+            if self._state == STATE_APPROACHING:
+                self._handle_approach_vlm_timeout()
+            else:
+                self._miss_count += 1
+            return
+        if not self._target_estimator.observe(result.point, result.capture_stamp, rospy.Time.now().to_sec()):
+            if self._state == STATE_APPROACHING:
+                self._handle_approach_vlm_timeout()
+            else:
+                self._miss_count += 1
+            return
+        self._miss_count = 0
+        target = PointStamped(header=Header(stamp=rospy.Time.from_sec(result.capture_stamp), frame_id="map"),
+                              point=Point(*result.point))
+        self._last_target = self._last_valid_target = target
+        self._last_approach_mono = self._clock()
         if self._state == STATE_SEARCHING:
-            # Target found during search — begin approach
-            self._detection_in_flight = False
-            self._miss_count = 0
-            self._last_target = msg
-            self._last_valid_target = msg
-            rospy.loginfo("[mission] Target found — transitioning to APPROACHING")
             self._set_state(STATE_APPROACHING)
-        elif self._state == STATE_APPROACHING:
-            if not self._is_expected_detection(msg):
-                rospy.logwarn(
-                    "[mission] Ignoring stale/unsolicited approach detection req=%s "
-                    "(pending=%s phase=%s)",
-                    getattr(msg.header, "seq", 0),
-                    self._pending_detection_request_id,
-                    self._approach_phase,
-                )
-                return
+        elif (not self._pause_for_vlm and self._approach_phase == APPROACH_WAIT_VLM
+              and not self._target_estimator.needs_replan()):
+            # Keep the active path for small refinements. A paused vehicle still
+            # needs a newly planned path from its measured hold position.
+            self._approach_phase = APPROACH_FLYING
+        else:
+            self._publish_validated_target(target, hold=self._pause_for_vlm)
+
+    def _check_clock_epoch(self):
+        now = rospy.Time.now().to_sec()
+        if now < self._last_ros_time:
+            self._last_ros_time = now
+            self._set_state(STATE_HOVER)
+            return False
+        self._last_ros_time = now
+        return True
+
+    def _begin_detection(self, approach):
+        now = self._clock()
+        expired = self._requests.expire(now)
+        if expired:
             self._detection_in_flight = False
             self._pending_detection_request_id = None
-            self._miss_count = 0
-            self._last_target = msg
-            self._last_valid_target = msg
-            self._last_approach_result_time = rospy.Time.now()
-            self._publish_validated_target(msg)
-            self._approach_phase = APPROACH_WAIT_PLAN
-            rospy.loginfo("[mission] Target refined during approach; waiting for new trajectory")
-        else:
-            rospy.loginfo("[mission] Target received in %s (ignored)", self._state)
+            self._miss_count += 1
+        if self._requests.pending is not None:
+            return False
+        if not self._mission_id or not self._target_text:
+            return False
+        if not self._search_budget.reserve(now):
+            self._set_state(STATE_HOVER)
+            return False
+        timeout = self._approach_vlm_timeout if approach else self._search_timeout
+        key = self._requests.issue(self._target_text, now, timeout)
+        self._detection_in_flight = True
+        self._pending_detection_request_id = key.request_id
+        self._last_instruction_time = rospy.Time.now()
+        if approach:
+            self._approach_phase = APPROACH_WAIT_VLM
+            self._vlm_wait_start_time = rospy.Time.now()
+        data = {"target": {"text": self._target_text}, MISSION_TRIGGER_KEY: True,
+                "mission_id": key.mission_id, "request_id": key.request_id}
+        # Register every state/ID before publishing; an immediate BUSY is valid.
+        self._instruction_pub.publish(String(data=json.dumps(data)))
+        return True
 
     def _on_detector_status(self, msg):
-        """Handle detector lifecycle status for the active approach request."""
-        try:
-            data = json.loads(msg.data)
-        except (TypeError, ValueError):
-            rospy.logwarn("[mission] Malformed detector_status: %s", msg.data)
-            return
+        # Diagnostics only. Terminal business results have one authoritative topic.
+        return
 
-        request_id = data.get("request_id")
-        status = str(data.get("status", "")).upper()
-        if self._state != STATE_APPROACHING or self._approach_phase != APPROACH_WAIT_VLM:
-            return
-        if request_id != self._pending_detection_request_id:
-            rospy.loginfo(
-                "[mission] Ignoring detector_status for req=%s (pending=%s)",
-                request_id,
-                self._pending_detection_request_id,
-            )
-            return
-
-        if status == "STARTED":
-            rospy.loginfo("[mission] Detector started req=%s", request_id)
-        elif status == "SUCCEEDED":
-            rospy.loginfo("[mission] Detector succeeded req=%s; waiting target_world", request_id)
-        elif status in ("FAILED", "BUSY"):
-            rospy.logwarn("[mission] Detector %s req=%s", status, request_id)
-            self._handle_approach_vlm_timeout()
-
+    @_serialized
     def _on_trajectory(self, msg):
-        """Leave WAIT_PLAN only after a new non-empty trajectory arrives."""
-        if self._state != STATE_APPROACHING:
+        if self._state != STATE_APPROACHING or self._approach_phase != APPROACH_WAIT_PLAN or not msg.poses:
             return
-        if self._approach_phase != APPROACH_WAIT_PLAN:
+        # Compatibility Path has no goal ID. U05 must add actual EGO acknowledgement.
+        if msg.header.stamp < self._waiting_plan_since:
             return
-        if len(msg.poses) == 0:
-            return
-
+        self._plan_wait.complete(self._plan_key)
         self._trajectory_after_target = True
         self._approach_phase = APPROACH_FLYING
-        self._last_approach_result_time = rospy.Time.now()
+        self._last_approach_mono = self._clock()
         self._approach_hold_goal = None
-        rospy.loginfo(
-            "[mission] New trajectory received after approach target; phase=%s",
-            self._approach_phase,
-        )
 
+    @_serialized
     def _on_planner_status(self, msg):
-        """Monitor planner health.
-
-        On ``FAIL`` during APPROACHING the mission reverts to SEARCHING
-        rather than holding a stale or unreachable target.
-        """
         status = msg.data.strip()
-        if status == "FAIL" and self._state == STATE_APPROACHING:
-            rospy.logwarn(
-                "[mission] Planner FAIL during approach — reverting to SEARCHING",
-            )
-            self._set_state(STATE_SEARCHING)
+        if status == "MAP_NOT_READY":
+            self._planner_ready = False
         elif status == "OK":
-            rospy.loginfo_throttle(5.0, "[mission] Planner status: OK")
+            self._planner_ready = True
+        elif status == "FAIL" and self._state == STATE_APPROACHING:
+            self._set_state(STATE_HOVER)
 
+    @_serialized
     def _on_state_cmd(self, msg):
         """Handle external state commands.
 
@@ -459,18 +533,22 @@ class MissionManager:
 
         if cmd in ("SEARCH", "START"):
             if self._state == STATE_IDLE:
-                self._set_state(STATE_SEARCHING)
+                if not self._target_text:
+                    rospy.logwarn("[mission] START requires a target instruction")
+                    return
+                self._on_instruction(String(data=json.dumps({"target": {"text": self._target_text}})))
             else:
                 rospy.loginfo("[mission] Already active (%s) — ignoring %s", self._state, cmd)
         elif cmd == "HOVER":
             self._set_state(STATE_HOVER)
-        elif cmd in ("LAND", "RTL"):
+        elif cmd in ("LAND", "RTL", "EMERGENCY"):
             rospy.loginfo("[mission] %s — returning to IDLE", cmd)
             self._set_state(STATE_IDLE)
 
     # ======================================================================
     # State transitions
     # ======================================================================
+    @_serialized
     def _set_state(self, new_state):
         """Transition to *new_state*, executing exit and entry actions."""
         if new_state == self._state:
@@ -497,12 +575,13 @@ class MissionManager:
             self._enter_idle()
 
     def _enter_idle(self):
-        """Stop all activity and return to idle."""
         self._search_active = False
+        self._requests.cancel()
+        self._plan_wait.cancel()
         self._detection_in_flight = False
         self._pending_detection_request_id = None
-        self._approach_hold_goal = None
-        rospy.loginfo("[mission] Entered IDLE")
+        self._clear_trajectory()
+        self._cancel_pub.publish(String(data=self._mission_id or "cancel"))
 
     def _enter_searching(self):
         """Start the background search thread and clear any active trajectory.
@@ -560,8 +639,15 @@ class MissionManager:
         rospy.loginfo("[mission] Exited APPROACHING")
 
     def _enter_hover(self):
-        """Hold position at the target."""
-        rospy.loginfo("[mission] Entered HOVER — arrived at target")
+        self._requests.cancel()
+        self._plan_wait.cancel()
+        self._detection_in_flight = False
+        self._pending_detection_request_id = None
+        self._clear_trajectory()
+        self._cancel_pub.publish(String(data=self._mission_id or "cancel"))
+        self._capture_current_hold_goal()
+        self._hover_goal = self._approach_hold_goal
+        self._publish_hold_goal()
 
     # ======================================================================
     # Core operations
@@ -619,147 +705,64 @@ class MissionManager:
         """Stop trajectory playback and hold current pose before VLM."""
         self._clear_trajectory()
         self._capture_current_hold_goal()
-        self._publish_hold_goal()
 
-    def _publish_validated_target(self, msg):
-        """Forward a mission-validated target to the planner."""
+    def _publish_validated_target(self, msg, hold=True):
+        actual = self._current_pose.pose.position
+        try:
+            if self._pose_mono is None or self._clock()-self._pose_mono > 1.:
+                raise ValueError("current pose unavailable")
+            goal = observation_goal((actual.x, actual.y, actual.z),
+                                    (msg.point.x, msg.point.y, msg.point.z),
+                                    self._search_height, self._approach_distance, self._geofence)
+        except ValueError as exc:
+            rospy.logwarn("[mission] Invalid navigation goal: %s", exc)
+            self._set_state(STATE_HOVER)
+            return
+        self._plan_key += 1
+        self._approach_phase = APPROACH_WAIT_PLAN
+        self._plan_requires_hold = hold
         self._trajectory_after_target = False
         self._waiting_plan_since = rospy.Time.now()
-        x, y, z = self._clip_to_geofence(
-            msg.point.x, msg.point.y, msg.point.z, self._geofence,
-        )
-        target = PointStamped()
-        target.header = Header(
-            seq=getattr(msg.header, "seq", 0),
-            stamp=msg.header.stamp,
-            frame_id=msg.header.frame_id,
-        )
-        target.point = Point(x=x, y=y, z=z)
+        self._plan_wait.enter(self._plan_key, self._clock(), self._plan_timeout)
+        target = PointStamped(header=Header(stamp=rospy.Time.now(), frame_id="map"),
+                              point=Point(*goal.position))
+        self._navigation_goal = goal.position
+        self._target_estimator.mark_sent()
+        self._last_plan_message = target
         self._approach_target_pub.publish(target)
-        rospy.loginfo(
-            "[mission] Published approach target req=%s: (%.2f, %.2f, %.2f)",
-            getattr(target.header, "seq", 0),
-            target.point.x,
-            target.point.y,
-            target.point.z,
-        )
 
     def _is_expected_detection(self, msg):
-        """Return True only for detections that match the current phase."""
-        if self._state == STATE_SEARCHING:
-            return True
-        if self._state != STATE_APPROACHING:
-            return False
-        if self._approach_phase != APPROACH_WAIT_VLM:
-            return False
-        if self._pending_detection_request_id is None:
-            return False
-        return getattr(msg.header, "seq", 0) == self._pending_detection_request_id
+        return False  # Bare PointStamped cannot prove business identity.
 
+    @_serialized
     def _trigger_vlm(self):
-        """Re-publish /uav/instruction to trigger VLM detection.
+        return self._begin_detection(False)
 
-        Anti-stacking guard:
-          - ``_detection_in_flight`` is set ``True`` just before publishing
-            and cleared by ``_on_target_world``.
-          - A fallback timeout resets the flag if the VLM interval elapses
-            without a response (prevents indefinite blocking when no
-            target is visible).
-        """
-        if self._detection_in_flight:
-            timeout = self._search_vlm_interval * 0.9
-            dt = (rospy.Time.now() - self._last_instruction_time).to_sec()
-            if dt < timeout:
-                rospy.loginfo_throttle(
-                    2.0, "[mission] VLM still in flight (%.1f s < %.1f s)",
-                    dt, timeout,
-                )
-                return
-            # Timeout expired — detection ran but found nothing
-            rospy.logwarn("[mission] VLM timeout — no target found (miss %d/%d)",
-                          self._miss_count + 1, self._max_miss)
-            self._detection_in_flight = False
-            self._miss_count += 1
-
-        data = {
-            "target": {"text": self._target_text},
-            MISSION_TRIGGER_KEY: True,
-        }
-        msg = String(data=json.dumps(data))
-        self._instruction_pub.publish(msg)
-        self._detection_in_flight = True
-        self._last_instruction_time = rospy.Time.now()
-        rospy.loginfo("[mission] Triggered VLM: target=%s", self._target_text)
-
+    @_serialized
     def _trigger_approach_vlm(self):
-        """Trigger one approach refinement request with a request_id."""
-        if self._detection_in_flight:
-            rospy.loginfo_throttle(2.0, "[mission] Approach VLM already in flight")
-            return False
-
-        request_id = self._next_request_id
-        self._next_request_id += 1
-        self._pending_detection_request_id = request_id
-
-        data = {
-            "target": {"text": self._target_text},
-            MISSION_TRIGGER_KEY: True,
-            "request_id": request_id,
-        }
-        self._instruction_pub.publish(String(data=json.dumps(data)))
-        self._detection_in_flight = True
-        self._last_instruction_time = rospy.Time.now()
-        rospy.loginfo("[mission] Triggered approach VLM req=%s target=%s",
-                      request_id, self._target_text)
-        return True
+        return self._begin_detection(True)
 
     def _handle_approach_vlm_timeout(self):
-        """Handle a failed/timeout approach VLM request."""
-        if self._pending_detection_request_id is not None:
-            rospy.logwarn(
-                "[mission] Approach VLM failed/timeout req=%s (miss %d/%d)",
-                self._pending_detection_request_id,
-                self._miss_count + 1,
-                self._max_miss,
-            )
+        # Expiry/terminal handlers consume the registry entry before arriving here.
         self._detection_in_flight = False
         self._pending_detection_request_id = None
         self._miss_count += 1
-        self._last_approach_result_time = rospy.Time.now()
-
+        self._last_approach_mono = self._clock()
         if self._miss_count >= self._max_miss:
-            rospy.logwarn("[mission] Target lost during approach; reverting to SEARCHING")
-            self._set_state(STATE_SEARCHING)
-            return
-
-        if self._last_valid_target is not None:
-            self._approach_phase = APPROACH_WAIT_PLAN
-            self._publish_validated_target(self._last_valid_target)
+            self._set_state(STATE_HOVER)
+        elif self._last_valid_target is not None:
+            self._publish_validated_target(self._last_valid_target, hold=self._pause_for_vlm)
         else:
-            self._set_state(STATE_SEARCHING)
+            self._set_state(STATE_HOVER)
 
     def _check_approach_arrival(self):
-        """Check if the current pose is within *approach_distance* of the
-        last known target position.
-
-        Returns:
-            ``True`` if the drone has arrived at the target.
-        """
-        if self._last_target is None:
+        now = self._clock()
+        if (self._navigation_goal is None or self._velocity is None or
+                self._pose_mono is None or self._velocity_mono is None or
+                now-self._pose_mono > 1. or now-self._velocity_mono > 1.):
             return False
-        cp = self._current_pose.pose.position
-        tp = self._last_target.point
-        dx = cp.x - tp.x
-        dy = cp.y - tp.y
-        dz = cp.z - tp.z
-        dist = math.sqrt(dx * dx + dy * dy + dz * dz)
-        arrived = dist < self._approach_distance
-        if arrived:
-            rospy.loginfo(
-                "[mission] Arrival check: dist=%.2f < threshold=%.2f — arrived",
-                dist, self._approach_distance,
-            )
-        return arrived
+        p = self._current_pose.pose.position
+        return self._arrival.update((p.x, p.y, p.z), self._velocity, self._navigation_goal, now)
 
     # ======================================================================
     # Search loop (runs in a background daemon thread — NEVER blocks ROS)
@@ -880,69 +883,67 @@ class MissionManager:
     # ======================================================================
     # Housekeeping timer (ROS spinner thread — 10 Hz)
     # ======================================================================
+    @_serialized
     def _on_housekeeping_tick(self, event):
-        """Periodic housekeeping check that runs on the ROS callback thread.
-
-        Responsibilities:
-          - APPROACHING: periodic VLM re-trigger and arrival-distance check.
-          - SEARCHING / HOVER / IDLE: no-ops (SEARCHING is handled by the
-            background thread).
-        """
-        _ = event
-
-        # During SEARCHING, continuously re-publish the current goal so
-        # setpoint_bridge's goal_timeout doesn't expire (it needs ≥0.5 Hz).
+        if not self._check_clock_epoch():
+            return
+        now = self._clock()
         if self._state == STATE_SEARCHING:
-            x, y, z, yaw = self._last_search_goal
-            self._publish_goal(x, y, z, yaw=yaw)
-
-        if self._state == STATE_APPROACHING:
-            now = rospy.Time.now()
-            if self._approach_phase == APPROACH_FLYING:
-                dt = (now - self._last_approach_result_time).to_sec()
-                if dt >= self._approach_vlm_interval:
-                    if self._pause_for_vlm:
-                        self._pause_approach_for_vlm()
-                    if self._trigger_approach_vlm():
-                        self._vlm_wait_start_time = now
-                    else:
-                        # A previous request can still be in-flight if the
-                        # phase was reset by a state transition or late event.
-                        # Enter WAIT_VLM anyway so we do not clear the
-                        # trajectory again on every housekeeping tick.
-                        self._vlm_wait_start_time = self._last_instruction_time
-                    self._approach_phase = APPROACH_WAIT_VLM
-            elif self._approach_phase == APPROACH_WAIT_VLM:
-                self._publish_hold_goal()
-                wait_s = (now - self._vlm_wait_start_time).to_sec()
-                if wait_s >= self._approach_vlm_timeout:
-                    self._handle_approach_vlm_timeout()
-                    return
-            elif self._approach_phase == APPROACH_WAIT_PLAN:
-                self._publish_hold_goal()
-
-            # Revert to SEARCHING if VLM consistently fails during approach
-            if self._miss_count >= self._max_miss:
-                rospy.logwarn("[mission] VLM missed %d times — target lost, reverting to SEARCHING",
-                              self._miss_count)
-                self._set_state(STATE_SEARCHING)
-                return
-
-            # Check if the drone has arrived at the target
-            if self._check_approach_arrival():
-                rospy.loginfo("[mission] Arrived at target — transitioning to HOVER")
+            # Search movement still uses the legacy path until U08.
+            if self._requests.expire(now):
+                self._miss_count += 1
+                self._detection_in_flight = False
+                self._pending_detection_request_id = None
+            if self._search_budget.started is not None and now-self._search_budget.started >= self._search_budget.max_seconds:
                 self._set_state(STATE_HOVER)
+                return
+            self._publish_goal(*self._last_search_goal[:3], yaw=self._last_search_goal[3])
+            return
+        if self._state == STATE_HOVER:
+            if self._hover_goal is not None:
+                self._approach_hold_goal = self._hover_goal
+                self._publish_hold_goal()
+            return
+        if self._state != STATE_APPROACHING:
+            return
+        if self._approach_phase == APPROACH_FLYING:
+            if now-self._last_approach_mono >= self._approach_vlm_interval:
+                if self._pause_for_vlm:
+                    self._pause_approach_for_vlm()
+                self._trigger_approach_vlm()
+                if (self._state == STATE_APPROACHING and
+                        self._approach_phase in (APPROACH_WAIT_VLM, APPROACH_WAIT_PLAN) and self._pause_for_vlm):
+                    self._publish_hold_goal()
+        elif self._approach_phase == APPROACH_WAIT_VLM:
+            if self._requests.expire(now):
+                self._handle_approach_vlm_timeout()
+                return
+            if self._pause_for_vlm:
+                self._publish_hold_goal()
+        elif self._approach_phase == APPROACH_WAIT_PLAN:
+            action = self._plan_wait.tick(now, self._planner_ready)
+            if action == "FAILED":
+                self._set_state(STATE_HOVER)
+                return
+            if action == "RETRY" and self._last_plan_message is not None:
+                self._approach_target_pub.publish(self._last_plan_message)
+            if self._approach_phase == APPROACH_WAIT_PLAN and self._plan_requires_hold:
+                self._publish_hold_goal()
+        if self._check_approach_arrival():
+            self._set_state(STATE_HOVER)
+        # U08 validates these speed/dwell decisions against physical SITL data.
 
     # ======================================================================
     # Run
     # ======================================================================
     def run(self):
-        """Start the housekeeping timer and spin.
-
-        The housekeeping timer runs at 10 Hz and handles APPROACHING
-        checks. The main search loop lives in its own daemon thread.
-        """
-        rospy.Timer(rospy.Duration(0.1), self._on_housekeeping_tick)
+        """Wall-clock request supervision must keep running while /clock pauses."""
+        def supervise():
+            while not rospy.is_shutdown() and not self._shutdown.is_set():
+                self._on_housekeeping_tick(None)
+                self._shutdown.wait(.1)
+        rospy.on_shutdown(self._shutdown.set)
+        threading.Thread(target=supervise, daemon=True, name="mission_housekeeping").start()
         rospy.spin()
 
 

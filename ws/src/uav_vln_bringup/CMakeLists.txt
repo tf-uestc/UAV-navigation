@@ -216,3 +216,15 @@ install(DIRECTORY config/
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
+# Helpers must accompany catkin-installed Python entry points.
+# Real devel/install-space imports are verified in Ubuntu task U01.
+install(DIRECTORY scripts/navigation_core scripts/planning
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  PATTERN "__pycache__" EXCLUDE
+  PATTERN "*.pyc" EXCLUDE
+)
+install(FILES scripts/base_detector.py scripts/qwen_vl_grounding.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

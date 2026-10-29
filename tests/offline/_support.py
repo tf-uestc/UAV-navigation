@@ -80,3 +80,46 @@ def load_node(name):
         module=importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         return module
+
+class IdleThread:
+    def __init__(self,target=None,args=(),**kwargs):
+        self.target,self.args=target,args
+    def start(self): pass
+    def is_alive(self): return False
+
+def detector_modules():
+    modules=ros_modules()
+    import numpy as np
+    cv2=types.ModuleType("cv2")
+    cv2.COLOR_BGR2RGB=cv2.COLOR_RGB2BGR=1
+    cv2.cvtColor=lambda data,code:data[...,::-1].copy()
+    modules["cv2"]=cv2
+    requests=types.ModuleType("requests")
+    def no_network(*args,**kwargs):
+        raise AssertionError("network calls forbidden in offline tests")
+    requests.post=no_network
+    requests.exceptions=types.SimpleNamespace(
+        Timeout=type("Timeout",(Exception,),{}),
+        RequestException=type("RequestException",(Exception,),{}))
+    modules["requests"]=requests
+    bridge=types.ModuleType("cv_bridge")
+    class CvBridge:
+        def imgmsg_to_cv2(self,msg,encoding): return msg.array
+        def cv2_to_imgmsg(self,array,encoding): return array
+    bridge.CvBridge=CvBridge
+    modules["cv_bridge"]=bridge
+    tf2=types.ModuleType("tf2_ros")
+    for name in ("LookupException","ConnectivityException","ExtrapolationException"):
+        setattr(tf2,name,type(name,(Exception,),{}))
+    tf2.Buffer=lambda *a: None
+    tf2.TransformListener=lambda *a: None
+    modules["tf2_ros"]=tf2
+    modules["tf2_geometry_msgs"]=types.ModuleType("tf2_geometry_msgs")
+    return modules
+
+def load_detector(name="detector_node"):
+    with patch.dict(sys.modules,detector_modules()):
+        spec=importlib.util.spec_from_file_location("offline_"+name,SCRIPTS/(name+".py"))
+        module=importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module

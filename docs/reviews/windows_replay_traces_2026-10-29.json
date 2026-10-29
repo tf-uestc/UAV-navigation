@@ -1,0 +1,2432 @@
+{
+  "scope": "offline semantic events with ideal feedback; NOT physical flight",
+  "traces": {
+    "test_api_timeout_and_late_result": [
+      {
+        "event": "request",
+        "mission_id": "43e5f9edd8444fc5b463d2d4f2e4af5a",
+        "request_id": 1,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "result",
+        "mission_id": "43e5f9edd8444fc5b463d2d4f2e4af5a",
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      },
+      {
+        "event": "request",
+        "mission_id": "43e5f9edd8444fc5b463d2d4f2e4af5a",
+        "request_id": 2,
+        "wall": 0.2,
+        "capture_stamp": 100.2
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "43e5f9edd8444fc5b463d2d4f2e4af5a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.2,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "43e5f9edd8444fc5b463d2d4f2e4af5a",
+        "goal_generation": 2,
+        "compat_sequence": 2,
+        "wall": 21.2,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "result",
+        "mission_id": "43e5f9edd8444fc5b463d2d4f2e4af5a",
+        "request_id": 2,
+        "status": "SUCCEEDED",
+        "wall": 21.2
+      }
+    ],
+    "test_busy_recovers_once": [
+      {
+        "event": "request",
+        "mission_id": "35dec24ecd6a4971a7d4d2b7037967dc",
+        "request_id": 1,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "result",
+        "mission_id": "35dec24ecd6a4971a7d4d2b7037967dc",
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      },
+      {
+        "event": "request",
+        "mission_id": "35dec24ecd6a4971a7d4d2b7037967dc",
+        "request_id": 2,
+        "wall": 0.2,
+        "capture_stamp": 100.2
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "35dec24ecd6a4971a7d4d2b7037967dc",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.2,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "result",
+        "mission_id": "35dec24ecd6a4971a7d4d2b7037967dc",
+        "request_id": 2,
+        "status": "BUSY",
+        "wall": 0.2
+      }
+    ],
+    "test_cancel_drops_detector_and_late_path": [
+      {
+        "event": "request",
+        "mission_id": "11e9ed5d728d4993b52c37b5f019dbb0",
+        "request_id": 1,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "11e9ed5d728d4993b52c37b5f019dbb0",
+        "goal_generation": 0,
+        "compat_sequence": 0,
+        "wall": 0.0,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "result",
+        "mission_id": "11e9ed5d728d4993b52c37b5f019dbb0",
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "11e9ed5d728d4993b52c37b5f019dbb0",
+        "goal_generation": 0,
+        "compat_sequence": 0,
+        "wall": 0.1,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      }
+    ],
+    "test_normal_approach_and_ten_seconds_final_hold": [
+      {
+        "event": "request",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "request_id": 1,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "result",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.1,
+        "position": [
+          0.04999999999999716,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.2,
+        "position": [
+          0.10000000000000142,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.30000000000000004,
+        "position": [
+          0.14999999999999858,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.4,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.5,
+        "position": [
+          0.25,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.6,
+        "position": [
+          0.29999999999999716,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.7,
+        "position": [
+          0.3500000000000014,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.7999999999999999,
+        "position": [
+          0.3999999999999986,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.8999999999999999,
+        "position": [
+          0.45000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.9999999999999999,
+        "position": [
+          0.5,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.0999999999999999,
+        "position": [
+          0.5499999999999972,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.2,
+        "position": [
+          0.6000000000000014,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.3,
+        "position": [
+          0.6499999999999986,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.4000000000000001,
+        "position": [
+          0.7000000000000028,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.5000000000000002,
+        "position": [
+          0.75,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.6000000000000003,
+        "position": [
+          0.7999999999999972,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.7000000000000004,
+        "position": [
+          0.8500000000000014,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.8000000000000005,
+        "position": [
+          0.8999999999999986,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.9000000000000006,
+        "position": [
+          0.9500000000000028,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 2.0000000000000004,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 2.1000000000000005,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 2.2000000000000006,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 2.3000000000000007,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 2.400000000000001,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 2.500000000000001,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 2.600000000000001,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 2.700000000000001,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 2.800000000000001,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 2.9000000000000012,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 3.0000000000000013,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 3.1000000000000014,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 3.2000000000000015,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 3.3000000000000016,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 3.4000000000000017,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 3.5000000000000018,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 3.600000000000002,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 3.700000000000002,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 3.800000000000002,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 3.900000000000002,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.000000000000002,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.100000000000001,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.200000000000001,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.300000000000001,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.4,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.5,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.6,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.699999999999999,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.799999999999999,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.899999999999999,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 4.999999999999998,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 5.099999999999998,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 5.1999999999999975,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 5.299999999999997,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 5.399999999999997,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 5.4999999999999964,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 5.599999999999996,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 5.699999999999996,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 5.799999999999995,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 5.899999999999995,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 5.999999999999995,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 6.099999999999994,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 6.199999999999994,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 6.299999999999994,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 6.399999999999993,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 6.499999999999993,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 6.5999999999999925,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 6.699999999999992,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 6.799999999999992,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 6.8999999999999915,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 6.999999999999991,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 7.099999999999991,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 7.19999999999999,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 7.29999999999999,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 7.39999999999999,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 7.499999999999989,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 7.599999999999989,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 7.699999999999989,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 7.799999999999988,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 7.899999999999988,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 7.999999999999988,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 8.099999999999987,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 8.199999999999987,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 8.299999999999986,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 8.399999999999986,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 8.499999999999986,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 8.599999999999985,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 8.699999999999985,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 8.799999999999985,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 8.899999999999984,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 8.999999999999984,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 9.099999999999984,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 9.199999999999983,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 9.299999999999983,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 9.399999999999983,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 9.499999999999982,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 9.599999999999982,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 9.699999999999982,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 9.799999999999981,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 9.89999999999998,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 9.99999999999998,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 10.09999999999998,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 10.19999999999998,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 10.29999999999998,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 10.399999999999979,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 10.499999999999979,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 10.599999999999978,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 10.699999999999978,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 10.799999999999978,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 10.899999999999977,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 10.999999999999977,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 11.099999999999977,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 11.199999999999976,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 11.299999999999976,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 11.399999999999975,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 11.499999999999975,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 11.599999999999975,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 11.699999999999974,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 11.799999999999974,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 11.899999999999974,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 11.999999999999973,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 12.099999999999973,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 12.199999999999973,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 12.299999999999972,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 12.399999999999972,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 12.499999999999972,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 12.599999999999971,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 12.69999999999997,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 12.79999999999997,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 12.89999999999997,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 12.99999999999997,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 13.09999999999997,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 13.199999999999969,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 13.299999999999969,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 13.399999999999968,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 13.499999999999968,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 13.599999999999968,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 13.699999999999967,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 13.799999999999967,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 13.899999999999967,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "47a124acbd8c4c5493d75564330c1e90",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 13.999999999999966,
+        "position": [
+          1.0,
+          0.0,
+          2.0
+        ]
+      }
+    ],
+    "test_old_task_cannot_control_new_task": [
+      {
+        "event": "request",
+        "mission_id": "582beb2f324c4ca8afd8aca67792fd90",
+        "request_id": 1,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "request",
+        "mission_id": "877ed096ad3a44288d6e052a46b79ae3",
+        "request_id": 2,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "result",
+        "mission_id": "582beb2f324c4ca8afd8aca67792fd90",
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      },
+      {
+        "event": "result",
+        "mission_id": "877ed096ad3a44288d6e052a46b79ae3",
+        "request_id": 2,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      }
+    ],
+    "test_pause_refine_resume": [
+      {
+        "event": "request",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "request_id": 1,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "result",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.1,
+        "position": [
+          0.04999999999999716,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.2,
+        "position": [
+          0.10000000000000142,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.30000000000000004,
+        "position": [
+          0.14999999999999858,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.4,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "request",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "request_id": 2,
+        "wall": 0.5,
+        "capture_stamp": 100.5
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.5,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.6,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.7,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.7999999999999999,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.8999999999999999,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.9999999999999999,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.0999999999999999,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.2,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.3,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.4000000000000001,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.5000000000000002,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 1.6000000000000003,
+        "position": [
+          0.20000000000000284,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "result",
+        "mission_id": "7cdd24610d094670ba3c2693a9dd252a",
+        "request_id": 2,
+        "status": "SUCCEEDED",
+        "wall": 1.6000000000000003
+      }
+    ],
+    "test_plan_deadline": [
+      {
+        "event": "request",
+        "mission_id": "0b4901e3a7d14024a37204594c368279",
+        "request_id": 1,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "result",
+        "mission_id": "0b4901e3a7d14024a37204594c368279",
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "0b4901e3a7d14024a37204594c368279",
+        "goal_generation": 1,
+        "compat_sequence": 0,
+        "wall": 12.0,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "0b4901e3a7d14024a37204594c368279",
+        "goal_generation": 1,
+        "compat_sequence": 0,
+        "wall": 24.0,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "0b4901e3a7d14024a37204594c368279",
+        "goal_generation": 1,
+        "compat_sequence": 0,
+        "wall": 36.0,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "0b4901e3a7d14024a37204594c368279",
+        "goal_generation": 1,
+        "compat_sequence": 0,
+        "wall": 48.0,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      }
+    ],
+    "test_ros_clock_reset_revokes_old_playback": [
+      {
+        "event": "request",
+        "mission_id": "2f549c74f1064ec68ada9129846317ac",
+        "request_id": 1,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "result",
+        "mission_id": "2f549c74f1064ec68ada9129846317ac",
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "2f549c74f1064ec68ada9129846317ac",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.1,
+        "position": [
+          0.04999999999999716,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "2f549c74f1064ec68ada9129846317ac",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.1,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      }
+    ],
+    "test_target_jump_is_not_forwarded": [
+      {
+        "event": "request",
+        "mission_id": "0fe1a2700b2649e89b91bde4276ccaff",
+        "request_id": 1,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "result",
+        "mission_id": "0fe1a2700b2649e89b91bde4276ccaff",
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      },
+      {
+        "event": "request",
+        "mission_id": "0fe1a2700b2649e89b91bde4276ccaff",
+        "request_id": 2,
+        "wall": 0.2,
+        "capture_stamp": 100.2
+      },
+      {
+        "event": "reference",
+        "owner": "mission",
+        "mission_id": "0fe1a2700b2649e89b91bde4276ccaff",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.2,
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ]
+      },
+      {
+        "event": "result",
+        "mission_id": "0fe1a2700b2649e89b91bde4276ccaff",
+        "request_id": 2,
+        "status": "SUCCEEDED",
+        "wall": 0.2
+      }
+    ],
+    "test_trace_connects_business_ids_and_owner": [
+      {
+        "event": "request",
+        "mission_id": "6ec09f129c3f4a49be3c9e95485897ab",
+        "request_id": 1,
+        "wall": 0.0,
+        "capture_stamp": 100.0
+      },
+      {
+        "event": "result",
+        "mission_id": "6ec09f129c3f4a49be3c9e95485897ab",
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "wall": 0.0
+      },
+      {
+        "event": "reference",
+        "owner": "follower",
+        "mission_id": "6ec09f129c3f4a49be3c9e95485897ab",
+        "goal_generation": 1,
+        "compat_sequence": 1,
+        "wall": 0.1,
+        "position": [
+          0.04999999999999716,
+          0.0,
+          2.0
+        ]
+      }
+    ]
+  }
+}

@@ -35,6 +35,9 @@ class PlannerNode:
     def __init__(self) -> None:
         rospy.init_node("planner_node")
         self._status_msg = String()
+        self._lock = threading.RLock()
+        self._job_generation = 0
+        self._pose_received = False
 
         # --- Load planner via importlib ---
         cls_path = rospy.get_param(
@@ -50,6 +53,14 @@ class PlannerNode:
         self._planning: bool = False
         self._pending_target = None
 
+        # --- Publishers ---
+        self._traj_pub = rospy.Publisher(
+            "/uav/trajectory", PathMsg, queue_size=1, latch=True,
+        )
+        self._status_pub = rospy.Publisher(
+            "/uav/planner_status", String, queue_size=10, latch=True,
+        )
+
         # --- Subscribers ---
         target_topic = rospy.get_param("~target_topic", "/uav/target_world")
         rospy.Subscriber(
@@ -60,17 +71,11 @@ class PlannerNode:
             "/mavros/local_position/pose", PoseStamped,
             self._on_pose, queue_size=10,
         )
+        rospy.Subscriber("/uav/cancel_planning", String, self._on_cancel, queue_size=10)
+        rospy.Subscriber("/uav/mission_status", String, self._on_mission_state, queue_size=10)
         rospy.Subscriber(
             "/uav/state_cmd", String,
             self._on_cmd, queue_size=10,
-        )
-
-        # --- Publishers ---
-        self._traj_pub = rospy.Publisher(
-            "/uav/trajectory", PathMsg, queue_size=1, latch=True,
-        )
-        self._status_pub = rospy.Publisher(
-            "/uav/planner_status", String, queue_size=10, latch=True,
         )
 
         rospy.loginfo("[planner] PlannerNode initialized (target_topic=%s)",
@@ -89,82 +94,89 @@ class PlannerNode:
     # ------------------------------------------------------------------
     # Callbacks
     # ------------------------------------------------------------------
-    def _on_pose(self, msg: PoseStamped) -> None:
-        self._current_pose = msg
+    def _on_pose(self, msg):
+        from navigation_core.contracts import vector3
+        try:
+            vector3((msg.pose.position.x, msg.pose.position.y, msg.pose.position.z))
+        except ValueError:
+            return
+        with self._lock:
+            self._current_pose = msg
+            self._pose_received = True
 
-    def _on_cmd(self, msg: String) -> None:
-        cmd = msg.data.strip().upper()
-        if cmd in ("LAND", "RTL", "EMERGENCY"):
+    def _on_cmd(self, msg):
+        command = msg.data.strip().upper()
+        if command in ("LAND", "RTL", "EMERGENCY", "HOVER"):
+            self._on_cancel(msg)
+        elif command in ("TAKEOFF", "GOTO", "RESUME"):
+            with self._lock:
+                self._mission_ok = True
+
+    def _on_cancel(self, _msg):
+        with self._lock:
             self._mission_ok = False
-            rospy.logwarn("[planner] Mission paused (cmd=%s)", cmd)
-        elif cmd in ("TAKEOFF", "GOTO", "HOVER"):
-            self._mission_ok = True
+            self._job_generation += 1
+            self._pending_target = None
+            cancel = getattr(self.planner, "cancel", None)
+            if cancel:
+                cancel()
+            self._publish_status("CANCELLED")
 
-    def _on_target(self, msg: PointStamped) -> None:
-        if not self._mission_ok:
-            rospy.loginfo("[planner] Skipping — mission not active")
-            return
+    def _on_mission_state(self, msg):
+        if msg.data == "APPROACHING":
+            with self._lock:
+                self._mission_ok = True
+        elif msg.data in ("IDLE", "SEARCHING", "HOVER"):
+            self._on_cancel(msg)
 
-        if not self.planner.is_ready():
-            self._publish_status("MAP_NOT_READY")
-            rospy.logwarn_throttle(5.0, "[planner] Planner not ready")
-            return
+    def _on_target(self, msg):
+        with self._lock:
+            if not self._mission_ok:
+                return
+            if not self._pose_received or not self.planner.is_ready():
+                self._publish_status("MAP_NOT_READY")
+                return
+            self._job_generation += 1
+            if self._planning:
+                self._pending_target = msg
+                cancel = getattr(self.planner, "cancel", None)
+                if cancel:
+                    cancel()
+                return
+            self._start_planning(msg)
 
-        # Run planning in background thread to avoid blocking ROS callbacks.
-        # Guard against concurrent planning on rapid target arrivals — only
-        # one planning thread runs at a time to avoid corrupting planner state.
-        if self._planning:
-            self._pending_target = msg
-            rospy.loginfo("[planner] Already planning — queued latest target")
-            return
-        self._start_planning(msg)
-
-    def _start_planning(self, msg: PointStamped) -> None:
-        """Start one background planning job."""
+    def _start_planning(self, msg):
         self._planning = True
-        thread = threading.Thread(
-            target=self._run_planning, args=(msg,), daemon=True
-        )
-        thread.start()
+        threading.Thread(target=self._run_planning,
+                         args=(msg, self._job_generation), daemon=True).start()
 
-    def _run_planning(self, msg: PointStamped) -> None:
-        success = False
+    def _run_planning(self, msg, generation=None):
+        if generation is None:
+            generation = self._job_generation
         try:
             self._publish_status("PLANNING")
-
             start = self._current_pose.pose.position
-            goal = msg.point
-
             try:
-                traj = self.planner.plan(start, goal)
-            except Exception as e:
-                rospy.logerr("[planner] Planning exception: %s", e)
-                self._publish_status("FAIL")
-                return
-
-            if traj is None or not traj.points:
-                self._publish_status("FAIL")
-                rospy.logerr("[planner] Planning failed or returned empty trajectory")
-                return
-
-            path_msg = self._trajectory_to_path(traj)
-            self._traj_pub.publish(path_msg)
-            self._publish_status("OK")
-            success = True
-            rospy.loginfo(
-                "[planner] Trajectory published: %d points, %.2f s",
-                len(traj.points),
-                traj.points[-1].t_from_start if traj.points else 0.0,
-            )
+                trajectory = self.planner.plan(start, msg.point)
+                path = self._trajectory_to_path(trajectory) if trajectory and trajectory.points else None
+            except Exception as exc:
+                rospy.logerr("[planner] Planning failed: %s", exc)
+                path = None
+            with self._lock:
+                if generation != self._job_generation or not self._mission_ok:
+                    return
+                if path is None:
+                    self._publish_status("FAIL")
+                else:
+                    self._traj_pub.publish(path)
+                    self._publish_status("OK")
         finally:
-            self._planning = False
-            if success and self._pending_target is not None and self._mission_ok:
-                next_msg = self._pending_target
-                self._pending_target = None
-                rospy.loginfo("[planner] Planning pending latest target")
-                self._start_planning(next_msg)
-            elif not success:
-                self._pending_target = None
+            with self._lock:
+                self._planning = False
+                if self._pending_target is not None and self._mission_ok:
+                    latest = self._pending_target
+                    self._pending_target = None
+                    self._start_planning(latest)
 
     # ------------------------------------------------------------------
     # Trajectory → nav_msgs/Path conversion

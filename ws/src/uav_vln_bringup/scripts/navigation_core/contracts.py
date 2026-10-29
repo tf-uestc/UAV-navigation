@@ -1,11 +1,12 @@
 """Business IDs and observations independent of ROS Header.seq."""
 import json
 import math
+from numbers import Real
 from dataclasses import dataclass
 from typing import Optional, Tuple
 
 def finite(v):
-    return type(v) in (int, float) and math.isfinite(v)
+    return isinstance(v, Real) and not isinstance(v, bool) and math.isfinite(v)
 
 def vector3(v):
     if not isinstance(v, (tuple, list)) or len(v) != 3 or not all(finite(x) for x in v):

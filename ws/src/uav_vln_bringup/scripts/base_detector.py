@@ -24,7 +24,7 @@ class Detection:
         bbox: (x1, y1, x2, y2) pixel coordinates in image frame.
         point_camera: (x, y, z) 3D position in camera optical frame (meters).
         depth_m: Depth in meters at the detection point.
-        confidence: Detection confidence in [0, 1].
+        confidence: Valid-depth ratio in [0, 1], NOT semantic/model confidence.
         raw: Raw provider response for debugging.
         target_text: The target semantic text that was queried.
         center: (u, v) pixel center, auto-computed from bbox.

@@ -6,6 +6,7 @@ used by planner_node.
 """
 
 import time as _time
+import threading
 from typing import Optional
 
 import rospy
@@ -45,6 +46,7 @@ class EgoPlannerAdapter(Planner):
     def __init__(self, plan_timeout: float = 10.0) -> None:
         self._plan_timeout = plan_timeout
         self._last_traj: Optional[Trajectory] = None
+        self._cancel_event = threading.Event()
         self._odom_received = False
         self._map_ready = False
         self._current_yaw = None
@@ -86,10 +88,13 @@ class EgoPlannerAdapter(Planner):
     def plan(self, start: Point, goal: Point) -> Optional[Trajectory]:
         """Send goal to EGO and block until a B-spline arrives."""
         self._last_traj = None
+        self._cancel_event.clear()
         self._make_goal(goal)
         deadline = _time.monotonic() + self._plan_timeout
 
         while not rospy.is_shutdown() and self._last_traj is None:
+            if self._cancel_event.is_set():
+                return None
             if _time.monotonic() > deadline:
                 rospy.logerr("[ego_adapter] Plan timed out after %.1f s",
                              self._plan_timeout)
@@ -98,7 +103,12 @@ class EgoPlannerAdapter(Planner):
 
         return self._last_traj
 
+    def cancel(self) -> None:
+        # Cancels the local waiting job; actual EGO stop/ack is Ubuntu U05.
+        self._cancel_event.set()
+
     def shutdown(self) -> None:
+        self.cancel()
         if HAS_BSPLINE_MSG and self._bspline_sub is not None:
             self._bspline_sub.unregister()
 
@@ -112,9 +122,10 @@ class EgoPlannerAdapter(Planner):
             self._odom_received = True
         except ValueError:
             self._odom_received = False
+            self._current_yaw = None
 
     def _on_bspline(self, msg) -> None:
-        if self._current_yaw is None:
+        if self._current_yaw is None or self._cancel_event.is_set():
             return
         try:
             self._last_traj = self._bspline_to_trajectory(

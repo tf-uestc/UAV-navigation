@@ -51,3 +51,9 @@ test/
 # 日志
 日志.md
 debug.md
+
+# Local offline environments and generated test artifacts
+.venv/
+test-results/
+.env.*
+!.env.example

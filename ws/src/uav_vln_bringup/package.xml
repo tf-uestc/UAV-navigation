@@ -72,6 +72,10 @@
 
 
   <!-- The export tag contains other, unspecified, tags -->
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-requests</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+
   <export>
     <!-- Other tools can request additional information be placed here -->
 
