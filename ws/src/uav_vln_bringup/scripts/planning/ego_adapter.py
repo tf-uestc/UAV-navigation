@@ -10,6 +10,9 @@ from typing import Optional
 
 import rospy
 from geometry_msgs.msg import PoseStamped, Point, Quaternion
+from nav_msgs.msg import Odometry
+from navigation_core.bspline import BSpline
+from navigation_core.yaw import YawPolicy, quaternion_yaw
 from std_msgs.msg import Header
 
 # EGO custom message — may need ego_planner workspace sourced
@@ -44,6 +47,8 @@ class EgoPlannerAdapter(Planner):
         self._last_traj: Optional[Trajectory] = None
         self._odom_received = False
         self._map_ready = False
+        self._current_yaw = None
+        self._goal_position = None
 
         # --- Subscribe to EGO output ---
         if HAS_BSPLINE_MSG:
@@ -65,7 +70,7 @@ class EgoPlannerAdapter(Planner):
         # --- Listen for odometry to know EGO pipeline is alive ---
         rospy.Subscriber(
             "/mavros/local_position/odom",
-            rospy.AnyMsg,
+            Odometry,
             self._on_odom,
             queue_size=1,
         )
@@ -80,17 +85,16 @@ class EgoPlannerAdapter(Planner):
 
     def plan(self, start: Point, goal: Point) -> Optional[Trajectory]:
         """Send goal to EGO and block until a B-spline arrives."""
-        self._make_goal(goal)
-
         self._last_traj = None
-        deadline = rospy.Time.now() + rospy.Duration(self._plan_timeout)
+        self._make_goal(goal)
+        deadline = _time.monotonic() + self._plan_timeout
 
         while not rospy.is_shutdown() and self._last_traj is None:
-            if rospy.Time.now() > deadline:
+            if _time.monotonic() > deadline:
                 rospy.logerr("[ego_adapter] Plan timed out after %.1f s",
                              self._plan_timeout)
                 return None
-            rospy.sleep(0.05)
+            _time.sleep(0.05)
 
         return self._last_traj
 
@@ -101,13 +105,25 @@ class EgoPlannerAdapter(Planner):
     # ------------------------------------------------------------------
     # Helpers
     # ------------------------------------------------------------------
-    def _on_odom(self, _msg) -> None:
-        self._odom_received = True
+    def _on_odom(self, msg) -> None:
+        q = msg.pose.pose.orientation
+        try:
+            self._current_yaw = quaternion_yaw((q.x, q.y, q.z, q.w))
+            self._odom_received = True
+        except ValueError:
+            self._odom_received = False
 
     def _on_bspline(self, msg) -> None:
-        self._last_traj = self._bspline_to_trajectory(msg)
+        if self._current_yaw is None:
+            return
+        try:
+            self._last_traj = self._bspline_to_trajectory(
+                msg, self._current_yaw, self._goal_position)
+        except (ValueError, TypeError) as exc:
+            rospy.logerr("[ego_adapter] Invalid B-spline: %s", exc)
 
     def _make_goal(self, goal: Point) -> None:
+        self._goal_position = (goal.x, goal.y, goal.z)
         msg = PoseStamped()
         msg.header = Header(frame_id="map", stamp=rospy.Time.now())
         msg.pose.position = goal
@@ -120,31 +136,26 @@ class EgoPlannerAdapter(Planner):
     # Bspline → Trajectory conversion
     # ------------------------------------------------------------------
     @staticmethod
-    def _bspline_to_trajectory(msg) -> Trajectory:
-        """Convert ego_planner/Bspline to Trajectory.
+    def _bspline_to_trajectory(msg, initial_yaw=0.0, goal_position=None) -> Trajectory:
+        """Evaluate the actual spline and retain its original ROS start time.
 
-        Uses linear interpolation of pos_pts as a fallback (the C++
-        UniformBspline bindings are not available in Python).
+        Goal/session acknowledgement and continuous forwarding require U05;
+        this conversion alone does not establish closed-loop obstacle avoidance.
         """
-        pts = msg.pos_pts  # list of geometry_msgs/Point
-
-        if not pts:
-            return Trajectory(frame_id="map")
-
-        # Linear interpolation with fixed 0.1 s spacing
-        total_pts = max(2, len(pts))
-        dt = 0.1
-        total_time = (total_pts - 1) * dt
-
-        trajectory_pts: list[TrajectoryPoint] = []
-        for i in range(total_pts):
-            t = i * dt
-            trajectory_pts.append(TrajectoryPoint(
-                pos=(pts[i].x, pts[i].y, pts[i].z),
-                t_from_start=t,
-            ))
-
-        return Trajectory(
-            points=trajectory_pts,
-            frame_id="map",
-        )
+        spline = BSpline([(p.x, p.y, p.z) for p in msg.pos_pts], msg.knots, msg.order)
+        policy = YawPolicy(initial_yaw)
+        points = []
+        previous_t = 0.0
+        for t, position, velocity, _acceleration in spline.samples():
+            if goal_position is not None:
+                yaw = policy.face(position, goal_position, t - previous_t)
+            else:
+                import math
+                moving = math.hypot(velocity[0], velocity[1]) > 1e-6
+                desired = math.atan2(velocity[1], velocity[0]) if moving else None
+                yaw = policy.update(desired, t - previous_t)
+            points.append(TrajectoryPoint(
+                pos=position, vel=velocity, yaw=yaw, t_from_start=t))
+            previous_t = t
+        return Trajectory(points=points, frame_id="map",
+                          stamp_at_start=msg.start_time.to_sec())

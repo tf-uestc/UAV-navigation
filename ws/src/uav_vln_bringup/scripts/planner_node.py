@@ -26,6 +26,7 @@ from std_msgs.msg import Header, String
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from planning.base import Planner, Trajectory  # noqa: E402
+from navigation_core.yaw import quaternion
 
 
 class PlannerNode:
@@ -172,20 +173,21 @@ class PlannerNode:
     def _trajectory_to_path(traj: Trajectory) -> PathMsg:
         """Convert Trajectory to nav_msgs/Path.
 
-        t_from_start is stored in PoseStamped.header.stamp as a Duration
-        so the follower can reconstruct timing by subtracting Time(0).
+        Path header stores the original absolute start time; pose headers
+        store absolute sample times. Never encode Duration as a ROS timestamp.
         """
         path = PathMsg()
-        path.header = Header(frame_id=traj.frame_id)
+        start = traj.stamp_at_start if traj.stamp_at_start is not None else rospy.Time.now().to_sec()
+        path.header = Header(frame_id=traj.frame_id, stamp=rospy.Time.from_sec(start))
 
         for pt in traj.points:
             pose = PoseStamped()
             pose.header = Header(
-                stamp=rospy.Time(secs=pt.t_from_start),
+                stamp=rospy.Time.from_sec(start + pt.t_from_start),
                 frame_id=traj.frame_id,
             )
             pose.pose.position = Point(x=pt.pos[0], y=pt.pos[1], z=pt.pos[2])
-            pose.pose.orientation = Quaternion(w=1.0)
+            pose.pose.orientation = Quaternion(*quaternion(pt.yaw))
             path.poses.append(pose)
 
         return path

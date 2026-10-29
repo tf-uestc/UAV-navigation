@@ -1,0 +1,232 @@
+无人机语言交互与导航项目：架构与稳定性审查
+日期：2026-10-27
+
+一、结论与审查边界
+
+总体分层可以保留：云端视觉感知、目标估计、任务决策、局部规划、轨迹执行、飞控接口各司其职。当前主要问题是模块间契约、时间基准、控制权和状态切换没有统一；并非仅仅把检测间隔调长或调低速度就能解决。
+
+现有代码存在足以直接解释接近过程不稳定的确定性缺陷：错误执行 B 样条控制点、丢失连续重规划/急停、逐点前停、执行中篡改轨迹时间戳、停止状态未真正停止、业务 ID 使用 Header.seq，以及等待状态没有退出期限。
+
+180°转向方面，已确认多条将航向重置到 map 系 yaw=0 的路径。如果切换前机头约为180°，就会下发约180°的旋转要求；但没有原仿真 rosbag，不能认定用户观察到的那一次旋转由哪条路径唯一触发。应首先修上层航向指令和状态衔接，暂无证据要求修改 PX4 原生航向控制。
+
+本次工作：主审查加三个并行审查方向；读取项目、提供的 EGO/PX4 源码；运行现有 Mock 测试；执行实际 Python 函数/AST 分支的隔离复现；核对 ROS Noetic 和 MAVROS ROS1 官方源码。未安装依赖、未调用模型 API、未启动仿真或真实飞行、未修改运行代码。本文件是审查报告。
+
+环境限制：当前为 Windows，没有运行 ROS Noetic、Gazebo 或 SITL。因此“代码级复现”不等于完成系统飞行验证。
+
+路径缩写：
+U = E:\毕业论文\项目\UAV-navigation-main
+S = U\ws\src\uav_vln_bringup\scripts
+L = U\ws\src\uav_vln_bringup\launch
+C = U\ws\src\uav_vln_bringup\config
+E = E:\毕业论文\项目\ego-planner-master\ego-planner-master
+F = E\src\planner\plan_manage\src\ego_replan_fsm.cpp
+G = E\src\planner\plan_env\src\grid_map.cpp
+P = E:\毕业论文\项目\PX4-Autopilot-main\PX4-Autopilot-main
+
+优先级：P1 为影响轨迹正确性、安全行为或主功能的高优先级缺陷；P2 为必须修复的鲁棒性/接口缺陷；P3 为复现和工程完整性问题。这里的优先级是修改排序，不代表已经测得每项缺陷的实际发生频率。
+
+二、优先修复的确定缺陷
+
+01 [P1] B 样条控制点被误当成飞行路径，几何与时间都被改变。
+位置：S\planning\ego_adapter.py:123-150；F:436-460。
+证据：EGO 发布 pos_pts = getControlPoint()；适配器却逐个复制 pos_pts，强制每点0.1秒，忽略 order、knots、start_time。控制点通常不是曲线经过的点，控制多边形不等于优化后的安全轨迹。
+复现：7个控制点 x=[-1,0,1,2,3,4,5]，三次均匀样条，knot间隔0.6秒；真实样条时长2.4秒、端点约为0和4。实际适配器变成0.6秒、端点-1和5。
+影响：执行路径、速度、起终点均改变，EGO的平滑性、动力学和避障结果不能直接继承到执行端。
+建议：保留原始 Bspline；参考 E\src\planner\plan_manage\src\traj_server.cpp 的重建与求值方式，使用 order/knots/start_time 按同一时钟执行，提供位置及必要的速度/加速度。Path只用于可视化，或另定义明确的时间化轨迹消息。
+
+02 [P1] EGO 后续重规划与紧急停车轨迹未持续传到执行端。
+位置：S\planning\ego_adapter.py:107-108；S\planner_node.py:138-151；F:318、396、499。
+证据：Bspline回调只更新缓存，planner_node仅在一次 plan() 返回时发布一次Path。没有将后续Bspline连续交给follower的通道。
+影响：EGO内部即使检测到碰撞并重规划或输出急停，飞机也可能继续执行旧Path。不能把“EGO在运行”当作“实时避障已闭环”。
+建议：拆分提交/取消目标与连续轨迹订阅，按 traj_id、start_time 和任务代次接收更新；急停必须能直接影响唯一执行端，且不能被迟到旧轨迹覆盖。
+
+03 [P1] 执行器会修改缓存轨迹的时间戳，末端后可能回跳。
+位置：S\trajectory_follower.py:75-83、100-101、123-127。
+证据：sp直接引用traj.poses[-1]或poses[0]，随后sp.header.stamp被改为当前ROS时间；该字段原本又被用作相对开始时间。
+复现：两点路径0→10米、时长1秒，在ROS时间100秒接收。101.1秒输出末端x=10后，缓存时长变成101.1秒；101.2秒下一帧输出x约0.1187，而非继续保持10。仿真时间从0开始也同样存在相对时间与当前绝对时间混用的问题，只是数值不同。
+建议：缓存轨迹不可变；每次发布创建新消息或深拷贝，采样时间单独保存，禁止把Duration和绝对Time复用为一个可改字段。加入末端多拍保持、首点分支和重规划切换测试。
+
+04 [P1] bridge对每个轨迹采样点应用1米前停，破坏轨迹跟踪。
+位置：S\setpoint_bridge.py:310-339；L\vlm_navigation_full.launch:91。
+复现：飞机x=0、当前轨迹参考x=0.3、approach_dist=1，实际输出x=0；参考点在1米内时横向运动被吞掉，超过1米后也被缩退。
+影响：掉队、迟启动、走停不连贯；不能保证执行的仍是规划器检查过的轨迹。
+建议：安全停距只在生成最终导航目标时处理一次；轨迹执行模式下bridge透传合法设定值。若需兼容旧的直接目标模式，必须显式区分DIRECT_GOAL和TRAJECTORY，不能共用同一套前停逻辑。
+
+05 [P1] 航向多处被强制归零，可直接产生180°命令跳变。
+位置：S\planner_node.py:188；S\trajectory_follower.py:117；S\setpoint_bridge.py:144-156、359-365。
+证据：TrajectoryPoint虽然有yaw，转换Path时却强制Quaternion(w=1)；插值时再次强制单位四元数。bridge的HOVER/无目标等分支调用_make_pose而省略yaw，默认也是0。
+复现：输入轨迹yaw=pi，Path输出四元数(0,0,0,1)。实际桥接器HOVER分支在当前yaw=180°时同样输出yaw=0°。
+影响：搜索扫描、暂停观察和飞行阶段之间航向不连续，机头可突然背离目标，接着又造成检测失败。
+建议：一处统一生成yaw。接近时可面向目标，移动时按任务选择目标视线或轨迹切线；低速/终点保持上一有效航向。进行角度unwrap、最短角差和yaw rate限制，暂停及到达时锁存实际yaw，不恢复默认0。
+注意：mission自动到达仅改变自身状态，并不等同bridge进入HOVER；本条确认的是多条错误指令路径，具体现场触发者仍需时间线。
+
+06 [P1] mission进入HOVER仅改标签，未真正停止轨迹。
+位置：S\mission_manager.py:555-564、931-934。
+复现：从APPROACHING进入HOVER只新增mission_status，无清轨迹、无悬停输出。
+影响：系统宣称到达，follower仍可能继续前进并重发旧终点；后续再发生第03项时间戳污染。
+建议：完成/暂停应成为执行端可确认的动作：取消上游目标和在途规划、停止旧轨迹、锁存位置和yaw、持续输出hold，并验证执行端已切换。到达条件加入实际速度阈值、连续保持时间和位姿新鲜度，而非只检查一次距离小于2米。
+
+07 [P1] 暂停下游执行时，EGO仍按旧轨迹时钟推进。
+位置：S\mission_manager.py:618-622；F:345-356。
+证据：mission只清空下游Path，EGO的planFromCurrentTraj()仍从旧轨迹当前理论pos/vel/acc起步。
+影响：云端检测等待数秒后，EGO认为飞机已前进，实际飞机却停在原处；新轨迹起点可与真实位置不连续，造成反跳/追赶。第01/04项进一步放大跟踪偏差。
+建议：暂停、取消、恢复跨层统一。暂停前生成受控减速轨迹；停止后EGO应进入明确的停止/等待状态；恢复时从实测位置、世界系速度初始化，并检查新轨迹起点连续性。不能只清follower而保留上游“正在执行”的假设。
+
+08 [P1] Header.seq被用于业务请求ID，但rospy会覆盖它。
+位置：S\detector_node.py:251-261；S\mission_manager.py:647-657。
+外部证据：ROS Noetic clients/rospy/src/rospy/msg.py serialize_message第135-137行，对顶层Header执行header.seq=发布序号。
+来源：https://github.com/ros/ros_comm/blob/noetic-devel/clients/rospy/src/rospy/msg.py#L135-L137
+影响：检测成功发布次数与业务request_id仅可能偶然相等；失败、BUSY或超时后可错位。状态JSON显示成功，但target_world的seq不匹配，被mission丢弃。现有MockPublisher没有序列化，掩盖此缺陷。
+建议：自定义DetectionResult消息，独立携带mission_id、request_id、target_id、capture_stamp、completed_stamp、坐标、质量和失败原因；Header只表达采样时刻与坐标系。
+
+09 [P1] 搜索阶段接受任何目标结果，旧任务可劫持新任务。
+位置：S\mission_manager.py:328-365；S\detector_node.py:119-120、175-184。
+复现：切换到新目标B后，旧请求A的req=0结果到达SEARCHING，任务立即变APPROACHING并采用A坐标，但目标文字仍是B。
+影响：飞向错误物体；latched target_world在节点重启/重订阅后还可能重放旧结果。
+建议：搜索和接近统一验证任务、目标、请求代次及观测年龄。新任务/取消使所有旧结果失效；无需必须终止远端HTTP请求，但迟到响应绝不能再控制飞行。任务性观测不宜无期限latch。
+
+10 [P1] WAIT_PLAN无超时，MAP_NOT_READY会造成永久等待。
+位置：S\mission_manager.py:434-447、544-552、624-638、921-922；S\planner_node.py:107-110。
+复现：MAP_NOT_READY后将模拟时间推进1000秒或10000秒，仍APPROACHING/WAIT_PLAN。
+证据：_waiting_plan_since只赋值、不读取；规划未就绪时目标被丢弃，没有自动重试。
+建议：规划请求必须有ID、截止时间、有限重试和取消；地图就绪后可重发最新有效目标，区分未就绪/无路/超时/取消。失败不能一概解释成目标丢失并直接返回搜索中心。
+
+11 [P1] 地图同时接收未经TF的相机点云和深度融合，坐标错误且互相覆盖。
+位置：L\ego_planner.launch:34-37、48；G:118-122、178、653-668、750-775。
+证据：depth_image_proc输出相机坐标点云；EGO cloudCallback不看frame_id、不做TF，直接将xyz视作世界坐标。每帧先reset局部膨胀地图，再填点；深度路径又更新同一buffer。
+几何核对：机体(0,0,2)、光学点(0,0,3)，按EGO现有外参，世界点应为(3,0,1.98)，cloud路径却写成(0,0,3)。机体到(10,0,2)时，原始相机点与世界相机位置相差10米，会被5.5米局部范围筛掉，但前置地图清空仍发生。
+建议：近期只保留深度+同步odom的融合路线，并校准外参；或者只使用按拍摄时刻TF转换的世界点云路线。不要保留当前两条未经协调的地图写入路径。先在固定姿态下验证障碍物世界位置，再旋转/平移验证地图不跟着相机转动。
+
+12 [P1，安装版本需复核] MAVROS机体系速度直接作为EGO世界系速度。
+位置：L\ego_planner.launch:44-45；F:156-163。
+证据：EGO odometryCallback直接复制odom.twist.twist.linear，并作为规划的世界系边界速度。MAVROS ROS1标准实现local_position/odom的线速度是base_link系，官方1.20.0源码第113、120行明确先由ENU变换到baselink再填odom；第163、170行的COV路径同样如此。
+来源：https://github.com/mavlink/mavros/blob/1.20.0/mavros/src/plugins/local_position.cpp#L113-L120
+例：yaw=180°，机体向前1m/s在世界系应为(-1,0,0)，直接复制会被理解为(+1,0,0)。静止时速度为0可掩盖问题，转向后移动重规划更明显。
+建议：增加明确的状态适配层，按实际MAVROS版本/消息语义将速度旋转到世界系，或使用有明确世界系定义的速度输入。不要仅改frame_id标签；同步处理时间戳和需要的协方差。当前未提供旧环境实际MAVROS版本，需现场核对后落实。
+
+13 [P1] 飞控起飞阻塞循环不可可靠抢占，超时也会宣布成功。
+位置：S\setpoint_bridge.py:247-304，特别256-260、282-295、303-304。
+证据：回调能将状态设LAND/EMERGENCY，但起飞预发送和爬升循环只检查shutdown，继续发起飞设定值，最后无条件设置takeoff_complete和FLYING，覆盖中途指令。高度超时也走相同结束路径。
+建议：非阻塞起飞子状态；LAND/RTL/EMERGENCY最高优先级且立即打断；确认armed、实际mode、高度和位姿质量后才宣布完成。超时进入明确失败/安全处置。
+
+14 [P1/P2] HOVER后无法正常恢复，悬停锚点也不固定。
+位置：S\setpoint_bridge.py:62、104-107、122-129、359-365。
+证据：pending_goal只有初始化、从未赋值；GOTO依赖pending_goal非空，收到新goal本身不恢复FLYING。HOVER每拍用最新当前位置构造设定值，无法纠正累计漂移。
+复现：HOVER→新goal→GOTO，bridge仍HOVER。
+建议：明确RESUME/GOTO转换及验证条件；进入悬停时锁存固定位置与yaw，由唯一执行器保持。不要依赖永远为空的pending_goal。
+
+三、感知、状态机与接口的其他必修项
+
+15 [P2] RGB/Depth未同步，也未检查快照新鲜度。
+位置：S\detector_node.py:113-115、146-153、205-225。
+RGB/深度/内参独立更新，读取虽持lock，写入不使用同一锁；没有比较时间、分辨率、对齐关系。之后用RGB时刻变换另一时刻深度重建的点。
+建议：message_filters同步RGB与深度，内参匹配对应相机；限制时间差及数据年龄，快照不可变。明确32FC1米/16UC1毫米的单位转换；当前Gazebo若输出浮点米则毫米问题暂不触发，但接口尚不支持可靠实机迁移。
+
+16 [P2] 历史TF失败后使用当前TF变换旧照片。
+位置：S\detector_node.py:338-353。
+任何查找/连接/外推失败都会回退Time(0)，不是仅超出120秒缓存才回退。飞行/转向期间会把旧相机坐标放到新姿态中。
+建议：请求发出前取得并保存拍摄时刻可靠变换；拿不到则丢弃该次定位并记录原因，不能静默用当前TF代替。
+
+17 [P2] bbox协议未固定，所有小于1000的像素框都会被二次缩放。
+位置：S\qwen_vl_grounding.py:23、188-196。
+复现：640×480图像，模型若按像素返回[100,100,200,200]，实际parser变成(64,48,128,96)。Prompt没有约定坐标单位，代码却一律按千分比解释。
+建议：选定并显式声明坐标协议、图像尺寸及found=false格式；根据协议转换，禁止按数值猜。实际仿真中是否高频发生，应看保存的原始模型响应，不能仅凭代码断言模型每次都返回像素。
+
+18 [P2] 缺少目标估计/异常观测门控，单帧抖动立即变成飞行目标。
+位置：S\qwen_vl_grounding.py:92-96、225-241；S\mission_manager.py:376-383。
+confidence仅是有效深度比例，不是模型语义置信度。支架/镂空物的bbox中心可能主要是背景，仍可得到有效深度。mission不检查位置跳变量、观测年龄或多帧一致性。
+建议：独立TargetEstimator维护map系目标、质量、观测年龄与不确定度；检查深度簇/背景污染、位置一致性和同物体关联。小幅更新可滤波并设置重规划死区；大幅跳变需复核。先校正坐标和时间错误，再做滤波，不能靠滤波掩盖系统偏差。
+
+19 [P2] 发布与状态修改非原子，快速回调可被漏掉。
+位置：S\mission_manager.py:382-383、709-710、914；416-427。
+先发规划目标再进入WAIT_PLAN，快速轨迹可能在旧phase被忽略；先发检测请求再登记等待phase，快速BUSY/FAILED可能被忽略。WAIT_PLAN又接受任何非空轨迹，无关联当前goal。
+建议：先登记状态/ID/截止时间，再发布；回调只产生事件，由单线程FSM处理，或用短临界区保证事务一致性。轨迹必须带当前mission/goal代次。
+
+20 [P2] 当前pause_for_vlm=false仍发布hold，两个控制发布者会竞争。
+位置：S\mission_manager.py:901-922；S\trajectory_follower.py:83。
+关闭pause只是不清旧轨迹，WAIT_VLM仍无条件发hold；follower同时30Hz发轨迹，mission10Hz发暂停点。ROS话题没有优先级仲裁。
+建议：唯一executor独占向bridge发送设定值。任务层发送模式/目标/取消/扫描请求，不直接与follower竞争同一goal_pose。暂停与连续飞行策略必须分别定义，不能一个参数只关掉半套暂停动作。
+
+21 [P2] 暂停后立即拍照，没有等待真正刹停/转稳；搜索超时仍混用采样周期。
+位置：S\mission_manager.py:618-622、669-682、803-819。
+接近阶段只是发布当前点就发API，未确认速度、漂移和航向收敛。搜索阶段用5×0.9=4.5秒当超时，而HTTP等待上限20秒，旧请求仍运行就判miss/再请求。
+建议：增加BRAKE/SETTLE阶段和明确稳定条件、最大等待；请求截止时间与采样周期分离。当前先建立稳定的分段接近基线，之后再做真正异步边飞边检测。
+
+22 [P2] 规划请求无关联，旧缓存/旧目标轨迹可被当成新规划成功。
+位置：S\planning\ego_adapter.py:83-95、107-108。
+先发送goal再清_last_traj，可擦掉快速结果；任何旧目标自动重规划也能填缓存并使plan返回。
+建议：先建立新goal generation再发布，持续轨迹与目标会话关联；不能用“收到任意Bspline”证明新目标规划完成。对于无法回传goal_id的原EGO需明确增加适配协议，而不是只猜测到达时间。
+
+23 [P2] 取消后在途规划仍可能重新发布旧轨迹。
+位置：S\planner_node.py:94-100、149-164。
+LAND/RTL/EMERGENCY只改_mission_ok，在途线程发布前不复核，旧Path可重新覆盖已经清空的轨迹；多发布者和latch令停止语义更弱。
+建议：取消提升generation；所有异步工作发布前核对generation，取消到达EGO与executor。安全模式有明确优先级，旧轨迹不能夺回控制。
+
+24 [P2] SEARCHING平移绕过EGO，固定时间代替真实到达。
+位置：S\mission_manager.py:788-819、869-875。
+搜索中心及30×30米弓字形点直接发goal_pose，不走避障；等2/3秒即假设到位，未检查距离/速度/航向。
+建议：搜索算法只生成下一观测位姿，搜索平移和接近平移使用同一规划执行链；原地扫描以实际yaw误差/角速度判断稳定，并设置失败超时。
+
+四、目标语义、配置与飞控反馈
+
+25 [P1/P2] 物体位置、导航目标和停距混在一起；EGO目标高度被固定为1米。
+位置：S\mission_manager.py:624-638、741-756；F:119；C\mission_params.yaml:11；L\vlm_navigation_full.launch:91。
+mission将物体点直接裁剪进围栏后发EGO；提供的EGO源码忽略传入z并固定1米；mission按距原物体2米判断到达；bridge又对每个轨迹点前停1米。
+建议：TargetEstimate保存原始物体坐标，不把裁剪后的点伪装成新观测。GoalGenerator另算无人机安全观察位姿：高度、观察距离、可见性和碰撞约束。EGO接收该可行位姿并保留真实z；到达按导航位姿+低速保持判定，物体距离作为额外任务条件。
+
+26 [P2] 就绪检查、空间范围及相机标定不一致。
+位置：S\planning\ego_adapter.py:46、78-79、104-105；G:91-94、998；L\mavros_px4_sitl.launch:24；C\ego_planner_params.yaml:15-29、50、83-103；C\mission_params.yaml:14-20。
+is_ready只是“见过一次odom”，未检查消息类型、EGO连接、地图首帧和数据年龄。地图40×40×3米/虚拟顶棚2.5米，任务围栏却±50米/z20米。感知相机平移硬编码(0.1,0,0)，EGO硬编码(0,0,-0.02)，并不共用TF。
+建议：统一可规划空间、物理安全边界和地图新鲜度；外参使用实际模型唯一标定。内参以实际CameraInfo为准，不凭模型名假定fx/fy。manager与optimizer的速度/加速度限制统一解释，确认每个YAML键有源码读取；当前提供EGO没有读取bspline/limit_*，不能靠该段参数保证限速。
+
+27 [P2] bridge未以PX4实际状态闭环确认动作，缺少输入合法性保护。
+位置：S\setpoint_bridge.py:104-107、196-204、269-304、367-414。
+mode_sent只表示模式请求已发送，代码却直接当转换完成；启动后缺少持续mode/armed/连接/位姿年龄检查。LAND约2秒后COMPLETE→IDLE，无落地确认。EMERGENCY普通disarm后忽略返回值，无失败处理。输入frame/NaN/Inf/异常四元数也未检查，输出重新标为map。
+建议：以/mavros/state和落地反馈确认状态，模式丢失/断连/位姿过期进入明确处理。区分安全悬停、紧急降落和电机停止；停止动作需反馈确认。桥接入口校验坐标、有限值、时间和跳变量。当前30秒goal_timeout对无上游heartbeat的失效检测过慢，应在执行流恢复可靠后按心跳重新设计。
+
+28 [P3] 复现环境与测试覆盖尚不完整。
+提供的EGO/PX4目录无.git，不能确定与原仿真commit相同。PX4的Tools/simulation/gazebo-classic/sitl_gazebo-classic为空；.gitmodules:5-8声明真实Classic模型/插件在该子模块，所以仍没有实际iris_depth_camera模型。项目启动器找不到自定义iris_depth_camera时回退PX4默认模型，不能据本仓库depth_camera.sdf认定实际安装姿态。
+现有test_mission_manager.py通过，但MockPublisher不序列化Header，quaternion_from_euler恒返回单位四元数，无法检验第05/08项。13个Python文件通过Python3.8语法解析，8个launch及package.xml通过XML解析；项目depth_camera.sdf第2行XML声明位于注释之后，严格XML解析失败，实际是否影响取决于它是否被加载及SDF解析器容忍度，不能认定为当前飞行故障根因。
+max_api_calls=200只存在于配置、未实现读取；搜索轮数用尽后重新循环，无总时长/预算终止。
+建议：固定实际PX4/EGO/MAVROS版本、子模块commit和模型、相机/飞控参数；补齐运行依赖声明与安装时Python辅助模块；增加真实ROS消息序列化和跨节点测试，不再仅以Mock通过作为系统稳定证据。
+
+五、建议保留的架构与修改次序
+
+保留：云端VLM作为慢速语义观测源；历史时间TF定位；mission管理任务；EGO做局部避障；PX4做底层位置/姿态闭环。无需为了这些问题先迁移ROS2或重写PX4控制器。
+
+建议数据流：
+同步RGB/Depth + 拍摄时刻TF
+  -> DetectionResult（任务ID、请求ID、观测时间、质量）
+  -> TargetEstimator（滤波、异常门控、过期管理）
+  -> GoalGenerator（安全观察位姿，而非物体中心）
+  -> EGO（提交/取消目标，持续Bspline流）
+  -> 唯一TrajectoryExecutor（时钟、轨迹切换、制动/hold、统一yaw）
+  -> bridge（设定值校验、心跳、OFFBOARD状态管理）
+  -> MAVROS/PX4。
+mission只向上述模块发送任务/模式/目标/取消事件；搜索与接近共用规划执行链，不直接竞争goal_pose。急停/取消具有全链路优先级并要求执行反馈。
+
+第一批：修第01-06项和第08项；打通正确、连续、可停止、航向一致的执行链。结合第11/12项先验证地图/速度坐标正确。此阶段只用人工给定目标，暂不引入云端观测，验证纯规划控制链。
+
+第二批：修请求代次、WAIT_PLAN超时、取消、目标高度与观察位姿、暂停恢复。采用分段接近：飞一段 -> 受控刹停 -> 实测稳定 -> 采集新同步帧 -> 等VLM -> 校验/融合 -> 从实际状态重规划。距离变化只是是否重新观察的一个触发条件，不以固定2秒作为唯一规则。
+
+第三批：评估真正异步边飞边检测。执行端持续跟随唯一轨迹；慢观测只更新世界目标估计，拒绝过期/跳变结果，超过目标更新阈值才重规划；不因“发API请求”本身就抢占执行器。近距离精确停靠可考虑低延迟局部跟踪或几何控制，但是否新增模型应由误差/延迟实验决定。
+
+六、系统验收清单与180°现场定位
+
+1. 固定世界系目标，测试机头0/90/180/-90度起步；地图障碍位置不随机头变化，规划初速度与实际世界速度一致。
+2. 轨迹开始、切换、末端保持均连续；禁止不合理位置/速度/yaw跳变，末端保持多拍不能回放旧路径。
+3. 中途障碍触发EGO重规划/急停，执行端必须及时切换到对应traj_id，证实安全路径真正抵达PX4。
+4. 到达后固定悬停位置和yaw，至少持续观察10秒；停止事件后旧API/旧规划结果不能恢复运动。
+5. 人为延迟API、返回失败/旧任务结果；结果ID不失配，WAIT_PLAN/WAIT_VLM均有限时退出且不会同时有两条控制流。
+6. 起飞期间注入HOVER/LAND/RTL等指令，验证抢占和状态反馈；模型/连接掉线时验证失效处理。
+7. bbox协议、RGB/Depth同步、TF失败、16UC1/32FC1单位分别测试；目标估计与物体真实坐标对齐。
+
+180°诊断至少同时记录：/uav/mission_status、/uav/bridge_status、/uav/detector_status、/uav/target_world、/uav/approach_target、/uav/planner_status、/planning/bspline、/uav/trajectory、/uav/goal_pose、/mavros/setpoint_position/local、/mavros/local_position/pose、/mavros/local_position/odom、/mavros/local_position/velocity_local、/mavros/state、/tf、/tf_static、/clock（若使用仿真时钟）。图像/深度按实验需要另录，避免不必要的数据量。
+
+将两层指令yaw和实际yaw画在同一时间轴：
+- 若goal_pose先跳到0：规划/follower/mission航向策略触发。
+- 若goal_pose连续而setpoint_position/local跳到0：bridge状态分支触发。
+- 若两层指令均连续、实际机头却突变：再查MAVROS转换、PX4模式切换和估计器日志。
+角度显示需unwrap；+180与-180数值跨界本身不是物理旋转，不能把四元数q与-q当成不同朝向。
+
+本报告没有将源码级证据外推为已完成飞行验证。提供完整实际模型、版本和一次复现rosbag后，可进一步确定现场180°事件的唯一触发路径与各项缺陷的实际发生频率。

@@ -1,133 +1,114 @@
 #!/usr/bin/env python3
-"""trajectory_follower.py — High-frequency trajectory playback.
+"""Play absolute-time Path samples without mutating received messages.
 
-Subscribes to /uav/trajectory (nav_msgs/Path) and publishes
-/uav/goal_pose (PoseStamped) at ≥ 20 Hz by interpolating along the
-trajectory according to elapsed time.
-
-Params:
-  ~publish_rate  (float)  Output frequency in Hz (default 30.0).
+Path.header.stamp is trajectory start; each pose stamp is absolute sample time.
+This compatibility transport has no EGO goal acknowledgement; U05/U06 must
+validate the complete continuous trajectory/ownership interface before flight.
 """
-
-from typing import List, Optional
-
+import copy
+import threading
+import uuid
 import rospy
 from geometry_msgs.msg import PoseStamped, Point, Quaternion
 from nav_msgs.msg import Path as PathMsg
 from std_msgs.msg import Header
-
+from navigation_core.trajectory import Sample, TimedTrajectory, TrajectoryBuffer
+from navigation_core.yaw import YawPolicy, quaternion, quaternion_yaw
 
 class TrajectoryFollower:
-    """Interpolate a trajectory into a stream of position setpoints."""
-
-    def __init__(self) -> None:
+    def __init__(self):
         rospy.init_node("trajectory_follower")
+        rate = rospy.get_param("~publish_rate", 30.0)
+        if rate <= 0:
+            raise ValueError("publish_rate must be positive")
+        self._lock = threading.RLock()
+        self._buffer = TrajectoryBuffer()
+        self._epoch = uuid.uuid4().hex
+        self._generation = self._sequence = 0
+        self._buffer.begin("path-compat", self._generation, self._epoch)
+        self._yaw = None
+        self._yaw_last_time = None
+        self._yaw_rate = rospy.get_param("~yaw_rate_limit", .8)
+        self._traj = None
+        self._goal_pub = rospy.Publisher("/uav/goal_pose", PoseStamped, queue_size=10)
+        rospy.Subscriber("/uav/trajectory", PathMsg, self._on_traj, queue_size=1)
+        rospy.Subscriber("/mavros/local_position/pose", PoseStamped, self._on_pose, queue_size=1)
+        rospy.Timer(rospy.Duration(1.0/rate), self._tick)
 
-        # --- Params ---
-        rate_hz = rospy.get_param("~publish_rate", 30.0)
-
-        # --- State ---
-        self._traj: Optional[PathMsg] = None
-        self._traj_start_time: rospy.Time = rospy.Time(0)
-
-        # --- Subscribers ---
-        rospy.Subscriber(
-            "/uav/trajectory", PathMsg,
-            self._on_traj, queue_size=1,
-        )
-
-        # --- Publishers ---
-        self._goal_pub = rospy.Publisher(
-            "/uav/goal_pose", PoseStamped, queue_size=10,
-        )
-
-        # --- Timer ---
-        rospy.Timer(rospy.Duration(1.0 / rate_hz), self._tick)
-
-        rospy.loginfo("[follower] TrajectoryFollower started at %.1f Hz", rate_hz)
-
-    # ------------------------------------------------------------------
-    # Callbacks
-    # ------------------------------------------------------------------
-    def _on_traj(self, msg: PathMsg) -> None:
-        self._traj = msg
-        self._traj_start_time = rospy.Time.now()
-        total_s = self._traj_duration(msg)
-        rospy.loginfo(
-            "[follower] New trajectory: %d pts, %.2f s",
-            len(msg.poses), total_s,
-        )
-
-    # ------------------------------------------------------------------
-    # Timer: 30 Hz setpoint stream
-    # ------------------------------------------------------------------
-    def _tick(self, _event) -> None:
-        if self._traj is None or len(self._traj.poses) == 0:
-            # OFFBOARD requires continuous setpoint stream — even when
-            # there is no trajectory we must keep publishing.
-            rospy.logwarn_throttle(1.0, "[follower] No trajectory — holding position")
+    def _on_pose(self, msg):
+        q = msg.pose.orientation
+        try:
+            yaw = quaternion_yaw((q.x,q.y,q.z,q.w))
+        except ValueError:
             return
-
-        # Clamps instead of stopping so OFFBOARD never starves.
-        elapsed = max(0.0, (rospy.Time.now() - self._traj_start_time).to_sec())
-        total = self._traj_duration(self._traj)
-        if total <= 0:
-            sp = self._traj.poses[-1]
-        elif elapsed >= total:
-            sp = self._traj.poses[-1]
-        else:
-            sp = self._interpolate(self._traj, elapsed)
-
-        sp.header.stamp = rospy.Time.now()
-        sp.header.frame_id = self._traj.header.frame_id
-        self._goal_pub.publish(sp)
-
-    # ------------------------------------------------------------------
-    # Interpolation
-    # ------------------------------------------------------------------
-    @staticmethod
-    def _interpolate(traj: PathMsg, elapsed: float) -> PoseStamped:
-        """Linear interpolation along the trajectory by elapsed time.
-
-        Each PoseStamped.header.stamp stores t_from_start as a Duration,
-        so subtracting Time(0) yields the point's offset in seconds.
-        """
-        poses = traj.poses
-        times = [
-            (p.header.stamp - rospy.Time(0)).to_sec() for p in poses
-        ]
-
-        if elapsed <= times[0]:
-            return poses[0]
-
-        for i in range(1, len(poses)):
-            if elapsed <= times[i]:
-                t0, t1 = times[i - 1], times[i]
-                ratio = (elapsed - t0) / (t1 - t0) if t1 > t0 else 0.0
-
-                sp = PoseStamped()
-                sp.pose.position = Point(
-                    x=poses[i - 1].pose.position.x + ratio * (
-                        poses[i].pose.position.x - poses[i - 1].pose.position.x),
-                    y=poses[i - 1].pose.position.y + ratio * (
-                        poses[i].pose.position.y - poses[i - 1].pose.position.y),
-                    z=poses[i - 1].pose.position.z + ratio * (
-                        poses[i].pose.position.z - poses[i - 1].pose.position.z),
-                )
-                sp.pose.orientation = Quaternion(w=1.0)
-                return sp
-
-        return poses[-1]
+        with self._lock:
+            if self._yaw is None:
+                self._yaw = YawPolicy(yaw, self._yaw_rate)
 
     @staticmethod
-    def _traj_duration(traj: PathMsg) -> float:
-        if not traj.poses:
-            return 0.0
-        last = traj.poses[-1]
-        return (last.header.stamp - rospy.Time(0)).to_sec()
+    def _snapshot(path, sequence, generation, epoch):
+        start = path.header.stamp.to_sec()
+        points = []
+        for p in path.poses:
+            q = p.pose.orientation
+            points.append(Sample((p.pose.position.x,p.pose.position.y,p.pose.position.z),
+                (0.,0.,0.),quaternion_yaw((q.x,q.y,q.z,q.w)),
+                (p.header.stamp-path.header.stamp).to_sec()))
+            if p.header.frame_id not in ("",path.header.frame_id):
+                raise ValueError("mixed trajectory frames")
+        return TimedTrajectory("path-compat",generation,epoch,sequence,start,tuple(points),path.header.frame_id)
 
+    def _on_traj(self, msg):
+        with self._lock:
+            if not msg.poses:
+                self._generation += 1
+                self._buffer.begin("path-compat",self._generation,self._epoch)
+                self._traj = None
+                return
+            self._sequence += 1
+            try:
+                trajectory = self._snapshot(msg,self._sequence,self._generation,self._epoch)
+                if self._buffer.context is None:
+                    # A ROS clock reset requires a fresh message and playback epoch.
+                    self._epoch = uuid.uuid4().hex
+                    self._buffer.begin("path-compat",self._generation,self._epoch)
+                    trajectory = self._snapshot(msg,self._sequence,self._generation,self._epoch)
+                if not self._buffer.accept(trajectory,rospy.Time.now().to_sec()):
+                    rospy.logwarn("[follower] Rejected path: %s",self._buffer.reason)
+                    return
+            except (ValueError,TypeError) as exc:
+                rospy.logerr("[follower] Invalid timed path: %s",exc)
+                return
+            self._traj = copy.deepcopy(msg)
 
-# ==============================================================================
+    def _tick(self, _event):
+        with self._lock:
+            now = rospy.Time.now().to_sec()
+            sample = self._buffer.sample(now)
+            if sample is None or self._yaw is None:
+                return
+            dt = 0.0 if self._yaw_last_time is None else max(0.,now-self._yaw_last_time)
+            self._yaw_last_time = now
+            yaw = self._yaw.update(sample.yaw,dt)
+            pose = PoseStamped()
+            pose.header = Header(stamp=rospy.Time.from_sec(now),frame_id="map")
+            pose.pose.position = Point(*sample.position)
+            pose.pose.orientation = Quaternion(*quaternion(yaw))
+            self._goal_pub.publish(pose)
+
+    @staticmethod
+    def _interpolate(path, elapsed):
+        snapshot = TrajectoryFollower._snapshot(path,0,0,"interpolation")
+        sample = snapshot.sample(snapshot.start+elapsed)
+        pose = PoseStamped()
+        pose.pose.position = Point(*sample.position)
+        pose.pose.orientation = Quaternion(*quaternion(sample.yaw))
+        return pose
+
+    @staticmethod
+    def _traj_duration(path):
+        return (path.poses[-1].header.stamp-path.header.stamp).to_sec() if path.poses else 0.
+
 if __name__ == "__main__":
-    node = TrajectoryFollower()
+    TrajectoryFollower()
     rospy.spin()

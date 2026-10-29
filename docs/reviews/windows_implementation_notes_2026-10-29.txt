@@ -1,0 +1,34 @@
+Windows implementation evidence, 2026-10-29
+
+Scope: fix/navigation-stability. main is unchanged.
+Runtime: Python 3.12.14. Python 3.8 grammar is checked, but Python 3.8
+execution, ROS transport, EGO goal acknowledgement, MAVROS and flight
+remain pending Ubuntu U00-U11.
+
+Batch 1: W00-W04 foundations
+Before: 3 real-wrapper regressions failed:
+- EGO control point -1 used instead of spline start 0.
+- follower output x=0 instead of holding x=10.
+- planner quaternion yaw=0 instead of preserving pi.
+After: initial 19 offline cases passed, including independent polynomial
+B-spline oracles, original start-time preservation, 100-frame endpoint
+hold, shortest-angle yaw and Header.seq-independent data contracts.
+
+Path compatibility contract changes atomically at producer/consumer:
+Path.header.stamp = absolute start; pose.header.stamp = absolute sample.
+Do not mix a new follower with the old relative-time Path producer.
+Sampling is an approximation between published samples; continuous EGO
+stream forwarding, actual acceleration tracking and obstacle clearance
+are not established by this batch.
+
+The new lifecycle, arbiter, target and bridge cores are offline development
+components. Their ROS ownership/feedback wiring must pass Ubuntu gates
+before replacing the full flight chain.
+
+Use:
+python tools/run_offline_tests.py --log test-results/offline.txt
+or:
+python -m unittest discover -s tests/offline -p "test_*.py" -v
+
+Task completion and final batch results are recorded in the original
+windows_tasks_2026-10-29.txt checklist after the corresponding tests run.

@@ -5,9 +5,10 @@ Contract for all planner implementations.  See docs/ARCHITECTURE.md §4.2.
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, TYPE_CHECKING
 
-from geometry_msgs.msg import Point
+if TYPE_CHECKING:
+    from geometry_msgs.msg import Point
 
 
 @dataclass
@@ -37,7 +38,7 @@ class Trajectory:
     """
     points: List[TrajectoryPoint] = field(default_factory=list)
     frame_id: str = "map"
-    stamp_at_start: float = 0.0
+    stamp_at_start: Optional[float] = None
 
 
 class Planner(ABC):
@@ -48,7 +49,7 @@ class Planner(ABC):
     """
 
     @abstractmethod
-    def plan(self, start: Point, goal: Point) -> Optional[Trajectory]:
+    def plan(self, start: "Point", goal: "Point") -> Optional[Trajectory]:
         """Plan a trajectory from start to goal.
 
         Args:

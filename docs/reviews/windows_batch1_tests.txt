@@ -1,0 +1,59 @@
+UTC: 2026-10-29T08:31:46.268408+00:00
+Python: 3.12.14
+Platform: Windows-11-10.0.26200-SP0
+Source/test SHA256: 91fbd3f0aaecc50fe594dd72c25761a02eb9838d9c1a0f042881f261f59a0b11
+Scope: offline logic and ROS-shaped stand-ins; ROS/PX4/Gazebo not exercised.
+
+test_cancel_preempts_each_takeoff_phase (test_bridge_decisions.BridgeTests.test_cancel_preempts_each_takeoff_phase) ... ok
+test_direct_goal_offset_applied_once (test_bridge_decisions.BridgeTests.test_direct_goal_offset_applied_once) ... ok
+test_hover_anchor_and_yaw_are_latched (test_bridge_decisions.BridgeTests.test_hover_anchor_and_yaw_are_latched) ... ok
+test_invalid_frame_quaternion_stale_and_clock (test_bridge_decisions.BridgeTests.test_invalid_frame_quaternion_stale_and_clock) ... ok
+test_landing_requires_landed_and_disarmed (test_bridge_decisions.BridgeTests.test_landing_requires_landed_and_disarmed) ... ok
+test_no_airborne_takeoff_or_motor_stop (test_bridge_decisions.BridgeTests.test_no_airborne_takeoff_or_motor_stop) ... ok
+test_takeoff_requires_feedback_not_service_sent (test_bridge_decisions.BridgeTests.test_takeoff_requires_feedback_not_service_sent) ... ok
+test_timeout_holds_actual_not_takeoff_target (test_bridge_decisions.BridgeTests.test_timeout_holds_actual_not_takeoff_target) ... ok
+test_trajectory_not_shortened_and_explicit_resume (test_bridge_decisions.BridgeTests.test_trajectory_not_shortened_and_explicit_resume) ... ok
+test_bezier_independent_polynomial (test_bspline_math.BSplineTests.test_bezier_independent_polynomial) ... ok
+test_invalid (test_bspline_math.BSplineTests.test_invalid) ... ok
+test_nonuniform (test_bspline_math.BSplineTests.test_nonuniform) ... ok
+test_uniform_domain_and_velocity (test_bspline_math.BSplineTests.test_uniform_domain_and_velocity) ... ok
+test_invalid (test_contracts.ContractTests.test_invalid) ... ok
+test_mission_scopes_ids (test_contracts.ContractTests.test_mission_scopes_ids) ... ok
+test_roundtrip (test_contracts.ContractTests.test_roundtrip) ... ok
+test_cancel_and_safety_dominate_late_output (test_control_ownership.OwnershipTests.test_cancel_and_safety_dominate_late_output) ... ok
+test_hold_is_latched_and_resume_new_trajectory (test_control_ownership.OwnershipTests.test_hold_is_latched_and_resume_new_trajectory) ... ok
+test_no_pause_means_no_competing_hold (test_control_ownership.OwnershipTests.test_no_pause_means_no_competing_hold) ... ok
+test_busy_and_failed_are_terminal (test_detection_lifecycle.LifecycleTests.test_busy_and_failed_are_terminal) ... ok
+test_immediate_callback_after_registration (test_detection_lifecycle.LifecycleTests.test_immediate_callback_after_registration) ... ok
+test_old_task_and_duplicate (test_detection_lifecycle.LifecycleTests.test_old_task_and_duplicate) ... ok
+test_timeout_once_and_cancel (test_detection_lifecycle.LifecycleTests.test_timeout_once_and_cancel) ... ok
+test_wrong_target_age_and_future_do_not_consume (test_detection_lifecycle.LifecycleTests.test_wrong_target_age_and_future_do_not_consume) ... ok
+test_depth_units_invalid_and_input_immutable (test_perception_contracts.PerceptionTests.test_depth_units_invalid_and_input_immutable) ... ok
+test_explicit_coordinate_systems (test_perception_contracts.PerceptionTests.test_explicit_coordinate_systems) ... ok
+test_missing_multibox_not_found_invalid (test_perception_contracts.PerceptionTests.test_missing_multibox_not_found_invalid) ... ok
+test_snapshot_and_calibration (test_perception_contracts.PerceptionTests.test_snapshot_and_calibration) ... ok
+test_adapter_real_spline_domain (test_ros_trajectory_wrappers.RosTrajectoryTests.test_adapter_real_spline_domain) ... ok
+test_follower_endpoint_holds_without_cache_mutation (test_ros_trajectory_wrappers.RosTrajectoryTests.test_follower_endpoint_holds_without_cache_mutation) ... ok
+test_planner_preserves_yaw_and_absolute_time (test_ros_trajectory_wrappers.RosTrajectoryTests.test_planner_preserves_yaw_and_absolute_time) ... ok
+test_python38_grammar (test_smoke.SmokeTests.test_python38_grammar) ... ok
+test_transport_copies_and_changes_seq (test_smoke.SmokeTests.test_transport_copies_and_changes_seq) ... ok
+test_arrival_speed_dwell_and_clock_reset (test_target_and_goal.TargetTests.test_arrival_speed_dwell_and_clock_reset) ... ok
+test_bounded_search_pattern (test_target_and_goal.TargetTests.test_bounded_search_pattern) ... ok
+test_estimate_age_jump_and_deadband (test_target_and_goal.TargetTests.test_estimate_age_jump_and_deadband) ... ok
+test_ground_object_and_standoff (test_target_and_goal.TargetTests.test_ground_object_and_standoff) ... ok
+test_expired_and_bad_times (test_trajectory_execution.TrajectoryTests.test_expired_and_bad_times) ... ok
+test_future_switch_and_cancel (test_trajectory_execution.TrajectoryTests.test_future_switch_and_cancel) ... ok
+test_immutable_endpoint_hold (test_trajectory_execution.TrajectoryTests.test_immutable_endpoint_hold) ... ok
+test_late_and_reset (test_trajectory_execution.TrajectoryTests.test_late_and_reset) ... ok
+test_bounded_not_ready (test_wait_and_retry.WaitTests.test_bounded_not_ready) ... ok
+test_call_budget_time_and_count (test_wait_and_retry.WaitTests.test_call_budget_time_and_count) ... ok
+test_deadline_exact_cancel (test_wait_and_retry.WaitTests.test_deadline_exact_cancel) ... ok
+test_ready_retry_and_matching_completion (test_wait_and_retry.WaitTests.test_ready_retry_and_matching_completion) ... ok
+test_hold_pi (test_yaw_policy.YawTests.test_hold_pi) ... ok
+test_quaternion_sign_and_invalid (test_yaw_policy.YawTests.test_quaternion_sign_and_invalid) ... ok
+test_shortest_wrap_and_rate (test_yaw_policy.YawTests.test_shortest_wrap_and_rate) ... ok
+
+----------------------------------------------------------------------
+Ran 48 tests in 0.207s
+
+OK
