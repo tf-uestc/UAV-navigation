@@ -8,7 +8,7 @@ Windows 阶段修改任务与离线验收清单
 
 目标与边界
 
-现在先修复可由确定输入和模拟时钟证明的代码问题，形成一套不依赖ROS、Gazebo、PX4和真实API的回归测试。运行代码尚未开始修改；所有任务初始状态均为未开始。本清单中的测试目录、测试模块和命令是后续实现时的验收约定，当前仓库尚未提供这套测试。
+现在先修复可由确定输入和模拟时钟证明的代码问题，形成一套不依赖ROS、Gazebo、PX4和真实API的回归测试。截至2026-10-29，W00至W11的Windows离线部分已实施并实际验收。81项测试通过，10组事件回放已导出。勾选仅表示下列离线边界内完成；Ubuntu集成项未通过。代码保存在上列实施目录，不在旧的UAV-navigation-main压缩包目录。
 
 每项完成条件：有可复现输入、有明确预期、实际运行测试且保存结果。对已确认缺陷先保留“修前失败”的证据；新功能则使用独立的行为验收。不得仅检查源码包含某字符串或把预期结果直接写进Mock返回值。
 
@@ -16,13 +16,14 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 
 工作方式
 
-1. 按依赖顺序逐项实施，每个提交只覆盖一组可解释的修改和对应测试，提交说明记录“离线通过/待ROS验证”。本计划不执行commit、push或merge。
+1. 按依赖顺序逐项实施，每个提交只覆盖一组可解释的修改和对应测试，提交说明记录“离线通过/待ROS验证”。用户随后已授权分批commit、push；本次只提交fix/navigation-stability，不合并main。上传状态单独记录，不以本地commit代替远端成功。
 2. 优先小范围提取纯函数和决策核心；避免为测试而整体重写节点。新ROS消息和大范围发布拓扑切换留到Ubuntu编译通过后启用。
 3. 旧 setpoint_bridge.py、仿真启动脚本和 empty.world 暂不直接改写；先建立可测试的桥接决策逻辑，Ubuntu阶段再接入经验证的ROS包装/新节点，保留原入口用于对照。
 4. API计时使用单调墙钟，轨迹采样使用明确的ROS/仿真时间；时钟通过接口注入。禁止用等待周期代替请求截止时间。
-5. 统一入口拟定为：python -m unittest discover -s tests/offline -p "test_*.py" -v。命令须从新仓库根目录执行。
+5. 统一入口：python tools/run_offline_tests.py --log test-results/offline.txt（脚本可从任意工作目录用绝对路径调用）；也支持仓库根目录执行 python -m unittest discover -s tests/offline -p "test_*.py" -v。
 
-[ ] W00 建立可运行的离线测试与基线记录
+[x] W00 建立可运行的离线测试与基线记录
+实际验收：离线通过。test_smoke.py及统一测试入口通过；实际Python 3.12.14、NumPy 2.3.5；正式仓库从外部工作目录运行通过；新测试未被忽略，改动文本LF，git diff --check通过。
 优先级：P1。依赖：无。审查关联：26、28。
 修改范围：tests/offline、必要的小型fixtures、测试入口说明、.gitattributes和必要的测试依赖记录。
 任务：记录git提交/分支、Python实际版本；去掉测试中固定的Linux绝对路径；提供可控时钟、消息捕获、服务响应桩；四元数采用真实数学，桩不能吞掉关键语义。ROS桩仅存在于测试代码，不替换生产环境导入。小型tests必须能被Git跟踪；现有test/忽略规则不应吞掉新测试。
@@ -31,7 +32,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 验证边界：当前Windows解释器若不是3.8，语法兼容检查不能代替Ubuntu上Python3.8实际执行。
 建议证据：测试命令、退出码、解释器版本、git diff --stat。
 
-[ ] W01 明确任务、请求、目标与轨迹的接口及时间语义
+[x] W01 明确任务、请求、目标与轨迹的接口及时间语义
+实际验收：离线通过。test_contracts.py、test_detection_lifecycle.py、test_trajectory_execution.py通过；检测使用schema_version=1 JSON String，未新增原生ROS消息。业务字段与Header.seq独立；真实EGO端身份确认仍待U05。
 优先级：P1。依赖：W00。审查关联：08、19、22、23。
 修改范围：最少量纯Python数据结构/校验器、接口文档；可起草ROS消息定义，但暂不切换完整launch。
 任务：独立字段保存mission_id、request_id、goal_generation；轨迹保存planner_epoch、traj_id、start_time、order/knots/控制点。检测保存拍摄时间、完成时间、目标标识和失败原因。禁止依赖Header.seq表达业务ID。明确重启、任务切换和取消时哪些代次失效。
@@ -39,7 +41,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 通过标准：修改或覆盖Header.seq不改变业务请求匹配；不同任务即使request_id相同也不能互相匹配；无效/过期/不同代次输入有明确拒绝原因。
 验证边界：不能据此证明ROS生成消息或EGO已经携带这些字段；真实消息序列化及EGO目标确认留U02、U05。
 
-[ ] W02 正确实现B样条数学及合法性检查
+[x] W02 正确实现B样条数学及合法性检查
+实际验收：离线通过。test_bspline_math.py及test_ros_trajectory_wrappers.py通过；解析Bezier/均匀直线独立期望值，实际adapter保留起始时间与样条有效时域。
 优先级：P1。依赖：W00、W01。审查关联：01。
 修改范围：独立样条求值函数及实际转换逻辑；保留EGO order、knots与start_time，不再把控制点直接作为路径点或固定0.1秒。
 验证方法：python -m unittest discover -s tests/offline -p "test_bspline_math.py" -v。
@@ -47,7 +50,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 通过标准：独立解析样例位置误差不超过1e-8米；时域正确；直线样例x速度为1/0.6米每秒；非法阶数/节点数/乱序节点/NaN均拒绝；测试预期不得调用被测求值器自身生成。
 验证边界：碰撞自由、PX4跟踪质量及与实际EGO C++输出的逐时刻一致性留U05、U08。
 
-[ ] W03 修复轨迹时间戳污染并实现可验证的播放与更新规则
+[x] W03 修复轨迹时间戳污染并实现可验证的播放与更新规则
+实际验收：离线通过。test_trajectory_execution.py及实际follower包装测试通过；100帧末端保持、未来轨迹切换、缓存不变、取消/时钟重置后旧路径拒绝。兼容Path仍缺EGO目标身份，待U05。
 优先级：P1。依赖：W01、W02。审查关联：01、02、03、07、22。
 修改范围：trajectory_follower的缓存/发布逻辑和必要的纯执行核心；输入轨迹只读，发布创建独立消息。
 验证方法：python -m unittest discover -s tests/offline -p "test_trajectory_execution.py" -v。
@@ -55,7 +59,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 通过标准：所有输入对象和原始相对时间不变；不因消息接收时间而重新从头播放；正常结束不回放；时间重置后旧代次失效并进入明确hold/重新初始化状态；合法新轨迹与旧轨迹的处理可追溯。
 验证边界：连续Bspline是否真实抵达此核心、EGO暂停恢复初态是否正确留U05；不能用本项通过宣称实时避障已闭环。
 
-[ ] W04 统一航向策略与连续角度处理
+[x] W04 统一航向策略与连续角度处理
+实际验收：离线通过。test_yaw_policy.py及实际adapter/planner/follower包装测试通过；实际yaw初始化、最短转角、q/-q、零速度保持和逐拍限速。桥接实际机头行为仍待U07。
 优先级：P1。依赖：W00、W03。审查关联：05、06、14。
 修改范围：单一yaw生成/限速函数、轨迹转消息和插值时的yaw传递；hold入口锁存航向，不使用默认0覆盖。
 验证方法：python -m unittest discover -s tests/offline -p "test_yaw_policy.py" -v。
@@ -63,7 +68,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 通过标准：除显式搜索/朝目标命令外不主动归零；角度跨界不产生360度绕转；无效朝向不会发往下游。测试中的角速度参数只是验证上限算法，不宣称已完成飞行参数调优。
 验证边界：现场180度事件的唯一触发路径、机头实际响应和控制限值留U07、U10。
 
-[ ] W05 修复任务与检测请求关联、取消及迟到结果处理
+[x] W05 修复任务与检测请求关联、取消及迟到结果处理
+实际验收：离线通过。test_detection_lifecycle.py、test_mission_node.py、test_detector_node.py通过；先登记后发布、即时BUSY、任务A切B、重复/迟到/取消后结果均有回归。
 优先级：P1。依赖：W01。审查关联：08、09、19、23。
 修改范围：mission_manager和detector的请求登记/结果门控；先登记状态和ID再发送，关键状态由单一事件处理路径或短临界区更新。
 验证方法：python -m unittest discover -s tests/offline -p "test_detection_lifecycle.py" -v。
@@ -71,7 +77,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 通过标准：错误任务、旧代次和重复结果均不触发导航；匹配结果最多被接受一次；取消优先，旧结果不能重新激活任务；每个结果有接受/拒绝理由。
 验证边界：旧PointStamped接口与新业务字段的真实迁移/序列化必须在U02完成，不能保留两条互相矛盾的正式控制路径。
 
-[ ] W06 补齐等待超时、重试、就绪和调用预算决策
+[x] W06 补齐等待超时、重试、就绪和调用预算决策
+实际验收：离线通过。test_wait_and_retry.py、实际mission节点及跨模块超时回放通过；单调时钟截止、有限等待/重试/API预算；真实墙钟监督线程调度留U02。
 优先级：P1。依赖：W01、W05。审查关联：10、19、21、26、28。
 修改范围：WAIT_PLAN/WAIT_VLM状态、请求截止时间、有限重试、搜索总预算与失败原因；采样间隔和API等待上限分别配置。
 验证方法：python -m unittest discover -s tests/offline -p "test_wait_and_retry.py" -v。
@@ -79,7 +86,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 通过标准：所有等待均有终止条件；按配置有限重试，绝不无限忙循环；同一请求超时只计一次；预算达到后停止请求并发布明确终止状态；规划失败不直接触发未经避障的返回搜索中心动作。
 验证边界：真实ROS定时器调度、节点掉线和EGO地图新鲜度反馈留U02、U04、U06。
 
-[ ] W07 建立唯一控制所有者与完整停止/恢复决策
+[x] W07 建立唯一控制所有者与完整停止/恢复决策
+实际验收：离线通过。test_control_ownership.py和跨模块回放每拍所有者断言通过；pause=false不发竞争hold，取消后旧path拒绝。纯仲裁器尚未成为全链路唯一ROS发布入口，正式拓扑切换待U06。
 优先级：P1。依赖：W03、W04、W05、W06。审查关联：02、04、06、07、14、20、23。
 修改范围：可独立测试的控制仲裁/执行状态；任务层提交模式/目标/暂停/取消，执行层选择一条控制流。暂不直接切换完整ROS发布拓扑。
 验证方法：python -m unittest discover -s tests/offline -p "test_control_ownership.py" -v。
@@ -87,7 +95,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 通过标准：每个采样时刻最多一个有效控制输出；暂停/取消撤销旧轨迹执行权；安全动作优先；恢复需要新鲜状态和当前代次目标，不能依赖永远为空的pending_goal。
 验证边界：真正的受控制动、EGO取消及真实话题仅一个发布者留U05至U07；离线仲裁不能证明物理刹停。
 
-[ ] W08 分离物体估计、导航目标、到达条件及搜索目标生成
+[x] W08 分离物体估计、导航目标、到达条件及搜索目标生成
+实际验收：离线通过。test_target_and_goal.py及实际mission测试通过；物体原坐标和观察位姿分开，到达需新鲜速度/位姿及保持时间；持续飞行的小幅更新保持原路径；暂停后仍重规划以获得新鲜初态。有限搜索意图核心通过，实际搜索经EGO的接线留U08。
 优先级：P2。依赖：W01、W05、W07。审查关联：18、24、25、26。
 修改范围：最少量TargetEstimate/导航目标生成与门控函数；物体原坐标不被围栏裁剪篡改。搜索算法只生成目标意图，不直接等同飞行设定值。
 验证方法：python -m unittest discover -s tests/offline -p "test_target_and_goal.py" -v。
@@ -95,7 +104,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 通过标准：原始观测与导航目标可分别追踪；非法目标明确拒绝；小幅更新有重规划死区；不靠一次距离判断完成；搜索点遵守任务边界和预算。
 验证边界：导航位姿是否在空闲空间、可视性、目标是否同一物体及滤波阈值效果留U04、U08至U10。
 
-[ ] W09 明确bbox、深度、图像快照和历史TF的离线规则
+[x] W09 明确bbox、深度、图像快照和历史TF的离线规则
+实际验收：离线通过。test_perception_contracts.py及test_detector_node.py通过；明确pixel/normalized_1000协议，深度单位归一、快照/K校验、历史TF失败无目标；真实相机配准与模型输出仍待U03/U09。
 优先级：P2。依赖：W00、W01。审查关联：15、16、17、18。
 修改范围：qwen_vl_grounding解析/深度预处理纯函数及detector的观测校验；规定坐标协议与found=false格式，不按数值猜单位。历史TF不可得则无效，不静默换成当前TF。
 验证方法：python -m unittest discover -s tests/offline -p "test_perception_contracts.py" -v；小型固定数组/响应fixture，不调用模型API。
@@ -103,7 +113,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 通过标准：协议明确且结果可重复；深度统一到米；缺标定/不同步/过期观测拒绝；深度有效比例不被称为语义置信度。图像写入/读取采用一致快照策略。
 验证边界：message_filters真实配对、TF历史缓存、实际模型输出协议和支架中心背景误差留U03、U09。
 
-[ ] W10 建立可测试的非阻塞桥接决策与输入保护
+[x] W10 建立可测试的非阻塞桥接决策与输入保护
+实际验收：离线通过。test_bridge_decisions.py通过；非阻塞起飞/降落/停止决策、反馈确认、截止和输入门控。仅新增navigation_core/bridge.py，不替换旧setpoint_bridge.py；真实反馈/心跳服务待U07。
 优先级：P1。依赖：W04、W07。审查关联：04、13、14、21、27。
 修改范围：新增/提取纯桥接决策核心，保留旧bridge原文件作为对照；真实服务调用和新ROS包装留Ubuntu接入。
 验证方法：python -m unittest discover -s tests/offline -p "test_bridge_decisions.py" -v。
@@ -111,7 +122,8 @@ Windows通过只表示离线计算/控制决策通过。ROS消息生成、真实
 通过标准：决策tick无阻塞睡眠循环；状态转换以反馈为准；无效输入进入明确hold/失败策略；安全悬停、紧急降落与电机停转不是同一动作，测试不得用“任何异常立即disarm”替代设计。
 验证边界：PX4接受/拒绝命令、OFFBOARD连续心跳、真实降落与fail-safe留U07；纯逻辑通过并不准许真实飞行。
 
-[ ] W11 完成离线链路回放和第一阶段交付记录
+[x] W11 完成离线链路回放和第一阶段交付记录
+实际验收：离线通过。test_offline_pipeline.py通过；完整套件81项PASS，10组JSON事件轨迹已保存。回放使用理想反馈与ROS形状桩，未进行物理仿真或API调用。
 优先级：P1。依赖：W00至W10。审查关联：01至10、13至23、25至28中可离线部分。
 修改范围：tests/offline中的事件回放、小型日志fixture和验证记录模板；不新增真实API或ROS依赖。
 验证方法：运行统一unittest入口及 python -m unittest discover -s tests/offline -p "test_offline_pipeline.py" -v；至少回放正常接近、暂停检测后恢复、到达hold、切新任务、VLM超时/BUSY、规划超时、迟到轨迹、取消抢占、时钟重置九类事件。
@@ -131,3 +143,21 @@ W00 -> W01 -> W02 -> W03 -> W04；W05 -> W06；再W07 -> W08，W09可独立推�
 01 W02/W03+U05；02 W03/W07+U05；03 W03；04 W07/W10+U06；05 W04+U07/U10；06 W07+U06/U10；07 W03/W07+U05/U10；08 W01/W05+U02；09 W05+U02/U10；10 W06+U02。
 11 U04；12 U03；13 W10+U07；14 W07/W10+U07；15 W09+U03/U09；16 W09+U03/U09；17 W09+U09；18 W08/W09+U09/U10；19 W01/W05/W06+U02；20 W07+U06。
 21 W06/W10+U07/U10；22 W01/W03+U05；23 W05/W07+U02/U06；24 W08+U08；25 W08+U05/U08；26 W00/W06/W08+U00/U03/U04/U05；27 W10+U07；28 W00/W11+U00/U01/U11。
+
+实际交付与复现记录（2026-10-29）
+
+批次1：845432c16014a15d734c954f44f72404cd27da68；48项PASS；windows_batch1_tests.txt。
+批次2：f26746a5d11160b2a87e7847b7be7da23df1214e；81项PASS；windows_batch2_tests.txt。
+批次3：本清单、Ubuntu交接说明、最终验收记录；提交号见git log，文档不嵌入自身提交哈希。
+远端上传：等待首次Git Credential Manager登录；本地提交已保存，不标记远端成功。
+main基线保持238ae5047fd5c7bc658e00a6a9d7a378023dc1b5。
+
+最终生产/测试Python摘要：c0083845e5c871ec594ba0fc314ca20eee12fb439f07849287ac213b1695192f。
+正式仓库复现命令：
+python tools/run_offline_tests.py --log test-results/offline.txt
+python tools/run_offline_replay.py --output test-results/replay.json
+完整日志：windows_batch2_tests.txt；事件记录：windows_replay_traces_2026-10-29.json。
+回放关联的是本地兼容层代次，不构成真实EGO目标确认的证明。
+
+已保留3项实际节点修前失败证据：控制点误当样条、末端时间戳污染后回放、planner丢失yaw；见windows_implementation_notes_2026-10-29.txt。其他新增规则使用独立行为测试，不虚构旧版运行失败。
+本阶段未运行Ubuntu/Python3.8、catkin_make、ROS消息传输、MAVROS、PX4、Gazebo或真实VLM；U00至U11保持未完成。

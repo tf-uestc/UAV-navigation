@@ -32,3 +32,28 @@ python -m unittest discover -s tests/offline -p "test_*.py" -v
 
 Task completion and final batch results are recorded in the original
 windows_tasks_2026-10-29.txt checklist after the corresponding tests run.
+
+Batch 1 saved 48 cumulative tests at commit 845432c16014a15d734c954f44f72404cd27da68.
+Batch 2 saved 81 cumulative tests at commit f26746a5d11160b2a87e7847b7be7da23df1214e.
+The batch1 figure of 19 above describes the initial trajectory subset, not the final batch total.
+
+Batch 2 changes actual mission/detector/planner/follower wrappers in addition
+to pure cores. Managed detection uses one versioned JSON result topic;
+registration precedes publication; cancellation and late-result rejection
+are tested across real wrapper methods with test-only ROS-shaped stand-ins.
+A wall-clock supervisor services API deadlines independently of paused ROS
+simulation time. Its real ROS thread scheduling remains untested.
+Small refinements keep a live path only when pause=false. A paused vehicle
+replans from its new measured state even for a small object refinement.
+
+Current integration limits: the legacy bridge and ROS multi-publisher
+topology remain, EGO goal acknowledgement and continuous trajectory stream
+forwarding remain, and legacy search goals still need EGO routing. These
+are Ubuntu tasks, not completed flight behavior. New core modules are
+installed by the proposed catkin rules, but catkin itself was not run.
+The replay uses ideal feedback and straight test paths; it does not model
+PX4 dynamics, collisions, network threading, real TF or image registration.
+
+Final evidence: windows_batch2_tests.txt (Python 3.12.14, NumPy 2.3.5),
+windows_replay_traces_2026-10-29.json (10 scenarios), original Windows checklist
+with per-task evidence, and Ubuntu checklist with all native gates pending.
