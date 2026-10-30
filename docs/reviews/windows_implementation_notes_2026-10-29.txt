@@ -57,3 +57,12 @@ PX4 dynamics, collisions, network threading, real TF or image registration.
 Final evidence: windows_batch2_tests.txt (Python 3.12.14, NumPy 2.3.5),
 windows_replay_traces_2026-10-29.json (10 scenarios), original Windows checklist
 with per-task evidence, and Ubuntu checklist with all native gates pending.
+
+Upload verification, 2026-10-30:
+First GitHub authentication completed. Remote fix/navigation-stability was
+verified at b3d86a02ab9b3c225fe661a59f9f6bc81eece585, containing batches 1-3.
+Remote main remains 238ae5047fd5c7bc658e00a6a9d7a378023dc1b5.
+The current checkout passed 81 tests again, with the same source/test SHA256.
+See windows_upload_verification_2026-10-30.txt. This status update is a separate
+documentation commit; verify its final hash with git log and ls-remote.
+Ubuntu/native integration gates remain pending.

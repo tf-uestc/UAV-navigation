@@ -149,7 +149,7 @@ W00 -> W01 -> W02 -> W03 -> W04；W05 -> W06；再W07 -> W08，W09可独立推�
 批次1：845432c16014a15d734c954f44f72404cd27da68；48项PASS；windows_batch1_tests.txt。
 批次2：f26746a5d11160b2a87e7847b7be7da23df1214e；81项PASS；windows_batch2_tests.txt。
 批次3：本清单、Ubuntu交接说明、最终验收记录；提交号见git log，文档不嵌入自身提交哈希。
-远端上传：等待首次Git Credential Manager登录；本地提交已保存，不标记远端成功。
+远端上传：2026-10-30已完成首次登录并核验GitHub远端。批次1至3均已在fix/navigation-stability，核验时远端提交为b3d86a02ab9b3c225fe661a59f9f6bc81eece585；登录阻塞已解除。
 main基线保持238ae5047fd5c7bc658e00a6a9d7a378023dc1b5。
 
 最终生产/测试Python摘要：c0083845e5c871ec594ba0fc314ca20eee12fb439f07849287ac213b1695192f。
@@ -161,3 +161,11 @@ python tools/run_offline_replay.py --output test-results/replay.json
 
 已保留3项实际节点修前失败证据：控制点误当样条、末端时间戳污染后回放、planner丢失yaw；见windows_implementation_notes_2026-10-29.txt。其他新增规则使用独立行为测试，不虚构旧版运行失败。
 本阶段未运行Ubuntu/Python3.8、catkin_make、ROS消息传输、MAVROS、PX4、Gazebo或真实VLM；U00至U11保持未完成。
+
+上传收尾复核（2026-10-30）
+
+已通过git ls-remote核验修复分支，main仍为原基线；没有合并main。
+当日从仓库外目录重新执行tools/run_offline_tests.py：81项，0失败、0错误，退出码0。
+复核日志：windows_upload_verification_2026-10-30.txt；生产/测试Python摘要与批次2相同。
+本上传状态记录单独提交；最终提交号见git log及远端分支，不把文档自身提交哈希写入正文。
+W00至W11仅在既定Windows离线边界内完成；U00至U11仍未执行。
