@@ -1,5 +1,5 @@
-<!-- DO NOT EDIT: Generated from depth_camera.sdf.jinja -->
 <?xml version="1.0" ?>
+<!-- Project ROS RGB-D camera override; kept separate from PX4 generated models. -->
 <sdf version="1.5">
   <model name="depth_camera">
     <pose>0 0 0.035 0 0 0</pose>
@@ -49,12 +49,15 @@
           <depthImageTopicName>depth/image_raw</depthImageTopicName>
           <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
           <pointCloudTopicName>depth/points</pointCloudTopicName>
-          <frameName>camera_link</frameName>
-          <distortion_k1>0.0</distortion_k1>
-          <distortion_k2>0.0</distortion_k2>
-          <distortion_k3>0.0</distortion_k3>
-          <distortion_t1>0.0</distortion_t1>
-          <distortion_t2>0.0</distortion_t2>
+          <frameName>camera_link_optical</frameName>
+          <!-- Match OpenNI point-cloud projection: (width-1)/2, (height-1)/2. -->
+          <Cx>319.5</Cx>
+          <Cy>239.5</Cy>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
         </plugin></sensor>
     </link>
   </model>

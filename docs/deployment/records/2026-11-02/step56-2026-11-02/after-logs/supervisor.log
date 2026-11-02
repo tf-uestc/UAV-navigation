@@ -1,0 +1,7 @@
+GAZEBO_PLUGIN_PATH :/root/autodl-tmp/uav/PX4-Autopilot/build/px4_sitl_default/build_gazebo-classic
+GAZEBO_MODEL_PATH :/root/autodl-tmp/uav/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models
+LD_LIBRARY_PATH /root/autodl-tmp/uav/UAV-navigation/ws/devel/lib:/root/autodl-tmp/uav/ego-planner/devel/lib:/opt/ros/noetic/lib:/root/autodl-tmp/uav/PX4-Autopilot/build/px4_sitl_default/build_gazebo-classic
+[1;33mWarning [parser.cc:833][0m XML Attribute[version] in element[sdf] not defined in SDF, ignoring.
+[1;33mWarning [parser.cc:833][0m XML Attribute[version] in element[sdf] not defined in SDF, ignoring.
+[1;33mWarning [parser.cc:833][0m XML Attribute[version] in element[sdf] not defined in SDF, ignoring.
+PX4=47569 GAZEBO=47239 MAVROS=47570 GUI=47571

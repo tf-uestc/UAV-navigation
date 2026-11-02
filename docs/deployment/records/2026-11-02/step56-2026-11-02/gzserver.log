@@ -1,0 +1,56 @@
+Gazebo multi-robot simulator, version 11.15.1
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+[1;33m
+#     # ####### ####### ###  #####  #######
+##    # #     #    #     #  #     # #
+# #   # #     #    #     #  #       #
+#  #  # #     #    #     #  #       #####
+#   # # #     #    #     #  #       #
+#    ## #     #    #     #  #     # #
+#     # #######    #    ###  #####  #######
+
+This version of Gazebo, now called Gazebo classic, reaches end-of-life
+in January 2025. Users are highly encouraged to migrate to the new Gazebo
+using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration/)
+
+
+[0m[0m[INFO] [1793606647.360118731]: Finished loading Gazebo ROS API Plugin.[0m
+[0m[INFO] [1793606647.361211952]: waitForService: Service [/gazebo/set_physics_properties] has not been advertised, waiting...[0m
+[1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
+[0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
+[0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m172.17.0.5[0m[1;32m
+[0m[1;32m[0m[1;32m[Msg] [0m[1;32mLoading world file [[0m[1;32m/root/autodl-tmp/uav/UAV-navigation/simulation/px4_gazebo_classic/worlds/search_rescue.world[0m[1;32m][0m[1;32m
+[0m[1;32m[0m[0m[INFO] [1793606648.080515948]: waitForService: Service [/gazebo/set_physics_properties] is now available.[0m
+[0m[INFO] [1793606648.111784682, 0.012000000]: Physics dynamic reconfigure ready.[0m
+[1;33mWarning [parser.cc:833][0m XML Attribute[version] in element[sdf] not defined in SDF, ignoring.
+[1;33mWarning [parser.cc:833][0m XML Attribute[version] in element[sdf] not defined in SDF, ignoring.
+[1;33mWarning [parser.cc:833][0m XML Attribute[version] in element[sdf] not defined in SDF, ignoring.
+[1;33m[Wrn] [gazebo_gps_plugin.cpp:77] [0m[1;33m[gazebo_gps_plugin]: iris_depth_camera::gps0 using gps topic "[0m[1;33mgps0[0m[1;33m"
+[0m[1;33m[Wrn] [gazebo_gps_plugin.cpp:202] [0m[1;33m[gazebo_gps_plugin] Using default update rate of [0m[1;33m5[0m[1;33mhz 
+[0m[0m[INFO] [1793606650.104353438, 1.564000000]: Camera Plugin: The 'robotNamespace' param was empty[0m
+[0m[INFO] [1793606650.123156553, 1.564000000]: Camera Plugin (ns = iris_depth_camera)  <tf_prefix_>, set to ""[0m
+[1;32m[Msg] [0m[1;32mConnecting to PX4 SITL using [0m[1;32mTCP[0m[1;32m
+[0m[1;32m[Msg] [0m[1;32mLockstep is [0m[1;32menabled[0m[1;32m
+[0m[1;32m[Msg] [0m[1;32mSpeed factor set to: [0m[1;32m1[0m[1;32m
+[0m[1;32m[Msg] [0m[1;32mUsing MAVLink protocol v2.0
+[0m[1;31m[Err] [gazebo_ros_api_plugin.cpp:1121] [0m[1;31mdisabling rendering has not been implemented, rendering is always enabled
+[0mError in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+[1;33m[0m[1;36m[0m[1;31m[0m[1;32m[0m

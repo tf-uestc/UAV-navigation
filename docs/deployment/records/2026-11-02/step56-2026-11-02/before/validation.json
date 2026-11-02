@@ -1,0 +1,147 @@
+{
+  "phase": "before",
+  "topics": {
+    "rgb": {
+      "count": 101,
+      "frame": "camera_link",
+      "stamp_advance": 221.176,
+      "wall_rate_hz": 10.041575114988715
+    },
+    "rgb_info": {
+      "count": 89,
+      "frame": "camera_link",
+      "stamp_advance": 9.900000000000034,
+      "wall_rate_hz": 8.853437426718543
+    },
+    "depth": {
+      "count": 100,
+      "frame": "camera_link",
+      "stamp_advance": 9.900000000000034,
+      "wall_rate_hz": 9.96025456589337
+    },
+    "state": {
+      "count": 11,
+      "frame": "",
+      "stamp_advance": 10.0,
+      "wall_rate_hz": 1.0062825371377873
+    },
+    "depth_info": {
+      "count": 88,
+      "frame": "camera_link",
+      "stamp_advance": 9.800000000000011,
+      "wall_rate_hz": 8.876743240281458
+    },
+    "cloud": {
+      "count": 99,
+      "frame": "camera_link",
+      "stamp_advance": 9.800000000000011,
+      "wall_rate_hz": 10.001394297033302
+    }
+  },
+  "checks": {
+    "all_topics_received": true,
+    "exact_rgb_depth_info_cloud_sync": true,
+    "connected_unarmed": true,
+    "custom_scene": true,
+    "configured_gravity": false,
+    "optical_frame_headers": false,
+    "aligned_resolution_intrinsics": true,
+    "float_depth_meters": true,
+    "cloud_matches_optical_backprojection": false,
+    "camera_mount_matches_gazebo": true,
+    "historical_map_tf_available": true,
+    "red_target_visible": true,
+    "red_surface_matches_world": true,
+    "map_camera_chain_matches_truth": true
+  },
+  "exact_sync_count": 88,
+  "state": {
+    "connected": true,
+    "armed": false
+  },
+  "world_models": [
+    "ground_plane",
+    "landing_pad",
+    "red_tripod_A",
+    "blue_tripod_B",
+    "iris_depth_camera"
+  ],
+  "gravity": [
+    0.0,
+    0.0,
+    -9.8
+  ],
+  "image": {
+    "rgb_encoding": "rgb8",
+    "depth_encoding": "32FC1",
+    "width": 640,
+    "height": 480,
+    "K": [
+      343.15907310693535,
+      0.0,
+      320.5,
+      0.0,
+      343.15907310693535,
+      240.5,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "valid_depth_fraction": 0.195576171875,
+    "frames": [
+      "camera_link",
+      "camera_link",
+      "camera_link",
+      "camera_link",
+      "camera_link"
+    ]
+  },
+  "organized_cloud_projection_max_error_m": 0.1976289732150515,
+  "camera_mount_gazebo_m": [
+    0.09999245366565505,
+    -2.1217749594995955e-07,
+    8.943820288673316e-06
+  ],
+  "mount_translation_error_m": 1.1704020791662544e-05,
+  "optical_rotation_error_deg": 0.005808599043696806,
+  "base_from_optical_tf": [
+    [
+      -3.673205103305044e-06,
+      -3.6732051031940216e-06,
+      0.9999999999865077,
+      0.1
+    ],
+    [
+      -0.9999999999932538,
+      1.3492318373664602e-11,
+      -3.6732051031940216e-06,
+      0.0
+    ],
+    [
+      5.551115123125783e-17,
+      -0.9999999999932538,
+      -3.673205103305044e-06,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "red_target_pixels": 307,
+  "red_target": {
+    "depth_median_m": 4.843285083770752,
+    "world_surface_median": [
+      5.953627007013533,
+      1.509236854208298,
+      0.5860014287820569
+    ],
+    "cylinder_surface_error_median_m": 0.004391334484703281,
+    "cylinder_surface_error_p95_m": 0.007960274605671386,
+    "tf_vs_gazebo_projection_max_error_m": 0.0003962420381409308
+  },
+  "pass": false,
+  "scope": "Static ground validation only; no arming, movement, API calls or navigation integration."
+}

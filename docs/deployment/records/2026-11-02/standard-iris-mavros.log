@@ -1,0 +1,125 @@
+[0m[INFO] [1793604946.648566876]: FCU URL: udp://:14540@127.0.0.1:14580[0m
+[0m[INFO] [1793604946.650753251]: udp0: Bind address: 0.0.0.0:14540[0m
+[0m[INFO] [1793604946.650790503]: udp0: Remote address: 127.0.0.1:14580[0m
+[0m[INFO] [1793604946.650834039]: GCS bridge disabled[0m
+[0m[INFO] [1793604946.660576036]: Plugin 3dr_radio loaded[0m
+[0m[INFO] [1793604946.662095392]: Plugin 3dr_radio initialized[0m
+[0m[INFO] [1793604946.662135531]: Plugin actuator_control loaded[0m
+[0m[INFO] [1793604946.665498708]: Plugin actuator_control initialized[0m
+[0m[INFO] [1793604946.669313905]: Plugin adsb loaded[0m
+[0m[INFO] [1793604946.672901266]: Plugin adsb initialized[0m
+[0m[INFO] [1793604946.672970557]: Plugin altitude loaded[0m
+[0m[INFO] [1793604946.674085476]: Plugin altitude initialized[0m
+[0m[INFO] [1793604946.674131680]: Plugin cam_imu_sync loaded[0m
+[0m[INFO] [1793604946.674772585]: Plugin cam_imu_sync initialized[0m
+[0m[INFO] [1793604946.674819451]: Plugin camera loaded[0m
+[0m[INFO] [1793604946.675454839]: Plugin camera initialized[0m
+[0m[INFO] [1793604946.675500988]: Plugin cellular_status loaded[0m
+[0m[INFO] [1793604946.678147979]: Plugin cellular_status initialized[0m
+[0m[INFO] [1793604946.678206488]: Plugin command loaded[0m
+[0m[INFO] [1793604946.692772781]: Plugin command initialized[0m
+[0m[INFO] [1793604946.692841987]: Plugin companion_process_status loaded[0m
+[0m[INFO] [1793604946.697121610]: Plugin companion_process_status initialized[0m
+[0m[INFO] [1793604946.697182368]: Plugin debug_value loaded[0m
+[0m[INFO] [1793604946.704263184]: Plugin debug_value initialized[0m
+[0m[INFO] [1793604946.704290293]: Plugin distance_sensor blacklisted[0m
+[0m[INFO] [1793604946.704402002]: Plugin esc_status loaded[0m
+[0m[INFO] [1793604946.705862480]: Plugin esc_status initialized[0m
+[0m[INFO] [1793604946.705956222]: Plugin esc_telemetry loaded[0m
+[0m[INFO] [1793604946.706686585]: Plugin esc_telemetry initialized[0m
+[0m[INFO] [1793604946.706798377]: Plugin fake_gps loaded[0m
+[0m[INFO] [1793604946.724705093]: Plugin fake_gps initialized[0m
+[0m[INFO] [1793604946.724958470]: Plugin ftp loaded[0m
+[0m[INFO] [1793604946.732158069]: Plugin ftp initialized[0m
+[0m[INFO] [1793604946.732321315]: Plugin geofence loaded[0m
+[0m[INFO] [1793604946.735679053]: Plugin geofence initialized[0m
+[0m[INFO] [1793604946.735820434]: Plugin global_position loaded[0m
+[0m[INFO] [1793604946.753100181]: Plugin global_position initialized[0m
+[0m[INFO] [1793604946.753292502]: Plugin gps_input loaded[0m
+[0m[INFO] [1793604946.756174905]: Plugin gps_input initialized[0m
+[0m[INFO] [1793604946.756338095]: Plugin gps_rtk loaded[0m
+[0m[INFO] [1793604946.759439217]: Plugin gps_rtk initialized[0m
+[0m[INFO] [1793604946.759587941]: Plugin gps_status loaded[0m
+[0m[INFO] [1793604946.762010949]: Plugin gps_status initialized[0m
+[0m[INFO] [1793604946.762177166]: Plugin guided_target loaded[0m
+[0m[INFO] [1793604946.767175415]: Plugin guided_target initialized[0m
+[0m[INFO] [1793604946.767385007]: Plugin hil loaded[0m
+[0m[INFO] [1793604946.781538406]: Plugin hil initialized[0m
+[0m[INFO] [1793604946.781755567]: Plugin home_position loaded[0m
+[0m[INFO] [1793604946.785617215]: Plugin home_position initialized[0m
+[0m[INFO] [1793604946.785802773]: Plugin imu loaded[0m
+[0m[INFO] [1793604946.793446355]: Plugin imu initialized[0m
+[0m[INFO] [1793604946.793629018]: Plugin landing_target loaded[0m
+[0m[INFO] [1793604946.808847113]: Plugin landing_target initialized[0m
+[0m[INFO] [1793604946.808947548]: Plugin local_position loaded[0m
+[0m[INFO] [1793604946.814868895]: Plugin local_position initialized[0m
+[0m[INFO] [1793604946.814949048]: Plugin log_transfer loaded[0m
+[0m[INFO] [1793604946.817872515]: Plugin log_transfer initialized[0m
+[0m[INFO] [1793604946.817939078]: Plugin mag_calibration_status loaded[0m
+[0m[INFO] [1793604946.818919414]: Plugin mag_calibration_status initialized[0m
+[0m[INFO] [1793604946.818996149]: Plugin manual_control loaded[0m
+[0m[INFO] [1793604946.821429289]: Plug[33m[WARN] [1793604946.829518914]: Could not retrive negate_measured_roll parameter value, using default (0)[0m
+[33m[WARN] [1793604946.829855085]: Could not retrive negate_measured_pitch parameter value, using default (0)[0m
+[33m[WARN] [1793604946.830186191]: Could not retrive negate_measured_yaw parameter value, using default (0)[0m
+[33m[WARN] [1793604946.831324198]: Could not retrive debounce_s parameter value, using default (4.000000)[0m
+[33m[WARN] [1793604946.831629167]: Could not retrive err_threshold_deg parameter value, using default (10.000000)[0m
+in manual_control initialized[0m
+[0m[INFO] [1793604946.821530591]: Plugin mocap_pose_estimate loaded[0m
+[0m[INFO] [1793604946.824618889]: Plugin mocap_pose_estimate initialized[0m
+[0m[INFO] [1793604946.824707158]: Plugin mount_control loaded[0m
+[0m[INFO] [1793604946.831664193]: Plugin mount_control initialized[0m
+[0m[INFO] [1793604946.831774499]: Plugin nav_controller_output loaded[0m
+[0m[INFO] [1793604946.832226635]: Plugin nav_controller_output initialized[0m
+[0m[INFO] [1793604946.832327357]: Plugin obstacle_distance loaded[0m
+[0m[INFO] [1793604946.834488068]: Plugin obstacle_distance initialized[0m
+[0m[INFO] [1793604946.834576214]: Plugin odom loaded[0m
+[0m[INFO] [1793604946.838613396]: Plugin odom initialized[0m
+[0m[INFO] [1793604946.838690969]: Plugin onboard_computer_status loaded[0m
+[0m[INFO] [1793604946.840566897]: Plugin onboard_computer_status initialized[0m
+[0m[INFO] [1793604946.840657938]: Plugin param loaded[0m
+[0m[INFO] [1793604946.842851145]: Plugin param initialized[0m
+[0m[INFO] [1793604946.842938684]: Plugin play_tune loaded[0m
+[0m[INFO] [1793604946.845119199]: Plugin play_tune initialized[0m
+[0m[INFO] [1793604946.845365604]: Plugin px4flow loaded[0m
+[0m[INFO] [1793604946.852014560]: Plugin px4flow initialized[0m
+[0m[INFO] [1793604946.852250577]: Plugin rallypoint loaded[0m
+[0m[INFO] [1793604946.854943981]: Plugin rallypoint initialized[0m
+[0m[INFO] [1793604946.854993010]: Plugin rangefinder blacklisted[0m
+[0m[INFO] [1793604946.855176125]: Plugin rc_io loaded[0m
+[0m[INFO] [1793604946.858223186]: Plugin rc_io initialized[0m
+[0m[INFO] [1793604946.858271839]: Plugin safety_area blacklisted[0m
+[0m[INFO] [1793604946.858463619]: Plugin setpoint_accel loaded[0m
+[0m[INFO] [1793604946.861113510]: Plugin setpoint_accel initialized[0m
+[0m[INFO] [1793604946.861322160]: Plugin setpoint_attitude loaded[0m
+[0m[INFO] [1793604946.869634469]: Plugin setpoint_attitude initialized[0m
+[0m[INFO] [1793604946.869838591]: Plugin setpoint_position loaded[0m
+[0m[INFO] [1793604946.883040707]: Plugin setpoint_position initialized[0m
+[0m[INFO] [1793604946.883230263]: Plugin setpoint_raw loaded[0m
+[0m[INFO] [1793604946.890634951]: Plugin setpoint_raw initialized[0m
+[0m[INFO] [1793604946.890842149]: Plugin setpoint_trajectory loaded[0m
+[0m[INFO] [1793604946.894542438]: Plugin setpoint_trajectory initialized[0m
+[0m[INFO] [1793604946.894759801]: Plugin setpoint_velocity loaded[0m
+[0m[INFO] [1793604946.900286980]: Plugin setpoint_velocity initialized[0m
+[0m[INFO] [1793604946.900542174]: Plugin sys_status loaded[0m
+[0m[INFO] [1793604946.909851612]: Plugin sys_status initialized[0m
+[0m[INFO] [1793604946.910069206]: Plugin sys_time loaded[0m
+[0m[INFO] [1793604946.914522830]: TM: Timesync mode: MAVLINK[0m
+[0m[INFO] [1793604946.914903206]: TM: Not publishing sim time[0m
+[0m[INFO] [1793604946.915919439]: Plugin sys_time initialized[0m
+[0m[INFO] [1793604946.916093457]: Plugin terrain loaded[0m
+[0m[INFO] [1793604946.916676314]: Plugin terrain initialized[0m
+[0m[INFO] [1793604946.916845732]: Plugin trajectory loaded[0m
+[0m[INFO] [1793604946.921202721]: Plugin trajectory initialized[0m
+[0m[INFO] [1793604946.921366586]: Plugin tunnel loaded[0m
+[0m[INFO] [1793604946.923801211]: Plugin tunnel initialized[0m
+[0m[INFO] [1793604946.923984390]: Plugin vfr_hud loaded[0m
+[0m[INFO] [1793604946.924535516]: Plugin vfr_hud initialized[0m
+[0m[INFO] [1793604946.924589173]: Plugin vibration blacklisted[0m
+[0m[INFO] [1793604946.924822141]: Plugin vision_pose_estimate loaded[0m
+[0m[INFO] [1793604946.931253042]: Plugin vision_pose_estimate initialized[0m
+[0m[INFO] [1793604946.931426421]: Plugin vision_speed_estimate loaded[0m
+[0m[INFO] [1793604946.934428777]: Plugin vision_speed_estimate initialized[0m
+[0m[INFO] [1793604946.934657724]: Plugin waypoint loaded[0m
+[0m[INFO] [1793604946.938452611]: Plugin waypoint initialized[0m
+[0m[INFO] [1793604946.938501293]: Plugin wheel_odometry blacklisted[0m
+[0m[INFO] [1793604946.938708647]: Plugin wind_estimation [33m[WARN] [1793604947.964959567]: CMD: Unexpected command 520, result 0[0m

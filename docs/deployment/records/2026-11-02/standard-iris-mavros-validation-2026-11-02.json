@@ -1,0 +1,37 @@
+{
+  "state": {
+    "count": 13,
+    "rate_hz": 1.0697421642198917,
+    "connected": true,
+    "armed": false,
+    "mode": "AUTO.LOITER",
+    "all_connected": true
+  },
+  "pose": {
+    "count": 360,
+    "rate_hz": 29.986386962191627,
+    "quaternion_norm_min": 0.9999999559055849,
+    "quaternion_norm_max": 1.0000000946840761,
+    "stamp_advance": 11.970210552215576,
+    "frame": "map",
+    "last_position": [
+      0.005995815619826317,
+      0.01924958825111389,
+      -0.20455364882946014
+    ]
+  },
+  "imu": {
+    "count": 600,
+    "rate_hz": 49.98359040134146,
+    "quaternion_norm_min": 0.9999999558881726,
+    "quaternion_norm_max": 1.0000001021519662,
+    "stamp_advance": 11.982097625732422,
+    "frame": "base_link",
+    "last_acceleration": [
+      -0.1666422039270401,
+      -0.062181148678063146,
+      9.812071800231934
+    ]
+  },
+  "pass": true
+}

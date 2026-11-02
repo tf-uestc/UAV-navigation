@@ -7,7 +7,7 @@
     - 障碍物 A: 红杆+黑色三叉支架, 位于 (6, 1.5), 无人机前方约5m
     - 障碍物 B: 蓝杆+黑色三叉支架, 位于 (6.5, -2), 无人机前方偏右约5.5m
   
-  无人机由 PX4 SITL 外部 spawn 注入到 (-1.01, -0.98, 0.83)
+  无人机由 PX4 SITL 外部 spawn 注入到 (1.01, 0.98, 0.83)
   世界文件不写无人机模型
   
   光照: 高 ambient + 强太阳光 + 顶部补光, 消除 Gazebo 原生暗场
@@ -18,8 +18,9 @@
   <world name="default">
 
     <!-- ========== 物理引擎 (与 PX4 SITL 兼容) ========== -->
+    <gravity>0 0 -9.8066</gravity>
+    <magnetic_field>6.0e-6 2.3e-5 -4.2e-5</magnetic_field>
     <physics name="default_physics" default="0" type="ode">
-      <gravity>0 0 -9.8066</gravity>
       <ode>
         <solver>
           <type>quick</type>
@@ -37,7 +38,6 @@
       <max_step_size>0.004</max_step_size>
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>250</real_time_update_rate>
-      <magnetic_field>6.0e-6 2.3e-5 -4.2e-5</magnetic_field>
     </physics>
 
     <!-- ========== 场景全局光照 (关键: 消除默认黑场) ========== -->

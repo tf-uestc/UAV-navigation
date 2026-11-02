@@ -6,3 +6,5 @@
 *.yaml text eol=lf
 *.msg text eol=lf
 *.txt text eol=lf
+
+docs/deployment/records/** -text -diff

@@ -1,0 +1,163 @@
+{
+  "phase": "after",
+  "topics": {
+    "rgb_info": {
+      "count": 89,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.804000000000002,
+      "wall_rate_hz": 8.988858112990673,
+      "stamps_monotonic": true
+    },
+    "depth_info": {
+      "count": 89,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.804000000000002,
+      "wall_rate_hz": 8.988964691144048,
+      "stamps_monotonic": true
+    },
+    "rgb": {
+      "count": 100,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.900000000000002,
+      "wall_rate_hz": 9.997435419777887,
+      "stamps_monotonic": true
+    },
+    "depth": {
+      "count": 100,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.900000000000002,
+      "wall_rate_hz": 9.997531402096232,
+      "stamps_monotonic": true
+    },
+    "cloud": {
+      "count": 100,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.900000000000002,
+      "wall_rate_hz": 10.000533038996382,
+      "stamps_monotonic": true
+    },
+    "state": {
+      "count": 10,
+      "frame": "",
+      "stamp_advance": 9.0,
+      "wall_rate_hz": 0.9994299747874684,
+      "stamps_monotonic": true
+    }
+  },
+  "checks": {
+    "all_topics_received": true,
+    "exact_rgb_depth_info_cloud_sync": true,
+    "steady_state_timestamps_advance": true,
+    "connected_unarmed": true,
+    "custom_scene": true,
+    "configured_gravity": true,
+    "optical_frame_headers": true,
+    "aligned_resolution_intrinsics": true,
+    "float_depth_meters": true,
+    "cloud_matches_optical_backprojection": true,
+    "camera_mount_matches_gazebo": true,
+    "historical_map_tf_available": true,
+    "red_target_visible": true,
+    "red_surface_matches_world": true,
+    "map_camera_chain_matches_truth": true
+  },
+  "exact_sync_count": 89,
+  "first_message_age_s": {
+    "state": 0.4640000000000022,
+    "rgb_info": 0.10400000000000276,
+    "depth_info": 0.10400000000000276,
+    "rgb": 0.10800000000000054,
+    "cloud": 0.11200000000000188,
+    "depth": 0.1440000000000019
+  },
+  "warmup_wall_s": 2,
+  "state": {
+    "connected": true,
+    "armed": false
+  },
+  "world_models": [
+    "ground_plane",
+    "landing_pad",
+    "red_tripod_A",
+    "blue_tripod_B",
+    "iris_depth_camera"
+  ],
+  "gravity": [
+    0.0,
+    0.0,
+    -9.8066
+  ],
+  "image": {
+    "rgb_encoding": "rgb8",
+    "depth_encoding": "32FC1",
+    "width": 640,
+    "height": 480,
+    "K": [
+      343.15907310693535,
+      0.0,
+      319.5,
+      0.0,
+      343.15907310693535,
+      239.5,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "valid_depth_fraction": 0.19405924479166667,
+    "frames": [
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical"
+    ]
+  },
+  "organized_cloud_projection_max_error_m": 1.6130598313341468e-06,
+  "camera_mount_gazebo_m": [
+    0.09999460115232175,
+    -7.272295790419475e-07,
+    8.176215086784821e-06
+  ],
+  "mount_translation_error_m": 9.824811054618527e-06,
+  "optical_rotation_error_deg": 0.0051401073502401725,
+  "base_from_optical_tf": [
+    [
+      -2.220446049250313e-16,
+      0.0,
+      1.0000000000000002,
+      0.1
+    ],
+    [
+      -1.0000000000000002,
+      -2.220446049250313e-16,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0000000000000002,
+      -2.220446049250313e-16,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "red_target_pixels": 308,
+  "red_target": {
+    "depth_median_m": 4.843317985534668,
+    "world_surface_median": [
+      5.953635182824638,
+      1.4951296810705377,
+      0.5718449508979662
+    ],
+    "cylinder_surface_error_median_m": 0.00019666025467351966,
+    "cylinder_surface_error_p95_m": 0.0002607252018232954,
+    "tf_vs_gazebo_projection_max_error_m": 0.00031820440182065926
+  },
+  "pass": true,
+  "scope": "Static ground validation only; no arming, movement, API calls or navigation integration."
+}

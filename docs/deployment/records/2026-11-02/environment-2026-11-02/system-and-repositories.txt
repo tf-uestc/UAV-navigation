@@ -1,0 +1,31 @@
+2026-11-02T15:37:30+08:00
+NAME="Ubuntu"
+VERSION="20.04.4 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.4 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+
+cgroup memory and cpu
+32212254720
+1000000 100000
+NVIDIA GeForce RTX 3080 Ti, 595.71.05, 12288 MiB
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          30G  4.1G   26G  14% /
+/dev/nvme0n1     50G  3.9G   47G   8% /root/autodl-tmp
+REPOSITORY UAV-navigation
+d9a74ac8aac6dadb95a7d1d5a9b1024cc7aeed8a docs: record verified branch upload and final offline checks
+## fix/navigation-stability...origin/fix/navigation-stability
+REPOSITORY ego-planner
+bfda51284c8c1b476043255a8145ef925a3778a5 Update README.md
+## uav-integration
+ M src/CMakeLists.txt
+REPOSITORY PX4-Autopilot
+b8c541dd7277ed735139d7d1bfb829d61fbe29fb TiltrotorEffectiveness: limit thrust axis tilt to z effectiveness scaling
+## uav-sitl

@@ -1,0 +1,18 @@
+[INFO] [1793606816.620038, 167.844000]: [tf_healthcheck] Waiting for TF tree...
+[INFO] [1793606816.720962, 167.948000]: [tf_healthcheck]  ✓ map → base_link
+[INFO] [1793606816.723180, 167.948000]: [tf_healthcheck]  ✓ base_link → camera_link
+[INFO] [1793606816.724944, 167.952000]: [tf_healthcheck]  ✓ base_link → camera_link_optical
+[INFO] [1793606816.726525, 167.952000]: [tf_healthcheck]  ✓ map → camera_link_optical
+[INFO] [1793606816.728036, 167.952000]: [tf_healthcheck] TF tree OK — all 4 transforms ready
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/UAV-navigation/ws/devel/lib/uav_vln_bringup/tf_healthcheck.py", line 15, in <module>
+    exec(compile(fh.read(), python_script, 'exec'), context)
+  File "/root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/tf_healthcheck.py", line 55, in <module>
+    main()
+  File "/root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/tf_healthcheck.py", line 51, in main
+    rate.sleep()
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/timer.py", line 103, in sleep
+    sleep(self._remaining(curr_time))
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/timer.py", line 165, in sleep
+    raise rospy.exceptions.ROSInterruptException("ROS shutdown request")
+rospy.exceptions.ROSInterruptException: ROS shutdown request

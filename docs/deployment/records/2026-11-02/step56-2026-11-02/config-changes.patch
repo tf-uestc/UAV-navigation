@@ -1,0 +1,83 @@
+diff --git a/simulation/px4_gazebo_classic/models/depth_camera/depth_camera.sdf b/simulation/px4_gazebo_classic/models/depth_camera/depth_camera.sdf
+index b2b5ed9..654bb02 100644
+--- a/simulation/px4_gazebo_classic/models/depth_camera/depth_camera.sdf
++++ b/simulation/px4_gazebo_classic/models/depth_camera/depth_camera.sdf
+@@ -1,5 +1,5 @@
+-<!-- DO NOT EDIT: Generated from depth_camera.sdf.jinja -->
+ <?xml version="1.0" ?>
++<!-- Project ROS RGB-D camera override; kept separate from PX4 generated models. -->
+ <sdf version="1.5">
+   <model name="depth_camera">
+     <pose>0 0 0.035 0 0 0</pose>
+@@ -49,12 +49,15 @@
+           <depthImageTopicName>depth/image_raw</depthImageTopicName>
+           <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+           <pointCloudTopicName>depth/points</pointCloudTopicName>
+-          <frameName>camera_link</frameName>
+-          <distortion_k1>0.0</distortion_k1>
+-          <distortion_k2>0.0</distortion_k2>
+-          <distortion_k3>0.0</distortion_k3>
+-          <distortion_t1>0.0</distortion_t1>
+-          <distortion_t2>0.0</distortion_t2>
++          <frameName>camera_link_optical</frameName>
++          <!-- Match OpenNI point-cloud projection: (width-1)/2, (height-1)/2. -->
++          <Cx>319.5</Cx>
++          <Cy>239.5</Cy>
++          <distortionK1>0.0</distortionK1>
++          <distortionK2>0.0</distortionK2>
++          <distortionK3>0.0</distortionK3>
++          <distortionT1>0.0</distortionT1>
++          <distortionT2>0.0</distortionT2>
+         </plugin></sensor>
+     </link>
+   </model>
+diff --git a/simulation/px4_gazebo_classic/worlds/search_rescue.world b/simulation/px4_gazebo_classic/worlds/search_rescue.world
+index e3d7eba..62a780f 100644
+--- a/simulation/px4_gazebo_classic/worlds/search_rescue.world
++++ b/simulation/px4_gazebo_classic/worlds/search_rescue.world
+@@ -7,7 +7,7 @@
+     - 障碍物 A: 红杆+黑色三叉支架, 位于 (6, 1.5), 无人机前方约5m
+     - 障碍物 B: 蓝杆+黑色三叉支架, 位于 (6.5, -2), 无人机前方偏右约5.5m
+   
+-  无人机由 PX4 SITL 外部 spawn 注入到 (-1.01, -0.98, 0.83)
++  无人机由 PX4 SITL 外部 spawn 注入到 (1.01, 0.98, 0.83)
+   世界文件不写无人机模型
+   
+   光照: 高 ambient + 强太阳光 + 顶部补光, 消除 Gazebo 原生暗场
+@@ -18,8 +18,9 @@
+   <world name="default">
+ 
+     <!-- ========== 物理引擎 (与 PX4 SITL 兼容) ========== -->
++    <gravity>0 0 -9.8066</gravity>
++    <magnetic_field>6.0e-6 2.3e-5 -4.2e-5</magnetic_field>
+     <physics name="default_physics" default="0" type="ode">
+-      <gravity>0 0 -9.8066</gravity>
+       <ode>
+         <solver>
+           <type>quick</type>
+@@ -37,7 +38,6 @@
+       <max_step_size>0.004</max_step_size>
+       <real_time_factor>1</real_time_factor>
+       <real_time_update_rate>250</real_time_update_rate>
+-      <magnetic_field>6.0e-6 2.3e-5 -4.2e-5</magnetic_field>
+     </physics>
+ 
+     <!-- ========== 场景全局光照 (关键: 消除默认黑场) ========== -->
+diff --git a/ws/src/uav_vln_bringup/launch/mavros_px4_sitl.launch b/ws/src/uav_vln_bringup/launch/mavros_px4_sitl.launch
+index fefb4a2..777f93b 100644
+--- a/ws/src/uav_vln_bringup/launch/mavros_px4_sitl.launch
++++ b/ws/src/uav_vln_bringup/launch/mavros_px4_sitl.launch
+@@ -1,5 +1,5 @@
+ <launch>
+-  <arg name="fcu_url" default="udp://:14540@127.0.0.1:14557" />
++  <arg name="fcu_url" default="udp://:14540@127.0.0.1:14580" />
+   <arg name="gcs_url" default="" />
+ 
+   <include file="$(find mavros)/launch/px4.launch">
+@@ -25,5 +25,5 @@
+ 
+   <!-- camera_link → camera_link_optical: ROS 光学系标准旋转（FLU→RDF） -->
+   <node pkg="tf2_ros" type="static_transform_publisher" name="cam_optical_tf"
+-        args="0 0 0 -1.5708 0 -1.5708 camera_link camera_link_optical"/>
++        args="0 0 0 -0.5 0.5 -0.5 0.5 camera_link camera_link_optical"/>
+ </launch>

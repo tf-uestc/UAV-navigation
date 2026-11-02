@@ -1,0 +1,25 @@
+Gazebo multi-robot simulator, version 11.15.1
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+[1;33m
+#     # ####### ####### ###  #####  #######
+##    # #     #    #     #  #     # #
+# #   # #     #    #     #  #       #
+#  #  # #     #    #     #  #       #####
+#   # # #     #    #     #  #       #
+#    ## #     #    #     #  #     # #
+#     # #######    #    ###  #####  #######
+
+This version of Gazebo, now called Gazebo classic, reaches end-of-life
+in January 2025. Users are highly encouraged to migrate to the new Gazebo
+using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration/)
+
+
+[0m[1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
+[0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
+[0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m172.17.0.5[0m[1;32m
+[0m[1;32m[0m[1;33m[Wrn] [GuiIface.cc:114] [0m[1;33mQStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'[0m[1;33m
+[0m[1;33m[0m[1;33m[Wrn] [ModelDatabase.cc:213] [0m[1;33mUnable to connect to model database using [[0m[1;33m//database.config[0m[1;33m]. Only locally installed models will be available.
+[0m[1;33m[0m[1;36m[0m[1;31m[0m[1;32m[0m
