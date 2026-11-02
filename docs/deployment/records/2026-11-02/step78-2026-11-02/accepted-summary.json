@@ -1,0 +1,23 @@
+{
+  "lifecycle-devel-wall-pass": {
+    "passed": true,
+    "count": 13,
+    "failed": []
+  },
+  "lifecycle-install-rostest-accepted": {
+    "passed": true,
+    "count": 14,
+    "failed": []
+  },
+  "ego-install-verified": {
+    "passed": true,
+    "count": 13,
+    "failed": []
+  },
+  "ego-devel-release": {
+    "passed": true,
+    "count": 13,
+    "failed": []
+  },
+  "ego_bundle_sha256": "03e019b48f63cd0e60d4f709f98b290b073232cb9ad4ae8b6e929a9d3e7313ea"
+}

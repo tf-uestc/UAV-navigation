@@ -1,0 +1,150 @@
+Updating d9a74ac..b4b4423
+Fast-forward
+ .gitattributes                                     |   2 +
+ docs/deployment/environment_2026-11-02.md          | 111 ++++++++++++
+ .../environment-2026-11-02/apt-packages.tsv        | Bin 0 -> 60018 bytes
+ .../ego-catkin-toplevel.patch                      | Bin 0 -> 304 bytes
+ .../environment-2026-11-02/offline-py38-freeze.txt | Bin 0 -> 14 bytes
+ .../environment-2026-11-02/px4-constraints.txt     | Bin 0 -> 36 bytes
+ .../environment-2026-11-02/px4-py38-freeze.txt     | Bin 0 -> 600 bytes
+ .../environment-2026-11-02/px4-requirements.txt    | Bin 0 -> 323 bytes
+ .../environment-2026-11-02/px4-submodules.txt      | Bin 0 -> 3167 bytes
+ .../system-and-repositories.txt                    | Bin 0 -> 1115 bytes
+ .../2026-11-02/gazebo-classic-plugins-resume.log   | Bin 0 -> 2382 bytes
+ .../standard-iris-desktop-2026-11-02.png           | Bin 0 -> 705865 bytes
+ .../records/2026-11-02/standard-iris-gui.log       | Bin 0 -> 1500 bytes
+ ...standard-iris-mavros-validation-2026-11-02.json | Bin 0 -> 863 bytes
+ .../records/2026-11-02/standard-iris-mavros.log    | Bin 0 -> 8842 bytes
+ .../records/2026-11-02/standard-iris-sitl.log      | Bin 0 -> 4704 bytes
+ .../2026-11-02/start_standard_iris_2026-11-02.sh   | Bin 0 -> 438 bytes
+ .../step56-2026-11-02/after-logs/gzclient.log      | Bin 0 -> 1291 bytes
+ .../step56-2026-11-02/after-logs/gzserver.log      | Bin 0 -> 2787 bytes
+ .../step56-2026-11-02/after-logs/mavros.log        | Bin 0 -> 9423 bytes
+ .../step56-2026-11-02/after-logs/px4.log           | Bin 0 -> 2044 bytes
+ .../step56-2026-11-02/after-logs/roscore.log       | Bin
+ .../step56-2026-11-02/after-logs/supervisor.log    | Bin 0 -> 777 bytes
+ .../after-logs/tf-healthcheck.log                  | Bin 0 -> 1339 bytes
+ .../step56-2026-11-02/after/depth-meters.npy       | Bin 0 -> 1228928 bytes
+ .../step56-2026-11-02/after/depth-preview.png      | Bin 0 -> 5858 bytes
+ .../2026-11-02/step56-2026-11-02/after/rgb.png     | Bin 0 -> 13420 bytes
+ .../step56-2026-11-02/after/validation.json        | Bin 0 -> 3931 bytes
+ .../step56-2026-11-02/before-logs/gzclient.log     | Bin 0 -> 1335 bytes
+ .../step56-2026-11-02/before-logs/gzserver.log     | Bin 0 -> 4507 bytes
+ .../step56-2026-11-02/before-logs/mavros.log       | Bin 0 -> 20430 bytes
+ .../step56-2026-11-02/before-logs/px4.log          | Bin 0 -> 2118 bytes
+ .../step56-2026-11-02/before-logs/roscore.log      | Bin 0 -> 893 bytes
+ .../step56-2026-11-02/before-logs/supervisor.log   | Bin 0 -> 777 bytes
+ .../step56-2026-11-02/before/depth-meters.npy      | Bin 0 -> 1228928 bytes
+ .../step56-2026-11-02/before/depth-preview.png     | Bin 0 -> 5911 bytes
+ .../2026-11-02/step56-2026-11-02/before/rgb.png    | Bin 0 -> 13450 bytes
+ .../step56-2026-11-02/before/validation.json       | Bin 0 -> 3390 bytes
+ .../step56-2026-11-02/clean-start-supervisor.log   | Bin 0 -> 850 bytes
+ .../clean-start-validation/depth-meters.npy        | Bin 0 -> 1228928 bytes
+ .../clean-start-validation/depth-preview.png       | Bin 0 -> 5764 bytes
+ .../clean-start-validation/rgb.png                 | Bin 0 -> 13376 bytes
+ .../clean-start-validation/validation.json         | Bin 0 -> 3889 bytes
+ .../step56-2026-11-02/clean-start/gzclient.log     | Bin 0 -> 1291 bytes
+ .../step56-2026-11-02/clean-start/gzserver.log     | Bin 0 -> 2787 bytes
+ .../step56-2026-11-02/clean-start/mavros.log       | Bin 0 -> 8983 bytes
+ .../step56-2026-11-02/clean-start/px4.log          | Bin 0 -> 1977 bytes
+ .../step56-2026-11-02/clean-start/roscore.log      | Bin
+ .../step56-2026-11-02/clean-start/supervisor.pid   | Bin 0 -> 6 bytes
+ .../step56-2026-11-02/config-changes.patch         | Bin 0 -> 3896 bytes
+ .../2026-11-02/step56-2026-11-02/gzclient.log      | Bin 0 -> 1335 bytes
+ .../2026-11-02/step56-2026-11-02/gzserver.log      | Bin 0 -> 3887 bytes
+ .../step56-2026-11-02/launch_project_rgbd.sh       | Bin 0 -> 3098 bytes
+ .../2026-11-02/step56-2026-11-02/mavros.log        | Bin 0 -> 19729 bytes
+ .../step56-2026-11-02/offline-regression.txt       | Bin 0 -> 7050 bytes
+ .../step56-2026-11-02/project-desktop.png          | Bin 0 -> 115757 bytes
+ .../records/2026-11-02/step56-2026-11-02/px4.log   | Bin 0 -> 2073 bytes
+ .../step56-2026-11-02/repository-state.txt         | Bin 0 -> 269 bytes
+ .../2026-11-02/step56-2026-11-02/rgb-before.png    | Bin 0 -> 13419 bytes
+ .../2026-11-02/step56-2026-11-02/roscore.log       | Bin 0 -> 893 bytes
+ .../models/depth_camera/depth_camera.sdf           | Bin 0 -> 2204 bytes
+ .../px4_gazebo_classic/worlds/search_rescue.world  | Bin 0 -> 12372 bytes
+ .../uav_vln_bringup/launch/mavros_px4_sitl.launch  | Bin 0 -> 1574 bytes
+ .../step56-2026-11-02/source-sha256.json           | Bin 0 -> 627 bytes
+ .../2026-11-02/step56-2026-11-02/supervisor.log    | Bin 0 -> 777 bytes
+ .../2026-11-02/step56-2026-11-02/supervisor.pid    | Bin 0 -> 6 bytes
+ .../step56-2026-11-02/tf-healthcheck.log           | Bin 0 -> 1339 bytes
+ .../step56-2026-11-02/validate_project_rgbd.py     | Bin 0 -> 10324 bytes
+ docs/deployment/rgbd_validation_2026-11-02.md      |  82 +++++++++
+ docs/reviews/ubuntu_tasks_2026-10-29.txt           |  19 ++-
+ ...0\266\346\256\265\346\200\273\347\273\223.docx" | Bin 0 -> 40771 bytes
+ .../models/depth_camera/depth_camera.sdf           |  17 +-
+ .../px4_gazebo_classic/worlds/search_rescue.world  |   6 +-
+ tools/deployment/launch_project_rgbd.sh            |  75 ++++++++
+ tools/deployment/validate_project_rgbd.py          | 189 +++++++++++++++++++++
+ .../uav_vln_bringup/launch/mavros_px4_sitl.launch  |   4 +-
+ 76 files changed, 492 insertions(+), 13 deletions(-)
+ create mode 100644 docs/deployment/environment_2026-11-02.md
+ create mode 100644 docs/deployment/records/2026-11-02/environment-2026-11-02/apt-packages.tsv
+ create mode 100644 docs/deployment/records/2026-11-02/environment-2026-11-02/ego-catkin-toplevel.patch
+ create mode 100644 docs/deployment/records/2026-11-02/environment-2026-11-02/offline-py38-freeze.txt
+ create mode 100644 docs/deployment/records/2026-11-02/environment-2026-11-02/px4-constraints.txt
+ create mode 100644 docs/deployment/records/2026-11-02/environment-2026-11-02/px4-py38-freeze.txt
+ create mode 100644 docs/deployment/records/2026-11-02/environment-2026-11-02/px4-requirements.txt
+ create mode 100644 docs/deployment/records/2026-11-02/environment-2026-11-02/px4-submodules.txt
+ create mode 100644 docs/deployment/records/2026-11-02/environment-2026-11-02/system-and-repositories.txt
+ create mode 100644 docs/deployment/records/2026-11-02/gazebo-classic-plugins-resume.log
+ create mode 100644 docs/deployment/records/2026-11-02/standard-iris-desktop-2026-11-02.png
+ create mode 100644 docs/deployment/records/2026-11-02/standard-iris-gui.log
+ create mode 100644 docs/deployment/records/2026-11-02/standard-iris-mavros-validation-2026-11-02.json
+ create mode 100644 docs/deployment/records/2026-11-02/standard-iris-mavros.log
+ create mode 100644 docs/deployment/records/2026-11-02/standard-iris-sitl.log
+ create mode 100644 docs/deployment/records/2026-11-02/start_standard_iris_2026-11-02.sh
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/gzclient.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/gzserver.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/mavros.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/px4.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/roscore.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/supervisor.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/tf-healthcheck.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after/depth-meters.npy
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after/depth-preview.png
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after/rgb.png
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/after/validation.json
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/gzclient.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/gzserver.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/mavros.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/px4.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/roscore.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/supervisor.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/before/depth-meters.npy
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/before/depth-preview.png
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/before/rgb.png
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/before/validation.json
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start-supervisor.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start-validation/depth-meters.npy
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start-validation/depth-preview.png
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start-validation/rgb.png
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start-validation/validation.json
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/gzclient.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/gzserver.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/mavros.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/px4.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/roscore.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/supervisor.pid
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/config-changes.patch
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/gzclient.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/gzserver.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/launch_project_rgbd.sh
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/mavros.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/offline-regression.txt
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/project-desktop.png
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/px4.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/repository-state.txt
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/rgb-before.png
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/roscore.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/source-before/simulation/px4_gazebo_classic/models/depth_camera/depth_camera.sdf
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/source-before/simulation/px4_gazebo_classic/worlds/search_rescue.world
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/source-before/ws/src/uav_vln_bringup/launch/mavros_px4_sitl.launch
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/source-sha256.json
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/supervisor.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/supervisor.pid
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/tf-healthcheck.log
+ create mode 100644 docs/deployment/records/2026-11-02/step56-2026-11-02/validate_project_rgbd.py
+ create mode 100644 docs/deployment/rgbd_validation_2026-11-02.md
+ create mode 100644 "docs/\351\230\266\346\256\265\346\200\247\346\200\273\347\273\223/\351\230\266\346\256\265\346\200\273\347\273\223.docx"
+ create mode 100644 tools/deployment/launch_project_rgbd.sh
+ create mode 100644 tools/deployment/validate_project_rgbd.py

@@ -1,0 +1,32 @@
+[INFO] [1793612630.072054]: [mission] MissionManager initialized (state=IDLE)
+[INFO] [1793612630.160438]: [mission] State command: HOVER
+[INFO] [1793612630.161935]: [mission] State: IDLE -> HOVER
+[INFO] [1793612630.162918]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793612630.261214]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793612630.263552]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793612630.265285]: [mission] Search thread started
+[INFO] [1793612630.265498]: [mission] Started search thread
+[INFO] [1793612630.268893]: [mission] Entered SEARCHING (target=slow_restart)
+[INFO] [1793612630.269815]: [mission] State command: HOVER
+[INFO] [1793612630.271234]: [mission] State: SEARCHING -> HOVER
+[INFO] [1793612630.272631]: [mission] Exited SEARCHING
+[INFO] [1793612630.274245]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793612630.368285]: [mission] Search thread exiting
+[INFO] [1793612638.271242]: [mission] State command: HOVER
+[INFO] [1793612638.422198]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793612638.424893]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793612638.426849]: [mission] Search thread started
+[INFO] [1793612638.427185]: [mission] Started search thread
+[INFO] [1793612638.429677]: [mission] Entered SEARCHING (target=busy_test)
+[INFO] [1793612640.431343]: [mission] Yaw sweep round 1/3
+[INFO] [1793612640.434487]: [mission] Yaw sweep   0 deg
+[INFO] [1793612642.039717]: [mission] Yaw sweep  45 deg
+[INFO] [1793612642.177447]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793612642.178078]: [mission] Rejected result: unsolicited
+[INFO] [1793612643.650350]: [mission] Yaw sweep -45 deg
+[INFO] [1793612643.653285]: [mission] Yaw sweep  90 deg
+[INFO] [1793612643.658597]: [mission] Yaw sweep -90 deg
+[INFO] [1793612643.660943]: [mission] Yaw sweep 135 deg
+[INFO] [1793612643.663078]: [mission] Yaw sweep -135 deg
+[INFO] [1793612643.665189]: [mission] Yaw sweep 180 deg
+[INFO] [1793612643.667208]: [mission] Search thread exiting

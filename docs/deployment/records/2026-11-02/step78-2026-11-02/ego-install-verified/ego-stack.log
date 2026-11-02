@@ -1,0 +1,311 @@
+hit: 0.619039
+miss: -0.619039
+min log: -1.99243
+max: 2.19722
+thresh log: 1.38629
+[FSM]: state: INIT
+wait for goal.
+[FSM]: state: INIT
+wait for goal.
+[FSM]: state: INIT
+wait for goal.
+[MANAGED_GOAL]: from INIT to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------0
+start: 0 0 2, 0 0 0
+goal:  3 1.8 1.5, 0 0 0
+[32miter(+1)=16,time(ms)=0.144,total_t(ms)=0.145,cost=0.036
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.000813[0m,optimize:0.000381,refine:0.000432
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[MANAGED_STOP]: from EXEC_TRAJ to WAIT_TARGET
+[MANAGED_GOAL]: from WAIT_TARGET to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------1
+start: 0 0 2, 0 0 0
+goal:  3 1.8   2, 0 0 0
+[32miter(+1)=14,time(ms)=0.062,total_t(ms)=0.062,cost=0.038
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.000404[0m,optimize:0.000177,refine:0.000226
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[MANAGED_STOP]: from EXEC_TRAJ to WAIT_TARGET
+[FSM]: state: WAIT_TARGET
+wait for goal.
+[MANAGED_GOAL]: from WAIT_TARGET to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------2
+start: 0 0 2, 0 0 0
+goal:  3 1.8 2.2, 0 0 0
+[32miter(+1)=15,time(ms)=0.065,total_t(ms)=0.066,cost=0.037
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.000469[0m,optimize:0.000197,refine:0.000272
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[MANAGED_STOP]: from EXEC_TRAJ to WAIT_TARGET
+[MANAGED_GOAL]: from WAIT_TARGET to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------3
+start: 0 0 2, 0 0 0
+goal:4 0 2, 0 0 0
+[32miter(+1)=31,time(ms)=0.330,total_t(ms)=0.331,cost=0.188
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.0018[0m,optimize:0.0013,refine:0.00048
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[MANAGED_STOP]: from EXEC_TRAJ to WAIT_TARGET
+[FSM]: state: WAIT_TARGET
+wait for goal.
+[MANAGED_GOAL]: from WAIT_TARGET to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------4
+start: 0 0 2, 0 0 0
+goal:  6 2.5   2, 0 0 0
+[32miter(+1)=26,time(ms)=0.408,keep optimizing
+[0m[32miter(+1)=29,time(ms)=0.462,total_t(ms)=0.980,cost=0.065
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.00256[0m,optimize:0.00139,refine:0.00117
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[FSM]: state: EXEC_TRAJ
+[FSM]: state: EXEC_TRAJ
+[FSM]: state: EXEC_TRAJ
+[FSM]: from EXEC_TRAJ to REPLAN_TRAJ
+
+[rebo replan]: -------------------------------------5
+start:  1.32 0.726     2,     0.799     0.455 -9.59e-15
+goal:  6 2.5   2, 0 0 0
+[32miter(+1)=27,time(ms)=0.255,total_t(ms)=0.256,cost=0.054
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.00114[0m,optimize:0.000482,refine:0.00066
+final_plan_success=1
+[FSM]: from REPLAN_TRAJ to EXEC_TRAJ
+[FSM]: state: EXEC_TRAJ
+[FSM]: state: EXEC_TRAJ
+[FSM]: from EXEC_TRAJ to REPLAN_TRAJ
+
+[rebo replan]: -------------------------------------6
+start: 2.65 1.34    2,    0.575    0.203 2.06e-09
+goal:  6 2.5   2, 0 0 0
+[32miter(+1)=20,time(ms)=0.133,total_t(ms)=0.134,cost=0.055
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.000579[0m,optimize:0.000288,refine:0.000291
+final_plan_success=1
+[FSM]: from REPLAN_TRAJ to EXEC_TRAJ
+[MANAGED_STOP]: from EXEC_TRAJ to WAIT_TARGET
+[FSM]: state: WAIT_TARGET
+wait for goal.
+[MANAGED_GOAL]: from WAIT_TARGET to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------7
+start: 0 0 2, 0 0 0
+goal:  6 2.5   2, 0 0 0
+[32miter(+1)=26,time(ms)=0.417,total_t(ms)=0.418,cost=0.050
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.00205[0m,optimize:0.000773,refine:0.00128
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[FSM]: state: EXEC_TRAJ
+
+[rebo replan]: -------------------------------------8
+start:  0.199 0.0333      2,    0.444   0.0825 5.34e-15
+goal:  6 2.5   2, 0 0 0
+[32miter(+1)=25,time(ms)=0.165,total_t(ms)=0.166,cost=0.137
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.0025[0m,optimize:0.002,refine:0.0005
+final_plan_success=1
+[SAFETY]: from EXEC_TRAJ to EXEC_TRAJ
+[MANAGED_STOP]: from EXEC_TRAJ to WAIT_TARGET
+[FSM]: state: WAIT_TARGET
+wait for goal.
+[MANAGED_GOAL]: from WAIT_TARGET to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------9
+start: 0 0 2, 0 0 0
+goal:  4 1.5   2, 0 0 0
+iter=5,time(ms)=0.718,rebound.
+[32miter(+1)=50,time(ms)=0.609,total_t(ms)=1.391,cost=0.103
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.0023[0m,optimize:0.0016,refine:0.00065
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[MANAGED_STOP]: from EXEC_TRAJ to WAIT_TARGET
+[FSM]: state: WAIT_TARGET
+wait for goal.
+[MANAGED_GOAL]: from WAIT_TARGET to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------10
+start: -0.4 -0.5  1.8, 0 0 0
+goal:  3 1.8 2.2, 0 0 0
+[32miter(+1)=17,time(ms)=0.164,total_t(ms)=0.165,cost=0.025
+[0mfirst_optimize_step_success=1
+total time:[42m0.000411[0m,optimize:0.000404,refine:7.03e-06
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[MANAGED_STOP]: from EXEC_TRAJ to WAIT_TARGET
+[FSM]: state: WAIT_TARGET
+wait for goal.
+[MANAGED_GOAL]: from WAIT_TARGET to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------11
+start: 0 0 2, 0 0 0
+goal:  4 1.5   2, 0 0 0
+iter=5,time(ms)=0.179,rebound.
+iter=8,time(ms)=0.14,rebound.
+[32miter(+1)=30,time(ms)=0.331,total_t(ms)=0.675,cost=0.351
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.0015[0m,optimize:0.00091,refine:0.00056
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[MANAGED_STOP]: from EXEC_TRAJ to WAIT_TARGET
+[MANAGED_STOP]: from WAIT_TARGET to WAIT_TARGET
+[FSM]: state: WAIT_TARGET
+wait for goal.
+[MANAGED_GOAL]: from WAIT_TARGET to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------12
+start: 0 0 2, 0 0 0
+goal:  4 1.5   2, 0 0 0
+iter=5,time(ms)=0.178,rebound.
+iter=8,time(ms)=0.14,rebound.
+[32miter(+1)=30,time(ms)=0.338,total_t(ms)=0.678,cost=0.351
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.0015[0m,optimize:0.00092,refine:0.00057
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[31m[ego_planner_node-1] process has died [pid 63908, exit code -15, cmd /root/autodl-tmp/uav/ego-planner/install/lib/ego_planner/ego_planner_node /odom_world:=/mavros/local_position/odom /grid_map/depth:=/uav/planning/depth /grid_map/pose:=/uav/planning/camera_pose __name:=ego_planner_node __log:=/root/.ros/log/4013da0e-d69f-11f1-babc-0242ac110005/ego_planner_node-1.log].
+log file: /root/.ros/log/4013da0e-d69f-11f1-babc-0242ac110005/ego_planner_node-1*.log[0m
+... logging to /root/.ros/log/4013da0e-d69f-11f1-babc-0242ac110005/roslaunch-autodl-container-aq0cz0qjsr-1ada114f-63756.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/planner_verified.launch
+[1mstarted roslaunch server http://127.0.0.1:38581/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /ego_planner_node/bspline/limit_acc: 0.8
+ * /ego_planner_node/bspline/limit_ratio: 1.1
+ * /ego_planner_node/bspline/limit_vel: 0.8
+ * /ego_planner_node/fsm/emergency_time_: 1.0
+ * /ego_planner_node/fsm/flight_type: 1
+ * /ego_planner_node/fsm/managed_control: True
+ * /ego_planner_node/fsm/odom_velocity_in_body: True
+ * /ego_planner_node/fsm/planning_horizen_time: 3.0
+ * /ego_planner_node/fsm/planning_horizon: 7.5
+ * /ego_planner_node/fsm/thresh_no_replan: 2.0
+ * /ego_planner_node/fsm/thresh_replan: 1.5
+ * /ego_planner_node/fsm/waypoint0_x: -15.0
+ * /ego_planner_node/fsm/waypoint0_y: 0.0
+ * /ego_planner_node/fsm/waypoint0_z: 1.0
+ * /ego_planner_node/fsm/waypoint1_x: 0.0
+ * /ego_planner_node/fsm/waypoint1_y: 15.0
+ * /ego_planner_node/fsm/waypoint1_z: 1.0
+ * /ego_planner_node/fsm/waypoint2_x: 15.0
+ * /ego_planner_node/fsm/waypoint2_y: 0.0
+ * /ego_planner_node/fsm/waypoint2_z: 1.0
+ * /ego_planner_node/fsm/waypoint3_x: 0.0
+ * /ego_planner_node/fsm/waypoint3_y: -15.0
+ * /ego_planner_node/fsm/waypoint3_z: 1.0
+ * /ego_planner_node/fsm/waypoint4_x: -15.0
+ * /ego_planner_node/fsm/waypoint4_y: 0.0
+ * /ego_planner_node/fsm/waypoint4_z: 1.0
+ * /ego_planner_node/fsm/waypoint_num: 5
+ * /ego_planner_node/grid_map/cx: 319.5
+ * /ego_planner_node/grid_map/cy: 239.5
+ * /ego_planner_node/grid_map/depth_filter_margin: 1
+ * /ego_planner_node/grid_map/depth_filter_maxdist: 5.0
+ * /ego_planner_node/grid_map/depth_filter_mindist: 0.2
+ * /ego_planner_node/grid_map/depth_filter_tolerance: 0.15
+ * /ego_planner_node/grid_map/enable_independent_cloud: False
+ * /ego_planner_node/grid_map/frame_id: map
+ * /ego_planner_node/grid_map/fx: 343.15907310693535
+ * /ego_planner_node/grid_map/fy: 343.15907310693535
+ * /ego_planner_node/grid_map/ground_height: -0.01
+ * /ego_planner_node/grid_map/k_depth_scaling_factor: 1000.0
+ * /ego_planner_node/grid_map/local_map_margin: 30
+ * /ego_planner_node/grid_map/local_update_range_x: 5.5
+ * /ego_planner_node/grid_map/local_update_range_y: 5.5
+ * /ego_planner_node/grid_map/local_update_range_z: 4.5
+ * /ego_planner_node/grid_map/map_size_x: 40.0
+ * /ego_planner_node/grid_map/map_size_y: 40.0
+ * /ego_planner_node/grid_map/map_size_z: 3.0
+ * /ego_planner_node/grid_map/max_ray_length: 4.5
+ * /ego_planner_node/grid_map/min_ray_length: 0.1
+ * /ego_planner_node/grid_map/obstacles_inflation: 0.099
+ * /ego_planner_node/grid_map/p_hit: 0.65
+ * /ego_planner_node/grid_map/p_max: 0.9
+ * /ego_planner_node/grid_map/p_min: 0.12
+ * /ego_planner_node/grid_map/p_miss: 0.35
+ * /ego_planner_node/grid_map/p_occ: 0.8
+ * /ego_planner_node/grid_map/pose_type: 1
+ * /ego_planner_node/grid_map/resolution: 0.1
+ * /ego_planner_node/grid_map/show_occ_time: False
+ * /ego_planner_node/grid_map/skip_pixel: 2
+ * /ego_planner_node/grid_map/use_depth_filter: True
+ * /ego_planner_node/grid_map/virtual_ceil_height: 2.5
+ * /ego_planner_node/grid_map/visualization_truncate_height: 2.4
+ * /ego_planner_node/manager/control_points_distance: 0.4
+ * /ego_planner_node/manager/feasibility_tolerance: 0.05
+ * /ego_planner_node/manager/max_acc: 0.8
+ * /ego_planner_node/manager/max_jerk: 4.0
+ * /ego_planner_node/manager/max_vel: 0.8
+ * /ego_planner_node/manager/planning_horizon: 7.5
+ * /ego_planner_node/optimization/dist0: 0.5
+ * /ego_planner_node/optimization/lambda_collision: 0.5
+ * /ego_planner_node/optimization/lambda_feasibility: 0.1
+ * /ego_planner_node/optimization/lambda_fitness: 1.0
+ * /ego_planner_node/optimization/lambda_smooth: 1.0
+ * /ego_planner_node/optimization/max_acc: 0.8
+ * /ego_planner_node/optimization/max_vel: 0.8
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+
+NODES
+  /
+    ego_planner_node (ego_planner/ego_planner_node)
+    managed_planner (uav_vln_bringup/managed_planner_node.py)
+
+[1mROS_MASTER_URI=http://127.0.0.1:11313[0m
+]2;/root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/planner_verified.launch http://127.0.0.1:11313
+[1mprocess[ego_planner_node-1]: started with pid [63908][0m
+[1mprocess[managed_planner-2]: started with pid [63909][0m
+[managed_planner-2] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

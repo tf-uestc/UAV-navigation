@@ -57,3 +57,12 @@ debug.md
 test-results/
 .env.*
 !.env.example
+
+# Verified ROS integration resources and separate build directory
+!ws/src/uav_vln_bringup/test/
+!ws/src/uav_vln_bringup/test/**
+/ws/build_verified/
+
+# Keep the reproducible external integration patch, not a vendored checkout
+!external/ego-planner/
+!external/ego-planner/**

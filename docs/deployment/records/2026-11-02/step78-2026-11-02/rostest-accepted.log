@@ -1,0 +1,15 @@
+... logging to /root/.ros/log/rostest-autodl-container-aq0cz0qjsr-1ada114f-69778.log
+[ROSUNIT] Outputting test results to /root/.ros/test_results/uav_vln_bringup/rostest-test_lifecycle_integration.xml
+[Testcase: testlifecycle_integration] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[uav_vln_bringup.rosunit-lifecycle_integration/test_real_ros_lifecycle][passed]
+
+SUMMARY
+[32m * RESULT: SUCCESS[0m
+ * TESTS: 1
+ * ERRORS: 0
+ * FAILURES: 0
+
+rostest log file is in /root/.ros/log/rostest-autodl-container-aq0cz0qjsr-1ada114f-69778.log

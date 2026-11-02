@@ -1,0 +1,22 @@
+[INFO] [1793612847.988193]: [mission] MissionManager initialized (state=IDLE)
+[INFO] [1793612847.991802]: [mission] State command: HOVER
+[INFO] [1793612847.993049]: [mission] State: IDLE -> HOVER
+[INFO] [1793612847.993904]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793612855.999638]: [mission] State command: HOVER
+[INFO] [1793612856.150329]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793612856.152117]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793612856.153432]: [mission] Search thread started
+[INFO] [1793612856.153781]: [mission] Started search thread
+[INFO] [1793612856.155611]: [mission] Entered SEARCHING (target=busy_test)
+[INFO] [1793612858.157892]: [mission] Yaw sweep round 1/3
+[INFO] [1793612858.161160]: [mission] Yaw sweep   0 deg
+[INFO] [1793612859.766925]: [mission] Yaw sweep  45 deg
+[INFO] [1793612859.905488]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793612859.906092]: [mission] Rejected result: unsolicited
+[INFO] [1793612861.373080]: [mission] Yaw sweep -45 deg
+[INFO] [1793612861.374858]: [mission] Yaw sweep  90 deg
+[INFO] [1793612861.376040]: [mission] Yaw sweep -90 deg
+[INFO] [1793612861.377187]: [mission] Yaw sweep 135 deg
+[INFO] [1793612861.378281]: [mission] Yaw sweep -135 deg
+[INFO] [1793612861.379362]: [mission] Yaw sweep 180 deg
+[INFO] [1793612861.380393]: [mission] Search thread exiting

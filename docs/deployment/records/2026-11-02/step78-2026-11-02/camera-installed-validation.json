@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "pairs": 15,
+  "image_frame": "camera_link_optical",
+  "pose_frame": "map",
+  "timestamp_equal": true,
+  "position_tf_error_m": 0.0,
+  "encoding": "32FC1",
+  "width": 640,
+  "height": 480,
+  "calibration_mismatch_rejected": true
+}

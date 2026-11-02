@@ -1,0 +1,134 @@
+{
+  "stage": "lifecycle",
+  "clock": "sim",
+  "passed": true,
+  "checks": [
+    {
+      "name": "real_detector_ids_and_fast_busy",
+      "passed": true,
+      "seconds": 0.7821687841787934,
+      "details": [
+        {
+          "schema_version": 1,
+          "mission_id": "601e37bf7c614942a74888ae52688770",
+          "request_id": 9007,
+          "target_text": "slow_transport",
+          "status": "BUSY",
+          "capture_stamp": 0.0,
+          "completed_stamp": 104.899999999,
+          "point": null,
+          "frame_id": "map",
+          "reason": "detector_busy"
+        },
+        {
+          "schema_version": 1,
+          "mission_id": "601e37bf7c614942a74888ae52688770",
+          "request_id": 1042,
+          "target_text": "slow_transport",
+          "status": "SUCCEEDED",
+          "capture_stamp": 104.399999999,
+          "completed_stamp": 107.699999999,
+          "point": [
+            10.0,
+            0.0,
+            2.0
+          ],
+          "frame_id": "map",
+          "reason": ""
+        }
+      ]
+    },
+    {
+      "name": "spline_before_ack_is_buffered_then_forwarded",
+      "passed": true,
+      "seconds": 0.0410563824698329,
+      "details": {
+        "schema_version": 1,
+        "mission_id": "23e88598ce9248658b22f55d147b63bd",
+        "goal_id": 1,
+        "gateway_session_id": "032de006b7e04ba88c491adefe2cf7bf",
+        "frame_id": "map",
+        "goal": [
+          3.0,
+          0.0,
+          2.0
+        ]
+      }
+    },
+    {
+      "name": "cancel_rejects_late_spline",
+      "passed": true,
+      "seconds": 0.2526934128254652,
+      "details": null
+    },
+    {
+      "name": "map_not_ready_then_ready_same_request",
+      "passed": true,
+      "seconds": 0.30069762747734785,
+      "details": null
+    },
+    {
+      "name": "bounded_planner_timeout_sends_cancel",
+      "passed": true,
+      "seconds": 0.5543620390817523,
+      "details": null
+    },
+    {
+      "name": "manager_rejects_wrong_task_and_latched_path",
+      "passed": true,
+      "seconds": 1.8897469760850072,
+      "details": "Old task and unidentified latched Path could not complete plan wait."
+    },
+    {
+      "name": "manager_permanent_not_ready_has_bounded_retries",
+      "passed": true,
+      "seconds": 1.9127842299640179,
+      "details": {
+        "requests": 2
+      }
+    },
+    {
+      "name": "task_A_to_B_old_failure_is_ignored",
+      "passed": true,
+      "seconds": 2.051281568594277,
+      "details": null
+    },
+    {
+      "name": "ego_restart_session_does_not_replay_active_goal",
+      "passed": true,
+      "seconds": 0.3468838771805167,
+      "details": null
+    },
+    {
+      "name": "gateway_restart_rejects_latched_old_request",
+      "passed": true,
+      "seconds": 1.6789241908118129,
+      "details": "Old latched request rejected by new gateway session."
+    },
+    {
+      "name": "manager_restart_reused_request_number_rejects_old_mission",
+      "passed": true,
+      "seconds": 2.955020735040307,
+      "details": null
+    },
+    {
+      "name": "manager_fast_busy_clears_pending_before_timeout",
+      "passed": true,
+      "seconds": 1.2209911243990064,
+      "details": {
+        "seconds_to_next_request": 0.3355764439329505,
+        "configured_timeout": 5
+      }
+    },
+    {
+      "name": "paused_ros_clock_keeps_wall_deadlines",
+      "passed": true,
+      "seconds": 1.8818986928090453,
+      "details": {
+        "wall_seconds_until_hover": 0.8308299221098423
+      }
+    }
+  ],
+  "fatal": null,
+  "flight_master_contacted": false
+}

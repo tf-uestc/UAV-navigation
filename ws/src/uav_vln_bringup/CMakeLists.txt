@@ -22,7 +22,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
-# catkin_python_setup()
+catkin_python_setup()
 
 ################################################
 ## Declare ROS messages, services and actions ##
@@ -161,6 +161,8 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 catkin_install_python(PROGRAMS
+  scripts/managed_planner_node.py
+  scripts/camera_pose_bridge.py
   scripts/detector_node.py
   scripts/mission_manager.py
   scripts/planner_node.py
@@ -194,12 +196,12 @@ catkin_install_python(PROGRAMS
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(DIRECTORY launch/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
   FILES_MATCHING PATTERN "*.launch"
   PATTERN ".svn" EXCLUDE
 )
 install(DIRECTORY config/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
   FILES_MATCHING PATTERN "*.yaml"
   PATTERN ".svn" EXCLUDE
 )
@@ -218,13 +220,13 @@ install(DIRECTORY config/
 # catkin_add_nosetests(test)
 
 
-# Helpers must accompany catkin-installed Python entry points.
-# Real devel/install-space imports are verified in Ubuntu task U01.
-install(DIRECTORY scripts/navigation_core scripts/planning
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-  PATTERN "__pycache__" EXCLUDE
-  PATTERN "*.pyc" EXCLUDE
-)
-install(FILES scripts/base_detector.py scripts/qwen_vl_grounding.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
+# Python helpers are installed by catkin_python_setup() in both spaces.
+
+install(DIRECTORY test/ DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/test
+  PATTERN "__pycache__" EXCLUDE)
+catkin_install_python(PROGRAMS test/lifecycle_integration_ros_test.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  add_rostest(test/lifecycle_integration.test)
+endif()

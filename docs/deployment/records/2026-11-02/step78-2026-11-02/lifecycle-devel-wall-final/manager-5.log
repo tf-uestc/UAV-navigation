@@ -1,0 +1,39 @@
+[INFO] [1793611031.102015]: [mission] MissionManager initialized (state=IDLE)
+[INFO] [1793611031.186726]: [mission] State command: HOVER
+[INFO] [1793611031.188229]: [mission] State: IDLE -> HOVER
+[INFO] [1793611031.189314]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611031.287622]: [mission] State command: HOVER
+[INFO] [1793611031.290207]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793611031.291701]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611031.293381]: [mission] Search thread started
+[INFO] [1793611031.293725]: [mission] Started search thread
+[INFO] [1793611031.296030]: [mission] Entered SEARCHING (target=slow_restart)
+[INFO] [1793611033.298362]: [mission] Yaw sweep round 1/3
+[INFO] [1793611033.301469]: [mission] Yaw sweep   0 deg
+[INFO] [1793611034.810929]: [mission] Rejected result: unsolicited
+[INFO] [1793611034.906756]: [mission] Yaw sweep  45 deg
+[INFO] [1793611035.409441]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793611035.409990]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793611035.412388]: [mission] Exited SEARCHING
+[INFO] [1793611035.413429]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793611035.511585]: [mission] State command: HOVER
+[INFO] [1793611035.514254]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793611035.516469]: [mission] Exited APPROACHING
+[INFO] [1793611035.518682]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611035.662624]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793611035.666181]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611035.668877]: [mission] Search thread started
+[INFO] [1793611035.669454]: [mission] Started search thread
+[INFO] [1793611035.673583]: [mission] Entered SEARCHING (target=busy_test)
+[INFO] [1793611036.113565]: [mission] Rejected result: unsolicited
+[INFO] [1793611037.674362]: [mission] Yaw sweep round 1/3
+[INFO] [1793611037.677263]: [mission] Yaw sweep   0 deg
+[INFO] [1793611039.282276]: [mission] Yaw sweep  45 deg
+[INFO] [1793611039.418054]: [mission] Rejected result: unsolicited
+[INFO] [1793611040.887872]: [mission] Yaw sweep -45 deg
+[INFO] [1793611040.890011]: [mission] Yaw sweep  90 deg
+[INFO] [1793611040.891752]: [mission] Yaw sweep -90 deg
+[INFO] [1793611040.893420]: [mission] Yaw sweep 135 deg
+[INFO] [1793611040.895026]: [mission] Yaw sweep -135 deg
+[INFO] [1793611040.896670]: [mission] Yaw sweep 180 deg
+[INFO] [1793611040.898168]: [mission] Search thread exiting

@@ -109,6 +109,8 @@ class MissionManager:
         self._search_budget = CallBudget(rospy.get_param("~max_api_calls", 200),
                                         rospy.get_param("~max_search_seconds", 600.))
         self._last_approach_mono = self._clock()
+        self._identified_planning = rospy.get_param('~identified_planning', False)
+        self._gateway_session = None
         self._plan_key = 0
         self._plan_requires_hold = True
         self._planner_ready = True
@@ -184,9 +186,12 @@ class MissionManager:
             "/uav/approach_target", PointStamped, queue_size=1, latch=True,
         )
         self._status_pub = rospy.Publisher(
-            "/uav/mission_status", String, queue_size=10,
+            "/uav/mission_status", String, queue_size=10, latch=True,
         )
 
+        self._planning_request_pub = rospy.Publisher('/uav/planning/request', String, queue_size=10)
+        rospy.Subscriber('/uav/planning/readiness', String, self._on_planning_readiness, queue_size=10)
+        rospy.Subscriber('/uav/planning/result', String, self._on_planning_result, queue_size=30)
         self._cancel_pub = rospy.Publisher("/uav/cancel_planning", String, queue_size=10)
         # ==================================================================
         # Subscribers
@@ -218,6 +223,7 @@ class MissionManager:
             "/uav/trajectory", PathMsg, self._on_trajectory, queue_size=1,
         )
 
+        self._status_pub.publish(String(data=self._state))
         rospy.loginfo("[mission] MissionManager initialized (state=%s)", self._state)
 
     # ======================================================================
@@ -383,11 +389,12 @@ class MissionManager:
             rospy.logwarn("[mission] Invalid instruction")
             return
         self._last_ros_time = rospy.Time.now().to_sec()
+        previous_mission, previous_goal = self._mission_id, self._plan_key
         self._mission_id = uuid.uuid4().hex
         self._requests.begin(self._mission_id)
         self._search_budget.begin(self._clock())
         self._plan_wait.cancel()
-        self._cancel_pub.publish(String(data=self._mission_id))
+        self._cancel_current_plan(previous_mission, previous_goal)
         self._target_text = target
         self._last_target = self._last_valid_target = None
         self._navigation_goal = None
@@ -498,6 +505,8 @@ class MissionManager:
 
     @_serialized
     def _on_trajectory(self, msg):
+        if self._identified_planning:
+            return  # Unidentified compatibility Paths never complete a managed request.
         if self._state != STATE_APPROACHING or self._approach_phase != APPROACH_WAIT_PLAN or not msg.poses:
             return
         # Compatibility Path has no goal ID. U05 must add actual EGO acknowledgement.
@@ -511,6 +520,8 @@ class MissionManager:
 
     @_serialized
     def _on_planner_status(self, msg):
+        if self._identified_planning:
+            return  # Legacy diagnostic strings are not business acknowledgements.
         status = msg.data.strip()
         if status == "MAP_NOT_READY":
             self._planner_ready = False
@@ -581,7 +592,7 @@ class MissionManager:
         self._detection_in_flight = False
         self._pending_detection_request_id = None
         self._clear_trajectory()
-        self._cancel_pub.publish(String(data=self._mission_id or "cancel"))
+        self._cancel_current_plan()
 
     def _enter_searching(self):
         """Start the background search thread and clear any active trajectory.
@@ -644,7 +655,7 @@ class MissionManager:
         self._detection_in_flight = False
         self._pending_detection_request_id = None
         self._clear_trajectory()
-        self._cancel_pub.publish(String(data=self._mission_id or "cancel"))
+        self._cancel_current_plan()
         self._capture_current_hold_goal()
         self._hover_goal = self._approach_hold_goal
         self._publish_hold_goal()
@@ -730,6 +741,63 @@ class MissionManager:
         self._target_estimator.mark_sent()
         self._last_plan_message = target
         self._approach_target_pub.publish(target)
+        if self._identified_planning:
+            self._publish_identified_plan()
+
+    def _cancel_current_plan(self, mission_id=None, goal_id=None):
+        if mission_id is None and goal_id is None:
+            mission_id,goal_id=self._mission_id,self._plan_key
+        if self._identified_planning:
+            if not mission_id: return
+            payload=dict(schema_version=1,mission_id=mission_id,through_goal_id=goal_id,
+                         gateway_session_id=self._gateway_session)
+            self._cancel_pub.publish(String(data=json.dumps(payload)))
+        else:
+            self._cancel_pub.publish(String(data=self._mission_id or 'cancel'))
+
+    def _publish_identified_plan(self):
+        if self._last_plan_message is None:
+            return
+        p=self._last_plan_message.point
+        self._planning_request_pub.publish(String(data=json.dumps(dict(schema_version=1,
+            mission_id=self._mission_id,goal_id=self._plan_key,goal=[p.x,p.y,p.z],
+            frame_id='map',gateway_session_id=self._gateway_session))))
+
+    @_serialized
+    def _on_planning_readiness(self,msg):
+        if not self._identified_planning: return
+        try:
+            d=json.loads(msg.data)
+            if d.get('schema_version')!=1 or not isinstance(d.get('gateway_session_id'),str): return
+            session=d['gateway_session_id']
+            if self._gateway_session and session!=self._gateway_session and self._state==STATE_APPROACHING:
+                self._set_state(STATE_HOVER)
+            self._gateway_session=session
+            self._planner_ready=d.get('ready') is True
+        except (ValueError,TypeError,AttributeError): return
+
+    @_serialized
+    def _on_planning_result(self,msg):
+        if not self._identified_planning: return
+        try:
+            d=json.loads(msg.data)
+            if (d.get('schema_version')!=1 or d.get('mission_id')!=self._mission_id or
+                type(d.get('goal_id')) is not int or d['goal_id']!=self._plan_key or
+                d.get('gateway_session_id')!=self._gateway_session): return
+        except (ValueError,TypeError,AttributeError): return
+        if self._state!=STATE_APPROACHING: return
+        status=d.get('status')
+        if status=='OK' and self._approach_phase==APPROACH_WAIT_PLAN:
+            if self._plan_wait.complete(self._plan_key):
+                self._trajectory_after_target=True
+                self._approach_phase=APPROACH_FLYING
+                self._last_approach_mono=self._clock()
+                self._approach_hold_goal=None
+        elif status=='MAP_NOT_READY':
+            self._planner_ready=False
+            if self._approach_phase==APPROACH_FLYING: self._set_state(STATE_HOVER)
+        elif status in ('FAILED','REJECTED','SESSION_CHANGED','STOP'):
+            self._set_state(STATE_HOVER)
 
     def _is_expected_detection(self, msg):
         return False  # Bare PointStamped cannot prove business identity.
@@ -927,6 +995,8 @@ class MissionManager:
                 return
             if action == "RETRY" and self._last_plan_message is not None:
                 self._approach_target_pub.publish(self._last_plan_message)
+                if self._identified_planning:
+                    self._publish_identified_plan()
             if self._approach_phase == APPROACH_WAIT_PLAN and self._plan_requires_hold:
                 self._publish_hold_goal()
         if self._check_approach_arrival():

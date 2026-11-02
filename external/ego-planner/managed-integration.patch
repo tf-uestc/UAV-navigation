@@ -1,0 +1,508 @@
+diff --git a/.gitignore b/.gitignore
+index ab3b1c3..3b0a0b4 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -8,3 +8,5 @@ src/CMakeLists.txt
+ benchmark_haha.zip
+ rebound_planner_BB.zip
+ 
++
++/install/
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 581e61d..2016816 120000
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -1 +1 @@
+-/opt/ros/kinetic/share/catkin/cmake/toplevel.cmake
+\ No newline at end of file
++/opt/ros/noetic/share/catkin/cmake/toplevel.cmake
+\ No newline at end of file
+diff --git a/src/planner/bspline_opt/CMakeLists.txt b/src/planner/bspline_opt/CMakeLists.txt
+index cf243b5..129efdd 100755
+--- a/src/planner/bspline_opt/CMakeLists.txt
++++ b/src/planner/bspline_opt/CMakeLists.txt
+@@ -42,3 +42,6 @@ add_library( bspline_opt
+ target_link_libraries( bspline_opt
+     ${catkin_LIBRARIES} 
+     )  
++
++install(TARGETS bspline_opt LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
++install(DIRECTORY include/ DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION})
+diff --git a/src/planner/path_searching/CMakeLists.txt b/src/planner/path_searching/CMakeLists.txt
+index 13f1f66..2a343f2 100755
+--- a/src/planner/path_searching/CMakeLists.txt
++++ b/src/planner/path_searching/CMakeLists.txt
+@@ -40,3 +40,6 @@ add_library( path_searching
+ target_link_libraries( path_searching
+     ${catkin_LIBRARIES} 
+     )  
++
++install(TARGETS path_searching LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
++install(DIRECTORY include/ DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION})
+diff --git a/src/planner/plan_env/CMakeLists.txt b/src/planner/plan_env/CMakeLists.txt
+index 83219e3..ca72aff 100755
+--- a/src/planner/plan_env/CMakeLists.txt
++++ b/src/planner/plan_env/CMakeLists.txt
+@@ -47,3 +47,6 @@ target_link_libraries( plan_env
+     ${catkin_LIBRARIES} 
+     ${PCL_LIBRARIES}
+     )  
++
++install(TARGETS plan_env LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
++install(DIRECTORY include/ DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION})
+diff --git a/src/planner/plan_env/include/plan_env/grid_map.h b/src/planner/plan_env/include/plan_env/grid_map.h
+index 560dcd7..b0a5eb0 100644
+--- a/src/planner/plan_env/include/plan_env/grid_map.h
++++ b/src/planner/plan_env/include/plan_env/grid_map.h
+@@ -171,6 +171,10 @@ public:
+   void publishDepth();
+ 
+   bool hasDepthObservation();
++  ros::WallTime depth_wall_;
++  bool inputFresh(double timeout) {
++    return hasDepthObservation() && (ros::WallTime::now()-depth_wall_).toSec() < timeout;
++  }
+   bool odomValid();
+   void getRegion(Eigen::Vector3d& ori, Eigen::Vector3d& size);
+   inline double getResolution();
+diff --git a/src/planner/plan_env/src/grid_map.cpp b/src/planner/plan_env/src/grid_map.cpp
+index c88cbef..117961b 100644
+--- a/src/planner/plan_env/src/grid_map.cpp
++++ b/src/planner/plan_env/src/grid_map.cpp
+@@ -115,12 +115,18 @@ void GridMap::initMap(ros::NodeHandle &nh)
+     sync_image_odom_->registerCallback(boost::bind(&GridMap::depthOdomCallback, this, _1, _2));
+   }
+ 
++  // Independent clouds use world coordinates and must be explicitly selected.
++  bool enable_independent_cloud = true;
++  node_.param("grid_map/enable_independent_cloud", enable_independent_cloud, true);
++  if (enable_independent_cloud) {
+   // use odometry and point cloud
+   indep_cloud_sub_ =
+       node_.subscribe<sensor_msgs::PointCloud2>("/grid_map/cloud", 10, &GridMap::cloudCallback, this);
+   indep_odom_sub_ =
+       node_.subscribe<nav_msgs::Odometry>("/grid_map/odom", 10, &GridMap::odomCallback, this);
+ 
++  }
++
+   occ_timer_ = node_.createTimer(ros::Duration(0.05), &GridMap::updateOccupancyCallback, this);
+   vis_timer_ = node_.createTimer(ros::Duration(0.05), &GridMap::visCallback, this);
+ 
+@@ -686,6 +692,9 @@ void GridMap::updateOccupancyCallback(const ros::TimerEvent & /*event*/)
+ void GridMap::depthPoseCallback(const sensor_msgs::ImageConstPtr &img,
+                                 const geometry_msgs::PoseStampedConstPtr &pose)
+ {
++  if (fabs((img->header.stamp-pose->header.stamp).toSec()) > 0.05 ||
++      fabs((ros::Time::now()-img->header.stamp).toSec()) > 0.5) return;
++  depth_wall_ = ros::WallTime::now();
+   /* get depth image */
+   cv_bridge::CvImagePtr cv_ptr;
+   cv_ptr = cv_bridge::toCvCopy(img, img->encoding);
+diff --git a/src/planner/plan_manage/CMakeLists.txt b/src/planner/plan_manage/CMakeLists.txt
+index ad106aa..69d9f86 100755
+--- a/src/planner/plan_manage/CMakeLists.txt
++++ b/src/planner/plan_manage/CMakeLists.txt
+@@ -25,6 +25,8 @@ find_package(catkin REQUIRED COMPONENTS
+ # Generate messages in the 'msg' folder
+ add_message_files(
+   FILES
++  GoalCommand.msg
++  GoalStatus.msg
+   Bspline.msg
+   DataDisp.msg
+   )
+@@ -39,7 +41,7 @@ generate_messages(
+ # catkin_package(CATKIN_DEPENDS message_runtime)
+ catkin_package(
+  INCLUDE_DIRS include
+- LIBRARIES ego_planner
++ # Planner is an executable, not a library.
+  CATKIN_DEPENDS plan_env path_searching bspline_opt traj_utils message_runtime
+ #  DEPENDS system_lib
+ )
+@@ -68,3 +70,6 @@ target_link_libraries(traj_server ${catkin_LIBRARIES})
+ add_dependencies(traj_server ${${PROJECT_NAME}_EXPORTED_TARGETS})
+ 
+ 
++
++install(TARGETS ego_planner_node traj_server RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
++install(DIRECTORY include/ DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION})
+diff --git a/src/planner/plan_manage/include/plan_manage/ego_replan_fsm.h b/src/planner/plan_manage/include/plan_manage/ego_replan_fsm.h
+index 60d8c25..9c9dfe1 100644
+--- a/src/planner/plan_manage/include/plan_manage/ego_replan_fsm.h
++++ b/src/planner/plan_manage/include/plan_manage/ego_replan_fsm.h
+@@ -14,6 +14,11 @@
+ #include <bspline_opt/bspline_optimizer.h>
+ #include <plan_env/grid_map.h>
+ #include <ego_planner/Bspline.h>
++#include <ego_planner/GoalCommand.h>
++#include <ego_planner/GoalStatus.h>
++#include <geometry_msgs/Vector3Stamped.h>
++#include <set>
++#include <map>
+ #include <ego_planner/DataDisp.h>
+ #include <plan_manage/planner_manager.h>
+ #include <traj_utils/planning_visualization.h>
+@@ -72,6 +77,22 @@ namespace ego_planner
+ 
+     bool flag_escape_emergency_;
+ 
++    bool managed_ = false;
++    bool odom_velocity_in_body_ = false;
++    std::string managed_session_, managed_mission_;
++    uint64_t managed_goal_ = 0;
++    std::map<std::string, uint64_t> highest_goals_;
++    std::set<std::string> retired_missions_;
++    ros::WallTime odom_wall_, planning_wall_;
++    ros::WallTimer managed_watchdog_;
++    ros::Subscriber managed_command_sub_;
++    ros::Publisher managed_status_pub_, managed_velocity_pub_;
++    bool managedMapReady();
++    void managedCommand(const ego_planner::GoalCommandConstPtr &msg);
++    void managedWatchdog(const ros::WallTimerEvent &event);
++    void managedStatus(const std::string &status, const std::string &reason = "");
++    void managedStop(const std::string &status, const std::string &reason);
++
+     /* ROS utils */
+     ros::NodeHandle node_;
+     ros::Timer exec_timer_, safety_timer_;
+diff --git a/src/planner/plan_manage/msg/Bspline.msg b/src/planner/plan_manage/msg/Bspline.msg
+index 1b733b3..349345b 100755
+--- a/src/planner/plan_manage/msg/Bspline.msg
++++ b/src/planner/plan_manage/msg/Bspline.msg
+@@ -8,3 +8,9 @@ geometry_msgs/Point[] pos_pts
+ float64[] yaw_pts
+ float64 yaw_dt
+ 
++
++# Identified managed planning; empty in upstream legacy mode.
++string planner_session_id
++string mission_id
++uint64 goal_id
++bool emergency_stop
+diff --git a/src/planner/plan_manage/msg/GoalCommand.msg b/src/planner/plan_manage/msg/GoalCommand.msg
+new file mode 100644
+index 0000000..960a9f1
+--- /dev/null
++++ b/src/planner/plan_manage/msg/GoalCommand.msg
+@@ -0,0 +1,6 @@
++std_msgs/Header header
++string planner_session_id
++string mission_id
++uint64 goal_id
++string command
++geometry_msgs/Point goal
+diff --git a/src/planner/plan_manage/msg/GoalStatus.msg b/src/planner/plan_manage/msg/GoalStatus.msg
+new file mode 100644
+index 0000000..10b5dc8
+--- /dev/null
++++ b/src/planner/plan_manage/msg/GoalStatus.msg
+@@ -0,0 +1,7 @@
++std_msgs/Header header
++string planner_session_id
++string mission_id
++uint64 goal_id
++string status
++string reason
++bool map_ready
+diff --git a/src/planner/plan_manage/src/ego_replan_fsm.cpp b/src/planner/plan_manage/src/ego_replan_fsm.cpp
+index 029e9a4..61cb909 100644
+--- a/src/planner/plan_manage/src/ego_replan_fsm.cpp
++++ b/src/planner/plan_manage/src/ego_replan_fsm.cpp
+@@ -1,5 +1,7 @@
+ 
+ #include <plan_manage/ego_replan_fsm.h>
++#include <boost/uuid/uuid_generators.hpp>
++#include <boost/uuid/uuid_io.hpp>
+ 
+ namespace ego_planner
+ {
+@@ -10,6 +12,12 @@ namespace ego_planner
+     exec_state_ = FSM_EXEC_STATE::INIT;
+     have_target_ = false;
+     have_odom_ = false;
++    trigger_ = false;
++    have_new_target_ = false;
++    flag_escape_emergency_ = true;
++    nh.param("fsm/managed_control", managed_, false);
++    nh.param("fsm/odom_velocity_in_body", odom_velocity_in_body_, false);
++    managed_session_ = boost::uuids::to_string(boost::uuids::random_generator()());
+ 
+     /*  fsm param  */
+     nh.param("fsm/flight_type", target_type_, -1);
+@@ -41,7 +49,14 @@ namespace ego_planner
+     bspline_pub_ = nh.advertise<ego_planner::Bspline>("/planning/bspline", 10);
+     data_disp_pub_ = nh.advertise<ego_planner::DataDisp>("/planning/data_display", 100);
+ 
+-    if (target_type_ == TARGET_TYPE::MANUAL_TARGET)
++    if (managed_)
++    {
++      managed_command_sub_ = nh.subscribe("/uav/ego/command", 10, &EGOReplanFSM::managedCommand, this);
++      managed_status_pub_ = nh.advertise<ego_planner::GoalStatus>("/uav/ego/status", 10, true);
++      managed_velocity_pub_ = nh.advertise<geometry_msgs::Vector3Stamped>("/uav/ego/world_velocity", 10);
++      managed_watchdog_ = nh.createWallTimer(ros::WallDuration(0.1), &EGOReplanFSM::managedWatchdog, this);
++    }
++    else if (target_type_ == TARGET_TYPE::MANUAL_TARGET)
+       waypoint_sub_ = nh.subscribe("/waypoint_generator/waypoints", 1, &EGOReplanFSM::waypointCallback, this);
+     else if (target_type_ == TARGET_TYPE::PRESET_TARGET)
+     {
+@@ -108,7 +123,7 @@ namespace ego_planner
+ 
+   void EGOReplanFSM::waypointCallback(const nav_msgs::PathConstPtr &msg)
+   {
+-    if (msg->poses[0].pose.position.z < -0.1)
++    if (msg->poses.empty() || msg->poses[0].pose.position.z < -0.1)
+       return;
+ 
+     cout << "Triggered!" << endl;
+@@ -116,7 +131,7 @@ namespace ego_planner
+     init_pt_ = odom_pos_;
+ 
+     bool success = false;
+-    end_pt_ << msg->poses[0].pose.position.x, msg->poses[0].pose.position.y, 1.0;
++    end_pt_ << msg->poses[0].pose.position.x, msg->poses[0].pose.position.y, msg->poses[0].pose.position.z;
+     success = planner_manager_->planGlobalTraj(odom_pos_, odom_vel_, Eigen::Vector3d::Zero(), end_pt_, Eigen::Vector3d::Zero(), Eigen::Vector3d::Zero());
+ 
+     visualization_->displayGoalPoint(end_pt_, Eigen::Vector4d(0, 0.5, 0.5, 1), 0.3, 0);
+@@ -169,7 +184,19 @@ namespace ego_planner
+     odom_orient_.y() = msg->pose.pose.orientation.y;
+     odom_orient_.z() = msg->pose.pose.orientation.z;
+ 
+-    have_odom_ = true;
++    if (odom_velocity_in_body_)
++      odom_vel_ = odom_orient_.normalized().toRotationMatrix() * odom_vel_;
++    have_odom_ = odom_orient_.norm() > 0.99 && odom_orient_.norm() < 1.01 &&
++      odom_pos_.allFinite() && odom_vel_.allFinite();
++    if (managed_ && (msg->header.frame_id != "map" || msg->child_frame_id != "base_link"))
++      have_odom_ = false;
++    if (have_odom_) odom_wall_ = ros::WallTime::now();
++    if (managed_ && have_odom_) {
++      geometry_msgs::Vector3Stamped v;
++      v.header = msg->header; v.header.frame_id = "map";
++      v.vector.x = odom_vel_.x(); v.vector.y = odom_vel_.y(); v.vector.z = odom_vel_.z();
++      managed_velocity_pub_.publish(v);
++    }
+   }
+ 
+   void EGOReplanFSM::changeFSMExecState(FSM_EXEC_STATE new_state, string pos_call)
+@@ -182,6 +209,9 @@ namespace ego_planner
+ 
+     static string state_str[7] = {"INIT", "WAIT_TARGET", "GEN_NEW_TRAJ", "REPLAN_TRAJ", "EXEC_TRAJ", "EMERGENCY_STOP"};
+     int pre_s = int(exec_state_);
++    if (managed_ && new_state != exec_state_ &&
++        (new_state == GEN_NEW_TRAJ || new_state == REPLAN_TRAJ))
++      planning_wall_ = ros::WallTime::now();
+     exec_state_ = new_state;
+     cout << "[" + pos_call + "]: from " + state_str[pre_s] + " to " + state_str[int(new_state)] << endl;
+   }
+@@ -213,6 +243,13 @@ namespace ego_planner
+       fsm_num = 0;
+     }
+ 
++    if (managed_)
++    {
++      if (!managedMapReady() || !have_target_) return;
++      if ((exec_state_ == GEN_NEW_TRAJ || exec_state_ == REPLAN_TRAJ) &&
++          (ros::WallTime::now() - planning_wall_).toSec() > 8.0)
++      { managedStop("FAILED", "planning_deadline"); return; }
++    }
+     switch (exec_state_)
+     {
+     case INIT:
+@@ -298,6 +335,9 @@ namespace ego_planner
+       /* && (end_pt_ - pos).norm() < 0.5 */
+       if (t_cur > info->duration_ - 1e-2)
+       {
++        if (managed_ && ((odom_pos_ - end_pt_).norm() > 0.2 || odom_vel_.norm() > 0.1))
++        { changeFSMExecState(GEN_NEW_TRAJ, "ACTUAL_STATE"); return; }
++        if (managed_) managedStatus("COMPLETED");
+         have_target_ = false;
+ 
+         changeFSMExecState(WAIT_TARGET, "FSM");
+@@ -322,6 +362,8 @@ namespace ego_planner
+ 
+     case EMERGENCY_STOP:
+     {
++      if (managed_) { managedStop("FAILED", "emergency_stop_requires_new_goal"); return; }
++
+ 
+       if (flag_escape_emergency_) // Avoiding repeated calls
+       {
+@@ -351,6 +393,11 @@ namespace ego_planner
+ 
+     //cout << "info->velocity_traj_=" << info->velocity_traj_.get_control_points() << endl;
+ 
++    if (managed_ && (odom_pos_ - info->position_traj_.evaluateDeBoorT(std::min(t_cur, info->duration_))).norm() > 0.2)
++    {
++      start_pt_ = odom_pos_; start_vel_ = odom_vel_; start_acc_.setZero();
++      return callReboundReplan(true, false);
++    }
+     start_pt_ = info->position_traj_.evaluateDeBoorT(t_cur);
+     start_vel_ = info->velocity_traj_.evaluateDeBoorT(t_cur);
+     start_acc_ = info->acceleration_traj_.evaluateDeBoorT(t_cur);
+@@ -379,7 +426,7 @@ namespace ego_planner
+     LocalTrajData *info = &planner_manager_->local_data_;
+     auto map = planner_manager_->grid_map_;
+ 
+-    if (exec_state_ == WAIT_TARGET || info->start_time_.toSec() < 1e-5)
++    if ((managed_ && (!have_target_ || !managedMapReady())) || exec_state_ == WAIT_TARGET || info->start_time_.toSec() < 1e-5)
+       return;
+ 
+     /* ---------- check trajectory ---------- */
+@@ -396,6 +443,7 @@ namespace ego_planner
+         if (planFromCurrentTraj()) // Make a chance
+         {
+           changeFSMExecState(EXEC_TRAJ, "SAFETY");
++          if (managed_) managedStatus("REPLANNED", "collision");
+           return;
+         }
+         else
+@@ -404,6 +452,7 @@ namespace ego_planner
+           {
+             ROS_WARN("Suddenly discovered obstacles. emergency stop! time=%f", t - t_cur);
+             changeFSMExecState(EMERGENCY_STOP, "SAFETY");
++            if (managed_) managedStatus("EMERGENCY_STOP", "collision");
+           }
+           else
+           {
+@@ -457,6 +506,12 @@ namespace ego_planner
+         bspline.knots.push_back(knots(i));
+       }
+ 
++      if (managed_)
++      {
++        if (!have_target_) return false;
++        bspline.planner_session_id = managed_session_;
++        bspline.mission_id = managed_mission_; bspline.goal_id = managed_goal_;
++      }
+       bspline_pub_.publish(bspline);
+ 
+       visualization_->displayOptimalList(info->position_traj_.get_control_points(), 0);
+@@ -496,6 +551,12 @@ namespace ego_planner
+       bspline.knots.push_back(knots(i));
+     }
+ 
++    if (managed_)
++    {
++      bspline.planner_session_id = managed_session_;
++      bspline.mission_id = managed_mission_; bspline.goal_id = managed_goal_;
++      bspline.emergency_stop = true;
++    }
+     bspline_pub_.publish(bspline);
+ 
+     return true;
+@@ -534,7 +595,7 @@ namespace ego_planner
+         break;
+       }
+     }
+-    if (t > planner_manager_->global_data_.global_duration_) // Last global point
++    if (t >= planner_manager_->global_data_.global_duration_ - 1e-6) // Last global point
+     {
+       local_target_pt_ = end_pt_;
+     }
+@@ -552,4 +613,77 @@ namespace ego_planner
+     }
+   }
+ 
++
++  bool EGOReplanFSM::managedMapReady()
++  {
++    return have_odom_ && (ros::WallTime::now()-odom_wall_).toSec() < 0.6 &&
++      planner_manager_->grid_map_->inputFresh(0.6);
++  }
++
++  void EGOReplanFSM::managedStatus(const std::string &status, const std::string &reason)
++  {
++    ego_planner::GoalStatus out;
++    out.header.stamp = ros::Time::now(); out.header.frame_id = "map";
++    out.planner_session_id = managed_session_;
++    out.mission_id = managed_mission_; out.goal_id = managed_goal_;
++    out.status = status; out.reason = reason; out.map_ready = managedMapReady();
++    managed_status_pub_.publish(out);
++  }
++
++  void EGOReplanFSM::managedStop(const std::string &status, const std::string &reason)
++  {
++    if (have_target_) callEmergencyStop(odom_pos_);
++    have_target_ = false; have_new_target_ = false; trigger_ = false;
++    changeFSMExecState(WAIT_TARGET, "MANAGED_STOP");
++    managedStatus(status, reason);
++  }
++
++  void EGOReplanFSM::managedWatchdog(const ros::WallTimerEvent &)
++  {
++    if (!managedMapReady() && have_target_) managedStop("NOT_READY", "stale_map_or_odometry");
++    else managedStatus(managedMapReady() ? "READY" : "NOT_READY");
++  }
++
++  void EGOReplanFSM::managedCommand(const ego_planner::GoalCommandConstPtr &msg)
++  {
++    auto reject = [&](const std::string &reason) {
++      ego_planner::GoalStatus out;
++      out.header.stamp = ros::Time::now(); out.header.frame_id = "map";
++      out.planner_session_id = managed_session_; out.mission_id = msg->mission_id;
++      out.goal_id = msg->goal_id; out.status = "REJECTED"; out.reason = reason;
++      out.map_ready = managedMapReady(); managed_status_pub_.publish(out);
++    };
++    if (msg->planner_session_id != managed_session_) { reject("planner_session_mismatch"); return; }
++    if (msg->mission_id.empty() || !msg->goal_id || msg->header.frame_id != "map")
++      { reject("invalid_identity_or_frame"); return; }
++    if (msg->command == "CANCEL")
++    {
++      if (msg->mission_id != managed_mission_ || msg->goal_id != managed_goal_)
++        { reject("cancel_identity_mismatch"); return; }
++      managedStop("CANCELLED", "requested"); return;
++    }
++    if (msg->command != "GOAL") { reject("unknown_command"); return; }
++    if (retired_missions_.count(msg->mission_id)) { reject("retired_mission"); return; }
++    if (msg->mission_id == managed_mission_ && msg->goal_id == managed_goal_ && have_target_)
++      { managedStatus("ACCEPTED", "duplicate_active_goal"); return; }
++    if (msg->goal_id <= highest_goals_[msg->mission_id]) { reject("retired_goal"); return; }
++    if (!managedMapReady()) { reject("MAP_NOT_READY"); return; }
++    Eigen::Vector3d target(msg->goal.x,msg->goal.y,msg->goal.z);
++    if (!target.allFinite() || !planner_manager_->grid_map_->isInMap(target) ||
++        target.z() < 0.5 || target.z() > 2.4 ||
++        planner_manager_->grid_map_->getInflateOccupancy(target) == 1)
++      { reject("invalid_or_occupied_goal"); return; }
++    if (have_target_) managedStop("CANCELLED", "superseded");
++    if (!managed_mission_.empty() && managed_mission_ != msg->mission_id)
++      retired_missions_.insert(managed_mission_);
++    managed_mission_ = msg->mission_id; managed_goal_ = msg->goal_id;
++    highest_goals_[managed_mission_] = managed_goal_;
++    changeFSMExecState(WAIT_TARGET, "MANAGED_GOAL");
++    nav_msgs::Path::Ptr path(new nav_msgs::Path);
++    geometry_msgs::PoseStamped goal; goal.pose.position = msg->goal;
++    path->poses.push_back(goal); waypointCallback(path);
++    if (have_target_) managedStatus("ACCEPTED");
++    else managedStatus("FAILED", "global_initialization_failed");
++  }
++
+ } // namespace ego_planner
+diff --git a/src/planner/traj_utils/CMakeLists.txt b/src/planner/traj_utils/CMakeLists.txt
+index 2979c3a..0709a32 100755
+--- a/src/planner/traj_utils/CMakeLists.txt
++++ b/src/planner/traj_utils/CMakeLists.txt
+@@ -40,3 +40,6 @@ add_library( traj_utils
+ target_link_libraries( traj_utils
+     ${catkin_LIBRARIES} 
+     )  
++
++install(TARGETS traj_utils LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
++install(DIRECTORY include/ DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION})
+diff --git a/src/uav_simulator/Utils/rviz_plugins/CMakeLists.txt b/src/uav_simulator/Utils/rviz_plugins/CMakeLists.txt
+index 2732320..142397c 100644
+--- a/src/uav_simulator/Utils/rviz_plugins/CMakeLists.txt
++++ b/src/uav_simulator/Utils/rviz_plugins/CMakeLists.txt
+@@ -90,8 +90,12 @@ install(FILES
+   plugin_description.xml
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+ 
++if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/media")
+ install(DIRECTORY media/
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/media)
++endif()
+ 
++if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/icons")
+ install(DIRECTORY icons/
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/icons)
++endif()

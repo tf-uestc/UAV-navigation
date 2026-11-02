@@ -1,0 +1,3 @@
+[WARN] [1793612825.713846]: [detector] Observation rejected: sensor_data_unavailable
+[INFO] [1793612825.687013]: [detector] Loaded detector: test_backend.FixtureDetector
+[INFO] [1793612825.706715]: [detector] DetectorNode initialized successfully

@@ -1,0 +1,30 @@
+... logging to /root/.ros/log/rostest-autodl-container-aq0cz0qjsr-1ada114f-65251.log
+[ROSUNIT] Outputting test results to /root/.ros/test_results/uav_vln_bringup/rostest-test_lifecycle_integration.xml
+[Testcase: testlifecycle_integration] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[uav_vln_bringup.rosunit-lifecycle_integration/test_real_ros_lifecycle][FAILURE]
+1 != 0 : Detailed ROS test results: /root/autodl-tmp/uav/records/step78-2026-11-02/lifecycle-install-rostest
+  File "/usr/lib/python3.8/unittest/case.py", line 60, in testPartExecutor
+    yield
+  File "/usr/lib/python3.8/unittest/case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.8/unittest/case.py", line 633, in _callTestMethod
+    method()
+  File "/root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/lifecycle_integration_ros_test.py", line 12, in test_real_ros_lifecycle
+    self.assertEqual(result.returncode,0,'Detailed ROS test results: '+str(output))
+  File "/usr/lib/python3.8/unittest/case.py", line 912, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.8/unittest/case.py", line 905, in _baseAssertEqual
+    raise self.failureException(msg)
+--------------------------------------------------------------------------------
+
+
+SUMMARY
+[1;31m * RESULT: FAIL[0m
+ * TESTS: 1
+ * ERRORS: 0
+[1;31m * FAILURES: 1[0m
+
+rostest log file is in /root/.ros/log/rostest-autodl-container-aq0cz0qjsr-1ada114f-65251.log

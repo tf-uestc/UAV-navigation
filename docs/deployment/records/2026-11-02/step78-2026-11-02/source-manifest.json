@@ -1,0 +1,23 @@
+{
+  "base_commit": "b4b442342da2bc0afee072f3a3043bfab5b86d4f",
+  "ego_commit": "f5f62661df07cdc88363a048ebfa16bc7b85d889",
+  "files": {
+    ".gitattributes": "d58d45be6427491a81fd5f1cbe91a48f45d41781f3244b692fff83ee925ce50b",
+    ".gitignore": "0a5d1466f3f96b2f3709f7c1c51d80dcfb8f3fc493c47fa067eb0d2eea14ef4d",
+    "external/ego-planner/managed-integration.patch": "2b66b2eda3583732b25527ec32ebf3527802d215d6be9743eadea0ac17fecb1a",
+    "ws/src/uav_vln_bringup/CMakeLists.txt": "287b7677922ff30152d0dc5866335f14c4764a18e130b34fa88fe7e8d0eecf14",
+    "ws/src/uav_vln_bringup/config/ego_planner_params.yaml": "d612725a25bfd96eef8a4602e9cd0f18b653f1e79d87668b25e700694abdca77",
+    "ws/src/uav_vln_bringup/launch/planner_verified.launch": "79361f1d4e013c1014d00f0f2dd4e1165c6bb0ee7556c2added4bd7d2b167094",
+    "ws/src/uav_vln_bringup/package.xml": "71ca708f0be82ee747f9e8b23483d3f00f024a7ed281856f6b40a0ffaa19adec",
+    "ws/src/uav_vln_bringup/scripts/camera_pose_bridge.py": "269e86b68956ca1f53470d222b2615887e4672b5b3439d0e88ff1121fb6a9720",
+    "ws/src/uav_vln_bringup/scripts/managed_planner_node.py": "e170ca4298548a4bd9d4d798559590ebc3d556202788456d0ba6b4aed637fd05",
+    "ws/src/uav_vln_bringup/scripts/mission_manager.py": "1990a6535f635adb082f4adb0c646484c93f273824c97df2c486683f50bd81cd",
+    "ws/src/uav_vln_bringup/scripts/test_backend.py": "636bd6e2a0ee95abeed1562ccde625e0ede060c910048a8a895d948a6932049b",
+    "ws/src/uav_vln_bringup/setup.py": "7290e7a53fe40a23280733881f65f0cfe01108535c0c9b5a2ce3d6efe9370974",
+    "ws/src/uav_vln_bringup/test/bspline_oracle.cpp": "6fa23ba01088f7129beb5e2852a1f69cd68d7d4680ef89e7b28197ecbf6c98c1",
+    "ws/src/uav_vln_bringup/test/lifecycle_integration.test": "4ba3b4bf3262a393ad0fdbb968b51c2c05f768d14f7e77722480396b1edf5ebc",
+    "ws/src/uav_vln_bringup/test/lifecycle_integration_ros_test.py": "7f79e1e9e12bf2c25757ed3c5530261885c0c4bfa70e35572cff810207423d4e",
+    "ws/src/uav_vln_bringup/test/probe_camera_install.py": "04b7963c4cb66df1b38961bc675c130feb036de960bb3cb96b96b0b725bfef38",
+    "ws/src/uav_vln_bringup/test/run_stage78.py": "d5e312831d3607e785dddaba7d1e1ec868da853fa73dc79b086a016650b6f4c7"
+  }
+}

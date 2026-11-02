@@ -1,0 +1,19 @@
+<launch>
+  <!-- Development planning graph only: no follower, bridge, arming or flight output. -->
+  <arg name="with_camera_bridge" default="true"/>
+  <node if="$(arg with_camera_bridge)" pkg="uav_vln_bringup" type="camera_pose_bridge.py"
+        name="camera_pose_bridge" output="screen">
+    <param name="grid_map_parameters" value="/ego_planner_node/grid_map"/>
+  </node>
+  <node pkg="ego_planner" type="ego_planner_node" name="ego_planner_node" output="screen">
+    <rosparam command="load" file="$(find uav_vln_bringup)/config/ego_planner_params.yaml"/>
+    <param name="fsm/managed_control" value="true"/>
+    <param name="fsm/odom_velocity_in_body" value="true"/>
+    <param name="grid_map/pose_type" value="1"/>
+    <param name="grid_map/enable_independent_cloud" value="false"/>
+    <remap from="/odom_world" to="/mavros/local_position/odom"/>
+    <remap from="/grid_map/depth" to="/uav/planning/depth"/>
+    <remap from="/grid_map/pose" to="/uav/planning/camera_pose"/>
+  </node>
+  <node pkg="uav_vln_bringup" type="managed_planner_node.py" name="managed_planner" output="screen"/>
+</launch>

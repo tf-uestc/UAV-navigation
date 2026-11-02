@@ -1,0 +1,93 @@
+-- Using CATKIN_DEVEL_PREFIX: /root/autodl-tmp/uav/validation/business-devel
+-- Using CMAKE_PREFIX_PATH: /root/autodl-tmp/uav/ego-planner/install;/opt/ros/noetic
+-- This workspace overlays: /root/autodl-tmp/uav/ego-planner/install;/opt/ros/noetic
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using Debian Python package layout
+-- Using empy: /usr/lib/python3/dist-packages/em.py
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/test_results
+-- Forcing gtest/gmock from source, though one was otherwise available.
+-- Found gtest sources under '/usr/src/googletest': gtests will be built
+-- Found gmock sources under '/usr/src/googletest': gmock will be built
+-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+-- Using Python nosetests: /usr/bin/nosetests3
+-- catkin 0.8.12
+-- BUILD_SHARED_LIBS is on
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 1 packages in topological order:
+-- ~~  - uav_vln_bringup
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'uav_vln_bringup'
+-- ==> add_subdirectory(uav_vln_bringup)
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/managed_planner_node.py to /root/autodl-tmp/uav/validation/business-devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/camera_pose_bridge.py to /root/autodl-tmp/uav/validation/business-devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/detector_node.py to /root/autodl-tmp/uav/validation/business-devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/mission_manager.py to /root/autodl-tmp/uav/validation/business-devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/planner_node.py to /root/autodl-tmp/uav/validation/business-devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/setpoint_bridge.py to /root/autodl-tmp/uav/validation/business-devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/takeoff_land.py to /root/autodl-tmp/uav/validation/business-devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/tf_healthcheck.py to /root/autodl-tmp/uav/validation/business-devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/trajectory_follower.py to /root/autodl-tmp/uav/validation/business-devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/test/lifecycle_integration_ros_test.py to /root/autodl-tmp/uav/validation/business-devel/lib/uav_vln_bringup
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/autodl-tmp/uav/UAV-navigation/ws/build_verified
+Install the project...
+-- Install configuration: ""
+-- Installing: /root/autodl-tmp/uav/validation/business-install/_setup_util.py
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/env.sh
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/setup.bash
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/local_setup.bash
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/setup.sh
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/local_setup.sh
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/setup.zsh
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/local_setup.zsh
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/setup.fish
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/local_setup.fish
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/.rosinstall
++ cd /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup
++ mkdir -p /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages
++ /usr/bin/env PYTHONPATH=/root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages:/root/autodl-tmp/uav/UAV-navigation/ws/build_verified/lib/python3/dist-packages:/root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages:/opt/ros/noetic/lib/python3/dist-packages CATKIN_BINARY_DIR=/root/autodl-tmp/uav/UAV-navigation/ws/build_verified /usr/bin/python3 /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/setup.py build --build-base /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup install --root=/ --install-layout=deb --prefix=/root/autodl-tmp/uav/validation/business-install --install-scripts=/root/autodl-tmp/uav/validation/business-install/bin
+running build
+running build_py
+running install
+running install_lib
+running install_egg_info
+Removing /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/uav_vln_bringup-0.0.0.egg-info
+Writing /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/uav_vln_bringup-0.0.0.egg-info
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/pkgconfig/uav_vln_bringup.pc
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/cmake/uav_vln_bringupConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/cmake/uav_vln_bringupConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/package.xml
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/managed_planner_node.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/camera_pose_bridge.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/detector_node.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/mission_manager.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/planner_node.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/setpoint_bridge.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/takeoff_land.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/tf_healthcheck.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/trajectory_follower.py
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/ego_planner.launch
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/mavros_mocap.launch
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/takeoff_land_demo.launch
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/test_planner_dummy.launch
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/test_planner_ego.launch
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/vlm_navigation.launch
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/vlm_navigation_full.launch
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/mavros_px4_sitl.launch
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/planner_verified.launch
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/config
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/config/ego_planner_params.yaml
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/config/mission_params.yaml
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/test
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/test/run_stage78.py
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/test/bspline_oracle.cpp
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/test/probe_camera_install.py
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/test/lifecycle_integration.test
+-- Up-to-date: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/test/lifecycle_integration_ros_test.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/lifecycle_integration_ros_test.py

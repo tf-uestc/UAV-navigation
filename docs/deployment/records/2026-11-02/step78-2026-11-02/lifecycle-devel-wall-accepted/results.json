@@ -1,0 +1,105 @@
+{
+  "stage": "lifecycle",
+  "clock": "wall",
+  "passed": false,
+  "checks": [
+    {
+      "name": "real_detector_ids_and_fast_busy",
+      "passed": false,
+      "seconds": 0.637164019048214,
+      "error": "AssertionError()",
+      "trace": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/test/run_stage78.py\", line 206, in case\n    details=fn()\n  File \"/root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/test/run_stage78.py\", line 268, in transport\n    assert any(r['request_id']==1042 and r['status']=='SUCCEEDED' for r in all_results)\nAssertionError\n"
+    },
+    {
+      "name": "spline_before_ack_is_buffered_then_forwarded",
+      "passed": true,
+      "seconds": 0.04092455003410578,
+      "details": {
+        "schema_version": 1,
+        "mission_id": "d01bf0a9e95b4473a7ad0739a0f92a22",
+        "goal_id": 1,
+        "gateway_session_id": "bedc8564befa449291e25220d718a6b1",
+        "frame_id": "map",
+        "goal": [
+          3.0,
+          0.0,
+          2.0
+        ]
+      }
+    },
+    {
+      "name": "cancel_rejects_late_spline",
+      "passed": true,
+      "seconds": 0.25196081679314375,
+      "details": null
+    },
+    {
+      "name": "cancel_before_request_and_delayed_old_cancel_are_isolated",
+      "passed": true,
+      "seconds": 0.2832278646528721,
+      "details": null
+    },
+    {
+      "name": "map_not_ready_then_ready_same_request",
+      "passed": true,
+      "seconds": 0.20729803573340178,
+      "details": null
+    },
+    {
+      "name": "bounded_planner_timeout_sends_cancel",
+      "passed": true,
+      "seconds": 0.5563034471124411,
+      "details": null
+    },
+    {
+      "name": "manager_rejects_wrong_task_and_latched_path",
+      "passed": true,
+      "seconds": 4.611324792727828,
+      "details": "Old task and unidentified latched Path could not complete plan wait."
+    },
+    {
+      "name": "manager_permanent_not_ready_has_bounded_retries",
+      "passed": true,
+      "seconds": 4.523840555921197,
+      "details": {
+        "requests": 1
+      }
+    },
+    {
+      "name": "task_A_to_B_old_failure_is_ignored",
+      "passed": true,
+      "seconds": 7.6471312418580055,
+      "details": null
+    },
+    {
+      "name": "ego_restart_session_does_not_replay_active_goal",
+      "passed": true,
+      "seconds": 0.29590441193431616,
+      "details": null
+    },
+    {
+      "name": "gateway_restart_rejects_latched_old_request",
+      "passed": true,
+      "seconds": 1.8435555435717106,
+      "details": "Old latched request rejected by new gateway session."
+    },
+    {
+      "name": "manager_restart_reused_request_number_rejects_old_mission",
+      "passed": false,
+      "seconds": 9.385224773548543,
+      "error": "AssertionError('condition timed out after 8.0s')",
+      "trace": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/test/run_stage78.py\", line 206, in case\n    details=fn()\n  File \"/root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/test/run_stage78.py\", line 389, in manager_restart_ids\n    wait(lambda:any(m.data=='HOVER' for m in messages('/uav/mission_status',ready_at)))\n  File \"/root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/test/run_stage78.py\", line 45, in wait\n    raise AssertionError('condition timed out after %.1fs'%timeout)\nAssertionError: condition timed out after 8.0s\n"
+    },
+    {
+      "name": "manager_fast_busy_clears_pending_before_timeout",
+      "passed": true,
+      "seconds": 5.276866219937801,
+      "details": {
+        "seconds_to_next_request": 1.6036130664870143,
+        "configured_timeout": 5
+      }
+    }
+  ],
+  "fatal": null,
+  "flight_master_contacted": false
+}

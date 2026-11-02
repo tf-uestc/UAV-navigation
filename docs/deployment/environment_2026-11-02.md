@@ -97,7 +97,7 @@ roslaunch mavros px4.launch fcu_url:='udp://:14540@127.0.0.1:14580'
 
 启动日志存在非致命提示：rcS的Illegal number、/dev/led0不可用、SDF属性兼容、Gazebo GUI首次创建配置和XDG_RUNTIME_DIR默认值、MAVROS命令520提示。它们未阻止本次连接与数据验证，原始日志保留；未宣称已经定位或修复全部提示。未改动飞控参数以掩盖提示。
 
-本节前述标准Iris数据对应先前任务1至4。随后用户批准任务5至6，并确认使用search_rescue.world；项目iris_depth_camera及RGB-D静态TF验证现已通过，详细修正和证据见rgbd_validation_2026-11-02.md。U00环境与完整模型基线已通过；U01安装空间等、U03动态坐标场景及EGO连续重规划/取消、唯一控制出口、真实检测API、起飞和180度旋转仍未完成。
+本节前述标准Iris数据对应先前任务1至4。随后用户批准任务5至6，并确认使用search_rescue.world；项目iris_depth_camera及RGB-D静态TF验证现已通过，详细修正和证据见rgbd_validation_2026-11-02.md。U00环境与完整模型基线已通过；后续第7至8项已完成U01/U02和EGO规划侧验证，详见本文末补充；U03动态实测、唯一控制出口、真实检测API、起飞和180度旋转仍待验证。
 
 ## 记录位置与备份
 
@@ -109,3 +109,14 @@ roslaunch mavros px4.launch fcu_url:='udp://:14540@127.0.0.1:14580'
 ## 项目场景的后续验证
 
 任务5至6已完成，日常启动优先使用tools/deployment/launch_project_rgbd.sh，不能把原来的标准Iris空场景命令当作项目完整启动入口。RGB、深度、CameraInfo和点云统一使用camera_link_optical，主点为319.5/239.5，详见rgbd_validation_2026-11-02.md。
+
+
+## 第7至8项后的环境与源码记录
+
+EGO当前为uav-integration分支f5f62661df07cdc88363a048ebfa16bc7b85d889，基线bfda512。补丁见external/ego-planner；GoalCommand/GoalStatus和Bspline消息变更要求重编译全部消费者。PX4版本及专用构建venv保持原样，没有安装或升级CUDA、cuDNN、PyTorch。
+
+ROS、相机桥、任务管理和检测fixture均使用/usr/bin/python3。推荐验证环境source顺序：/opt/ros/noetic/setup.bash → /root/autodl-tmp/uav/ego-planner/install/setup.bash → /root/autodl-tmp/uav/validation/business-install/setup.bash。开发环境对应ego-planner/devel和validation/business-devel，不能交叉混用旧消息。PX4构建继续单独使用venvs/px4-py38；离线测试使用venvs/offline-py38，81项回归通过。Conda不参与ROS构建。
+
+业务验证构建目录为ws/build_verified，输出prefix明确为validation/business-devel和validation/business-install；旧ws/devel保留作为日常开发目录。完整命令、独立测试端口、相机标定共享方式和边界见ros_planning_validation_2026-11-02.md。原来的vlm_navigation_full.launch没有自动切换到新规划入口。
+
+修改前业务快照b4b4423已制作完整Git bundle；本轮EGO提交也已制作bundle并核对SHA256。最终代码和记录另存同批修复分支提交及bundle；这不等于完整数据盘备份或系统镜像。本轮没有推送GitHub，main未合并。

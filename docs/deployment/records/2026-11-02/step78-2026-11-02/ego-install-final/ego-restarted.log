@@ -1,0 +1,20 @@
+hit: 0.619039
+miss: -0.619039
+min log: -1.99243
+max: 2.19722
+thresh log: 1.38629
+[MANAGED_GOAL]: from INIT to WAIT_TARGET
+Triggered!
+[TRIG]: from WAIT_TARGET to GEN_NEW_TRAJ
+
+[rebo replan]: -------------------------------------0
+start: 0 0 2, 0 0 0
+goal:  3 1.8 2.2, 0 0 0
+[32miter(+1)=15,time(ms)=0.132,total_t(ms)=0.132,cost=0.037
+[0mfirst_optimize_step_success=1
+Need to reallocate time.
+total time:[42m0.000833[0m,optimize:0.000367,refine:0.000465
+final_plan_success=1
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[MANAGED_STOP]: from EXEC_TRAJ to WAIT_TARGET
+des manager

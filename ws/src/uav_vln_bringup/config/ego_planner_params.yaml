@@ -23,10 +23,10 @@ grid_map:
   ground_height: -0.01
 
   # Camera intrinsics (iris_depth_camera 640x480)
-  cx: 320.5
-  cy: 240.5
-  fx: 554.254
-  fy: 554.254
+  cx: 319.5
+  cy: 239.5
+  fx: 343.15907310693535
+  fy: 343.15907310693535
 
   # Depth filter
   use_depth_filter: true
@@ -80,8 +80,8 @@ fsm:
 
 # --- Trajectory Manager ---
 manager:
-  max_vel: 1.5
-  max_acc: 2.0
+  max_vel: 0.8
+  max_acc: 0.8
   max_jerk: 4.0
   control_points_distance: 0.4
   feasibility_tolerance: 0.05

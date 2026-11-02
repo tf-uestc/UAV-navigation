@@ -1,0 +1,3 @@
+[WARN] [1793610557.545653, 200.000000]: [detector] Observation rejected: unsynchronized images
+[INFO] [1793610537.574175, 0.000000]: [detector] Loaded detector: test_backend.FixtureDetector
+[INFO] [1793610537.591583, 103.700000]: [detector] DetectorNode initialized successfully

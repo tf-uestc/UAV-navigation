@@ -1,0 +1,30 @@
+... logging to /root/.ros/log/e16051b6-d6a0-11f1-a09c-0242ac110005/roslaunch-autodl-container-aq0cz0qjsr-1ada114f-66189.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;roscore
+[1mstarted roslaunch server http://127.0.0.1:38669/[0m
+ros_comm version 1.17.4
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+
+NODES
+
+auto-starting new master
+[1mprocess[master]: started with pid [66197][0m
+[1mROS_MASTER_URI=http://127.0.0.1:11312/[0m
+]2;roscore http://127.0.0.1:11312/
+[1msetting /run_id to e16051b6-d6a0-11f1-a09c-0242ac110005[0m
+[1mprocess[rosout-1]: started with pid [66208][0m
+started core service [/rosout]
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

@@ -8,3 +8,5 @@
 *.txt text eol=lf
 
 docs/deployment/records/** -text -diff
+
+external/ego-planner/*.patch -text -diff

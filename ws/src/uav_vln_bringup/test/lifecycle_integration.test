@@ -1,0 +1,4 @@
+<launch>
+  <test pkg="uav_vln_bringup" type="lifecycle_integration_ros_test.py"
+        test-name="lifecycle_integration" time-limit="180"/>
+</launch>

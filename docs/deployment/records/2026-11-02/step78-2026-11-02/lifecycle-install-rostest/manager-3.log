@@ -1,0 +1,68 @@
+[INFO] [1793611980.234001, 0.000000]: [mission] MissionManager initialized (state=IDLE)
+[INFO] [1793611981.147000, 107.300000]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793611982.746619, 115.100000]: [mission] State command: HOVER
+[INFO] [1793611982.748943, 115.100000]: [mission] State: IDLE -> HOVER
+[INFO] [1793611982.750646, 115.100000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611982.847158, 115.500000]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793611982.850161, 115.600000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611982.852641, 115.600000]: [mission] Search thread started
+[INFO] [1793611982.853113, 115.600000]: [mission] Started search thread
+[INFO] [1793611982.856606, 115.600000]: [mission] Entered SEARCHING (target=red)
+[INFO] [1793611983.263873, 117.600000]: [mission] Yaw sweep round 1/3
+[INFO] [1793611983.267186, 117.600000]: [mission] Yaw sweep   0 deg
+[INFO] [1793611983.595638, 119.200000]: [mission] Yaw sweep  45 deg
+[INFO] [1793611983.657096, 119.400000]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793611983.658070, 119.400000]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793611983.663116, 119.500000]: [mission] Exited SEARCHING
+[INFO] [1793611983.665880, 119.500000]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793611984.645645, 124.200000]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793611984.648467, 124.200000]: [mission] Exited APPROACHING
+[INFO] [1793611984.650823, 124.200000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611984.653582, 124.300000]: [mission] State command: HOVER
+[INFO] [1793611984.753242, 124.700000]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793611984.756232, 124.800000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611984.758636, 124.800000]: [mission] Search thread started
+[INFO] [1793611984.759138, 124.800000]: [mission] Started search thread
+[INFO] [1793611984.762313, 124.800000]: [mission] Entered SEARCHING (target=red)
+[INFO] [1793611985.165827, 126.800000]: [mission] Yaw sweep round 1/3
+[INFO] [1793611985.169016, 126.800000]: [mission] Yaw sweep   0 deg
+[INFO] [1793611985.498209, 128.400000]: [mission] Yaw sweep  45 deg
+[INFO] [1793611985.560618, 128.700000]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793611985.561519, 128.700000]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793611985.564610, 128.700000]: [mission] Exited SEARCHING
+[INFO] [1793611985.566201, 128.700000]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793611986.471268, 133.000000]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793611986.473902, 133.000000]: [mission] Exited APPROACHING
+[INFO] [1793611986.476253, 133.000000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611986.485800, 133.100000]: [mission] State command: HOVER
+[INFO] [1793611986.586604, 133.600000]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793611986.589400, 133.600000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611986.591785, 133.600000]: [mission] Search thread started
+[INFO] [1793611986.592218, 133.600000]: [mission] Started search thread
+[INFO] [1793611986.595356, 133.600000]: [mission] Entered SEARCHING (target=red)
+[INFO] [1793611986.998991, 135.600000]: [mission] Yaw sweep round 1/3
+[INFO] [1793611987.001404, 135.600000]: [mission] Yaw sweep   0 deg
+[INFO] [1793611987.334436, 137.200000]: [mission] Yaw sweep  45 deg
+[INFO] [1793611987.395226, 137.400000]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793611987.396058, 137.400000]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793611987.400449, 137.500000]: [mission] Exited SEARCHING
+[INFO] [1793611987.403186, 137.500000]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793611987.447342, 137.700000]: [mission] State command: HOVER
+[INFO] [1793611987.449639, 137.700000]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793611987.451704, 137.700000]: [mission] Exited APPROACHING
+[INFO] [1793611987.453916, 137.700000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611987.548209, 138.200000]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793611987.551414, 138.200000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793611987.553878, 138.200000]: [mission] Search thread started
+[INFO] [1793611987.554341, 138.200000]: [mission] Started search thread
+[INFO] [1793611987.557543, 138.200000]: [mission] Entered SEARCHING (target=blue)
+[INFO] [1793611987.960889, 140.200000]: [mission] Yaw sweep round 1/3
+[INFO] [1793611987.963971, 140.200000]: [mission] Yaw sweep   0 deg
+[INFO] [1793611988.294595, 141.800000]: [mission] Yaw sweep  45 deg
+[INFO] [1793611988.357683, 142.000000]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793611988.360533, 142.100000]: [mission] Exited SEARCHING
+[INFO] [1793611988.363034, 142.100000]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793611988.459923, 142.500000]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793611990.310091, 151.400000]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793611990.311562, 151.400000]: [mission] Exited APPROACHING
+[INFO] [1793611990.312511, 151.400000]: [mission] Cleared trajectory (empty Path published)

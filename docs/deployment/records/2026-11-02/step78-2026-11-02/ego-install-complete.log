@@ -1,0 +1,452 @@
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_StatusData
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_Odometry
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_LQRTrajectory
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_AuxCommand
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_Corrections
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_Gains
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_OutputData
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_PositionCommand
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_PPROutputData
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_Serial
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_PolynomialTrajectory
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_SO3Command
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_TRPYCommand
+[  0%] Built target nav_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target nav_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target nav_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target nav_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  1%] Built target random_forest
+[  2%] Built target plan_env
+[  3%] Built target pose_utils
+[  5%] Built target mockamap_node
+[  6%] Built target SO3Control
+[  6%] Built target _multi_map_server_generate_messages_check_deps_VerticalOccupancyGridList
+[  6%] Built target _multi_map_server_generate_messages_check_deps_MultiOccupancyGrid
+[  6%] Built target _multi_map_server_generate_messages_check_deps_SparseMap3D
+[  6%] Built target _multi_map_server_generate_messages_check_deps_MultiSparseMap3D
+[  6%] Built target _ego_planner_generate_messages_check_deps_GoalStatus
+[  6%] Built target std_msgs_generate_messages_lisp
+[  6%] Built target _ego_planner_generate_messages_check_deps_GoalCommand
+[  6%] Built target _ego_planner_generate_messages_check_deps_Bspline
+[  6%] Built target _ego_planner_generate_messages_check_deps_DataDisp
+[  6%] Built target std_msgs_generate_messages_py
+[  6%] Built target std_msgs_generate_messages_nodejs
+[  6%] Built target std_msgs_generate_messages_eus
+[  6%] Built target std_msgs_generate_messages_cpp
+[  7%] Built target quadrotor_dynamics
+[  9%] Built target waypoint_generator
+[ 17%] Built target quadrotor_msgs_generate_messages_nodejs
+[ 24%] Built target quadrotor_msgs_generate_messages_cpp
+[ 32%] Built target quadrotor_msgs_generate_messages_eus
+[ 40%] Built target quadrotor_msgs_generate_messages_lisp
+[ 41%] Built target encode_msgs
+[ 42%] Built target decode_msgs
+[ 43%] Built target path_searching
+[ 45%] Built target multi_map_server_generate_messages_lisp
+[ 47%] Built target multi_map_server_generate_messages_nodejs
+[ 51%] Built target multi_map_server_generate_messages_eus
+[ 53%] Built target multi_map_server_generate_messages_cpp
+[ 55%] Built target ego_planner_generate_messages_lisp
+[ 57%] Built target ego_planner_generate_messages_nodejs
+[ 60%] Built target ego_planner_generate_messages_eus
+[ 62%] Built target ego_planner_generate_messages_cpp
+[ 63%] Built target quadrotor_simulator_so3
+[ 72%] Built target rviz_plugins
+[ 74%] Built target bspline_opt
+[ 75%] Built target odom_visualization
+[ 77%] Built target pcl_render_node
+[ 78%] Built target control_example
+[ 79%] Built target so3_control_nodelet
+[ 80%] Built target multi_map_visualization
+[ 81%] Built target traj_utils
+[ 81%] Built target nav_msgs_generate_messages_py
+[ 81%] Built target geometry_msgs_generate_messages_py
+[ 90%] Built target quadrotor_msgs_generate_messages_py
+[ 93%] Built target ego_planner_generate_messages_py
+[ 93%] Built target quadrotor_msgs_generate_messages
+[ 93%] Built target ego_planner_generate_messages
+[ 94%] Built target traj_server
+Scanning dependencies of target ego_planner_node
+[ 95%] Building CXX object planner/plan_manage/CMakeFiles/ego_planner_node.dir/src/ego_replan_fsm.cpp.o
+[ 95%] Linking CXX executable /root/autodl-tmp/uav/ego-planner/devel/lib/ego_planner/ego_planner_node
+[ 96%] Built target ego_planner_node
+[100%] Built target multi_map_server_generate_messages_py
+[100%] Built target multi_map_server_generate_messages
+Install the project...
+-- Install configuration: "Release"
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/_setup_util.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/env.sh
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/setup.bash
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/local_setup.bash
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/setup.sh
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/local_setup.sh
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/setup.zsh
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/local_setup.zsh
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/setup.fish
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/local_setup.fish
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/.rosinstall
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/AuxCommand.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/Corrections.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/Gains.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/OutputData.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/PositionCommand.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/PPROutputData.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/Serial.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/SO3Command.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/StatusData.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/TRPYCommand.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/Odometry.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/PolynomialTrajectory.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/LQRTrajectory.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/cmake/quadrotor_msgs-msg-paths.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/AuxCommand.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/Corrections.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/Gains.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/OutputData.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/PositionCommand.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/PPROutputData.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/Serial.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/SO3Command.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/StatusData.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/TRPYCommand.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/Odometry.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/PolynomialTrajectory.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/LQRTrajectory.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/AuxCommand.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/Corrections.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/Gains.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/OutputData.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/PositionCommand.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/PPROutputData.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/Serial.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/SO3Command.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/StatusData.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/TRPYCommand.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/Odometry.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/PolynomialTrajectory.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/LQRTrajectory.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/manifest.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/AuxCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_AuxCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/quadrotor_msgs-msg.asd
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/Corrections.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_Corrections.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/Gains.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_Gains.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/OutputData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_OutputData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/PositionCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_PositionCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/PPROutputData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_PPROutputData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/Serial.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_Serial.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/SO3Command.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_SO3Command.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/StatusData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_StatusData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/TRPYCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_TRPYCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/Odometry.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_Odometry.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/PolynomialTrajectory.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_PolynomialTrajectory.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/LQRTrajectory.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_LQRTrajectory.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/AuxCommand.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/_index.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/Corrections.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/Gains.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/OutputData.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/PositionCommand.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/PPROutputData.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/Serial.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/SO3Command.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/StatusData.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/TRPYCommand.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/Odometry.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/PolynomialTrajectory.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/LQRTrajectory.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/_index.js
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/quadrotor_msgs'...
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/quadrotor_msgs/msg'...
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_AuxCommand.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_Corrections.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_Gains.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_OutputData.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_PositionCommand.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_PPROutputData.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_Serial.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_SO3Command.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_StatusData.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_TRPYCommand.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_Odometry.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_PolynomialTrajectory.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_LQRTrajectory.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_AuxCommand.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_Corrections.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_Gains.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_LQRTrajectory.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_Odometry.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_OutputData.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_PPROutputData.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_PolynomialTrajectory.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_PositionCommand.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_SO3Command.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_Serial.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_StatusData.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_TRPYCommand.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/__init__.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/__pycache__/__init__.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/quadrotor_msgs.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/cmake/quadrotor_msgs-msg-extras.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/cmake/quadrotor_msgsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/cmake/quadrotor_msgsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/cmake_utils.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/cmake/arch.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/cmake/cmake_modules.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/cmake/color.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/cmake/cmake_utilsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/cmake/cmake_utilsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/map_generator.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/map_generator/cmake/map_generatorConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/map_generator/cmake/map_generatorConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/map_generator/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/plan_env.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/plan_env/cmake/plan_envConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/plan_env/cmake/plan_envConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/plan_env/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/libplan_env.so
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_env
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_env/grid_map.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_env/raycast.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/path_searching.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/path_searching/cmake/path_searchingConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/path_searching/cmake/path_searchingConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/path_searching/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/libpath_searching.so
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/path_searching
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/path_searching/dyn_a_star.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/bspline_opt.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/bspline_opt/cmake/bspline_optConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/bspline_opt/cmake/bspline_optConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/bspline_opt/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/libbspline_opt.so
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/bspline_opt
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/bspline_opt/bspline_optimizer.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/bspline_opt/gradient_descent_optimizer.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/bspline_opt/lbfgs.hpp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/bspline_opt/uniform_bspline.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/pose_utils.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/pose_utils/cmake/pose_utilsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/pose_utils/cmake/pose_utilsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/pose_utils/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/odom_visualization.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/odom_visualization/cmake/odom_visualizationConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/odom_visualization/cmake/odom_visualizationConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/odom_visualization/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/local_sensing_node.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/local_sensing_node/cmake/local_sensing_nodeConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/local_sensing_node/cmake/local_sensing_nodeConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/local_sensing_node/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/mockamap.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/mockamap/cmake/mockamapConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/mockamap/cmake/mockamapConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/mockamap/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/so3_control.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_control/cmake/so3_controlConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_control/cmake/so3_controlConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_control/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/msg/MultiOccupancyGrid.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/msg/MultiSparseMap3D.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/msg/SparseMap3D.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/msg/VerticalOccupancyGridList.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/cmake/multi_map_server-msg-paths.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/multi_map_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/multi_map_server/MultiOccupancyGrid.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/multi_map_server/MultiSparseMap3D.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/multi_map_server/SparseMap3D.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/multi_map_server/VerticalOccupancyGridList.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/msg/MultiOccupancyGrid.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/msg/MultiSparseMap3D.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/msg/SparseMap3D.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/msg/VerticalOccupancyGridList.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/manifest.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/MultiOccupancyGrid.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/_package_MultiOccupancyGrid.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/_package.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/multi_map_server-msg.asd
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/MultiSparseMap3D.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/_package_MultiSparseMap3D.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/SparseMap3D.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/_package_SparseMap3D.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/VerticalOccupancyGridList.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/_package_VerticalOccupancyGridList.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg/MultiOccupancyGrid.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg/_index.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg/MultiSparseMap3D.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg/SparseMap3D.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg/VerticalOccupancyGridList.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/_index.js
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/multi_map_server'...
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/multi_map_server/msg'...
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/_MultiOccupancyGrid.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/_MultiSparseMap3D.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/_SparseMap3D.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/_VerticalOccupancyGridList.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__/_MultiOccupancyGrid.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__/_MultiSparseMap3D.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__/_SparseMap3D.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__/_VerticalOccupancyGridList.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__/__init__.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/__pycache__/__init__.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/multi_map_server.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/cmake/multi_map_server-msg-extras.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/cmake/multi_map_serverConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/cmake/multi_map_serverConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/traj_utils.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/traj_utils/cmake/traj_utilsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/traj_utils/cmake/traj_utilsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/traj_utils/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/libtraj_utils.so
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/traj_utils
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/traj_utils/planning_visualization.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/traj_utils/polynomial_traj.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/msg/GoalCommand.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/msg/GoalStatus.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/msg/Bspline.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/msg/DataDisp.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/cmake/ego_planner-msg-paths.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/ego_planner
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/ego_planner/Bspline.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/ego_planner/DataDisp.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/ego_planner/GoalCommand.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/ego_planner/GoalStatus.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/msg/Bspline.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/msg/DataDisp.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/msg/GoalCommand.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/msg/GoalStatus.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/manifest.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/Bspline.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/_package_Bspline.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/_package.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/ego_planner-msg.asd
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/DataDisp.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/_package_DataDisp.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/GoalCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/_package_GoalCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/GoalStatus.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/_package_GoalStatus.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg/Bspline.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg/_index.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg/DataDisp.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg/GoalCommand.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg/GoalStatus.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/_index.js
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/ego_planner'...
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/ego_planner/msg'...
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/_Bspline.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/_DataDisp.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__/__init__.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__/_Bspline.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__/_DataDisp.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__/_GoalCommand.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__/_GoalStatus.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/_GoalCommand.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/_GoalStatus.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/__pycache__/__init__.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/ego_planner.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/cmake/ego_planner-msg-extras.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/cmake/ego_plannerConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/cmake/ego_plannerConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/package.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/ego_planner/ego_planner_node
+-- Set runtime path of "/root/autodl-tmp/uav/ego-planner/install/lib/ego_planner/ego_planner_node" to ""
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/ego_planner/traj_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_manage
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_manage/ego_replan_fsm.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_manage/plan_container.hpp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_manage/planner_manager.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/uav_utils.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/uav_utils/cmake/uav_utilsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/uav_utils/cmake/uav_utilsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/uav_utils/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/uav_utils
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/uav_utils/converters.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/uav_utils/geometry_utils.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/uav_utils/utils.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/so3_quadrotor_simulator.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_quadrotor_simulator/cmake/so3_quadrotor_simulatorConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_quadrotor_simulator/cmake/so3_quadrotor_simulatorConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_quadrotor_simulator/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/rviz_plugins.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/rviz_plugins/cmake/rviz_pluginsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/rviz_plugins/cmake/rviz_pluginsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/rviz_plugins/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/librviz_plugins.so
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/rviz_plugins/plugin_description.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/waypoint_generator.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/waypoint_generator/cmake/waypoint_generatorConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/waypoint_generator/cmake/waypoint_generatorConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/waypoint_generator/package.xml
+Base path: /root/autodl-tmp/uav/ego-planner
+Source space: /root/autodl-tmp/uav/ego-planner/src
+Build space: /root/autodl-tmp/uav/ego-planner/build
+Devel space: /root/autodl-tmp/uav/ego-planner/devel
+Install space: /root/autodl-tmp/uav/ego-planner/install
+####
+#### Running command: "make cmake_check_build_system" in "/root/autodl-tmp/uav/ego-planner/build"
+####
+####
+#### Running command: "make -j4 -l4 install" in "/root/autodl-tmp/uav/ego-planner/build"
+####

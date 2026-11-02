@@ -1,0 +1,95 @@
+Install the project...
+-- Install configuration: ""
+-- Installing: /root/autodl-tmp/uav/validation/business-install/_setup_util.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/env.sh
+-- Installing: /root/autodl-tmp/uav/validation/business-install/setup.bash
+-- Installing: /root/autodl-tmp/uav/validation/business-install/local_setup.bash
+-- Installing: /root/autodl-tmp/uav/validation/business-install/setup.sh
+-- Installing: /root/autodl-tmp/uav/validation/business-install/local_setup.sh
+-- Installing: /root/autodl-tmp/uav/validation/business-install/setup.zsh
+-- Installing: /root/autodl-tmp/uav/validation/business-install/local_setup.zsh
+-- Installing: /root/autodl-tmp/uav/validation/business-install/setup.fish
+-- Installing: /root/autodl-tmp/uav/validation/business-install/local_setup.fish
+-- Installing: /root/autodl-tmp/uav/validation/business-install/.rosinstall
++ cd /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup
++ mkdir -p /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages
++ /usr/bin/env PYTHONPATH=/root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages:/root/autodl-tmp/uav/UAV-navigation/ws/build_verified/lib/python3/dist-packages:/root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages:/opt/ros/noetic/lib/python3/dist-packages CATKIN_BINARY_DIR=/root/autodl-tmp/uav/UAV-navigation/ws/build_verified /usr/bin/python3 /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/setup.py build --build-base /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup install --root=/ --install-layout=deb --prefix=/root/autodl-tmp/uav/validation/business-install --install-scripts=/root/autodl-tmp/uav/validation/business-install/bin
+running build
+running build_py
+running install
+running install_lib
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/base_detector.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/qwen_vl_grounding.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/test_backend.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages
+creating /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/navigation_core/__init__.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/navigation_core/bridge.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/navigation_core/bspline.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/navigation_core/contracts.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/navigation_core/control.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/navigation_core/lifecycle.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/navigation_core/perception.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/navigation_core/targets.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/navigation_core/trajectory.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/navigation_core/yaw.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core
+creating /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/planning
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/planning/__init__.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/planning
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/planning/base.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/planning
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/planning/dummy_planner.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/planning
+copying /root/autodl-tmp/uav/UAV-navigation/ws/build_verified/uav_vln_bringup/lib/planning/ego_adapter.py -> /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/planning
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/base_detector.py to base_detector.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/qwen_vl_grounding.py to qwen_vl_grounding.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/test_backend.py to test_backend.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core/__init__.py to __init__.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core/bridge.py to bridge.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core/bspline.py to bspline.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core/contracts.py to contracts.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core/control.py to control.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core/lifecycle.py to lifecycle.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core/perception.py to perception.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core/targets.py to targets.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core/trajectory.py to trajectory.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/navigation_core/yaw.py to yaw.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/planning/__init__.py to __init__.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/planning/base.py to base.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/planning/dummy_planner.py to dummy_planner.cpython-38.pyc
+byte-compiling /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/planning/ego_adapter.py to ego_adapter.cpython-38.pyc
+running install_egg_info
+Writing /root/autodl-tmp/uav/validation/business-install/lib/python3/dist-packages/uav_vln_bringup-0.0.0.egg-info
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/pkgconfig/uav_vln_bringup.pc
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/cmake/uav_vln_bringupConfig.cmake
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/cmake/uav_vln_bringupConfig-version.cmake
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/package.xml
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/managed_planner_node.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/camera_pose_bridge.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/detector_node.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/mission_manager.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/planner_node.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/setpoint_bridge.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/takeoff_land.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/tf_healthcheck.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/trajectory_follower.py
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/ego_planner.launch
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/mavros_mocap.launch
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/takeoff_land_demo.launch
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/test_planner_dummy.launch
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/test_planner_ego.launch
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/vlm_navigation.launch
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/vlm_navigation_full.launch
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/mavros_px4_sitl.launch
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/planner_verified.launch
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/config
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/config/ego_planner_params.yaml
+-- Installing: /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/config/mission_params.yaml
+Base path: /root/autodl-tmp/uav/UAV-navigation/ws
+Source space: /root/autodl-tmp/uav/UAV-navigation/ws/src
+Build space: /root/autodl-tmp/uav/UAV-navigation/ws/build_verified
+Devel space: /root/autodl-tmp/uav/validation/business-devel
+Install space: /root/autodl-tmp/uav/validation/business-install
+####
+#### Running command: "make cmake_check_build_system" in "/root/autodl-tmp/uav/UAV-navigation/ws/build_verified"
+####
+####
+#### Running command: "make -j4 -l4 install" in "/root/autodl-tmp/uav/UAV-navigation/ws/build_verified"
+####

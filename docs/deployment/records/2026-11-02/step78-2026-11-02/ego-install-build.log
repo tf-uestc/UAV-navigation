@@ -1,0 +1,1004 @@
+-- Using CATKIN_DEVEL_PREFIX: /root/autodl-tmp/uav/ego-planner/devel
+-- Using CMAKE_PREFIX_PATH: /opt/ros/noetic
+-- This workspace overlays: /opt/ros/noetic
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using Debian Python package layout
+-- Using empy: /usr/lib/python3/dist-packages/em.py
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /root/autodl-tmp/uav/ego-planner/build/test_results
+-- Forcing gtest/gmock from source, though one was otherwise available.
+-- Found gtest sources under '/usr/src/googletest': gtests will be built
+-- Found gmock sources under '/usr/src/googletest': gmock will be built
+-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+-- Using Python nosetests: /usr/bin/nosetests3
+-- catkin 0.8.12
+-- BUILD_SHARED_LIBS is on
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 18 packages in topological order:
+-- ~~  - quadrotor_msgs
+-- ~~  - cmake_utils
+-- ~~  - map_generator
+-- ~~  - plan_env
+-- ~~  - path_searching
+-- ~~  - bspline_opt
+-- ~~  - pose_utils
+-- ~~  - odom_visualization
+-- ~~  - local_sensing_node
+-- ~~  - mockamap
+-- ~~  - so3_control
+-- ~~  - multi_map_server
+-- ~~  - traj_utils
+-- ~~  - ego_planner
+-- ~~  - uav_utils
+-- ~~  - so3_quadrotor_simulator
+-- ~~  - rviz_plugins
+-- ~~  - waypoint_generator
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'quadrotor_msgs'
+-- ==> add_subdirectory(uav_simulator/Utils/quadrotor_msgs)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- quadrotor_msgs: 13 messages, 0 services
+-- +++ processing catkin package: 'cmake_utils'
+-- ==> add_subdirectory(uav_simulator/Utils/cmake_utils)
+-- +++ processing catkin package: 'map_generator'
+-- ==> add_subdirectory(uav_simulator/map_generator)
+-- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+-- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+-- The imported target "vtkParseOGLExt" references the file
+   "/usr/bin/vtkParseOGLExt-7.1"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtkRenderingPythonTkWidgets" references the file
+   "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtk" references the file
+   "/usr/bin/vtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "pvtk" references the file
+   "/usr/bin/pvtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+-- QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- looking for PCL_COMMON
+-- looking for PCL_KDTREE
+-- looking for PCL_OCTREE
+-- looking for PCL_SEARCH
+-- looking for PCL_SAMPLE_CONSENSUS
+-- looking for PCL_FILTERS
+-- looking for PCL_2D
+-- looking for PCL_GEOMETRY
+-- looking for PCL_IO
+-- looking for PCL_FEATURES
+-- looking for PCL_ML
+-- looking for PCL_SEGMENTATION
+-- looking for PCL_VISUALIZATION
+-- looking for PCL_SURFACE
+-- looking for PCL_REGISTRATION
+-- looking for PCL_KEYPOINTS
+-- looking for PCL_TRACKING
+-- looking for PCL_RECOGNITION
+-- looking for PCL_STEREO
+-- looking for PCL_APPS
+-- looking for PCL_IN_HAND_SCANNER
+-- looking for PCL_POINT_CLOUD_EDITOR
+-- looking for PCL_OUTOFCORE
+-- looking for PCL_PEOPLE
+-- Found PCL: pcl_common;pcl_kdtree;pcl_octree;pcl_search;pcl_sample_consensus;pcl_filters;pcl_io;pcl_features;pcl_ml;pcl_segmentation;pcl_visualization;pcl_surface;pcl_registration;pcl_keypoints;pcl_tracking;pcl_recognition;pcl_stereo;pcl_apps;pcl_outofcore;pcl_people;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;vtkChartsCore;vtkCommonColor;vtkCommonCore;vtksys;vtkCommonDataModel;vtkCommonMath;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkCommonExecutionModel;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersCore;vtkInfovisCore;vtkFiltersExtraction;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkFiltersModeling;vtkImagingSources;vtkInteractionStyle;vtkInteractionWidgets;vtkFiltersHybrid;vtkImagingColor;vtkImagingGeneral;vtkImagingHybrid;vtkIOImage;vtkDICOMParser;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkRenderingAnnotation;vtkRenderingVolume;vtkIOXML;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkIOGeometry;vtkIOLegacy;vtkIOPLY;vtkRenderingLOD;vtkViewsContext2D;vtkViewsCore;vtkRenderingContextOpenGL2;vtkRenderingOpenGL2;FLANN::FLANN  
+-- +++ processing catkin package: 'plan_env'
+-- ==> add_subdirectory(planner/plan_env)
+-- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+-- The imported target "vtkParseOGLExt" references the file
+   "/usr/bin/vtkParseOGLExt-7.1"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtkRenderingPythonTkWidgets" references the file
+   "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtk" references the file
+   "/usr/bin/vtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "pvtk" references the file
+   "/usr/bin/pvtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+-- QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- looking for PCL_COMMON
+-- looking for PCL_KDTREE
+-- looking for PCL_OCTREE
+-- looking for PCL_SEARCH
+-- looking for PCL_SAMPLE_CONSENSUS
+-- looking for PCL_FILTERS
+-- looking for PCL_2D
+-- looking for PCL_GEOMETRY
+-- looking for PCL_IO
+-- looking for PCL_FEATURES
+-- looking for PCL_ML
+-- looking for PCL_SEGMENTATION
+-- looking for PCL_VISUALIZATION
+-- looking for PCL_SURFACE
+-- looking for PCL_REGISTRATION
+-- looking for PCL_KEYPOINTS
+-- looking for PCL_TRACKING
+-- looking for PCL_RECOGNITION
+-- looking for PCL_STEREO
+-- looking for PCL_APPS
+-- looking for PCL_IN_HAND_SCANNER
+-- looking for PCL_POINT_CLOUD_EDITOR
+-- looking for PCL_OUTOFCORE
+-- looking for PCL_PEOPLE
+-- Found PCL: pcl_common;pcl_kdtree;pcl_octree;pcl_search;pcl_sample_consensus;pcl_filters;pcl_io;pcl_features;pcl_ml;pcl_segmentation;pcl_visualization;pcl_surface;pcl_registration;pcl_keypoints;pcl_tracking;pcl_recognition;pcl_stereo;pcl_apps;pcl_outofcore;pcl_people;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;vtkChartsCore;vtkCommonColor;vtkCommonCore;vtksys;vtkCommonDataModel;vtkCommonMath;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkCommonExecutionModel;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersCore;vtkInfovisCore;vtkFiltersExtraction;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkFiltersModeling;vtkImagingSources;vtkInteractionStyle;vtkInteractionWidgets;vtkFiltersHybrid;vtkImagingColor;vtkImagingGeneral;vtkImagingHybrid;vtkIOImage;vtkDICOMParser;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkRenderingAnnotation;vtkRenderingVolume;vtkIOXML;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkIOGeometry;vtkIOLegacy;vtkIOPLY;vtkRenderingLOD;vtkViewsContext2D;vtkViewsCore;vtkRenderingContextOpenGL2;vtkRenderingOpenGL2;FLANN::FLANN (Required is at least version "1.7") 
+-- +++ processing catkin package: 'path_searching'
+-- ==> add_subdirectory(planner/path_searching)
+-- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+-- The imported target "vtkParseOGLExt" references the file
+   "/usr/bin/vtkParseOGLExt-7.1"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtkRenderingPythonTkWidgets" references the file
+   "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtk" references the file
+   "/usr/bin/vtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "pvtk" references the file
+   "/usr/bin/pvtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+-- QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- looking for PCL_COMMON
+-- looking for PCL_KDTREE
+-- looking for PCL_OCTREE
+-- looking for PCL_SEARCH
+-- looking for PCL_SAMPLE_CONSENSUS
+-- looking for PCL_FILTERS
+-- looking for PCL_2D
+-- looking for PCL_GEOMETRY
+-- looking for PCL_IO
+-- looking for PCL_FEATURES
+-- looking for PCL_ML
+-- looking for PCL_SEGMENTATION
+-- looking for PCL_VISUALIZATION
+-- looking for PCL_SURFACE
+-- looking for PCL_REGISTRATION
+-- looking for PCL_KEYPOINTS
+-- looking for PCL_TRACKING
+-- looking for PCL_RECOGNITION
+-- looking for PCL_STEREO
+-- looking for PCL_APPS
+-- looking for PCL_IN_HAND_SCANNER
+-- looking for PCL_POINT_CLOUD_EDITOR
+-- looking for PCL_OUTOFCORE
+-- looking for PCL_PEOPLE
+-- +++ processing catkin package: 'bspline_opt'
+-- ==> add_subdirectory(planner/bspline_opt)
+-- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+-- The imported target "vtkParseOGLExt" references the file
+   "/usr/bin/vtkParseOGLExt-7.1"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtkRenderingPythonTkWidgets" references the file
+   "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtk" references the file
+   "/usr/bin/vtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "pvtk" references the file
+   "/usr/bin/pvtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+-- QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- looking for PCL_COMMON
+-- looking for PCL_KDTREE
+-- looking for PCL_OCTREE
+-- looking for PCL_SEARCH
+-- looking for PCL_SAMPLE_CONSENSUS
+-- looking for PCL_FILTERS
+-- looking for PCL_2D
+-- looking for PCL_GEOMETRY
+-- looking for PCL_IO
+-- looking for PCL_FEATURES
+-- looking for PCL_ML
+-- looking for PCL_SEGMENTATION
+-- looking for PCL_VISUALIZATION
+-- looking for PCL_SURFACE
+-- looking for PCL_REGISTRATION
+-- looking for PCL_KEYPOINTS
+-- looking for PCL_TRACKING
+-- looking for PCL_RECOGNITION
+-- looking for PCL_STEREO
+-- looking for PCL_APPS
+-- looking for PCL_IN_HAND_SCANNER
+-- looking for PCL_POINT_CLOUD_EDITOR
+-- looking for PCL_OUTOFCORE
+-- looking for PCL_PEOPLE
+-- +++ processing catkin package: 'pose_utils'
+-- ==> add_subdirectory(uav_simulator/Utils/pose_utils)
+-- +++ processing catkin package: 'odom_visualization'
+-- ==> add_subdirectory(uav_simulator/Utils/odom_visualization)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- +++ processing catkin package: 'local_sensing_node'
+-- ==> add_subdirectory(uav_simulator/local_sensing)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+CMake Warning at /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:166 (message):
+  catkin_package() DEPENDS on 'Eigen' but neither 'Eigen_INCLUDE_DIRS' nor
+  'Eigen_LIBRARIES' is defined.
+Call Stack (most recent call first):
+  /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+  uav_simulator/local_sensing/CMakeLists.txt:72 (catkin_package)
+
+
+-- +++ processing catkin package: 'mockamap'
+-- ==> add_subdirectory(uav_simulator/mockamap)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- +++ processing catkin package: 'so3_control'
+-- ==> add_subdirectory(uav_simulator/so3_control)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- +++ processing catkin package: 'multi_map_server'
+-- ==> add_subdirectory(uav_simulator/Utils/multi_map_server)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- multi_map_server: 4 messages, 0 services
+-- +++ processing catkin package: 'traj_utils'
+-- ==> add_subdirectory(planner/traj_utils)
+-- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+-- The imported target "vtkParseOGLExt" references the file
+   "/usr/bin/vtkParseOGLExt-7.1"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtkRenderingPythonTkWidgets" references the file
+   "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtk" references the file
+   "/usr/bin/vtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "pvtk" references the file
+   "/usr/bin/pvtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+-- QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- looking for PCL_COMMON
+-- looking for PCL_KDTREE
+-- looking for PCL_OCTREE
+-- looking for PCL_SEARCH
+-- looking for PCL_SAMPLE_CONSENSUS
+-- looking for PCL_FILTERS
+-- looking for PCL_2D
+-- looking for PCL_GEOMETRY
+-- looking for PCL_IO
+-- looking for PCL_FEATURES
+-- looking for PCL_ML
+-- looking for PCL_SEGMENTATION
+-- looking for PCL_VISUALIZATION
+-- looking for PCL_SURFACE
+-- looking for PCL_REGISTRATION
+-- looking for PCL_KEYPOINTS
+-- looking for PCL_TRACKING
+-- looking for PCL_RECOGNITION
+-- looking for PCL_STEREO
+-- looking for PCL_APPS
+-- looking for PCL_IN_HAND_SCANNER
+-- looking for PCL_POINT_CLOUD_EDITOR
+-- looking for PCL_OUTOFCORE
+-- looking for PCL_PEOPLE
+-- +++ processing catkin package: 'ego_planner'
+-- ==> add_subdirectory(planner/plan_manage)
+-- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+-- The imported target "vtkParseOGLExt" references the file
+   "/usr/bin/vtkParseOGLExt-7.1"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtkRenderingPythonTkWidgets" references the file
+   "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "vtk" references the file
+   "/usr/bin/vtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- The imported target "pvtk" references the file
+   "/usr/bin/pvtk"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+but not all the files it references.
+
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+-- QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)
+-- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+-- looking for PCL_COMMON
+-- looking for PCL_KDTREE
+-- looking for PCL_OCTREE
+-- looking for PCL_SEARCH
+-- looking for PCL_SAMPLE_CONSENSUS
+-- looking for PCL_FILTERS
+-- looking for PCL_2D
+-- looking for PCL_GEOMETRY
+-- looking for PCL_IO
+-- looking for PCL_FEATURES
+-- looking for PCL_ML
+-- looking for PCL_SEGMENTATION
+-- looking for PCL_VISUALIZATION
+-- looking for PCL_SURFACE
+-- looking for PCL_REGISTRATION
+-- looking for PCL_KEYPOINTS
+-- looking for PCL_TRACKING
+-- looking for PCL_RECOGNITION
+-- looking for PCL_STEREO
+-- looking for PCL_APPS
+-- looking for PCL_IN_HAND_SCANNER
+-- looking for PCL_POINT_CLOUD_EDITOR
+-- looking for PCL_OUTOFCORE
+-- looking for PCL_PEOPLE
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- ego_planner: 4 messages, 0 services
+-- +++ processing catkin package: 'uav_utils'
+-- ==> add_subdirectory(uav_simulator/Utils/uav_utils)
+-- Found Eigen: /usr/include/eigen3 (found version "3.3.7") 
+-- +++ processing catkin package: 'so3_quadrotor_simulator'
+-- ==> add_subdirectory(uav_simulator/so3_quadrotor_simulator)
+CMake Warning at /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:166 (message):
+  catkin_package() DEPENDS on 'Eigen3' but neither 'Eigen3_INCLUDE_DIRS' nor
+  'Eigen3_LIBRARIES' is defined.
+Call Stack (most recent call first):
+  /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+  uav_simulator/so3_quadrotor_simulator/CMakeLists.txt:29 (catkin_package)
+
+
+CMake Warning at /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:166 (message):
+  catkin_package() DEPENDS on 'system_lib' but neither
+  'system_lib_INCLUDE_DIRS' nor 'system_lib_LIBRARIES' is defined.
+Call Stack (most recent call first):
+  /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+  uav_simulator/so3_quadrotor_simulator/CMakeLists.txt:29 (catkin_package)
+
+
+-- +++ processing catkin package: 'rviz_plugins'
+-- ==> add_subdirectory(uav_simulator/Utils/rviz_plugins)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+CMake Warning at /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:166 (message):
+  catkin_package() DEPENDS on 'system_lib' but neither
+  'system_lib_INCLUDE_DIRS' nor 'system_lib_LIBRARIES' is defined.
+Call Stack (most recent call first):
+  /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+  uav_simulator/Utils/rviz_plugins/CMakeLists.txt:12 (catkin_package)
+
+
+-- Using Qt5 based on the rviz_QT_VERSION: 5.12.8
+-- +++ processing catkin package: 'waypoint_generator'
+-- ==> add_subdirectory(uav_simulator/Utils/waypoint_generator)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- Configuring done
+CMake Warning (dev) at uav_simulator/Utils/multi_map_server/CMakeLists.txt:167 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  The dependency target "multi_map_server_messages_cpp" of target
+  "multi_map_visualization" does not exist.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /root/autodl-tmp/uav/ego-planner/build
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_StatusData
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_Odometry
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_LQRTrajectory
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_AuxCommand
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_Corrections
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_Gains
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_OutputData
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_PositionCommand
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_PPROutputData
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_Serial
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_PolynomialTrajectory
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_SO3Command
+[  0%] Built target _quadrotor_msgs_generate_messages_check_deps_TRPYCommand
+[  0%] Built target nav_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target nav_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target nav_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target nav_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  1%] Built target random_forest
+[  2%] Built target plan_env
+[  3%] Built target pose_utils
+[  5%] Built target mockamap_node
+[  6%] Built target SO3Control
+[  6%] Built target _multi_map_server_generate_messages_check_deps_VerticalOccupancyGridList
+[  6%] Built target _multi_map_server_generate_messages_check_deps_MultiOccupancyGrid
+[  6%] Built target _multi_map_server_generate_messages_check_deps_SparseMap3D
+[  6%] Built target _multi_map_server_generate_messages_check_deps_MultiSparseMap3D
+[  6%] Built target _ego_planner_generate_messages_check_deps_GoalStatus
+[  6%] Built target std_msgs_generate_messages_lisp
+[  6%] Built target _ego_planner_generate_messages_check_deps_GoalCommand
+[  6%] Built target _ego_planner_generate_messages_check_deps_Bspline
+[  6%] Built target _ego_planner_generate_messages_check_deps_DataDisp
+[  6%] Built target std_msgs_generate_messages_py
+[  6%] Built target std_msgs_generate_messages_nodejs
+[  6%] Built target std_msgs_generate_messages_eus
+[  6%] Built target std_msgs_generate_messages_cpp
+[  7%] Built target quadrotor_dynamics
+[  9%] Built target waypoint_generator
+[ 17%] Built target quadrotor_msgs_generate_messages_nodejs
+[ 24%] Built target quadrotor_msgs_generate_messages_cpp
+[ 32%] Built target quadrotor_msgs_generate_messages_eus
+[ 40%] Built target quadrotor_msgs_generate_messages_lisp
+[ 41%] Built target encode_msgs
+[ 42%] Built target decode_msgs
+[ 43%] Built target path_searching
+[ 45%] Built target multi_map_server_generate_messages_lisp
+[ 47%] Built target multi_map_server_generate_messages_nodejs
+[ 51%] Built target multi_map_server_generate_messages_eus
+[ 53%] Built target multi_map_server_generate_messages_cpp
+[ 55%] Built target ego_planner_generate_messages_lisp
+[ 57%] Built target ego_planner_generate_messages_nodejs
+[ 60%] Built target ego_planner_generate_messages_eus
+[ 62%] Built target ego_planner_generate_messages_cpp
+[ 63%] Built target quadrotor_simulator_so3
+[ 72%] Built target rviz_plugins
+[ 74%] Built target bspline_opt
+[ 75%] Built target odom_visualization
+[ 77%] Built target pcl_render_node
+[ 78%] Built target control_example
+[ 79%] Built target so3_control_nodelet
+[ 80%] Built target multi_map_visualization
+[ 81%] Built target traj_utils
+[ 81%] Built target nav_msgs_generate_messages_py
+[ 81%] Built target geometry_msgs_generate_messages_py
+[ 90%] Built target quadrotor_msgs_generate_messages_py
+[ 93%] Built target ego_planner_generate_messages_py
+[ 93%] Built target quadrotor_msgs_generate_messages
+[ 93%] Built target ego_planner_generate_messages
+[ 94%] Built target traj_server
+[ 96%] Built target ego_planner_node
+[100%] Built target multi_map_server_generate_messages_py
+[100%] Built target multi_map_server_generate_messages
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/_setup_util.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/env.sh
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/setup.bash
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/local_setup.bash
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/setup.sh
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/local_setup.sh
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/setup.zsh
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/local_setup.zsh
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/setup.fish
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/local_setup.fish
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/.rosinstall
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/AuxCommand.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/Corrections.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/Gains.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/OutputData.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/PositionCommand.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/PPROutputData.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/Serial.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/SO3Command.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/StatusData.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/TRPYCommand.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/Odometry.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/PolynomialTrajectory.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/msg/LQRTrajectory.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/cmake/quadrotor_msgs-msg-paths.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/AuxCommand.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/Corrections.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/Gains.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/OutputData.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/PositionCommand.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/PPROutputData.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/Serial.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/SO3Command.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/StatusData.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/TRPYCommand.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/Odometry.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/PolynomialTrajectory.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/quadrotor_msgs/LQRTrajectory.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/AuxCommand.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/Corrections.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/Gains.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/OutputData.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/PositionCommand.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/PPROutputData.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/Serial.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/SO3Command.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/StatusData.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/TRPYCommand.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/Odometry.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/PolynomialTrajectory.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/msg/LQRTrajectory.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/quadrotor_msgs/manifest.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/AuxCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_AuxCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/quadrotor_msgs-msg.asd
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/Corrections.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_Corrections.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/Gains.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_Gains.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/OutputData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_OutputData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/PositionCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_PositionCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/PPROutputData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_PPROutputData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/Serial.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_Serial.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/SO3Command.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_SO3Command.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/StatusData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_StatusData.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/TRPYCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_TRPYCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/Odometry.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_Odometry.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/PolynomialTrajectory.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_PolynomialTrajectory.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/LQRTrajectory.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/quadrotor_msgs/msg/_package_LQRTrajectory.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/AuxCommand.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/_index.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/Corrections.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/Gains.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/OutputData.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/PositionCommand.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/PPROutputData.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/Serial.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/SO3Command.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/StatusData.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/TRPYCommand.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/Odometry.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/PolynomialTrajectory.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/msg/LQRTrajectory.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/quadrotor_msgs/_index.js
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/quadrotor_msgs'...
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/quadrotor_msgs/msg'...
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_AuxCommand.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_Corrections.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_Gains.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_OutputData.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_PositionCommand.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_PPROutputData.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_Serial.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_SO3Command.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_StatusData.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_TRPYCommand.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_Odometry.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_PolynomialTrajectory.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/_LQRTrajectory.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_AuxCommand.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_Corrections.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_Gains.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_LQRTrajectory.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_Odometry.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_OutputData.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_PPROutputData.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_PolynomialTrajectory.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_PositionCommand.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_SO3Command.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_Serial.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_StatusData.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/_TRPYCommand.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/msg/__pycache__/__init__.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/quadrotor_msgs/__pycache__/__init__.cpython-38.pyc
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/quadrotor_msgs.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/cmake/quadrotor_msgs-msg-extras.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/cmake/quadrotor_msgsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/cmake/quadrotor_msgsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/quadrotor_msgs/package.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/cmake_utils.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/cmake/arch.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/cmake/cmake_modules.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/cmake/color.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/cmake/cmake_utilsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/cmake/cmake_utilsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/cmake_utils/package.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/map_generator.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/map_generator/cmake/map_generatorConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/map_generator/cmake/map_generatorConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/map_generator/package.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/plan_env.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/plan_env/cmake/plan_envConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/plan_env/cmake/plan_envConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/plan_env/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/libplan_env.so
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_env
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_env/grid_map.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_env/raycast.h
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/path_searching.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/path_searching/cmake/path_searchingConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/path_searching/cmake/path_searchingConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/path_searching/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/libpath_searching.so
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/path_searching
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/path_searching/dyn_a_star.h
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/bspline_opt.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/bspline_opt/cmake/bspline_optConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/bspline_opt/cmake/bspline_optConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/bspline_opt/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/libbspline_opt.so
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/bspline_opt
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/bspline_opt/bspline_optimizer.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/bspline_opt/gradient_descent_optimizer.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/bspline_opt/lbfgs.hpp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/bspline_opt/uniform_bspline.h
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/pose_utils.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/pose_utils/cmake/pose_utilsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/pose_utils/cmake/pose_utilsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/pose_utils/package.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/odom_visualization.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/odom_visualization/cmake/odom_visualizationConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/odom_visualization/cmake/odom_visualizationConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/odom_visualization/package.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/local_sensing_node.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/local_sensing_node/cmake/local_sensing_nodeConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/local_sensing_node/cmake/local_sensing_nodeConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/local_sensing_node/package.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/mockamap.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/mockamap/cmake/mockamapConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/mockamap/cmake/mockamapConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/mockamap/package.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/so3_control.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_control/cmake/so3_controlConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_control/cmake/so3_controlConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_control/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/msg/MultiOccupancyGrid.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/msg/MultiSparseMap3D.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/msg/SparseMap3D.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/msg/VerticalOccupancyGridList.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/cmake/multi_map_server-msg-paths.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/multi_map_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/multi_map_server/MultiOccupancyGrid.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/multi_map_server/MultiSparseMap3D.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/multi_map_server/SparseMap3D.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/multi_map_server/VerticalOccupancyGridList.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/msg/MultiOccupancyGrid.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/msg/MultiSparseMap3D.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/msg/SparseMap3D.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/msg/VerticalOccupancyGridList.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/multi_map_server/manifest.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/MultiOccupancyGrid.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/_package_MultiOccupancyGrid.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/_package.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/multi_map_server-msg.asd
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/MultiSparseMap3D.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/_package_MultiSparseMap3D.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/SparseMap3D.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/_package_SparseMap3D.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/VerticalOccupancyGridList.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/multi_map_server/msg/_package_VerticalOccupancyGridList.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg/MultiOccupancyGrid.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg/_index.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg/MultiSparseMap3D.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg/SparseMap3D.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/msg/VerticalOccupancyGridList.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/multi_map_server/_index.js
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/multi_map_server'...
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/multi_map_server/msg'...
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/_MultiOccupancyGrid.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/_MultiSparseMap3D.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/_SparseMap3D.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/_VerticalOccupancyGridList.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__/_MultiOccupancyGrid.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__/_MultiSparseMap3D.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__/_SparseMap3D.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__/_VerticalOccupancyGridList.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/msg/__pycache__/__init__.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/multi_map_server/__pycache__/__init__.cpython-38.pyc
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/multi_map_server.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/cmake/multi_map_server-msg-extras.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/cmake/multi_map_serverConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/cmake/multi_map_serverConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/multi_map_server/package.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/traj_utils.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/traj_utils/cmake/traj_utilsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/traj_utils/cmake/traj_utilsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/traj_utils/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/libtraj_utils.so
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/traj_utils
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/traj_utils/planning_visualization.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/traj_utils/polynomial_traj.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/msg/GoalCommand.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/msg/GoalStatus.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/msg/Bspline.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/msg/DataDisp.msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/cmake/ego_planner-msg-paths.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/ego_planner
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/ego_planner/Bspline.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/ego_planner/DataDisp.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/ego_planner/GoalCommand.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/ego_planner/GoalStatus.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/msg/Bspline.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/msg/DataDisp.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/msg/GoalCommand.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/msg/GoalStatus.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/roseus/ros/ego_planner/manifest.l
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/Bspline.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/_package_Bspline.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/_package.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/ego_planner-msg.asd
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/DataDisp.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/_package_DataDisp.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/GoalCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/_package_GoalCommand.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/GoalStatus.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/common-lisp/ros/ego_planner/msg/_package_GoalStatus.lisp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg/Bspline.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg/_index.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg/DataDisp.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg/GoalCommand.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/msg/GoalStatus.js
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/gennodejs/ros/ego_planner/_index.js
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/ego_planner'...
+Listing '/root/autodl-tmp/uav/ego-planner/devel/lib/python3/dist-packages/ego_planner/msg'...
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/_Bspline.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/_DataDisp.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__/__init__.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__/_Bspline.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__/_DataDisp.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__/_GoalCommand.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/__pycache__/_GoalStatus.cpython-38.pyc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/_GoalCommand.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/msg/_GoalStatus.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/__pycache__
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/python3/dist-packages/ego_planner/__pycache__/__init__.cpython-38.pyc
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/ego_planner.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/cmake/ego_planner-msg-extras.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/cmake/ego_plannerConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/cmake/ego_plannerConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/ego_planner/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/ego_planner/ego_planner_node
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/ego_planner/traj_server
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_manage
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_manage/ego_replan_fsm.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_manage/plan_container.hpp
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/plan_manage/planner_manager.h
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/uav_utils.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/uav_utils/cmake/uav_utilsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/uav_utils/cmake/uav_utilsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/uav_utils/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/uav_utils
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/uav_utils/converters.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/uav_utils/geometry_utils.h
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/include/uav_utils/utils.h
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/so3_quadrotor_simulator.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_quadrotor_simulator/cmake/so3_quadrotor_simulatorConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_quadrotor_simulator/cmake/so3_quadrotor_simulatorConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/so3_quadrotor_simulator/package.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/rviz_plugins.pc
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/rviz_plugins/cmake/rviz_pluginsConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/rviz_plugins/cmake/rviz_pluginsConfig-version.cmake
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/rviz_plugins/package.xml
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/lib/librviz_plugins.so
+-- Up-to-date: /root/autodl-tmp/uav/ego-planner/install/share/rviz_plugins/plugin_description.xml
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/lib/pkgconfig/waypoint_generator.pc
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/share/waypoint_generator/cmake/waypoint_generatorConfig.cmake
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/share/waypoint_generator/cmake/waypoint_generatorConfig-version.cmake
+-- Installing: /root/autodl-tmp/uav/ego-planner/install/share/waypoint_generator/package.xml
+Base path: /root/autodl-tmp/uav/ego-planner
+Source space: /root/autodl-tmp/uav/ego-planner/src
+Build space: /root/autodl-tmp/uav/ego-planner/build
+Devel space: /root/autodl-tmp/uav/ego-planner/devel
+Install space: /root/autodl-tmp/uav/ego-planner/install
+####
+#### Running command: "make cmake_check_build_system" in "/root/autodl-tmp/uav/ego-planner/build"
+####
+####
+#### Running command: "make -j4 -l4 install" in "/root/autodl-tmp/uav/ego-planner/build"
+####

@@ -1,0 +1,71 @@
+{
+  "obstacle_center": [
+    2.8736475300406963,
+    1.1695689470241708,
+    2.0000000000000036
+  ],
+  "duration": 9.31813299763573,
+  "initial_position": [
+    0.00010087291729711008,
+    2.2583166896157976e-05,
+    1.999999999999996
+  ],
+  "statuses": [
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    },
+    {
+      "status": "REPLANNED",
+      "reason": "collision"
+    },
+    {
+      "status": "READY",
+      "reason": ""
+    }
+  ],
+  "verified_ids": [
+    13,
+    14
+  ]
+}

@@ -1,0 +1,49 @@
+Exception in thread mission_search:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/mission_manager.py", line 871, in _search_loop
+    self._sleep(YAW_SETTLE_TIME)
+  File "/root/autodl-tmp/uav/validation/business-install/lib/uav_vln_bringup/mission_manager.py", line 241, in _sleep
+    rospy.sleep(step)
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/timer.py", line 165, in sleep
+    raise rospy.exceptions.ROSInterruptException("ROS shutdown request")
+rospy.exceptions.ROSInterruptException: ROS shutdown request
+[INFO] [1793610548.849372, 158.100000]: [mission] MissionManager initialized (state=IDLE)
+[INFO] [1793610556.233256, 193.700000]: [mission] State command: HOVER
+[INFO] [1793610556.236792, 193.700000]: [mission] State: IDLE -> HOVER
+[INFO] [1793610556.238347, 193.700000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793610556.383821, 194.400000]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793610556.385934, 194.400000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793610556.388019, 194.400000]: [mission] Search thread started
+[INFO] [1793610556.388471, 194.400000]: [mission] Started search thread
+[INFO] [1793610556.391151, 194.400000]: [mission] Entered SEARCHING (target=busy_test)
+[INFO] [1793610556.794304, 196.400000]: [mission] Yaw sweep round 1/3
+[INFO] [1793610556.797616, 196.400000]: [mission] Yaw sweep   0 deg
+[INFO] [1793610557.125299, 198.000000]: [mission] Yaw sweep  45 deg
+[INFO] [1793610557.438004, 199.500000]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793610557.438740, 199.500000]: [mission] Rejected result: unsolicited
+[INFO] [1793610557.460650, 199.600000]: [mission] Yaw sweep -45 deg
+[INFO] [1793610557.521960, 199.800000]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793610557.525162, 199.900000]: [mission] Exited SEARCHING
+[INFO] [1793610557.527770, 199.900000]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793610557.583646, 200.100000]: [mission] State command: HOVER
+[INFO] [1793610557.586253, 200.100000]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793610557.588418, 200.200000]: [mission] Exited APPROACHING
+[INFO] [1793610557.590630, 200.200000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793610557.684145, 200.600000]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793610557.686128, 200.600000]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793610557.687984, 200.600000]: [mission] Search thread started
+[INFO] [1793610557.688368, 200.600000]: [mission] Started search thread
+[INFO] [1793610557.691021, 200.700000]: [mission] Entered SEARCHING (target=red)
+[INFO] [1793610558.106600, 202.700000]: [mission] Yaw sweep round 1/3
+[INFO] [1793610558.109504, 202.700000]: [mission] Yaw sweep   0 deg
+[INFO] [1793610558.440774, 204.300000]: [mission] Yaw sweep  45 deg
+[INFO] [1793610558.502586, 204.500000]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793610558.505219, 204.600000]: [mission] Exited SEARCHING
+[INFO] [1793610558.507789, 204.600000]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793610559.370611, 204.600000]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793610559.373628, 204.600000]: [mission] Exited APPROACHING
+[INFO] [1793610559.376391, 204.600000]: [mission] Cleared trajectory (empty Path published)

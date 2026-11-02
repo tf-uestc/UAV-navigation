@@ -1,0 +1,133 @@
+{
+  "stage": "lifecycle",
+  "clock": "wall",
+  "passed": false,
+  "checks": [
+    {
+      "name": "real_detector_ids_and_fast_busy",
+      "passed": true,
+      "seconds": 0.7775844046846032,
+      "details": [
+        {
+          "schema_version": 1,
+          "mission_id": "dd9d7dc696514113a464f4aab84043fd",
+          "request_id": 9007,
+          "target_text": "slow_transport",
+          "status": "BUSY",
+          "capture_stamp": 0.0,
+          "completed_stamp": 1793612607.766649,
+          "point": null,
+          "frame_id": "map",
+          "reason": "detector_busy"
+        },
+        {
+          "schema_version": 1,
+          "mission_id": "dd9d7dc696514113a464f4aab84043fd",
+          "request_id": 1042,
+          "target_text": "slow_transport",
+          "status": "SUCCEEDED",
+          "capture_stamp": 1793612607.7370217,
+          "completed_stamp": 1793612608.3442333,
+          "point": [
+            10.0,
+            0.0,
+            2.0
+          ],
+          "frame_id": "map",
+          "reason": ""
+        }
+      ]
+    },
+    {
+      "name": "spline_before_ack_is_buffered_then_forwarded",
+      "passed": true,
+      "seconds": 0.04086116887629032,
+      "details": {
+        "schema_version": 1,
+        "mission_id": "400624fa95924ff0af3831ee354ab54c",
+        "goal_id": 1,
+        "gateway_session_id": "e3253bbfe2034ffb85f76752fbb591e0",
+        "frame_id": "map",
+        "goal": [
+          3.0,
+          0.0,
+          2.0
+        ]
+      }
+    },
+    {
+      "name": "cancel_rejects_late_spline",
+      "passed": true,
+      "seconds": 0.25168755277991295,
+      "details": null
+    },
+    {
+      "name": "cancel_before_request_and_delayed_old_cancel_are_isolated",
+      "passed": true,
+      "seconds": 0.2832165053114295,
+      "details": null
+    },
+    {
+      "name": "map_not_ready_then_ready_same_request",
+      "passed": true,
+      "seconds": 0.25147999729961157,
+      "details": null
+    },
+    {
+      "name": "bounded_planner_timeout_sends_cancel",
+      "passed": true,
+      "seconds": 0.5081239556893706,
+      "details": null
+    },
+    {
+      "name": "manager_rejects_wrong_task_and_latched_path",
+      "passed": true,
+      "seconds": 4.572370198555291,
+      "details": "Old task and unidentified latched Path could not complete plan wait."
+    },
+    {
+      "name": "manager_permanent_not_ready_has_bounded_retries",
+      "passed": true,
+      "seconds": 4.519593894481659,
+      "details": {
+        "requests": 1
+      }
+    },
+    {
+      "name": "task_A_to_B_old_failure_is_ignored",
+      "passed": true,
+      "seconds": 7.647862980142236,
+      "details": null
+    },
+    {
+      "name": "ego_restart_session_does_not_replay_active_goal",
+      "passed": true,
+      "seconds": 0.26747902762144804,
+      "details": null
+    },
+    {
+      "name": "gateway_restart_rejects_latched_old_request",
+      "passed": true,
+      "seconds": 1.8767749378457665,
+      "details": "Old latched request rejected by new gateway session."
+    },
+    {
+      "name": "manager_restart_reused_request_number_rejects_old_mission",
+      "passed": false,
+      "seconds": 9.532106108032167,
+      "error": "AssertionError('condition timed out after 8.0s')",
+      "trace": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/test/run_stage78.py\", line 206, in case\n    details=fn()\n  File \"/root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/test/run_stage78.py\", line 392, in manager_restart_ids\n    current=wait(lambda:next((d for d in json_messages('/uav/instruction',start) if d.get('_mission_mgr_trigger')),None),8)\n  File \"/root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/test/run_stage78.py\", line 45, in wait\n    raise AssertionError('condition timed out after %.1fs'%timeout)\nAssertionError: condition timed out after 8.0s\n"
+    },
+    {
+      "name": "manager_fast_busy_clears_pending_before_timeout",
+      "passed": true,
+      "seconds": 5.283532807603478,
+      "details": {
+        "seconds_to_next_request": 1.6140219867229462,
+        "configured_timeout": 5
+      }
+    }
+  ],
+  "fatal": null,
+  "flight_master_contacted": false
+}

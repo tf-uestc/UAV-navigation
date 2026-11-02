@@ -1,0 +1,5 @@
+[31mRLException: multiple files named [planner_verified.launch] in package [uav_vln_bringup]:
+- /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/planner_verified.launch
+- /root/autodl-tmp/uav/validation/business-install/share/uav_vln_bringup/launch/planner_verified.launch
+Please specify full path instead[0m
+[31mThe traceback for the exception was written to the log file[0m

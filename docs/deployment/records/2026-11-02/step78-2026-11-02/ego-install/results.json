@@ -1,0 +1,8 @@
+{
+  "stage": "ego",
+  "clock": "wall",
+  "passed": false,
+  "checks": [],
+  "fatal": "AssertionError('condition timed out after 15.0s')",
+  "flight_master_contacted": false
+}

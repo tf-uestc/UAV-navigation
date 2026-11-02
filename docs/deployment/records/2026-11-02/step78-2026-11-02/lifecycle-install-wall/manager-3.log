@@ -1,0 +1,62 @@
+[INFO] [1793609863.040389]: [mission] MissionManager initialized (state=IDLE)
+[INFO] [1793609863.974648]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793609865.031963]: [mission] State command: HOVER
+[INFO] [1793609865.034406]: [mission] State: IDLE -> HOVER
+[INFO] [1793609865.037179]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793609865.132579]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793609865.135171]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793609865.137529]: [mission] Search thread started
+[INFO] [1793609865.137977]: [mission] Started search thread
+[INFO] [1793609865.141114]: [mission] Entered SEARCHING (target=red)
+[INFO] [1793609867.142397]: [mission] Yaw sweep round 1/3
+[INFO] [1793609867.145355]: [mission] Yaw sweep   0 deg
+[INFO] [1793609868.732499]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793609868.735225]: [mission] Exited SEARCHING
+[INFO] [1793609868.737665]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793609869.559943]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793609869.563334]: [mission] Exited APPROACHING
+[INFO] [1793609869.565747]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793609869.575310]: [mission] State command: HOVER
+[INFO] [1793609869.675989]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793609869.678805]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793609869.681211]: [mission] Search thread started
+[INFO] [1793609869.681634]: [mission] Started search thread
+[INFO] [1793609869.684765]: [mission] Entered SEARCHING (target=red)
+[INFO] [1793609871.685883]: [mission] Yaw sweep round 1/3
+[INFO] [1793609871.688737]: [mission] Yaw sweep   0 deg
+[INFO] [1793609873.275282]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793609873.276641]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793609873.280716]: [mission] Exited SEARCHING
+[INFO] [1793609873.283261]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793609874.087673]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793609874.089808]: [mission] Exited APPROACHING
+[INFO] [1793609874.091583]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793609874.098225]: [mission] State command: HOVER
+[INFO] [1793609874.198764]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793609874.201332]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793609874.203713]: [mission] Search thread started
+[INFO] [1793609874.204129]: [mission] Started search thread
+[INFO] [1793609874.207246]: [mission] Entered SEARCHING (target=red)
+[INFO] [1793609876.208394]: [mission] Yaw sweep round 1/3
+[INFO] [1793609876.211167]: [mission] Yaw sweep   0 deg
+[INFO] [1793609877.799013]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793609877.801676]: [mission] Exited SEARCHING
+[INFO] [1793609877.804612]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793609877.848210]: [mission] State command: HOVER
+[INFO] [1793609877.850628]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793609877.852776]: [mission] Exited APPROACHING
+[INFO] [1793609877.855055]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793609877.949311]: [mission] State: HOVER -> SEARCHING
+[INFO] [1793609877.952029]: [mission] Cleared trajectory (empty Path published)
+[INFO] [1793609877.954362]: [mission] Search thread started
+[INFO] [1793609877.954796]: [mission] Started search thread
+[INFO] [1793609877.958172]: [mission] Entered SEARCHING (target=blue)
+[INFO] [1793609879.959093]: [mission] Yaw sweep round 1/3
+[INFO] [1793609879.961961]: [mission] Yaw sweep   0 deg
+[INFO] [1793609881.547959]: [mission] Ignoring legacy target_world; awaiting identified result
+[INFO] [1793609881.548971]: [mission] State: SEARCHING -> APPROACHING
+[INFO] [1793609881.551682]: [mission] Exited SEARCHING
+[INFO] [1793609881.553692]: [mission] Entered APPROACHING (phase=WAIT_PLAN)
+[INFO] [1793609883.565157]: [mission] State: APPROACHING -> HOVER
+[INFO] [1793609883.566824]: [mission] Exited APPROACHING
+[INFO] [1793609883.568185]: [mission] Cleared trajectory (empty Path published)

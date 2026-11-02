@@ -1,0 +1,104 @@
+-- Using CATKIN_DEVEL_PREFIX: /root/autodl-tmp/uav/UAV-navigation/ws/devel
+-- Using CMAKE_PREFIX_PATH: /root/autodl-tmp/uav/ego-planner/devel;/opt/ros/noetic
+-- This workspace overlays: /root/autodl-tmp/uav/ego-planner/devel;/opt/ros/noetic
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using Debian Python package layout
+-- Using empy: /usr/lib/python3/dist-packages/em.py
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /root/autodl-tmp/uav/UAV-navigation/ws/build/test_results
+-- Forcing gtest/gmock from source, though one was otherwise available.
+-- Found gtest sources under '/usr/src/googletest': gtests will be built
+-- Found gmock sources under '/usr/src/googletest': gmock will be built
+-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+-- Using Python nosetests: /usr/bin/nosetests3
+-- catkin 0.8.12
+-- BUILD_SHARED_LIBS is on
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 1 packages in topological order:
+-- ~~  - uav_vln_bringup
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'uav_vln_bringup'
+-- ==> add_subdirectory(uav_vln_bringup)
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/managed_planner_node.py to /root/autodl-tmp/uav/UAV-navigation/ws/devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/camera_pose_bridge.py to /root/autodl-tmp/uav/UAV-navigation/ws/devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/detector_node.py to /root/autodl-tmp/uav/UAV-navigation/ws/devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/mission_manager.py to /root/autodl-tmp/uav/UAV-navigation/ws/devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/planner_node.py to /root/autodl-tmp/uav/UAV-navigation/ws/devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/setpoint_bridge.py to /root/autodl-tmp/uav/UAV-navigation/ws/devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/takeoff_land.py to /root/autodl-tmp/uav/UAV-navigation/ws/devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/tf_healthcheck.py to /root/autodl-tmp/uav/UAV-navigation/ws/devel/lib/uav_vln_bringup
+-- Installing devel-space wrapper /root/autodl-tmp/uav/UAV-navigation/ws/src/uav_vln_bringup/scripts/trajectory_follower.py to /root/autodl-tmp/uav/UAV-navigation/ws/devel/lib/uav_vln_bringup
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/autodl-tmp/uav/UAV-navigation/ws/build
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/_setup_util.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/env.sh
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/setup.bash
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/local_setup.bash
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/setup.sh
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/local_setup.sh
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/setup.zsh
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/local_setup.zsh
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/setup.fish
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/local_setup.fish
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/.rosinstall
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/pkgconfig/uav_vln_bringup.pc
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/cmake/uav_vln_bringupConfig.cmake
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/cmake/uav_vln_bringupConfig-version.cmake
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/package.xml
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/managed_planner_node.py
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/camera_pose_bridge.py
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/detector_node.py
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/mission_manager.py
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/planner_node.py
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/setpoint_bridge.py
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/takeoff_land.py
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/tf_healthcheck.py
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/trajectory_follower.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/ego_planner.launch
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/mavros_mocap.launch
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/takeoff_land_demo.launch
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/test_planner_dummy.launch
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/test_planner_ego.launch
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/vlm_navigation.launch
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/vlm_navigation_full.launch
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/mavros_px4_sitl.launch
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/planner_verified.launch
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup
+-- Installing: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/ego_planner_params.yaml
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/share/uav_vln_bringup/mission_params.yaml
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core/bridge.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core/bspline.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core/contracts.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core/control.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core/lifecycle.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core/perception.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core/targets.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core/trajectory.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/navigation_core/yaw.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/planning
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/planning/__init__.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/planning/base.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/planning/dummy_planner.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/planning/ego_adapter.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/base_detector.py
+-- Up-to-date: /root/autodl-tmp/uav/UAV-navigation/ws/install/lib/uav_vln_bringup/qwen_vl_grounding.py
+Base path: /root/autodl-tmp/uav/UAV-navigation/ws
+Source space: /root/autodl-tmp/uav/UAV-navigation/ws/src
+Build space: /root/autodl-tmp/uav/UAV-navigation/ws/build
+Devel space: /root/autodl-tmp/uav/UAV-navigation/ws/devel
+Install space: /root/autodl-tmp/uav/UAV-navigation/ws/install
+####
+#### Running command: "make cmake_check_build_system" in "/root/autodl-tmp/uav/UAV-navigation/ws/build"
+####
+####
+#### Running command: "make -j4 -l4 install" in "/root/autodl-tmp/uav/UAV-navigation/ws/build"
+####
