@@ -1,0 +1,351 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "straight",
+      "segments": 1,
+      "peak_tracking_error_m": 0.4099784127620827,
+      "rmse_tracking_m": 0.19481137386522074,
+      "odom_samples": 237,
+      "aligned_samples": 237,
+      "executed_trajectories": [
+        [
+          1,
+          1
+        ]
+      ],
+      "endpoint": [
+        0.9395122528076172,
+        -0.057424332946538925,
+        1.6577601432800293
+      ],
+      "endpoint_speed_mps": 0.023729846634666256
+    },
+    {
+      "name": "outside_fence",
+      "repetition": 1
+    },
+    {
+      "name": "straight",
+      "segments": 1,
+      "peak_tracking_error_m": 0.46287509413861955,
+      "rmse_tracking_m": 0.23213297279518919,
+      "odom_samples": 236,
+      "aligned_samples": 236,
+      "executed_trajectories": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "endpoint": [
+        0.01819896139204502,
+        -0.10404130071401596,
+        1.7549787759780884
+      ],
+      "endpoint_speed_mps": 0.04825888377737485
+    },
+    {
+      "name": "outside_fence",
+      "repetition": 2
+    },
+    {
+      "name": "straight",
+      "segments": 1,
+      "peak_tracking_error_m": 0.42239258181515443,
+      "rmse_tracking_m": 0.20360981518713903,
+      "odom_samples": 242,
+      "aligned_samples": 242,
+      "executed_trajectories": [
+        [
+          1,
+          6
+        ]
+      ],
+      "endpoint": [
+        1.0369423627853394,
+        -0.09929225593805313,
+        1.7416588068008423
+      ],
+      "endpoint_speed_mps": 0.05740627320559577
+    },
+    {
+      "name": "outside_fence",
+      "repetition": 3
+    },
+    {
+      "name": "straight",
+      "segments": 1,
+      "peak_tracking_error_m": 0.46376244033614916,
+      "rmse_tracking_m": 0.22916125922195965,
+      "odom_samples": 257,
+      "aligned_samples": 257,
+      "executed_trajectories": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ]
+      ],
+      "endpoint": [
+        0.1060733050107956,
+        -0.020342925563454628,
+        1.7766485214233398
+      ],
+      "endpoint_speed_mps": 0.05565851636234013
+    },
+    {
+      "name": "outside_fence",
+      "repetition": 4
+    },
+    {
+      "name": "straight",
+      "segments": 1,
+      "peak_tracking_error_m": 0.42104158824071247,
+      "rmse_tracking_m": 0.21636729955115028,
+      "odom_samples": 229,
+      "aligned_samples": 229,
+      "executed_trajectories": [
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "endpoint": [
+        1.0176723003387451,
+        -0.05833333730697632,
+        1.7144131660461426
+      ],
+      "endpoint_speed_mps": 0.04071468456359474
+    },
+    {
+      "name": "outside_fence",
+      "repetition": 5
+    },
+    {
+      "name": "position_for_long",
+      "segments": 3,
+      "peak_tracking_error_m": 0.5258376281110451,
+      "rmse_tracking_m": 0.2744480354534209,
+      "odom_samples": 896,
+      "aligned_samples": 896,
+      "executed_trajectories": [
+        [
+          1,
+          14
+        ],
+        [
+          2,
+          16
+        ],
+        [
+          3,
+          18
+        ]
+      ],
+      "endpoint": [
+        -4.246405601501465,
+        -1.3936502933502197,
+        1.6435049772262573
+      ],
+      "endpoint_speed_mps": 0.02353123181966055
+    },
+    {
+      "name": "beyond_planning_horizon",
+      "segments": 5,
+      "peak_tracking_error_m": 0.4989074193589872,
+      "rmse_tracking_m": 0.2588505759127135,
+      "odom_samples": 1424,
+      "aligned_samples": 1424,
+      "executed_trajectories": [
+        [
+          1,
+          20
+        ],
+        [
+          2,
+          22
+        ],
+        [
+          3,
+          24
+        ],
+        [
+          4,
+          26
+        ],
+        [
+          5,
+          28
+        ]
+      ],
+      "endpoint": [
+        4.318024158477783,
+        -1.3413002490997314,
+        1.6418805122375488
+      ],
+      "endpoint_speed_mps": 0.03755945853919577
+    },
+    {
+      "name": "beyond_planning_horizon",
+      "segments": 5,
+      "peak_tracking_error_m": 0.5282284893102862,
+      "rmse_tracking_m": 0.27389253026354454,
+      "odom_samples": 1453,
+      "aligned_samples": 1453,
+      "executed_trajectories": [
+        [
+          1,
+          30
+        ],
+        [
+          2,
+          32
+        ],
+        [
+          3,
+          34
+        ],
+        [
+          4,
+          36
+        ],
+        [
+          5,
+          38
+        ]
+      ],
+      "endpoint": [
+        -4.257193565368652,
+        -1.3269116878509521,
+        1.6297869682312012
+      ],
+      "endpoint_speed_mps": 0.01984311205210296
+    },
+    {
+      "name": "beyond_planning_horizon",
+      "segments": 5,
+      "peak_tracking_error_m": 0.5177773688216725,
+      "rmse_tracking_m": 0.2592982322831394,
+      "odom_samples": 1404,
+      "aligned_samples": 1404,
+      "executed_trajectories": [
+        [
+          1,
+          40
+        ],
+        [
+          2,
+          42
+        ],
+        [
+          3,
+          44
+        ],
+        [
+          4,
+          46
+        ],
+        [
+          5,
+          48
+        ]
+      ],
+      "endpoint": [
+        4.332511901855469,
+        -1.280967116355896,
+        1.52616548538208
+      ],
+      "endpoint_speed_mps": 0.04625780633265092
+    },
+    {
+      "name": "beyond_planning_horizon",
+      "segments": 5,
+      "peak_tracking_error_m": 0.5405517399279731,
+      "rmse_tracking_m": 0.2802110499176255,
+      "odom_samples": 1464,
+      "aligned_samples": 1464,
+      "executed_trajectories": [
+        [
+          1,
+          50
+        ],
+        [
+          2,
+          52
+        ],
+        [
+          3,
+          54
+        ],
+        [
+          4,
+          56
+        ],
+        [
+          5,
+          58
+        ]
+      ],
+      "endpoint": [
+        -4.259240627288818,
+        -1.361374855041504,
+        1.436578392982483
+      ],
+      "endpoint_speed_mps": 0.06561131869947955
+    },
+    {
+      "name": "beyond_planning_horizon",
+      "segments": 5,
+      "peak_tracking_error_m": 0.4866320255173698,
+      "rmse_tracking_m": 0.25785706764909977,
+      "odom_samples": 1401,
+      "aligned_samples": 1401,
+      "executed_trajectories": [
+        [
+          1,
+          60
+        ],
+        [
+          2,
+          62
+        ],
+        [
+          3,
+          64
+        ],
+        [
+          4,
+          66
+        ],
+        [
+          5,
+          68
+        ],
+        [
+          5,
+          69
+        ]
+      ],
+      "endpoint": [
+        4.294511795043945,
+        -1.3533846139907837,
+        1.6699621677398682
+      ],
+      "endpoint_speed_mps": 0.04668779819284686
+    }
+  ],
+  "final_armed": false
+}

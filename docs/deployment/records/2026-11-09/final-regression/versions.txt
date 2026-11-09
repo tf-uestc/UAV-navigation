@@ -1,0 +1,20 @@
+UAV_TESTED=061218e62aa4d596c71287d0b547910d3c29b6b2
+EGO=f5f62661df07cdc88363a048ebfa16bc7b85d889
+PX4=b8c541dd7277ed735139d7d1bfb829d61fbe29fb
+MICRO_CDR=1c712a08cf5571af0435bf1d881075e813c09513
+PRETTY_NAME="Ubuntu 20.04.4 LTS"
+VERSION_ID="20.04"
+x86_64
+Python 3.8.10
+Gazebo multi-robot simulator, version 11.15.1
+cmake	3.16.3-1ubuntu1.20.04.1
+gazebo11	11.15.1-1~focal
+git	1:2.25.1-1ubuntu3.14
+ninja-build	1.10.0-1build1
+python3-numpy	1:1.17.4-5ubuntu3.1
+python3-opencv	4.2.0+dfsg-5
+python3-requests	2.22.0-2ubuntu1.1
+ros-noetic-mavros	1.20.1-1focal.20250520.005419
+ros-noetic-mavros-extras	1.20.1-1focal.20250520.011525
+ros-noetic-ros-core	1.5.0-1focal.20250520.015810
+3.8.10 EmPy 3.3.4 NumPy 1.23.5

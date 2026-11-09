@@ -1,0 +1,6 @@
+{
+  "passed": false,
+  "error": "AssertionError({'mission_session_id': 'e672fdccc7f2494f830eb1ef9cdab48c', 'mission_id': 'nominal-1c52b9fb', 'phase': 'FAILED', 'reason': 'invalid_bbox_response', 'goal_id': 0, 'goal': None, 'final_goal': None, 'detection_request_id': None, 'intended_yaw': -0.057938012912900634, 'segment_count': 0, 'detour_active': False, 'capture_floor': 19.18, 'stop_id': 2})",
+  "checks": [],
+  "final_armed": false
+}

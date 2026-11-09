@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "error": "StopIteration()",
+  "checks": [
+    {
+      "name": "dynamic_box_clearance",
+      "minimum_center_to_box_surface_m": 0.5691281802175764
+    }
+  ],
+  "final_armed": false
+}

@@ -1,0 +1,15 @@
+{
+  "passed": false,
+  "error": "AssertionError({'mission_session_id': '9850dc8c9eca4cc4aa1a672ce6a47b9e', 'mission_id': 'bypass-c717b684', 'phase': 'FAILED', 'reason': 'planner_stop', 'goal_id': 1, 'goal': [1.798746128170751, -0.0005047164740972221, 1.6], 'final_goal': [1.798746128170751, -0.0005047164740972221, 1.6], 'detection_request_id': None, 'intended_yaw': -0.05395771494472684, 'segment_count': 1, 'capture_floor': 27.616, 'stop_id': 8})",
+  "checks": [
+    {
+      "name": "real_occupied_goal_rejected",
+      "blocked": [
+        0.75,
+        -0.05000000074505806,
+        1.5399999618530273
+      ]
+    }
+  ],
+  "final_armed": false
+}

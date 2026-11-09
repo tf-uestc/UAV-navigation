@@ -1,0 +1,230 @@
+{
+  "tested_revision": "061218e62aa4d596c71287d0b547910d3c29b6b2",
+  "obstacle_pass": 5,
+  "dynamic_pass": 2,
+  "dynamic_modes": {
+    "native_continuous": 1,
+    "settled_detour": 1
+  },
+  "straight_pass": 5,
+  "long_pass": 5,
+  "outside_fence_pass": 5,
+  "occupied_goal_rejections": 5,
+  "max_route_error_m": 0.5405517399279731,
+  "obstacle_clearances_m": [
+    0.669545789136693,
+    0.6691968571886863,
+    0.733852579967247,
+    0.6895739542153415,
+    0.7064224186671019
+  ],
+  "dynamic_clearances_m": [
+    0.5320577378324322,
+    0.5243582289550647,
+    0.5691281802175764
+  ],
+  "clean_lifecycle_checks": 14,
+  "clean_ego_checks": 13,
+  "clean_flight_checks": 15,
+  "clean_perception_checks": 13,
+  "moving": {
+    "samples": [
+      {
+        "stamp": 21.524,
+        "speed_mps": 0.15663830093584305,
+        "truth_time_offset_s": 0.027999999999998693,
+        "red_pixels": 355,
+        "map_surface_error_p95_m": 0.04636675027310376,
+        "gazebo_surface_error_p95_m": 0.003768477474444689,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 21.624,
+        "speed_mps": 0.1789663891820238,
+        "truth_time_offset_s": 0.02400000000000091,
+        "red_pixels": 313,
+        "map_surface_error_p95_m": 0.046938588242904956,
+        "gazebo_surface_error_p95_m": 0.0037489917839404695,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 21.724,
+        "speed_mps": 0.20206005285902387,
+        "truth_time_offset_s": 0.019999999999999574,
+        "red_pixels": 315,
+        "map_surface_error_p95_m": 0.0484822011524968,
+        "gazebo_surface_error_p95_m": 0.0038542406190854904,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 21.828,
+        "speed_mps": 0.22821422866423136,
+        "truth_time_offset_s": 0.02400000000000091,
+        "red_pixels": 334,
+        "map_surface_error_p95_m": 0.051173590291650875,
+        "gazebo_surface_error_p95_m": 0.00555360005539133,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 22.024,
+        "speed_mps": 0.2789072319165855,
+        "truth_time_offset_s": 0.023999999999997357,
+        "red_pixels": 340,
+        "map_surface_error_p95_m": 0.05814420984217685,
+        "gazebo_surface_error_p95_m": 0.007038295384013925,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 22.124,
+        "speed_mps": 0.3044220599199887,
+        "truth_time_offset_s": 0.0400000000000027,
+        "red_pixels": 322,
+        "map_surface_error_p95_m": 0.0613915424016834,
+        "gazebo_surface_error_p95_m": 0.013020694968209507,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 22.224,
+        "speed_mps": 0.3328791901227067,
+        "truth_time_offset_s": 0.019999999999999574,
+        "red_pixels": 375,
+        "map_surface_error_p95_m": 0.06288298163605123,
+        "gazebo_surface_error_p95_m": 0.007382748160968446,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 22.324,
+        "speed_mps": 0.357402763130808,
+        "truth_time_offset_s": 0.03999999999999915,
+        "red_pixels": 370,
+        "map_surface_error_p95_m": 0.06676587227791729,
+        "gazebo_surface_error_p95_m": 0.016062402815326546,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 22.424,
+        "speed_mps": 0.3815703309067065,
+        "truth_time_offset_s": 0.02400000000000091,
+        "red_pixels": 330,
+        "map_surface_error_p95_m": 0.06802144311002335,
+        "gazebo_surface_error_p95_m": 0.0105887144292987,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 22.524,
+        "speed_mps": 0.40247072560255537,
+        "truth_time_offset_s": 0.03599999999999781,
+        "red_pixels": 398,
+        "map_surface_error_p95_m": 0.07220708149969512,
+        "gazebo_surface_error_p95_m": 0.016684951892795084,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 22.624,
+        "speed_mps": 0.4219983501645646,
+        "truth_time_offset_s": 0.01600000000000179,
+        "red_pixels": 387,
+        "map_surface_error_p95_m": 0.07401992276081538,
+        "gazebo_surface_error_p95_m": 0.007805108770918937,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 22.724,
+        "speed_mps": 0.43718392761553937,
+        "truth_time_offset_s": 0.03999999999999915,
+        "red_pixels": 406,
+        "map_surface_error_p95_m": 0.08034702526747584,
+        "gazebo_surface_error_p95_m": 0.020296728627380908,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 22.924,
+        "speed_mps": 0.46098130034569335,
+        "truth_time_offset_s": 0.03999999999999915,
+        "red_pixels": 417,
+        "map_surface_error_p95_m": 0.08812016861955066,
+        "gazebo_surface_error_p95_m": 0.021628832017274266,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 23.024,
+        "speed_mps": 0.46607250433677416,
+        "truth_time_offset_s": 0.019999999999999574,
+        "red_pixels": 444,
+        "map_surface_error_p95_m": 0.08906654857601706,
+        "gazebo_surface_error_p95_m": 0.011249207795559286,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 23.124,
+        "speed_mps": 0.47229304239568604,
+        "truth_time_offset_s": 0.03200000000000003,
+        "red_pixels": 470,
+        "map_surface_error_p95_m": 0.09222680140096524,
+        "gazebo_surface_error_p95_m": 0.018044153346036516,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 23.224,
+        "speed_mps": 0.47084187260656757,
+        "truth_time_offset_s": 0.036000000000001364,
+        "red_pixels": 462,
+        "map_surface_error_p95_m": 0.093397663348986,
+        "gazebo_surface_error_p95_m": 0.019987319638904547,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 23.324,
+        "speed_mps": 0.4657767055992294,
+        "truth_time_offset_s": 0.03999999999999915,
+        "red_pixels": 441,
+        "map_surface_error_p95_m": 0.09718287182158329,
+        "gazebo_surface_error_p95_m": 0.021932513930221293,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 23.424,
+        "speed_mps": 0.4572977991433653,
+        "truth_time_offset_s": 0.03999999999999915,
+        "red_pixels": 455,
+        "map_surface_error_p95_m": 0.09761934983254877,
+        "gazebo_surface_error_p95_m": 0.021685334755691756,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 23.524,
+        "speed_mps": 0.44731282789958965,
+        "truth_time_offset_s": 0.04400000000000048,
+        "red_pixels": 512,
+        "map_surface_error_p95_m": 0.10199972688308695,
+        "gazebo_surface_error_p95_m": 0.023767091495156246,
+        "delayed_tf_max_difference": 0.0
+      },
+      {
+        "stamp": 23.624,
+        "speed_mps": 0.4301375608531061,
+        "truth_time_offset_s": 0.028000000000002245,
+        "red_pixels": 531,
+        "map_surface_error_p95_m": 0.1021228731341102,
+        "gazebo_surface_error_p95_m": 0.01465992380973092,
+        "delayed_tf_max_difference": 0.0
+      }
+    ],
+    "count": 20,
+    "ground_alignment": true,
+    "map_surface_error_p95_of_frame_p95_m": 0.10200588419563812,
+    "history_exact": true,
+    "passed": true
+  },
+  "perception_replay": true,
+  "segment_replay": true,
+  "segment_live": true,
+  "live_first": false,
+  "live_retry": true,
+  "live_requests": 4,
+  "static_pass": true,
+  "real_search": true,
+  "final_armed": false,
+  "u08": false,
+  "u05": false
+}

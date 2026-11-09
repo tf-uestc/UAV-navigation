@@ -1,0 +1,11 @@
+{
+  "tests/offline/test_local_detour.py": "02ba0f27a55b0813238751ae456a523a6ebd7e9001a2adafb9045ddd8e73ca24",
+  "tools/deployment/validate_moving_rgbd.py": "2e2ede16dff5dee96aa249b38bc4dc8fcae8f9f926a024abb12a25c506d18623",
+  "tools/deployment/validate_planning_sitl.py": "b0033fd5adebbb6b504e3194e4ed5f4af5cebdc607fffffc5ac5d1b2994f3d8d",
+  "tools/deployment/validate_segments.py": "8f24f9d3101843ba42faac840a8f3bf294ee5a53854e504ae862b838313d70a8",
+  "ws/src/uav_vln_bringup/launch/flight_verified.launch": "8574bc81cf547d56ea76a55b17bb5630251c7dd20b78038a783fb3c4b50abd1d",
+  "ws/src/uav_vln_bringup/launch/planner_verified.launch": "aa48e9eb8bacca08f36ab17fbc75626b15105062014b94b2c5230655ccefef7b",
+  "ws/src/uav_vln_bringup/launch/segment_verified.launch": "e9c805ab8acb2050d3affc11ee5855e0f466b92398f5e5c433f78e59b1ee4805",
+  "ws/src/uav_vln_bringup/scripts/navigation_core/targets.py": "f99528fc4d2f864dad07526369cb9943193f2e984ac26bcd116f5597d926d7b0",
+  "ws/src/uav_vln_bringup/scripts/segment_mission.py": "0327f407a7b7c8d9ee6761e030d75b78939ef9df4bd2d5c7557418011d1b754a"
+}

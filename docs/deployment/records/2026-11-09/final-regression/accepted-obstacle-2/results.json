@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "real_occupied_goal_rejected",
+      "blocked": [
+        0.75,
+        -0.05000000074505806,
+        1.5399999618530273
+      ]
+    },
+    {
+      "name": "real_obstacle_bypassed",
+      "minimum_center_to_box_surface_m": 0.6691968571886863,
+      "lateral_excursion_m": 1.0552943897722789,
+      "world_samples": 293
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

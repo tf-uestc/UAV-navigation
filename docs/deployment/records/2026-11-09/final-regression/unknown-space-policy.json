@@ -1,0 +1,171 @@
+{
+  "stage": "ego",
+  "clock": "wall",
+  "passed": true,
+  "checks": [
+    {
+      "name": "unknown_behind_camera_is_admitted_inside_map",
+      "passed": true,
+      "seconds": 0.16104236617684364,
+      "details": {
+        "camera_forward_axis": "+X",
+        "goal": [
+          -1.4,
+          0.0,
+          2.0
+        ],
+        "spline_endpoint": [
+          -1.3528862952317642,
+          0.0,
+          2.000000000000001
+        ],
+        "known_space_required": false
+      }
+    },
+    {
+      "name": "body_velocity_rotates_into_world_at_four_yaws",
+      "passed": true,
+      "seconds": 0.5358303710818291,
+      "details": [
+        0.0,
+        3.1401849173675503e-16,
+        4.440892098500626e-16,
+        3.1401849173675503e-16
+      ]
+    },
+    {
+      "name": "known_obstacle_is_in_world_map_single_depth_input",
+      "passed": true,
+      "seconds": 1.192138527520001,
+      "details": {
+        "occupied_roi_count": 72,
+        "nearest_x": 1.75
+      }
+    },
+    {
+      "name": "camera_translation_and_90deg_yaw_keep_obstacle_in_world",
+      "passed": true,
+      "seconds": 1.9422675911337137,
+      "details": {
+        "occupied_roi_count": 72,
+        "nearest_y": 1.75
+      }
+    },
+    {
+      "name": "occupied_out_of_bounds_and_ceiling_goals_rejected",
+      "passed": true,
+      "seconds": 0.03476689662784338,
+      "details": null
+    },
+    {
+      "name": "requested_target_heights_are_preserved",
+      "passed": true,
+      "seconds": 0.5468622902408242,
+      "details": [
+        {
+          "requested_z": 1.5,
+          "actual_z": 1.5008214009144407
+        },
+        {
+          "requested_z": 2.0,
+          "actual_z": 1.9986991329348949
+        },
+        {
+          "requested_z": 2.2,
+          "actual_z": 2.199775603622255
+        }
+      ]
+    },
+    {
+      "name": "python_matches_native_uniform_bspline_at_101_times",
+      "passed": true,
+      "seconds": 0.02033169288188219,
+      "details": {
+        "samples": 101,
+        "max_errors": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.220446049250313e-16,
+          2.220446049250313e-16,
+          1.3877787807814457e-17,
+          2.498001805406602e-16,
+          2.498001805406602e-16,
+          2.0816681711721685e-17
+        ]
+      }
+    },
+    {
+      "name": "planned_path_avoids_known_obstacle",
+      "passed": true,
+      "seconds": 0.1908296076580882,
+      "details": {
+        "samples": 301,
+        "y_extent": [
+          0.00021343886703157301,
+          1.2337952407245794
+        ]
+      }
+    },
+    {
+      "name": "continuous_replans_preserve_every_native_payload",
+      "passed": true,
+      "seconds": 5.664082450792193,
+      "details": {
+        "trajectory_ids": [
+          11,
+          12,
+          13
+        ],
+        "preserved_payload": true
+      }
+    },
+    {
+      "name": "new_obstacle_triggers_native_safety_replanning_or_stop",
+      "passed": true,
+      "seconds": 2.224500677548349,
+      "details": {
+        "obstacle_center": [
+          2.7837951643727417,
+          1.5486322102059173,
+          1.9133429369378185
+        ],
+        "verified_trajectory_count": 2
+      }
+    },
+    {
+      "name": "real_ego_cancel_stops_and_late_spline_cannot_revive",
+      "passed": true,
+      "seconds": 1.0883158473297954,
+      "details": null
+    },
+    {
+      "name": "resume_uses_measured_position_not_old_reference",
+      "passed": true,
+      "seconds": 0.8850421123206615,
+      "details": {
+        "start_error_m": 0.0012643150115357908
+      }
+    },
+    {
+      "name": "lost_depth_odometry_revokes_map_and_does_not_auto_resume",
+      "passed": true,
+      "seconds": 1.6917592706158757,
+      "details": {
+        "wall_seconds_until_not_ready": 0.6560100819915533
+      }
+    },
+    {
+      "name": "real_ego_restart_changes_epoch_and_rejects_old_trajectory",
+      "passed": true,
+      "seconds": 2.161074073985219,
+      "details": {
+        "old_session": "c4c499b1-24cd-4409-bec4-574769439c15",
+        "new_session": "95fb7f4f-ff2f-4b03-b17c-8ba1afc75bb9"
+      }
+    }
+  ],
+  "fatal": null,
+  "flight_master_contacted": false
+}

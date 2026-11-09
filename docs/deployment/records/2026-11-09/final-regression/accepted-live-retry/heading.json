@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "initial_yaw_deg": -3.1706440465094143,
+  "max_setpoint_shortest_step_deg": 0.025231747881728297,
+  "max_actual_heading_excursion_deg": 0.08051649809826418,
+  "max_goal_pose_vs_setpoint_deg": 0.0,
+  "max_px4_vs_setpoint_deg": 0.006335659298063075,
+  "aligned_px4_samples": 331,
+  "detector_waits": [
+    {
+      "seconds": 1.3012925246730447,
+      "position_error_m": 0.038197356156352405,
+      "yaw_error_deg": 0.12892993971410197
+    },
+    {
+      "seconds": 1.3268939135596156,
+      "position_error_m": 0.05074396812961883,
+      "yaw_error_deg": 0.02309370925829463
+    },
+    {
+      "seconds": 1.2932256385684013,
+      "position_error_m": 0.07798818537808479,
+      "yaw_error_deg": 0.05731566932739191
+    },
+    {
+      "seconds": 1.832990363240242,
+      "position_error_m": 0.0813183545804844,
+      "yaw_error_deg": 0.028939830532894353
+    }
+  ]
+}

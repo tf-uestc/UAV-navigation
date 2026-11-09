@@ -1,0 +1,152 @@
+{
+  "stage": "ego",
+  "clock": "wall",
+  "passed": true,
+  "checks": [
+    {
+      "name": "body_velocity_rotates_into_world_at_four_yaws",
+      "passed": true,
+      "seconds": 0.5592724429443479,
+      "details": [
+        0.0,
+        3.1401849173675503e-16,
+        4.440892098500626e-16,
+        3.1401849173675503e-16
+      ]
+    },
+    {
+      "name": "known_obstacle_is_in_world_map_single_depth_input",
+      "passed": true,
+      "seconds": 1.0692046349868178,
+      "details": {
+        "occupied_roi_count": 72,
+        "nearest_x": 1.75
+      }
+    },
+    {
+      "name": "camera_translation_and_90deg_yaw_keep_obstacle_in_world",
+      "passed": true,
+      "seconds": 1.9067787118256092,
+      "details": {
+        "occupied_roi_count": 72,
+        "nearest_y": 1.75
+      }
+    },
+    {
+      "name": "occupied_out_of_bounds_and_ceiling_goals_rejected",
+      "passed": true,
+      "seconds": 0.03182330448180437,
+      "details": null
+    },
+    {
+      "name": "requested_target_heights_are_preserved",
+      "passed": true,
+      "seconds": 0.5268650576472282,
+      "details": [
+        {
+          "requested_z": 1.5,
+          "actual_z": 1.5008275387353716
+        },
+        {
+          "requested_z": 2.0,
+          "actual_z": 2.0000000000000018
+        },
+        {
+          "requested_z": 2.2,
+          "actual_z": 2.199775871151086
+        }
+      ]
+    },
+    {
+      "name": "python_matches_native_uniform_bspline_at_101_times",
+      "passed": true,
+      "seconds": 0.028956974856555462,
+      "details": {
+        "samples": 101,
+        "max_errors": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.220446049250313e-16,
+          2.220446049250313e-16,
+          2.7755575615628914e-17,
+          2.498001805406602e-16,
+          2.498001805406602e-16,
+          3.122502256758253e-17
+        ]
+      }
+    },
+    {
+      "name": "planned_path_avoids_known_obstacle",
+      "passed": true,
+      "seconds": 0.20831933990120888,
+      "details": {
+        "samples": 301,
+        "y_extent": [
+          0.00024456843972759626,
+          0.8637544666920663
+        ]
+      }
+    },
+    {
+      "name": "continuous_replans_preserve_every_native_payload",
+      "passed": true,
+      "seconds": 5.837139562703669,
+      "details": {
+        "trajectory_ids": [
+          9,
+          10,
+          11
+        ],
+        "preserved_payload": true
+      }
+    },
+    {
+      "name": "new_obstacle_triggers_native_safety_replanning_or_stop",
+      "passed": true,
+      "seconds": 2.2344483975321054,
+      "details": {
+        "obstacle_center": [
+          2.8736475300406963,
+          1.1695689470241708,
+          2.0000000000000036
+        ],
+        "verified_trajectory_count": 2
+      }
+    },
+    {
+      "name": "real_ego_cancel_stops_and_late_spline_cannot_revive",
+      "passed": true,
+      "seconds": 1.0853505106642842,
+      "details": null
+    },
+    {
+      "name": "resume_uses_measured_position_not_old_reference",
+      "passed": true,
+      "seconds": 0.873152207583189,
+      "details": {
+        "start_error_m": 0.0001720003818265181
+      }
+    },
+    {
+      "name": "lost_depth_odometry_revokes_map_and_does_not_auto_resume",
+      "passed": true,
+      "seconds": 1.8221174031496048,
+      "details": {
+        "wall_seconds_until_not_ready": 0.6407036930322647
+      }
+    },
+    {
+      "name": "real_ego_restart_changes_epoch_and_rejects_old_trajectory",
+      "passed": true,
+      "seconds": 2.1294276770204306,
+      "details": {
+        "old_session": "e1e7f204-f3d3-4efa-a139-dae92b77313d",
+        "new_session": "a1120bd8-ea07-4009-bd4a-95a183f55cb3"
+      }
+    }
+  ],
+  "fatal": null,
+  "flight_master_contacted": false
+}

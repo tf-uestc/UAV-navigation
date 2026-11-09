@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "error": "AssertionError({'peak_tracking_error_m': 0.6391259835876018, 'rmse_tracking_m': 0.2637527639329626, 'odom_samples': 466, 'aligned_samples': 466, 'executed_trajectories': [(1, 1), (2, 4)], 'endpoint': (0.7683285474777222, 0.48114013671875, 1.977556586265564), 'endpoint_speed_mps': 0.09201856140903626})",
+  "checks": [
+    {
+      "name": "dynamic_box_clearance",
+      "minimum_center_to_box_surface_m": 0.3638470941188195
+    }
+  ],
+  "final_armed": false
+}

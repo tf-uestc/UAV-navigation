@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "dynamic_box_clearance",
+      "minimum_center_to_box_surface_m": 0.5243582289550647
+    },
+    {
+      "name": "dynamic_replan_executed",
+      "mode": "settled_detour",
+      "peak_tracking_error_m": 0.4478472150404397,
+      "rmse_tracking_m": 0.22611250963050386,
+      "odom_samples": 865,
+      "aligned_samples": 865,
+      "executed_trajectories": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "endpoint": [
+        1.756614327430725,
+        0.0377100370824337,
+        1.8090218305587769
+      ],
+      "endpoint_speed_mps": 0.06153944719275174
+    }
+  ],
+  "final_armed": false
+}

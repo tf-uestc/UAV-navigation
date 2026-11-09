@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "foreground_over_background_and_near_outlier",
+      "position_error_m": 0.0
+    },
+    {
+      "name": "different_pose_range_and_millimeter_units",
+      "position_error_m": 0.0
+    },
+    {
+      "name": "captured_image_response_replay",
+      "depth_error_m": 0.002498626708984375
+    },
+    {
+      "name": "no_target",
+      "reason": "target_not_found"
+    },
+    {
+      "name": "wrong_units",
+      "reason": "invalid_bbox_response"
+    },
+    {
+      "name": "invalid_depth",
+      "reason": "invalid_target_depth"
+    },
+    {
+      "name": "network_failure",
+      "reason": "api_network_error"
+    },
+    {
+      "name": "timeout",
+      "reason": "api_timeout"
+    },
+    {
+      "name": "expired_reply",
+      "reason": "detection_expired"
+    },
+    {
+      "name": "delayed_detection_uses_captured_tf"
+    },
+    {
+      "name": "unpaired_depth_never_calls_api",
+      "reason": "stale image"
+    },
+    {
+      "name": "camera_info_frame_mismatch"
+    },
+    {
+      "name": "missing_historical_tf_never_calls_api"
+    }
+  ],
+  "error": null
+}

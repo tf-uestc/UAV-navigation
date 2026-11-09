@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "error": "AssertionError([{'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'EMERGENCY_STOP', 'reason': 'collision'}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'FAILED', 'reason': 'emergency_stop_requires_new_goal'}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}, {'mission_id': 'dynamic-8baed6fc', 'goal_id': 1, 'status': 'READY', 'reason': ''}])",
+  "checks": [
+    {
+      "name": "dynamic_box_clearance",
+      "minimum_center_to_box_surface_m": 0.5828402832818133
+    }
+  ],
+  "final_armed": false
+}

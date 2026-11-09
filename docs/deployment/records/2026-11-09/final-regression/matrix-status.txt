@@ -1,0 +1,15 @@
+revision=061218e62aa4d596c71287d0b547910d3c29b6b2
+static_obstacle_1=0
+static_obstacle_2=0
+static_obstacle_3=0
+static_obstacle_4=0
+static_obstacle_5=0
+dynamic_1=0
+dynamic_2=0
+dynamic_3=1
+routes=0
+replay=0
+live=1
+static_rgbd=0
+live_retry=0
+final_handoff=0
