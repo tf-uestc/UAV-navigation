@@ -1,6 +1,8 @@
 <launch>
   <arg name="speed_limit" default="0.8"/>
   <arg name="accel_limit" default="0.8"/>
+  <arg name="obstacle_inflation" default="0.099"/>
+  <arg name="refinement_fitness" default="1.0"/>
   <!-- Development planning graph only: no follower, bridge, arming or flight output. -->
   <arg name="with_camera_bridge" default="true"/>
   <node if="$(arg with_camera_bridge)" pkg="uav_vln_bringup" type="camera_pose_bridge.py"
@@ -17,6 +19,8 @@
     <param name="bspline/limit_acc" value="$(arg accel_limit)"/>
     <param name="fsm/managed_control" value="true"/>
     <param name="fsm/odom_velocity_in_body" value="true"/>
+    <param name="grid_map/obstacles_inflation" value="$(arg obstacle_inflation)"/>
+    <param name="optimization/lambda_fitness" value="$(arg refinement_fitness)"/>
     <param name="grid_map/pose_type" value="1"/>
     <param name="grid_map/enable_independent_cloud" value="false"/>
     <remap from="/odom_world" to="/mavros/local_position/odom"/>

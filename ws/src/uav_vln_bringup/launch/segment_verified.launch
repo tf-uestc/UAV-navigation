@@ -11,9 +11,12 @@
     <arg name="segment_fence" value="true"/>
     <arg name="speed_limit" value="0.45"/>
     <arg name="accel_limit" value="0.45"/>
+    <arg name="obstacle_inflation" value="0.249"/>
+    <arg name="refinement_fitness" value="20.0"/>
   </include>
   <include if="$(arg with_detector)" file="$(find uav_vln_bringup)/launch/perception_verified.launch"/>
   <node pkg="uav_vln_bringup" type="segment_mission.py" name="segment_mission" output="screen" required="true">
+    <param name="manual_segment_length" value="1.8"/>
     <param name="detection_timeout" value="$(arg detection_timeout)"/>
     <param name="max_detections" value="$(arg max_detections)"/>
   </node>

@@ -51,6 +51,7 @@ class SegmentMission:
         self.height = rospy.get_param('~height',1.6)
         self.standoff = rospy.get_param('~standoff',2.4)
         self.stride = rospy.get_param('~segment_length',1.15)
+        self.manual_stride = rospy.get_param('~manual_segment_length',self.stride)
         self.vlm_timeout = rospy.get_param('~detection_timeout',12.)
         self.max_segments = rospy.get_param('~max_segments',12)
         self.status_pub = rospy.Publisher('/uav/segment/status',String,queue_size=10,latch=True)
@@ -295,7 +296,8 @@ class SegmentMission:
         if self.segment_count>=self.max_segments:
             self.transition('FAILED',reason='segment_budget_exhausted')
             return
-        ratio=min(1.,self.stride/distance)
+        stride=self.manual_stride if kind=='manual' else self.stride
+        ratio=min(1.,stride/distance)
         self.goal=tuple(a+(b-a)*ratio for a,b in zip(start,self.final_goal))
         if not self.inside(self.goal):
             self.transition('FAILED',reason='segment_outside_fence')
