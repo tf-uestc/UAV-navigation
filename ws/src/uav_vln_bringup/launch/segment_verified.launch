@@ -9,9 +9,9 @@
     <arg name="with_planner" value="$(arg with_planner)"/>
     <arg name="mock_fcu" value="$(arg mock_fcu)"/>
     <arg name="segment_fence" value="true"/>
-    <arg name="speed_limit" value="0.45"/>
-    <arg name="accel_limit" value="0.45"/>
-    <arg name="obstacle_inflation" value="0.249"/>
+    <arg name="speed_limit" value="0.32"/>
+    <arg name="accel_limit" value="0.35"/>
+    <arg name="obstacle_inflation" value="0.349"/>
     <arg name="refinement_fitness" value="20.0"/>
   </include>
   <include if="$(arg with_detector)" file="$(find uav_vln_bringup)/launch/perception_verified.launch"/>
