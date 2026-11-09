@@ -1,8 +1,15 @@
 <launch>
+  <arg name="speed_limit" default="0.8"/>
+  <arg name="accel_limit" default="0.8"/>
   <arg name="with_planner" default="true"/>
   <arg name="mock_fcu" default="false"/>
-  <include if="$(arg with_planner)" file="$(find uav_vln_bringup)/launch/planner_verified.launch"/>
+  <arg name="segment_fence" default="false"/>
+  <include if="$(arg with_planner)" file="$(find uav_vln_bringup)/launch/planner_verified.launch">
+    <arg name="speed_limit" value="$(arg speed_limit)"/>
+    <arg name="accel_limit" value="$(arg accel_limit)"/>
+  </include>
   <node pkg="uav_vln_bringup" type="flight_executor.py" name="flight_executor" output="screen" required="true">
     <param name="mock_fcu" value="$(arg mock_fcu)"/>
+    <param name="segment_fence" value="$(arg segment_fence)"/>
   </node>
 </launch>

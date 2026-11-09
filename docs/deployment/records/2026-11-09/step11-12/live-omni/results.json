@@ -1,0 +1,6 @@
+{
+  "passed": false,
+  "error": "AssertionError({'mission_session_id': 'e3ba129fb011420a900fd08f95108540', 'mission_id': 'nominal-93074c04', 'phase': 'FAILED', 'reason': 'observation_outside_fence', 'goal_id': 0, 'goal': None, 'final_goal': None, 'detection_request_id': None, 'intended_yaw': -0.05186632718243485, 'segment_count': 0, 'capture_floor': 19.212, 'stop_id': 2})",
+  "checks": [],
+  "final_armed": false
+}

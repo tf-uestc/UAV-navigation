@@ -1,0 +1,6 @@
+{
+  "passed": false,
+  "error": "AssertionError({'mission_session_id': '1f98aeba5cd54e018984aa006593cc23', 'mission_id': 'nominal-23793a1e', 'phase': 'FAILED', 'reason': 'trajectory_lost', 'goal_id': 1, 'goal': [1.1183643027347203, 0.01251476296611169, 1.5999235205837297], 'final_goal': [1.596657901578388, 0.0030733176923791253, 1.6], 'detection_request_id': None, 'intended_yaw': -0.014141515733549522, 'segment_count': 1, 'capture_floor': 2183.784, 'stop_id': 4})",
+  "checks": [],
+  "final_armed": false
+}

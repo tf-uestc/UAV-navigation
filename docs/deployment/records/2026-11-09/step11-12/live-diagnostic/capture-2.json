@@ -1,0 +1,1 @@
+{"result": {"schema_version": 1, "mission_id": "nominal-527813e1", "request_id": 2, "target_text": "画面中红色三脚支架中央的竖直红杆，仅框住中央红杆的红色像素，忽略支架其余部分和白色地面", "status": "SUCCEEDED", "capture_stamp": 28.352, "completed_stamp": 29.836, "point": [4.931839207501575, 0.3016719798332154, 0.2312905247876451], "frame_id": "map", "reason": ""}, "rgb_stamp": 28.352, "depth_stamp": 28.352}

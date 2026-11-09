@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "segmented_approach_completed",
+      "segments": 2,
+      "phases": [
+        "TAKEOFF",
+        "BRAKE",
+        "SETTLE",
+        "WAIT_VLM",
+        "AUTHORIZE",
+        "WAIT_PLAN",
+        "TRACK",
+        "BRAKE",
+        "SETTLE",
+        "WAIT_VLM",
+        "AUTHORIZE",
+        "WAIT_PLAN",
+        "TRACK",
+        "BRAKE",
+        "SETTLE",
+        "WAIT_VLM",
+        "DONE"
+      ],
+      "mission_id": "nominal-5761fe07"
+    },
+    {
+      "name": "final_hold",
+      "seconds": 2.0,
+      "max_position_error_m": 5.274028066676715e-06,
+      "max_yaw_error_deg": 0.0
+    },
+    {
+      "name": "search_translates_through_planning"
+    },
+    {
+      "name": "target_not_found"
+    },
+    {
+      "name": "detection_timeout"
+    },
+    {
+      "name": "late_detection_cannot_resume"
+    },
+    {
+      "name": "target_jump"
+    },
+    {
+      "name": "detector_busy"
+    },
+    {
+      "name": "api_unavailable"
+    },
+    {
+      "name": "stale_capture_never_plans"
+    },
+    {
+      "name": "target_not_found"
+    },
+    {
+      "name": "replaced_task_cannot_resume"
+    },
+    {
+      "name": "planner_rejected"
+    },
+    {
+      "name": "trajectory_outside_fence"
+    },
+    {
+      "name": "out_of_fence_spline_never_executes"
+    },
+    {
+      "name": "outside_fence"
+    },
+    {
+      "name": "cancelled"
+    },
+    {
+      "name": "late_trajectory_cannot_resume"
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

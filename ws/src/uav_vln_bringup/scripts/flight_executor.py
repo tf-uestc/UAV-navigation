@@ -46,7 +46,8 @@ class FlightExecutor:
         self.planner_at = 0.
         self.gateway = None
         self.plan_deadline = None
-        self.frame = None
+        self.fence = (rospy.get_param('/uav/segment_config/fence')
+                      if rospy.get_param('~segment_fence',False) else None)
         self.state = self.odom = self.landed = None
         self.owned = False
         self.graph = False
@@ -128,6 +129,11 @@ class FlightExecutor:
                             wall-odom_at, math.sqrt(v.x*v.x + v.y*v.y + v.z*v.z))
         except ValueError:
             return None
+
+    def inside_fence(self, position, margin=0.):
+        return not self.fence or all(
+            self.fence[axis+'_min']-margin<=value<=self.fence[axis+'_max']+margin
+            for axis,value in zip('xyz',position))
 
     def planner_ready(self, wall):
         return self.planner is not None and wall-self.planner_at < .7
@@ -252,6 +258,9 @@ class FlightExecutor:
                     return
                 yaw = self.bridge.anchor.yaw
                 points = tuple(Sample(p, v, yaw, t) for t, p, v, _ in curve.samples(.04))
+                if any(not self.inside_fence(point.position) for point in points):
+                    self.hold(fb, 'trajectory_outside_fence')
+                    return
                 traj = TimedTrajectory(*context, msg.traj_id, start, points)
                 first = traj.sample(now)
                 ref = self.control.output(now) or self.bridge.anchor
@@ -301,8 +310,8 @@ class FlightExecutor:
     def run(self):
         next_status = 0.
         while not rospy.is_shutdown():
-            wall = time.monotonic()
             with self.lock:
+                wall = time.monotonic()
                 stamp = rospy.Time.now()
                 now = stamp.to_sec()
                 clock_reset = self.last_ros is not None and now < self.last_ros
@@ -311,6 +320,10 @@ class FlightExecutor:
                 self.last_ros = now
                 fb = self.feedback(wall, now)
                 healthy = fb is not None and fb.pose_age <= .5 and self.graph and wall-self.graph_at < 1.
+                if (self.owned and healthy and self.bridge.mode in ('HOLD','TRACK')
+                        and not self.inside_fence(fb.position,margin=.25)):
+                    self.revoke(fb,'measured_pose_outside_fence')
+                    self.bridge._fail(self.stop_reason)
                 if self.owned and (not healthy or clock_reset):
                     if self.bridge.mode != 'FAILED':
                         self.revoke(fb, 'clock_reset' if clock_reset else 'feedback_or_owner_lost')
@@ -376,6 +389,8 @@ class FlightExecutor:
                     self.status.publish(String(data=json.dumps(dict(
                         flight_session_id=self.session, seq=self.sequence, mode=self.bridge.mode,
                         ready=healthy, owner=self.graph, reason=self.bridge.reason or self.stop_reason,
+                        yaw_reference=(self.bridge.goal if self.bridge.mode=='TRACK' else
+                                       self.bridge.anchor).yaw if self.bridge.anchor else None,
                         context=self.control.buffer.context, trajectory_id=active.traj_id if active else None,
                         stop_id=self.stop_id, stop_confirmed=self.stable_since is not None
                         and wall-self.stable_since >= 1., owns_flight=self.owned))))

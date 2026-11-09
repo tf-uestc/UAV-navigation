@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "detector_delay",
+      "delay_s": 0.1,
+      "outcome": "DONE"
+    },
+    {
+      "name": "detector_delay",
+      "delay_s": 3.0,
+      "outcome": "DONE"
+    },
+    {
+      "name": "detector_delay",
+      "delay_s": 10.0,
+      "outcome": "DONE"
+    },
+    {
+      "name": "detector_delay",
+      "delay_s": 12.8,
+      "outcome": "FAILED"
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

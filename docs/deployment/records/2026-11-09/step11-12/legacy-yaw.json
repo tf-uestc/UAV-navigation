@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "first_changed_topic": "/mavros/setpoint_position/local",
+  "reason": "legacy HOVER calls _make_pose without yaw",
+  "cases": [
+    {
+      "initial_yaw_deg": 0,
+      "goal_yaw_deg": 0.0,
+      "pose_yaw_deg": 0.0,
+      "legacy_hover_setpoint_deg": 0.0,
+      "step_deg": 0.0,
+      "first_setpoint_ms": 29.10534292459488
+    },
+    {
+      "initial_yaw_deg": 90,
+      "goal_yaw_deg": 89.99999999999999,
+      "pose_yaw_deg": 89.99999999999999,
+      "legacy_hover_setpoint_deg": 0.0,
+      "step_deg": 90.0,
+      "first_setpoint_ms": 28.227894566953182
+    },
+    {
+      "initial_yaw_deg": 180,
+      "goal_yaw_deg": 180.0,
+      "pose_yaw_deg": 180.0,
+      "legacy_hover_setpoint_deg": 0.0,
+      "step_deg": 180.0,
+      "first_setpoint_ms": 27.002237737178802
+    },
+    {
+      "initial_yaw_deg": -90,
+      "goal_yaw_deg": -89.99999999999999,
+      "pose_yaw_deg": -89.99999999999999,
+      "legacy_hover_setpoint_deg": 0.0,
+      "step_deg": 90.0,
+      "first_setpoint_ms": 25.72791464626789
+    }
+  ],
+  "wrap_test_deg": 2.0
+}

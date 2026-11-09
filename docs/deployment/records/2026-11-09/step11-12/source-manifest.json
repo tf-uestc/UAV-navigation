@@ -1,0 +1,11 @@
+{
+  "tools/deployment/validate_heading_transition.py": "b9bcec9769ac9cf35465f3e0422a96b802a382d3395a3c9f5674373bfe050e4f",
+  "tools/deployment/validate_segments.py": "01387903f7006662ff18d988abe73373441d9848d7657e10c7b85b97dca76d9e",
+  "ws/src/uav_vln_bringup/CMakeLists.txt": "bf82a092d461f30ff3e9fe1a4714e2d211b2cc98a5438b8976e887c9af5ec7e2",
+  "ws/src/uav_vln_bringup/config/segment_mission.yaml": "22cb25a1cf92d8ed3e20f3cee2bae9123a56431e9706c2329537cfa89b73be0c",
+  "ws/src/uav_vln_bringup/launch/flight_verified.launch": "f451ab23a21a4ed0ea8599ed1d8e8e66154bf916f0c0420fd3162c767f414976",
+  "ws/src/uav_vln_bringup/launch/planner_verified.launch": "7637a19b650b218632d2ab1f7198cff63a19c244037bbe778d11863076dcebad",
+  "ws/src/uav_vln_bringup/launch/segment_verified.launch": "32db688e30a2026e9016be6cf06cee70ec4a618ec53ae9f2153c8252aa321485",
+  "ws/src/uav_vln_bringup/scripts/flight_executor.py": "4ca105ef17fc60eaf5e1e2438ce8625f78eb6e19d8dc779f93036c76fc24fb19",
+  "ws/src/uav_vln_bringup/scripts/segment_mission.py": "d4440b866b9dc1bb6ebcff363be9d1241405f4e48ee433b55c03244775bf0990"
+}

@@ -1,0 +1,20 @@
+<launch>
+  <arg name="with_detector" default="true"/>
+  <arg name="with_planner" default="true"/>
+  <arg name="mock_fcu" default="false"/>
+  <arg name="detection_timeout" default="12.0"/>
+  <arg name="max_detections" default="8"/>
+  <rosparam command="load" file="$(find uav_vln_bringup)/config/segment_mission.yaml" ns="/uav/segment_config"/>
+  <include file="$(find uav_vln_bringup)/launch/flight_verified.launch">
+    <arg name="with_planner" value="$(arg with_planner)"/>
+    <arg name="mock_fcu" value="$(arg mock_fcu)"/>
+    <arg name="segment_fence" value="true"/>
+    <arg name="speed_limit" value="0.45"/>
+    <arg name="accel_limit" value="0.45"/>
+  </include>
+  <include if="$(arg with_detector)" file="$(find uav_vln_bringup)/launch/perception_verified.launch"/>
+  <node pkg="uav_vln_bringup" type="segment_mission.py" name="segment_mission" output="screen" required="true">
+    <param name="detection_timeout" value="$(arg detection_timeout)"/>
+    <param name="max_detections" value="$(arg max_detections)"/>
+  </node>
+</launch>

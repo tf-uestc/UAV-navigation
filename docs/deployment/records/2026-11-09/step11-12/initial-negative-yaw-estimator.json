@@ -1,0 +1,6 @@
+{
+  "passed": false,
+  "error": "AssertionError(\"estimator initial yaw: {'mission_session_id': '1fcf665d31e641a69948f53ea3fa823d', 'mission_id': None, 'phase': 'IDLE', 'reason': '', 'goal_id': 0, 'goal': None, 'final_goal': None, 'detection_request_id': None, 'intended_yaw': None, 'segment_count': 0, 'capture_floor': None, 'stop_id': 0} / {'flight_session_id': '07528626893348b88754be029d071f32', 'seq': 0, 'mode': 'IDLE', 'ready': True, 'owner': True, 'reason': '', 'yaw_reference': None, 'context': None, 'trajectory_id': None, 'stop_id': None, 'stop_confirmed': False, 'owns_flight': False}\")",
+  "checks": [],
+  "final_armed": false
+}
