@@ -46,6 +46,41 @@ def observation_goal(actual,target,height,standoff,fence):
         raise ValueError("observation pose outside fence")
     return Reference(goal,math.atan2(dy,dx))
 
+
+def local_detour(start, goal, occupied, inside):
+    """Return bounded staging goals around known inflated cells at cruise height."""
+    dx, dy = goal[0]-start[0], goal[1]-start[1]
+    length = math.hypot(dx, dy)
+    if length < .3 or abs(goal[2]-start[2]) > .25:
+        return ()
+    cells = [(x, y) for x, y, z in occupied
+             if min(start[2], goal[2])-.2 <= z <= max(start[2], goal[2])+.2
+             and min(start[0], goal[0])-1.8 <= x <= max(start[0], goal[0])+1.8
+             and min(start[1], goal[1])-1.8 <= y <= max(start[1], goal[1])+1.8]
+
+    def clear(a, b, radius):
+        vx, vy = b[0]-a[0], b[1]-a[1]
+        distance_squared = vx*vx + vy*vy
+        for x, y in cells:
+            wx, wy = x-a[0], y-a[1]
+            fraction = max(0., min(1., (wx*vx+wy*vy)/distance_squared)) if distance_squared else 0.
+            if (wx-fraction*vx)**2 + (wy-fraction*vy)**2 < radius**2:
+                return False
+        return True
+
+    if clear(start, goal, .13) or not clear(goal, goal, .08):
+        return ()
+    nx, ny = -dy/length, dx/length
+    for offset in (1., -1., 1.2, -1.2, 1.4, -1.4, 1.6, -1.6):
+        side_start = (start[0]+offset*nx, start[1]+offset*ny, goal[2])
+        side_goal = (goal[0]+offset*nx, goal[1]+offset*ny, goal[2])
+        route = (start, side_start, side_goal, goal)
+        if inside(side_start) and inside(side_goal) and all(
+                clear(a, b, .16) for a, b in zip(route, route[1:])):
+            return side_start, side_goal, goal
+    return ()
+
+
 class ArrivalTracker:
     def __init__(self,position_tolerance=.3,speed_tolerance=.15,dwell=1):
         if not all(finite(v) and v>0 for v in (position_tolerance,speed_tolerance,dwell)):

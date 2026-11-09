@@ -8,11 +8,13 @@ import uuid
 
 import rospy
 from nav_msgs.msg import Odometry
+from sensor_msgs import point_cloud2
+from sensor_msgs.msg import PointCloud2
 from std_msgs.msg import String
 
 from navigation_core.contracts import DetectionResult, RequestKey, vector3
 from navigation_core.lifecycle import CallBudget, RequestRegistry
-from navigation_core.targets import ArrivalTracker, TargetEstimator, observation_goal
+from navigation_core.targets import ArrivalTracker, TargetEstimator, local_detour, observation_goal
 from navigation_core.yaw import quaternion_yaw
 
 
@@ -43,6 +45,9 @@ class SegmentMission:
         self.intended_yaw = None
         self.segment_count = 0
         self.recovery_count = 0
+        self.occupancy = None
+        self.detour = []
+        self.detour_used = False
         self.registry = RequestRegistry()
         self.estimator = TargetEstimator(max_age=15.,max_jump=1.5)
         self.budget = CallBudget(max_calls=rospy.get_param('~max_detections',8),max_seconds=150.)
@@ -64,6 +69,7 @@ class SegmentMission:
         rospy.Subscriber('/uav/planning/result',String,self.on_plan,queue_size=10)
         rospy.Subscriber('/uav/detection_result',String,self.on_detection,queue_size=10)
         rospy.Subscriber('/mavros/local_position/odom',Odometry,self.on_odom,queue_size=2)
+        rospy.Subscriber('/grid_map/occupancy_inflate',PointCloud2,self.on_occupancy,queue_size=1)
         self.publish()
 
     @staticmethod
@@ -81,6 +87,7 @@ class SegmentMission:
             reason=self.reason,goal_id=self.goal_id,goal=self.goal,final_goal=self.final_goal,
             detection_request_id=pending.key.request_id if pending else None,
             intended_yaw=self.intended_yaw,segment_count=self.segment_count,
+            detour_active=bool(self.detour),
             capture_floor=self.settled_at,stop_id=self.stop_id),allow_nan=False)))
 
     def transition(self, phase, seconds=0., reason=''):
@@ -198,6 +205,8 @@ class SegmentMission:
             self.goal,self.final_goal=None,manual
             self.goal_id,self.segment_count,self.stop_id=0,0,0
             self.recovery_count=0
+            self.detour.clear()
+            self.detour_used=False
             self.search,self.search_index=search,0
             self.registry.begin(mission)
             self.estimator.reset()
@@ -280,13 +289,24 @@ class SegmentMission:
                 return
             self.plan_segment('approach')
 
+    def on_occupancy(self,msg):
+        if msg.header.frame_id!='map' or not {'x','y','z'} <= {f.name for f in msg.fields}:
+            return
+        with self.lock:
+            ready=self.planner_status()
+            if ready:
+                self.occupancy=(msg,time.monotonic(),ready['planner_session_id'])
+
     def plan_segment(self,kind):
         fb=self.feedback()
         if not fb:
             self.transition('FAILED',reason='odometry_stale')
             return
         start=fb[0]
-        distance=math.dist(start,self.final_goal)
+        while self.detour and math.dist(start,self.detour[0])<=.23:
+            self.detour.pop(0)
+        destination=self.detour[0] if self.detour else self.final_goal
+        distance=math.dist(start,destination)
         if distance<=.23:
             if kind=='search':
                 self.request_detection(time.monotonic())
@@ -298,7 +318,19 @@ class SegmentMission:
             return
         stride=self.manual_stride if kind=='manual' else self.stride
         ratio=min(1.,stride/distance)
-        self.goal=tuple(a+(b-a)*ratio for a,b in zip(start,self.final_goal))
+        self.goal=tuple(a+(b-a)*ratio for a,b in zip(start,destination))
+        if kind=='manual' and not self.detour_used and self.occupancy:
+            cloud,received,session=self.occupancy
+            ready=self.planner_status()
+            # EGO's inflated-map message has no capture stamp. Pair its receive
+            # window with the same live planner's depth/odometry readiness.
+            if ready and ready['planner_session_id']==session and time.monotonic()-received<=.6:
+                cells=point_cloud2.read_points(cloud,field_names=('x','y','z'),skip_nans=True)
+                route=local_detour(start,self.goal,cells,self.inside)
+                if route:
+                    self.detour=list(route)
+                    self.detour_used=True
+                    self.goal=self.detour[0]
         if not self.inside(self.goal):
             self.transition('FAILED',reason='segment_outside_fence')
             return
@@ -323,6 +355,7 @@ class SegmentMission:
         flight=self.flight_status()
         stamp=rospy.Time.now().to_sec()
         if self.last_ros is not None and stamp<self.last_ros:
+            self.occupancy=None
             self.brake('FAILED','ros_clock_reset')
             self.last_ros=stamp
             return
