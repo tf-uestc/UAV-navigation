@@ -134,11 +134,22 @@ class PlanningTrial(Trial):
         assert clearance > .24, clearance
         statuses = [d for t, k, d in self.trace if t >= inserted and k == 'ego_status'
                     and d['mission_id'] == mission]
-        assert any(d['status']=='REPLANNED' and d['reason']=='collision' for d in statuses), statuses
         details = self.track_metrics(mission, t0, time.monotonic())
-        assert any(goal==1 and tid>first_id for goal, tid in details['executed_trajectories']), details
+        goals = details['executed_trajectories']
+        continuous = (any(d['status']=='REPLANNED' and d['reason']=='collision' for d in statuses)
+                      and any(goal==1 and tid>first_id for goal, tid in goals))
+        stopped = any(d['status']=='EMERGENCY_STOP' and d['reason']=='collision' for d in statuses)
+        if stopped:
+            stages = [(t, d) for t, k, d in self.trace if k=='mission' and d['mission_id']==mission]
+            stopped_at = next(t for t, d in stages if d['phase']=='SETTLE' and d['reason']=='planner_stop')
+            resumed_at = next(t for t, d in stages if t>stopped_at and d['phase']=='TRACK'
+                              and d['goal_id']>1 and d.get('detour_active'))
+            assert any(k=='flight' and stopped_at <= t < resumed_at and d['stop_confirmed']
+                       and d['mode']=='HOLD' and d['context'] is None for t, k, d in self.trace)
+            assert any(goal>1 for goal, _ in goals), details
+        assert continuous or stopped, [d for d in statuses if d['status']!='READY']
         assert self.mission['phase']=='DONE' and samples[-1][0]>center[0]+.35, self.mission
-        self.check('dynamic_replan_executed', **details)
+        self.check('dynamic_replan_executed', mode='settled_detour' if stopped else 'native_continuous', **details)
 
 
 def main():

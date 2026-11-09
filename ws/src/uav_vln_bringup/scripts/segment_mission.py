@@ -297,7 +297,7 @@ class SegmentMission:
             if ready:
                 self.occupancy=(msg,time.monotonic(),ready['planner_session_id'])
 
-    def plan_segment(self,kind):
+    def plan_segment(self,kind,require_detour=False):
         fb=self.feedback()
         if not fb:
             self.transition('FAILED',reason='odometry_stale')
@@ -331,6 +331,9 @@ class SegmentMission:
                     self.detour=list(route)
                     self.detour_used=True
                     self.goal=self.detour[0]
+        if require_detour and not self.detour:
+            self.transition('FAILED',reason='planner_stop')
+            return
         if not self.inside(self.goal):
             self.transition('FAILED',reason='segment_outside_fence')
             return
@@ -346,8 +349,13 @@ class SegmentMission:
                     or (d.get('mission_id'),d.get('goal_id'))!=(self.mission,self.goal_id)
                     or (d.get('gateway_session_id'),d.get('planner_session_id'))!=self.epoch):
                 return
-            if d.get('status') in PLAN_FAILURES:
-                self.brake('FAILED','planner_'+d['status'].lower())
+            status=d.get('status')
+            if (status=='STOP' and self.phase=='TRACK' and self.kind=='manual'
+                    and not self.detour_used and self.recovery_count<1):
+                self.recovery_count+=1
+                self.brake('REPLAN','planner_stop')
+            elif status in PLAN_FAILURES:
+                self.brake('FAILED','planner_'+status.lower())
 
     def tick(self,now):
         if self.phase in TERMINAL:
@@ -401,7 +409,7 @@ class SegmentMission:
                     elif after=='PLAN':
                         self.plan_segment('manual' if self.mode=='manual' else self.kind)
                     elif after=='REPLAN':
-                        self.plan_segment(self.kind)
+                        self.plan_segment(self.kind,require_detour=reason=='planner_stop')
                     else:
                         self.transition(after,reason=reason)
                     return

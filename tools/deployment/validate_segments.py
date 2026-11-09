@@ -292,6 +292,10 @@ class Trial:
                 break
             time.sleep(.08)
         assert self.mission['mission_id']==name and self.mission['phase']=='DONE',self.mission
+        if self.mission.get('detour_active') is not None:
+            staged = [d for _, kind, d in self.trace if kind=='mission' and d['mission_id']==name
+                      and d['phase']=='TRACK' and d.get('detour_active')]
+            assert len({d['goal_id'] for d in staged})>=3, staged
         surface=lambda p: math.hypot(max(0.,abs(p[0]-center[0])-size[0]/2),
                                      max(0.,abs(p[1]-center[1])-size[1]/2))
         clearance=min(surface(p) for p in seen)
