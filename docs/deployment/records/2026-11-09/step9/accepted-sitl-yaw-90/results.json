@@ -1,0 +1,178 @@
+{
+  "passed": true,
+  "fatal": null,
+  "checks": [
+    {
+      "name": "single_publisher",
+      "topics": [
+        "/uav/goal_pose",
+        "/mavros/setpoint_position/local"
+      ]
+    },
+    {
+      "name": "takeoff_actual_feedback",
+      "initial_yaw_deg": -90.66598628554068,
+      "height": 1.5242305994033813,
+      "mode": "OFFBOARD"
+    },
+    {
+      "name": "trajectory_moves_without_standoff",
+      "measured_dx": 0.35335069755092263
+    },
+    {
+      "name": "stop_confirmed_and_retired_context",
+      "reason": "hold_requested"
+    },
+    {
+      "name": "fixed_hold_and_heartbeat",
+      "seconds": 10.0,
+      "messages": 249,
+      "max_gap_s": 0.045208740048110485,
+      "max_position_error_m": 0.1279731234417107,
+      "max_yaw_error_deg": 0.025439159417826776,
+      "max_command_yaw_from_initial_deg": 0.10430644880834838
+    },
+    {
+      "name": "landing_actual_feedback",
+      "mode": "OFFBOARD"
+    },
+    {
+      "name": "body_to_world_velocity_matches_mavros",
+      "moving_samples": 291,
+      "max_velocity_error_mps": 9.419475349465726e-08
+    },
+    {
+      "name": "land_preempts_prestream"
+    }
+  ],
+  "fcu_states": [
+    [
+      5784557.192627346,
+      [
+        false,
+        "AUTO.LOITER",
+        true
+      ]
+    ],
+    [
+      5784561.820350302,
+      [
+        true,
+        "AUTO.LOITER",
+        true
+      ]
+    ],
+    [
+      5784562.82129503,
+      [
+        true,
+        "OFFBOARD",
+        true
+      ]
+    ],
+    [
+      5784586.839689204,
+      [
+        true,
+        "AUTO.LAND",
+        true
+      ]
+    ],
+    [
+      5784593.840905685,
+      [
+        false,
+        "OFFBOARD",
+        true
+      ]
+    ]
+  ],
+  "flight_states": [
+    [
+      5784557.73621822,
+      [
+        "IDLE",
+        ""
+      ]
+    ],
+    [
+      5784558.924385677,
+      [
+        "PRESTREAM",
+        ""
+      ]
+    ],
+    [
+      5784560.933618056,
+      [
+        "WAIT_ARM",
+        ""
+      ]
+    ],
+    [
+      5784561.891627161,
+      [
+        "WAIT_OFFBOARD",
+        ""
+      ]
+    ],
+    [
+      5784562.855075145,
+      [
+        "CLIMB",
+        ""
+      ]
+    ],
+    [
+      5784571.6176582,
+      [
+        "HOLD",
+        ""
+      ]
+    ],
+    [
+      5784571.779161561,
+      [
+        "TRACK",
+        ""
+      ]
+    ],
+    [
+      5784574.828853042,
+      [
+        "HOLD",
+        "hold_requested"
+      ]
+    ],
+    [
+      5784586.466763667,
+      [
+        "LANDING",
+        "land_requested"
+      ]
+    ],
+    [
+      5784593.846079573,
+      [
+        "COMPLETE",
+        "land_requested"
+      ]
+    ],
+    [
+      5784593.926252415,
+      [
+        "PRESTREAM",
+        ""
+      ]
+    ],
+    [
+      5784594.006104585,
+      [
+        "COMPLETE",
+        "land_requested"
+      ]
+    ]
+  ],
+  "planning": [],
+  "final_armed": false
+}

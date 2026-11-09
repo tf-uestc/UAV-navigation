@@ -1,0 +1,307 @@
+{
+  "passed": true,
+  "fatal": null,
+  "checks": [
+    {
+      "name": "single_publisher",
+      "topics": [
+        "/uav/goal_pose",
+        "/mavros/setpoint_position/local"
+      ]
+    },
+    {
+      "name": "takeoff_actual_feedback",
+      "initial_yaw_deg": -3.1877887915607515,
+      "height": 1.5223404169082642,
+      "mode": "OFFBOARD"
+    },
+    {
+      "name": "trajectory_moves_without_standoff",
+      "measured_dx": 0.3629769328981638
+    },
+    {
+      "name": "native_ego_cancellation_acknowledged"
+    },
+    {
+      "name": "stop_confirmed_and_retired_context",
+      "reason": "planner_cancelling"
+    },
+    {
+      "name": "fixed_hold_and_heartbeat",
+      "seconds": 60.0,
+      "messages": 1494,
+      "max_gap_s": 0.07321849372237921,
+      "max_position_error_m": 0.16926225760090635,
+      "max_yaw_error_deg": 0.05011718890268133,
+      "max_command_yaw_from_initial_deg": 0.011575186769338875
+    },
+    {
+      "name": "landing_actual_feedback",
+      "mode": "OFFBOARD"
+    },
+    {
+      "name": "body_to_world_velocity_matches_mavros",
+      "moving_samples": 288,
+      "max_velocity_error_mps": 6.8167361751336705e-09
+    },
+    {
+      "name": "land_preempts_prestream"
+    },
+    {
+      "name": "land_preempts_airborne_climb"
+    }
+  ],
+  "fcu_states": [
+    [
+      5784246.520824827,
+      [
+        false,
+        "",
+        false
+      ]
+    ],
+    [
+      5784247.459955029,
+      [
+        false,
+        "CMODE(50593792)",
+        true
+      ]
+    ],
+    [
+      5784248.458729836,
+      [
+        false,
+        "AUTO.LOITER",
+        true
+      ]
+    ],
+    [
+      5784253.460732513,
+      [
+        true,
+        "AUTO.LOITER",
+        true
+      ]
+    ],
+    [
+      5784254.462373652,
+      [
+        true,
+        "OFFBOARD",
+        true
+      ]
+    ],
+    [
+      5784327.495783696,
+      [
+        true,
+        "AUTO.LAND",
+        true
+      ]
+    ],
+    [
+      5784334.498594488,
+      [
+        false,
+        "OFFBOARD",
+        true
+      ]
+    ],
+    [
+      5784338.500675409,
+      [
+        true,
+        "OFFBOARD",
+        true
+      ]
+    ],
+    [
+      5784343.503449973,
+      [
+        true,
+        "AUTO.LAND",
+        true
+      ]
+    ],
+    [
+      5784348.50562094,
+      [
+        false,
+        "OFFBOARD",
+        true
+      ]
+    ]
+  ],
+  "flight_states": [
+    [
+      5784246.621036856,
+      [
+        "IDLE",
+        ""
+      ]
+    ],
+    [
+      5784248.523274879,
+      [
+        "PRESTREAM",
+        ""
+      ]
+    ],
+    [
+      5784250.53177391,
+      [
+        "WAIT_ARM",
+        ""
+      ]
+    ],
+    [
+      5784253.500537173,
+      [
+        "WAIT_OFFBOARD",
+        ""
+      ]
+    ],
+    [
+      5784254.543638831,
+      [
+        "CLIMB",
+        ""
+      ]
+    ],
+    [
+      5784262.807167983,
+      [
+        "HOLD",
+        ""
+      ]
+    ],
+    [
+      5784262.967382399,
+      [
+        "TRACK",
+        ""
+      ]
+    ],
+    [
+      5784265.213696535,
+      [
+        "HOLD",
+        "planner_cancelling"
+      ]
+    ],
+    [
+      5784326.879216393,
+      [
+        "LANDING",
+        "land_requested"
+      ]
+    ],
+    [
+      5784334.501152081,
+      [
+        "COMPLETE",
+        "land_requested"
+      ]
+    ],
+    [
+      5784334.581657284,
+      [
+        "PRESTREAM",
+        ""
+      ]
+    ],
+    [
+      5784334.661348359,
+      [
+        "COMPLETE",
+        "land_requested"
+      ]
+    ],
+    [
+      5784335.705337707,
+      [
+        "PRESTREAM",
+        ""
+      ]
+    ],
+    [
+      5784337.711540621,
+      [
+        "WAIT_ARM",
+        ""
+      ]
+    ],
+    [
+      5784338.512845369,
+      [
+        "CLIMB",
+        ""
+      ]
+    ],
+    [
+      5784342.524208625,
+      [
+        "LANDING",
+        "land_requested"
+      ]
+    ],
+    [
+      5784348.543578797,
+      [
+        "COMPLETE",
+        "land_requested"
+      ]
+    ]
+  ],
+  "planning": [
+    {
+      "schema_version": 1,
+      "mission_id": "stage9-ecbe4a25ef9341ef8b82dc1ee5c89adb",
+      "goal_id": 1,
+      "status": "ACCEPTED",
+      "reason": "",
+      "gateway_session_id": "e20d01be826047bca02b664a52f0d39a",
+      "planner_session_id": "3118e5b9-64f2-4256-89c8-2be72aa058b4"
+    },
+    {
+      "schema_version": 1,
+      "mission_id": "stage9-ecbe4a25ef9341ef8b82dc1ee5c89adb",
+      "goal_id": 1,
+      "status": "OK",
+      "reason": "",
+      "gateway_session_id": "e20d01be826047bca02b664a52f0d39a",
+      "planner_session_id": "3118e5b9-64f2-4256-89c8-2be72aa058b4",
+      "traj_id": 1
+    },
+    {
+      "schema_version": 1,
+      "mission_id": "stage9-ecbe4a25ef9341ef8b82dc1ee5c89adb",
+      "goal_id": 1,
+      "status": "OK",
+      "reason": "",
+      "gateway_session_id": "e20d01be826047bca02b664a52f0d39a",
+      "planner_session_id": "3118e5b9-64f2-4256-89c8-2be72aa058b4",
+      "traj_id": 2
+    },
+    {
+      "schema_version": 1,
+      "mission_id": "stage9-ecbe4a25ef9341ef8b82dc1ee5c89adb",
+      "goal_id": 1,
+      "status": "CANCELLING",
+      "reason": "requested",
+      "gateway_session_id": "e20d01be826047bca02b664a52f0d39a",
+      "planner_session_id": "3118e5b9-64f2-4256-89c8-2be72aa058b4"
+    },
+    {
+      "schema_version": 1,
+      "mission_id": "stage9-ecbe4a25ef9341ef8b82dc1ee5c89adb",
+      "goal_id": 1,
+      "status": "CANCELLED",
+      "reason": "ego_acknowledged",
+      "gateway_session_id": "e20d01be826047bca02b664a52f0d39a",
+      "planner_session_id": "3118e5b9-64f2-4256-89c8-2be72aa058b4"
+    }
+  ],
+  "final_armed": false
+}

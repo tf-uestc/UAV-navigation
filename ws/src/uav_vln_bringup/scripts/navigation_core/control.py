@@ -42,5 +42,7 @@ class ControlArbiter:
         if self.mode=="TRACK":
             p=self.buffer.sample(now)
             if p is not None: return Reference(p.position,p.yaw)
+            if self.buffer.pending is not None:
+                return self.anchor
             self.live=False; self.mode="HOLD"
         return self.anchor if self.mode in ("HOLD","SAFETY_HOLD") else None

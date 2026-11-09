@@ -1,0 +1,163 @@
+{
+  "phase": "restart",
+  "topics": {
+    "rgb_info": {
+      "count": 91,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.899999999999991,
+      "wall_rate_hz": 9.08851841657788,
+      "stamps_monotonic": true
+    },
+    "depth_info": {
+      "count": 91,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.899999999999991,
+      "wall_rate_hz": 9.088630404239481,
+      "stamps_monotonic": true
+    },
+    "rgb": {
+      "count": 100,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.899999999999991,
+      "wall_rate_hz": 9.997265141989915,
+      "stamps_monotonic": true
+    },
+    "depth": {
+      "count": 100,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.899999999999991,
+      "wall_rate_hz": 9.998510331223862,
+      "stamps_monotonic": true
+    },
+    "cloud": {
+      "count": 100,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.899999999999991,
+      "wall_rate_hz": 9.995505769927773,
+      "stamps_monotonic": true
+    },
+    "state": {
+      "count": 10,
+      "frame": "",
+      "stamp_advance": 8.995999999999995,
+      "wall_rate_hz": 0.9997728994234313,
+      "stamps_monotonic": true
+    }
+  },
+  "checks": {
+    "all_topics_received": true,
+    "exact_rgb_depth_info_cloud_sync": true,
+    "steady_state_timestamps_advance": true,
+    "connected_unarmed": true,
+    "custom_scene": true,
+    "configured_gravity": true,
+    "optical_frame_headers": true,
+    "aligned_resolution_intrinsics": true,
+    "float_depth_meters": true,
+    "cloud_matches_optical_backprojection": true,
+    "camera_mount_matches_gazebo": true,
+    "historical_map_tf_available": true,
+    "red_target_visible": true,
+    "red_surface_matches_world": true,
+    "map_camera_chain_matches_truth": true
+  },
+  "exact_sync_count": 91,
+  "first_message_age_s": {
+    "state": 0.5960000000000036,
+    "rgb_info": 0.0759999999999934,
+    "depth_info": 0.0759999999999934,
+    "rgb": 0.08400000000000318,
+    "cloud": 0.09199999999999875,
+    "depth": 0.12000000000000455
+  },
+  "warmup_wall_s": 2,
+  "state": {
+    "connected": true,
+    "armed": false
+  },
+  "world_models": [
+    "ground_plane",
+    "landing_pad",
+    "red_tripod_A",
+    "blue_tripod_B",
+    "iris_depth_camera"
+  ],
+  "gravity": [
+    0.0,
+    0.0,
+    -9.8066
+  ],
+  "image": {
+    "rgb_encoding": "rgb8",
+    "depth_encoding": "32FC1",
+    "width": 640,
+    "height": 480,
+    "K": [
+      343.15907310693535,
+      0.0,
+      319.5,
+      0.0,
+      343.15907310693535,
+      239.5,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "valid_depth_fraction": 0.19460611979166667,
+    "frames": [
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical"
+    ]
+  },
+  "organized_cloud_projection_max_error_m": 8.008473983370092e-07,
+  "camera_mount_gazebo_m": [
+    0.0999940158744073,
+    -1.406413117731683e-06,
+    9.773624311237794e-06
+  ],
+  "mount_translation_error_m": 1.1546059463912118e-05,
+  "optical_rotation_error_deg": 0.006175768117480589,
+  "base_from_optical_tf": [
+    [
+      -2.220446049250313e-16,
+      0.0,
+      1.0000000000000002,
+      0.1
+    ],
+    [
+      -1.0000000000000002,
+      -2.220446049250313e-16,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0000000000000002,
+      -2.220446049250313e-16,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "red_target_pixels": 306,
+  "red_target": {
+    "depth_median_m": 4.843005180358887,
+    "world_surface_median": [
+      5.953554627075737,
+      1.4953399640718876,
+      0.569887188821222
+    ],
+    "cylinder_surface_error_median_m": 0.00017978043676395924,
+    "cylinder_surface_error_p95_m": 0.0002486228447978467,
+    "tf_vs_gazebo_projection_max_error_m": 0.000385083952734151
+  },
+  "pass": true,
+  "scope": "Static ground validation only; no arming, movement, API calls or navigation integration."
+}

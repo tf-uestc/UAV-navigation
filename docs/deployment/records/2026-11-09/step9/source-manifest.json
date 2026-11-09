@@ -1,0 +1,13 @@
+{
+  "files": {
+    "tests/offline/test_bridge_decisions.py": "141ab776dbb82b54a8f0bbd71fcecd0b18e9f06e4b3444a3023b2c79ec8d8ace",
+    "tools/deployment/launch_project_rgbd.sh": "aeafb24671b0bf1e89d24d45e2820c30cc89dd681edb204064ab2a7972b20be9",
+    "tools/deployment/validate_flight_execution.py": "adce6ba940a3066468ed667598a9d32b7ea0dddffe7e6026198561447d77c61b",
+    "ws/src/uav_vln_bringup/CMakeLists.txt": "7764900357e900b76807a4bc1386ce7ec5e3da1574eefbc9ab8083b0b8a19d09",
+    "ws/src/uav_vln_bringup/launch/flight_verified.launch": "4290e715ca5847d1ad64ebae4567d288a43f87b596d6b986512f00c7254f00e4",
+    "ws/src/uav_vln_bringup/package.xml": "decc1a8aa06b4bd9d700901054a2ce24544b924d2d6eebf224b63b044a72aa79",
+    "ws/src/uav_vln_bringup/scripts/flight_executor.py": "7d001580a525b6faf8a01c55c07e9b703757755c5da46b01e94b322353701d15",
+    "ws/src/uav_vln_bringup/scripts/navigation_core/bridge.py": "7dd352a223350eb3c3847b4ea5ed808fa82b9c951d9f73fdc2a6dbe7fdb2e3f9",
+    "ws/src/uav_vln_bringup/scripts/navigation_core/control.py": "5480b05d364a3b8438e9f9734b9f50e951f12a0296f77fcbfdad89089564878d"
+  }
+}

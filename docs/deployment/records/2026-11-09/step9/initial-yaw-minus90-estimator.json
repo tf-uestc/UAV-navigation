@@ -1,0 +1,50 @@
+{
+  "passed": false,
+  "fatal": "AssertionError(\"settled initial yaw: {'flight_session_id': '13620d460621414098bfcc1cfb4c8609', 'seq': 0, 'mode': 'IDLE', 'ready': True, 'owner': True, 'reason': '', 'context': None, 'trajectory_id': None, 'stop_id': None, 'stop_confirmed': False, 'owns_flight': False} / (False, 'AUTO.LOITER', True)\")",
+  "checks": [
+    {
+      "name": "single_publisher",
+      "topics": [
+        "/uav/goal_pose",
+        "/mavros/setpoint_position/local"
+      ]
+    }
+  ],
+  "fcu_states": [
+    [
+      5784458.711363692,
+      [
+        false,
+        "",
+        false
+      ]
+    ],
+    [
+      5784459.680359505,
+      [
+        false,
+        "CMODE(50593792)",
+        true
+      ]
+    ],
+    [
+      5784460.679901493,
+      [
+        false,
+        "AUTO.LOITER",
+        true
+      ]
+    ]
+  ],
+  "flight_states": [
+    [
+      5784459.010384947,
+      [
+        "IDLE",
+        ""
+      ]
+    ]
+  ],
+  "planning": [],
+  "final_armed": false
+}

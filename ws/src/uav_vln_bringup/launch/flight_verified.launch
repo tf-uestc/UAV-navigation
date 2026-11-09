@@ -1,0 +1,8 @@
+<launch>
+  <arg name="with_planner" default="true"/>
+  <arg name="mock_fcu" default="false"/>
+  <include if="$(arg with_planner)" file="$(find uav_vln_bringup)/launch/planner_verified.launch"/>
+  <node pkg="uav_vln_bringup" type="flight_executor.py" name="flight_executor" output="screen" required="true">
+    <param name="mock_fcu" value="$(arg mock_fcu)"/>
+  </node>
+</launch>

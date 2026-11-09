@@ -1,0 +1,1 @@
+PASS sitl_feedback_link_loss_revokes_stream_and_px4_exits_offboard {'px4_mode_after_loss': 'POSCTL'}

@@ -59,7 +59,7 @@ rospy.init_node('wait_project_gazebo', anonymous=True, disable_signals=True)
 rospy.wait_for_service('/gazebo/get_world_properties', timeout=60)
 PY
 timeout 45 gz model --spawn-file="$PX4/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris_depth_camera/iris_depth_camera.sdf" \
-  --model-name=iris_depth_camera -x 1.01 -y 0.98 -z 0.83
+  --model-name=iris_depth_camera -x 1.01 -y 0.98 -z 0.83 -Y "${UAV_SPAWN_YAW:-0}"
 (
   cd "$PX4/build/px4_sitl_default/rootfs"
   exec "$PX4/build/px4_sitl_default/bin/px4" -d "$PX4/build/px4_sitl_default/etc"

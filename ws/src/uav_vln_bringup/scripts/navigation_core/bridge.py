@@ -123,6 +123,8 @@ class BridgeDecisions:
             else: actions=self._action("ARM",now)
         if self.mode=="WAIT_OFFBOARD":
             if feedback.mode=="OFFBOARD":
+                # Prestream, arming and mode negotiation have their own deadline.
+                self.started=now
                 self.mode="CLIMB"
                 self.was_offboard=True
             else: actions=self._action("SET_OFFBOARD",now)

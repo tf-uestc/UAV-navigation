@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "fatal": null,
+  "checks": [
+    {
+      "name": "sitl_arming_service_refusal_no_takeoff"
+    }
+  ],
+  "fcu_states": [
+    [
+      5784817.488437399,
+      [
+        false,
+        "",
+        false
+      ]
+    ],
+    [
+      5784818.448603957,
+      [
+        false,
+        "CMODE(50593792)",
+        true
+      ]
+    ],
+    [
+      5784819.444827659,
+      [
+        false,
+        "AUTO.LOITER",
+        true
+      ]
+    ]
+  ],
+  "flight_states": [
+    [
+      5784817.907618375,
+      [
+        "IDLE",
+        ""
+      ]
+    ],
+    [
+      5784818.574758908,
+      [
+        "PRESTREAM",
+        ""
+      ]
+    ],
+    [
+      5784820.582971977,
+      [
+        "WAIT_ARM",
+        ""
+      ]
+    ],
+    [
+      5784833.584540197,
+      [
+        "FAILED",
+        "takeoff_timeout"
+      ]
+    ]
+  ],
+  "planning": [],
+  "final_armed": false
+}

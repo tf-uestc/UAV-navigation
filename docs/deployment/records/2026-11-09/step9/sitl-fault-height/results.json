@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "fatal": null,
+  "checks": [
+    {
+      "name": "sitl_height_confirmation_timeout_lands"
+    }
+  ],
+  "fcu_states": [
+    [
+      5784844.170498449,
+      [
+        false,
+        "",
+        false
+      ]
+    ],
+    [
+      5784844.999431007,
+      [
+        false,
+        "CMODE(50593792)",
+        true
+      ]
+    ],
+    [
+      5784845.998117025,
+      [
+        false,
+        "AUTO.LOITER",
+        true
+      ]
+    ],
+    [
+      5784851.002147456,
+      [
+        true,
+        "AUTO.LOITER",
+        true
+      ]
+    ],
+    [
+      5784852.001047107,
+      [
+        true,
+        "OFFBOARD",
+        true
+      ]
+    ],
+    [
+      5784868.012829871,
+      [
+        true,
+        "AUTO.LAND",
+        true
+      ]
+    ],
+    [
+      5784881.019410339,
+      [
+        false,
+        "OFFBOARD",
+        true
+      ]
+    ]
+  ],
+  "flight_states": [
+    [
+      5784844.474580186,
+      [
+        "IDLE",
+        ""
+      ]
+    ],
+    [
+      5784845.130136328,
+      [
+        "PRESTREAM",
+        ""
+      ]
+    ],
+    [
+      5784847.057648063,
+      [
+        "WAIT_ARM",
+        ""
+      ]
+    ],
+    [
+      5784851.071964877,
+      [
+        "WAIT_OFFBOARD",
+        ""
+      ]
+    ],
+    [
+      5784852.036303172,
+      [
+        "CLIMB",
+        ""
+      ]
+    ],
+    [
+      5784867.038450966,
+      [
+        "FAILED",
+        "takeoff_timeout"
+      ]
+    ]
+  ],
+  "planning": [],
+  "final_armed": false
+}

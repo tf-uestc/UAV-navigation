@@ -1,0 +1,22 @@
+{
+  "0": {
+    "fcu_target_samples": 764,
+    "max_command_vs_fcu_yaw_deg": 0.07903002018195744,
+    "max_actual_yaw_change_offboard_deg": 0.1628014532524765
+  },
+  "90": {
+    "fcu_target_samples": 222,
+    "max_command_vs_fcu_yaw_deg": 0.054575110774618456,
+    "max_actual_yaw_change_offboard_deg": 0.4718311562149249
+  },
+  "180": {
+    "fcu_target_samples": 232,
+    "max_command_vs_fcu_yaw_deg": 0.0037769859822252374,
+    "max_actual_yaw_change_offboard_deg": 0.32237719141655896
+  },
+  "-90": {
+    "fcu_target_samples": 232,
+    "max_command_vs_fcu_yaw_deg": 1.2429259509347954,
+    "max_actual_yaw_change_offboard_deg": 1.1232809104654295
+  }
+}

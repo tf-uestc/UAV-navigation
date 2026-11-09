@@ -1,0 +1,10 @@
+PASS single_publisher {'topics': ['/uav/goal_pose', '/mavros/setpoint_position/local']}
+PASS takeoff_actual_feedback {'initial_yaw_deg': -3.1877887915607515, 'height': 1.5223404169082642, 'mode': 'OFFBOARD'}
+PASS trajectory_moves_without_standoff {'measured_dx': 0.3629769328981638}
+PASS native_ego_cancellation_acknowledged {}
+PASS stop_confirmed_and_retired_context {'reason': 'planner_cancelling'}
+PASS fixed_hold_and_heartbeat {'seconds': 60.0, 'messages': 1494, 'max_gap_s': 0.07321849372237921, 'max_position_error_m': 0.16926225760090635, 'max_yaw_error_deg': 0.05011718890268133, 'max_command_yaw_from_initial_deg': 0.011575186769338875}
+PASS landing_actual_feedback {'mode': 'OFFBOARD'}
+PASS body_to_world_velocity_matches_mavros {'moving_samples': 288, 'max_velocity_error_mps': 6.8167361751336705e-09}
+PASS land_preempts_prestream {}
+PASS land_preempts_airborne_climb {}

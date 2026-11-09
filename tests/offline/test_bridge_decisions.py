@@ -50,6 +50,18 @@ class BridgeTests(unittest.TestCase):
         out=b.tick(f,5)
         self.assertEqual(out.mode,"FAILED")
         self.assertEqual(out.reference.position,(0,0,.4))
+    def test_climb_gets_full_deadline_after_mode_confirmation(self):
+        bridge = BridgeDecisions(takeoff_timeout=5)
+        ground = Feedback((0, 0, 0), 0)
+        armed = Feedback((0, 0, 0), 0, armed=True)
+        climbing = Feedback((0, 0, .8), 0, armed=True, mode="OFFBOARD", landed=False)
+        self.assertTrue(bridge.command("TAKEOFF", ground, 0))
+        bridge.tick(ground, 2)
+        bridge.tick(armed, 4)
+        self.assertEqual(bridge.tick(climbing, 4.9).mode, "CLIMB")
+        self.assertEqual(bridge.tick(climbing, 5.1).mode, "CLIMB")
+        self.assertEqual(bridge.tick(climbing, 10).reason, "takeoff_timeout")
+
     def test_no_airborne_takeoff_or_motor_stop(self):
         b=BridgeDecisions(); f=Feedback((0,0,2),1,armed=True,mode="OFFBOARD",landed=False)
         self.assertFalse(b.command("TAKEOFF",f,0))
