@@ -1,0 +1,21 @@
+{
+  "http_status": 200,
+  "error_code": null,
+  "model": "qwen3.8-omni-flash",
+  "elapsed_s": 1.42,
+  "reply_received": true,
+  "bbox_px": [
+    266,
+    172,
+    296,
+    248
+  ],
+  "depth_m": 4.846124649047852,
+  "reference_depth_m": 4.843570232391357,
+  "camera_xyz_m": [
+    -0.543700614700639,
+    -0.41660176970568447,
+    4.846124649047852
+  ],
+  "red_pixels_in_box_fraction": 1.0
+}

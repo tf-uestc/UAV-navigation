@@ -72,6 +72,8 @@ class DetectorNode:
 
         self._managed_only = rospy.get_param('~managed_requests_only', False)
         self._max_skew = rospy.get_param('~max_image_skew', .05)
+        self._synchronize_camera = rospy.get_param('~synchronize_camera', False)
+        self._max_result_age = rospy.get_param('~max_result_age', 15.)
         self._max_image_age = rospy.get_param('~max_image_age', 1.0)
 
         # --- API key resolution ---
@@ -128,9 +130,19 @@ class DetectorNode:
         camera_info = rospy.get_param(
             "~camera_topic_info", "/iris_depth_camera/camera/depth/camera_info"
         )
-        rospy.Subscriber(camera_rgb, Image, self._cb_rgb, queue_size=1)
-        rospy.Subscriber(camera_depth, Image, self._cb_depth, queue_size=1)
-        rospy.Subscriber(camera_info, CameraInfo, self._cb_cam_info, queue_size=1)
+        if self._synchronize_camera:
+            import message_filters
+            self._camera_subs = [
+                message_filters.Subscriber(camera_rgb, Image, queue_size=3),
+                message_filters.Subscriber(camera_depth, Image, queue_size=3),
+                message_filters.Subscriber(camera_info, CameraInfo, queue_size=3),
+            ]
+            self._camera_sync = message_filters.TimeSynchronizer(self._camera_subs, queue_size=6)
+            self._camera_sync.registerCallback(self._cb_camera)
+        else:
+            rospy.Subscriber(camera_rgb, Image, self._cb_rgb, queue_size=1)
+            rospy.Subscriber(camera_depth, Image, self._cb_depth, queue_size=1)
+            rospy.Subscriber(camera_info, CameraInfo, self._cb_cam_info, queue_size=1)
         rospy.Subscriber("/uav/instruction", String, self._cb_instruction, queue_size=1)
 
         rospy.loginfo("[detector] DetectorNode initialized successfully")
@@ -152,6 +164,10 @@ class DetectorNode:
     # ------------------------------------------------------------------
     # Sensor callbacks (fast, minimal work)
     # ------------------------------------------------------------------
+    def _cb_camera(self, rgb, depth, info):
+        with self.lock:
+            self.latest_rgb, self.latest_depth, self.latest_cam_info = rgb, depth, info
+
     def _cb_rgb(self, msg):
         with self.lock:
             self.latest_rgb = msg
@@ -217,12 +233,33 @@ class DetectorNode:
             validate_intrinsics(info.K)
             if info.width != depth.shape[1] or info.height != depth.shape[0]:
                 raise ValueError("camera_info_size_mismatch")
+            transform = None
+            if getattr(self, "_synchronize_camera", False):
+                if (info.header.frame_id != rgb_msg.header.frame_id
+                        or rgb_msg.header.frame_id != self.camera_optical_frame):
+                    raise ValueError("camera_info_frame_mismatch")
+                try:
+                    transform = self.tf_buffer.lookup_transform(
+                        self.target_frame, self.camera_optical_frame,
+                        rgb_msg.header.stamp, rospy.Duration(2.))
+                except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+                    raise ValueError("historical_tf_unavailable") from None
             rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
             detection = self.detector.detect(rgb, depth, target_text, info)
             if detection is None:
                 reason = "no_valid_detection"
             else:
-                point = self._transform_to_map(detection.point_camera, rgb_msg.header.stamp)
+                if transform is None:
+                    point = self._transform_to_map(detection.point_camera, rgb_msg.header.stamp)
+                else:
+                    age = rospy.Time.now().to_sec()-capture
+                    if not 0. <= age <= self._max_result_age or time.monotonic()-started > self._max_result_age:
+                        raise ValueError("detection_expired")
+                    captured_point = PointStamped(
+                        header=Header(stamp=rgb_msg.header.stamp, frame_id=self.camera_optical_frame),
+                        point=Point(*detection.point_camera))
+                    position = tf2_geometry_msgs.do_transform_point(captured_point, transform).point
+                    point = (position.x, position.y, position.z)
                 if point is None:
                     reason = "historical_tf_unavailable"
                 else:

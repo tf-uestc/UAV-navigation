@@ -15,7 +15,7 @@ import requests
 import rospy
 from sensor_msgs.msg import CameraInfo
 
-from base_detector import Detection, Detector
+from base_detector import Detection, DetectionRejected, Detector
 from navigation_core.perception import parse_bbox, validate_intrinsics
 
 # ---------------------------------------------------------------------------
@@ -32,6 +32,7 @@ PATTERNS = [
     r"\[?\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\]?",
 ]
 
+OMNI_MODEL = "qwen3.8-omni-flash"
 API_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
 
 
@@ -46,12 +47,14 @@ class QwenVLGroundingDetector(Detector):
     a Detection with 3D camera-optical coordinates.
     """
 
-    def __init__(self, api_key: str, model: str = "qwen3.6-plus",
-                 timeout: float = 90.0, coordinate_system: str = "pixel",
+    def __init__(self, api_key: str, model: str = OMNI_MODEL,
+                 timeout: float = 90.0, coordinate_system: Optional[str] = None,
                  allow_legacy_bbox: bool = False) -> None:
         self.api_key = api_key
         self.model = model
         self.timeout = timeout
+        if coordinate_system is None:
+            coordinate_system = 'normalized_1000' if model == OMNI_MODEL else 'pixel'
         if coordinate_system not in ('pixel', 'normalized_1000'):
             raise ValueError('unsupported bbox coordinate system')
         self.coordinate_system = coordinate_system
@@ -67,7 +70,7 @@ class QwenVLGroundingDetector(Detector):
                cam_info: CameraInfo) -> Optional[Detection]:
         """Run grounding pipeline on a single frame.
 
-        Returns a Detection on success, or None if any stage fails.
+        Returns a Detection on success and classifies rejected observations.
         """
         validate_intrinsics(cam_info.K)
         if rgb.shape[:2] != depth.shape[:2]:
@@ -75,34 +78,24 @@ class QwenVLGroundingDetector(Detector):
         # 1. Call VLM API
         raw_text = self._call_api(rgb, target_text)
         if raw_text is None:
-            return None
+            raise DetectionRejected("invalid_api_response")
 
         # 2. Parse bbox from response
         h, w = rgb.shape[:2]
         bbox = self._parse_bbox(raw_text, w, h, self.coordinate_system, self.allow_legacy_bbox)
         if bbox is None:
-            rospy.logwarn("Failed to parse bbox from: %s", raw_text[:100])
-            return None
+            try:
+                payload = json.loads(raw_text)
+            except (ValueError, TypeError):
+                payload = None
+            reason = ("target_not_found" if isinstance(payload, dict) and payload.get("found") is False
+                      else "invalid_bbox_response")
+            raise DetectionRejected(reason)
 
         x1, y1, x2, y2 = bbox
-
-        # 3. Fuse with depth
-        depth_m = self._depth_in_bbox(depth, x1, y1, x2, y2)
-        if depth_m is None:
-            return None
-
-        # 4. Back-project center pixel to camera optical frame
-        center_u = (x1 + x2) // 2
-        center_v = (y1 + y2) // 2
-        point_camera = self._pixel_to_camera_optical(
-            center_u, center_v, depth_m, cam_info.K
-        )
-
-        # 5. Compute confidence from valid-depth ratio inside bbox
-        bbox_w, bbox_h = x2 - x1, y2 - y1
-        patch = depth[y1:y2, x1:x2]
-        valid = patch[(~np.isnan(patch)) & (patch > 0) & np.isfinite(patch)]
-        confidence = valid.size / max(bbox_w * bbox_h, 1)
+        u, v, depth_m, support = self._foreground_depth(depth[y1:y2, x1:x2])
+        point_camera = self._pixel_to_camera_optical(x1+u, y1+v, depth_m, cam_info.K)
+        confidence = support / ((x2-x1)*(y2-y1))
 
         return Detection(
             bbox=bbox,
@@ -123,10 +116,12 @@ class QwenVLGroundingDetector(Detector):
     def _call_api(self, rgb: np.ndarray, target_text: str) -> Optional[str]:
         """Send grounding request to DashScope and return raw text response.
 
-        Returns None on any error (timeout, network, parse).
+        Raises DetectionRejected with a stable reason if the request fails.
         """
         prompt = DEFAULT_PROMPT.format(target=target_text, width=rgb.shape[1], height=rgb.shape[0])
-        prompt += "坐标协议为" + self.coordinate_system + "，bbox顺序为[x1,y1,x2,y2]，仅一个目标。"
+        units = ("以图像宽高分别将x和y线性归一化到0至1000"
+                 if self.coordinate_system == "normalized_1000" else "使用原图像素坐标")
+        prompt += f"坐标协议为{self.coordinate_system}（{units}），bbox顺序为[x1,y1,x2,y2]，仅一个目标。"
         prompt += "找到时格式：" + json.dumps(
             {"found": True, "bbox": [0, 0, 10, 10], "coordinate_system": self.coordinate_system})
         prompt += '；未找到时只输出{"found":false}。禁止猜测不可见目标。'
@@ -136,8 +131,7 @@ class QwenVLGroundingDetector(Detector):
         success, buffer = cv2.imencode(".jpg", bgr,
                                        [cv2.IMWRITE_JPEG_QUALITY, 85])
         if not success:
-            rospy.logerr("Failed to encode image to JPEG")
-            return None
+            raise DetectionRejected("image_encode_failed")
 
         image_b64 = base64.b64encode(buffer).decode("utf-8")
         image_data_url = f"data:image/jpeg;base64,{image_b64}"
@@ -154,6 +148,9 @@ class QwenVLGroundingDetector(Detector):
             }],
             "max_tokens": 128,
         }
+        if self.model == OMNI_MODEL:
+            payload.update(modalities=["text"], reasoning_effort="none",
+                           response_format={"type": "json_object"}, stream=False)
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
@@ -168,25 +165,41 @@ class QwenVLGroundingDetector(Detector):
             resp.raise_for_status()
             result = resp.json()
             content = result["choices"][0]["message"]["content"]
-            if not isinstance(content, str):
-                return None
+            if not isinstance(content, str) or not content.strip():
+                raise DetectionRejected("invalid_api_response")
             rospy.loginfo("VLM response (%d chars)", len(content))
             return content
 
         except requests.exceptions.Timeout:
-            rospy.logerr("API request timed out after %.1fs", self.timeout)
-            return None
-        except requests.exceptions.RequestException as e:
-            rospy.logerr("API request failed: %s", e)
-            return None
-        except (KeyError, IndexError, json.JSONDecodeError) as e:
-            rospy.logerr("Failed to parse API response: %s", e)
-            return None
+            raise DetectionRejected("api_timeout") from None
+        except requests.exceptions.RequestException as exc:
+            status = getattr(getattr(exc, "response", None), "status_code", None)
+            raise DetectionRejected(f"api_http_{status}" if status else "api_network_error") from None
+        except (KeyError, IndexError, TypeError, json.JSONDecodeError):
+            raise DetectionRejected("invalid_api_response") from None
 
     @staticmethod
     def _parse_bbox(text, img_w, img_h, coordinate_system="pixel", allow_legacy=False):
         """Never infer coordinate units from their numerical range."""
         return parse_bbox(text, img_w, img_h, coordinate_system, allow_legacy)
+
+    @staticmethod
+    def _foreground_depth(patch: np.ndarray):
+        """Pick the closest depth band with enough support and project its pixels."""
+        positive = np.isfinite(patch)
+        positive[positive] = patch[positive] > 0
+        v, u = np.nonzero(positive)
+        minimum = max(3, int(np.ceil(.10*patch.size)))
+        if len(u) < minimum:
+            raise DetectionRejected("invalid_target_depth")
+        depths = patch[v, u]
+        order = np.argsort(depths)
+        ordered = depths[order]
+        splits = np.flatnonzero(np.diff(ordered) > np.maximum(.15, .05*ordered[:-1]))+1
+        for group in np.split(order, splits):
+            if len(group) >= minimum:
+                return float(np.median(u[group])), float(np.median(v[group])), float(np.median(depths[group])), len(group)
+        raise DetectionRejected("invalid_target_depth")
 
     @staticmethod
     def _depth_in_bbox(depth: np.ndarray, x1: int, y1: int,

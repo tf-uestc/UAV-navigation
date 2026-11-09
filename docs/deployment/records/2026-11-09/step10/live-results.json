@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "live_red_target_world_localization",
+      "latency_s": 1.245,
+      "world_xyz_m": [
+        5.956167440278427,
+        1.4954515715210999,
+        0.43406278214680516
+      ],
+      "horizontal_cylinder_surface_error_m": 0.005932080904892396
+    },
+    {
+      "name": "live_absent_target_has_no_world_point",
+      "latency_s": 0.843
+    }
+  ],
+  "error": null
+}

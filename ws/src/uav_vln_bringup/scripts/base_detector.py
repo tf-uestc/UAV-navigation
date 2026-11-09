@@ -44,6 +44,10 @@ class Detection:
         )
 
 
+class DetectionRejected(ValueError):
+    """A detector rejected an observation with a reportable reason."""
+
+
 class Detector(ABC):
     """Abstract base class for all VLM/vision-based detectors.
 

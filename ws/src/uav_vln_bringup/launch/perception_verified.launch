@@ -1,0 +1,8 @@
+<launch>
+  <node pkg="uav_vln_bringup" type="detector_node.py" name="detector_node" output="screen" required="true">
+    <param name="vlm_model" value="$(optenv VLM_MODEL qwen3.8-omni-flash)" />
+    <param name="vlm_timeout" value="10.0" />
+    <param name="managed_requests_only" value="true" />
+    <param name="synchronize_camera" value="true" />
+  </node>
+</launch>

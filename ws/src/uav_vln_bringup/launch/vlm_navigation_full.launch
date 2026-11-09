@@ -47,8 +47,7 @@
         output="screen">
     <param name="detector_class"
            value="qwen_vl_grounding.QwenVLGroundingDetector"/>
-    <param name="vlm_api_key" value="$(env VLM_API_KEY)"/>
-    <param name="vlm_model" value="qwen3.6-plus"/>
+    <param name="vlm_model" value="$(optenv VLM_MODEL qwen3.8-omni-flash)"/>
     <param name="vlm_timeout" value="20.0"/>
     <param name="managed_requests_only" value="true"/>
 

@@ -1,0 +1,13 @@
+header: 
+  seq: 1415
+  stamp: 
+    secs: 1416
+    nsecs: 748000000
+  frame_id: ''
+connected: True
+armed: False
+guided: True
+manual_input: False
+mode: "AUTO.LOITER"
+system_status: 3
+---

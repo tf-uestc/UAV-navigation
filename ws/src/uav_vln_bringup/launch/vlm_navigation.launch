@@ -59,8 +59,7 @@
     <param name="detector_class" value="$(arg detector_class)" />
 
     <!-- VLM API 配置 (QwenVL 生产模式时需要) -->
-    <param name="vlm_api_key" value="$(env VLM_API_KEY)" />
-    <param name="vlm_model" value="qwen3.6-plus" />
+    <param name="vlm_model" value="$(optenv VLM_MODEL qwen3.8-omni-flash)" />
 
     <!-- 检测参数 -->
     <param name="confidence_threshold" value="0.3" />

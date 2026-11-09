@@ -1,0 +1,10 @@
+{
+  "docs/.env.example": "49d45f69f9f4ecb4ff05388b07da5e77050a564959e7cb276f3c57fa22e2833b",
+  "tools/deployment/validate_perception.py": "a08d7f27b260ab549d75da61b47fff7fbfe713f1e7b5486ae1631a925efc4e2c",
+  "ws/src/uav_vln_bringup/launch/perception_verified.launch": "e55109b3dd9239605f3140022f6bd07c62fe5421221c97086e1b16986bc92514",
+  "ws/src/uav_vln_bringup/launch/vlm_navigation.launch": "8914ccacb64df01987d28c241dea2781cef761b6ce589345281150326a82ac6d",
+  "ws/src/uav_vln_bringup/launch/vlm_navigation_full.launch": "0381cf5f9afc31289de3eb646dec5b60628fcc648724b62f6a78ee65dc0ab2df",
+  "ws/src/uav_vln_bringup/scripts/base_detector.py": "4fdac5722354f3b516aac4da845f71040f01495d188ecfec56c38b5aaeb682b8",
+  "ws/src/uav_vln_bringup/scripts/detector_node.py": "999e552e7f5e4b9f483e7aa5905a4b3bc8474d80c886afcdbe462db46b92446f",
+  "ws/src/uav_vln_bringup/scripts/qwen_vl_grounding.py": "d66cbc1133ffe43e4e8a8b994ba9d45e26488f1ad2a2299914f692297cc580e1"
+}
