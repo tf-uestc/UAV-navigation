@@ -1,0 +1,163 @@
+{
+  "phase": "restored-static",
+  "topics": {
+    "rgb_info": {
+      "count": 98,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.900000000000002,
+      "wall_rate_hz": 9.786708305476726,
+      "stamps_monotonic": true
+    },
+    "depth_info": {
+      "count": 98,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.900000000000002,
+      "wall_rate_hz": 9.786854021938312,
+      "stamps_monotonic": true
+    },
+    "rgb": {
+      "count": 100,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.900000000000002,
+      "wall_rate_hz": 9.98980917907972,
+      "stamps_monotonic": true
+    },
+    "depth": {
+      "count": 100,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.900000000000002,
+      "wall_rate_hz": 9.98944228640625,
+      "stamps_monotonic": true
+    },
+    "cloud": {
+      "count": 100,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.900000000000002,
+      "wall_rate_hz": 9.988325864691971,
+      "stamps_monotonic": true
+    },
+    "state": {
+      "count": 10,
+      "frame": "",
+      "stamp_advance": 8.999999999999996,
+      "wall_rate_hz": 0.9997049532309588,
+      "stamps_monotonic": true
+    }
+  },
+  "checks": {
+    "all_topics_received": true,
+    "exact_rgb_depth_info_cloud_sync": true,
+    "steady_state_timestamps_advance": true,
+    "connected_unarmed": true,
+    "custom_scene": true,
+    "configured_gravity": true,
+    "optical_frame_headers": true,
+    "aligned_resolution_intrinsics": true,
+    "float_depth_meters": true,
+    "cloud_matches_optical_backprojection": true,
+    "camera_mount_matches_gazebo": true,
+    "historical_map_tf_available": true,
+    "red_target_visible": true,
+    "red_surface_matches_world": true,
+    "map_camera_chain_matches_truth": true
+  },
+  "exact_sync_count": 98,
+  "first_message_age_s": {
+    "state": 0.1479999999999997,
+    "rgb_info": 0.11599999999999966,
+    "depth_info": 0.120000000000001,
+    "depth": 0.12399999999999878,
+    "rgb": 0.1280000000000001,
+    "cloud": 0.14000000000000057
+  },
+  "warmup_wall_s": 2,
+  "state": {
+    "connected": true,
+    "armed": false
+  },
+  "world_models": [
+    "ground_plane",
+    "landing_pad",
+    "red_tripod_A",
+    "blue_tripod_B",
+    "iris_depth_camera"
+  ],
+  "gravity": [
+    0.0,
+    0.0,
+    -9.8066
+  ],
+  "image": {
+    "rgb_encoding": "rgb8",
+    "depth_encoding": "32FC1",
+    "width": 640,
+    "height": 480,
+    "K": [
+      343.15907310693535,
+      0.0,
+      319.5,
+      0.0,
+      343.15907310693535,
+      239.5,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "valid_depth_fraction": 0.19404622395833335,
+    "frames": [
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical"
+    ]
+  },
+  "organized_cloud_projection_max_error_m": 1.439162374032377e-06,
+  "camera_mount_gazebo_m": [
+    0.099994708839076,
+    -8.0466056811966e-07,
+    8.279675804498512e-06
+  ],
+  "mount_translation_error_m": 9.858848511928669e-06,
+  "optical_rotation_error_deg": 0.005266207349151002,
+  "base_from_optical_tf": [
+    [
+      -2.220446049250313e-16,
+      0.0,
+      1.0000000000000002,
+      0.1
+    ],
+    [
+      -1.0000000000000002,
+      -2.220446049250313e-16,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0000000000000002,
+      -2.220446049250313e-16,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "red_target_pixels": 307,
+  "red_target": {
+    "depth_median_m": 4.843320369720459,
+    "world_surface_median": [
+      5.953641126422751,
+      1.495139838595155,
+      0.5717906985206471
+    ],
+    "cylinder_surface_error_median_m": 0.00017946224235094316,
+    "cylinder_surface_error_p95_m": 0.00027030625386935403,
+    "tf_vs_gazebo_projection_max_error_m": 0.00032308878482141816
+  },
+  "pass": true,
+  "scope": "Static ground validation only; no arming, movement, API calls or navigation integration."
+}

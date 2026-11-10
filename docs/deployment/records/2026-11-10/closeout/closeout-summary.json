@@ -1,0 +1,1309 @@
+{
+  "simulator_static": {
+    "phase": "restored-static",
+    "topics": {
+      "rgb_info": {
+        "count": 98,
+        "frame": "camera_link_optical",
+        "stamp_advance": 9.900000000000002,
+        "wall_rate_hz": 9.786708305476726,
+        "stamps_monotonic": true
+      },
+      "depth_info": {
+        "count": 98,
+        "frame": "camera_link_optical",
+        "stamp_advance": 9.900000000000002,
+        "wall_rate_hz": 9.786854021938312,
+        "stamps_monotonic": true
+      },
+      "rgb": {
+        "count": 100,
+        "frame": "camera_link_optical",
+        "stamp_advance": 9.900000000000002,
+        "wall_rate_hz": 9.98980917907972,
+        "stamps_monotonic": true
+      },
+      "depth": {
+        "count": 100,
+        "frame": "camera_link_optical",
+        "stamp_advance": 9.900000000000002,
+        "wall_rate_hz": 9.98944228640625,
+        "stamps_monotonic": true
+      },
+      "cloud": {
+        "count": 100,
+        "frame": "camera_link_optical",
+        "stamp_advance": 9.900000000000002,
+        "wall_rate_hz": 9.988325864691971,
+        "stamps_monotonic": true
+      },
+      "state": {
+        "count": 10,
+        "frame": "",
+        "stamp_advance": 8.999999999999996,
+        "wall_rate_hz": 0.9997049532309588,
+        "stamps_monotonic": true
+      }
+    },
+    "checks": {
+      "all_topics_received": true,
+      "exact_rgb_depth_info_cloud_sync": true,
+      "steady_state_timestamps_advance": true,
+      "connected_unarmed": true,
+      "custom_scene": true,
+      "configured_gravity": true,
+      "optical_frame_headers": true,
+      "aligned_resolution_intrinsics": true,
+      "float_depth_meters": true,
+      "cloud_matches_optical_backprojection": true,
+      "camera_mount_matches_gazebo": true,
+      "historical_map_tf_available": true,
+      "red_target_visible": true,
+      "red_surface_matches_world": true,
+      "map_camera_chain_matches_truth": true
+    },
+    "exact_sync_count": 98,
+    "first_message_age_s": {
+      "state": 0.1479999999999997,
+      "rgb_info": 0.11599999999999966,
+      "depth_info": 0.120000000000001,
+      "depth": 0.12399999999999878,
+      "rgb": 0.1280000000000001,
+      "cloud": 0.14000000000000057
+    },
+    "warmup_wall_s": 2,
+    "state": {
+      "connected": true,
+      "armed": false
+    },
+    "world_models": [
+      "ground_plane",
+      "landing_pad",
+      "red_tripod_A",
+      "blue_tripod_B",
+      "iris_depth_camera"
+    ],
+    "gravity": [
+      0.0,
+      0.0,
+      -9.8066
+    ],
+    "image": {
+      "rgb_encoding": "rgb8",
+      "depth_encoding": "32FC1",
+      "width": 640,
+      "height": 480,
+      "K": [
+        343.15907310693535,
+        0.0,
+        319.5,
+        0.0,
+        343.15907310693535,
+        239.5,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "valid_depth_fraction": 0.19404622395833335,
+      "frames": [
+        "camera_link_optical",
+        "camera_link_optical",
+        "camera_link_optical",
+        "camera_link_optical",
+        "camera_link_optical"
+      ]
+    },
+    "organized_cloud_projection_max_error_m": 1.439162374032377e-06,
+    "camera_mount_gazebo_m": [
+      0.099994708839076,
+      -8.0466056811966e-07,
+      8.279675804498512e-06
+    ],
+    "mount_translation_error_m": 9.858848511928669e-06,
+    "optical_rotation_error_deg": 0.005266207349151002,
+    "base_from_optical_tf": [
+      [
+        -2.220446049250313e-16,
+        0.0,
+        1.0000000000000002,
+        0.1
+      ],
+      [
+        -1.0000000000000002,
+        -2.220446049250313e-16,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -1.0000000000000002,
+        -2.220446049250313e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "red_target_pixels": 307,
+    "red_target": {
+      "depth_median_m": 4.843320369720459,
+      "world_surface_median": [
+        5.953641126422751,
+        1.495139838595155,
+        0.5717906985206471
+      ],
+      "cylinder_surface_error_median_m": 0.00017946224235094316,
+      "cylinder_surface_error_p95_m": 0.00027030625386935403,
+      "tf_vs_gazebo_projection_max_error_m": 0.00032308878482141816
+    },
+    "pass": true,
+    "scope": "Static ground validation only; no arming, movement, API calls or navigation integration."
+  },
+  "dynamic": [
+    {
+      "trial": "dynamic-1",
+      "passed": true,
+      "error": null,
+      "final_armed": false,
+      "checks": [
+        {
+          "name": "dynamic_box_clearance",
+          "minimum_center_to_box_surface_m": 0.5027471770099461
+        },
+        {
+          "name": "dynamic_replan_executed",
+          "mode": "native_continuous",
+          "peak_tracking_error_m": 0.5543357782958496,
+          "rmse_tracking_m": 0.2245522776624232,
+          "odom_samples": 595,
+          "aligned_samples": 595,
+          "executed_trajectories": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "endpoint": [
+            1.812636137008667,
+            -0.1595054566860199,
+            1.6690800189971924
+          ],
+          "endpoint_speed_mps": 0.05232792212664341
+        }
+      ],
+      "events": [
+        {
+          "t": 15.645360801368952,
+          "kind": "mission",
+          "phase": "DONE",
+          "reason": "destination_reached"
+        }
+      ],
+      "recovery": []
+    },
+    {
+      "trial": "dynamic-2",
+      "passed": true,
+      "error": null,
+      "final_armed": false,
+      "checks": [
+        {
+          "name": "dynamic_box_clearance",
+          "minimum_center_to_box_surface_m": 0.5602550345248206
+        },
+        {
+          "name": "dynamic_replan_executed",
+          "mode": "native_continuous",
+          "peak_tracking_error_m": 0.5240498676611063,
+          "rmse_tracking_m": 0.24855331432467798,
+          "odom_samples": 545,
+          "aligned_samples": 545,
+          "executed_trajectories": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "endpoint": [
+            1.766478419303894,
+            -0.12189103662967682,
+            1.728621482849121
+          ],
+          "endpoint_speed_mps": 0.043479079137781394
+        }
+      ],
+      "events": [
+        {
+          "t": 14.023233193904161,
+          "kind": "mission",
+          "phase": "DONE",
+          "reason": "destination_reached"
+        }
+      ],
+      "recovery": []
+    },
+    {
+      "trial": "dynamic-3",
+      "passed": true,
+      "error": null,
+      "final_armed": false,
+      "checks": [
+        {
+          "name": "dynamic_box_clearance",
+          "minimum_center_to_box_surface_m": 0.5348887057704902
+        },
+        {
+          "name": "dynamic_replan_executed",
+          "mode": "settled_detour",
+          "peak_tracking_error_m": 0.47670434384999466,
+          "rmse_tracking_m": 0.22546815690898261,
+          "odom_samples": 866,
+          "aligned_samples": 866,
+          "executed_trajectories": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "endpoint": [
+            1.7984269857406616,
+            -0.013517181389033794,
+            1.8060022592544556
+          ],
+          "endpoint_speed_mps": 0.07830987346754412
+        }
+      ],
+      "events": [
+        {
+          "t": 0.5899393865838647,
+          "kind": "ego_status",
+          "reason": "collision"
+        },
+        {
+          "t": 0.5993632627651095,
+          "kind": "mission",
+          "phase": "BRAKE",
+          "reason": "planner_stop"
+        },
+        {
+          "t": 0.6897387756034732,
+          "kind": "mission",
+          "phase": "SETTLE",
+          "reason": "planner_stop"
+        },
+        {
+          "t": 24.412815992720425,
+          "kind": "mission",
+          "phase": "DONE",
+          "reason": "destination_reached"
+        }
+      ],
+      "recovery": [
+        {
+          "start": [
+            0.4282612204551697,
+            -0.018108844757080078,
+            1.632502794265747
+          ],
+          "goal": [
+            1.7936886741872877,
+            -0.05513204261660576,
+            1.6
+          ],
+          "distance_m": 1.3659292985309017,
+          "route": [
+            [
+              0.45536598927398425,
+              0.9815237535045405,
+              1.6
+            ],
+            [
+              1.8207934430061024,
+              0.9445005556450148,
+              1.6
+            ],
+            [
+              1.7936886741872877,
+              -0.05513204261660576,
+              1.6
+            ]
+          ],
+          "cells": 432,
+          "direct": {
+            "distance_m": 0.004185444416592576,
+            "cell": [
+              1.4500000476837158,
+              -0.05000000074505806,
+              1.440000057220459
+            ],
+            "fraction": 0.748375367683458
+          },
+          "destination": {
+            "distance_m": 0.34372694081448296,
+            "cell": [
+              1.4500000476837158,
+              -0.05000000074505806,
+              1.440000057220459
+            ],
+            "fraction": 0.0
+          },
+          "reason": "accepted",
+          "candidates": [
+            {
+              "offset": 1.0,
+              "inside": true,
+              "legs": [
+                {
+                  "distance_m": 0.20896930680259207,
+                  "cell": [
+                    0.6499999761581421,
+                    0.44999998807907104,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.47394702654871707
+                },
+                {
+                  "distance_m": 0.5043691564575471,
+                  "cell": [
+                    1.4500000476837158,
+                    0.44999998807907104,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.7384536359210133
+                },
+                {
+                  "distance_m": 0.34372694081448296,
+                  "cell": [
+                    1.4500000476837158,
+                    -0.05000000074505806,
+                    1.440000057220459
+                  ],
+                  "fraction": 1.0
+                }
+              ],
+              "rejected_legs": []
+            },
+            {
+              "offset": -1.0,
+              "inside": true,
+              "legs": [
+                {
+                  "distance_m": 0.22252169090907997,
+                  "cell": [
+                    0.6499999761581421,
+                    -0.05000000074505806,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.025869261410328404
+                },
+                {
+                  "distance_m": 0.3743512042105818,
+                  "cell": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.1748147226878917
+                },
+                {
+                  "distance_m": 0.32743859688836396,
+                  "cell": [
+                    1.4500000476837158,
+                    -0.6499999761581421,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.3960350212043177
+                }
+              ],
+              "rejected_legs": []
+            },
+            {
+              "offset": 1.2,
+              "inside": true,
+              "legs": [
+                {
+                  "distance_m": 0.20896930680259204,
+                  "cell": [
+                    0.6499999761581421,
+                    0.44999998807907104,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.3949558554572643
+                },
+                {
+                  "distance_m": 0.704369156457547,
+                  "cell": [
+                    1.4500000476837158,
+                    0.44999998807907104,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.7384536359210135
+                },
+                {
+                  "distance_m": 0.34372694081448296,
+                  "cell": [
+                    1.4500000476837158,
+                    -0.05000000074505806,
+                    1.440000057220459
+                  ],
+                  "fraction": 1.0
+                }
+              ],
+              "rejected_legs": []
+            },
+            {
+              "offset": -1.2,
+              "inside": true,
+              "legs": [
+                {
+                  "distance_m": 0.22252169090907997,
+                  "cell": [
+                    0.6499999761581421,
+                    -0.05000000074505806,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.02155771784194033
+                },
+                {
+                  "distance_m": 0.5743512042105818,
+                  "cell": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.17481472268789175
+                },
+                {
+                  "distance_m": 0.327438596888364,
+                  "cell": [
+                    1.4500000476837158,
+                    -0.6499999761581421,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.4966958510035981
+                }
+              ],
+              "rejected_legs": []
+            },
+            {
+              "offset": 1.4,
+              "inside": true,
+              "legs": [
+                {
+                  "distance_m": 0.20896930680259207,
+                  "cell": [
+                    0.6499999761581421,
+                    0.44999998807907104,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.33853359039194086
+                },
+                {
+                  "distance_m": 0.9043691564575471,
+                  "cell": [
+                    1.4500000476837158,
+                    0.44999998807907104,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.7384536359210133
+                },
+                {
+                  "distance_m": 0.34372694081448296,
+                  "cell": [
+                    1.4500000476837158,
+                    -0.05000000074505806,
+                    1.440000057220459
+                  ],
+                  "fraction": 1.0
+                }
+              ],
+              "rejected_legs": []
+            },
+            {
+              "offset": -1.4,
+              "inside": true,
+              "legs": [
+                {
+                  "distance_m": 0.22252169090907997,
+                  "cell": [
+                    0.6499999761581421,
+                    -0.05000000074505806,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.018478043864520288
+                },
+                {
+                  "distance_m": 0.7743512042105818,
+                  "cell": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.17481472268789172
+                },
+                {
+                  "distance_m": 0.32743859688836385,
+                  "cell": [
+                    1.4500000476837158,
+                    -0.6499999761581421,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.5685964437173698
+                }
+              ],
+              "rejected_legs": []
+            },
+            {
+              "offset": 1.6,
+              "inside": true,
+              "legs": [
+                {
+                  "distance_m": 0.20896930680259204,
+                  "cell": [
+                    0.6499999761581421,
+                    0.44999998807907104,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.2962168915929482
+                },
+                {
+                  "distance_m": 1.104369156457547,
+                  "cell": [
+                    1.4500000476837158,
+                    0.44999998807907104,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.7384536359210133
+                },
+                {
+                  "distance_m": 0.34372694081448296,
+                  "cell": [
+                    1.4500000476837158,
+                    -0.05000000074505806,
+                    1.440000057220459
+                  ],
+                  "fraction": 1.0
+                }
+              ],
+              "rejected_legs": []
+            },
+            {
+              "offset": -1.6,
+              "inside": true,
+              "legs": [
+                {
+                  "distance_m": 0.22252169090907997,
+                  "cell": [
+                    0.6499999761581421,
+                    -0.05000000074505806,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.01616828838145525
+                },
+                {
+                  "distance_m": 0.9743512042105819,
+                  "cell": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.17481472268789172
+                },
+                {
+                  "distance_m": 0.32743859688836396,
+                  "cell": [
+                    1.4500000476837158,
+                    -0.6499999761581421,
+                    1.440000057220459
+                  ],
+                  "fraction": 0.6225218882526985
+                }
+              ],
+              "rejected_legs": []
+            }
+          ]
+        },
+        {
+          "before": {
+            "wall": 5868962.934223465,
+            "event": "plan_before",
+            "mission_id": "dynamic-b7642d29",
+            "kind": "manual",
+            "require_detour": true,
+            "final_goal": [
+              1.7936886741872877,
+              -0.05513204261660576,
+              1.6
+            ],
+            "goal_id": 1,
+            "detour": [],
+            "planner_ready": true,
+            "planner_session": "0f397dfd-4a1c-49ca-bf94-9f9ff123fc30",
+            "map_session": "0f397dfd-4a1c-49ca-bf94-9f9ff123fc30",
+            "map_age_seconds": 0.037896246649324894,
+            "map_points": 1836
+          },
+          "after": {
+            "wall": 5868962.959403776,
+            "event": "plan_after",
+            "mission_id": "dynamic-b7642d29",
+            "phase": "AUTHORIZE",
+            "reason": "",
+            "goal": [
+              0.45536598927398425,
+              0.9815237535045405,
+              1.6
+            ],
+            "goal_id": 2,
+            "detour": [
+              [
+                0.45536598927398425,
+                0.9815237535045405,
+                1.6
+              ],
+              [
+                1.8207934430061024,
+                0.9445005556450148,
+                1.6
+              ],
+              [
+                1.7936886741872877,
+                -0.05513204261660576,
+                1.6
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "motion": {
+    "motion-yaw0": {
+      "count": 20,
+      "ground_alignment": true,
+      "eligible_frames": 27,
+      "rejected": {},
+      "pending": 7,
+      "map_surface_error_p95_of_frame_p95_m": 0.0686441719089056,
+      "history_exact": true,
+      "passed": true,
+      "speed_mps": {
+        "minimum": 0.08223087838732955,
+        "median": 0.217055010779522,
+        "maximum": 0.33732133683299204
+      },
+      "heading_deg": {
+        "minimum": -0.4090437135252168,
+        "median": -0.3886010823859077,
+        "maximum": -0.37475820274293004
+      },
+      "target_distance_m": {
+        "minimum": 4.364922283808117,
+        "median": 4.699931599203632,
+        "maximum": 4.86387716083292
+      },
+      "truth_time_offset_s": {
+        "minimum": 0.019999999999999574,
+        "median": 0.038000000000000256,
+        "maximum": 0.0519999999999996
+      },
+      "gazebo_radial_p95_m": {
+        "minimum": 0.003185250459022095,
+        "median": 0.008791560582041301,
+        "maximum": 0.01675118277204296
+      },
+      "rejected_fraction_of_classified": 0.0
+    },
+    "motion-yawminus": {
+      "count": 20,
+      "ground_alignment": true,
+      "eligible_frames": 26,
+      "rejected": {},
+      "pending": 6,
+      "map_surface_error_p95_of_frame_p95_m": 1.5407893374038515,
+      "history_exact": true,
+      "passed": true,
+      "speed_mps": {
+        "minimum": 0.0874559085966453,
+        "median": 0.26082763158428696,
+        "maximum": 0.340717266586394
+      },
+      "heading_deg": {
+        "minimum": -15.239640555875566,
+        "median": -15.214611694855837,
+        "maximum": -15.187501372784075
+      },
+      "target_distance_m": {
+        "minimum": 4.27427183491117,
+        "median": 4.626454299974192,
+        "maximum": 4.876206894456703
+      },
+      "truth_time_offset_s": {
+        "minimum": 0.015999999999998238,
+        "median": 0.036000000000001364,
+        "maximum": 0.04800000000000182
+      },
+      "gazebo_radial_p95_m": {
+        "minimum": 0.0036484648694162076,
+        "median": 0.00900946332090985,
+        "maximum": 0.017373367839816144
+      },
+      "rejected_fraction_of_classified": 0.0
+    },
+    "motion-yawplus": {
+      "count": 20,
+      "ground_alignment": true,
+      "eligible_frames": 29,
+      "rejected": {},
+      "pending": 9,
+      "map_surface_error_p95_of_frame_p95_m": 1.091015946629959,
+      "history_exact": true,
+      "passed": true,
+      "speed_mps": {
+        "minimum": 0.08631867726767212,
+        "median": 0.1871114243794919,
+        "maximum": 0.2850445479088631
+      },
+      "heading_deg": {
+        "minimum": 14.692384023560056,
+        "median": 14.701269187345552,
+        "maximum": 14.709238130606577
+      },
+      "target_distance_m": {
+        "minimum": 4.3619905063865625,
+        "median": 4.674168091421246,
+        "maximum": 4.823155716499122
+      },
+      "truth_time_offset_s": {
+        "minimum": 0.015999999999998238,
+        "median": 0.03599999999999781,
+        "maximum": 0.04800000000000182
+      },
+      "gazebo_radial_p95_m": {
+        "minimum": 0.002525806578769437,
+        "median": 0.006823354613128366,
+        "maximum": 0.012803751398787751
+      },
+      "rejected_fraction_of_classified": 0.0
+    }
+  },
+  "alignment": {
+    "alignment-yawminus": {
+      "count": 20,
+      "ground_alignment": true,
+      "eligible_frames": 29,
+      "rejected": {},
+      "pending": 9,
+      "map_surface_error_p95_of_frame_p95_m": 0.08601675568254534,
+      "history_exact": true,
+      "passed": true,
+      "speed_mps": {
+        "minimum": 0.08837296395694196,
+        "median": 0.27101544681376843,
+        "maximum": 0.3431298862532343
+      },
+      "heading_deg": {
+        "minimum": -14.804648677835551,
+        "median": -14.741424956948244,
+        "maximum": -14.679290498874188
+      },
+      "target_distance_m": {
+        "minimum": 4.368931296800167,
+        "median": 4.646307872921889,
+        "maximum": 4.894164498039495
+      },
+      "truth_time_offset_s": {
+        "minimum": 0.015999999999998238,
+        "median": 0.036000000000001364,
+        "maximum": 0.04800000000000182
+      },
+      "gazebo_radial_p95_m": {
+        "minimum": 0.001980745407106385,
+        "median": 0.008710677977701184,
+        "maximum": 0.018490206785832762
+      },
+      "rejected_fraction_of_classified": 0.0,
+      "yaw_alignment_delta_deg": {
+        "minimum": -0.2214321453819385,
+        "median": -0.14286408771160533,
+        "maximum": -0.1032441846131609
+      }
+    },
+    "alignment-yawplus": {
+      "count": 20,
+      "ground_alignment": true,
+      "eligible_frames": 27,
+      "rejected": {},
+      "pending": 7,
+      "map_surface_error_p95_of_frame_p95_m": 0.057540610157130245,
+      "history_exact": true,
+      "passed": true,
+      "speed_mps": {
+        "minimum": 0.08256321956016881,
+        "median": 0.1972560040176421,
+        "maximum": 0.28502836081096167
+      },
+      "heading_deg": {
+        "minimum": 14.637102010202115,
+        "median": 14.659601575506706,
+        "maximum": 14.697409820714046
+      },
+      "target_distance_m": {
+        "minimum": 4.463120428754236,
+        "median": 4.739219386086109,
+        "maximum": 4.898592327226769
+      },
+      "truth_time_offset_s": {
+        "minimum": 0.015999999999998238,
+        "median": 0.03200000000000003,
+        "maximum": 0.04400000000000048
+      },
+      "gazebo_radial_p95_m": {
+        "minimum": 0.0018546305554984835,
+        "median": 0.006187381179699764,
+        "maximum": 0.011253696609926346
+      },
+      "rejected_fraction_of_classified": 0.0,
+      "yaw_alignment_delta_deg": {
+        "minimum": 0.5185913445495158,
+        "median": 0.5606214259389855,
+        "maximum": 0.5936956262059158
+      }
+    }
+  },
+  "alignment_initial": {
+    "alignment-yawminus": {
+      "first": {
+        "stamp": 2.2560000000000002,
+        "map_yaw_deg": 0.0,
+        "gazebo_yaw_deg": -14.999977830712268,
+        "alignment_yaw_deg": 14.999977820913971,
+        "alignment_translation_m": [
+          -0.7204193108814132,
+          -1.2072217589849072,
+          -0.09520029333928386
+        ]
+      },
+      "accepted": {
+        "stamp": 21.668,
+        "map_yaw_deg": -17.953436296131763,
+        "gazebo_yaw_deg": -14.99998147791599,
+        "alignment_yaw_deg": -2.952448167460586,
+        "alignment_translation_m": [
+          -1.0517618674924274,
+          -0.9104655452864617,
+          -0.20961712806662186
+        ]
+      }
+    },
+    "alignment-yawplus": {
+      "first": {
+        "stamp": 2.432,
+        "map_yaw_deg": 12.261454251601775,
+        "gazebo_yaw_deg": 14.999977869555211,
+        "alignment_yaw_deg": -2.73634692172895,
+        "alignment_translation_m": [
+          -1.0538221394670517,
+          -0.928880224875971,
+          -0.045212323798683354
+        ]
+      },
+      "accepted": {
+        "stamp": 4.032,
+        "map_yaw_deg": 12.581387601952164,
+        "gazebo_yaw_deg": 14.999977912947193,
+        "alignment_yaw_deg": -2.417560934604838,
+        "alignment_translation_m": [
+          -1.0521110079293794,
+          -0.9390422733913983,
+          -0.11769151707109174
+        ]
+      }
+    }
+  },
+  "planner_only": {
+    "stage": "ego",
+    "clock": "wall",
+    "passed": true,
+    "checks": [
+      {
+        "name": "unknown_behind_camera_is_admitted_inside_map",
+        "passed": true,
+        "seconds": 0.17105435114353895,
+        "details": {
+          "camera_forward_axis": "+X",
+          "goal": [
+            -1.4,
+            0.0,
+            2.0
+          ],
+          "spline_endpoint": [
+            -1.3528862952317642,
+            0.0,
+            2.000000000000001
+          ],
+          "known_space_required": false
+        }
+      },
+      {
+        "name": "body_velocity_rotates_into_world_at_four_yaws",
+        "passed": true,
+        "seconds": 0.6054373141378164,
+        "details": [
+          0.0,
+          3.1401849173675503e-16,
+          4.440892098500626e-16,
+          3.1401849173675503e-16
+        ]
+      },
+      {
+        "name": "known_obstacle_is_in_world_map_single_depth_input",
+        "passed": true,
+        "seconds": 1.075450993143022,
+        "details": {
+          "occupied_roi_count": 72,
+          "nearest_x": 1.75
+        }
+      },
+      {
+        "name": "camera_translation_and_90deg_yaw_keep_obstacle_in_world",
+        "passed": true,
+        "seconds": 1.8944909749552608,
+        "details": {
+          "occupied_roi_count": 72,
+          "nearest_y": 1.75
+        }
+      },
+      {
+        "name": "occupied_out_of_bounds_and_ceiling_goals_rejected",
+        "passed": true,
+        "seconds": 0.034349664114415646,
+        "details": null
+      },
+      {
+        "name": "requested_target_heights_are_preserved",
+        "passed": true,
+        "seconds": 0.6307803895324469,
+        "details": [
+          {
+            "requested_z": 1.5,
+            "actual_z": 1.5008214009144407
+          },
+          {
+            "requested_z": 2.0,
+            "actual_z": 1.9986991329348949
+          },
+          {
+            "requested_z": 2.2,
+            "actual_z": 2.199775603622255
+          }
+        ]
+      },
+      {
+        "name": "python_matches_native_uniform_bspline_at_101_times",
+        "passed": true,
+        "seconds": 0.02263695001602173,
+        "details": {
+          "samples": 101,
+          "max_errors": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.220446049250313e-16,
+            2.220446049250313e-16,
+            1.3877787807814457e-17,
+            2.498001805406602e-16,
+            2.498001805406602e-16,
+            2.0816681711721685e-17
+          ]
+        }
+      },
+      {
+        "name": "planned_path_avoids_known_obstacle",
+        "passed": true,
+        "seconds": 0.19153592642396688,
+        "details": {
+          "samples": 301,
+          "y_extent": [
+            0.00021343886703157301,
+            1.2337952407245794
+          ]
+        }
+      },
+      {
+        "name": "continuous_replans_preserve_every_native_payload",
+        "passed": true,
+        "seconds": 5.660686370916665,
+        "details": {
+          "trajectory_ids": [
+            11,
+            12,
+            13
+          ],
+          "preserved_payload": true
+        }
+      },
+      {
+        "name": "new_obstacle_triggers_native_safety_replanning_or_stop",
+        "passed": true,
+        "seconds": 2.232091234996915,
+        "details": {
+          "obstacle_center": [
+            2.7837951643727417,
+            1.5486322102059173,
+            1.9133429369378185
+          ],
+          "verified_trajectory_count": 2
+        }
+      },
+      {
+        "name": "real_ego_cancel_stops_and_late_spline_cannot_revive",
+        "passed": true,
+        "seconds": 1.075108340010047,
+        "details": null
+      },
+      {
+        "name": "resume_uses_measured_position_not_old_reference",
+        "passed": true,
+        "seconds": 0.8853117367252707,
+        "details": {
+          "start_error_m": 0.0012643150115357908
+        }
+      },
+      {
+        "name": "lost_depth_odometry_revokes_map_and_does_not_auto_resume",
+        "passed": true,
+        "seconds": 1.7176247695460916,
+        "details": {
+          "wall_seconds_until_not_ready": 0.6705930596217513
+        }
+      },
+      {
+        "name": "real_ego_restart_changes_epoch_and_rejects_old_trajectory",
+        "passed": true,
+        "seconds": 2.1692373417317867,
+        "details": {
+          "old_session": "982b4b2e-5fb7-453a-aff1-0356d588290a",
+          "new_session": "c1e7f221-7277-43e7-a4e0-9ac21a6b1b93"
+        }
+      }
+    ],
+    "fatal": null,
+    "flight_master_contacted": false
+  },
+  "regression": {
+    "static": {
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "real_occupied_goal_rejected",
+          "blocked": [
+            0.75,
+            -0.05000000074505806,
+            1.5399999618530273
+          ]
+        },
+        {
+          "name": "real_obstacle_bypassed",
+          "minimum_center_to_box_surface_m": 0.6854222839771139,
+          "lateral_excursion_m": 1.050355472913993,
+          "world_samples": 293
+        },
+        {
+          "name": "landed_disarmed"
+        }
+      ],
+      "final_armed": false,
+      "timing": {
+        "start": true,
+        "takeoff_intent_to_done_s": 15.569054120220244,
+        "done_to_land_intent_s": 27.38386661373079,
+        "takeoff_intent_to_disarm_s": 50.87894551362842
+      }
+    },
+    "fence": {
+      "passed": true,
+      "errors": [],
+      "checks": [
+        {
+          "name": "outside_fence",
+          "mission": "outside-94d685af"
+        },
+        {
+          "name": "outside_fence",
+          "mission": "outside-a253ff0a"
+        },
+        {
+          "name": "outside_fence",
+          "mission": "outside-03510a8a"
+        }
+      ],
+      "final_armed": false,
+      "timing": {
+        "start": true,
+        "takeoff_intent_to_done_s": 15.635733688250184,
+        "done_to_land_intent_s": 3.8734795972704887,
+        "takeoff_intent_to_disarm_s": 36.97209108248353
+      }
+    },
+    "replay": {
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "segmented_approach_completed",
+          "segments": 2,
+          "phases": [
+            "TAKEOFF",
+            "BRAKE",
+            "SETTLE",
+            "WAIT_VLM",
+            "AUTHORIZE",
+            "WAIT_PLAN",
+            "TRACK",
+            "BRAKE",
+            "SETTLE",
+            "WAIT_VLM",
+            "AUTHORIZE",
+            "WAIT_PLAN",
+            "TRACK",
+            "BRAKE",
+            "SETTLE",
+            "WAIT_VLM",
+            "DONE"
+          ],
+          "mission_id": "nominal-193bf29e"
+        },
+        {
+          "name": "final_hold",
+          "seconds": 10.0,
+          "max_position_error_m": 0.09247888664366906,
+          "max_yaw_error_deg": 0.0317964378074637
+        },
+        {
+          "name": "landed_disarmed"
+        }
+      ],
+      "final_armed": false,
+      "timing": {
+        "start": true,
+        "takeoff_intent_to_done_s": 28.29493128694594,
+        "done_to_land_intent_s": 10.018549556843936,
+        "takeoff_intent_to_disarm_s": 43.96098985243589
+      }
+    },
+    "live": {
+      "passed": true,
+      "error": null,
+      "checks": [
+        {
+          "name": "segmented_approach_completed",
+          "segments": 3,
+          "phases": [
+            "TAKEOFF",
+            "BRAKE",
+            "SETTLE",
+            "WAIT_VLM",
+            "AUTHORIZE",
+            "WAIT_PLAN",
+            "TRACK",
+            "BRAKE",
+            "SETTLE",
+            "WAIT_VLM",
+            "AUTHORIZE",
+            "WAIT_PLAN",
+            "TRACK",
+            "BRAKE",
+            "SETTLE",
+            "WAIT_VLM",
+            "AUTHORIZE",
+            "WAIT_PLAN",
+            "TRACK",
+            "BRAKE",
+            "SETTLE",
+            "WAIT_VLM",
+            "DONE"
+          ],
+          "mission_id": "nominal-374b3811"
+        },
+        {
+          "name": "final_hold",
+          "seconds": 10.0,
+          "max_position_error_m": 0.11677873440130562,
+          "max_yaw_error_deg": 0.02347409260535426
+        },
+        {
+          "name": "bounded_live_calls",
+          "count": 4
+        },
+        {
+          "name": "landed_disarmed"
+        }
+      ],
+      "final_armed": false,
+      "timing": {
+        "start": true,
+        "takeoff_intent_to_done_s": 40.658539780415595,
+        "done_to_land_intent_s": 10.032986999489367,
+        "takeoff_intent_to_disarm_s": 58.97965275775641
+      }
+    }
+  }
+}

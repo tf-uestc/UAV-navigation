@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "errors": [],
+  "checks": [
+    {
+      "name": "moving_rgbd_route",
+      "segments": 1,
+      "peak_tracking_error_m": 0.34027943863018406,
+      "rmse_tracking_m": 0.19466511284332363,
+      "odom_samples": 267,
+      "aligned_samples": 267,
+      "executed_trajectories": [
+        [
+          1,
+          1
+        ]
+      ],
+      "endpoint": [
+        1.0532459020614624,
+        0.19874821603298187,
+        1.6731786727905273
+      ],
+      "endpoint_speed_mps": 0.0880409371536357
+    }
+  ],
+  "final_armed": false
+}

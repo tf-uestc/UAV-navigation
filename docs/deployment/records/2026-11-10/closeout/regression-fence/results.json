@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "errors": [],
+  "checks": [
+    {
+      "name": "outside_fence",
+      "mission": "outside-94d685af"
+    },
+    {
+      "name": "outside_fence",
+      "mission": "outside-a253ff0a"
+    },
+    {
+      "name": "outside_fence",
+      "mission": "outside-03510a8a"
+    }
+  ],
+  "final_armed": false
+}

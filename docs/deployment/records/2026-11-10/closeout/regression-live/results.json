@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "segmented_approach_completed",
+      "segments": 3,
+      "phases": [
+        "TAKEOFF",
+        "BRAKE",
+        "SETTLE",
+        "WAIT_VLM",
+        "AUTHORIZE",
+        "WAIT_PLAN",
+        "TRACK",
+        "BRAKE",
+        "SETTLE",
+        "WAIT_VLM",
+        "AUTHORIZE",
+        "WAIT_PLAN",
+        "TRACK",
+        "BRAKE",
+        "SETTLE",
+        "WAIT_VLM",
+        "AUTHORIZE",
+        "WAIT_PLAN",
+        "TRACK",
+        "BRAKE",
+        "SETTLE",
+        "WAIT_VLM",
+        "DONE"
+      ],
+      "mission_id": "nominal-374b3811"
+    },
+    {
+      "name": "final_hold",
+      "seconds": 10.0,
+      "max_position_error_m": 0.11677873440130562,
+      "max_yaw_error_deg": 0.02347409260535426
+    },
+    {
+      "name": "bounded_live_calls",
+      "count": 4
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

@@ -1,0 +1,5 @@
+static=0
+fence=0
+replay=0
+live=0
+matrix_finished=1
