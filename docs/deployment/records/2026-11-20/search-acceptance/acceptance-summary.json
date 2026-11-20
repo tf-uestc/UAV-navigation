@@ -1,0 +1,233 @@
+{
+  "passed": true,
+  "date": "2026-11-20",
+  "version": "search-acceptance-2026-11-20-v2",
+  "final_matrix_success": 5,
+  "final_matrix_attempts": 5,
+  "initial_matrix_success": 2,
+  "initial_matrix_attempts": 5,
+  "flight_attempts": 11,
+  "all_flights_landed_disarmed": true,
+  "cloud_calls": 65,
+  "cloud_calls_includes_one_ground_preflight": true,
+  "v2_response_counts": {
+    "success": 20,
+    "target_not_found": 10,
+    "invalid_bbox_response": 2
+  },
+  "attempts": [
+    {
+      "matrix": "matrix-v1",
+      "case": "front",
+      "passed": true,
+      "terminal": "DONE",
+      "reason": "observation_standoff_reached",
+      "seconds_to_terminal": 33.70033366698772,
+      "cloud_calls": 4,
+      "landed_disarmed": true
+    },
+    {
+      "matrix": "matrix-v1",
+      "case": "left45",
+      "passed": false,
+      "terminal": "FAILED",
+      "reason": "invalid_bbox_response",
+      "seconds_to_terminal": 39.311822356656194,
+      "cloud_calls": 7,
+      "landed_disarmed": true
+    },
+    {
+      "matrix": "matrix-v1",
+      "case": "right45",
+      "passed": true,
+      "terminal": "DONE",
+      "reason": "observation_standoff_reached",
+      "seconds_to_terminal": 62.00930905435234,
+      "cloud_calls": 8,
+      "landed_disarmed": true
+    },
+    {
+      "matrix": "matrix-v1",
+      "case": "left90",
+      "passed": false,
+      "terminal": "FAILED",
+      "reason": "unknown_trajectory",
+      "seconds_to_terminal": 33.373691129498184,
+      "cloud_calls": 5,
+      "landed_disarmed": true
+    },
+    {
+      "matrix": "matrix-v1",
+      "case": "right90",
+      "passed": false,
+      "terminal": "FAILED",
+      "reason": "invalid_bbox_response",
+      "seconds_to_terminal": 40.26087879575789,
+      "cloud_calls": 8,
+      "landed_disarmed": true
+    },
+    {
+      "matrix": "matrix-v2",
+      "case": "front",
+      "passed": true,
+      "terminal": "DONE",
+      "reason": "observation_standoff_reached",
+      "seconds_to_terminal": 33.730573744513094,
+      "cloud_calls": 4,
+      "landed_disarmed": true
+    },
+    {
+      "matrix": "matrix-v2",
+      "case": "left45",
+      "passed": true,
+      "terminal": "DONE",
+      "reason": "observation_standoff_reached",
+      "seconds_to_terminal": 43.36484683584422,
+      "cloud_calls": 6,
+      "landed_disarmed": true
+    },
+    {
+      "matrix": "matrix-v2",
+      "case": "right45",
+      "passed": true,
+      "terminal": "DONE",
+      "reason": "observation_standoff_reached",
+      "seconds_to_terminal": 49.772898733615875,
+      "cloud_calls": 8,
+      "landed_disarmed": true
+    },
+    {
+      "matrix": "matrix-v2",
+      "case": "left90",
+      "passed": true,
+      "terminal": "DONE",
+      "reason": "observation_standoff_reached",
+      "seconds_to_terminal": 42.11281290091574,
+      "cloud_calls": 7,
+      "landed_disarmed": true
+    },
+    {
+      "matrix": "matrix-v2",
+      "case": "right90",
+      "passed": true,
+      "terminal": "DONE",
+      "reason": "observation_standoff_reached",
+      "seconds_to_terminal": 45.417418899945915,
+      "cloud_calls": 7,
+      "landed_disarmed": true
+    }
+  ],
+  "crosscheck": {
+    "passed": true,
+    "version": "search-acceptance-2026-11-20-v2",
+    "rows": [
+      {
+        "case": "front",
+        "passed": true,
+        "scans": [],
+        "elapsed_to_done_s": 33.730573744513094,
+        "distance_m": 2.6413563145452343,
+        "minimum_distance_m": 2.6336182704677786,
+        "cloud_calls": 4,
+        "hold_drift_m": 0.0953549438755184,
+        "hold_yaw_drift_deg": 0.029752543106459663,
+        "max_scan_error_deg": 0.052948246728401274,
+        "max_camera_tf_error_m": 0.06334930650794753,
+        "max_target_surface_error_m": 0.04559264711008293
+      },
+      {
+        "case": "left45",
+        "passed": true,
+        "scans": [
+          45
+        ],
+        "elapsed_to_done_s": 43.36484683584422,
+        "distance_m": 2.499308382407576,
+        "minimum_distance_m": 2.4755206319070164,
+        "cloud_calls": 6,
+        "hold_drift_m": 0.026869575400659974,
+        "hold_yaw_drift_deg": 0.022221501901975145,
+        "max_scan_error_deg": 0.06413690290384814,
+        "max_camera_tf_error_m": 0.2146760181238958,
+        "max_target_surface_error_m": 0.10216272069147637
+      },
+      {
+        "case": "right45",
+        "passed": true,
+        "scans": [
+          45,
+          -45
+        ],
+        "elapsed_to_done_s": 49.772898733615875,
+        "distance_m": 2.4253722912444213,
+        "minimum_distance_m": 2.4055467194718285,
+        "cloud_calls": 8,
+        "hold_drift_m": 0.1008585697753022,
+        "hold_yaw_drift_deg": 0.034552633062127726,
+        "max_scan_error_deg": 0.17223188383157437,
+        "max_camera_tf_error_m": 0.2089324773297985,
+        "max_target_surface_error_m": 0.014863727298459833
+      },
+      {
+        "case": "left90",
+        "passed": true,
+        "scans": [
+          45,
+          -45,
+          90
+        ],
+        "elapsed_to_done_s": 42.11281290091574,
+        "distance_m": 2.483968590423634,
+        "minimum_distance_m": 2.436146305402976,
+        "cloud_calls": 7,
+        "hold_drift_m": 0.04818713040353787,
+        "hold_yaw_drift_deg": 0.025838910612325308,
+        "max_scan_error_deg": 0.1732450839469776,
+        "max_camera_tf_error_m": 0.2352396501296284,
+        "max_target_surface_error_m": 0.02449795014768706
+      },
+      {
+        "case": "right90",
+        "passed": true,
+        "scans": [
+          45,
+          -45,
+          90,
+          -90
+        ],
+        "elapsed_to_done_s": 45.417418899945915,
+        "distance_m": 2.46212579919409,
+        "minimum_distance_m": 2.411615153001297,
+        "cloud_calls": 7,
+        "hold_drift_m": 0.056337752633059866,
+        "hold_yaw_drift_deg": 0.03303934688737902,
+        "max_scan_error_deg": 0.20573435334326587,
+        "max_camera_tf_error_m": 0.16803538228386608,
+        "max_target_surface_error_m": 0.04812236913094915
+      }
+    ],
+    "errors": [],
+    "standoff_m": 2.4,
+    "unchanged_distance_tolerance_m": 0.35
+  },
+  "offline_passed": 90,
+  "map_checks_passed": 22,
+  "budget_checks_passed": 8,
+  "start_body_checks_passed": 3,
+  "guard_flight_passed": true,
+  "final_standby": {
+    "connected": true,
+    "armed": false,
+    "landed_state": 1,
+    "flight_mode": "IDLE",
+    "owns_flight": false,
+    "mission_phase": "IDLE",
+    "map_ready": true,
+    "camera_z": -0.04306594417744541,
+    "map_min_z": -0.5,
+    "mission_timeout": 720.0,
+    "read_timeout": 35.0,
+    "detection_timeout": 42.0
+  },
+  "one_point_five_meter_tests_run": false
+}

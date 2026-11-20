@@ -48,7 +48,7 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from base_detector import Detection, Detector
-from navigation_core.contracts import DetectionResult, RequestKey, vector3
+from navigation_core.contracts import DetectionResult, RequestKey, finite, vector3
 from navigation_core.perception import normalize_depth, validate_snapshot, validate_intrinsics
 
 
@@ -192,6 +192,9 @@ class DetectorNode:
                 return
             mission_id = data.get("mission_id", "")
             request_id = data.get("request_id", 0)
+            capture_after = data.get("capture_after", 0.)
+            if not finite(capture_after) or capture_after < 0.:
+                raise ValueError("invalid capture floor")
             if mission_id:
                 RequestKey(mission_id, request_id)
             elif self._managed_only:
@@ -209,9 +212,9 @@ class DetectorNode:
             return
         self._publish_status(request_id, "STARTED", mission_id)
         threading.Thread(target=self._run_detection,
-                         args=(target_text, request_id, mission_id), daemon=True).start()
+                         args=(target_text, request_id, mission_id, capture_after), daemon=True).start()
 
-    def _run_detection(self, target_text, request_id=0, mission_id=""):
+    def _run_detection(self, target_text, request_id=0, mission_id="", capture_after=0.):
         started = time.monotonic()
         capture = 0.
         point = None
@@ -225,6 +228,8 @@ class DetectorNode:
             capture = rgb_msg.header.stamp.to_sec()
             if capture <= 0:
                 raise ValueError("camera_clock_not_initialized")
+            if capture < capture_after:
+                raise ValueError("capture_before_observation")
             bgr = self.bridge.imgmsg_to_cv2(rgb_msg, "bgr8")
             depth = normalize_depth(self.bridge.imgmsg_to_cv2(depth_msg, "passthrough"), depth_msg.encoding)
             validate_snapshot(capture, depth_msg.header.stamp.to_sec(), rospy.Time.now().to_sec(),

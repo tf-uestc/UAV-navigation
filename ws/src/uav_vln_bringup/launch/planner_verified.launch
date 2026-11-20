@@ -1,4 +1,8 @@
 <launch>
+  <arg name="require_known_space" default="false"/>
+  <!-- Map-volume bounds in MAVROS map coordinates, not a flight altitude. -->
+  <arg name="map_min_z" default="-0.5"/>
+  <arg name="map_size_z" default="3.5"/>
   <arg name="speed_limit" default="0.8"/>
   <arg name="accel_limit" default="0.8"/>
   <arg name="obstacle_inflation" default="0.099"/>
@@ -18,14 +22,23 @@
     <param name="bspline/limit_vel" value="$(arg speed_limit)"/>
     <param name="bspline/limit_acc" value="$(arg accel_limit)"/>
     <param name="fsm/managed_control" value="true"/>
+    <param name="fsm/require_known_space" value="$(arg require_known_space)"/>
+    <!-- iris.sdf base collision box is 0.47 x 0.47 x 0.11 m. -->
+    <param name="fsm/start_body_half_x" value="0.235"/>
+    <param name="fsm/start_body_half_y" value="0.235"/>
+    <param name="fsm/start_body_half_z" value="0.055"/>
     <param name="fsm/odom_velocity_in_body" value="true"/>
     <param name="grid_map/obstacles_inflation" value="$(arg obstacle_inflation)"/>
     <param name="optimization/lambda_fitness" value="$(arg refinement_fitness)"/>
     <param name="grid_map/pose_type" value="1"/>
+    <param name="grid_map/ground_height" value="$(arg map_min_z)"/>
+    <param name="grid_map/map_size_z" value="$(arg map_size_z)"/>
     <param name="grid_map/enable_independent_cloud" value="false"/>
     <remap from="/odom_world" to="/mavros/local_position/odom"/>
     <remap from="/grid_map/depth" to="/uav/planning/depth"/>
     <remap from="/grid_map/pose" to="/uav/planning/camera_pose"/>
   </node>
-  <node pkg="uav_vln_bringup" type="managed_planner_node.py" name="managed_planner" output="screen"/>
+  <node pkg="uav_vln_bringup" type="managed_planner_node.py" name="managed_planner" output="screen">
+    <param name="require_known_space" value="$(arg require_known_space)"/>
+  </node>
 </launch>

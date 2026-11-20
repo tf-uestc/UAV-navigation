@@ -98,6 +98,7 @@ def detector_modules():
     def no_network(*args,**kwargs):
         raise AssertionError("network calls forbidden in offline tests")
     requests.post=no_network
+    requests.Session=lambda:types.SimpleNamespace(post=no_network)
     requests.exceptions=types.SimpleNamespace(
         Timeout=type("Timeout",(Exception,),{}),
         RequestException=type("RequestException",(Exception,),{}))

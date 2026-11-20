@@ -59,7 +59,7 @@ def fixture_node():
             raise requests.exceptions.Timeout('fixture')
         return Response(settings['text'])
 
-    with patch('qwen_vl_grounding.requests.post', side_effect=mock_post):
+    with patch('qwen_vl_grounding.requests.Session.post', side_effect=mock_post):
         runpy.run_path(find_node('uav_vln_bringup','detector_node.py')[0],run_name='__main__')
 
 

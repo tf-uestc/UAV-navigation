@@ -1,0 +1,14 @@
+{
+  "connected": true,
+  "armed": false,
+  "landed_state": 1,
+  "flight_mode": "IDLE",
+  "owns_flight": false,
+  "mission_phase": "IDLE",
+  "map_ready": true,
+  "camera_z": -0.04306594417744541,
+  "map_min_z": -0.5,
+  "mission_timeout": 720.0,
+  "read_timeout": 35.0,
+  "detection_timeout": 42.0
+}

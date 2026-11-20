@@ -1,11 +1,17 @@
 <launch>
+  <arg name="require_known_space" default="true"/>
   <arg name="with_detector" default="true"/>
   <arg name="with_planner" default="true"/>
   <arg name="mock_fcu" default="false"/>
-  <arg name="detection_timeout" default="12.0"/>
-  <arg name="max_detections" default="8"/>
+  <arg name="detection_timeout" default="42.0"/>
+  <arg name="vlm_read_timeout" default="35.0"/>
+  <arg name="max_detections" default="12"/>
+  <!-- 12 requests x 42s plus 216s for takeoff, scan, movement and stopping. -->
+  <arg name="mission_timeout" default="720.0"/>
+  <arg name="standoff" default="2.4"/>
   <rosparam command="load" file="$(find uav_vln_bringup)/config/segment_mission.yaml" ns="/uav/segment_config"/>
   <include file="$(find uav_vln_bringup)/launch/flight_verified.launch">
+    <arg name="require_known_space" value="$(arg require_known_space)"/>
     <arg name="with_planner" value="$(arg with_planner)"/>
     <arg name="mock_fcu" value="$(arg mock_fcu)"/>
     <arg name="segment_fence" value="true"/>
@@ -14,10 +20,15 @@
     <arg name="obstacle_inflation" value="0.349"/>
     <arg name="refinement_fitness" value="20.0"/>
   </include>
-  <include if="$(arg with_detector)" file="$(find uav_vln_bringup)/launch/perception_verified.launch"/>
+  <include if="$(arg with_detector)" file="$(find uav_vln_bringup)/launch/perception_verified.launch">
+    <arg name="vlm_read_timeout" value="$(arg vlm_read_timeout)"/>
+    <arg name="max_result_age" value="$(arg detection_timeout)"/>
+  </include>
   <node pkg="uav_vln_bringup" type="segment_mission.py" name="segment_mission" output="screen" required="true">
+    <param name="standoff" value="$(arg standoff)"/>
     <param name="manual_segment_length" value="1.8"/>
     <param name="detection_timeout" value="$(arg detection_timeout)"/>
     <param name="max_detections" value="$(arg max_detections)"/>
+    <param name="mission_timeout" value="$(arg mission_timeout)"/>
   </node>
 </launch>

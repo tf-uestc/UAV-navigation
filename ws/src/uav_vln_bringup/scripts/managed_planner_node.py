@@ -21,6 +21,8 @@ class ManagedPlanner:
         self.gateway=uuid.uuid4().hex
         self.session=None
         self.ready=False
+        self.require_known_space=rospy.get_param("~require_known_space",False)
+        self.guarded_session=None
         self.status_wall=0.
         self.active=None
         self.cancelling={}
@@ -47,7 +49,8 @@ class ManagedPlanner:
         self.result_pub.publish(String(data=json.dumps(data,allow_nan=False)))
 
     def available(self):
-        return bool(self.ready and self.session and time.monotonic()-self.status_wall<.6)
+        return bool(self.ready and self.session and time.monotonic()-self.status_wall<.6
+                    and (not self.require_known_space or self.guarded_session==self.session))
 
     def send(self,key,command,goal=None):
         m=GoalCommand(header=Header(stamp=rospy.Time.now(),frame_id='map'),
@@ -116,6 +119,8 @@ class ManagedPlanner:
                     key=self.active['key']; self.active=None
                     self.emit(key,'SESSION_CHANGED','ego_restarted')
             self.session=msg.planner_session_id
+            if msg.status=='READY':
+                self.guarded_session=self.session if msg.reason=='known_space_guard' else None
             self.ready=msg.map_ready
             self.status_wall=time.monotonic()
             cancelled=(msg.planner_session_id,(msg.mission_id,msg.goal_id))

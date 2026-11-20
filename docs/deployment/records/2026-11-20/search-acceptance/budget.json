@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "151_seconds_not_rejected_by_old_hardcoded_limit",
+      "passed": true
+    },
+    {
+      "name": "configured_720_second_deadline_stops_mission",
+      "passed": true
+    },
+    {
+      "name": "custom_deadline_is_honored",
+      "passed": true
+    },
+    {
+      "name": "twelve_call_ceiling_is_enforced",
+      "passed": true
+    },
+    {
+      "name": "call_budget_uses_same_720_second_limit",
+      "passed": true
+    },
+    {
+      "name": "request_age_30.0",
+      "passed": true,
+      "accepted": true
+    },
+    {
+      "name": "request_age_41.999",
+      "passed": true,
+      "accepted": true
+    },
+    {
+      "name": "request_age_42.0",
+      "passed": true,
+      "accepted": false
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+diff --git a/src/planner/plan_env/include/plan_env/grid_map.h b/src/planner/plan_env/include/plan_env/grid_map.h
+index b0a5eb0..bc60758 100644
+--- a/src/planner/plan_env/include/plan_env/grid_map.h
++++ b/src/planner/plan_env/include/plan_env/grid_map.h
+@@ -171,9 +171,13 @@ public:
+   void publishDepth();
+ 
+   bool hasDepthObservation();
+-  ros::WallTime depth_wall_;
++  // Readiness measures completed fusion, not merely a delivered image.
++  ros::WallTime map_wall_;
++  bool depth_pose_valid_ = false;
+   bool inputFresh(double timeout) {
+-    return hasDepthObservation() && (ros::WallTime::now()-depth_wall_).toSec() < timeout;
++    const double age = (ros::WallTime::now()-map_wall_).toSec();
++    return depth_pose_valid_ && hasDepthObservation() && !map_wall_.isZero() &&
++      age >= 0.0 && age < timeout;
+   }
+   bool odomValid();
+   void getRegion(Eigen::Vector3d& ori, Eigen::Vector3d& size);
+diff --git a/src/planner/plan_env/src/grid_map.cpp b/src/planner/plan_env/src/grid_map.cpp
+index 117961b..8b87064 100644
+--- a/src/planner/plan_env/src/grid_map.cpp
++++ b/src/planner/plan_env/src/grid_map.cpp
+@@ -685,44 +685,44 @@ void GridMap::updateOccupancyCallback(const ros::TimerEvent & /*event*/)
+   //   ROS_WARN("Fusion: cur t = %lf, avg t = %lf, max t = %lf", (t2 - t1).toSec(),
+   //            md_.fuse_time_ / md_.update_num_, md_.max_fuse_time_);
+ 
++  if (depth_pose_valid_ && md_.local_updated_ && md_.proj_points_cnt > 0)
++    map_wall_ = ros::WallTime::now();
+   md_.occ_need_update_ = false;
+   md_.local_updated_ = false;
+ }
+ 
+ void GridMap::depthPoseCallback(const sensor_msgs::ImageConstPtr &img,
+-                                const geometry_msgs::PoseStampedConstPtr &pose)
++                                 const geometry_msgs::PoseStampedConstPtr &pose)
+ {
++  depth_pose_valid_ = false;
++  md_.occ_need_update_ = false;
++  const double age = (ros::Time::now()-img->header.stamp).toSec();
+   if (fabs((img->header.stamp-pose->header.stamp).toSec()) > 0.05 ||
+-      fabs((ros::Time::now()-img->header.stamp).toSec()) > 0.5) return;
+-  depth_wall_ = ros::WallTime::now();
+-  /* get depth image */
++      age < 0.0 || age > 0.5 || pose->header.frame_id != mp_.frame_id_) return;
++  const Eigen::Vector3d position(pose->pose.position.x, pose->pose.position.y,
++                                 pose->pose.position.z);
++  Eigen::Quaterniond orientation(pose->pose.orientation.w, pose->pose.orientation.x,
++                                 pose->pose.orientation.y, pose->pose.orientation.z);
++  if (!position.allFinite() || !orientation.coeffs().allFinite() ||
++      fabs(orientation.norm()-1.0) > 0.01 || !isInMap(position)) return;
++  if (img->encoding != sensor_msgs::image_encodings::TYPE_32FC1 &&
++      img->encoding != sensor_msgs::image_encodings::TYPE_16UC1) return;
+   cv_bridge::CvImagePtr cv_ptr;
+-  cv_ptr = cv_bridge::toCvCopy(img, img->encoding);
+-
+-  if (img->encoding == sensor_msgs::image_encodings::TYPE_32FC1)
+-  {
+-    (cv_ptr->image).convertTo(cv_ptr->image, CV_16UC1, mp_.k_depth_scaling_factor_);
+-  }
++  try {
++    cv_ptr = cv_bridge::toCvCopy(img, img->encoding);
++    if (img->encoding == sensor_msgs::image_encodings::TYPE_32FC1)
++      cv_ptr->image.convertTo(cv_ptr->image, CV_16UC1, mp_.k_depth_scaling_factor_);
++  } catch (const cv_bridge::Exception &) { return; }
++  if (cv_ptr->image.empty() || cv_ptr->image.type() != CV_16UC1 ||
++      cv::countNonZero(cv_ptr->image >= std::max(1.0, mp_.depth_filter_mindist_ *
++                                               mp_.k_depth_scaling_factor_)) == 0) return;
+   cv_ptr->image.copyTo(md_.depth_image_);
+-
+-  // std::cout << "depth: " << md_.depth_image_.cols << ", " << md_.depth_image_.rows << std::endl;
+-
+-  /* get pose */
+-  md_.camera_pos_(0) = pose->pose.position.x;
+-  md_.camera_pos_(1) = pose->pose.position.y;
+-  md_.camera_pos_(2) = pose->pose.position.z;
+-  md_.camera_q_ = Eigen::Quaterniond(pose->pose.orientation.w, pose->pose.orientation.x,
+-                                     pose->pose.orientation.y, pose->pose.orientation.z);
+-  if (isInMap(md_.camera_pos_))
+-  {
+-    md_.has_odom_ = true;
+-    md_.update_num_ += 1;
+-    md_.occ_need_update_ = true;
+-  }
+-  else
+-  {
+-    md_.occ_need_update_ = false;
+-  }
++  md_.camera_pos_ = position;
++  md_.camera_q_ = orientation.normalized();
++  md_.has_odom_ = true;
++  md_.update_num_ += 1;
++  depth_pose_valid_ = true;
++  md_.occ_need_update_ = true;
+ }
+ void GridMap::odomCallback(const nav_msgs::OdometryConstPtr &odom)
+ {
+diff --git a/src/planner/plan_manage/include/plan_manage/ego_replan_fsm.h b/src/planner/plan_manage/include/plan_manage/ego_replan_fsm.h
+index 9c9dfe1..8b037fc 100644
+--- a/src/planner/plan_manage/include/plan_manage/ego_replan_fsm.h
++++ b/src/planner/plan_manage/include/plan_manage/ego_replan_fsm.h
+@@ -67,6 +67,7 @@ namespace ego_planner
+     FSM_EXEC_STATE exec_state_;
+     int continously_called_times_{0};
+ 
++    Eigen::Vector3d start_body_half_size_ = Eigen::Vector3d::Zero();
+     Eigen::Vector3d odom_pos_, odom_vel_, odom_acc_; // odometry state
+     Eigen::Quaterniond odom_orient_;
+ 
+@@ -88,10 +89,13 @@ namespace ego_planner
+     ros::Subscriber managed_command_sub_;
+     ros::Publisher managed_status_pub_, managed_velocity_pub_;
+     bool managedMapReady();
++    bool require_known_space_ = false;
++    Eigen::Vector3d guarded_start_;
++    const char *managedSpaceViolation(double start, bool check_occupied, const Eigen::Vector3d &anchor);
+     void managedCommand(const ego_planner::GoalCommandConstPtr &msg);
+     void managedWatchdog(const ros::WallTimerEvent &event);
+     void managedStatus(const std::string &status, const std::string &reason = "");
+-    void managedStop(const std::string &status, const std::string &reason);
++    void managedStop(const std::string &status, const std::string &reason, bool publish_emergency = true);
+ 
+     /* ROS utils */
+     ros::NodeHandle node_;
+diff --git a/src/planner/plan_manage/src/ego_replan_fsm.cpp b/src/planner/plan_manage/src/ego_replan_fsm.cpp
+index 61cb909..ca4fbd4 100644
+--- a/src/planner/plan_manage/src/ego_replan_fsm.cpp
++++ b/src/planner/plan_manage/src/ego_replan_fsm.cpp
+@@ -16,6 +16,10 @@ namespace ego_planner
+     have_new_target_ = false;
+     flag_escape_emergency_ = true;
+     nh.param("fsm/managed_control", managed_, false);
++    nh.param("fsm/require_known_space", require_known_space_, false);
++    nh.param("fsm/start_body_half_x", start_body_half_size_.x(), 0.0);
++    nh.param("fsm/start_body_half_y", start_body_half_size_.y(), 0.0);
++    nh.param("fsm/start_body_half_z", start_body_half_size_.z(), 0.0);
+     nh.param("fsm/odom_velocity_in_body", odom_velocity_in_body_, false);
+     managed_session_ = boost::uuids::to_string(boost::uuids::random_generator()());
+ 
+@@ -404,11 +408,11 @@ namespace ego_planner
+ 
+     bool success = callReboundReplan(false, false);
+ 
+-    if (!success)
++    if (!success && (!managed_ || have_target_))
+     {
+       success = callReboundReplan(true, false);
+       //changeFSMExecState(EXEC_TRAJ, "FSM");
+-      if (!success)
++      if (!success && (!managed_ || have_target_))
+       {
+         success = callReboundReplan(true, true);
+         if (!success)
+@@ -418,7 +422,50 @@ namespace ego_planner
+       }
+     }
+ 
+-    return true;
++    return success;
++  }
++
++  const char *EGOReplanFSM::managedSpaceViolation(double start, bool check_occupied,
++                                                      const Eigen::Vector3d &anchor)
++  {
++    auto map = planner_manager_->grid_map_;
++    auto &trajectory = planner_manager_->local_data_;
++    Eigen::Vector3i start_voxel;
++    map->posToIndex(anchor, start_voxel);
++    const double anchor_tolerance = std::min(0.05, 0.5 * map->getResolution());
++    constexpr double time_step = 0.04;
++    const double first = std::floor(std::max(0.0, std::min(start, trajectory.duration_)) / time_step);
++    for (double index = first;; ++index)
++    {
++      const double sample = std::min(index * time_step, trajectory.duration_);
++      const Eigen::Vector3d point = trajectory.position_traj_.evaluateDeBoorT(sample);
++      if (!map->isInMap(point))
++        return "outside_known_map";
++      if (check_occupied && map->getInflateOccupancy(point) != 0)
++        return "occupied_trajectory";
++      // The depth camera cannot observe the volume currently occupied by
++      // the aircraft itself. Only this measured collision box (plus a half
++      // voxel for discretization), anchored once per trajectory, is exempt
++      // from UNKNOWN checks. Inflated OCCUPANCY is always checked above.
++      const Eigen::Vector3d body_delta =
++        (odom_orient_.conjugate() * (point-anchor)).cwiseAbs();
++      const bool in_start_body = start_body_half_size_.minCoeff() > 0.0 &&
++        (body_delta.array() <= (start_body_half_size_ +
++          Eigen::Vector3d::Constant(0.5 * map->getResolution())).array()).all();
++      Eigen::Vector3i planned_voxel;
++      map->posToIndex(point, planned_voxel);
++      if (planned_voxel != start_voxel &&
++          (point - anchor).norm() > anchor_tolerance && !in_start_body &&
++          map->isUnknown(planned_voxel))
++      {
++        ROS_WARN_THROTTLE(1.0, "Unknown planned sample at %.3f %.3f %.3f (current %.3f %.3f %.3f)",
++                          point.x(), point.y(), point.z(), odom_pos_.x(), odom_pos_.y(), odom_pos_.z());
++        return "unknown_trajectory";
++      }
++      if (sample == trajectory.duration_)
++        break;
++    }
++    return nullptr;
+   }
+ 
+   void EGOReplanFSM::checkCollisionCallback(const ros::TimerEvent &e)
+@@ -432,6 +479,14 @@ namespace ego_planner
+     /* ---------- check trajectory ---------- */
+     constexpr double time_step = 0.01;
+     double t_cur = (ros::Time::now() - info->start_time_).toSec();
++    if (managed_ && require_known_space_ && exec_state_ == EXEC_TRAJ)
++    {
++      if (const char *reason = managedSpaceViolation(t_cur, false, guarded_start_))
++      {
++        managedStop("FAILED", reason, false);
++        return;
++      }
++    }
+     double t_2_3 = info->duration_ * 2 / 3;
+     for (double t = t_cur; t < info->duration_; t += time_step)
+     {
+@@ -448,6 +503,8 @@ namespace ego_planner
+         }
+         else
+         {
++          if (managed_ && !have_target_)
++            return;
+           if (t - t_cur < emergency_time_) // 0.8s of emergency time
+           {
+             ROS_WARN("Suddenly discovered obstacles. emergency stop! time=%f", t - t_cur);
+@@ -479,6 +536,15 @@ namespace ego_planner
+ 
+     if (plan_success)
+     {
++      if (managed_ && require_known_space_)
++      {
++        if (const char *reason = managedSpaceViolation(0., true, odom_pos_))
++        {
++          managedStop("FAILED", reason, false);
++          return false;
++        }
++        guarded_start_ = odom_pos_;
++      }
+ 
+       auto info = &planner_manager_->local_data_;
+ 
+@@ -630,9 +696,9 @@ namespace ego_planner
+     managed_status_pub_.publish(out);
+   }
+ 
+-  void EGOReplanFSM::managedStop(const std::string &status, const std::string &reason)
++  void EGOReplanFSM::managedStop(const std::string &status, const std::string &reason, bool publish_emergency)
+   {
+-    if (have_target_) callEmergencyStop(odom_pos_);
++    if (have_target_ && publish_emergency) callEmergencyStop(odom_pos_);
+     have_target_ = false; have_new_target_ = false; trigger_ = false;
+     changeFSMExecState(WAIT_TARGET, "MANAGED_STOP");
+     managedStatus(status, reason);
+@@ -641,7 +707,8 @@ namespace ego_planner
+   void EGOReplanFSM::managedWatchdog(const ros::WallTimerEvent &)
+   {
+     if (!managedMapReady() && have_target_) managedStop("NOT_READY", "stale_map_or_odometry");
+-    else managedStatus(managedMapReady() ? "READY" : "NOT_READY");
++    else managedStatus(managedMapReady() ? "READY" : "NOT_READY",
++                       require_known_space_ ? "known_space_guard" : "");
+   }
+ 
+   void EGOReplanFSM::managedCommand(const ego_planner::GoalCommandConstPtr &msg)

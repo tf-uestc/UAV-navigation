@@ -1,0 +1,34 @@
+{
+  "demo_trials": [
+    {
+      "name": "warm_demo",
+      "passed": false,
+      "reason": "scan_hold_unavailable",
+      "seconds": 27.91112333815545,
+      "scans": [
+        45
+      ],
+      "requests": 2,
+      "distance": 3.63744799094203,
+      "landed_disarmed": true
+    },
+    {
+      "name": "clean_demo",
+      "passed": true,
+      "reason": "observation_standoff_reached",
+      "seconds": 44.813634739257395,
+      "scans": [
+        45,
+        -45,
+        90
+      ],
+      "requests": 9,
+      "distance": 2.442890054846666,
+      "landed_disarmed": true
+    }
+  ],
+  "total_flights_including_demos": 13,
+  "total_cloud_requests_including_demos": 76,
+  "open_issue": "scan_hold_unavailable during in-place reuse; cause not yet established",
+  "false_positive_blocked_by_initial_confirmation": true
+}

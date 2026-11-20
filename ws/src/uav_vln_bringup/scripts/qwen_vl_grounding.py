@@ -16,7 +16,8 @@ import rospy
 from sensor_msgs.msg import CameraInfo
 
 from base_detector import Detection, DetectionRejected, Detector
-from navigation_core.perception import parse_bbox, validate_intrinsics
+from navigation_core.contracts import finite
+from navigation_core.perception import grounding_payload, parse_bbox, validate_intrinsics
 
 # ---------------------------------------------------------------------------
 # Prompt template and bbox parsing patterns
@@ -53,6 +54,7 @@ class QwenVLGroundingDetector(Detector):
         self.api_key = api_key
         self.model = model
         self.timeout = timeout
+        self._session = requests.Session()
         if coordinate_system is None:
             coordinate_system = 'normalized_1000' if model == OMNI_MODEL else 'pixel'
         if coordinate_system not in ('pixel', 'normalized_1000'):
@@ -84,13 +86,17 @@ class QwenVLGroundingDetector(Detector):
         h, w = rgb.shape[:2]
         bbox = self._parse_bbox(raw_text, w, h, self.coordinate_system, self.allow_legacy_bbox)
         if bbox is None:
-            try:
-                payload = json.loads(raw_text)
-            except (ValueError, TypeError):
-                payload = None
-            reason = ("target_not_found" if isinstance(payload, dict) and payload.get("found") is False
-                      else "invalid_bbox_response")
-            raise DetectionRejected(reason)
+            payload = grounding_payload(raw_text)
+            if isinstance(payload, dict) and payload.get("found") is False:
+                raise DetectionRejected("target_not_found")
+            fields = payload if isinstance(payload, dict) else {}
+            unit = fields.get("coordinate_system")
+            box = fields.get("bbox")
+            safe_box = box if isinstance(box, list) and len(box) == 4 and all(finite(v) for v in box) else None
+            rospy.logwarn("[grounding] rejected envelope=%s found_type=%s unit=%s bbox=%s",
+                          type(payload).__name__, type(fields.get("found")).__name__,
+                          unit if unit in ("pixel", "normalized_1000") else "missing_or_invalid", safe_box)
+            raise DetectionRejected("invalid_bbox_response")
 
         x1, y1, x2, y2 = bbox
         u, v, depth_m, support = self._foreground_depth(depth[y1:y2, x1:x2])
@@ -158,18 +164,20 @@ class QwenVLGroundingDetector(Detector):
 
         try:
             rospy.loginfo("Querying DashScope (%s)...", self.model)
-            resp = requests.post(
+            resp = self._session.post(
                 API_URL, headers=headers, json=payload,
-                timeout=self.timeout,
+                timeout=(min(3., self.timeout), self.timeout),
             )
             resp.raise_for_status()
             result = resp.json()
             content = result["choices"][0]["message"]["content"]
             if not isinstance(content, str) or not content.strip():
                 raise DetectionRejected("invalid_api_response")
-            rospy.loginfo("VLM response (%d chars)", len(content))
+            rospy.loginfo("VLM response (%d chars): %s", len(content), content[:512].replace("\n", " "))
             return content
 
+        except requests.exceptions.ConnectTimeout:
+            raise DetectionRejected("api_connect_timeout") from None
         except requests.exceptions.Timeout:
             raise DetectionRejected("api_timeout") from None
         except requests.exceptions.RequestException as exc:

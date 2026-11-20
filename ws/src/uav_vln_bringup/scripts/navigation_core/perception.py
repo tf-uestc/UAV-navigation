@@ -4,20 +4,41 @@ import math
 import re
 from .contracts import finite
 
+def _response_text(text):
+    text = text.strip()
+    fence = "```"
+    if text.startswith(fence) and text.endswith(fence):
+        text = text[len(fence):-len(fence)].strip()
+        if text.startswith("json"):
+            text = text[4:].lstrip()
+    return text
+
+
+def grounding_payload(text):
+    """Decode the envelope, allowing a code fence or one explicit object in an array."""
+    if not isinstance(text, str):
+        return None
+    try:
+        data = json.loads(_response_text(text))
+    except (ValueError, TypeError):
+        return None
+    # One fully specified object is unambiguous; never infer missing units or
+    # select among multiple detections. Bare coordinate arrays remain invalid.
+    if isinstance(data, list) and len(data) == 1 and isinstance(data[0], dict):
+        return data[0]
+    return data
+
+
 def parse_bbox(text,width,height,coordinate_system="pixel",allow_legacy=False):
     if type(width) is not int or type(height) is not int or min(width,height)<1:
         raise ValueError("invalid image size")
     if coordinate_system not in ("pixel","normalized_1000"):
         raise ValueError("unsupported coordinate protocol")
     if not isinstance(text,str): return None
-    cleaned=text.strip()
-    if cleaned.startswith("```") and cleaned.endswith("```"):
-        cleaned=re.sub(r"^\`\`\`(?:json)?\s*","",cleaned)[:-3].strip()
-    try:
-        data=json.loads(cleaned)
-    except (ValueError,TypeError):
+    data=grounding_payload(text)
+    if data is None:
         if not allow_legacy: return None
-        match=re.fullmatch(r"(?:<box>\s*)?\[?\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\]?(?:\s*</box>)?",cleaned)
+        match=re.fullmatch(r"(?:<box>\s*)?\[?\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\]?(?:\s*</box>)?",_response_text(text))
         if not match: return None
         data=dict(found=True,bbox=[int(x) for x in match.groups()],coordinate_system=coordinate_system)
     if allow_legacy and isinstance(data,list):

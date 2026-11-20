@@ -19,9 +19,10 @@ from std_msgs.msg import Header, String
 
 from navigation_core.bridge import BridgeDecisions, Feedback
 from navigation_core.bspline import BSpline
+from navigation_core.contracts import finite
 from navigation_core.control import ControlArbiter, Reference
 from navigation_core.trajectory import Sample, TimedTrajectory
-from navigation_core.yaw import angle_delta, quaternion, quaternion_yaw
+from navigation_core.yaw import YawPolicy, angle_delta, quaternion, quaternion_yaw
 
 
 SETPOINT = '/mavros/setpoint_position/local'
@@ -60,6 +61,7 @@ class FlightExecutor:
         self.stop_id = None
         self.stop_reason = ''
         self.stable_since = None
+        self.turn = None
         self.last_ros = None
         self.clock_advanced_at = time.monotonic()
         self.pub = rospy.Publisher(SETPOINT, PoseStamped, queue_size=1, tcp_nodelay=True)
@@ -163,6 +165,7 @@ class FlightExecutor:
         self.gateway = self.plan_deadline = None
         self.bridge.goal = self.bridge.goal_at = None
         self.stop_id, self.stop_reason, self.stable_since = stop_id, reason, None
+        self.turn = None
 
     def hold(self, fb, reason, stop_id=None, cancel_planner=True):
         self.revoke(fb, reason, stop_id, cancel_planner)
@@ -202,7 +205,19 @@ class FlightExecutor:
                     self.owned = True
                     self.stop_id = self.stable_since = None
                     self.stop_reason = ''
+            elif command == 'TURN' and self.owned and self.bridge.mode == 'HOLD':
+                target, via = data.get('yaw'), data.get('via')
+                if (not fb.armed or fb.mode != 'OFFBOARD' or self.control.live
+                        or self.turn is not None or self.stable_since is None or wall-self.stable_since<1.
+                        or not finite(target) or abs(target)>math.pi
+                        or via is not None and (not finite(via) or abs(via)>math.pi)):
+                    return
+                headings = [target] if via is None else [via, target]
+                self.turn = (headings, YawPolicy(self.bridge.anchor.yaw, rate_limit=.65), wall)
+                self.stop_id, self.stop_reason, self.stable_since = seq, 'turn_requested', None
             elif command == 'BEGIN' and self.owned and self.bridge.mode == 'HOLD':
+                if self.turn is not None:
+                    return
                 mission, goal = data.get('mission_id'), data.get('goal_id')
                 gateway, planner = data.get('gateway_session_id'), data.get('planner_session_id')
                 if (not fb.armed or fb.mode != 'OFFBOARD' or not self.planner_ready(wall)
@@ -233,7 +248,9 @@ class FlightExecutor:
                           'FAILED', 'REJECTED', 'SESSION_CHANGED', 'STOP'):
                 fb = self.feedback(time.monotonic(), rospy.Time.now().to_sec())
                 if fb:
-                    self.hold(fb, 'planner_'+status.lower(), cancel_planner=False)
+                    reason=data.get('reason')
+                    suffix=reason if reason in ('unknown_trajectory','outside_known_map') else status.lower()
+                    self.hold(fb, 'planner_'+suffix, cancel_planner=False)
 
     def spline(self, msg):
         with self.lock:
@@ -357,6 +374,13 @@ class FlightExecutor:
                         # still preparing. Freeze the takeoff anchor at climb.
                         height = self.bridge.anchor.position[2]
                         self.bridge.anchor = Reference((*fb.position[:2], height), fb.yaw)
+                    if self.turn is not None:
+                        headings, policy, updated = self.turn
+                        yaw = policy.update(headings[0], min(.1, wall-updated))
+                        self.bridge.anchor = Reference(self.bridge.anchor.position, yaw)
+                        if abs(angle_delta(headings[0], yaw)) < 1e-6:
+                            headings.pop(0)
+                        self.turn = (headings, policy, wall) if headings else None
                     decision = self.bridge.tick(fb, wall)
                     if decision.mode == 'COMPLETE' and self.actions:
                         self.bridge.mode = 'LANDING'
@@ -374,7 +398,8 @@ class FlightExecutor:
                         pose.pose.orientation = Quaternion(*quaternion(ref.yaw))
                         self.pub.publish(pose)
                         self.preview.publish(pose)
-                if self.stop_reason and self.bridge.mode == 'HOLD' and healthy and fb.armed and fb.mode == 'OFFBOARD':
+                if (self.stop_reason and self.turn is None and self.bridge.mode == 'HOLD'
+                        and healthy and fb.armed and fb.mode == 'OFFBOARD'):
                     anchor = self.bridge.anchor
                     if (math.dist(fb.position, anchor.position) <= .3 and fb.speed <= .15
                             and abs(angle_delta(fb.yaw, anchor.yaw)) <= math.radians(10)):

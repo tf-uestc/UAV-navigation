@@ -15,11 +15,14 @@ from std_msgs.msg import String
 from navigation_core.contracts import DetectionResult, RequestKey, vector3
 from navigation_core.lifecycle import CallBudget, RequestRegistry
 from navigation_core.targets import ArrivalTracker, TargetEstimator, local_detour, observation_goal
-from navigation_core.yaw import quaternion_yaw
+from navigation_core.yaw import angle_delta, quaternion_yaw
 
 
 TERMINAL = {'IDLE', 'DONE', 'FAILED', 'LANDED'}
 PLAN_FAILURES = {'FAILED', 'REJECTED', 'STOP', 'MAP_NOT_READY', 'SESSION_CHANGED', 'CANCEL_TIMEOUT'}
+SCAN_OFFSETS_DEG = (45, -45, 90, -90)
+RETRYABLE_DETECTION = {'invalid_bbox_response', 'api_timeout', 'api_connect_timeout', 'api_network_error',
+                       'api_http_429', 'api_http_502', 'api_http_503', 'api_http_504'}
 
 
 class SegmentMission:
@@ -40,24 +43,33 @@ class SegmentMission:
         self.mode = None
         self.search = []
         self.search_index = 0
+        self.scan_base = None
+        self.scan_index = 0
+        self.acquisition_point = None
         self.after_stop = None
         self.settled_at = self.last_ros = None
         self.intended_yaw = None
         self.segment_count = 0
         self.recovery_count = 0
+        self.detection_retried = False
+        self.map_retried = False
         self.occupancy = None
         self.detour = []
         self.detour_used = False
         self.registry = RequestRegistry()
-        self.estimator = TargetEstimator(max_age=15.,max_jump=1.5)
-        self.budget = CallBudget(max_calls=rospy.get_param('~max_detections',8),max_seconds=150.)
+        self.vlm_timeout = rospy.get_param('~detection_timeout',12.)
+        self.estimator = TargetEstimator(max_age=self.vlm_timeout,max_jump=1.5)
+        self.mission_timeout = float(rospy.get_param('~mission_timeout',720.))
+        if not math.isfinite(self.mission_timeout) or self.mission_timeout <= self.vlm_timeout:
+            raise ValueError('mission_timeout must exceed detection_timeout')
+        self.budget = CallBudget(max_calls=rospy.get_param('~max_detections',8),
+                                 max_seconds=self.mission_timeout)
         self.arrival = ArrivalTracker(position_tolerance=.23,speed_tolerance=.15,dwell=.45)
         self.fence = rospy.get_param('/uav/segment_config/fence')
         self.height = rospy.get_param('~height',1.6)
         self.standoff = rospy.get_param('~standoff',2.4)
         self.stride = rospy.get_param('~segment_length',1.15)
         self.manual_stride = rospy.get_param('~manual_segment_length',self.stride)
-        self.vlm_timeout = rospy.get_param('~detection_timeout',12.)
         self.max_segments = rospy.get_param('~max_segments',12)
         self.status_pub = rospy.Publisher('/uav/segment/status',String,queue_size=10,latch=True)
         self.flight_pub = rospy.Publisher('/uav/flight/command',String,queue_size=5)
@@ -87,6 +99,8 @@ class SegmentMission:
             reason=self.reason,goal_id=self.goal_id,goal=self.goal,final_goal=self.final_goal,
             detection_request_id=pending.key.request_id if pending else None,
             intended_yaw=self.intended_yaw,segment_count=self.segment_count,
+            scan_offset_deg=SCAN_OFFSETS_DEG[self.scan_index-1] if self.scan_index else 0,
+            detection_retried=self.detection_retried,
             detour_active=bool(self.detour),
             capture_floor=self.settled_at,stop_id=self.stop_id),allow_nan=False)))
 
@@ -205,6 +219,7 @@ class SegmentMission:
             self.goal,self.final_goal=None,manual
             self.goal_id,self.segment_count,self.stop_id=0,0,0
             self.recovery_count=0
+            self.map_retried=False
             self.detour.clear()
             self.detour_used=False
             self.search,self.search_index=search,0
@@ -228,12 +243,54 @@ class SegmentMission:
     def brake(self, after, reason=''):
         self.registry.cancel()
         self.after_stop=(after,reason)
+        if after=='DETECT':
+            self.reset_scan()
         self.settled_at=None
         self.stop_id=self.command_flight('HOVER')
         if self.stop_id is None:
             self.transition('FAILED',reason=reason or 'flight_session_unavailable')
         else:
             self.transition('BRAKE',8.,reason)
+
+    def reset_scan(self):
+        self.scan_base=None
+        self.scan_index=0
+        self.acquisition_point=None
+        self.detection_retried=False
+
+    def confirmed_hold(self, flight):
+        fb=self.feedback()
+        return (fb and flight.get('mode')=='HOLD' and flight.get('context') is None
+                and flight.get('stop_id')==self.stop_id and flight.get('stop_confirmed')
+                and math.hypot(*fb[1])<=.15 and fb[3]<=.12)
+
+    def advance_scan(self):
+        if self.scan_index==len(SCAN_OFFSETS_DEG):
+            if self.estimator.point is None and self.search_index<len(self.search):
+                self.final_goal=self.search[self.search_index]
+                self.search_index+=1
+                self.plan_segment('search')
+            else:
+                self.transition('FAILED',reason='target_not_found')
+            return
+        if self.scan_base is None:
+            self.scan_base=self.odom[2]
+        offset=SCAN_OFFSETS_DEG[self.scan_index]
+        target=angle_delta(self.scan_base+math.radians(offset),0.)
+        fields=dict(yaw=target)
+        if offset==-90:
+            # Traverse the original forward heading on the last sweep.
+            fields['via']=self.scan_base
+        stop_id=self.command_flight('TURN',**fields)
+        if stop_id is None:
+            self.brake('FAILED','scan_turn_unavailable')
+            return
+        self.scan_index+=1
+        self.detection_retried=False
+        self.intended_yaw=target
+        self.stop_id=stop_id
+        self.settled_at=None
+        self.transition('SCAN_TURN',14.)
 
     def request_detection(self,now):
         if not self.budget.reserve(now):
@@ -244,7 +301,8 @@ class SegmentMission:
         key=self.registry.issue(self.target,now,self.vlm_timeout)
         self.transition('WAIT_VLM',self.vlm_timeout)
         self.detect_pub.publish(String(data=json.dumps(dict(target={'text':self.target},
-            _mission_mgr_trigger=True,mission_id=self.mission,request_id=key.request_id))))
+            _mission_mgr_trigger=True,mission_id=self.mission,request_id=key.request_id,
+            capture_after=self.settled_at))))
 
     def on_detection(self,msg):
         try:
@@ -256,19 +314,34 @@ class SegmentMission:
                 return
             now=time.monotonic()
             stamp=rospy.Time.now().to_sec()
-            if result.status=='SUCCEEDED' and result.capture_stamp<self.settled_at:
+            captured_result=(result.status=='SUCCEEDED' or result.reason=='target_not_found'
+                             or result.reason in RETRYABLE_DETECTION)
+            if captured_result and result.capture_stamp<self.settled_at:
                 return
-            if not self.registry.resolve(result,now,ros_now=stamp,max_age=15.):
+            if not self.registry.resolve(result,now,ros_now=stamp,max_age=self.vlm_timeout):
                 return
             if result.status!='SUCCEEDED':
-                if (result.reason=='target_not_found' and self.estimator.point is None
-                        and self.search_index<len(self.search)):
-                    self.final_goal=self.search[self.search_index]
-                    self.search_index+=1
-                    self.plan_segment('search')
+                if result.reason in RETRYABLE_DETECTION and not self.detection_retried:
+                    self.detection_retried=True
+                    self.settled_at=stamp
+                    self.transition('RETRY_DETECT',6.,result.reason)
+                    return
+                if result.reason=='target_not_found':
+                    self.acquisition_point=None
+                    self.transition('SCAN_READY',7.,result.reason)
                 else:
                     self.transition('FAILED',reason=result.reason or result.status.lower())
                 return
+            if self.estimator.point is None:
+                if self.acquisition_point is None:
+                    self.acquisition_point=result.point
+                    self.settled_at=stamp
+                    self.transition('CONFIRM_TARGET',6.,'confirm_initial_localization')
+                    return
+                if math.dist(self.acquisition_point[:2],result.point[:2])>.65:
+                    self.transition('FAILED',reason='initial_target_unconfirmed')
+                    return
+                self.acquisition_point=None
             if not self.estimator.observe(result.point,result.capture_stamp,stamp):
                 self.transition('FAILED',reason='target_'+self.estimator.reason)
                 return
@@ -287,6 +360,7 @@ class SegmentMission:
             except (KeyError,ValueError):
                 self.transition('FAILED',reason='observation_outside_fence')
                 return
+            self.map_retried=False
             self.plan_segment('approach')
 
     def on_occupancy(self,msg):
@@ -342,6 +416,13 @@ class SegmentMission:
         self.epoch=None
         self.transition('AUTHORIZE',5.)
 
+    def handle_unknown_space(self, reason):
+        if self.map_retried:
+            self.brake('FAILED',reason)
+        else:
+            self.map_retried=True
+            self.brake('OBSERVE_MAP',reason)
+
     def on_plan(self,msg):
         d=self.object(msg)
         with self.lock:
@@ -350,7 +431,10 @@ class SegmentMission:
                     or (d.get('gateway_session_id'),d.get('planner_session_id'))!=self.epoch):
                 return
             status=d.get('status')
-            if (status=='STOP' and self.phase=='TRACK' and self.kind=='manual'
+            reason=d.get('reason')
+            if status=='FAILED' and reason in ('unknown_trajectory','outside_known_map'):
+                self.handle_unknown_space(reason)
+            elif (status=='STOP' and self.phase=='TRACK' and self.kind=='manual'
                     and not self.detour_used and self.recovery_count<1):
                 self.recovery_count+=1
                 self.brake('REPLAN','planner_stop')
@@ -389,7 +473,7 @@ class SegmentMission:
             self.registry.cancel()
             self.transition('FAILED',reason='flight_feedback_unavailable')
             return
-        if now-self.started>150. and self.phase not in ('BRAKE','SETTLE'):
+        if now-self.started>self.mission_timeout and self.phase not in ('BRAKE','SETTLE'):
             self.brake('FAILED','mission_deadline')
             return
         if self.phase in ('BRAKE','SETTLE'):
@@ -410,6 +494,8 @@ class SegmentMission:
                         self.plan_segment('manual' if self.mode=='manual' else self.kind)
                     elif after=='REPLAN':
                         self.plan_segment(self.kind,require_detour=reason=='planner_stop')
+                    elif after=='OBSERVE_MAP':
+                        self.transition('OBSERVE_MAP',3.,reason)
                     else:
                         self.transition(after,reason=reason)
                     return
@@ -418,6 +504,41 @@ class SegmentMission:
             if now>=self.deadline:
                 self.command_flight('LAND')
                 self.transition('FAILED',reason='stop_confirmation_timeout')
+        elif self.phase=='OBSERVE_MAP':
+            if now>=self.deadline:
+                self.transition('FAILED',reason='map_observation_timeout')
+            elif (stamp>=self.settled_at+1.0 and self.planner_status()
+                    and self.confirmed_hold(flight)):
+                self.plan_segment(self.kind)
+        elif self.phase=='SCAN_READY':
+            if self.confirmed_hold(flight):
+                self.advance_scan()
+            elif now>=self.deadline:
+                self.brake('FAILED','scan_hold_unavailable')
+        elif self.phase=='SCAN_TURN':
+            fb=self.feedback()
+            still=(fb and flight.get('mode')=='HOLD' and flight.get('context') is None
+                   and flight.get('stop_id')==self.stop_id and flight.get('stop_confirmed')
+                   and abs(angle_delta(self.intended_yaw,fb[2]))<=math.radians(7.)
+                   and math.hypot(*fb[1])<=.15 and fb[3]<=.12)
+            if still:
+                if self.settled_at is None:
+                    self.settled_at=stamp
+                if stamp>=self.settled_at+.22:
+                    self.request_detection(now)
+                    return
+            else:
+                self.settled_at=None
+            if now>=self.deadline:
+                self.brake('FAILED','scan_turn_timeout')
+        elif self.phase in ('RETRY_DETECT','CONFIRM_TARGET'):
+            confirmation=self.phase=='CONFIRM_TARGET'
+            delay=.22 if confirmation or self.reason=='invalid_bbox_response' else .65
+            if self.confirmed_hold(flight) and stamp>=self.settled_at+delay:
+                self.request_detection(now)
+            elif now>=self.deadline:
+                reason='confirmation_observation_unstable' if confirmation else 'retry_observation_unstable'
+                self.brake('FAILED',reason)
         elif self.phase=='WAIT_VLM':
             if now>=self.deadline:
                 self.registry.cancel()
@@ -446,12 +567,15 @@ class SegmentMission:
         elif self.phase=='TRACK':
             fb=self.feedback()
             if not fb or flight.get('context')!=[self.mission,self.goal_id,self.epoch[1]]:
-                if fb and flight.get('reason')=='discontinuous_trajectory' and self.recovery_count<1:
+                if fb and flight.get('reason') in ('planner_unknown_trajectory','planner_outside_known_map'):
+                    self.handle_unknown_space(flight['reason'][len('planner_'):])
+                elif fb and flight.get('reason')=='discontinuous_trajectory' and self.recovery_count<1:
                     self.recovery_count+=1
                     self.brake('REPLAN','replan_from_settled_pose')
                 else:
                     self.brake('FAILED','trajectory_lost')
             elif self.arrival.update(fb[0],fb[1],self.goal,now):
+                self.map_retried=False
                 if self.mode=='manual' or self.kind=='search' and math.dist(fb[0],self.final_goal)>.23:
                     self.brake('PLAN')
                 else:

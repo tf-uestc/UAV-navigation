@@ -1,4 +1,5 @@
 <launch>
+  <arg name="require_known_space" default="false"/>
   <arg name="speed_limit" default="0.8"/>
   <arg name="accel_limit" default="0.8"/>
   <arg name="obstacle_inflation" default="0.099"/>
@@ -7,6 +8,7 @@
   <arg name="mock_fcu" default="false"/>
   <arg name="segment_fence" default="false"/>
   <include if="$(arg with_planner)" file="$(find uav_vln_bringup)/launch/planner_verified.launch">
+    <arg name="require_known_space" value="$(arg require_known_space)"/>
     <arg name="speed_limit" value="$(arg speed_limit)"/>
     <arg name="accel_limit" value="$(arg accel_limit)"/>
     <arg name="obstacle_inflation" value="$(arg obstacle_inflation)"/>

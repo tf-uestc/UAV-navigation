@@ -1,7 +1,10 @@
 <launch>
+  <arg name="vlm_read_timeout" default="10.0"/>
+  <arg name="max_result_age" default="15.0"/>
   <node pkg="uav_vln_bringup" type="detector_node.py" name="detector_node" output="screen" required="true">
     <param name="vlm_model" value="$(optenv VLM_MODEL qwen3.8-omni-flash)" />
-    <param name="vlm_timeout" value="10.0" />
+    <param name="vlm_timeout" value="$(arg vlm_read_timeout)" />
+    <param name="max_result_age" value="$(arg max_result_age)" />
     <param name="managed_requests_only" value="true" />
     <param name="synchronize_camera" value="true" />
   </node>
