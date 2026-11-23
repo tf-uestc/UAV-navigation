@@ -1,0 +1,1115 @@
+{
+  "complete": true,
+  "passed": true,
+  "scope": "response-format compatibility only; semantic false positives and visibility explicitly deferred by user",
+  "historical_rows": 63,
+  "historical_newly_supported": 1,
+  "historical": [
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 1,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 2,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 3,
+      "raw_response": "{\"found\": true, \"bbox\": [475, 792, 513, 1000], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        304,
+        380,
+        329,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 4,
+      "raw_response": "{\"found\": true, \"bbox\": [473, 791, 512, 1000], \"coordinate_system\": \"normalized_1000\" }",
+      "status": "detected",
+      "bbox": [
+        302,
+        379,
+        328,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 5,
+      "raw_response": "{\"found\": true, \"bbox\": [490, 697, 518, 973], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        313,
+        334,
+        332,
+        468
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 6,
+      "raw_response": "{\n  \"found\": true,\n  \"bbox\": [490, 697, 513, 982],\n  \"coordinate_system\": \"normalized_1000\"\n}",
+      "status": "detected",
+      "bbox": [
+        313,
+        334,
+        329,
+        472
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 7,
+      "raw_response": "{\"found\": true, \"bbox\": [495, 632, 512, 820], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        316,
+        303,
+        328,
+        394
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 8,
+      "raw_response": "{\"found\": true, \"bbox\": [490, 635, 512, 827], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        313,
+        304,
+        328,
+        397
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 9,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 10,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 11,
+      "raw_response": "[{\"bbox_2d\": [498, 537, 506, 571], \"label\": \"画面中红色三脚支架中央的竖直红杆，仅框住中央红杆的红色像素，忽略其余部分和地面。\"}]",
+      "status": "detected",
+      "bbox": [
+        318,
+        257,
+        324,
+        275
+      ],
+      "prior_format_status": "invalid_bbox_response",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-baseline.json",
+      "row": 12,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 1,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 2,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 3,
+      "raw_response": "{\"found\": true, \"bbox\": [478, 796, 513, 1000], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        305,
+        382,
+        329,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 4,
+      "raw_response": "{\"found\": true, \"bbox\": [473, 792, 510, 998], \"coordinate_system\": \"normalized_1000\" }",
+      "status": "detected",
+      "bbox": [
+        302,
+        380,
+        327,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 5,
+      "raw_response": "{\"found\": true, \"bbox\": [485, 703, 512, 976], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        310,
+        337,
+        328,
+        469
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 6,
+      "raw_response": "{\"found\": true, \"bbox\": [485, 697, 513, 980], \"coordinate_system\": \"normalized_1000\" }",
+      "status": "detected",
+      "bbox": [
+        310,
+        334,
+        329,
+        471
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 7,
+      "raw_response": "{\"found\": true, \"bbox\": [490, 637, 508, 821], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        313,
+        305,
+        326,
+        395
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 8,
+      "raw_response": "[\n\t{\"bbox_2d\": [493, 635, 508, 827], \"label\": \"画面中红色三脚支架中央的竖直红杆，仅框住中央红杆的红色像素，忽略其余部分和地面。\"}\n]",
+      "status": "detected",
+      "bbox": [
+        315,
+        304,
+        326,
+        397
+      ],
+      "prior_format_status": "invalid_bbox_response",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 9,
+      "raw_response": "{\"found\": true, \"bbox\": [491, 635, 508, 827], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        314,
+        304,
+        326,
+        397
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 10,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 11,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 12,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 13,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 14,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 15,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 16,
+      "raw_response": "{\"found\": true, \"bbox\": [475, 792, 513, 998], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        304,
+        380,
+        329,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 17,
+      "raw_response": "{\"found\": true, \"bbox\": [476, 791, 513, 1000], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        304,
+        379,
+        329,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 18,
+      "raw_response": "{\"found\": true, \"bbox\": [487, 702, 513, 979], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        311,
+        336,
+        329,
+        470
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 19,
+      "raw_response": "{\"found\": true, \"bbox\": [485, 702, 513, 986], \"coordinate_system\": \"normalized_1000\" }",
+      "status": "detected",
+      "bbox": [
+        310,
+        336,
+        329,
+        474
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 20,
+      "raw_response": "{\"found\": true, \"bbox\": [491, 635, 507, 824], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        314,
+        304,
+        325,
+        396
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 21,
+      "raw_response": "[{\"found\": true, \"bbox\": [491, 635, 508, 827], \"coordinate_system\": \"normalized_1000\"}]",
+      "status": "detected",
+      "bbox": [
+        314,
+        304,
+        326,
+        397
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 22,
+      "raw_response": "{\"found\":false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 23,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 24,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step2/cloud-candidate.json",
+      "row": 25,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 1,
+      "raw_response": "[{\"bbox\": [478, 809, 503, 1000], \"label\": \"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\"}]",
+      "status": "detected",
+      "bbox": [
+        305,
+        388,
+        322,
+        480
+      ],
+      "prior_format_status": "invalid_bbox_response",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 2,
+      "raw_response": "[{\"bbox_2d\": [479, 805, 506, 1000], \"label\": \"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\"}]",
+      "status": "detected",
+      "bbox": [
+        306,
+        386,
+        324,
+        480
+      ],
+      "prior_format_status": "invalid_bbox_response",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 3,
+      "raw_response": "{\"found\": true, \"bbox\": [516, 860, 542, 1000], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        330,
+        412,
+        347,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 4,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 5,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 6,
+      "raw_response": "{\"found\": true, \"bbox\": [479, 810, 503, 1000], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        306,
+        388,
+        322,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 7,
+      "raw_response": "{\"found\": true, \"bbox\": [513, 860, 542, 999], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        328,
+        412,
+        347,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 8,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 9,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 10,
+      "raw_response": "{\"found\": true, \"bbox\": [479, 813, 505, 998], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        306,
+        390,
+        324,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 11,
+      "raw_response": "{\"found\": true, \"bbox\": [517, 860, 543, 998], \"coordinate_system\": \"normalized_1000\"}",
+      "status": "detected",
+      "bbox": [
+        330,
+        412,
+        348,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 12,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-api.json",
+      "row": 13,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 1,
+      "raw_response": "{\"label\": \"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\", \"bbox_2d\": [479, 810, 503, 1000]}",
+      "status": "detected",
+      "bbox": [
+        306,
+        388,
+        322,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 2,
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[513,867,540,999]}",
+      "status": "detected",
+      "bbox": [
+        328,
+        416,
+        346,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 3,
+      "raw_response": "{\"found\":false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 4,
+      "raw_response": "{\"label\": \"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\", \"bbox_2d\": [490, 375, 515, 587]}",
+      "status": "detected",
+      "bbox": [
+        313,
+        180,
+        330,
+        282
+      ],
+      "prior_format_status": "false_positive_or_wrong_bbox",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 5,
+      "raw_response": "[{\"label\": \"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\", \"bbox_2d\": [479, 810, 503, 1000]}]",
+      "status": "detected",
+      "bbox": [
+        306,
+        388,
+        322,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 6,
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[510, 863, 540, 997]}",
+      "status": "detected",
+      "bbox": [
+        326,
+        414,
+        346,
+        479
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 7,
+      "raw_response": "{\"found\":true,\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[507,493,516,508]}",
+      "status": "detected",
+      "bbox": [
+        324,
+        236,
+        331,
+        244
+      ],
+      "prior_format_status": "invalid_bbox_response",
+      "newly_supported": true,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 8,
+      "raw_response": "{\"found\": false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 9,
+      "raw_response": "{\"found\":false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 10,
+      "raw_response": "{\"label\": \"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\", \"bbox_2d\": [479, 810, 503, 1000]}",
+      "status": "detected",
+      "bbox": [
+        306,
+        388,
+        322,
+        480
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 11,
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[513,860,540,997]}",
+      "status": "detected",
+      "bbox": [
+        328,
+        412,
+        346,
+        479
+      ],
+      "prior_format_status": "correct_positive",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 12,
+      "raw_response": "[{\"label\": \"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\", \"bbox_2d\": [450, 371, 468, 539]}]",
+      "status": "detected",
+      "bbox": [
+        288,
+        178,
+        300,
+        259
+      ],
+      "prior_format_status": "false_positive_or_wrong_bbox",
+      "newly_supported": false,
+      "format_passed": true
+    },
+    {
+      "report": "step8/partial-pole-native.json",
+      "row": 13,
+      "raw_response": "{\"found\":false}",
+      "status": "target_not_found",
+      "bbox": null,
+      "prior_format_status": "correct_absence",
+      "newly_supported": false,
+      "format_passed": true
+    }
+  ],
+  "live_calls": [
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-3p6-1/rgb.png",
+      "width": 320,
+      "height": 240,
+      "attempt": 1,
+      "status": "detected",
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[486, 639, 507, 814] }",
+      "bbox": [
+        155,
+        153,
+        163,
+        196
+      ],
+      "elapsed_s": 1.3535620961338282,
+      "format_passed": true,
+      "red_pixel_support_diagnostic": 215,
+      "semantic_matches_fixture_diagnostic": true,
+      "target_surface_error_diagnostic_m": 0.005910178502138659
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-3p6-1/rgb.png",
+      "width": 640,
+      "height": 480,
+      "attempt": 1,
+      "status": "detected",
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[490, 637, 510, 825]}",
+      "bbox": [
+        313,
+        305,
+        327,
+        396
+      ],
+      "elapsed_s": 1.2391024827957153,
+      "format_passed": true,
+      "red_pixel_support_diagnostic": 903,
+      "semantic_matches_fixture_diagnostic": true,
+      "target_surface_error_diagnostic_m": 0.01389680803258022
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-3p6-1/rgb.png",
+      "width": 1280,
+      "height": 960,
+      "attempt": 1,
+      "status": "detected",
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[493, 635, 510, 827] }",
+      "bbox": [
+        631,
+        609,
+        653,
+        794
+      ],
+      "elapsed_s": 1.4874227130785584,
+      "format_passed": true,
+      "red_pixel_support_diagnostic": 3436,
+      "semantic_matches_fixture_diagnostic": true,
+      "target_surface_error_diagnostic_m": 0.004612103811919996
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-2p4-1/rgb.png",
+      "width": 320,
+      "height": 240,
+      "attempt": 1,
+      "status": "detected",
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[487, 695, 510, 939] }",
+      "bbox": [
+        155,
+        166,
+        164,
+        226
+      ],
+      "elapsed_s": 1.2991949962452054,
+      "format_passed": true,
+      "red_pixel_support_diagnostic": 404,
+      "semantic_matches_fixture_diagnostic": true,
+      "target_surface_error_diagnostic_m": 0.006226395622700276
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-2p4-1/rgb.png",
+      "width": 640,
+      "height": 480,
+      "attempt": 1,
+      "status": "detected",
+      "raw_response": "[{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[486,703,510,979]}]",
+      "bbox": [
+        311,
+        337,
+        327,
+        470
+      ],
+      "elapsed_s": 1.5540498178452253,
+      "format_passed": true,
+      "red_pixel_support_diagnostic": 1862,
+      "semantic_matches_fixture_diagnostic": true,
+      "target_surface_error_diagnostic_m": 0.005523207298783944
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-2p4-1/rgb.png",
+      "width": 1280,
+      "height": 960,
+      "attempt": 1,
+      "status": "detected",
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[485, 697, 513, 993]}",
+      "bbox": [
+        620,
+        669,
+        657,
+        954
+      ],
+      "elapsed_s": 1.4363364055752754,
+      "format_passed": true,
+      "red_pixel_support_diagnostic": 8328,
+      "semantic_matches_fixture_diagnostic": true,
+      "target_surface_error_diagnostic_m": 0.01098072120150094
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-1p6-1/rgb.png",
+      "width": 320,
+      "height": 240,
+      "attempt": 1,
+      "status": "detected",
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[475,806,519,1000]}",
+      "bbox": [
+        152,
+        193,
+        167,
+        240
+      ],
+      "elapsed_s": 6.68604257889092,
+      "format_passed": true,
+      "red_pixel_support_diagnostic": 564,
+      "semantic_matches_fixture_diagnostic": true,
+      "target_surface_error_diagnostic_m": 0.009479898807849906
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-1p6-1/rgb.png",
+      "width": 640,
+      "height": 480,
+      "attempt": 1,
+      "status": "detected",
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[473, 795, 511, 1000]}",
+      "bbox": [
+        302,
+        381,
+        328,
+        480
+      ],
+      "elapsed_s": 1.4928347347304225,
+      "format_passed": true,
+      "red_pixel_support_diagnostic": 2143,
+      "semantic_matches_fixture_diagnostic": true,
+      "target_surface_error_diagnostic_m": 0.007064569264074172
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-1p6-1/rgb.png",
+      "width": 1280,
+      "height": 960,
+      "attempt": 1,
+      "status": "detected",
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[478, 795, 516, 999]}",
+      "bbox": [
+        611,
+        763,
+        661,
+        960
+      ],
+      "elapsed_s": 1.9588482957333326,
+      "format_passed": true,
+      "red_pixel_support_diagnostic": 8952,
+      "semantic_matches_fixture_diagnostic": true,
+      "target_surface_error_diagnostic_m": 0.00738992248773887
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step8/live-front/images/red_pole-5efd806d-4-33.216.png",
+      "width": 640,
+      "height": 480,
+      "attempt": 1,
+      "status": "detected",
+      "raw_response": "{\"label\":\"红色竖直杆，只框住可见的红色杆体，不包含底座、阴影或蓝色杆。\",\"bbox_2d\":[479,815,503,1000]}",
+      "bbox": [
+        306,
+        391,
+        322,
+        480
+      ],
+      "elapsed_s": 1.2974140774458647,
+      "format_passed": true,
+      "red_pixel_support_diagnostic": 1245,
+      "semantic_matches_fixture_diagnostic": true
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/negative-3p6-1/rgb.png",
+      "width": 640,
+      "height": 480,
+      "attempt": 1,
+      "status": "target_not_found",
+      "raw_response": "{\"found\": false}",
+      "bbox": null,
+      "elapsed_s": 0.876845839433372,
+      "format_passed": true,
+      "semantic_matches_fixture_diagnostic": true
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/negative-3p6-2/rgb.png",
+      "width": 640,
+      "height": 480,
+      "attempt": 1,
+      "status": "target_not_found",
+      "raw_response": "{\"found\": false}",
+      "bbox": null,
+      "elapsed_s": 0.8516264809295535,
+      "format_passed": true,
+      "semantic_matches_fixture_diagnostic": true
+    }
+  ],
+  "live_observations": [
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-3p6-1/rgb.png",
+      "width": 320,
+      "passed": true,
+      "final_status": "detected"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-3p6-1/rgb.png",
+      "width": 640,
+      "passed": true,
+      "final_status": "detected"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-3p6-1/rgb.png",
+      "width": 1280,
+      "passed": true,
+      "final_status": "detected"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-2p4-1/rgb.png",
+      "width": 320,
+      "passed": true,
+      "final_status": "detected"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-2p4-1/rgb.png",
+      "width": 640,
+      "passed": true,
+      "final_status": "detected"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-2p4-1/rgb.png",
+      "width": 1280,
+      "passed": true,
+      "final_status": "detected"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-1p6-1/rgb.png",
+      "width": 320,
+      "passed": true,
+      "final_status": "detected"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-1p6-1/rgb.png",
+      "width": 640,
+      "passed": true,
+      "final_status": "detected"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/positive-1p6-1/rgb.png",
+      "width": 1280,
+      "passed": true,
+      "final_status": "detected"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step8/live-front/images/red_pole-5efd806d-4-33.216.png",
+      "width": 640,
+      "passed": true,
+      "final_status": "detected"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/negative-3p6-1/rgb.png",
+      "width": 640,
+      "passed": true,
+      "final_status": "target_not_found"
+    },
+    {
+      "frame": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM/step2/fixtures/negative-3p6-2/rgb.png",
+      "width": 640,
+      "passed": true,
+      "final_status": "target_not_found"
+    }
+  ],
+  "live_api_calls": 12,
+  "live_format_statuses": {
+    "detected": 10,
+    "target_not_found": 2
+  },
+  "flight_commands_issued": false,
+  "production_color_or_visibility_changes": false
+}

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "python": "/usr/bin/python3",
+  "numpy": "1.17.4",
+  "numpy_file": "/usr/lib/python3/dist-packages/numpy/__init__.py",
+  "opencv": "4.2.0",
+  "opencv_file": "/usr/lib/python3/dist-packages/cv2.cpython-38-x86_64-linux-gnu.so",
+  "packages": {
+    "ego_planner": "/root/autodl-tmp/uav/validation/restore-final-2026-11-20-jXaGiA/ego-install/share/ego_planner",
+    "uav_vln_bringup": "/root/autodl-tmp/uav/validation/restore-final-2026-11-20-jXaGiA/business-install/share/uav_vln_bringup"
+  },
+  "px4_commit": "b8c541dd7277ed735139d7d1bfb829d61fbe29fb"
+}

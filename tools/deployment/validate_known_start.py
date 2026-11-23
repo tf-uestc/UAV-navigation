@@ -10,7 +10,7 @@ from sensor_msgs.msg import Image
 from tf.transformations import quaternion_from_euler,quaternion_multiply
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,required=True);args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,required=True);ap.add_argument('--yaw',type=float,default=90.);args=ap.parse_args()
     rospy.init_node('known_start_validation',anonymous=True)
     op=rospy.Publisher('/mavros/local_position/odom',Odometry,queue_size=2)
     pp=rospy.Publisher('/uav/planning/camera_pose',PoseStamped,queue_size=2)
@@ -19,7 +19,7 @@ def main():
     events=[];splines=[];stop=threading.Event();state={'depth':3.};checks=[]
     rospy.Subscriber('/uav/ego/status',GoalStatus,lambda m:events.append(m),queue_size=30)
     rospy.Subscriber('/planning/bspline',Bspline,lambda m:splines.append(m),queue_size=20)
-    bq=quaternion_from_euler(0,0,math.pi/2)
+    yaw=math.radians(args.yaw);bq=quaternion_from_euler(0,0,yaw)
     cq=quaternion_multiply(bq,[-.5,.5,-.5,.5])
     def feed():
         while not stop.is_set() and not rospy.is_shutdown():
@@ -27,7 +27,7 @@ def main():
             od.child_frame_id='base_link';od.pose.pose.position.z=1.6
             q=od.pose.pose.orientation;q.x,q.y,q.z,q.w=bq
             pose=PoseStamped();pose.header.stamp=stamp;pose.header.frame_id='map'
-            pose.pose.position.y=.1;pose.pose.position.z=1.6
+            pose.pose.position.x=.1*math.cos(yaw);pose.pose.position.y=.1*math.sin(yaw);pose.pose.position.z=1.6
             q=pose.pose.orientation;q.x,q.y,q.z,q.w=cq
             image=Image();image.header.stamp=stamp;image.header.frame_id='camera_link_optical'
             image.width=640;image.height=480;image.encoding='32FC1';image.step=2560
@@ -44,7 +44,7 @@ def main():
     def command(name,y,cmd='GOAL'):
         m=GoalCommand();m.header.stamp=rospy.Time.now();m.header.frame_id='map'
         m.planner_session_id=events[-1].planner_session_id;m.mission_id=name;m.goal_id=1
-        m.command=cmd;m.goal.y=y;m.goal.z=1.6;cp.publish(m)
+        m.command=cmd;m.goal.x=y*math.cos(yaw);m.goal.y=y*math.sin(yaw);m.goal.z=1.6;cp.publish(m)
     def result(name,allowed):
         return next((m for m in reversed(events) if m.mission_id==name and m.status in allowed),None)
     def check(name,**kwargs):
@@ -72,6 +72,6 @@ def main():
     finally:
         stop.set();thread.join(timeout=3)
         args.out.parent.mkdir(parents=True,exist_ok=True)
-        args.out.write_text(json.dumps(dict(passed=error is None,error=error,checks=checks),indent=2)+'\n')
+        args.out.write_text(json.dumps(dict(passed=error is None,error=error,checks=checks,yaw_degrees=args.yaw),indent=2)+'\n')
     raise SystemExit(error is not None)
 if __name__=='__main__':main()

@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "final_runtime_flights": 3,
+  "rows": [
+    {
+      "passed": true,
+      "mission": "dynamic-19bb9e39",
+      "minimum_center_to_obstacle_surface_m": 0.6195096324115067,
+      "executed_goal_ids": [
+        2,
+        3,
+        4
+      ],
+      "elapsed_after_insertion_s": 55.50536684226245,
+      "stop_reason": "occupied_trajectory",
+      "confirmed_stop_before_new_authorization": true,
+      "old_goal_never_revived": true,
+      "map_observed_before_detour": true,
+      "physics_positive_control_contacts": 19576,
+      "iris_obstacle_contacts": 0,
+      "final_armed": false,
+      "original_harness_passed": true,
+      "original_harness_error": null
+    },
+    {
+      "passed": true,
+      "mission": "dynamic-5ef1c1e3",
+      "minimum_center_to_obstacle_surface_m": 0.5739614443663373,
+      "executed_goal_ids": [
+        2,
+        3,
+        4
+      ],
+      "elapsed_after_insertion_s": 56.132553566247225,
+      "stop_reason": "collision",
+      "confirmed_stop_before_new_authorization": true,
+      "old_goal_never_revived": true,
+      "map_observed_before_detour": true,
+      "physics_positive_control_contacts": 20544,
+      "iris_obstacle_contacts": 0,
+      "final_armed": false,
+      "original_harness_passed": true,
+      "original_harness_error": null
+    },
+    {
+      "passed": true,
+      "mission": "dynamic-d840f815",
+      "minimum_center_to_obstacle_surface_m": 0.5353719163010954,
+      "executed_goal_ids": [
+        2,
+        3,
+        4
+      ],
+      "elapsed_after_insertion_s": 56.421062543056905,
+      "stop_reason": "unknown_trajectory",
+      "confirmed_stop_before_new_authorization": true,
+      "old_goal_never_revived": true,
+      "map_observed_before_detour": true,
+      "physics_positive_control_contacts": 20066,
+      "iris_obstacle_contacts": 0,
+      "final_armed": false,
+      "original_harness_passed": false,
+      "original_harness_error": "AssertionError([{'mission_id': 'dynamic-d840f815', 'goal_id': 1, 'status': 'FAILED', 'reason': 'unknown_trajectory'}, {'mission_id': 'dynamic-d840f815', 'goal_id': 2, 'status': 'ACCEPTED', 'reason': ''}, {'mission_id': 'dynamic-d840f815', 'goal_id': 2, 'status': 'CANCELLED', 'reason': 'requested'}, {'mission_id': 'dynamic-d840f815', 'goal_id': 3, 'status': 'ACCEPTED', 'reason': ''}, {'mission_id': 'dynamic-d840f815', 'goal_id': 3, 'status': 'CANCELLED', 'reason': 'requested'}, {'mission_id': 'dynamic-d840f815', 'goal_id': 4, 'status': 'ACCEPTED', 'reason': ''}, {'mission_id': 'dynamic-d840f815', 'goal_id': 4, 'status': 'CANCELLED', 'reason': 'requested'}])"
+    }
+  ],
+  "method_checks": 15,
+  "development_failed_flights": [
+    "dynamic-1: missing occupied-path recovery",
+    "dynamic-recovery-v2-1: lateral detour unobserved",
+    "dynamic-observed-v3-1: hold anchor drift during map observation"
+  ],
+  "original_harness_classification_error_preserved": "observed-v4-3; physical DONE and safety audited independently",
+  "scope": "Single spawned static box introduced during actual waypoint flight; not arbitrary moving obstacles or visual-mission detour certification."
+}

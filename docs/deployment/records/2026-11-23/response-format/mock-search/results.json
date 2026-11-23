@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "invalid_response_one_same_view_retry"
+    },
+    {
+      "name": "full_scan_wrap_and_safe_no_target",
+      "headings": [
+        45,
+        -45,
+        90,
+        -90
+      ],
+      "requests": 5
+    },
+    {
+      "name": "inconsistent_initial_target_cannot_start_translation"
+    },
+    {
+      "name": "cloud_timeout_retry_can_resume_with_new_valid_observation"
+    },
+    {
+      "name": "empty_api_reply_retries_current_view_without_claiming_absence"
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

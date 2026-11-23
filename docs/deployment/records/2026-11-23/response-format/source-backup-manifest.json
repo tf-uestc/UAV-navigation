@@ -1,0 +1,2399 @@
+{
+  "source_root": "/root/autodl-tmp/uav/validation/final-tasks-2026-11-20-Q1cy/UAV-navigation",
+  "baseline": "836a38584d48565f59d2326b79892cf638e18074",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "d58d45be6427491a81fd5f1cbe91a48f45d41781f3244b692fff83ee925ce50b"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "36aaae7e6db3e68a2847cade33d96809b0012ffb0f916e2d13aa2da57306c0da"
+    },
+    {
+      "path": ".omo/boulder.json",
+      "sha256": "1c797bffff33905a181e6f64798f565751ea1d06ce9c19bb2507135e5c22c214"
+    },
+    {
+      "path": ".omo/drafts/cleanup-world-v1.md",
+      "sha256": "641c2ffe45f451f74dcb40f464d6b2a078e7864a336740f6ff263279d4b4da1d"
+    },
+    {
+      "path": ".omo/drafts/f2-grounding.md",
+      "sha256": "0d6f118265efe20e2c32e4eb380c535d9fb2bcf5e77bdd81b015be525195d2fc"
+    },
+    {
+      "path": ".omo/notepads/f2-vlm-grounding/learnings.md",
+      "sha256": "ff554741740bed428aa5fd4fd83343f302ae6ee577b47900cce506e7d60c6765"
+    },
+    {
+      "path": ".omo/notepads/tf-chain-fix/f1-oracle-review.md",
+      "sha256": "d61feff28da7c2a27c12266bd4d2a59289e3429103f2407647896e19acad72b2"
+    },
+    {
+      "path": ".omo/notepads/tf-chain-fix/f2-code-review.md",
+      "sha256": "eff6e9758fb0b5723f7ba08343931bded31509bfac7a6170aee62d53ad743510"
+    },
+    {
+      "path": ".omo/notepads/tf-chain-fix/f3-security-review.md",
+      "sha256": "cc839a645b488c04a6512df47c45a6de1f0ed61dc2c82496f1b1c5d89bf1b9a0"
+    },
+    {
+      "path": ".omo/plans/cleanup-world-v1.md",
+      "sha256": "713f0ac190f6713455a6122bbedeec81e1b8b87d43740fc49f75f450041ee7fe"
+    },
+    {
+      "path": ".omo/plans/f2-vlm-grounding.md",
+      "sha256": "b945d24e4b0d905f27dda53e2368c36cb38639ed54fb68291ee1dd9ce2e3b6ed"
+    },
+    {
+      "path": ".omo/plans/tf-chain-fix.md",
+      "sha256": "bbb5d3487e21f3730c09015c17c4f51f331f314c3aa515041a76feec5bd241a1"
+    },
+    {
+      "path": ".omo/run-continuation/ses_177d04a6dffee5q9jzQOTluc2J.json",
+      "sha256": "fb7ddcd76d06b96c8cb25da0ed419595ca90fda0f0774921333c4585406fa033"
+    },
+    {
+      "path": ".omo/run-continuation/ses_1820b8cb3ffe4v0rl7p7lMwY1T.json",
+      "sha256": "c343c9dec29b4a59131bb948f194552f2dfccb87b0f5565b365ad72b34a75084"
+    },
+    {
+      "path": ".omo/run-continuation/ses_182104303ffeDxVRCRsR1sVGke.json",
+      "sha256": "ca83da0879d3607694096eb1d75d077692453c2927d79b4a92c6b0355829b29c"
+    },
+    {
+      "path": ".omo/run-continuation/ses_1824bebd4ffeaFEJQLQlkjG2F8.json",
+      "sha256": "cd54e3e60bacec5bf634533ae620a94002cad9f476bfbd3d8ff56546090df4d9"
+    },
+    {
+      "path": ".omo/run-continuation/ses_18293db43ffefq34TDoSVXbRVO.json",
+      "sha256": "82993fcc2c8adeb6930db325ab5316b8412fd14a14aaf7ef466e172ecd22b5ba"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "ee3e859a35df1b7ddce1db587498437ed16f45b9cb47624ec93c5f20de3bceff"
+    },
+    {
+      "path": "README.md",
+      "sha256": "0b6924d8b511bc329bcd1bbd9121d8bac7fc0d1936f2bd3064c7030127944210"
+    },
+    {
+      "path": "analysis.md",
+      "sha256": "39176ac3aff2cfec60fdc89d89f7c98da50018d6063e37b6616479a79aee7973"
+    },
+    {
+      "path": "docs/.env.example",
+      "sha256": "49d45f69f9f4ecb4ff05388b07da5e77050a564959e7cb276f3c57fa22e2833b"
+    },
+    {
+      "path": "docs/622\u72b6\u6001\u7ba1\u7406\uff0c\u6301\u7eed\u641c\u7d22/v1.md",
+      "sha256": "75a3ef26718022d17d7d443e8687218079fe8ee794764e8eda2bc7dfbaa3a648"
+    },
+    {
+      "path": "docs/622\u72b6\u6001\u7ba1\u7406\uff0c\u6301\u7eed\u641c\u7d22/v2.md",
+      "sha256": "9341bcc3a7593d390fb6f353084ad96da484695182981b3fb3564005de07fbfb"
+    },
+    {
+      "path": "docs/622\u72b6\u6001\u7ba1\u7406\uff0c\u6301\u7eed\u641c\u7d22/\u72b6\u6001\u8bb0\u5f55.md",
+      "sha256": "6ac4a5a831c0af5b008aaa7db374bfe5a240e97732f24b3140e3e043f0628450"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "068c18372e26ef1cee3dea884d738f63b2d8944eeff1ec0e479478a516da943d"
+    },
+    {
+      "path": "docs/deployment/audit_followup_2026-11-09.md",
+      "sha256": "732ea89108ed6974e1ce5ae052031768f6251333c2696ae3c102b481e7e56a19"
+    },
+    {
+      "path": "docs/deployment/environment_2026-11-02.md",
+      "sha256": "7fd7c40e3cc2f7134544bec59b27e5de8e9bd219f02523a71e8026433d9d11f0"
+    },
+    {
+      "path": "docs/deployment/final_regression_2026-11-09.md",
+      "sha256": "f8c406d0eed06c743b3f938de1a9dbf266032065955e02c094006e1132cc11f4"
+    },
+    {
+      "path": "docs/deployment/flight_execution_validation_2026-11-09.md",
+      "sha256": "6c7f71767f92b0350ab912adf7319bafe62758c85edd27542e564b7d48c65e55"
+    },
+    {
+      "path": "docs/deployment/heading_validation_2026-11-09.md",
+      "sha256": "748f53044f29abb29ba033fafc4f8ea18b828241189e2eab1377d4fd7ed8c833"
+    },
+    {
+      "path": "docs/deployment/perception_validation_2026-11-09.md",
+      "sha256": "cb56d8e2f503ab56596006ba2c8f3e0e06c8c5ce630425c6afb4e2e7e62307bb"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/environment-2026-11-02/apt-packages.tsv",
+      "sha256": "4dc79b93336dbf57d8de5042acf1b66d4428b86f10c61ae98afb7dd0bd425d12"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/environment-2026-11-02/ego-catkin-toplevel.patch",
+      "sha256": "5349405993eb25d01db3fda3a1870b37fa3a4de3750a31fc611e3ce3c30df5e9"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/environment-2026-11-02/offline-py38-freeze.txt",
+      "sha256": "320e9b35556dacfe43faa41ad0703e4080166ec7224549544e915883a3573e4c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/environment-2026-11-02/px4-constraints.txt",
+      "sha256": "d9116b3cb247cb9e4ec5a64edae9845588100146b3fa211c1a975a33c0d84fcf"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/environment-2026-11-02/px4-py38-freeze.txt",
+      "sha256": "b6bfaff423ddc3d9c3787898c50c0bea9fb9ff4865e6b6ad3fda63a9b4803c57"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/environment-2026-11-02/px4-requirements.txt",
+      "sha256": "f544316b52897c54c17bba621b5ec88067fc14fbf71a2a731f1cb9162445cabb"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/environment-2026-11-02/px4-submodules.txt",
+      "sha256": "2d8b87d5113949cf7c989f6e370de8de34cda53066002b8f8682400ba1b4c753"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/environment-2026-11-02/system-and-repositories.txt",
+      "sha256": "36c6fc06fb0e7c4487c5820b67d860b90c0f6d0fdb14783bad11df9f4431a073"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/gazebo-classic-plugins-resume.log",
+      "sha256": "aad6e6c1e950f0a5411db9649ba50deb1d2def1f12a5c1264cc301e38a1470fa"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/standard-iris-desktop-2026-11-02.png",
+      "sha256": "db17d9b29acb3645dadb7be882f8442b14585f9e7714c2df68ed74a987786ebf"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/standard-iris-gui.log",
+      "sha256": "709f88a8116986b0744d9ae3ae8a295184acbe477ebdeedc54771bd36043694e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/standard-iris-mavros-validation-2026-11-02.json",
+      "sha256": "a26180fedd91ddd42351d0d146930e5672676d373481df695c39682696e73446"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/standard-iris-mavros.log",
+      "sha256": "8126ba6b99d9de9f344d0f097774988af6a11f078051680df61949d9e593ced1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/standard-iris-sitl.log",
+      "sha256": "b48536f9e59a54306b191e2a3c809a746d768723b1de2baf4ded1c527052b596"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/start_standard_iris_2026-11-02.sh",
+      "sha256": "a764b4bb15940fd301f53a1ef8c9741d8edc9debf89f727255b36b702ee63d5e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/gzclient.log",
+      "sha256": "6321344d88e5c276a6983a2de8c0f7f7491156361c145d7da4419ceda3b6c164"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/gzserver.log",
+      "sha256": "d32273a0b1ad8eb0acd9db0118f14bd870b0be73069fcbdf523e244801b7f0f3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/mavros.log",
+      "sha256": "864f5451da5f0d26a298120f2c515c9820bc9e2f10b638ed1c8ec46894fa7b82"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/px4.log",
+      "sha256": "bd4d3128d61c907924935e93d5ac583b0a4f3176e7ff9fe3d9f544f17a701820"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/roscore.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/supervisor.log",
+      "sha256": "ff4bcaddcf08123084e19f9fcfc0ee3335ca98402e1aaacb82eb5cca8330ab4f"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after-logs/tf-healthcheck.log",
+      "sha256": "81c673025fc7dd7cd0d1b95d39f0d87ecf0a495821fb22039bbbc5df9908203d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after/depth-meters.npy",
+      "sha256": "2c56f754492695734a72b84db6cbb4103e566135c47036b94bd1f5aeaa23cd9d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after/depth-preview.png",
+      "sha256": "e1810d6cf83b8c500b33f3180fc6e5528402cfe96935b6b05a51b6a3cbc65890"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after/rgb.png",
+      "sha256": "6b19392e320a2a271a232ae3028b4d395911cbdf8eb557fcc22a74162ab0bc88"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/after/validation.json",
+      "sha256": "d4d74eaad9e4339ca7546753ed98a4b8094563c03628c170e97431845c820fda"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/gzclient.log",
+      "sha256": "fb708dd94d613f7d11624c09976b4e65c4a19778f4febd75d43d074acabdc8d5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/gzserver.log",
+      "sha256": "10d3a5841d64d0d486f996148aaff8a9923084f4ac43ef525c3342f2604990b2"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/mavros.log",
+      "sha256": "cd96972568487adf1bce8efa9d95eee295d48a85189032faae7e943cf55863a1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/px4.log",
+      "sha256": "06828c066781467d976b62fbb1de873241753481dc0793a37df6cd5d42b01227"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/roscore.log",
+      "sha256": "d70f3253a670afa506ea2222a8ecce425b27c0ee305df5f4a2753e4ab38143fa"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/before-logs/supervisor.log",
+      "sha256": "4a93308aca9509eb9758be472405ec0806d38495e0871a91d6659f8e389296cb"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/before/depth-meters.npy",
+      "sha256": "00bdffdea92563929bc279905d8b418079304e285edefa535748aec6438e2a67"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/before/depth-preview.png",
+      "sha256": "db22c004cb8b63b45d79d49f19cda963f272d038a411834f45061a562bd29014"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/before/rgb.png",
+      "sha256": "1809abbd555e3482396accccc095451ed6ce5788176960944238216571248ef6"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/before/validation.json",
+      "sha256": "352070d1fc81986943f9e7a2e9627d5c840f0496b44adb405f05493358d42898"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start-supervisor.log",
+      "sha256": "8a5fa400c56748fa6533bc6298abce2be746995a1362ba3f8874a1c739232a92"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start-validation/depth-meters.npy",
+      "sha256": "66e41c78bdb176a72975215fe50cf66ccefd1fd14a1b025d46a70e3bcd3252f8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start-validation/depth-preview.png",
+      "sha256": "39d1d3f52cbce0605b28a48117382a53c878f5aa99a35167015065295cb42a5a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start-validation/rgb.png",
+      "sha256": "d43b8aba358caae0ce4b8de5a8c4dca16e6ec05bd65e256e06d1c3276a7ba5c3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start-validation/validation.json",
+      "sha256": "fa6838c721fa0e1d4686080aeb5d7ffe7cc008a60beac44fe64ab059c8e95531"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/gzclient.log",
+      "sha256": "6321344d88e5c276a6983a2de8c0f7f7491156361c145d7da4419ceda3b6c164"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/gzserver.log",
+      "sha256": "127348e22efd631cf91ecc13008ce3ea610b7d25e11a4c7004249d92f2d6375c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/mavros.log",
+      "sha256": "fcc0e5c07861dcf932f2927532ed54eb842bca3148682ea0bdb207b8528dcc54"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/px4.log",
+      "sha256": "6ffba0afa8e6a368d22adecdb5ccaf2f4f1c5e049b95b22df2b8aca3910e90a9"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/roscore.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/clean-start/supervisor.pid",
+      "sha256": "43a1ed1b79c77e77a464f202ba9a936baae597ee46855881e1abb9942eccda53"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/config-changes.patch",
+      "sha256": "b1263988da655ec9ea16fea8813e73871c809eb4256c41640dd18b0c5b7dd9ad"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/gzclient.log",
+      "sha256": "fb708dd94d613f7d11624c09976b4e65c4a19778f4febd75d43d074acabdc8d5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/gzserver.log",
+      "sha256": "01dd9af7a631bc8383fbfa2f783607c22c4f9f99585c21bd6a67dfbac9aec0c5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/launch_project_rgbd.sh",
+      "sha256": "526aacb39f4b220ce636274eaf5da031683420ae1eec2439b2b5d79850a9eba3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/mavros.log",
+      "sha256": "5868839fdd42d4843c6e29f48921880109d96f9c9439d942e40ca567f410217e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/offline-regression.txt",
+      "sha256": "26638630112d556b08d14be8bf5d7ab049843745e03859c2b5767d9af3a510a9"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/project-desktop.png",
+      "sha256": "6d3df5deaa1ab3c4b4643fc659d5ef7a83abcb1fad816ce9fae7b480610e9a03"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/px4.log",
+      "sha256": "eace114472b4d7a03b4e72fc4b0063ad58186d4b04851b1e390f3984c7f6e3e0"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/repository-state.txt",
+      "sha256": "7e974dec0c1e99da6c871ba3fcc691d80527852ecc7e765a7155dc2e9e157407"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/rgb-before.png",
+      "sha256": "a2c5649dac4a863c2a772759368300e68549312fc30438c931c193904c68fd38"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/roscore.log",
+      "sha256": "8e14bf40fe95bd7931e1c0e3526b258740e635dab7965994cf306ee63abc1892"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/source-before/simulation/px4_gazebo_classic/models/depth_camera/depth_camera.sdf",
+      "sha256": "87de1ca60c378d7b5985cc77ed4e77fa08a525f4ac11df29eee20c3ba083b1d3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/source-before/simulation/px4_gazebo_classic/worlds/search_rescue.world",
+      "sha256": "5c9affc8fc6aa4dafb49bc35134acf762b61ec5576f5315387fb28c1660b56d5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/source-before/ws/src/uav_vln_bringup/launch/mavros_px4_sitl.launch",
+      "sha256": "eb0a6b854b3e76ceb032b586c85f4a6c24105bf56c565e290522e2d04dde3341"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/source-sha256.json",
+      "sha256": "37dd1e84e496a69603d8979826e4585815f5ac175b5c2f4c5b69d55f6b4f79ee"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/supervisor.log",
+      "sha256": "ff4bcaddcf08123084e19f9fcfc0ee3335ca98402e1aaacb82eb5cca8330ab4f"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/supervisor.pid",
+      "sha256": "8005269829377442cbfdae63ea18fb26316fe3a71f205b0ef9d9a46fe76f407b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/tf-healthcheck.log",
+      "sha256": "81c673025fc7dd7cd0d1b95d39f0d87ecf0a495821fb22039bbbc5df9908203d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step56-2026-11-02/validate_project_rgbd.py",
+      "sha256": "cfbc3f2a8eb8a90e6618d84ba98bef19275b2fa86812e7cb0caa6d524a939674"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/accepted-summary.json",
+      "sha256": "1773da77deb3dee68352a73002bb11d5f5473c387a6aef2ec0a077d66dbe99bd"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/bspline_oracle",
+      "sha256": "facbbb7f1840797251f73b9a7f91ad58773cb19c17aa8c9c343dead778ef2add"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/bspline_oracle.cpp",
+      "sha256": "6fa23ba01088f7129beb5e2852a1f69cd68d7d4680ef89e7b28197ecbf6c98c1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-build-release.log",
+      "sha256": "82e4bb1f3c1ceea0ccefff15052f794a55db5a1afa13f2b8b5ae95717683b0c9"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-build-verified.log",
+      "sha256": "cf7a07e972742e431feee4ae59a3e237a58e8de7fa79c817c0cde2f995762251"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-build.log",
+      "sha256": "12d95c105f4d59cf6d2e62054ab94fae9dac45468c5ac048a80b1b5b49d285af"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-clean-install-verified.log",
+      "sha256": "25550eb4fe7c7351b25c28a6d1e3142d49a22c3f591a3e7496c99b5ec4537bb5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-clean-install.log",
+      "sha256": "a75e3bec77cc24d213468fbdf00fedd271eae6d0bf007aeed990a5701cf9ab96"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-default-devel.log",
+      "sha256": "e80d6e130d4327361622c42ea7ca010998c2b3e91b2b3fd46e87bdb50468e432"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-install-accepted.log",
+      "sha256": "1fdc34f10dffa62bf0aee8008d13f0fd7cca566e763bc4d9db0858b850d92376"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-install-camera-shared.log",
+      "sha256": "464acff149e75e8f36b650cdc18bbc577abf883503267292c83ead9c426f32cf"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-install-complete.log",
+      "sha256": "82e4bb1f3c1ceea0ccefff15052f794a55db5a1afa13f2b8b5ae95717683b0c9"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-install-final.log",
+      "sha256": "53af2143d87da375c024b09b8358fec9e37649e731b91397c245581df81cf5cf"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-install-release.log",
+      "sha256": "c0c3c91c18fbd6e057c47fbdaca5505c9bcf752fd2291391928746f5b26fb47b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/business-install-test-entry.log",
+      "sha256": "70a4cd96f4ef33ceed36e9488a9875cec9ddb640abb22cbfd8c3935a2a6fa426"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/camera-bad-calibration.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/camera-installed-node.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/camera-installed-validation.json",
+      "sha256": "c7fde520e31aab52762dc895b379dd0ceba1b769467b43f0d7fc5a84ca9fe639"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-devel-release/dynamic-obstacle-probe.json",
+      "sha256": "ded00be7d16a5c68035694bb3b6da56475cb65e5b39d626a1e8f0b7284875d98"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-devel-release/ego-restarted.log",
+      "sha256": "cb87f6e182d1b97403847f809b1ad2c2c8ea227d24eead4d1a76962cf2144372"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-devel-release/ego-stack.log",
+      "sha256": "d27dc57d3f1f47634fdd2a28f718335d45bc1c5a599448291dcaf0182fd88a70"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-devel-release/master.log",
+      "sha256": "46e129813cc9e811a2013a01081b3fa09e626e147ff4c1331bad1f3c07fd0204"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-devel-release/results.json",
+      "sha256": "2dac31884a6a3a1ed07d1144f9e943826e6414f8abea6326c8eeea6974d11207"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-build.log",
+      "sha256": "0ee96c3da1eb200f1f85ff13c1f53e11b12be65c601bc39ca7c4a93a77c283db"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-clean/ego-stack.log",
+      "sha256": "66f28e9bef94e92fd5bffd802872fcdf25efa3d89e6df6e0fb0a83d5b3b1aff7"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-clean/master.log",
+      "sha256": "b85739a43abe2755d9e775ce3bea50dbab122848a1d0e753ddec707368740972"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-clean/results.json",
+      "sha256": "e8b6fe581b7e38f37d18b203ccbc1749222af179abdcde0b8d010072e6c6e125"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-complete.log",
+      "sha256": "dae4c7b94c4d88b11a0a563dd371577218b28aec20c84496bbfbd116515146f7"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-complete/dynamic-obstacle-probe.json",
+      "sha256": "c79f915721b299249a562d5b90693e8084062a9899086dc696f046138aa63cff"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-complete/ego-restarted.log",
+      "sha256": "9c0906fba7183a797181747d24cd0abfc2c149b32daa4dad767ee0225c335f27"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-complete/ego-stack.log",
+      "sha256": "501210d338cf70342a6aa1b255d828469902e64ac04953fa16435563afd5e70c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-complete/master.log",
+      "sha256": "1bc00a261eebc42c90032ba18fc4490ed6203dbf1c0d1b9757aee6610a9dce8b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-complete/results.json",
+      "sha256": "8e96e2103b070a186c6447f0920f324afd20e66eaa2c11978fb283b6a1f3f5b4"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-final.log",
+      "sha256": "dae4c7b94c4d88b11a0a563dd371577218b28aec20c84496bbfbd116515146f7"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-final/ego-restarted.log",
+      "sha256": "da750815f728777cc1db5b7e2b1a6756b4c975c2a930eef6931d77096f784381"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-final/ego-stack.log",
+      "sha256": "e2fe12878f107095f9ed709c7d74d5c22a3498d63ebee92e59b3852838b77bfd"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-final/master.log",
+      "sha256": "7c0e2ad87cfeda8b9d7dc476c8b193b588c6f66341194de86ab704b3bae632af"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-final/results.json",
+      "sha256": "4ae9b1cd1a390510f2269f24c070f60958af6b4876f790a531cb1cf2772e51b7"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-verified/dynamic-obstacle-probe.json",
+      "sha256": "fb36ad2110ddb746b08eed13e1e71368291c777a6b22b441a3b29e2c27dc458d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-verified/ego-restarted.log",
+      "sha256": "79a808b7afdb380b1fb816702efefa372f09c699b28fc305e7842674acaf87fe"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-verified/ego-stack.log",
+      "sha256": "a6f6d2b1696c425374cb4d4abbe4ece4a765787242d09a5e9b38215067d2730e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-verified/master.log",
+      "sha256": "cb3ffb8b66b286aeca46e14967ca9aba35f5924685c9b583b1ae66f1c4c7dcc7"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install-verified/results.json",
+      "sha256": "55cc53cc3c737eb4aa66319da3e89805d2c751b1efb3388ef9be449eee10c016"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install/ego-stack.log",
+      "sha256": "98e8c8bc88b8e38cfa6f14b5a454027b377c671e836d89fcde085a844b852e98"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install/master.log",
+      "sha256": "43ce52114b01de501c5d613c8d9c1f185c41bb18268e8b1749f9c15897e2d665"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-install/results.json",
+      "sha256": "c9ae9c744b3537bc844003c122b558f3197e5878b47cb4bb7c7476a545026970"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-managed-build.log",
+      "sha256": "a39ab7dbf44492e593ec55af8e94c94c486c0f2f8f2ec6ef0353fee7d110d63b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-patch-restore.json",
+      "sha256": "b0b78e9bc96d7d6656e527d94c62163b852cb4e9d655c9e9e46d5564ffa70077"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-patch-restore.log",
+      "sha256": "663d2b85d9c3ab5b9a0bd8ec732e7640c23f691487a03dd0d00200acf4165720"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/ego-preexisting.patch",
+      "sha256": "5349405993eb25d01db3fda3a1870b37fa3a4de3750a31fc611e3ce3c30df5e9"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/final-live-state.json",
+      "sha256": "ba45e335b3a292b0ad7257eab086f3c28b42e7a559f73b631a012235c5aebfd5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/install-baseline.log",
+      "sha256": "c3654554b0ecfb7db657fce521bcd506a604c4b3fae640759e23d8adab436513"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-accepted/detector.log",
+      "sha256": "6e569554be8b98d4eba0a2f76379a992d298ab620691d5c18e9b44912c73eec1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-accepted/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-accepted/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-accepted/manager-3.log",
+      "sha256": "ea5c784ab8c86c6e0e4a82dfb95853d038f3f9b9aff0bd682269636c129f8ae1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-accepted/manager-5.log",
+      "sha256": "53e5c4743599a37d1f3315d5df807aa3b32f0791ece77ba28865f95b09081799"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-accepted/master.log",
+      "sha256": "5e9372c319a85686093ae0218eafae8dc4ac94a4ae412c5c5afc2f32130960b4"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-accepted/results.json",
+      "sha256": "fb414fa8b3874242cdcfb704dd32a48392db49311d16c45d0d7cc691e8274ac3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-final/detector.log",
+      "sha256": "4703fdf3fbae19280616b26a4a0343f70569bdf574842877eeaaf235b8297662"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-final/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-final/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-final/manager-3.log",
+      "sha256": "5dd6fca1d37822c8cf2f995f963321c133a1da634168d76d4edd495b858769da"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-final/manager-5.log",
+      "sha256": "768ff01e380ff25cb549dfbed3ff8b2bed12ed799523b9617701c7398bee191b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-final/master.log",
+      "sha256": "ab42bb117c7bac4b1de002cc1f6d6c12619c8976b209ad125fcb94402e3c9b3b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-final/results.json",
+      "sha256": "ad1f69b42f5c61bb9a74e2602bc1583aa0e281c59d790ba6ded5837e7e8d026a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-pass/detector.log",
+      "sha256": "cbebe8c40feb86dc6ea4002f18870cabc183254ca639d1aa2fb824bc551796ae"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-pass/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-pass/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-pass/manager-3.log",
+      "sha256": "dab408130c96422d76b7a8d9afdadbe3642f2b5cb3272219ad29a5ce624e73cb"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-pass/manager-5.log",
+      "sha256": "fc742f99f329120b8f052586335b377b96f766c7af28ff9b3b656f360fb86b5a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-pass/master.log",
+      "sha256": "2d6bf45492246e5cb2d7aaf09b7cdfc677b888b762106a1d49acb6d35a7e6fac"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-pass/results.json",
+      "sha256": "65dc61629dd29fc3171c6411a3c27f30d2b7aa3d4046639d6372a6bb622660e3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-release/detector.log",
+      "sha256": "840b22b6b1520c43a5da8583e14a7030521ccb7e7712c774affe513f54d987b1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-release/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-release/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-release/manager-3.log",
+      "sha256": "3325f28170dfd19e3ab58b03eca74d715069abd2e3c16d6c8e8941e4a9f85f2a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-release/manager-5.log",
+      "sha256": "ae0c3007235624dcfa22836a26fc0565516dd7c471fb439585f9dc2bc4d03d68"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-release/master.log",
+      "sha256": "052e6dbc83fd523061f2b3820c0426f04639d16c0531c5a6a57e418b657e827e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-devel-wall-release/results.json",
+      "sha256": "21183e8d552a7ec989f97fe5a925ed280525f3b7267ac9f91bb18f29b63ccd5d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-accepted/detector.log",
+      "sha256": "b3fa2464b574a471205dbdb77d7462e1eca1ca56e07480c3914fbc1bc61a6488"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-accepted/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-accepted/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-accepted/manager-3.log",
+      "sha256": "65b22243d76a741bcac7eaa37455102e0f9b05e47d120085c759fd13c6f8efec"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-accepted/manager-5.log",
+      "sha256": "c36338570992799dd393bef7f488b0a88716ac29379022649d6ee839d86b87e5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-accepted/master.log",
+      "sha256": "ff2e348de7d65e93144749fed0d4363724b02704079c14d411f705e0a1670f0d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-accepted/results.json",
+      "sha256": "ebf5066b7a473a85d12c1b2b7c10129c213b31dc36503a71f9d7cbd69e70ec05"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-final/detector.log",
+      "sha256": "66327f88b7c82606ffb7d6082d7b81965f76dc778c41e85d58f5bde33947d12d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-final/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-final/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-final/manager-3.log",
+      "sha256": "d72add326f1cacccfd3f79f1658e6a3072d759e201c0e8c631360a0a16f5d0d5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-final/manager-5.log",
+      "sha256": "3799c4ebfc42037d04124913a1260030c4f4eccc7832ce244ac8989f27a5fa9d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-final/master.log",
+      "sha256": "f7894899316e8c4a93e09e35ac989e418700da5b1cbb40dc288570dc34c24369"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest-final/results.json",
+      "sha256": "a0f5b213ee0fc777f6362b22e5f5911ee6aa34f594891f675d6e95b4d2db6fef"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest/detector.log",
+      "sha256": "73171971c49f2c6ff8fe00fc0f7733b602bf761f16c8b134b2de9ff0cd70753e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest/manager-3.log",
+      "sha256": "8355285aa6b550f88244031c9011a071b4dfac71773903d000d72f8936807ce1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest/manager-5.log",
+      "sha256": "180be62afb1f23ef2821b15e50df4da1100708ffc967a352b9798a6308796e07"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest/master.log",
+      "sha256": "74bb19dc509e4673d97c28446c5cca618181c364677d65d742c0610989d3c264"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-rostest/results.json",
+      "sha256": "d06bec45bf33d5d6baa452d0801a1115da15a7c428a5eeea994c02194c176fd2"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-complete/detector.log",
+      "sha256": "9f3a83012b2126a58be4e0a0cbff6665ab0f4548558eec57778820034089618d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-complete/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-complete/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-complete/manager-3.log",
+      "sha256": "3339f9ed35ff7f0338c06277f324cbeba35bcdb27102b14c0b52f573ec2b91ac"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-complete/manager-5.log",
+      "sha256": "903399a94ae8d4f89f16219f02ee7b80df61644831eef5ca61d5f7ea50ef1773"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-complete/master.log",
+      "sha256": "833bf7c89bb1bc58593452fbd20c173a27dd17d836fec2dc2c223b5cdce3e8dc"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-complete/results.json",
+      "sha256": "196fd48af17b5d5eddd693e97c872da0fb1779cbba0d3c3c631e9baf8bea9610"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-final/detector.log",
+      "sha256": "980573136c8e597b323abf665464ab1a2eb2912c7c6259cad2d32ad33b8cf646"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-final/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-final/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-final/manager-3.log",
+      "sha256": "3a16ca09a60be8114fcb064e3293ed41303d06a07d2d44cacbbe6a7e243b91ed"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-final/manager-5.log",
+      "sha256": "78badc88db02076f16b2b7dd55d835d13f5aa36145f986b3d425b729c2a14db5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-final/master.log",
+      "sha256": "5d75f17b92bd8f34ee5eb8b234b8b2b73ef22c1483b9b672c0d96ce4c608068d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim-final/results.json",
+      "sha256": "505203f4439ce4710ba1ca7d426b6a1285edaf76b0240974e9ea6f1c723cda64"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim/detector.log",
+      "sha256": "af885d6409e76b4ebf7b82f4195539fd4f5eac11090edc61c6abe8cbff363c3a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim/manager-3.log",
+      "sha256": "ca3ba10058208e8ef41e69ae2f487fa731e88681892373177e97cb35a3ed8ac6"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim/manager-5.log",
+      "sha256": "7c91a95a9383a06dc952b2663c811adebc815eb1facc2b21101f6baf05b4541c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim/master.log",
+      "sha256": "d62cb30506d450c810c3f8a10532080d16ab3304389417b179c2cc8cddad7b63"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-sim/results.json",
+      "sha256": "b89ed38df7715eaf0a2491f4c3a7523a11d741ff39a737d963e01c649263b7ef"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall-final/detector.log",
+      "sha256": "8eae6dfed15b3ec40bbc45b3e5ef274afac60b9814bb3aaef0cb0669f0a3912e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall-final/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall-final/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall-final/manager-3.log",
+      "sha256": "9ee9e626c786c8ad752fde93faa325f505ddeb7179027d3e5a0f9fded349eae7"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall-final/manager-5.log",
+      "sha256": "6d7ca18fa5f13d99a57488187f3ffeb53f0ff49cd23af7d992a7b931acfc2f16"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall-final/master.log",
+      "sha256": "eb4ce74590d360be2455416cdb9aae3a06d474c62eccc9727aeede15f18cc556"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall-final/results.json",
+      "sha256": "309b553d9b769afb1aa276f25601afe98a7d7804d4a2d263a11810b9f006e556"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall/detector.log",
+      "sha256": "00d8114107d320671489dc587df5121b558b3597ac138bbe185587c5a4fb1289"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall/gateway-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall/gateway-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall/manager-3.log",
+      "sha256": "203a50af65bd3607dda6540e4c3f689846f3f7c98decbd7b6235e476188ef729"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall/manager-5.log",
+      "sha256": "f94a48a26ed67555bb7776c89f0ccdb938a2adc0667e3324f82d5548f41b7bb4"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall/master.log",
+      "sha256": "4058bb0052dd7dcf092a49cd447e9b5f996eccc92c8bed52c7406d6507a909e2"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/lifecycle-install-wall/results.json",
+      "sha256": "6eab0b6d8d3bc74627cebeac6d946b259a526a15191573286c6ca19237d413e4"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/offline-final.txt",
+      "sha256": "c2acb7ab26784832627ec8a214895532c2c77c047540538cb1c15b30afbf2037"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/offline-regression-final.txt",
+      "sha256": "37e27c722c436c19b448b204e97e3745c5ade7a3d348aa890a5bf8d532a85072"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/patch_business_step78.py",
+      "sha256": "c8946858134f363b1bcdd64fd31a05596493c44eaf26e08cfd1a519bdb5dd0ff"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/patch_ego_managed.py",
+      "sha256": "e57938eb2c901985e9b5cc9ea9bab48972eb6188e79bc7d0a8d970cdc226b44c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/probe_camera_install.py",
+      "sha256": "04b7963c4cb66df1b38961bc675c130feb036de960bb3cb96b96b0b725bfef38"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/rostest-accepted.log",
+      "sha256": "784d796ae9f74a423b75a55201bd7c78a592e34ec97a418a4d0bf1155913756b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/rostest-final.log",
+      "sha256": "8bb51b21c38cb0df0e5d0bac1502ad506afced1fc0b0ba97aa4d92fad7a6d673"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/rostest-summary.log",
+      "sha256": "348b6c2f1209c90e8e08c1c7b6c725a7bd00cef4b1055569f57a07da701ae83f"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/run_ros_stage78.py",
+      "sha256": "d5e312831d3607e785dddaba7d1e1ec868da853fa73dc79b086a016650b6f4c7"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/snapshot-merge.txt",
+      "sha256": "285e8c99478bf317c6e65134ac179112281bcde650da34b9e6d6e47cab333d55"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-02/step78-2026-11-02/source-manifest.json",
+      "sha256": "f8ebb1b35f05f49084f078c48bb35fb8cf4b4ae888bccaf364e821a0b6dbf8e3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-dynamic-1/results.json",
+      "sha256": "96e553e0834aad3bc2c89d63b1ebfc739717604905d4e48f7986e56597ba8343"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-dynamic-1/trace.json.gz",
+      "sha256": "47ec766c6ce0803dd25f8da84896ce43a32e167d397cc08a7d1bb6a122c0fcf2"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-dynamic-2/results.json",
+      "sha256": "4a8b5aa20175cae7abdec0c94a1c873a59044d963f90e25df0cc263fad9da108"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-dynamic-2/trace.json.gz",
+      "sha256": "bc371b3aa3d350a11adaa79918c7f6a31aaff7506cb31c405cec386dab09e133"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-dynamic-3/results.json",
+      "sha256": "59f6008f2af7c5da7a5df3ce114598982f1f69d3883938d7777fa0a38c7a9417"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-dynamic-3/trace.json.gz",
+      "sha256": "9c19e0ea0f59d099351c30a286afb151615e222f04e9d0d63c90a14fc81c421a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-live-retry/heading.json",
+      "sha256": "9a7badd8329a3fc434588f377c261e33cf4bb1c0fd1a8f3dd9422dd7f51379e6"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-live-retry/results.json",
+      "sha256": "61ac3a509b81161042dcff03c29d11b5bb5416f2a963d79010f301701e5129f1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-live-retry/trace.json.gz",
+      "sha256": "17c43241bae3dc46b54da6ebe48f33ac9d930d215bd1913ae57e7e9ff46c3687"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-live/results.json",
+      "sha256": "c3476478b5f476a16284866b931f651f79f64c305699ee645d35bc1e8593e7e2"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-live/trace.json.gz",
+      "sha256": "a6101c3e000180b4fceb16fa0cd4f0243e47e83166aa5061c87f51f8919717bd"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-obstacle-1/results.json",
+      "sha256": "b464afc9d38577e547367dae3bb1e98798821b9bb96d0f8aecc568d0d2dfdd30"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-obstacle-1/trace.json.gz",
+      "sha256": "de80f1fb5ae652e3758d8719943af5f189fef9ca2c6221c51affcaf17813a8c5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-obstacle-2/results.json",
+      "sha256": "8c7ec20c5e0e62cf1ff6fe92718627e7ae851dc4a605022f4d8ce60699fc5b3b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-obstacle-2/trace.json.gz",
+      "sha256": "a93eeb304c65b16256506af65d8a9cba9d3c429acdb0950fad59d580c444823a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-obstacle-3/results.json",
+      "sha256": "57a21f33e8fd4594bdecedc40d97904f7f367c8f015abefc438e5f33d72d9b05"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-obstacle-3/trace.json.gz",
+      "sha256": "ea82da64b9fe9a495271b76d62bef171747a2973c08ed8e73aa3e40f7d04f3fd"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-obstacle-4/results.json",
+      "sha256": "5b0a3ed4e7d02b3004ab1f7190272c2175c7e696dc07518b958ce8edcdb76d84"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-obstacle-4/trace.json.gz",
+      "sha256": "a41e851b39ad441964b7b9fc0e5f6356bb12e7164999ef0cf2ee07fec5af2dfc"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-obstacle-5/results.json",
+      "sha256": "00f5a002a0fa65b4cff37b4de6ef697bd9a27fa70c628e2d9e6c884d6df018a6"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-obstacle-5/trace.json.gz",
+      "sha256": "aed82be3db2483a8007580873b19b370feadee6f07833429e99a1baf8c6f9308"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-replay/heading.json",
+      "sha256": "8d49faffdad1ae3e14b25f871553ea5f8beeb4fbcbfd9a241db72a4a6151995a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-replay/results.json",
+      "sha256": "c2ac62e6c3a13d8124e88f5d58f83c426e8eeacade390f1ba90b3d8348eb4888"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-replay/trace.json.gz",
+      "sha256": "aba2d252013dd795a7e42c99e871a5c2181dcb9528c19854ad02c997ec3098fa"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-routes/results.json",
+      "sha256": "b3c6890422750076a7893bf3296f05e1b4418881f385ab75d1e652adada33bb3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-routes/trace.json.gz",
+      "sha256": "ed62dcaf6f4679bf0a1d8c1d40212285e0c98b23f6e752deac88ad6a09296701"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-search/results.json",
+      "sha256": "ac4ca3af7680428fb93a75450f7335d733ca6923bed2fb4d0810a5dd116f5415"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/accepted-search/trace.json.gz",
+      "sha256": "d1e699510f00c6349eaba200b18f6ea8b2916e49d6dafac54e350bf2576d11e3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/ego.json",
+      "sha256": "89ec7b1c72b8eaf902b5cea2275a12bec679351cd721f269688a562932d49d33"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/flight.json",
+      "sha256": "16493fba6c8e88b0653a09b92cf850724ae602f279558dff4b3f5f3b4150caaf"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/matrix-status.txt",
+      "sha256": "f0b7e4eb5764fedb1034ee0345808b779f592f9fd2fa94b6e509fba95e20c860"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/mavros-state.txt",
+      "sha256": "7aa99e5886ed5db3acfb4f02d8bedc4085930a3fc143104aec1d7bd4678412f6"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/moving-rgbd.json",
+      "sha256": "73bffe11ba6e2bd7736c4001723bfb7b952af636bba1439ef769b94cd18184eb"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/offline.txt",
+      "sha256": "62ae0fa500dc72668d5dee33bf11d596e6a1f940bc0bc4bb332892894b831962"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/perception.json",
+      "sha256": "c29bc2cf69f968874cb041c28a8bba05938e958030f107ac568a44bf2711b1db"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/prior/acute-stop.json",
+      "sha256": "84ae73e86bc14b101c70d22449040c3c6be48d114c5974fc12559d2d465a9844"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/prior/continuous-replan-rejected.json",
+      "sha256": "6d0c022bba0aad13bb7072a4ffb2bf9e9f9181f9465c34d10615591ce512b14c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/prior/continuous-replan-success.json",
+      "sha256": "274f0fd568ee27dd42619ded00e8e7a52244b127e88628a625bcea39ba56f94d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/prior/inflated-optimizer-timeout.json",
+      "sha256": "7460ccd16d56f47ca399d2ef1c0e61b40ec1157d7a3282caa3c6a4de338a615e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/prior/obstacle-safe-stop.json",
+      "sha256": "e1b74433fd4f686b95207c655f4acd6d0b142ec855bcd524ae9871a1496e6f79"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/px4-submodules.txt",
+      "sha256": "b1f8550416c14dce2fdc701d14fb94b9efb44cfab977625898fbd8b3f53f4dfe"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/rgbd-final.json",
+      "sha256": "2578fc65f461a12d50c2d2ad7c100acf4616ada5910127e2fb80dcc9c7170b92"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/ros-lifecycle.json",
+      "sha256": "b12180abe911648782e0145c47ddd92d5725ed44f9f72168cdccb4f75e69d4c6"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/ros-nodes.txt",
+      "sha256": "192e443885597e066521b1256f2aab6ec9529fe5dc426e103bd4fb5729e37a15"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/source-manifest.json",
+      "sha256": "5a06a245031a5a016e78ac034647460a42a1ff0764723f943afda8791329ef89"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/summary.json",
+      "sha256": "186068694e2ec9c28e8e8fa0ddd11de5ec11319a9f8606ebeec9544a1c572329"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/unknown-space-policy.json",
+      "sha256": "11bb153bfc492509488e604f1d5d2a7d9809fc5af000faf8b18b5d73f94dbb42"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/validate_search.py",
+      "sha256": "fd38326117dc0216f6f1eca37b2e94c8481ae57ad376302553d612632578bbca"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/final-regression/versions.txt",
+      "sha256": "d1204e1737a540c1b72f5e6c1afd40e3d9d3b21fde6c33744fbfd809547ac625"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step10/final-state.txt",
+      "sha256": "e4abd120a4c267d63367c016335ac0afb3bfbad15b01fda5d5bd21fa97efba16"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step10/fixed-image-response.json",
+      "sha256": "69b1f277410b3018140b3ddd29afbbcedd9428fc3acc8db9d0f2794ca0df20a2"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step10/fixture-results.json",
+      "sha256": "de46c1bc606002a94c6f4d37e857ef6af45a8e0f0f94c7f791f085e156d1a419"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step10/live-results.json",
+      "sha256": "9f9c82731a4ca6a9ee68082e24411418720eb4423584a3a12e1aad77173d5f90"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step10/model-smoke.json",
+      "sha256": "a1af735c27e3538839935d6b150ee201180eb0b1f2b8227c6adb3042c59056f5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step10/offline-perception.txt",
+      "sha256": "dd8b2abd6d75e5f1994411314ce960dffef0de26e9655d0abd913823a7930e99"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step10/source-manifest.json",
+      "sha256": "43059034084af802c62d24897c1d66ee7f459b2895c8067d31619693efbb0fc7"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/final-nodes.txt",
+      "sha256": "192e443885597e066521b1256f2aab6ec9529fe5dc426e103bd4fb5729e37a15"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/final-rgbd.json",
+      "sha256": "1650f88dc5c7569fba0d886277055dbb2202682d5930aaf675448fb7e2cba760"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/final-state.txt",
+      "sha256": "d53d62fa1552fb8d823190a45603f4435a1afb170238ff415bcd1ae49443232e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/initial-negative-yaw-estimator.json",
+      "sha256": "801432c837f7ee171832bcaa6df28df68c80f53146ef533f92c452376a919b2a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/initial-replan-guard.json",
+      "sha256": "d51960caefac14425923c7a1cefab0555b797a66805467417166ba2d288b1ec3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/legacy-yaw.json",
+      "sha256": "d446e59b78f0f93432bb616be617443f1bbc9aae844e02385ec5cc89c65e8679"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-canonical/heading.json",
+      "sha256": "2f8397f04dddf99021908ec0452f337ca58f113ceee3f302b45e47a54215161c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-canonical/results.json",
+      "sha256": "05a4a308f7ad03c8f8305f95b55f059b854ecda1e2c2d78fb39c5d28f2aef1ec"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-canonical/trace.json.gz",
+      "sha256": "003d0c53760b7da366848a72b7f5ba30db48d12d4d9aa1f9cd6b5cc953ecb52f"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-diagnostic/capture-1.json",
+      "sha256": "ef030a5627b8e2df7ab03b454a6f236305ba166255fec096e182934621a49657"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-diagnostic/capture-2.json",
+      "sha256": "c45ab66fa28d5b280be4a00007be7e9f32881cc0c5f0ceba45a88beb2a4b7b0d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-diagnostic/capture-3.json",
+      "sha256": "a46a84ff7b9d55854f73bcc1309e5f8eb1022571811dd3cf693a5a12e5967055"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-diagnostic/capture-4.json",
+      "sha256": "d34fd723bad288f90b5ec136691cd33ea8486f8c7f7f8db04c50f902fadead9b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-diagnostic/heading.json",
+      "sha256": "7969accfaa2aa6141596b06f52900aa8f7bb798c955b12f80478ced4c4af6e4a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-diagnostic/results.json",
+      "sha256": "0c23ec64b03f22a19109e0cbcce602879e6444e61adb0375c84a9a095c5a3781"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-diagnostic/trace.json.gz",
+      "sha256": "1c9c0490dedd62b66ec012b60429a98129bc5e5b3be9cda3f24aeeb35d0e89d4"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-omni/results.json",
+      "sha256": "8cbd8f276efb1ac49cb928474e2e2c59ac2a7c0b911131c70728a0514bde5bba"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/live-omni/trace.json.gz",
+      "sha256": "751b4a1f6aa27bda0979e714fd9b20a4d2ce49e308f004c6c809ce948ea52479"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/mock-delays/results.json",
+      "sha256": "ecc8b5e717ce8929e55041ed4b4f6cecc339966b571d14732b02adede2582b43"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/mock-delays/trace.json.gz",
+      "sha256": "36b56c4de6e88c323d302cf881265153045abf21a202433d03c38d7a7f5cb05d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/mock-extended/results.json",
+      "sha256": "5ee2019865e188d3ad0fcaa891fa43b8409d17675e66934b259b7142fa113a99"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/mock-extended/trace.json.gz",
+      "sha256": "8fb42f167b562461f52239985e417b94658c4232e9fc41be83b16861d351bfa6"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/obstacle/results.json",
+      "sha256": "58a3f1a631d952425fce2a746b07fdb57647b22ef77ef678081e12be1ecaa78c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/obstacle/trace.json.gz",
+      "sha256": "ad4144809851b2d75162ebebac67445286c9f95a4bfef7be35f19e2c0d734783"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/offline.txt",
+      "sha256": "aec7b447ad99d0a0f84ec1e2b54778f7fea97b14ccdefcab3babb6c8aa0964a3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/source-manifest.json",
+      "sha256": "945a16a783a56daaaa9473989cf57b0e335d7f72b7b1602dbbf09804256d7d92"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw-90/heading.json",
+      "sha256": "236f632b472fc6fca6dfae082dee6ff8335782b91e4c5988a6846597860879b6"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw-90/results.json",
+      "sha256": "3ae01c69cc5c1abe57dbddf781c45582f3bc85381906120aae41240859fdba24"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw-90/trace.json.gz",
+      "sha256": "d5bba48d0f67a027ebcadf5dda4bce801ae2b45671b3ba89e7f085d81040bb7e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw0/heading.json",
+      "sha256": "d2fd3b328d973f50932bd73aa51b3ca27be8e3f3352267b3a3c4c4cb1ec97851"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw0/results.json",
+      "sha256": "8ce4357177273f76fcb0c6f2e30be89aaa406021be876aa9a538cf11c4197cb0"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw0/trace.json.gz",
+      "sha256": "303cf12fd0a1cec95c7ea99798bcc7ff4993701798e2e0501fc1a3a10d97fde9"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw180/heading.json",
+      "sha256": "fb2f12c2994e99518d32b85b3a35967d984564bd9bc2cbf95660bb3aece3dc06"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw180/results.json",
+      "sha256": "611a8f007c7cf7a2c96f0714109bc5f597c0602d17343571246be9afa961bd4e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw180/trace.json.gz",
+      "sha256": "ad22007e9b5bc99b810eb9fdc33bc7101786e5954bcab1b004c3e27a23c7b39e"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw90/heading.json",
+      "sha256": "458b2189d407e22c2bb57293f461a85fc90d2b0d6785a55dd2c4b41fe47435a4"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw90/results.json",
+      "sha256": "4e8d9bf9f2d55ae809596c06c6c6fde293f7349d45db076eae7c536b5b0778f2"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step11-12/verified-yaw90/trace.json.gz",
+      "sha256": "e38d84406b3358d5546b71cc30203905b390ad2554bc06995c5c003ce0213a8d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw-90/results.json",
+      "sha256": "40988298098a40f90e95b893d9390967e174c1620418477c871dc3bcef09a6a6"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw-90/run.log",
+      "sha256": "1ac503ee94815df93dca443bff62b222a87aae753e81b6e2c8e5688d355aa887"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw-90/trace.json.gz",
+      "sha256": "f17e46633931fbe36d854496c2d29d08749180440650a19571f2a576ba158d6f"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw0/results.json",
+      "sha256": "ee1317bfd12236ddec6da00dcd23abe20aadf6288395276336b420804c43c0dd"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw0/run.log",
+      "sha256": "82fb6f09fc465d721f2ae0cfdb5aec4d720db5a10edc6b2b0d1535c55adc2945"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw0/trace.json.gz",
+      "sha256": "a7ebf9053ed6d9a658fd9329a892f3cfbdea36a38d4557a648896cc6617f223b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw180/results.json",
+      "sha256": "39ab9d0fbb35da6cd5334a3942eaa718c0469abd6c4a04c3929905c03ff424af"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw180/run.log",
+      "sha256": "9665209e6c2f739a86990630d6cf0531f34038cc8c4dd9dd1f1601b8fffa3158"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw180/trace.json.gz",
+      "sha256": "3195698eb8b061a849112b3c6cd278d1ce16347b16c978458bc1e57f208aebef"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw90/results.json",
+      "sha256": "4d5add36151c36f892c3fc933d4addb1fe7f88f06d6aaef7e2631904291f5689"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw90/run.log",
+      "sha256": "96dfc74a335d9dbf64fd5350ac84c2fb091ca94af8f615d87adf0300c687589c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/accepted-sitl-yaw90/trace.json.gz",
+      "sha256": "f646b605335c3496d8e89a754979006dd81039e6c9b330d676f63c968181a1f4"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/build-install-accepted.log",
+      "sha256": "f048efb93fb422768eecf905b33a975efeaf95babdb84120e86a9c8b514406b8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/handoff-state.txt",
+      "sha256": "da34419a6a1a6d53b4c0ec07d53d05bc924afa6cd3f8e13fa75650f56fd8a8a5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/handoff-static-rgbd.json",
+      "sha256": "b3dd0f211f3822346249867622d63f5418dcec4b2426a4b3d02e933d147625c4"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/independent-flight-trace-check.json",
+      "sha256": "d6f7d11e5e6e038dfa8bb4f73141047ff19d7ea7e68b4e1197d5863546c35544"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/initial-yaw-minus90-estimator.json",
+      "sha256": "b310572f3ee0321f1317d84f873056b80dff4f6e5af6afc0c54166f6a5a05e0c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/initial-yaw90-timeout.json",
+      "sha256": "5f6f43eebff589b167b4c895d99164c0912d6b183ddfac7ab7092203a07d187d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/mock-handoff/results.json",
+      "sha256": "f59f69f5b1b89b1d78353210f0db84fb25febc2527deee69552d9795db44481c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/mock-handoff/run.log",
+      "sha256": "529dda5eed513097bf9b4280b9caef8b1a3a5d268ac1811023ff25d898023950"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/mock-handoff/trace.json.gz",
+      "sha256": "f5389bad547ba92282609e81f52a9e5a19e3a202f35ec2ebf3e5fe37907708b9"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/offline-final.txt",
+      "sha256": "a90a7adacf6cc6cddcb83424b566e700378d22541a79686094d04304af5053b8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/restart-rgbd.json",
+      "sha256": "5e13bf8e210d66fefd61ce4df989f2bebc70c6b1fb544772202fe94bb1b69702"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-arm/results.json",
+      "sha256": "5b2c1bc244ac3521aa25f158221fba79f66f042d16c0414d29471d3397ddd2b5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-arm/run.log",
+      "sha256": "3a9b71b125cfb1778339c312057e4243db39dbcfd1a0a717141e40f96545fb17"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-arm/trace.json.gz",
+      "sha256": "5938b257a4f3542ed506e17937e11c6527a1eca2a5845cf387b75149f6a20145"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-height/results.json",
+      "sha256": "a8dcb26cba78a159ac033bd5ac97717ff241c84b477fe6bfe689564745c96091"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-height/run.log",
+      "sha256": "ad8aff95335c80aabda761f2395a7a7ca9281080e298fad0adc1e31d94ef694b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-height/trace.json.gz",
+      "sha256": "fca46fd33a8880dad2b3d8e222e4f42d3e4097c75414029db1a7779c3e36c630"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-link/results.json",
+      "sha256": "4bc32ff7123a2f1e033bb3cf03c2d24d127766d331c2bd892091d6dc53a035e1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-link/run.log",
+      "sha256": "145019f287d0ee76c0c069a19982703890a26830861edd7cfd61448e260969f2"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-link/trace.json.gz",
+      "sha256": "642560ddd584180e82aa561b4270329be20dc59b53a80e7cdcbee8b629d31986"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-odom/results.json",
+      "sha256": "9e3832742a2ddcab370b4bda01a1a2c7640d4f11a89ef60fbb8f5449c680af03"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-odom/run.log",
+      "sha256": "d5e1dbd0b5139b1e8ccb05c9d871b0a79bf4f44fc89fc0c33910205fb14ee3e0"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/sitl-fault-odom/trace.json.gz",
+      "sha256": "1969c41bd8e10bfd830a741fe491efff3356215a7c73acbbb7494645cc219451"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-09/step9/source-manifest.json",
+      "sha256": "47fd62d0bde7ee64cee06ffa82f49eaffe1398030bf2edcd08b538bbcd9eed04"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/alignment-status.txt",
+      "sha256": "f0e950c701b84df4ac794f15fbfbdae548ba93883ce61b9abc21c556d813b1d5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/alignment-yawminus/alignment-ready.json",
+      "sha256": "15b16fce367038d2529be004c7ca6408cb6ecf6b31a1d866538977bc0ffbecbf"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/alignment-yawminus/motion-flight.json",
+      "sha256": "117dbfe5b89e26ab087ae9e0f4dc6bfa853af87cfbd2765db561e4202837ee70"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/alignment-yawminus/motion-rgbd.json",
+      "sha256": "026e6863a901463a55e92aa0a5ae288cb7b1141944385bbf11376d216b1403e3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/alignment-yawminus/status.txt",
+      "sha256": "bc5e07c28e4155ef67e5d38cc02384e6f824f3658756976798009c866d5ab4d8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/alignment-yawplus/alignment-ready.json",
+      "sha256": "b701b2e1ad7d8a0cc66867ecf941a4948979e1f4e6958b33faf6064e26e739da"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/alignment-yawplus/motion-flight.json",
+      "sha256": "56323c8598c3549b01e4f6d6fd5d99567f4081cc0504965007801ef27038e179"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/alignment-yawplus/motion-rgbd.json",
+      "sha256": "886e7cdd3ef74f0ecc708e13650e4000835342f2cff4016056ac78a0aecb7d8c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/alignment-yawplus/status.txt",
+      "sha256": "bc5e07c28e4155ef67e5d38cc02384e6f824f3658756976798009c866d5ab4d8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/closeout-summary.json",
+      "sha256": "13fa844ac509c4a80589f32d606a6dc8ea3ee0d67cb736d2c9e593d5d3b178a5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-1/detour.jsonl.gz",
+      "sha256": "653edede3752ae30a6eaea89d6a7b2bbeda2a0ca815bdbcb38745955070f1726"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-1/results.json",
+      "sha256": "8fa8249ed22317f3e19a67eabcee6cddfa353799359aab81b08660ea4fa0b612"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-1/trace.json.gz",
+      "sha256": "d18e58183ca017158159d23d277b7c0581819f7670a616ba3cf17de422b6ba2a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-2/detour.jsonl.gz",
+      "sha256": "2b4a537d9729933345cda09aade6dfb81c326873493540408c2f4e2094b1cb8d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-2/results.json",
+      "sha256": "edf317ab9a365ce3931117931424b6e66221532f66e9e31246f78405477ccdf3"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-2/trace.json.gz",
+      "sha256": "27e22d4b3a8ccb5bf82606632bfcea35f1f08e0b943b2ca3e22d723fe320878d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-3/detour.jsonl.gz",
+      "sha256": "c1334459bc82512478d75b111a030aae55cc71685918d3e24ca14df09ae7b8f9"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-3/results.json",
+      "sha256": "e6667b64c68825d9d0497779bd2f09f620aedac52581c54484d18c546592c51c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-3/trace.json.gz",
+      "sha256": "2f4f07a9995064244fe3f5e0b6ec3bc01dc2bca94b56ae96c0d2c069166cf66a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-analysis.json",
+      "sha256": "71621ee2a095e09263a5d7b66a2f7c25e1a3a14950d324e49365a8430cafb14d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/dynamic-status.txt",
+      "sha256": "88e82f50c6a83f00f488af6cbf08129417ec40028cc0ce2f5a454b2deba8d4a8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/final-mavros-state.txt",
+      "sha256": "9779d7b70b724bc333ad200c1b8a0165121d826ab190ef43a48e919ce2ffec36"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/final-ros-nodes.txt",
+      "sha256": "192e443885597e066521b1256f2aab6ec9529fe5dc426e103bd4fb5729e37a15"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/motion-status.txt",
+      "sha256": "29f541d26e129d54d9a1f8b89bfff7801998f04e0ddb286a2fdee91536de763d"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/motion-yaw0/motion-flight.json",
+      "sha256": "eb8a5ffa8835cbf0711a7045ad5431159f2726ef67f309753ac8a78cfbd2d81a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/motion-yaw0/motion-rgbd.json",
+      "sha256": "eb3ba0d5583bf7070b165be5b5925b4d62c612a001b62468d861b53e52e0c435"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/motion-yaw0/status.txt",
+      "sha256": "bc5e07c28e4155ef67e5d38cc02384e6f824f3658756976798009c866d5ab4d8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/motion-yawminus/motion-flight.json",
+      "sha256": "b64f687ad43413af28bae9bfadb75e57e9dab75f8eb1aa107ac03d65575fd5c5"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/motion-yawminus/motion-rgbd.json",
+      "sha256": "5573df9fe9a94538e928e952bf69a9c63be26dd940ff7863a842229214df409f"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/motion-yawminus/status.txt",
+      "sha256": "bc5e07c28e4155ef67e5d38cc02384e6f824f3658756976798009c866d5ab4d8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/motion-yawplus/motion-flight.json",
+      "sha256": "12e1e6baa9e2d235f88e677dd776c90cd43f43c9e72af06aaf0641cdd24f5e97"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/motion-yawplus/motion-rgbd.json",
+      "sha256": "1e26b02088468db682bc9cd84dd0d4a781092403cb24495e0cb7ad2272b5620b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/motion-yawplus/status.txt",
+      "sha256": "bc5e07c28e4155ef67e5d38cc02384e6f824f3658756976798009c866d5ab4d8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/offline.txt",
+      "sha256": "e94520c993b97badc61e3449b02f0d2dd8324d914d90804866a6d0ac8aa11ca1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/regression-fence/results.json",
+      "sha256": "1d69ca8c4bcff2884cbc26b0ade7f7b1c99c13e449ebab4c25bd81761cbad2ba"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/regression-fence/trace.json.gz",
+      "sha256": "80f7f92b94883129986c434cd0dc6e0d411d77601514b5813df1823814088ef8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/regression-live/results.json",
+      "sha256": "f523d1e67815afa5db2a3bbd84d8c019f8f9b5f0dc680c6fb52945ede52b8b70"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/regression-live/trace.json.gz",
+      "sha256": "ffa63402da6d89dd1ab19024bf44aaa76b51df2ae9576658326c156e6e771508"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/regression-replay/results.json",
+      "sha256": "afec777809a71b68ad299cf129876cd9de312a768b2ab1644710f3bd28dcab5a"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/regression-replay/trace.json.gz",
+      "sha256": "73ebbaaa01e5614ac05302b4a9088956be30223b7eeb7d9a3193fa09660342f8"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/regression-static/results.json",
+      "sha256": "e9dc0e8f98758e8156e215412f419c29f6ad6d60a83b033e57b3f65380750fea"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/regression-static/trace.json.gz",
+      "sha256": "7777fe8503ce612c39ca7e69a563ef4a399bb8a3dd939c0309ede746baead26c"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/regression-status.txt",
+      "sha256": "307db9d471505e568e1889c0f13f4bc7d0f8ecee69ce0289e5d8e42d53811097"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/restored-static.json",
+      "sha256": "cb623a3e6e1eecd886e1ca82510c49ddcf016a0a0356527101a47377dbdb4679"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/tools/analyze_dynamic.py",
+      "sha256": "56f791ff0ba27456fb56596b32395dde10263f5657a54a843acecf3b4cd946c7"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/tools/detour_probe.py",
+      "sha256": "825f8643f8b1580e1488856862f6cc6c84cdf40fc435abe23654faf6163e27ad"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/tools/fence_flight.py",
+      "sha256": "d86fe1df2c9c7751565ad907fd9b6c5f8f3282a48261bcdd68411d950ed61fd0"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/tools/motion_flight.py",
+      "sha256": "683040cfcca5da6756662ad93949da2bf374a9ba337d1e5f97cccdf68b1c57f1"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/tools/observe_alignment.py",
+      "sha256": "14edd1203642691375caf3cb73baf1042f255938f9040af0d68ae892767149bc"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/tools/summarize_closeout.py",
+      "sha256": "b41cb6e7509fb1ca5e5670fa131f2b571b3ceb42637df32d032086583e0e96ca"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-10/closeout/unknown-scope.json",
+      "sha256": "2ba72a05ac3fa163dc0f893f6c1791d7f0980227b8b701e14658e22b6e5fe648"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-20/search-acceptance/acceptance-summary.json",
+      "sha256": "ae474c5867451a3b03721192377b663542f45e7f07b31b75fa29c73037394efd"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-20/search-acceptance/budget.json",
+      "sha256": "54777abb032da481eedd5a16a370e8b434d4e7752060722ee39583aa2125d1bf"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-20/search-acceptance/crosscheck.json",
+      "sha256": "e04db3556961f3ec31702e5bf438a79cb9ec5e582fa66808c41f505d102d6065"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-20/search-acceptance/demo-followup.json",
+      "sha256": "dec7571ae19713a5dd7c60f2aa9bb24bb8d88796c58fada8841d4c084116a81b"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-20/search-acceptance/final-standby.json",
+      "sha256": "d79ae23d9e55352a8e2b8058d5ee9888f1c7d6c766844cc3f9d77e2d7c5d75c0"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-20/search-acceptance/frozen-version-v2.json",
+      "sha256": "ce7e7d5b01b3216e53b428e15c478701ebd52967125891f27810006b1e96dbe6"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-20/search-acceptance/known-start.json",
+      "sha256": "22b3fd32ca364421aeaa78c481313894a08e032dc451b6c7f46220827b5e7134"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-20/search-acceptance/map-readiness.json",
+      "sha256": "eef55b294a9d40a84d3061421890bd16c95525b2d4972b22c3026f90fcc14f57"
+    },
+    {
+      "path": "docs/deployment/records/2026-11-20/search-acceptance/offline-v2.txt",
+      "sha256": "0a900349be6c3986cdc6d88c22c662f399f1cd085ed072ad2fe5cf8cc2c50db9"
+    },
+    {
+      "path": "docs/deployment/rgbd_validation_2026-11-02.md",
+      "sha256": "5d45b561f1d6fd4f488723c0f0c2580d5cd3f88d88341fce591fe72f59c342c1"
+    },
+    {
+      "path": "docs/deployment/ros_planning_validation_2026-11-02.md",
+      "sha256": "65f4505882aeb0e4c2925aaf87f8487d04adc56fcaa643b9e65cddb537668c4a"
+    },
+    {
+      "path": "docs/deployment/search_acceptance_2026-11-20.md",
+      "sha256": "830b4cdefe65e777ee5b95dfdd9f94141d7fcf5f7f02e25084c027c0b8b9bed5"
+    },
+    {
+      "path": "docs/deployment/segment_validation_2026-11-09.md",
+      "sha256": "0b1ad5bdabf114245bacccac147d6735318677b3e1692b7f75835096ed82d092"
+    },
+    {
+      "path": "docs/deployment/sitl_closeout_2026-11-10.md",
+      "sha256": "c7d0228d5441f7e4aadf97a3661c22712fc702f0612e96eac8dc7b6068e77636"
+    },
+    {
+      "path": "docs/features/F2_grounding/implementation.md",
+      "sha256": "2ef5576f1613864f9603774c66c57914617bdd124e99f76427c5cb40e5d0b1ad"
+    },
+    {
+      "path": "docs/features/F2_grounding/plan.md",
+      "sha256": "f494d76141c93850ff82a4abb2361e6491deb744bcb97e2472b06006a98b5912"
+    },
+    {
+      "path": "docs/features/F2_grounding/spec.md",
+      "sha256": "d14cc421757c35b1ae34ec8c21bf9933c4d76a9de4da9d3b1a09d57418de3694"
+    },
+    {
+      "path": "docs/features/F2_grounding/task.md",
+      "sha256": "27009904c75be438f072a77778f60572723dc8c30b15f0eaae86b4a5caa9e249"
+    },
+    {
+      "path": "docs/features/F3_TF_frames/plan.md",
+      "sha256": "fe6f76cd35d3e3bfd79b15130d35e3b3571ee35141531a5383ebf5b961bf28e2"
+    },
+    {
+      "path": "docs/features/F3_TF_frames/spec.md",
+      "sha256": "d20a09e2d0385c4e07976890d71f6d7176fd986edd7b67da99144f525f40ba8a"
+    },
+    {
+      "path": "docs/features/F3_TF_frames/task.md",
+      "sha256": "7228728fde5eddd9e3b99798503f12b8ceb135e12c7e904b44f9528a48612d9e"
+    },
+    {
+      "path": "docs/features/F4_planner/plan.md",
+      "sha256": "ea3b01c7c7db244f2ae3790870a52627e6ff70801bf79006c53df5b2118cbba2"
+    },
+    {
+      "path": "docs/features/F4_planner/spec.md",
+      "sha256": "f5a86c22c934c8f0ccf04e856a22d867b2f8507ecea53dd72c8e255b0b6b2fcb"
+    },
+    {
+      "path": "docs/features/F4_planner/task.md",
+      "sha256": "a4b66de3e27a10161993a3c825aad78c4c54c6fe73d7b9bebd28f61a411c691d"
+    },
+    {
+      "path": "docs/reviews/architecture_audit_2026-10-27.txt",
+      "sha256": "fb7ce33c52a45520faf2cd2787be4bf2d85ff4d10ae378b01b75d5a76006dae0"
+    },
+    {
+      "path": "docs/reviews/ubuntu_tasks_2026-10-29.txt",
+      "sha256": "9fa96e30ed698232ffc5a7798ad46b8acd54349ee98a643983ebc3887f39c30c"
+    },
+    {
+      "path": "docs/reviews/windows_batch1_tests.txt",
+      "sha256": "a1e27656f24f18b5f794f28c585bf5e4c6aee5bd3970677cdb62c269d17e9f32"
+    },
+    {
+      "path": "docs/reviews/windows_batch2_tests.txt",
+      "sha256": "106c040cd095c3ccb95b610e5c9bb7c85d95796ab8aa6b5dfe4e2b4149039b87"
+    },
+    {
+      "path": "docs/reviews/windows_implementation_notes_2026-10-29.txt",
+      "sha256": "ae0197b445b3ec1f45585d1b61d2bad11763f477ae3c77fec6381b65f0f8c7b8"
+    },
+    {
+      "path": "docs/reviews/windows_replay_traces_2026-10-29.json",
+      "sha256": "5c989862a30c7129da0f8698559bbcba2ed5feb33d107c76e5f99fe81fe137e2"
+    },
+    {
+      "path": "docs/reviews/windows_tasks_2026-10-29.txt",
+      "sha256": "560dafa67568c29a57ac80f87a497dbeb67293210c547ff04d06fb08e832671b"
+    },
+    {
+      "path": "docs/reviews/windows_upload_verification_2026-10-30.txt",
+      "sha256": "1c59e94d33c05437bd66369748dd63c6d459b27149d21734e2049ba7b4c28529"
+    },
+    {
+      "path": "docs/\u53ef\u884c\u6027\u5206\u6790.md",
+      "sha256": "1fd84c78db1ed644a499673056915f9dffdad906be03c17fd8efe00bbefa3efb"
+    },
+    {
+      "path": "docs/\u9636\u6bb5\u6027\u603b\u7ed3/\u9636\u6bb5\u603b\u7ed3.docx",
+      "sha256": "016e6157e7b51473dc1f66ebeb8fd0b86fc6832db6f0273c6f54ca03a1b6d95a"
+    },
+    {
+      "path": "external/ego-planner/README.md",
+      "sha256": "ede920509224f1dabeaa637cf2cf5b03e12f81c8ddfeb97d4d0ebea06ae16005"
+    },
+    {
+      "path": "external/ego-planner/dependency-manifest.patch",
+      "sha256": "54594b8e9d5786eca6824ee47b062bbbf7e1e7f6cbf0261e9bc88d5d4fb84419"
+    },
+    {
+      "path": "external/ego-planner/known-space-guard.patch",
+      "sha256": "b49b014163919d665ad8a982cc43791a0338e5736e437a32e35e4573dc8cec4b"
+    },
+    {
+      "path": "external/ego-planner/managed-integration.patch",
+      "sha256": "2b66b2eda3583732b25527ec32ebf3527802d215d6be9743eadea0ac17fecb1a"
+    },
+    {
+      "path": "plan.md",
+      "sha256": "862d6035b80365344a2c0a3784d3878b90d5def2c210a53b86ab7c94b1a06b05"
+    },
+    {
+      "path": "requirements-offline.txt",
+      "sha256": "3ca8b25969ba790a8d5f0afe48011adfc9c04228d912d2aaa7d81a1bdf360da4"
+    },
+    {
+      "path": "scripts_demo_all.sh",
+      "sha256": "e7a8224c164f5ff184964012c4f104b3637fe48c9c16dc94cd90768e000d366d"
+    },
+    {
+      "path": "scripts_demo_full.sh",
+      "sha256": "1aa8782127726a87d877ca649b17c945c0d083e96bdfeb19e5a95f4076978160"
+    },
+    {
+      "path": "scripts_start_px4_sitl_gazebo.sh",
+      "sha256": "75afbb507dad5b7b0d29964224908bd9e4b35975a1cc5aed2646218ef4a6e062"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/models/depth_camera/depth_camera.sdf",
+      "sha256": "0202c002e8a18e3513bcb07b2114e1017ff6b7b226da4c93fe2b7440711d5c27"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/models/depth_camera/model.config",
+      "sha256": "b4c758e88746766eb6022644abba07896359a728b169cb3365e6c6fa1f701dd2"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/baylands.world",
+      "sha256": "ac3ef4e0b92dcdd4f3f36f8ef38ae8b880ddb548d4c296fbe37e632ba7c38d49"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/boat.world",
+      "sha256": "25dcb554561d0ad16242b30791dbf7a8859f628753909b0f4c54edd4a0efa222"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/empty.world",
+      "sha256": "cb04086998d9073b14750973292c30dfa5c44f6ec23d6f6583767698919c7665"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/hippocampus.world",
+      "sha256": "8c347b30cd8f3e0b3079b08cf4c241aa890922998b468c6faadd2658cd11d9d4"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/hitl_iris.world",
+      "sha256": "c4c5a7e04030bd27325f060dfde950d4a3bcc61b9b8014f661a0ce6d9d99deca"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/hitl_standard_vtol.world",
+      "sha256": "700ee9655c915c8c75b9313db49a4ebe1be2061ee3ebda8bb696823ee0724731"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/iris_irlock.world",
+      "sha256": "ffa9e8699c02a8e2a98e89218695677216600d0f75f25e6647c53f08a3ec3615"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/ksql_airport.world",
+      "sha256": "0e023842adb1d27bcf001353b734618092a4100262c5866a24ac2838a4f2d9b4"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/mcmillan_airfield.world",
+      "sha256": "dd4f18ce2cd8455d550d37d534163e4b6239f167fec923c620b458d893b01a1b"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/ocean.world",
+      "sha256": "7f7a950668d829e5e3001f8ea920de2e2f5eb217f6269b8506de358793648628"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/ramped_up_wind.world",
+      "sha256": "60164a684e4092092722a3713c7ef73c1f288e68c77c18136c80b2f1bb9ba847"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/safe_landing.world",
+      "sha256": "430bb7971e7418f72495158568e00f8f05fe2ab64ccd5cae5d908ac11a47551f"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/search_rescue.world",
+      "sha256": "d20f24748c8a7ede4bb5508e97d32aa6daa816fb59f5bbe3e6dc55d7d50f7315"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/sonoma_raceway.world",
+      "sha256": "55c597b40a58a5a1fe76b0f3640ed0ca50e0fac1dad02ea46fdc4d87783dba88"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/typhoon_h480.world",
+      "sha256": "1f80e670cf63914241bbe84d2349823341490b21d97c092ed890a35d2b1ab46e"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/uuv_bluerov2_heavy.world",
+      "sha256": "189b0d727b985b6b2223ea106516420ccb6c9259dd9607ecfb053174e23ed376"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/uuv_hippocampus.world",
+      "sha256": "0a788bad0347d950010bbde349d93bb9d662e6952225040ddeda7755142f1dab"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/warehouse.world",
+      "sha256": "b355910788115a959cbfb2af9d4fdb7a0799473dca55c5aeb2d5374765d77ccc"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/windy.world",
+      "sha256": "6bed2cfcc6670b77cbd87fc8763aef07b0ef9492aaba1f1a26bca424325ad1c8"
+    },
+    {
+      "path": "simulation/px4_gazebo_classic/worlds/yosemite.world",
+      "sha256": "e7c6e4caad871711af788762f8c073bb6f31b64167e15012b5b3f46ec523caa6"
+    },
+    {
+      "path": "task623.md",
+      "sha256": "1feabb06cdbdd07846ba1e0b790a5d4e0f3b257304317f896e664dd84e571c3e"
+    },
+    {
+      "path": "task_63.md",
+      "sha256": "371442ec977b8655b445ae0511e71ad7ad6d014e0eac08e05fe01cf6dba2e40e"
+    },
+    {
+      "path": "test_mission_manager.py",
+      "sha256": "b79fe7bbaee6d3bca0f965158623e66de0a482aee18e7e44f271b49440106bf0"
+    },
+    {
+      "path": "tests/offline/_support.py",
+      "sha256": "598b0f80f116fb83832c9385fd78026bbc08a5d526223c9e18fa1c3880d5215d"
+    },
+    {
+      "path": "tests/offline/test_bridge_decisions.py",
+      "sha256": "141ab776dbb82b54a8f0bbd71fcecd0b18e9f06e4b3444a3023b2c79ec8d8ace"
+    },
+    {
+      "path": "tests/offline/test_bspline_math.py",
+      "sha256": "d717b49316df09028d8f58ebb15cfe94713ed04aa0b962060747e47344b9d5ec"
+    },
+    {
+      "path": "tests/offline/test_contracts.py",
+      "sha256": "1b15e7a213187af6985aa45647dd5a5fc832e144d6a551ae9264cae0dbd5a8ef"
+    },
+    {
+      "path": "tests/offline/test_control_ownership.py",
+      "sha256": "c5659e88df6e2b92cd2ac8773fed53933df57af8f7a873a55c137c120cbacb88"
+    },
+    {
+      "path": "tests/offline/test_detection_lifecycle.py",
+      "sha256": "9b50b3a085fe75d2ec4870b5344ffd0c4e4898ea7c369a410abebb973444bc57"
+    },
+    {
+      "path": "tests/offline/test_detector_node.py",
+      "sha256": "bcd8e5f790c74ddaebb55f95259ba6aea6cc5139ea2b453556e6d55af3fd51fd"
+    },
+    {
+      "path": "tests/offline/test_local_detour.py",
+      "sha256": "02ba0f27a55b0813238751ae456a523a6ebd7e9001a2adafb9045ddd8e73ca24"
+    },
+    {
+      "path": "tests/offline/test_mission_node.py",
+      "sha256": "247534465256de9c5c4f8071127ef31c9f58515539d484c938b983de3f3ca51d"
+    },
+    {
+      "path": "tests/offline/test_offline_pipeline.py",
+      "sha256": "9ab381aeedd05c32cf3e96b041484f815c5a4fd2c5ed52a300c33022c4ac46fd"
+    },
+    {
+      "path": "tests/offline/test_perception_contracts.py",
+      "sha256": "e593cd8d9e55546ed09c901e32b9abfed5d882d5fd6d440056e63f4637675741"
+    },
+    {
+      "path": "tests/offline/test_planner_node.py",
+      "sha256": "8a82a1f52e96d75fd8bb7040d1361d80d93fde280c979d78a2fed106034ac5b3"
+    },
+    {
+      "path": "tests/offline/test_ros_trajectory_wrappers.py",
+      "sha256": "b748b0084755ca1d81a6f90546f063a8a4cf2aa8d1ae0edcd42298a24c28598c"
+    },
+    {
+      "path": "tests/offline/test_smoke.py",
+      "sha256": "280c941fb58318cdf03fc5f37ba8fc47484e97b2f86b276a8f04ad01f141e6f7"
+    },
+    {
+      "path": "tests/offline/test_target_and_goal.py",
+      "sha256": "28f3de75870a279e6e7a2ae38527f1baebf20338902992cca5bf3d875ecb021e"
+    },
+    {
+      "path": "tests/offline/test_trajectory_execution.py",
+      "sha256": "65ff63bc2f0b170c74385626b8ca9c416dac805912a75be08d211257a8972e51"
+    },
+    {
+      "path": "tests/offline/test_vlm_protocol.py",
+      "sha256": "0fbcf1bd22fbe3901439c96e6251e18e3f0135e547f74ee7aeb100cdba8fdf25"
+    },
+    {
+      "path": "tests/offline/test_wait_and_retry.py",
+      "sha256": "780300a471e7f0bee825b92786b317bc6b2337db0a78dd37b0ed3f95c90c3d73"
+    },
+    {
+      "path": "tests/offline/test_yaw_policy.py",
+      "sha256": "1297856ea716c1f79ecf086a49f8115db77cda0e2b1458a287f0f4ef4d39945e"
+    },
+    {
+      "path": "tools/deployment/build_runtime.sh",
+      "sha256": "d3ad97010daf738f8099bd9222a1a58e585461cf9f15ef365369575cc9ce3de6"
+    },
+    {
+      "path": "tools/deployment/capture_perception_fixtures.py",
+      "sha256": "5e0a0bc3839c859063bc11afc14204abfd49e50f49ad0f51af30cd55b572b891"
+    },
+    {
+      "path": "tools/deployment/crosscheck_dynamic.py",
+      "sha256": "53ba961c8c43f7a21f2f618fe7d6ffb383323cd919d05ede4e1aeae19eda91b4"
+    },
+    {
+      "path": "tools/deployment/launch_project_rgbd.sh",
+      "sha256": "6c18c0c91a8a340dc1a641621107e80bebf6140b161295600a3a5c878c5a9dbe"
+    },
+    {
+      "path": "tools/deployment/observe_physics_contacts.py",
+      "sha256": "57c006cd37221f145e2694785389a5d978a2c01508a92713244625e8913458ef"
+    },
+    {
+      "path": "tools/deployment/observe_target_clearance.py",
+      "sha256": "0e89cd4027ef63fb8db060d3c4524dd4489445a64e4a8501598fb95f88fe209d"
+    },
+    {
+      "path": "tools/deployment/record_detection_frames.py",
+      "sha256": "5b31e6caf0a5fcdae6bb47d3f8b7c41b2f648c41986ee89b4d77ff56f4421428"
+    },
+    {
+      "path": "tools/deployment/record_physics_contacts.py",
+      "sha256": "69770e396d86f96df531b67a3fe64f01aaef58f5d79cb179b59b840c49dca638"
+    },
+    {
+      "path": "tools/deployment/uav_runtime.py",
+      "sha256": "196720274ee4cfe49b5f5d19895cf1a672272e938b1679fb88c33bef04fe6ce8"
+    },
+    {
+      "path": "tools/deployment/uav_runtime.sh",
+      "sha256": "ed680b4736305b0e2123970bff4489ea54760b08aac8158a0d6c43ac39af6a45"
+    },
+    {
+      "path": "tools/deployment/validate_continuous_sitl.py",
+      "sha256": "8398206c3b556c7dfd9d21138113e74d72e82b6cccf4b52c1bb4355932c4ed6d"
+    },
+    {
+      "path": "tools/deployment/validate_flight_execution.py",
+      "sha256": "adce6ba940a3066468ed667598a9d32b7ea0dddffe7e6026198561447d77c61b"
+    },
+    {
+      "path": "tools/deployment/validate_format_feedback.py",
+      "sha256": "e47d936d6a1740a66d3f8a7450325b24a74f18db77b8d4ed3b1e8705a3ba15d3"
+    },
+    {
+      "path": "tools/deployment/validate_heading_transition.py",
+      "sha256": "b9bcec9769ac9cf35465f3e0422a96b802a382d3395a3c9f5674373bfe050e4f"
+    },
+    {
+      "path": "tools/deployment/validate_known_start.py",
+      "sha256": "514ffad8ce6ab39ac5647e3b3de084109e68f3a8339852e8262567e94eccc81d"
+    },
+    {
+      "path": "tools/deployment/validate_map_readiness.py",
+      "sha256": "a9bb8d6249d610d22056a48deb1ea68b3822335891fbf1efae988339bc6c8320"
+    },
+    {
+      "path": "tools/deployment/validate_mission_budget.py",
+      "sha256": "3664944379d47d48467b93c81f031cf86177c297c7f91260b77191a12f93a049"
+    },
+    {
+      "path": "tools/deployment/validate_moving_rgbd.py",
+      "sha256": "93e1cd6449d71ae0f6474b2c79b84619ebdf67af226d0684546a046ef4e6813d"
+    },
+    {
+      "path": "tools/deployment/validate_native_protocol.py",
+      "sha256": "e40f7e5307ff4bcaa4bd7fd1485feff573e2c6733fa96e2b229f38d33adf2a48"
+    },
+    {
+      "path": "tools/deployment/validate_perception.py",
+      "sha256": "6ff5670513429798f649c149a837831431229f934e36c1987ad3b59597fd30eb"
+    },
+    {
+      "path": "tools/deployment/validate_perception_samples.py",
+      "sha256": "789df44025aff3e5becb815234c99fd1e6fc4240efd610e6e9468a21d1cc6fea"
+    },
+    {
+      "path": "tools/deployment/validate_planning_sitl.py",
+      "sha256": "8e601879dbfa6dd97fefe61216d781a12decd5912e0b68fc06bad29a1948a55e"
+    },
+    {
+      "path": "tools/deployment/validate_project_rgbd.py",
+      "sha256": "bff3a2eb15e91109a7f1f351c2827137e4c713977f88ba2af705e1c53f1f61b0"
+    },
+    {
+      "path": "tools/deployment/validate_response_format.py",
+      "sha256": "82b47099682de7a57b4bc612cd70a6cb2368e44a5f5fcea3b1f72005c82a3529"
+    },
+    {
+      "path": "tools/deployment/validate_scan_stop.py",
+      "sha256": "7d584add41ac01b400095fd2c0bc2491e16ac6c674ffe3122f80e93c3ba197b7"
+    },
+    {
+      "path": "tools/deployment/validate_search_sitl.py",
+      "sha256": "84c1114b59ca82fff433d62fb446a06ec31b118090cbf0b2dc56858534899fe4"
+    },
+    {
+      "path": "tools/deployment/validate_segments.py",
+      "sha256": "5d09838ee2b7d4c257283892dbf0959704ae6b60bcd8d7bec28d7559a9842461"
+    },
+    {
+      "path": "tools/deployment/validate_unknown_sitl.py",
+      "sha256": "51b510e7f1141d389e2a2207a7a637f7be44057430431e95979da62a679a8c9c"
+    },
+    {
+      "path": "tools/run_offline_replay.py",
+      "sha256": "ca8cdfa6d127d11a114424b46e1305e437596e6f2a9310f555f06b4a94d3bae4"
+    },
+    {
+      "path": "tools/run_offline_tests.py",
+      "sha256": "ae8316afd0763179d457efad4d47eedb7efcad74c022bb808cd9afcbba1ad712"
+    },
+    {
+      "path": "ws/.catkin_workspace",
+      "sha256": "095f6554aab683a09c20a1d4aa28894cfa1133b4173a5ef73c496aeadc792dae"
+    },
+    {
+      "path": "ws/src/CMakeLists.txt",
+      "symlink": "/opt/ros/noetic/share/catkin/cmake/toplevel.cmake"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/CMakeLists.txt",
+      "sha256": "bf82a092d461f30ff3e9fe1a4714e2d211b2cc98a5438b8976e887c9af5ec7e2"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/config/ego_planner_params.yaml",
+      "sha256": "d612725a25bfd96eef8a4602e9cd0f18b653f1e79d87668b25e700694abdca77"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/config/mission_params.yaml",
+      "sha256": "6db67773d67ffbf5d2bf05140ab9cf24daa602ba3b3dfaf5c86c23db3c105d76"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/config/segment_mission.yaml",
+      "sha256": "22cb25a1cf92d8ed3e20f3cee2bae9123a56431e9706c2329537cfa89b73be0c"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/README.md",
+      "sha256": "d56113a3ae4d8e594afc363fbc4723e7b5d0d6c5b09b668872995691ac195d0a"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/ego_planner.launch",
+      "sha256": "12542792e0f80b69ee8c012422de91da2443911de639c6caa6a809d161b09849"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/flight_verified.launch",
+      "sha256": "0465adb25cadeb6250c574d60a41066ddb3059a5145a09d9a71287d118abb87b"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/mavros_mocap.launch",
+      "sha256": "67ac52a4188f682bd80a5834f2300b7751d2aac51658ae4bded369add3b95944"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/mavros_px4_sitl.launch",
+      "sha256": "bcea1f7c80e7428167eccb49eecccbfa760704a36263a7f9db187dec405cecf7"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/perception_verified.launch",
+      "sha256": "1538048497ae809d7f7e28363b2c45b90912207d636fc07201fa088e571b1db0"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/planner_verified.launch",
+      "sha256": "6262be6ece71cf70d62dec07e8faaff44247425047d44abf937199287a818352"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/segment_verified.launch",
+      "sha256": "507cfb49a75d097d62a2ea21967183d96fbcb11f16dfd6acca2eab3300fdd3cc"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/takeoff_land_demo.launch",
+      "sha256": "b5c3b1152abd262f56670735a462287052be80d59b42519f81f322a36dbea18c"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/test_planner_dummy.launch",
+      "sha256": "8234553237e5fa3a80e765f88a4684bc559d6a89372e5df17554cede54821205"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/test_planner_ego.launch",
+      "sha256": "4969c35f347c7c5c7c8f75eea8295a67906e9f46a2726ad3f57e513a51a687d0"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/vlm_navigation.launch",
+      "sha256": "8914ccacb64df01987d28c241dea2781cef761b6ce589345281150326a82ac6d"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/launch/vlm_navigation_full.launch",
+      "sha256": "0381cf5f9afc31289de3eb646dec5b60628fcc648724b62f6a78ee65dc0ab2df"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/package.xml",
+      "sha256": "decc1a8aa06b4bd9d700901054a2ce24544b924d2d6eebf224b63b044a72aa79"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/base_detector.py",
+      "sha256": "4fdac5722354f3b516aac4da845f71040f01495d188ecfec56c38b5aaeb682b8"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/camera_pose_bridge.py",
+      "sha256": "269e86b68956ca1f53470d222b2615887e4672b5b3439d0e88ff1121fb6a9720"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/detector_node.py",
+      "sha256": "e4be5c8d09a866f49303468f9b43eab617269f87b19b4bafe2a33467a8c5fc79"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/flight_executor.py",
+      "sha256": "7510645c4e7a4473999a46b13ab16c9ea9c924410f34cedd3703132cc513aee7"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/managed_planner_node.py",
+      "sha256": "4b7534d14841d952edf3db5e4b5e34ed90d31fb627aa773b840fc01ce23ede95"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/mission_manager.py",
+      "sha256": "1990a6535f635adb082f4adb0c646484c93f273824c97df2c486683f50bd81cd"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/navigation_core/__init__.py",
+      "sha256": "318f6ab1c0814a7dc4904c9a85812edb467248231efe0459f33808be85e03ca2"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/navigation_core/bridge.py",
+      "sha256": "7dd352a223350eb3c3847b4ea5ed808fa82b9c951d9f73fdc2a6dbe7fdb2e3f9"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/navigation_core/bspline.py",
+      "sha256": "fa4bef7322701ed23a68cd002e00fc31d389f8d80470f6fb2921ae49d2407a46"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/navigation_core/contracts.py",
+      "sha256": "3bd0e94a9df5b7054efea3f4c808a873d6938bc85ea131abaf159fed55751065"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/navigation_core/control.py",
+      "sha256": "5480b05d364a3b8438e9f9734b9f50e951f12a0296f77fcbfdad89089564878d"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/navigation_core/lifecycle.py",
+      "sha256": "2d09dac12974b2d9bc3b8da1d979a3df927978d3dca04a9c9b63846b106824c8"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/navigation_core/perception.py",
+      "sha256": "f93473e4d571cacf4019e3c60c1aeed795b2d656dd903c5553805903a1b4bc8e"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/navigation_core/targets.py",
+      "sha256": "f99528fc4d2f864dad07526369cb9943193f2e984ac26bcd116f5597d926d7b0"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/navigation_core/trajectory.py",
+      "sha256": "4a387bc9ebc4d7779e6fad936b02d4e579f398cc08b63b53e2765e9d3d6992bc"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/navigation_core/yaw.py",
+      "sha256": "f5ea1a1d062fb50986597940e0f910d6cb8aa3418936a3dc552cb98810794b2e"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/planner_node.py",
+      "sha256": "fe6804fd5d5fe9a073161bc8ebf8525a4fb35158da53c771c13b22c0b491a901"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/planning/__init__.py",
+      "sha256": "7e23c3382d670ff80d64481aa613c8ac50fdfbca0140fff84d35dc1a55f5a7e2"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/planning/base.py",
+      "sha256": "711eda61832ace8c88714c1b2726f9977f32a766d357b9565d96bef516063b4d"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/planning/dummy_planner.py",
+      "sha256": "62aff3196e92c97d2a1a42741da3b21499112f0a049ddc2c4d0ab43d61ce3a98"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/planning/ego_adapter.py",
+      "sha256": "ab1450a4e0703574d6feacefeae82084143c044518350f84b1f0d953eb41b56e"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/qwen_vl_grounding.py",
+      "sha256": "69366ecedb329e9e4e3fe251fac851f8a5fd8610074975b8568b4b7740a184c7"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/segment_mission.py",
+      "sha256": "34720cd7852a5c4419baa7af1bc7799b3ec2df6199e690fd2925d770d93e71c2"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/setpoint_bridge.py",
+      "sha256": "f1091026b74924c40980d102e3f9a190c9649ce1a6e934f6be5506ec1c63c90c"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/takeoff_land.py",
+      "sha256": "da51f9ba8fc4c58a258c431d7c9f5a158b1a67109011e5877db17a72b31886ea"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/test_backend.py",
+      "sha256": "636bd6e2a0ee95abeed1562ccde625e0ede060c910048a8a895d948a6932049b"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/tf_healthcheck.py",
+      "sha256": "c2af23df60dc848607adf1ba1cf048456e88134095190630368f5d4c2a311701"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/scripts/trajectory_follower.py",
+      "sha256": "a9a6efa9a083180d3107840152f58d389d9ceaa12ab69ac91a31759f5a84c530"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/setup.py",
+      "sha256": "7290e7a53fe40a23280733881f65f0cfe01108535c0c9b5a2ce3d6efe9370974"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/test/bspline_oracle.cpp",
+      "sha256": "6fa23ba01088f7129beb5e2852a1f69cd68d7d4680ef89e7b28197ecbf6c98c1"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/test/lifecycle_integration.test",
+      "sha256": "4ba3b4bf3262a393ad0fdbb968b51c2c05f768d14f7e77722480396b1edf5ebc"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/test/lifecycle_integration_ros_test.py",
+      "sha256": "7f79e1e9e12bf2c25757ed3c5530261885c0c4bfa70e35572cff810207423d4e"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/test/probe_camera_install.py",
+      "sha256": "04b7963c4cb66df1b38961bc675c130feb036de960bb3cb96b96b0b725bfef38"
+    },
+    {
+      "path": "ws/src/uav_vln_bringup/test/run_stage78.py",
+      "sha256": "d5e312831d3607e785dddaba7d1e1ec868da853fa73dc79b086a016650b6f4c7"
+    },
+    {
+      "path": "\u9636\u6bb5\u8ba1\u5212",
+      "sha256": "8dab3477a45189a8219e831881285627b6baa716dfbc26e1b9e76a316a69ff9f"
+    }
+  ],
+  "private_paths_excluded": [],
+  "active_api_key_found_in_archive": false,
+  "archive_path": "/root/autodl-tmp/uav/records/archives/candidate-source-response-format-2026-11-23.tar.gz",
+  "archive_sha256": "31a569c533448001a6b14f9a156e7dc0fc40aacfb7259c0f4e87305967ab9864",
+  "scope": "Full candidate source checkpoint; format-only fix accepted separately; other final tasks not all accepted"
+}

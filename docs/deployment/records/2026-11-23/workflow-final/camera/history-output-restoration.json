@@ -1,0 +1,23 @@
+{
+  "issue": "Initial static validator used its default historical output directory",
+  "current_artifacts_preserved": "/root/autodl-tmp/uav/records/workflow-final-2026-11-23-0mch/camera/first-default-output",
+  "historical_canonical_snapshot_restored": [
+    {
+      "path": "/root/autodl-tmp/uav/records/step56-2026-11-02/after/validation.json",
+      "source": "HEAD:docs/deployment/records/2026-11-02/step56-2026-11-02/after/validation.json"
+    },
+    {
+      "path": "/root/autodl-tmp/uav/records/step56-2026-11-02/after/rgb.png",
+      "source": "HEAD:docs/deployment/records/2026-11-02/step56-2026-11-02/after/rgb.png"
+    },
+    {
+      "path": "/root/autodl-tmp/uav/records/step56-2026-11-02/after/depth-preview.png",
+      "source": "HEAD:docs/deployment/records/2026-11-02/step56-2026-11-02/after/depth-preview.png"
+    },
+    {
+      "path": "/root/autodl-tmp/uav/records/step56-2026-11-02/after/depth-meters.npy",
+      "source": "HEAD:docs/deployment/records/2026-11-02/step56-2026-11-02/after/depth-meters.npy"
+    }
+  ],
+  "current_authoritative_artifact": "/root/autodl-tmp/uav/records/workflow-final-2026-11-23-0mch/camera/startup/validation.json"
+}

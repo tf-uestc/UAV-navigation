@@ -1,0 +1,62 @@
+{
+  "scope": "Execute the five approved workflow tasks; false-positive and visibility changes deferred",
+  "ordered": true,
+  "task_status": {
+    "1": "passed",
+    "2": "failed",
+    "3": "not_run_gate_failed",
+    "4": "pending",
+    "5": "pending"
+  },
+  "flight_plan": [
+    {
+      "name": "front",
+      "distance": 2.4,
+      "height": 1.6,
+      "bearing": 0,
+      "expected_scan": 0
+    },
+    {
+      "name": "left45",
+      "distance": 2.4,
+      "height": 1.6,
+      "bearing": 54,
+      "expected_scan": 45
+    },
+    {
+      "name": "right45",
+      "distance": 2.4,
+      "height": 1.6,
+      "bearing": -54,
+      "expected_scan": -45
+    },
+    {
+      "name": "left90",
+      "distance": 2.4,
+      "height": 1.6,
+      "bearing": 103,
+      "expected_scan": 90
+    },
+    {
+      "name": "right90",
+      "distance": 2.4,
+      "height": 1.6,
+      "bearing": -103,
+      "expected_scan": -90
+    }
+  ],
+  "near_gate": "Only after all five 2.4m directions pass; distance1.5,height1.3",
+  "criteria": {
+    "true_standoff_error_max_m": 0.2,
+    "hold_s": 10,
+    "hold_drift_max_m": 0.3,
+    "zero_full_target_contacts": true,
+    "landed_disarmed": true
+  },
+  "retry_policy": "At most one whole-flight confirmatory retry per failed direction for cloud/transient failures; retain every result and do not change target semantics or visibility profile",
+  "max_whole_flight_attempts_per_direction": 2,
+  "deferred": [
+    "semantic false-positive fixes",
+    "target visibility/description fixes"
+  ]
+}

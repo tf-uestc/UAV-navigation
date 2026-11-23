@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "command_height_m": 1.3,
+  "standoff_m": 1.5,
+  "actual_terminal_distance_m": 1.5665930792282552,
+  "elapsed_to_done_s": 43.83737563621253,
+  "hold_seconds": 10,
+  "minimum_conservative_clearance_m": 1.0609067059388426,
+  "final_armed": false,
+  "initial_height1p6_failed": "low target left forward camera field of view",
+  "evidence": [
+    "front-1p5/result/results.json",
+    "front-1p5-height1p3/result/results.json",
+    "front-1p5-height1p3/clearance.json"
+  ],
+  "limits": "1.5 m accepted with explicit 1.3 m command height for this low pole; not a pass at default 1.6 m height."
+}

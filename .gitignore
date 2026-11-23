@@ -66,3 +66,10 @@ test-results/
 # Keep the reproducible external integration patch, not a vendored checkout
 !external/ego-planner/
 !external/ego-planner/**
+
+.runtime.env
+
+.uav-runtime/
+
+# Local source bundles and full experiment archives
+/.local-backups/

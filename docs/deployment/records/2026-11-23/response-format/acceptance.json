@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "scope": "Problem 2 only: response-format compatibility and safe classification",
+  "deferred_by_user": [
+    "Problem 1 semantic false positives",
+    "Problem 3 visibility/target wording"
+  ],
+  "offline_tests": 106,
+  "ros_replay_checks": 21,
+  "mock_search_checks": 6,
+  "historical_real_responses": 63,
+  "historical_newly_supported": 1,
+  "actual_cloud_observations": 12,
+  "actual_api_calls": 12,
+  "actual_cloud_format_statuses": {
+    "detected": 10,
+    "target_not_found": 2
+  },
+  "actual_cloud_format_retries": 0,
+  "same_view_retry_limit": 1,
+  "unknown_units_not_guessed": true,
+  "flight_commands_to_real_px4": false,
+  "instance_running_no_flight_services_started": true,
+  "provider_installed_matches_source": true,
+  "production_target_prompt_unchanged": true,
+  "global_final_regression_complete": false,
+  "evidence": [
+    "offline-final.txt",
+    "red-before-fix.txt",
+    "ros-perception.json",
+    "response-format.json",
+    "mock-search/results.json",
+    "scope-verification.json",
+    "source-backup-manifest.json"
+  ]
+}

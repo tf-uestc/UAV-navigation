@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "evidence": [
+    "cloud-candidate.json",
+    "ros-replay-final.json",
+    "long-wait-final/results.json",
+    "mock-search-final-v2/results.json"
+  ],
+  "offline_tests": 93,
+  "real_fixture_observations": 24,
+  "real_api_calls": 25,
+  "classifications": {
+    "correct_absence": 12,
+    "correct_positive": 12,
+    "invalid_bbox_response": 1
+  },
+  "ros_fault_checks": 14,
+  "search_mock_checks": 6,
+  "delayed_reply_seconds": 30.032,
+  "limits": "Finite captured-scene validation; semantic false positives remain possible on unseen scenes.",
+  "failed_harness_runs": [
+    "mock-search-final: cumulative fixture outside fence; safety correctly blocked",
+    "initial delayed-reply import path and owned-test-master cleanup fixed"
+  ]
+}

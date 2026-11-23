@@ -1,0 +1,20 @@
+{
+  "sim": {
+    "pid": 5041,
+    "start_ticks": "715109997",
+    "marker": "launch_project_rgbd.sh",
+    "log": "/root/autodl-tmp/uav/validation/restore-final-2026-11-20-jXaGiA/logs/sim-20261123-104804/supervisor.log"
+  },
+  "mission": {
+    "pid": 6635,
+    "start_ticks": "715119042",
+    "marker": "segment_verified.launch",
+    "log": "/root/autodl-tmp/uav/validation/restore-final-2026-11-20-jXaGiA/logs/mission-20261123-104934/launch.log"
+  },
+  "state": {
+    "connected": true,
+    "armed": false,
+    "landed": true,
+    "mode": "AUTO.LOITER"
+  }
+}

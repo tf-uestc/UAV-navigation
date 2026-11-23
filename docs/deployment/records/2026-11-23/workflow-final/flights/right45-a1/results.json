@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "attempt_observations",
+      "mission_id": "red_pole-07ca5e31",
+      "terminal": "DONE",
+      "reason": "observation_standoff_reached",
+      "segments": 1,
+      "scans": [
+        45,
+        -45
+      ],
+      "detection_requests": 7,
+      "responses": [
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        }
+      ],
+      "distance_at_terminal_m": 2.4127869522423238,
+      "minimum_horizontal_distance_m": 2.3613458972807644,
+      "elapsed_seconds": 45.558614891953766
+    },
+    {
+      "name": "historical_tf_gazebo_and_target_surface",
+      "samples": [
+        {
+          "capture_stamp": 20.24,
+          "truth_time_delta_s": 0.0019999999999988916,
+          "camera_translation_error_m": 0.05729241168483195,
+          "target_surface_error_m": 3.304321008417887
+        },
+        {
+          "capture_stamp": 31.144,
+          "truth_time_delta_s": 0.008000000000002672,
+          "camera_translation_error_m": 0.12455241074528138,
+          "target_surface_error_m": 0.0015533072195451497
+        },
+        {
+          "capture_stamp": 32.44,
+          "truth_time_delta_s": 0.012000000000000455,
+          "camera_translation_error_m": 0.13731393049916985,
+          "target_surface_error_m": 0.0027882554644711594
+        },
+        {
+          "capture_stamp": 36.14,
+          "truth_time_delta_s": 0.04200000000000159,
+          "camera_translation_error_m": 0.14467817346051404,
+          "target_surface_error_m": 0.028254855914388574
+        },
+        {
+          "capture_stamp": 45.24,
+          "truth_time_delta_s": 0.020000000000003126,
+          "camera_translation_error_m": 0.19704089157913557,
+          "target_surface_error_m": 0.005684487603825866
+        }
+      ]
+    },
+    {
+      "name": "observed_and_held",
+      "distance_m": 2.4127869522423238,
+      "hold_seconds": 10.0
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

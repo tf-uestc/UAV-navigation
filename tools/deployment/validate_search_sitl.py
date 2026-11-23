@@ -20,7 +20,7 @@ from navigation_core.contracts import DetectionResult, RequestKey
 from navigation_core.yaw import angle_delta
 from validate_segments import Trial, decode
 
-TARGET = '\u753b\u9762\u4e2d\u7ea2\u8272\u4e09\u811a\u652f\u67b6\u4e2d\u592e\u7684\u7ad6\u76f4\u7ea2\u6746\uff0c\u4ec5\u6846\u4f4f\u4e2d\u592e\u7ea2\u6746\u7684\u7ea2\u8272\u50cf\u7d20\uff0c\u5ffd\u7565\u5176\u4f59\u90e8\u5206\u548c\u5730\u9762\u3002\u627e\u5230\u65f6\u53ea\u8fd4\u56de\u4e00\u4e2a JSON \u5bf9\u8c61\uff0c\u4ec5\u7528 found\u3001bbox\u3001coordinate_system\uff0c\u5750\u6807\u5355\u4f4d\u5fc5\u987b\u662f normalized_1000\u3002\u770b\u4e0d\u5230\u4e2d\u592e\u7ea2\u6746\u5c31\u8fd4\u56de {"found":false}\u3002'
+TARGET = '\u7ea2\u8272\u7ad6\u76f4\u6746\uff0c\u53ea\u6846\u4f4f\u53ef\u89c1\u7684\u7ea2\u8272\u6746\u4f53\uff0c\u4e0d\u5305\u542b\u5e95\u5ea7\u3001\u9634\u5f71\u6216\u84dd\u8272\u6746\u3002'
 ORDER = [45,-45,90,-90]
 
 
@@ -45,6 +45,9 @@ class SearchTrial(Trial):
             self.record('search_capture', dict(
                 request_id=data['request_id'], mission_id=data['mission_id'],
                 floor=data['capture_after'], measured_yaw=yaw,
+                position=decode(self.odom.pose.pose)[0],
+                response_feedback=data.get('response_feedback',''),
+                heading_mode=self.mission.get('observation_heading_mode','initial'),
                 scan_offset_deg=self.mission.get('scan_offset_deg',0),
                 stop_confirmed=self.flight.get('stop_confirmed')))
 
@@ -64,6 +67,8 @@ class SearchTrial(Trial):
             reason = 'invalid_bbox_response'
         elif behavior == 'timeout' and scenario['calls']==1:
             reason = 'api_timeout'
+        elif behavior == 'empty_api' and scenario['calls']==1:
+            reason = 'invalid_api_response'
         elif behavior == 'missing' or behavior == 'last_heading' and offset != -90:
             reason = 'target_not_found'
         point = None if reason else scenario['target']
@@ -91,6 +96,7 @@ class SearchTrial(Trial):
         assert result['reason']=='invalid_bbox_response' and result['segment_count']==0,result
         captures = self.mission_events(name,'search_capture')
         assert len(captures)==2 and not self.scans(name), captures
+        assert captures[0][1]['response_feedback']=='' and captures[1][1]['response_feedback']=='invalid_bbox_response',captures
         assert captures[1][1]['floor']>captures[0][1]['floor'], captures
         assert abs(angle_delta(captures[1][1]['measured_yaw'],captures[0][1]['measured_yaw']))<.05
         self.check('invalid_response_one_same_view_retry')
@@ -118,6 +124,11 @@ class SearchTrial(Trial):
         assert result['phase']=='DONE' and result['segment_count']>0,result
         assert not self.scans(name)
         self.check('cloud_timeout_retry_can_resume_with_new_valid_observation')
+        name = self.new('recovered_after_empty_api', behavior='empty_api', target=(0.,-3.,.3))
+        result = self.wait_phase(name, ('FAILED','DONE'), 60)
+        assert result['phase']=='DONE' and result['segment_count']>0,result
+        assert not self.scans(name)
+        self.check('empty_api_reply_retries_current_view_without_claiming_absence')
 
     def live_red_pole(self):
         self.initial()

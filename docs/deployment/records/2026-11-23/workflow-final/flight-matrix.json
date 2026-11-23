@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "attempts": [
+    {
+      "direction": "front",
+      "attempt": 1,
+      "label": "front-a1",
+      "runner_exit": 0,
+      "passed": false,
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "metrics": {
+        "name": "attempt_observations",
+        "mission_id": "red_pole-7b8dda56",
+        "terminal": "DONE",
+        "reason": "observation_standoff_reached",
+        "segments": 1,
+        "scans": [],
+        "detection_requests": 3,
+        "responses": [
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          }
+        ],
+        "distance_at_terminal_m": 2.4679456811464973,
+        "minimum_horizontal_distance_m": 2.437994419658628,
+        "elapsed_seconds": 27.661416864022613,
+        "world_hold_drift_m": 0.34209820917166134,
+        "world_hold_standoff_error_m": 0.07585538500125466,
+        "minimum_conservative_rod_clearance_m": 1.9329627080157255
+      }
+    },
+    {
+      "direction": "front",
+      "attempt": 2,
+      "label": "front-a2",
+      "runner_exit": 0,
+      "passed": true,
+      "errors": [],
+      "metrics": {
+        "name": "attempt_observations",
+        "mission_id": "red_pole-d05263a6",
+        "terminal": "DONE",
+        "reason": "observation_standoff_reached",
+        "segments": 1,
+        "scans": [],
+        "detection_requests": 3,
+        "responses": [
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          }
+        ],
+        "distance_at_terminal_m": 2.4361713249594064,
+        "minimum_horizontal_distance_m": 2.408478882137027,
+        "elapsed_seconds": 35.62781375274062,
+        "world_hold_drift_m": 0.20322167170303168,
+        "world_hold_standoff_error_m": 0.08541824145295518,
+        "minimum_conservative_rod_clearance_m": 1.9739351198324613
+      }
+    },
+    {
+      "direction": "left45",
+      "attempt": 1,
+      "label": "left45-a1",
+      "runner_exit": 0,
+      "passed": false,
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "metrics": {
+        "name": "attempt_observations",
+        "mission_id": "red_pole-76de2097",
+        "terminal": "DONE",
+        "reason": "observation_standoff_reached",
+        "segments": 1,
+        "scans": [
+          45
+        ],
+        "detection_requests": 6,
+        "responses": [
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          }
+        ],
+        "distance_at_terminal_m": 2.408960688456509,
+        "minimum_horizontal_distance_m": 2.3648379452844672,
+        "elapsed_seconds": 42.26004184037447,
+        "world_hold_drift_m": 0.40410085631065235,
+        "world_hold_standoff_error_m": 0.05164668173858855,
+        "minimum_conservative_rod_clearance_m": 1.9302001885359226
+      }
+    },
+    {
+      "direction": "left45",
+      "attempt": 2,
+      "label": "left45-a2",
+      "runner_exit": 0,
+      "passed": true,
+      "errors": [],
+      "metrics": {
+        "name": "attempt_observations",
+        "mission_id": "red_pole-1a399e04",
+        "terminal": "DONE",
+        "reason": "observation_standoff_reached",
+        "segments": 1,
+        "scans": [
+          45
+        ],
+        "detection_requests": 5,
+        "responses": [
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          }
+        ],
+        "distance_at_terminal_m": 2.4103968355851886,
+        "minimum_horizontal_distance_m": 2.4060167162647197,
+        "elapsed_seconds": 37.17796422261745,
+        "world_hold_drift_m": 0.18769491828032647,
+        "world_hold_standoff_error_m": 0.12286468097590131,
+        "minimum_conservative_rod_clearance_m": 1.9714369107459406
+      }
+    },
+    {
+      "direction": "right45",
+      "attempt": 1,
+      "label": "right45-a1",
+      "runner_exit": 0,
+      "passed": false,
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "metrics": {
+        "name": "attempt_observations",
+        "mission_id": "red_pole-07ca5e31",
+        "terminal": "DONE",
+        "reason": "observation_standoff_reached",
+        "segments": 1,
+        "scans": [
+          45,
+          -45
+        ],
+        "detection_requests": 7,
+        "responses": [
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          }
+        ],
+        "distance_at_terminal_m": 2.4127869522423238,
+        "minimum_horizontal_distance_m": 2.3613458972807644,
+        "elapsed_seconds": 45.558614891953766,
+        "world_hold_drift_m": 0.4140258704658322,
+        "world_hold_standoff_error_m": 0.055096594585796854,
+        "minimum_conservative_rod_clearance_m": 1.9057171006854112
+      }
+    },
+    {
+      "direction": "right45",
+      "attempt": 2,
+      "label": "right45-a2",
+      "runner_exit": 0,
+      "passed": false,
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "metrics": {
+        "name": "attempt_observations",
+        "mission_id": "red_pole-4e23ad78",
+        "terminal": "DONE",
+        "reason": "observation_standoff_reached",
+        "segments": 1,
+        "scans": [
+          45,
+          -45
+        ],
+        "detection_requests": 7,
+        "responses": [
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          }
+        ],
+        "distance_at_terminal_m": 2.4335692462708627,
+        "minimum_horizontal_distance_m": 2.3798178525538756,
+        "elapsed_seconds": 45.693277986720204,
+        "semantic_outliers_diagnostic": 1,
+        "world_hold_drift_m": 0.5418461835783053,
+        "world_hold_standoff_error_m": 0.04869823249916072,
+        "minimum_conservative_rod_clearance_m": 1.9390816115940757
+      }
+    },
+    {
+      "direction": "left90",
+      "attempt": 1,
+      "label": "left90-a1",
+      "runner_exit": 0,
+      "passed": false,
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "metrics": {
+        "name": "attempt_observations",
+        "mission_id": "red_pole-b3606390",
+        "terminal": "DONE",
+        "reason": "observation_standoff_reached",
+        "segments": 1,
+        "scans": [
+          45,
+          -45,
+          90
+        ],
+        "detection_requests": 10,
+        "responses": [
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          }
+        ],
+        "distance_at_terminal_m": 2.571446200681722,
+        "minimum_horizontal_distance_m": 2.5370082146988224,
+        "elapsed_seconds": 58.94268476124853,
+        "semantic_outliers_diagnostic": 3,
+        "world_hold_drift_m": 0.5549111626428656,
+        "world_hold_standoff_error_m": 0.18841163832989372,
+        "minimum_conservative_rod_clearance_m": 2.080101718731495
+      }
+    },
+    {
+      "direction": "left90",
+      "attempt": 2,
+      "label": "left90-a2",
+      "runner_exit": 0,
+      "passed": true,
+      "errors": [],
+      "metrics": {
+        "name": "attempt_observations",
+        "mission_id": "red_pole-940bb65e",
+        "terminal": "DONE",
+        "reason": "observation_standoff_reached",
+        "segments": 1,
+        "scans": [
+          45,
+          -45,
+          90
+        ],
+        "detection_requests": 7,
+        "responses": [
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          }
+        ],
+        "distance_at_terminal_m": 2.4777647500944666,
+        "minimum_horizontal_distance_m": 2.4425364253424666,
+        "elapsed_seconds": 60.468496691435575,
+        "semantic_outliers_diagnostic": 0,
+        "world_hold_drift_m": 0.14716895840236213,
+        "world_hold_standoff_error_m": 0.1124637282276737,
+        "minimum_conservative_rod_clearance_m": 2.0079646919057805
+      }
+    },
+    {
+      "direction": "right90",
+      "attempt": 1,
+      "label": "right90-a1",
+      "runner_exit": 1,
+      "passed": false,
+      "errors": [
+        "mission_completed",
+        "actual_terminal_standoff",
+        "requested_search_direction",
+        "final_observation_matches_true_target",
+        "moving_rgbd",
+        "ten_second_hold_gazebo_truth"
+      ],
+      "metrics": {
+        "name": "attempt_observations",
+        "mission_id": "red_pole-7c836647",
+        "terminal": "FAILED",
+        "reason": "invalid_target_depth",
+        "segments": 0,
+        "scans": [
+          45,
+          -45,
+          90
+        ],
+        "detection_requests": 5,
+        "responses": [
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "FAILED",
+            "reason": "invalid_target_depth"
+          }
+        ],
+        "distance_at_terminal_m": 3.6013225323765563,
+        "minimum_horizontal_distance_m": 3.532710131101352,
+        "elapsed_seconds": 45.29100608732551,
+        "semantic_outliers_diagnostic": 0,
+        "minimum_conservative_rod_clearance_m": 3.098089025677831
+      }
+    },
+    {
+      "direction": "right90",
+      "attempt": 2,
+      "label": "right90-a2",
+      "runner_exit": 1,
+      "passed": false,
+      "errors": [
+        "mission_completed",
+        "actual_terminal_standoff",
+        "requested_search_direction",
+        "final_observation_matches_true_target",
+        "moving_rgbd",
+        "ten_second_hold_gazebo_truth"
+      ],
+      "metrics": {
+        "name": "attempt_observations",
+        "mission_id": "red_pole-a203a48f",
+        "terminal": "FAILED",
+        "reason": "target_jump",
+        "segments": 0,
+        "scans": [
+          45,
+          -45,
+          90
+        ],
+        "detection_requests": 7,
+        "responses": [
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          },
+          {
+            "status": "FAILED",
+            "reason": "target_not_found"
+          },
+          {
+            "status": "SUCCEEDED",
+            "reason": ""
+          }
+        ],
+        "distance_at_terminal_m": 3.517855093967704,
+        "minimum_horizontal_distance_m": 3.448761978089561,
+        "elapsed_seconds": 43.963788421824574,
+        "semantic_outliers_diagnostic": 0,
+        "minimum_conservative_rod_clearance_m": 3.014180818370414
+      }
+    }
+  ],
+  "directions": {
+    "front": {
+      "passed": true
+    },
+    "left45": {
+      "passed": true
+    },
+    "right45": {
+      "passed": false
+    },
+    "left90": {
+      "passed": true
+    },
+    "right90": {
+      "passed": false
+    }
+  },
+  "near": {
+    "executed": false,
+    "reason": "five-direction gate not passed"
+  },
+  "total_attempts": 10,
+  "passed_attempts": 3,
+  "failed_attempts": 7,
+  "deferred_by_user": [
+    "semantic false-positive fixes",
+    "target visibility/description fixes"
+  ]
+}

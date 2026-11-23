@@ -1,0 +1,15 @@
+{
+  "sim": {
+    "pid": 58720,
+    "start_ticks": "715257925",
+    "marker": "launch_project_rgbd.sh",
+    "log": "/root/autodl-tmp/uav/validation/restore-final-2026-11-20-jXaGiA/logs/sim-20261123-111243/supervisor.log"
+  },
+  "mission": null,
+  "state": {
+    "connected": true,
+    "armed": false,
+    "landed": true,
+    "mode": "OFFBOARD"
+  }
+}

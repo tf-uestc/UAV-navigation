@@ -1,0 +1,395 @@
+--- a/ws/src/uav_vln_bringup/scripts/qwen_vl_grounding.py
++++ b/ws/src/uav_vln_bringup/scripts/qwen_vl_grounding.py
+@@ -17,7 +17,7 @@
+ 
+ from base_detector import Detection, DetectionRejected, Detector
+ from navigation_core.contracts import finite
+-from navigation_core.perception import grounding_payload, parse_bbox, validate_intrinsics
++from navigation_core.perception import parse_bbox, validate_intrinsics
+ 
+ # ---------------------------------------------------------------------------
+ # Prompt template and bbox parsing patterns
+@@ -98,19 +98,7 @@
+ 
+         # 2. Parse bbox from response
+         h, w = rgb.shape[:2]
+-        bbox = self.parse_response_bbox(raw_text, w, h)
+-        if bbox is None:
+-            payload = grounding_payload(raw_text)
+-            if isinstance(payload, dict) and payload.get("found") is False:
+-                raise DetectionRejected("target_not_found")
+-            fields = payload if isinstance(payload, dict) else {}
+-            unit = fields.get("coordinate_system")
+-            box = fields.get("bbox")
+-            safe_box = box if isinstance(box, list) and len(box) == 4 and all(finite(v) for v in box) else None
+-            rospy.logwarn("[grounding] rejected envelope=%s found_type=%s unit=%s bbox=%s",
+-                          type(payload).__name__, type(fields.get("found")).__name__,
+-                          unit if unit in ("pixel", "normalized_1000") else "missing_or_invalid", safe_box)
+-            raise DetectionRejected("invalid_bbox_response")
++        bbox = self.parse_response(raw_text, w, h)
+ 
+         x1, y1, x2, y2 = bbox
+         u, v, depth_m, support = self._foreground_depth(depth[y1:y2, x1:x2])
+@@ -184,13 +172,13 @@
+                      "image_url": {"url": image_data_url}},
+                 ],
+             }],
+-            "max_tokens": 128,
++            "max_tokens": 256,
+         }
+         if feedback in ("invalid_bbox_response", "invalid_api_response"):
+             payload["messages"][0]["content"] += (
+                 " Your previous reply failed the response contract. Identify the object again in this NEW image. "
+                 + contract +
+-                'Use {"found":false} only if no visible match exists. No ambiguous units or extra objects.' 
++                'Use {"found":false} only if no visible match exists. No ambiguous units or extra objects.'
+             )
+         if self.model == OMNI_MODEL:
+             payload.update(modalities=["text"], reasoning_effort="none",
+@@ -208,7 +196,10 @@
+             )
+             resp.raise_for_status()
+             result = resp.json()
+-            content = result["choices"][0]["message"]["content"]
++            choice = result["choices"][0]
++            if choice.get("finish_reason") == "length":
++                raise DetectionRejected("invalid_api_response")
++            content = choice["message"]["content"]
+             if not isinstance(content, str) or not content.strip():
+                 raise DetectionRejected("invalid_api_response")
+             rospy.loginfo("VLM response (%d chars): %s", len(content), content[:512].replace("\n", " "))
+@@ -224,24 +215,92 @@
+         except (KeyError, IndexError, TypeError, json.JSONDecodeError):
+             raise DetectionRejected("invalid_api_response") from None
+ 
++    @staticmethod
++    def _response_payload(text):
++        """Read exactly one JSON reply, rejecting duplicate keys and NaN/Infinity."""
++        if not isinstance(text, str) or not text.strip():
++            raise DetectionRejected("invalid_bbox_response")
++        raw = text.strip().lstrip("\ufeff")
++        fence = chr(96)*3
++        if raw.startswith(fence) and raw.endswith(fence):
++            raw = raw[3:-3].strip()
++            if raw[:4].lower() == "json":
++                raw = raw[4:].lstrip()
++
++        def unique_object(pairs):
++            obj = {}
++            for key, value in pairs:
++                if key in obj:
++                    raise ValueError("duplicate response key")
++                obj[key] = value
++            return obj
++
++        def reject_constant(value):
++            raise ValueError("nonfinite JSON value")
++
++        try:
++            data = json.loads(raw, object_pairs_hook=unique_object,
++                              parse_constant=reject_constant)
++        except (ValueError, TypeError, RecursionError):
++            raise DetectionRejected("invalid_bbox_response") from None
++        if isinstance(data, list) and len(data) == 1 and isinstance(data[0], dict):
++            return data[0]
++        return data
++
++    def parse_response(self, text, width, height):
++        """Normalize supported envelopes without inventing coordinates or units.
++
++        The pinned native protocol uses requested 0..1000 units and one labelled
++        bbox_2d/bbox, with optional boolean found and matching coordinate_system.
++        Empty native arrays explicitly mean no detection. Canonical positive
++        envelopes still require their own units. Contradictory no-target replies
++        are format failures, never target_not_found.
++        """
++        if self.allow_legacy_bbox and isinstance(text, str):
++            legacy = re.fullmatch(
++                r"(?:<box>\s*)?\[?\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\]?(?:\s*</box>)?",
++                text.strip())
++            if legacy:
++                box = self._parse_bbox(text, width, height, self.coordinate_system, True)
++                if box is not None:
++                    return box
++        payload = self._response_payload(text)
++        native = self.response_protocol == "qwen_native_1000"
++        if native and isinstance(payload, list) and not payload:
++            raise DetectionRejected("target_not_found")
++        allowed = {"found", "label", "bbox", "bbox_2d", "coordinate_system"}
++        if not isinstance(payload, dict) or not set(payload) <= allowed:
++            raise DetectionRejected("invalid_bbox_response")
++        if "found" in payload and type(payload["found"]) is not bool:
++            raise DetectionRejected("invalid_bbox_response")
++        if "coordinate_system" in payload and payload["coordinate_system"] != self.coordinate_system:
++            raise DetectionRejected("invalid_bbox_response")
++        if "label" in payload and not isinstance(payload["label"], str):
++            raise DetectionRejected("invalid_bbox_response")
++        names = [name for name in ("bbox", "bbox_2d") if name in payload]
++        if len(names) > 1:
++            raise DetectionRejected("invalid_bbox_response")
++        if payload.get("found") is False:
++            if names and payload[names[0]] not in (None, []):
++                raise DetectionRejected("invalid_bbox_response")
++            raise DetectionRejected("target_not_found")
++
++        canonical = payload
++        if native and len(names) == 1 and payload.get("label", "").strip():
++            canonical = dict(found=True, bbox=payload[names[0]],
++                             coordinate_system="normalized_1000")
++        box = self._parse_bbox(json.dumps(canonical), width, height,
++                               self.coordinate_system, self.allow_legacy_bbox)
++        if box is None:
++            raise DetectionRejected("invalid_bbox_response")
++        return box
++
+     def parse_response_bbox(self, text, width, height):
+-        """Decode only a declared provider contract; never infer units from values.
+-
+-        The generic canonical parser remains strict. The pinned Qwen model may
+-        emit its explicitly requested native label+bbox_2d (or bbox) envelope,
+-        either directly or wrapped in a singleton array. Conflicting metadata,
+-        multiple targets, missing labels, and invalid geometry are rejected.
+-        """
+-        payload = grounding_payload(text)
+-        if self.response_protocol == "qwen_native_1000" and isinstance(payload, dict):
+-            keys = set(payload)
+-            for name in ("bbox_2d", "bbox"):
+-                if keys == {"label", name} and isinstance(payload.get("label"), str) and payload["label"].strip():
+-                    canonical = dict(found=True, bbox=payload[name],
+-                                     coordinate_system="normalized_1000")
+-                    return self._parse_bbox(json.dumps(canonical), width, height,
+-                                            "normalized_1000", False)
+-        return self._parse_bbox(text, width, height, self.coordinate_system, self.allow_legacy_bbox)
++        """Compatibility geometry accessor; detect() preserves the failure reason."""
++        try:
++            return self.parse_response(text, width, height)
++        except DetectionRejected:
++            return None
+ 
+     @staticmethod
+     def _parse_bbox(text, img_w, img_h, coordinate_system="pixel", allow_legacy=False):
+--- a/tests/offline/test_vlm_protocol.py
++++ b/tests/offline/test_vlm_protocol.py
+@@ -100,3 +100,86 @@
+         self.assertIsNone(d.parse_response_bbox('{"found":false}',640,480))
+         self.assertIsNone(d.parse_response_bbox('{"found":true,"bbox":[1,2,3,4],"coordinate_system":"pixel"}',640,480))
+         self.assertEqual(d.parse_response_bbox('{"found":true,"bbox":[250,250,750,750],"coordinate_system":"normalized_1000"}',640,480),(160,120,480,360))
++
++
++    def test_native_optional_found_and_matching_units_are_compatible(self):
++        m,d=self.make()
++        for name in ("bbox","bbox_2d"):
++            base={"label":"red pole",name:[250,250,750,750]}
++            for extra in ({"found":True},{"coordinate_system":"normalized_1000"},
++                          {"found":True,"coordinate_system":"normalized_1000"}):
++                for payload in (dict(base,**extra),[dict(base,**extra)]):
++                    self.assertEqual(d.parse_response_bbox(json.dumps(payload),640,480),(160,120,480,360))
++
++    def test_contradictory_absence_and_duplicate_fields_are_format_errors(self):
++        m,d=self.make()
++        rgb=np.zeros((24,32,3),np.uint8);depth=np.full((24,32),3.,np.float32)
++        info=types.SimpleNamespace(K=[100,0,16,0,100,12,0,0,1])
++        replies=['{"found":false,"label":"red","bbox_2d":[100,100,500,500]}',
++                 '{"found":false,"bbox":[100,100,500,500],"coordinate_system":"normalized_1000"}',
++                 '{"found":true,"found":false}',
++                 '{"label":"red","bbox_2d":[1,2,3,4],"bbox_2d":[5,6,7,8]}',
++                 '{"found":false,"coordinate_system":"pixel"}']
++        for raw in replies:
++            d._call_api=lambda *a,**k:raw
++            with self.assertRaises(m.DetectionRejected) as e:d.detect(rgb,depth,"red pole",info)
++            self.assertEqual(str(e.exception),"invalid_bbox_response",raw)
++
++    def test_native_empty_list_is_explicit_no_detection_only_for_native_protocol(self):
++        m,d=self.make()
++        rgb=np.zeros((24,32,3),np.uint8);depth=np.full((24,32),3.,np.float32)
++        info=types.SimpleNamespace(K=[100,0,16,0,100,12,0,0,1])
++        d._call_api=lambda *a,**k:"[]"
++        with self.assertRaises(m.DetectionRejected) as e:d.detect(rgb,depth,"red",info)
++        self.assertEqual(str(e.exception),"target_not_found")
++        canonical=m.QwenVLGroundingDetector("unit-test",response_protocol="canonical")
++        canonical._call_api=d._call_api
++        with self.assertRaises(m.DetectionRejected) as e:canonical.detect(rgb,depth,"red",info)
++        self.assertEqual(str(e.exception),"invalid_bbox_response")
++
++    def test_nonfinite_and_invalid_found_never_become_absence(self):
++        m,d=self.make()
++        rgb=np.zeros((24,32,3),np.uint8);depth=np.full((24,32),3.,np.float32)
++        info=types.SimpleNamespace(K=[100,0,16,0,100,12,0,0,1])
++        for raw in ('{"found":0}','{"found":"false"}','{"found":null}',
++                    '{"found":false,"bbox":NaN}','{"found":false,"unknown":1}'):
++            d._call_api=lambda *a,**k:raw
++            with self.assertRaises(m.DetectionRejected) as e:d.detect(rgb,depth,"red",info)
++            self.assertEqual(str(e.exception),"invalid_bbox_response",raw)
++
++    def test_complete_native_envelope_still_uses_depth_and_camera_contract(self):
++        m,d=self.make()
++        d._call_api=lambda *a,**k:'{"found":true,"label":"red pole","bbox_2d":[250,250,750,750]}'
++        rgb=np.zeros((24,32,3),np.uint8);depth=np.full((24,32),3.,np.float32)
++        info=types.SimpleNamespace(K=[100,0,16,0,100,12,0,0,1])
++        found=d.detect(rgb,depth,"red",info)
++        self.assertEqual(found.bbox,(8,6,24,18))
++        self.assertAlmostEqual(found.depth_m,3.)
++        self.assertEqual(found.point_camera,(-.015,-.015,3.))
++
++    def test_truncated_api_completion_is_invalid_api_response(self):
++        m,d=self.make()
++        d._session.post=lambda *a,**k:types.SimpleNamespace(raise_for_status=lambda:None,
++            json=lambda:{"choices":[{"finish_reason":"length","message":{"content":"{}"}}]})
++        with self.assertRaises(m.DetectionRejected) as e:d._call_api(np.zeros((10,20,3),np.uint8),"red")
++        self.assertEqual(str(e.exception),"invalid_api_response")
++
++
++    def test_explicit_legacy_opt_in_is_preserved_without_weakening_default(self):
++        m,d=self.make()
++        old=m.QwenVLGroundingDetector("unit-test",model="other",coordinate_system="pixel",allow_legacy_bbox=True)
++        for text in ("[1,2,3,4]","<box>[1,2,3,4]</box>"):
++            self.assertEqual(old.parse_response_bbox(text,20,10),(1,2,3,4))
++            self.assertIsNone(d.parse_response_bbox(text,20,10))
++        self.assertIsNone(old.parse_response_bbox('{"found":true,"found":true,"bbox":[1,2,3,4],"coordinate_system":"pixel"}',20,10))
++
++    def test_fences_and_supported_absence_shapes_do_not_require_a_guessed_box(self):
++        m,d=self.make()
++        fence=chr(96)*3
++        positive='{"found":true,"label":"red","bbox_2d":[250,250,750,750]}'
++        self.assertEqual(d.parse_response_bbox(fence+"JSON\n"+positive+"\n"+fence,640,480),(160,120,480,360))
++        self.assertIsNone(d.parse_response_bbox("Here is the box: "+positive,640,480))
++        self.assertIsNone(d.parse_response_bbox(json.dumps([json.loads(positive),json.loads(positive)]),640,480))
++        for raw in ('{"found":false}','[{"found":false}]','{"found":false,"bbox":null}','{"found":false,"bbox_2d":[]}'):
++            with self.assertRaises(m.DetectionRejected) as e:d.parse_response(raw,640,480)
++            self.assertEqual(str(e.exception),"target_not_found")
+--- a/tools/deployment/validate_perception.py
++++ b/tools/deployment/validate_perception.py
+@@ -160,6 +160,22 @@
+         deeper[8:16,10:18] = 5.
+         positive('different_pose_range_and_millimeter_units',(deeper*1000).astype(np.uint16),
+                  (-2.,3.,.5),math.pi/2,5.)
++        # These are response-format fixtures, independent of visual semantics.
++        native_box = [125,125,875,875]
++        for name, reply in (
++            ('native_label_bbox_2d',dict(label='requested object',bbox_2d=native_box)),
++            ('native_optional_found',dict(found=True,label='requested object',bbox_2d=native_box)),
++            ('native_optional_units_array',[dict(found=True,label='requested object',
++                bbox=native_box,coordinate_system='normalized_1000')]),
++        ):
++            fixture(reply)
++            stamp = send_frame(sample,depth,K,(1.,2.,0.),0.)
++            result,_ = self.query(name)
++            assert result['status']=='SUCCEEDED' and result['reason']=='',result
++            assert abs(result['capture_stamp']-stamp)<1e-6
++            assert np.linalg.norm(np.array(result['point'])-np.array([.925,1.985,3.]))<1e-5,result
++            self.check(name,world_point=result['point'])
++
+         baseline = json.loads((sample_dir/'validation.json').read_text())
+         fixture(json.loads(captured_response.read_text()))
+         original = cv2.imread(str(sample_dir/'rgb.png'))
+@@ -174,6 +190,11 @@
+         for name, settings, values, expected in (
+             ('no_target',{'reply':{'found':False}},depth,'target_not_found'),
+             ('wrong_units',{'reply':dict(fake,coordinate_system='pixel')},depth,'invalid_bbox_response'),
++            ('native_empty_detection_list',{'reply':[]},depth,'target_not_found'),
++            ('contradictory_absence',{'reply':dict(found=False,label='requested object',bbox_2d=native_box)},depth,'invalid_bbox_response'),
++            ('two_native_objects',{'reply':[dict(label='a',bbox_2d=native_box),dict(label='b',bbox_2d=native_box)]},depth,'invalid_bbox_response'),
++            ('native_wrong_units',{'reply':dict(label='a',bbox_2d=native_box,coordinate_system='pixel')},depth,'invalid_bbox_response'),
++
+             ('invalid_depth',{},np.full_like(depth,np.nan),'invalid_target_depth'),
+             ('network_failure',{'failure':'network'},depth,'api_network_error'),
+             ('timeout',{'failure':'timeout'},depth,'api_timeout'),
+--- /dev/null
++++ b/tools/deployment/validate_response_format.py
+@@ -0,0 +1,96 @@
++#!/usr/bin/python3
++"""Audit response syntax independently of deferred visual-semantic correctness."""
++import argparse,importlib.util,json,os,time
++from collections import Counter
++from pathlib import Path
++import cv2,numpy as np,rospy
++from qwen_vl_grounding import QwenVLGroundingDetector
++from base_detector import DetectionRejected
++from validate_search_sitl import TARGET
++
++def classify(detector,raw,width,height):
++    try:return "detected",detector.parse_response(raw,width,height)
++    except DetectionRejected as exc:return str(exc),None
++
++def main():
++    ap=argparse.ArgumentParser();ap.add_argument("--previous-records",type=Path,required=True)
++    ap.add_argument("--out",type=Path,required=True);ap.add_argument("--before-source",type=Path)
++    ap.add_argument("--live",action="store_true");a=ap.parse_args()
++    rospy.init_node("response_format_audit",anonymous=True)
++    detector=QwenVLGroundingDetector(os.environ.get("VLM_API_KEY","historical-only"),os.environ.get("VLM_MODEL","qwen3.8-omni-flash"),35.)
++    historical=[];fixed=0
++    baseline=None
++    if a.before_source:
++        spec=importlib.util.spec_from_file_location("response_before_fix",str(a.before_source))
++        mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
++        baseline=mod.QwenVLGroundingDetector("historical-only")
++    for rel in ("step2/cloud-baseline.json","step2/cloud-candidate.json",
++                "step8/partial-pole-api.json","step8/partial-pole-native.json"):
++        report=json.loads((a.previous_records/rel).read_text())
++        for index,row in enumerate(report["rows"]):
++            raw=row.get("raw_response")
++            if not isinstance(raw,str):continue
++            status,box=classify(detector,raw,640,480)
++            before=baseline.parse_response_bbox(raw,640,480) if baseline else None
++            recovered=box is not None and baseline is not None and before is None
++            fixed+=bool(recovered)
++            historical.append(dict(report=rel,row=index+1,raw_response=raw,status=status,bbox=box,
++                prior_format_status=row.get("status"),newly_supported=bool(recovered),
++                format_passed=status in ("detected","target_not_found")))
++    live=[];observations=[]
++    if a.live:
++        frames=[]
++        for distance in ("3p6","2p4","1p6"):
++            folder=a.previous_records/"step2/fixtures"/("positive-"+distance+"-1")
++            for width in (320,640,1280):frames.append((folder/"rgb.png",True,width,folder))
++        frames.append((a.previous_records/"step8/live-front/images/red_pole-5efd806d-4-33.216.png",True,640,None))
++        for n in (1,2):
++            folder=a.previous_records/"step2/fixtures"/("negative-3p6-"+str(n))
++            frames.append((folder/"rgb.png",False,640,folder))
++        for path,present,width,folder in frames:
++            original=cv2.cvtColor(cv2.imread(str(path)),cv2.COLOR_BGR2RGB)
++            height=width*original.shape[0]//original.shape[1]
++            rgb=cv2.resize(original,(width,height),interpolation=cv2.INTER_NEAREST)
++            feedback="";status="invalid_api_response"
++            for attempt in range(2):
++                started=time.monotonic();raw=None;box=None
++                try:
++                    raw=detector._call_api(rgb,TARGET,feedback)
++                    status,box=classify(detector,raw,width,height)
++                except DetectionRejected as exc:status=str(exc)
++                row=dict(frame=str(path),width=width,height=height,attempt=attempt+1,status=status,
++                    raw_response=raw,bbox=box,elapsed_s=time.monotonic()-started,
++                    format_passed=status in ("detected","target_not_found"))
++                if box:
++                    x1,y1,x2,y2=box;patch=rgb[y1:y2,x1:x2].astype(np.float32)
++                    red=int(((patch[:,:,0]>110)&(patch[:,:,0]>patch[:,:,1]*1.5)&(patch[:,:,0]>patch[:,:,2]*1.5)).sum())
++                    row["red_pixel_support_diagnostic"]=red
++                    row["semantic_matches_fixture_diagnostic"]=present and red>=3
++                    if folder and present and red>=3:
++                        meta=json.loads((folder/"metadata.json").read_text())
++                        depth=cv2.resize(np.load(folder/"depth.npy"),(width,height),interpolation=cv2.INTER_NEAREST)
++                        try:
++                            u,v,z,n=detector._foreground_depth(depth[y1:y2,x1:x2]);K=list(meta["K"]);scale=width/original.shape[1]
++                            for i in (0,2,4,5):K[i]*=scale
++                            pt=detector._pixel_to_camera_optical(x1+u,y1+v,z,K)
++                            world=np.asarray(meta["world_from_optical"])@np.array([*pt,1.])
++                            row["target_surface_error_diagnostic_m"]=abs(float(np.linalg.norm(world[:2]-meta["target_root_position"][:2]))-.05)
++                        except DetectionRejected as exc:row["depth_diagnostic"]=str(exc)
++                elif status=="target_not_found":row["semantic_matches_fixture_diagnostic"]=not present
++                live.append(row)
++                print(json.dumps({k:v for k,v in row.items() if k!="raw_response"}),flush=True)
++                a.out.write_text(json.dumps(dict(complete=False,historical=historical,live_calls=live,live_observations=observations),indent=2,ensure_ascii=False)+"\n")
++                if row["format_passed"]:break
++                if status not in ("invalid_bbox_response","invalid_api_response"):break
++                feedback=status
++            observations.append(dict(frame=str(path),width=width,passed=status in ("detected","target_not_found"),final_status=status))
++    passed=all(x["format_passed"] for x in historical) and all(x["passed"] for x in observations)
++    report=dict(complete=True,passed=passed,scope="response-format compatibility only; semantic false positives and visibility explicitly deferred by user",
++        historical_rows=len(historical),historical_newly_supported=fixed,historical=historical,
++        live_calls=live,live_observations=observations,live_api_calls=len(live),
++        live_format_statuses=dict(Counter(x["status"] for x in live)),
++        flight_commands_issued=False,production_color_or_visibility_changes=False)
++    a.out.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
++    print("COMPLETE",json.dumps({k:v for k,v in report.items() if k not in ("historical","live_calls","live_observations")}),flush=True)
++    raise SystemExit(not passed)
++if __name__=="__main__":main()

@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-20",
+  "stage_acceptance_summaries_copied": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "full_remote_records_copied": false,
+  "latest_source_fully_copied": false,
+  "remote_root": "/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM",
+  "final_acceptance_passed": false,
+  "published_new_version": false,
+  "user_confirmed_instance_shutdown": true,
+  "final_blockers": [
+    "semantic false positives in latest real-cloud negative samples",
+    "six final cloud flights and independent audits incomplete",
+    "remote instance shut down; full final source/evidence export pending"
+  ]
+}

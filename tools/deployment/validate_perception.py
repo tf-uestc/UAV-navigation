@@ -57,6 +57,8 @@ def fixture_node():
             raise requests.exceptions.ConnectionError('fixture')
         if settings.get('failure') == 'timeout':
             raise requests.exceptions.Timeout('fixture')
+        if settings.get('failure') == 'empty':
+            return Response('')
         return Response(settings['text'])
 
     with patch('qwen_vl_grounding.requests.Session.post', side_effect=mock_post):
@@ -158,6 +160,22 @@ class Validation:
         deeper[8:16,10:18] = 5.
         positive('different_pose_range_and_millimeter_units',(deeper*1000).astype(np.uint16),
                  (-2.,3.,.5),math.pi/2,5.)
+        # These are response-format fixtures, independent of visual semantics.
+        native_box = [125,125,875,875]
+        for name, reply in (
+            ('native_label_bbox_2d',dict(label='requested object',bbox_2d=native_box)),
+            ('native_optional_found',dict(found=True,label='requested object',bbox_2d=native_box)),
+            ('native_optional_units_array',[dict(found=True,label='requested object',
+                bbox=native_box,coordinate_system='normalized_1000')]),
+        ):
+            fixture(reply)
+            stamp = send_frame(sample,depth,K,(1.,2.,0.),0.)
+            result,_ = self.query(name)
+            assert result['status']=='SUCCEEDED' and result['reason']=='',result
+            assert abs(result['capture_stamp']-stamp)<1e-6
+            assert np.linalg.norm(np.array(result['point'])-np.array([.925,1.985,3.]))<1e-5,result
+            self.check(name,world_point=result['point'])
+
         baseline = json.loads((sample_dir/'validation.json').read_text())
         fixture(json.loads(captured_response.read_text()))
         original = cv2.imread(str(sample_dir/'rgb.png'))
@@ -172,9 +190,15 @@ class Validation:
         for name, settings, values, expected in (
             ('no_target',{'reply':{'found':False}},depth,'target_not_found'),
             ('wrong_units',{'reply':dict(fake,coordinate_system='pixel')},depth,'invalid_bbox_response'),
+            ('native_empty_detection_list',{'reply':[]},depth,'target_not_found'),
+            ('contradictory_absence',{'reply':dict(found=False,label='requested object',bbox_2d=native_box)},depth,'invalid_bbox_response'),
+            ('two_native_objects',{'reply':[dict(label='a',bbox_2d=native_box),dict(label='b',bbox_2d=native_box)]},depth,'invalid_bbox_response'),
+            ('native_wrong_units',{'reply':dict(label='a',bbox_2d=native_box,coordinate_system='pixel')},depth,'invalid_bbox_response'),
+
             ('invalid_depth',{},np.full_like(depth,np.nan),'invalid_target_depth'),
             ('network_failure',{'failure':'network'},depth,'api_network_error'),
             ('timeout',{'failure':'timeout'},depth,'api_timeout'),
+            ('empty_api_content',{'failure':'empty'},depth,'invalid_api_response'),
             ('expired_reply',{'delay':2.2},depth,'detection_expired'),
         ):
             fixture(**settings)

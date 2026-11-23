@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "new_stop_request_captures_current_anchor_once",
+      "passed": true
+    },
+    {
+      "name": "duplicate_stop_and_feedback_do_not_chase_the_measured_pose",
+      "passed": true
+    },
+    {
+      "name": "later_explicit_stop_can_capture_a_new_anchor",
+      "passed": true
+    },
+    {
+      "name": "not_found_requests_fresh_brake_instead_of_waiting_on_old_hold",
+      "passed": true
+    },
+    {
+      "name": "old_stop_confirmation_cannot_authorize_scan",
+      "passed": true
+    },
+    {
+      "name": "moving_or_unconfirmed_aircraft_cannot_turn",
+      "passed": true
+    },
+    {
+      "name": "fresh_confirmed_stop_resumes_the_next_scan_offset",
+      "passed": true
+    },
+    {
+      "name": "persistent_motion_times_out_and_requests_landing",
+      "passed": true
+    },
+    {
+      "name": "visual_arrival_deadband_requests_observation_instead_of_unverified_done",
+      "passed": true
+    },
+    {
+      "name": "off_axis_target_brakes_for_alignment_before_translation",
+      "passed": true
+    },
+    {
+      "name": "new_aligned_view_has_one_fresh_format_retry_without_resetting_call_budget",
+      "passed": true
+    },
+    {
+      "name": "active_occupied_trajectory_requires_braking_before_bounded_detour",
+      "passed": true
+    },
+    {
+      "name": "flight_feedback_winning_callback_race_still_requests_safe_detour",
+      "passed": true
+    },
+    {
+      "name": "detour_staging_goal_requires_observation_heading_before_authorization",
+      "passed": true
+    },
+    {
+      "name": "map_only_turn_reanchors_hold_before_fusion_wait_without_visual_api",
+      "passed": true
+    },
+    {
+      "name": "fresh_observation_inside_arrival_band_finishes_without_micro_replanning",
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "flight_session_id": "isolated-flight",
+      "seq": 4,
+      "command": "HOVER"
+    },
+    {
+      "flight_session_id": "isolated-flight",
+      "seq": 5,
+      "command": "TURN",
+      "yaw": -0.7853981633974483
+    },
+    {
+      "flight_session_id": "isolated-flight",
+      "seq": 21,
+      "command": "HOVER"
+    },
+    {
+      "flight_session_id": "isolated-flight",
+      "seq": 22,
+      "command": "LAND"
+    }
+  ]
+}

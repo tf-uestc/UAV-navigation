@@ -1,0 +1,14 @@
+{
+  "problem": "response format compatibility",
+  "excluded": [
+    "semantic false positives",
+    "target visibility or target description",
+    "physical flight"
+  ],
+  "actual_model": "qwen3.8-omni-flash",
+  "request_and_semantic_prompt_unchanged_except_max_tokens_128_to_256": true,
+  "provider_installed_matches_source": true,
+  "controlled_retry_policy_unchanged": true,
+  "before_sha256": "c4a42e7144338dd39dc8c1bb3905b20fc261bcc7b1e45e842e14651f84ce50ed",
+  "after_sha256": "69366ecedb329e9e4e3fe251fac851f8a5fd8610074975b8568b4b7740a184c7"
+}

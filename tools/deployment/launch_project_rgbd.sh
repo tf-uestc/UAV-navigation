@@ -8,8 +8,13 @@ ROOT="${UAV_ROOT:-/root/autodl-tmp/uav}"
 PROJECT="${UAV_PROJECT_DIR:-$ROOT/UAV-navigation}"
 PX4="${PX4_AUTOPILOT_DIR:-$ROOT/PX4-Autopilot}"
 OUT="${UAV_RUN_DIR:-$ROOT/logs/project-rgbd-$(date +%Y%m%d-%H%M%S)}"
-source "$ROOT/ego-planner/devel/setup.bash"
-source "$PROJECT/ws/devel/setup.bash"
+EGO_SETUP="$(printenv UAV_EGO_SETUP || true)"
+BUSINESS_SETUP="$(printenv UAV_BUSINESS_SETUP || true)"
+if test -z "$EGO_SETUP";then EGO_SETUP="$ROOT/ego-planner/install/setup.bash";fi
+if test -z "$BUSINESS_SETUP";then BUSINESS_SETUP="$PROJECT/ws/install/setup.bash";fi
+test -r "$EGO_SETUP" && test -r "$BUSINESS_SETUP"
+source "$EGO_SETUP"
+source "$BUSINESS_SETUP"
 mkdir -p "$OUT"
 echo "RUN_DIRECTORY=$OUT"
 if pgrep -x px4 >/dev/null || pgrep -x gzserver >/dev/null; then
@@ -26,12 +31,34 @@ export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/noe
 export PX4_SIM_MODEL=gazebo-classic_iris_depth_camera
 export PX4_SYS_AUTOSTART=10015 PX4_SIM_SPEED_FACTOR=1
 export ROS_MASTER_URI=http://localhost:11311 ROS_IP=127.0.0.1
+GUI_PID=""
+MAVROS_PID=""
+PX4_PID=""
+GAZEBO_PID=""
+MASTER_PID=""
 cleanup() {
   trap - EXIT INT TERM
-  for pid in ${GUI_PID:-} ${MAVROS_PID:-} ${PX4_PID:-} ${GAZEBO_PID:-} ${MASTER_PID:-}; do
-    kill -INT "$pid" 2>/dev/null || true
+  for pid in "$GUI_PID" "$MAVROS_PID" "$PX4_PID" "$GAZEBO_PID" "$MASTER_PID";do
+    test -n "$pid" || continue
+    kill -TERM "$pid" 2>/dev/null || true
   done
-  wait 2>/dev/null || true
+  for _ in $(seq 1 150);do
+    alive=0
+    for pid in "$GUI_PID" "$MAVROS_PID" "$PX4_PID" "$GAZEBO_PID" "$MASTER_PID";do
+      test -n "$pid" || continue
+      if kill -0 "$pid" 2>/dev/null;then alive=1;fi
+    done
+    if test "$alive" = 0;then break;fi
+    sleep .1
+  done
+  for pid in "$GUI_PID" "$MAVROS_PID" "$PX4_PID" "$GAZEBO_PID" "$MASTER_PID";do
+    test -n "$pid" || continue
+    if kill -0 "$pid" 2>/dev/null;then
+      echo "Owned child did not exit after TERM: $pid" >&2
+    else
+      wait "$pid" 2>/dev/null || true
+    fi
+  done
 }
 trap cleanup EXIT
 trap 'exit 130' INT
@@ -68,8 +95,10 @@ PX4_PID=$!
 roslaunch uav_vln_bringup mavros_px4_sitl.launch \
   fcu_url:='udp://:14540@127.0.0.1:14580' > "$OUT/mavros.log" 2>&1 &
 MAVROS_PID=$!
-/opt/VirtualGL/bin/vglrun -d egl0 gzclient --verbose \
-  > "$OUT/gzclient.log" 2>&1 &
-GUI_PID=$!
+gui="$(printenv UAV_GUI || true)"
+if test "$gui" != 0;then
+  /opt/VirtualGL/bin/vglrun -d egl0 gzclient --verbose > "$OUT/gzclient.log" 2>&1 &
+  GUI_PID=$!
+fi
 printf 'PX4=%s GAZEBO=%s MAVROS=%s GUI=%s\n' "$PX4_PID" "$GAZEBO_PID" "$MAVROS_PID" "$GUI_PID"
 wait "$PX4_PID"

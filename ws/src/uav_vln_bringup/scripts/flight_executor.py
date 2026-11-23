@@ -168,10 +168,15 @@ class FlightExecutor:
         self.turn = None
 
     def hold(self, fb, reason, stop_id=None, cancel_planner=True):
+        new_stop = stop_id is not None and stop_id != self.stop_id
         self.revoke(fb, reason, stop_id, cancel_planner)
         if self.bridge.mode in ('PRESTREAM', 'WAIT_ARM', 'WAIT_OFFBOARD', 'CLIMB'):
             self.bridge.command('LAND', fb, time.monotonic())
         elif self.bridge.mode in ('TRACK', 'HOLD'):
+            # A distinct stop command creates one new hold anchor, even if
+            # already holding after a turn. Ordinary feedback never moves it.
+            if new_stop:
+                self.bridge.anchor = Reference(fb.position, fb.yaw)
             self.bridge.command('HOVER', fb, time.monotonic())
 
     def command(self, msg):
@@ -249,7 +254,7 @@ class FlightExecutor:
                 fb = self.feedback(time.monotonic(), rospy.Time.now().to_sec())
                 if fb:
                     reason=data.get('reason')
-                    suffix=reason if reason in ('unknown_trajectory','outside_known_map') else status.lower()
+                    suffix=reason if reason in ('unknown_trajectory','outside_known_map','occupied_trajectory') else status.lower()
                     self.hold(fb, 'planner_'+suffix, cancel_planner=False)
 
     def spline(self, msg):

@@ -119,7 +119,7 @@ class PlanningTrial(Trial):
         inserted = time.monotonic()
         self.record('obstacle_inserted', dict(center=center, size=size, first_trajectory_id=first_id))
         samples = []
-        while time.monotonic() - inserted < 50.:
+        while time.monotonic() - inserted < 90.:
             world = self.world(BODY, 'world')
             assert world.success
             point = world.link_state.pose.position
@@ -138,24 +138,28 @@ class PlanningTrial(Trial):
         goals = details['executed_trajectories']
         continuous = (any(d['status']=='REPLANNED' and d['reason']=='collision' for d in statuses)
                       and any(goal==1 and tid>first_id for goal, tid in goals))
-        stopped = any(d['status']=='EMERGENCY_STOP' and d['reason']=='collision' for d in statuses)
+        guarded = any(d['status']=='FAILED' and d['reason'] in ('occupied_trajectory','unknown_trajectory','outside_known_map') for d in statuses)
+        stopped = guarded or any(d['status']=='EMERGENCY_STOP' and d['reason']=='collision' for d in statuses)
         if stopped:
             stages = [(t, d) for t, k, d in self.trace if k=='mission' and d['mission_id']==mission]
-            stopped_at = next(t for t, d in stages if d['phase']=='SETTLE' and d['reason']=='planner_stop')
-            resumed_at = next(t for t, d in stages if t>stopped_at and d['phase']=='TRACK'
-                              and d['goal_id']>1 and d.get('detour_active'))
+            stopped_at = next(t for t, d in stages if d['phase']=='SETTLE' and d['reason'] in ('planner_stop','occupied_trajectory','unknown_trajectory','outside_known_map'))
+            resumed = [(t,d) for t,d in stages if t>stopped_at and d['phase']=='TRACK'
+                       and d['goal_id']>1 and d.get('detour_active')]
+            assert resumed, dict(terminal=self.mission,ego_status=statuses[-5:])
+            resumed_at=resumed[0][0]
             assert any(k=='flight' and stopped_at <= t < resumed_at and d['stop_confirmed']
                        and d['mode']=='HOLD' and d['context'] is None for t, k, d in self.trace)
             assert any(goal>1 for goal, _ in goals), details
         assert continuous or stopped, [d for d in statuses if d['status']!='READY']
         assert self.mission['phase']=='DONE' and samples[-1][0]>center[0]+.35, self.mission
-        self.check('dynamic_replan_executed', mode='settled_detour' if stopped else 'native_continuous', **details)
+        self.check('dynamic_replan_executed', mode='guarded_detour' if guarded else 'settled_detour' if stopped else 'native_continuous', **details)
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('scenario', choices=('routes', 'dynamic'))
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--contacts', action='store_true')
     parser.add_argument('--repetitions', type=int, default=5, choices=range(1, 6))
     args = parser.parse_args()
     args.mock = args.live = False
@@ -167,7 +171,12 @@ def main():
     rospy.wait_for_service('/gazebo/get_link_state', timeout=6.)
     trial = PlanningTrial(args)
     error = None
+    contacts=None
+    if args.contacts:
+        from observe_physics_contacts import PhysicsContacts
+        contacts=PhysicsContacts(args.out)
     try:
+        if contacts:contacts.start()
         assert trial.world(BODY, 'world').success
         if args.scenario == 'routes':
             trial.route_matrix(args.repetitions)
@@ -181,6 +190,12 @@ def main():
         assert trial.state is not None and not trial.state.armed
     except Exception as exc:
         error = (error or '')+' CLEANUP '+repr(exc)
+    if contacts:
+        try:
+            report=contacts.finish()
+            assert report['passed'],report
+            trial.check('physics_contact_stream_positive_control_and_no_iris_obstacle_contact',**report)
+        except Exception as exc:error=(error or '')+' CONTACTS '+repr(exc)
     args.out.mkdir(parents=True, exist_ok=True)
     result = dict(passed=error is None, error=error, checks=trial.checks,
                   final_armed=trial.state.armed if trial.state else None)

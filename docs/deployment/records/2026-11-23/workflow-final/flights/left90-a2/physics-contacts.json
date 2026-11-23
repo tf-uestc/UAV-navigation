@@ -1,0 +1,10 @@
+{
+  "obstacle_model": "red_tripod_A",
+  "passed": true,
+  "positive_control_contacts": 21013,
+  "iris_obstacle_contacts": [],
+  "physics_messages": 47811,
+  "start_stamp": 0.0,
+  "end_stamp": 89.708,
+  "last_message_stamp": 89.708
+}

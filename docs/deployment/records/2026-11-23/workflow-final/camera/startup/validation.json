@@ -1,0 +1,163 @@
+{
+  "phase": "startup",
+  "topics": {
+    "rgb_info": {
+      "count": 96,
+      "frame": "camera_link_optical",
+      "stamp_advance": 10.00399999999999,
+      "wall_rate_hz": 9.50424104903345,
+      "stamps_monotonic": true
+    },
+    "depth_info": {
+      "count": 96,
+      "frame": "camera_link_optical",
+      "stamp_advance": 10.00399999999999,
+      "wall_rate_hz": 9.504139508919783,
+      "stamps_monotonic": true
+    },
+    "rgb": {
+      "count": 101,
+      "frame": "camera_link_optical",
+      "stamp_advance": 10.00399999999999,
+      "wall_rate_hz": 10.002704956030085,
+      "stamps_monotonic": true
+    },
+    "depth": {
+      "count": 101,
+      "frame": "camera_link_optical",
+      "stamp_advance": 10.00399999999999,
+      "wall_rate_hz": 10.001592193878214,
+      "stamps_monotonic": true
+    },
+    "cloud": {
+      "count": 100,
+      "frame": "camera_link_optical",
+      "stamp_advance": 9.899999999999991,
+      "wall_rate_hz": 9.988869061811462,
+      "stamps_monotonic": true
+    },
+    "state": {
+      "count": 10,
+      "frame": "",
+      "stamp_advance": 9.0,
+      "wall_rate_hz": 0.9990072752287691,
+      "stamps_monotonic": true
+    }
+  },
+  "checks": {
+    "all_topics_received": true,
+    "exact_rgb_depth_info_cloud_sync": true,
+    "steady_state_timestamps_advance": true,
+    "connected_unarmed": true,
+    "custom_scene": true,
+    "configured_gravity": true,
+    "optical_frame_headers": true,
+    "aligned_resolution_intrinsics": true,
+    "float_depth_meters": true,
+    "cloud_matches_optical_backprojection": true,
+    "camera_mount_matches_gazebo": true,
+    "historical_map_tf_available": true,
+    "red_target_visible": true,
+    "red_surface_matches_world": true,
+    "map_camera_chain_matches_truth": true
+  },
+  "exact_sync_count": 95,
+  "first_message_age_s": {
+    "rgb": 52.239999999999995,
+    "state": 0.632000000000005,
+    "rgb_info": 0.0759999999999934,
+    "depth_info": 0.0799999999999983,
+    "cloud": 0.09599999999998943,
+    "depth": 0.1280000000000001
+  },
+  "warmup_wall_s": 2,
+  "state": {
+    "connected": true,
+    "armed": false
+  },
+  "world_models": [
+    "ground_plane",
+    "landing_pad",
+    "red_tripod_A",
+    "blue_tripod_B",
+    "iris_depth_camera"
+  ],
+  "gravity": [
+    0.0,
+    0.0,
+    -9.8066
+  ],
+  "image": {
+    "rgb_encoding": "rgb8",
+    "depth_encoding": "32FC1",
+    "width": 640,
+    "height": 480,
+    "K": [
+      343.15907310693535,
+      0.0,
+      319.5,
+      0.0,
+      343.15907310693535,
+      239.5,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "valid_depth_fraction": 0.19456380208333332,
+    "frames": [
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical",
+      "camera_link_optical"
+    ]
+  },
+  "organized_cloud_projection_max_error_m": 1.7585769414130004e-06,
+  "camera_mount_gazebo_m": [
+    0.09999077557526924,
+    -5.9592519824413725e-09,
+    1.0064971122645648e-05
+  ],
+  "mount_translation_error_m": 1.3652607473517755e-05,
+  "optical_rotation_error_deg": 0.006778572954378369,
+  "base_from_optical_tf": [
+    [
+      -2.220446049250313e-16,
+      0.0,
+      1.0000000000000002,
+      0.1
+    ],
+    [
+      -1.0000000000000002,
+      -2.220446049250313e-16,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0000000000000002,
+      -2.220446049250313e-16,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "red_target_pixels": 306,
+  "red_target": {
+    "depth_median_m": 4.843010902404785,
+    "world_surface_median": [
+      5.953564269490936,
+      1.4953444159239746,
+      0.5698484292061492
+    ],
+    "cylinder_surface_error_median_m": 0.0001891646381860304,
+    "cylinder_surface_error_p95_m": 0.0002461610824175623,
+    "tf_vs_gazebo_projection_max_error_m": 0.0004897969305698732
+  },
+  "pass": true,
+  "scope": "Static ground validation only; no arming, movement, API calls or navigation integration."
+}

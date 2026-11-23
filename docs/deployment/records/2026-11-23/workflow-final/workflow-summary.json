@@ -1,0 +1,532 @@
+{
+  "date": "2026-11-23",
+  "record_root": "/root/autodl-tmp/uav/records/workflow-final-2026-11-23-0mch",
+  "runtime_root": "/root/autodl-tmp/uav/validation/restore-final-2026-11-20-jXaGiA",
+  "baseline": "836a38584d48565f59d2326b79892cf638e18074",
+  "tasks": {
+    "restore": "passed",
+    "five_direction_acceptance": "failed",
+    "near1p5": "not_run_gate_failed",
+    "attempt_statistics": "completed",
+    "closeout": "records_and_docs_in_progress"
+  },
+  "visual_flights": [
+    {
+      "label": "front-a1",
+      "direction": "front",
+      "attempt": 1,
+      "passed": false,
+      "terminal": "DONE",
+      "primary_failure": "ten_second_hold_gazebo_truth",
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "distance_m": 2.4679456811464973,
+      "elapsed_to_terminal_s": 27.661416864022613,
+      "detection_requests": 3,
+      "actual_api_calls": 3,
+      "scans": [],
+      "hold_drift_m": 0.34209820917166134,
+      "hold_standoff_error_m": 0.07585538500125466,
+      "semantic_outliers_diagnostic": 0,
+      "landed_disarmed": true,
+      "no_unexpected_contacts": true,
+      "physics_logger_passed": true
+    },
+    {
+      "label": "front-a2",
+      "direction": "front",
+      "attempt": 2,
+      "passed": true,
+      "terminal": "DONE",
+      "primary_failure": "",
+      "errors": [],
+      "distance_m": 2.4361713249594064,
+      "elapsed_to_terminal_s": 35.62781375274062,
+      "detection_requests": 3,
+      "actual_api_calls": 3,
+      "scans": [],
+      "hold_drift_m": 0.20322167170303168,
+      "hold_standoff_error_m": 0.08541824145295518,
+      "semantic_outliers_diagnostic": 0,
+      "landed_disarmed": true,
+      "no_unexpected_contacts": true,
+      "physics_logger_passed": true
+    },
+    {
+      "label": "left45-a1",
+      "direction": "left45",
+      "attempt": 1,
+      "passed": false,
+      "terminal": "DONE",
+      "primary_failure": "ten_second_hold_gazebo_truth",
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "distance_m": 2.408960688456509,
+      "elapsed_to_terminal_s": 42.26004184037447,
+      "detection_requests": 6,
+      "actual_api_calls": 6,
+      "scans": [
+        45
+      ],
+      "hold_drift_m": 0.40410085631065235,
+      "hold_standoff_error_m": 0.05164668173858855,
+      "semantic_outliers_diagnostic": 1,
+      "landed_disarmed": true,
+      "no_unexpected_contacts": true,
+      "physics_logger_passed": true
+    },
+    {
+      "label": "left45-a2",
+      "direction": "left45",
+      "attempt": 2,
+      "passed": true,
+      "terminal": "DONE",
+      "primary_failure": "",
+      "errors": [],
+      "distance_m": 2.4103968355851886,
+      "elapsed_to_terminal_s": 37.17796422261745,
+      "detection_requests": 5,
+      "actual_api_calls": 5,
+      "scans": [
+        45
+      ],
+      "hold_drift_m": 0.18769491828032647,
+      "hold_standoff_error_m": 0.12286468097590131,
+      "semantic_outliers_diagnostic": 0,
+      "landed_disarmed": true,
+      "no_unexpected_contacts": true,
+      "physics_logger_passed": true
+    },
+    {
+      "label": "right45-a1",
+      "direction": "right45",
+      "attempt": 1,
+      "passed": false,
+      "terminal": "DONE",
+      "primary_failure": "ten_second_hold_gazebo_truth",
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "distance_m": 2.4127869522423238,
+      "elapsed_to_terminal_s": 45.558614891953766,
+      "detection_requests": 7,
+      "actual_api_calls": 7,
+      "scans": [
+        45,
+        -45
+      ],
+      "hold_drift_m": 0.4140258704658322,
+      "hold_standoff_error_m": 0.055096594585796854,
+      "semantic_outliers_diagnostic": 1,
+      "landed_disarmed": true,
+      "no_unexpected_contacts": true,
+      "physics_logger_passed": true
+    },
+    {
+      "label": "right45-a2",
+      "direction": "right45",
+      "attempt": 2,
+      "passed": false,
+      "terminal": "DONE",
+      "primary_failure": "ten_second_hold_gazebo_truth",
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "distance_m": 2.4335692462708627,
+      "elapsed_to_terminal_s": 45.693277986720204,
+      "detection_requests": 7,
+      "actual_api_calls": 7,
+      "scans": [
+        45,
+        -45
+      ],
+      "hold_drift_m": 0.5418461835783053,
+      "hold_standoff_error_m": 0.04869823249916072,
+      "semantic_outliers_diagnostic": 1,
+      "landed_disarmed": true,
+      "no_unexpected_contacts": true,
+      "physics_logger_passed": true
+    },
+    {
+      "label": "left90-a1",
+      "direction": "left90",
+      "attempt": 1,
+      "passed": false,
+      "terminal": "DONE",
+      "primary_failure": "ten_second_hold_gazebo_truth",
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "distance_m": 2.571446200681722,
+      "elapsed_to_terminal_s": 58.94268476124853,
+      "detection_requests": 10,
+      "actual_api_calls": 10,
+      "scans": [
+        45,
+        -45,
+        90
+      ],
+      "hold_drift_m": 0.5549111626428656,
+      "hold_standoff_error_m": 0.18841163832989372,
+      "semantic_outliers_diagnostic": 3,
+      "landed_disarmed": true,
+      "no_unexpected_contacts": true,
+      "physics_logger_passed": true
+    },
+    {
+      "label": "left90-a2",
+      "direction": "left90",
+      "attempt": 2,
+      "passed": true,
+      "terminal": "DONE",
+      "primary_failure": "",
+      "errors": [],
+      "distance_m": 2.4777647500944666,
+      "elapsed_to_terminal_s": 60.468496691435575,
+      "detection_requests": 7,
+      "actual_api_calls": 7,
+      "scans": [
+        45,
+        -45,
+        90
+      ],
+      "hold_drift_m": 0.14716895840236213,
+      "hold_standoff_error_m": 0.1124637282276737,
+      "semantic_outliers_diagnostic": 0,
+      "landed_disarmed": true,
+      "no_unexpected_contacts": true,
+      "physics_logger_passed": true
+    },
+    {
+      "label": "right90-a1",
+      "direction": "right90",
+      "attempt": 1,
+      "passed": false,
+      "terminal": "FAILED",
+      "primary_failure": "invalid_target_depth",
+      "errors": [
+        "mission_completed",
+        "actual_terminal_standoff",
+        "requested_search_direction",
+        "final_observation_matches_true_target",
+        "moving_rgbd",
+        "ten_second_hold_gazebo_truth"
+      ],
+      "distance_m": 3.6013225323765563,
+      "elapsed_to_terminal_s": 45.29100608732551,
+      "detection_requests": 5,
+      "actual_api_calls": 5,
+      "scans": [
+        45,
+        -45,
+        90
+      ],
+      "hold_drift_m": null,
+      "hold_standoff_error_m": null,
+      "semantic_outliers_diagnostic": 0,
+      "landed_disarmed": true,
+      "no_unexpected_contacts": true,
+      "physics_logger_passed": true
+    },
+    {
+      "label": "right90-a2",
+      "direction": "right90",
+      "attempt": 2,
+      "passed": false,
+      "terminal": "FAILED",
+      "primary_failure": "target_jump",
+      "errors": [
+        "mission_completed",
+        "actual_terminal_standoff",
+        "requested_search_direction",
+        "final_observation_matches_true_target",
+        "moving_rgbd",
+        "ten_second_hold_gazebo_truth"
+      ],
+      "distance_m": 3.517855093967704,
+      "elapsed_to_terminal_s": 43.963788421824574,
+      "detection_requests": 7,
+      "actual_api_calls": 7,
+      "scans": [
+        45,
+        -45,
+        90
+      ],
+      "hold_drift_m": null,
+      "hold_standoff_error_m": null,
+      "semantic_outliers_diagnostic": 0,
+      "landed_disarmed": true,
+      "no_unexpected_contacts": true,
+      "physics_logger_passed": true
+    }
+  ],
+  "directions": {
+    "front": true,
+    "left45": true,
+    "right45": false,
+    "left90": true,
+    "right90": false
+  },
+  "attempts": 10,
+  "passed_attempts": 3,
+  "failed_attempts": 7,
+  "missions_reached": 8,
+  "landed_disarmed": 10,
+  "zero_unexpected_contacts": 10,
+  "detection_requests": 60,
+  "actual_api_calls": 60,
+  "detection_response_reasons": {
+    "SUCCEEDED": 41,
+    "target_not_found": 18,
+    "invalid_target_depth": 1
+  },
+  "failure_reasons": {
+    "ten_second_hold_gazebo_truth": 5,
+    "invalid_target_depth": 1,
+    "target_jump": 1
+  },
+  "guards": {
+    "guard-unknown": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "unknown_never_tracks_and_exits_after_one_observation"
+        },
+        {
+          "name": "known_free",
+          "segments": 1,
+          "peak_tracking_error_m": 0.3838360393831361,
+          "rmse_tracking_m": 0.17026051328879058,
+          "odom_samples": 200,
+          "aligned_samples": 200,
+          "executed_trajectories": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "endpoint": [
+            0.6448720097541809,
+            -0.008449397049844265,
+            1.7077229022979736
+          ],
+          "endpoint_speed_mps": 0.05773069087020895
+        },
+        {
+          "name": "occupied_goal_rejected",
+          "reason": "invalid_or_occupied_goal"
+        },
+        {
+          "name": "stale_map_cannot_authorize_translation",
+          "reason": "planning_authorization_timeout"
+        },
+        {
+          "name": "restored_input_does_not_revive_old_mission_or_replayed_spline"
+        },
+        {
+          "name": "fresh_after_recovery",
+          "segments": 1,
+          "peak_tracking_error_m": 0.406704991036215,
+          "rmse_tracking_m": 0.18256062909287335,
+          "odom_samples": 229,
+          "aligned_samples": 229,
+          "executed_trajectories": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "endpoint": [
+            1.1066945791244507,
+            -0.036128342151641846,
+            1.782254934310913
+          ],
+          "endpoint_speed_mps": 0.05671644662494522
+        },
+        {
+          "name": "new_explicit_mission_can_execute_after_fresh_fusion"
+        },
+        {
+          "name": "landed_disarmed"
+        }
+      ],
+      "error": null,
+      "source": "/root/autodl-tmp/uav/records/workflow-final-2026-11-23-0mch/flights/guard-unknown/result/results.json"
+    },
+    "guard-static": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "real_occupied_goal_rejected",
+          "blocked": [
+            0.75,
+            0.05000000074505806,
+            1.5499999523162842
+          ]
+        },
+        {
+          "name": "real_obstacle_bypassed",
+          "minimum_center_to_box_surface_m": 0.6785630418602341,
+          "lateral_excursion_m": 1.1546806311530726,
+          "world_samples": 558
+        },
+        {
+          "name": "landed_disarmed"
+        }
+      ],
+      "error": null,
+      "source": "/root/autodl-tmp/uav/records/workflow-final-2026-11-23-0mch/flights/guard-static/result/results.json"
+    },
+    "guard-dynamic": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "dynamic_box_clearance",
+          "minimum_center_to_box_surface_m": 0.495939751849416
+        },
+        {
+          "name": "dynamic_replan_executed",
+          "mode": "guarded_detour",
+          "peak_tracking_error_m": 0.49629065413115614,
+          "rmse_tracking_m": 0.18862559626187012,
+          "odom_samples": 1453,
+          "aligned_samples": 1453,
+          "executed_trajectories": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "endpoint": [
+            1.7518848180770874,
+            -0.05375301092863083,
+            1.7284106016159058
+          ],
+          "endpoint_speed_mps": 0.028210223723006123
+        },
+        {
+          "name": "physics_contact_stream_positive_control_and_no_iris_obstacle_contact",
+          "obstacle_model": "dynamic_test_box",
+          "passed": true,
+          "positive_control_contacts": 17563,
+          "iris_obstacle_contacts": [],
+          "physics_messages": 37545,
+          "start_stamp": 4.656,
+          "end_stamp": 75.764,
+          "last_message_stamp": 75.764
+        }
+      ],
+      "error": null,
+      "source": "/root/autodl-tmp/uav/records/workflow-final-2026-11-23-0mch/flights/guard-dynamic/result/results.json"
+    }
+  },
+  "isolated": {
+    "methods.json": {
+      "passed": true,
+      "checks": 16
+    },
+    "readiness-90.json": {
+      "passed": true,
+      "checks": 22
+    },
+    "known-start-0.json": {
+      "passed": true,
+      "checks": 3
+    },
+    "known-start-90.json": {
+      "passed": true,
+      "checks": 3
+    },
+    "known-start--90.json": {
+      "passed": true,
+      "checks": 3
+    },
+    "known-start-180.json": {
+      "passed": true,
+      "checks": 3
+    }
+  },
+  "deferred_by_user": [
+    "semantic false-positive corrections",
+    "target visibility or target wording corrections"
+  ],
+  "real_hardware_tested": false,
+  "complete_system_accepted": false,
+  "tested_scope": "Project Iris/Gazebo; target initial distance3.6m and fixture bearings0,+54,-54,+103,-103 degrees",
+  "criteria": {
+    "standoff_error_m": 0.2,
+    "hold_s": 10,
+    "world_hold_drift_m": 0.3,
+    "zero_unexpected_contacts": true,
+    "landed_disarmed": true
+  },
+  "offline_tests": 106,
+  "format_acceptance": {
+    "passed": true,
+    "scope": "Problem 2 only: response-format compatibility and safe classification",
+    "deferred_by_user": [
+      "Problem 1 semantic false positives",
+      "Problem 3 visibility/target wording"
+    ],
+    "offline_tests": 106,
+    "ros_replay_checks": 21,
+    "mock_search_checks": 6,
+    "historical_real_responses": 63,
+    "historical_newly_supported": 1,
+    "actual_cloud_observations": 12,
+    "actual_api_calls": 12,
+    "actual_cloud_format_statuses": {
+      "detected": 10,
+      "target_not_found": 2
+    },
+    "actual_cloud_format_retries": 0,
+    "same_view_retry_limit": 1,
+    "unknown_units_not_guessed": true,
+    "flight_commands_to_real_px4": false,
+    "instance_running_no_flight_services_started": true,
+    "provider_installed_matches_source": true,
+    "production_target_prompt_unchanged": true,
+    "global_final_regression_complete": false,
+    "evidence": [
+      "offline-final.txt",
+      "red-before-fix.txt",
+      "ros-perception.json",
+      "response-format.json",
+      "mock-search/results.json",
+      "scope-verification.json",
+      "source-backup-manifest.json"
+    ]
+  },
+  "final_state_before_archive": {
+    "connected": true,
+    "armed": false,
+    "landed": true,
+    "mode": "OFFBOARD"
+  }
+}

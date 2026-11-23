@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "front-2p4-feedback-aligned",
+      "standoff_m": 2.4,
+      "actual_distance_m": 2.397043087899999,
+      "elapsed_s": 51.6403623810038,
+      "cloud_requests": 7,
+      "map_p95_m": 0.0666637769250091,
+      "depth_p95_max_m": 0.019300117763905417,
+      "heading": {
+        "passed": true,
+        "maximum_error_deg": 6.799244049410171,
+        "samples": [
+          6.799244049410171,
+          0.31885496612565994,
+          0.8689945251418132
+        ]
+      },
+      "world_hold": {
+        "passed": true,
+        "samples": 84,
+        "world_drift_m": 0.1392345092908016,
+        "minimum_distance_m": 2.3298326178808297,
+        "maximum_distance_m": 2.4077630445701326
+      }
+    },
+    {
+      "name": "near-1p5-feedback-aligned",
+      "standoff_m": 1.5,
+      "actual_distance_m": 1.5258107532352496,
+      "elapsed_s": 58.50171309430152,
+      "cloud_requests": 8,
+      "map_p95_m": 0.10059661479738671,
+      "depth_p95_max_m": 0.02159522811365147,
+      "heading": {
+        "passed": true,
+        "maximum_error_deg": 6.848256823359636,
+        "samples": [
+          6.848256823359636,
+          0.9330666100109362,
+          0.39548055426874895
+        ]
+      },
+      "world_hold": {
+        "passed": true,
+        "samples": 84,
+        "world_drift_m": 0.2505068346206638,
+        "minimum_distance_m": 1.5183823022824112,
+        "maximum_distance_m": 1.5541853025338768
+      }
+    },
+    {
+      "name": "yaw45-final",
+      "standoff_m": 2.4,
+      "actual_distance_m": 2.5305855436752442,
+      "elapsed_s": 43.442107507027686,
+      "cloud_requests": 5,
+      "map_p95_m": 0.06976936778392241,
+      "depth_p95_max_m": 0.013204110544697499,
+      "heading": {
+        "passed": true,
+        "maximum_error_deg": 2.2634398922794614,
+        "samples": [
+          0.8046243844140619,
+          2.2634398922794614
+        ]
+      },
+      "world_hold": {
+        "passed": true,
+        "samples": 85,
+        "world_drift_m": 0.06551663792432741,
+        "minimum_distance_m": 2.507643644709291,
+        "maximum_distance_m": 2.5354009220914824
+      }
+    }
+  ],
+  "method_checks": 11,
+  "offline_tests": 94,
+  "strict_protocol_preserved": true,
+  "visual_arrival_tolerance_m": 0.12,
+  "visual_standoff_tolerance_m": 0.08,
+  "external_standoff_error_limit_m": 0.2,
+  "failed_trials_preserved": [
+    "yaw45-2p4: 0.10 m arrival deadband too tight",
+    "final-yaw45-2p4: edge-of-view unknown trajectory safely blocked",
+    "front-2p4-aligned: two malformed responses",
+    "yaw45-2p4-feedback-aligned: new-view retry flag incorrectly inherited; fixed and regression-tested"
+  ],
+  "limits": [
+    "Finite SITL scenes; cloud may still fail both bounded requests",
+    "Near low pole uses explicit height=1.3; default height=1.6 is not certified for 1.5 m low-pole observation",
+    "Horizontal accuracy tested; estimator vertical bias remains and is not corrected using simulator truth"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "unknown_never_tracks_and_exits_after_one_observation"
+    },
+    {
+      "name": "known_free",
+      "segments": 1,
+      "peak_tracking_error_m": 0.3838360393831361,
+      "rmse_tracking_m": 0.17026051328879058,
+      "odom_samples": 200,
+      "aligned_samples": 200,
+      "executed_trajectories": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "endpoint": [
+        0.6448720097541809,
+        -0.008449397049844265,
+        1.7077229022979736
+      ],
+      "endpoint_speed_mps": 0.05773069087020895
+    },
+    {
+      "name": "occupied_goal_rejected",
+      "reason": "invalid_or_occupied_goal"
+    },
+    {
+      "name": "stale_map_cannot_authorize_translation",
+      "reason": "planning_authorization_timeout"
+    },
+    {
+      "name": "restored_input_does_not_revive_old_mission_or_replayed_spline"
+    },
+    {
+      "name": "fresh_after_recovery",
+      "segments": 1,
+      "peak_tracking_error_m": 0.406704991036215,
+      "rmse_tracking_m": 0.18256062909287335,
+      "odom_samples": 229,
+      "aligned_samples": 229,
+      "executed_trajectories": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ]
+      ],
+      "endpoint": [
+        1.1066945791244507,
+        -0.036128342151641846,
+        1.782254934310913
+      ],
+      "endpoint_speed_mps": 0.05671644662494522
+    },
+    {
+      "name": "new_explicit_mission_can_execute_after_fresh_fusion"
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

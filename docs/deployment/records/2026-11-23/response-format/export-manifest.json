@@ -1,0 +1,8 @@
+{
+  "record_root": "/root/autodl-tmp/uav/records/format-only-2026-11-23-MPHK",
+  "evidence_archive": "/root/autodl-tmp/uav/records/archives/response-format-evidence-2026-11-23.tar.gz",
+  "evidence_bytes": 1883327,
+  "evidence_sha256": "2069ee02b94b2cff3e5d8dbaa3ec50799bbf1040200c85edb31b895724760f27",
+  "source_archive": "/root/autodl-tmp/uav/records/archives/candidate-source-response-format-2026-11-23.tar.gz",
+  "source_sha256": "31a569c533448001a6b14f9a156e7dc0fc40aacfb7259c0f4e87305967ab9864"
+}

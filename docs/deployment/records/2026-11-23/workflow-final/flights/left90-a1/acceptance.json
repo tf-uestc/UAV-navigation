@@ -1,0 +1,168 @@
+{
+  "passed": false,
+  "case": "/root/autodl-tmp/uav/records/workflow-final-2026-11-23-0mch/flights/left90-a1",
+  "nominal_standoff_m": 2.4,
+  "expected_scan_offset": 90,
+  "checks": [
+    {
+      "name": "mission_completed",
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "landed_disarmed",
+      "passed": true
+    },
+    {
+      "name": "actual_terminal_standoff",
+      "passed": true,
+      "nominal_m": 2.4,
+      "actual_m": 2.571446200681722,
+      "maximum_error_m": 0.2
+    },
+    {
+      "name": "requested_search_direction",
+      "passed": true,
+      "actual": [
+        45,
+        -45,
+        90
+      ],
+      "expected_offset": 90
+    },
+    {
+      "name": "bounded_detection_requests",
+      "passed": true,
+      "count": 10
+    },
+    {
+      "name": "physical_zero_target_contacts",
+      "passed": true,
+      "positive_control_contacts": 24735,
+      "actual_contacts": []
+    },
+    {
+      "name": "physical_logger_positive_control",
+      "passed": true
+    },
+    {
+      "name": "no_unexpected_world_contacts",
+      "passed": true,
+      "unexpected_collision_names": [],
+      "permitted_ground_contacts": [
+        "ground_plane::link::collision",
+        "landing_pad::link::pad_collision"
+      ]
+    },
+    {
+      "name": "final_observation_matches_true_target",
+      "passed": true,
+      "final_surface_error_m": 0.013278024251007686
+    },
+    {
+      "name": "physical_logging_covers_flight",
+      "passed": true,
+      "logger_end": 104.564,
+      "last_odom": 91.78
+    },
+    {
+      "name": "moving_rgbd",
+      "passed": true,
+      "frames": 20,
+      "map_p95_m": 0.04916675556448233
+    },
+    {
+      "name": "stable_fresh_capture",
+      "passed": true
+    },
+    {
+      "name": "reply_ids_and_capture_times",
+      "passed": true,
+      "replies": 10
+    },
+    {
+      "name": "ten_second_hold_gazebo_truth",
+      "passed": false,
+      "samples": 96,
+      "covered_core_seconds": 8.903999999999996,
+      "world_drift_m": 0.5549111626428656,
+      "maximum_standoff_error_m": 0.18841163832989372
+    },
+    {
+      "name": "no_trajectory_revival_after_done",
+      "passed": true
+    },
+    {
+      "name": "conservative_rod_clearance",
+      "passed": true,
+      "minimum_m": 2.080101718731495,
+      "scope": "central rod bound; complete tripod covered separately by physics contact logger"
+    }
+  ],
+  "errors": [
+    "ten_second_hold_gazebo_truth"
+  ],
+  "metrics": {
+    "name": "attempt_observations",
+    "mission_id": "red_pole-b3606390",
+    "terminal": "DONE",
+    "reason": "observation_standoff_reached",
+    "segments": 1,
+    "scans": [
+      45,
+      -45,
+      90
+    ],
+    "detection_requests": 10,
+    "responses": [
+      {
+        "status": "SUCCEEDED",
+        "reason": ""
+      },
+      {
+        "status": "FAILED",
+        "reason": "target_not_found"
+      },
+      {
+        "status": "SUCCEEDED",
+        "reason": ""
+      },
+      {
+        "status": "FAILED",
+        "reason": "target_not_found"
+      },
+      {
+        "status": "SUCCEEDED",
+        "reason": ""
+      },
+      {
+        "status": "FAILED",
+        "reason": "target_not_found"
+      },
+      {
+        "status": "SUCCEEDED",
+        "reason": ""
+      },
+      {
+        "status": "SUCCEEDED",
+        "reason": ""
+      },
+      {
+        "status": "SUCCEEDED",
+        "reason": ""
+      },
+      {
+        "status": "SUCCEEDED",
+        "reason": ""
+      }
+    ],
+    "distance_at_terminal_m": 2.571446200681722,
+    "minimum_horizontal_distance_m": 2.5370082146988224,
+    "elapsed_seconds": 58.94268476124853,
+    "semantic_outliers_diagnostic": 3,
+    "world_hold_drift_m": 0.5549111626428656,
+    "world_hold_standoff_error_m": 0.18841163832989372,
+    "minimum_conservative_rod_clearance_m": 2.080101718731495
+  },
+  "scope": "fixed project SITL, real cloud; no claim for deferred semantic/visibility defects"
+}

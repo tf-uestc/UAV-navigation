@@ -8,7 +8,12 @@
   <arg name="max_detections" default="12"/>
   <!-- 12 requests x 42s plus 216s for takeoff, scan, movement and stopping. -->
   <arg name="mission_timeout" default="720.0"/>
+  <arg name="settle_timeout" default="12.0"/>
+  <arg name="turn_timeout" default="20.0"/>
   <arg name="standoff" default="2.4"/>
+  <arg name="height" default="1.6"/>
+  <arg name="visual_arrival_tolerance" default="0.12"/>
+  <arg name="standoff_tolerance" default="0.12"/>
   <rosparam command="load" file="$(find uav_vln_bringup)/config/segment_mission.yaml" ns="/uav/segment_config"/>
   <include file="$(find uav_vln_bringup)/launch/flight_verified.launch">
     <arg name="require_known_space" value="$(arg require_known_space)"/>
@@ -26,9 +31,14 @@
   </include>
   <node pkg="uav_vln_bringup" type="segment_mission.py" name="segment_mission" output="screen" required="true">
     <param name="standoff" value="$(arg standoff)"/>
+    <param name="height" value="$(arg height)"/>
+    <param name="visual_arrival_tolerance" value="$(arg visual_arrival_tolerance)"/>
+    <param name="standoff_tolerance" value="$(arg standoff_tolerance)"/>
     <param name="manual_segment_length" value="1.8"/>
     <param name="detection_timeout" value="$(arg detection_timeout)"/>
     <param name="max_detections" value="$(arg max_detections)"/>
     <param name="mission_timeout" value="$(arg mission_timeout)"/>
+    <param name="settle_timeout" value="$(arg settle_timeout)"/>
+    <param name="turn_timeout" value="$(arg turn_timeout)"/>
   </node>
 </launch>

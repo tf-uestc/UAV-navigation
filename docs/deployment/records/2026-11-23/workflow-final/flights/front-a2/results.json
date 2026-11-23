@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "attempt_observations",
+      "mission_id": "red_pole-d05263a6",
+      "terminal": "DONE",
+      "reason": "observation_standoff_reached",
+      "segments": 1,
+      "scans": [],
+      "detection_requests": 3,
+      "responses": [
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        }
+      ],
+      "distance_at_terminal_m": 2.4361713249594064,
+      "minimum_horizontal_distance_m": 2.408478882137027,
+      "elapsed_seconds": 35.62781375274062
+    },
+    {
+      "name": "historical_tf_gazebo_and_target_surface",
+      "samples": [
+        {
+          "capture_stamp": 20.4,
+          "truth_time_delta_s": 0.0,
+          "camera_translation_error_m": 0.10356523834727206,
+          "target_surface_error_m": 0.020067134989527093
+        },
+        {
+          "capture_stamp": 25.8,
+          "truth_time_delta_s": 0.05000000000000071,
+          "camera_translation_error_m": 0.09510535291189068,
+          "target_surface_error_m": 0.03886466566709579
+        },
+        {
+          "capture_stamp": 36.6,
+          "truth_time_delta_s": 0.021999999999998465,
+          "camera_translation_error_m": 0.16382685790560314,
+          "target_surface_error_m": 0.01628818595929249
+        }
+      ]
+    },
+    {
+      "name": "observed_and_held",
+      "distance_m": 2.4361713249594064,
+      "hold_seconds": 10.0
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

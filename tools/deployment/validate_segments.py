@@ -182,11 +182,11 @@ class Trial:
         return self.wait(lambda: self.mission if self.mission['mission_id']==mission and
             self.mission['phase'] in phase else None,seconds,'mission '+mission+' phase '+str(phase))
 
-    def new(self,name,behavior='normal',takeoff=False,waypoint=None,search=False):
+    def new(self,name,behavior='normal',takeoff=False,waypoint=None,search=False,target=None):
         mission=name+'-'+uuid.uuid4().hex[:8]
         p,y=decode(self.odom.pose.pose)
         direction=(math.cos(y),math.sin(y))
-        point=(p[0]+4.*direction[0],p[1]+4.*direction[1],.3)
+        point=target if target is not None else (p[0]+4.*direction[0],p[1]+4.*direction[1],.3)
         self.scenarios[mission]=dict(behavior=behavior,target=point,calls=0)
         fields=dict(mission_id=mission,target=self.args.target,takeoff=takeoff)
         if waypoint is not None:

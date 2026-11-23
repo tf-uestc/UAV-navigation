@@ -193,6 +193,9 @@ class DetectorNode:
             mission_id = data.get("mission_id", "")
             request_id = data.get("request_id", 0)
             capture_after = data.get("capture_after", 0.)
+            feedback = data.get("response_feedback", "")
+            if feedback not in ("", "invalid_bbox_response", "invalid_api_response"):
+                raise ValueError("invalid response feedback")
             if not finite(capture_after) or capture_after < 0.:
                 raise ValueError("invalid capture floor")
             if mission_id:
@@ -212,9 +215,9 @@ class DetectorNode:
             return
         self._publish_status(request_id, "STARTED", mission_id)
         threading.Thread(target=self._run_detection,
-                         args=(target_text, request_id, mission_id, capture_after), daemon=True).start()
+                         args=(target_text, request_id, mission_id, capture_after, feedback), daemon=True).start()
 
-    def _run_detection(self, target_text, request_id=0, mission_id="", capture_after=0.):
+    def _run_detection(self, target_text, request_id=0, mission_id="", capture_after=0., feedback=""):
         started = time.monotonic()
         capture = 0.
         point = None
@@ -250,7 +253,9 @@ class DetectorNode:
                 except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
                     raise ValueError("historical_tf_unavailable") from None
             rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
-            detection = self.detector.detect(rgb, depth, target_text, info)
+            contextual = getattr(self.detector, "detect_with_feedback", None)
+            detection = (contextual(rgb, depth, target_text, info, feedback) if feedback and contextual
+                         else self.detector.detect(rgb, depth, target_text, info))
             if detection is None:
                 reason = "no_valid_detection"
             else:

@@ -1,0 +1,48 @@
+{
+  "passed": false,
+  "error": "AssertionError({'mission_session_id': '001277e249e24e55a1e97539e9620a58', 'mission_id': 'red_pole-7c836647', 'phase': 'FAILED', 'reason': 'invalid_target_depth', 'goal_id': 0, 'goal': None, 'final_goal': None, 'detection_request_id': None, 'intended_yaw': 1.5546412901079107, 'observation_heading_mode': 'scan', 'segment_count': 0, 'scan_offset_deg': 90, 'detection_retried': False, 'detour_active': False, 'capture_floor': 41.856, 'stop_id': 8})",
+  "checks": [
+    {
+      "name": "attempt_observations",
+      "mission_id": "red_pole-7c836647",
+      "terminal": "FAILED",
+      "reason": "invalid_target_depth",
+      "segments": 0,
+      "scans": [
+        45,
+        -45,
+        90
+      ],
+      "detection_requests": 5,
+      "responses": [
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "FAILED",
+          "reason": "invalid_target_depth"
+        }
+      ],
+      "distance_at_terminal_m": 3.6013225323765563,
+      "minimum_horizontal_distance_m": 3.532710131101352,
+      "elapsed_seconds": 45.29100608732551
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

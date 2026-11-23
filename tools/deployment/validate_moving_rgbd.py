@@ -5,17 +5,18 @@ import json
 import math
 from pathlib import Path
 import sys
+import signal
 import time
 
 import cv2
 from cv_bridge import CvBridge
-from gazebo_msgs.srv import GetLinkState
+from gazebo_msgs.srv import GetLinkState, GetModelState
 import message_filters
 from nav_msgs.msg import Odometry
 import numpy as np
 import rospy
 from sensor_msgs.msg import CameraInfo, Image
-from tf.transformations import quaternion_matrix
+from tf.transformations import quaternion_matrix, quaternion_from_matrix
 import tf2_ros
 
 
@@ -31,6 +32,7 @@ buffer = tf2_ros.Buffer(cache_time=rospy.Duration(15.))
 listener = tf2_ros.TransformListener(buffer)
 bridge = CvBridge()
 link = rospy.ServiceProxy('/gazebo/get_link_state', GetLinkState)
+model = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
 queue = collections.deque(maxlen=2)
 odom = collections.deque(maxlen=70)
 recent = rospy.Subscriber('/mavros/local_position/odom', Odometry, odom.append, queue_size=5)
@@ -43,9 +45,12 @@ optical_in_gazebo = np.eye(4)
 optical_in_gazebo[:3,:3] = ((0,0,1),(-1,0,0),(0,-1,0))
 observations = []
 map_from_world = None
-expires = time.monotonic()+110.
+ground_candidates=[]
+stopped=[False]
+signal.signal(signal.SIGTERM,lambda *a:stopped.__setitem__(0,True))
+expires = time.monotonic()+180.
 pending = collections.deque(maxlen=30)
-while time.monotonic() < expires and len(observations) < 20 and not rospy.is_shutdown():
+while not stopped[0] and time.monotonic() < expires and len(observations) < 20 and not rospy.is_shutdown():
     time.sleep(.03)
     now = rospy.Time.now().to_sec()
     if pending and now-pending[0][0].to_sec() > .9:
@@ -72,7 +77,14 @@ while time.monotonic() < expires and len(observations) < 20 and not rospy.is_shu
                 continue
             base = buffer.lookup_transform('map','base_link',stamp,rospy.Duration(.12)).transform
             pose = truth.link_state.pose
-            map_from_world = transform(base.translation,base.rotation) @ np.linalg.inv(transform(pose.position,pose.orientation))
+            candidate = transform(base.translation,base.rotation) @ np.linalg.inv(transform(pose.position,pose.orientation))
+            ground_candidates.append(candidate)
+            if len(ground_candidates)>=20:
+                candidates=ground_candidates[-20:]
+                qs=np.array([quaternion_from_matrix(x) for x in candidates])
+                values,vectors=np.linalg.eigh(qs.T @ qs)
+                map_from_world=quaternion_matrix(vectors[:,-1])
+                map_from_world[:3,3]=np.mean([x[:3,3] for x in candidates],axis=0)
             continue
         if speed < .15 or odom_msg.pose.pose.position.z < 1.3:
             continue
@@ -98,20 +110,29 @@ while time.monotonic() < expires and len(observations) < 20 and not rospy.is_shu
     optical=np.stack(((cols-cx)*d/fx,(rows-cy)*d/fy,d,np.ones_like(d)))
     from_map=(np.linalg.inv(map_from_world)@historical@optical)[:3].T
     from_gazebo=(truth_camera@optical)[:3].T
-    err=np.abs(np.hypot(from_map[:,0]-6.,from_map[:,1]-1.5)-.05)
-    true_err=np.abs(np.hypot(from_gazebo[:,0]-6.,from_gazebo[:,1]-1.5)-.05)
-    if np.percentile(true_err,95)>.045:
-        continue
-    sample=dict(stamp=stamp.to_sec(),speed_mps=speed,truth_time_offset_s=lag,red_pixels=len(rows),
+    target=model('red_tripod_A','world')
+    if not target.success:continue
+    tx,ty=target.pose.position.x,target.pose.position.y
+    err=np.abs(np.hypot(from_map[:,0]-tx,from_map[:,1]-ty)-.05)
+    true_err=np.abs(np.hypot(from_gazebo[:,0]-tx,from_gazebo[:,1]-ty)-.05)
+    expected=map_from_world @ truth_camera
+    camera_delta=historical[:3,3]-expected[:3,3]
+    sample=dict(camera_xyz_error_m=camera_delta.tolist(),stamp=stamp.to_sec(),speed_mps=speed,truth_time_offset_s=lag,red_pixels=len(rows),
                 map_surface_error_p95_m=float(np.percentile(err,95)),
                 gazebo_surface_error_p95_m=float(np.percentile(true_err,95)))
     pending.append((stamp,historical,sample))
-result=dict(samples=observations,count=len(observations),ground_alignment=map_from_world is not None)
+result=dict(interrupted=stopped[0],samples=observations,count=len(observations),ground_alignment=map_from_world is not None,
+    ground_alignment_samples=len(ground_candidates),criteria=dict(minimum_frames=10,
+      maximum_depth_surface_frame_p95_m=.05,maximum_map_surface_p95_m=.30),
+    ground_alignment_transform=map_from_world.tolist() if map_from_world is not None else None)
 if observations:
     result['map_surface_error_p95_of_frame_p95_m']=float(np.percentile(
         [s['map_surface_error_p95_m'] for s in observations],95))
     result['history_exact']=all(s['delayed_tf_max_difference']<1e-8 for s in observations)
-result['passed']=result['count']>=10 and result.get('history_exact',False)
+    result['depth_surface_max_frame_p95_m']=max(s['gazebo_surface_error_p95_m'] for s in observations)
+result['passed']=(result['count']>=10 and result.get('history_exact',False)
+    and result.get('depth_surface_max_frame_p95_m',float('inf'))<=.05
+    and result.get('map_surface_error_p95_of_frame_p95_m',float('inf'))<=.30)
 out.write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps({k:v for k,v in result.items() if k!='samples'}),flush=True)
 raise SystemExit(0 if result['passed'] else 1)

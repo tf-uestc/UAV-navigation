@@ -120,3 +120,35 @@ ROS、相机桥、任务管理和检测fixture均使用/usr/bin/python3。推荐
 业务验证构建目录为ws/build_verified，输出prefix明确为validation/business-devel和validation/business-install；旧ws/devel保留作为日常开发目录。完整命令、独立测试端口、相机标定共享方式和边界见ros_planning_validation_2026-11-02.md。原来的vlm_navigation_full.launch没有自动切换到新规划入口。
 
 修改前业务快照b4b4423已制作完整Git bundle；本轮EGO提交也已制作bundle并核对SHA256。最终代码和记录另存同批修复分支提交及bundle；这不等于完整数据盘备份或系统镜像。本轮没有推送GitHub，main未合并。
+
+
+## 2026年11月20日隔离环境与恢复状态
+
+此前各日期记录作为历史保留；本节记录本轮实际使用的隔离前缀。八项扩展任务的阶段结果和未通过条件见[本轮实施进度](final_tasks_2026-11-20.md)。最终真实云端回归未通过，实例已由用户关闭，候选未作为新版本发布。
+
+| 使用场景 | 解释器及依赖 | 边界 |
+| --- | --- | --- |
+| ROS、相机、任务与当前云端检测 | /usr/bin/python3；Python3.8.10，NumPy1.17.4，OpenCV4.2.0 | 不激活PX4或Conda环境运行ROS节点 |
+| PX4构建 | /root/autodl-tmp/uav/venvs/px4-py38/bin/python；NumPy1.23.5、EmPy3.3.4 | 仅供构建依赖使用，未写入系统环境 |
+| 离线测试 | /root/autodl-tmp/uav/venvs/offline-py38/bin/python；NumPy1.24.4 | 独立测试，不替代ROS运行解释器 |
+
+PX4固定v1.14.0、b8c541dd7277ed735139d7d1bfb829d61fbe29fb。新冷恢复目录为/root/autodl-tmp/uav/validation/restore-final-2026-11-20-jXaGiA，依次加载/opt/ros/noetic/setup.bash、该目录ego-install/setup.bash、business-install/setup.bash，不混用历史devel或其他前缀。启动脚本在子进程中清理Python与catkin路径，原Conda环境保留。
+
+EGO按上游bfda51284c8c1b476043255a8145ef925a3778a5加managed-integration、known-space-guard、dependency-manifest三份补丁恢复。最后一份补齐geometry_msgs、quadrotor_msgs、cv_bridge和message_generation依赖声明。新工作区重建与两次重启恢复通过；固定日常入口及全部源码补丁回存尚待最终收尾。
+
+相机机型为iris_depth_camera，使用项目search_rescue.world。模型为qwen3.8-omni-flash，仍调用云端接口，未增加本地视觉模型或改装CUDA/PyTorch。私有密钥由/root/autodl-tmp/uav/UAV-navigation/.env提供，不复制到文档、Git或普通备份。单次连接/读取超时3/35秒，检测截止和结果最大年龄42秒；任务总预算最多12次检测、720秒，搜索与重试共同消耗预算。
+
+恢复脚本check/start/session重复调用及两次restart已验收，默认不解锁；拒绝在armed或落地状态未确认时stop。完整命令和固定入口仍需随最终通过版本归档。当前安装前缀包含尚未通过负样本回归的格式适配候选；开机后先保持未解锁，只读核验及修复感知，不能直接把该候选当作正式任务版本。
+
+原始记录位于/root/autodl-tmp/uav/records/final-tasks-2026-11-20-o5wM。最新98项离线测试通过不代表云端定位通过：12次观测中2次误识别仍待修复。GitHub仍是836a385，实现2.4米；本轮源码完整回存、最终验收和推送均未完成。阶段总结记录结论及下一步，详细复现留在部署文档，失败证据不删除。
+
+
+## 2026年11月23日固定入口与复验结果
+
+日常入口已固定为/root/autodl-tmp/uav/runtime/uav.sh，同目录runtime.env记录发布源码位置、EGO和业务安装前缀、固定PX4及私有密钥文件路径。入口模板为tools/deployment/uav.sh；check/status/vnc/start/session不会自动解锁。已在/tmp以外部入口检查环境，VNC本地端口16006至服务器6006握手通过。
+
+恢复可依次运行入口的check、vnc、start、session --height 1.6 --standoff 2.4；查看使用status，降落使用land。stop/restart要求落地且解除解锁。GUI保留供用户VNC观察。实际发布源码和运行时哈希在本轮备份及发布清单中核对，未将Conda或PX4虚拟环境依赖混入ROS。
+
+本轮格式修复通过106项离线、21项ROS、6项重试搜索、63条历史回复及12次固定图像API检查。随后10轮实际云端任务用60次API调用，8轮到达但只有3轮通过真值悬停等最终验收，全部降落上锁且无意外场景接触。五方向未全通过，1.5米未执行。里程计高度与世界真值存在显著变化差异，未宣称已解决；误识别和可见性按用户要求暂缓。
+
+完整本地备份在.local-backups/2026-11-23，Git忽略这些大文件，只收录精简证据。报告见[五方向复验与收尾](workflow_closeout_2026-11-23.md)。修复分支保留未通过条件，不自动合并main，不把本次保存解释为系统完整验收通过。
