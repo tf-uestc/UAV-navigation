@@ -224,6 +224,20 @@ class Validation:
                        range_m=radius,optical_depth_m=float(z),reconstructed_m=result['point'],
                        target_z_error_m=float(error[2]),position_error_m=float(np.linalg.norm(error)))
 
+        fixture()
+        send_frame(sample,depth,K,(0.,0.,0.),0.)
+        result,_ = self.query('red pole')
+        assert result['reason']=='target_color_unconfirmed' and result['point'] is None,result
+        self.check('positive_box_without_red_pixels_has_distinct_failure')
+        red_pole = sample.copy()
+        red_pole[8:16, 12:15, 2] = 200
+        missing = depth.copy()
+        missing[8:16, 12:15] = np.nan
+        send_frame(red_pole,missing,K,(0.,0.,0.),0.)
+        result,_ = self.query('red pole')
+        assert result['reason']=='invalid_target_depth' and result['point'] is None,result
+        self.check('red_pixels_with_missing_depth_remain_depth_failure')
+
         for name, settings, values, expected in (
             ('no_target',{'reply':{'found':False}},depth,'target_not_found'),
             ('wrong_units',{'reply':dict(fake,coordinate_system='pixel')},depth,'invalid_bbox_response'),

@@ -109,6 +109,8 @@ class QwenVLGroundingDetector(Detector):
             # Use the same red surface cue as the project's RGB-D validation.
             red, green, blue = rgb[y1:y2, x1:x2].transpose(2, 0, 1)
             mask = (red > 110) & (red > 1.5*green) & (red > 1.5*blue)
+            if np.count_nonzero(mask) < 3:
+                raise DetectionRejected("target_color_unconfirmed")
         u, v, depth_m, support = self._foreground_depth(depth[y1:y2, x1:x2], mask)
         point_camera = self._pixel_to_camera_optical(x1+u, y1+v, depth_m, cam_info.K)
         confidence = support / ((x2-x1)*(y2-y1))

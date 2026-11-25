@@ -209,6 +209,8 @@ def case(name,fn):
     except Exception as e:
         import traceback
         checks.append(dict(name=name,passed=False,seconds=time.monotonic()-start,error=repr(e),trace=traceback.format_exc()))
+        if args.stage=='lifecycle':
+            checks[-1]['detector_results']=json_messages('/uav/detection_result',start)
         print('FAIL',name,repr(e),flush=True)
 
 def readiness():
@@ -250,11 +252,13 @@ fatal=None
 try:
     if args.stage=='lifecycle':
         gp=gateway()
+        os.environ['PYTHONPATH']=str(Path(__file__).resolve().parent)+os.pathsep+os.environ.get('PYTHONPATH','')
         detector=launch('detector',['rosrun','uav_vln_bringup','detector_node.py',
-                '_detector_class:=test_backend.FixtureDetector','_managed_requests_only:=true'])
+                '_detector_class:=stage78_backend.BlockingFixture','_managed_requests_only:=true'])
         manager=start_manager()
         wait(lambda:readiness() and readiness()['ready'])
-        wait(lambda:pubs['/uav/instruction'].get_num_connections()>=2)
+        wait(lambda:pubs['/uav/instruction'].get_num_connections()>=3 and
+             all(p.get_num_connections() for p in (fixture.rgb_pub,fixture.depth_pub,fixture.info_pub)))
         time.sleep(.3)
 
         def transport():
@@ -403,21 +407,34 @@ try:
 
         def manager_fast_busy():
             pubs['/uav/state_cmd'].publish(String(data='HOVER'));time.sleep(.15)
-            start=time.monotonic()
-            pubs['/uav/instruction'].publish(String(data=json.dumps({'target':{'text':'busy_test'}})))
-            time.sleep(3.15)
-            pubs['/uav/instruction'].publish(String(data=json.dumps(dict(target={'text':'slow_occupier'},
-                mission_id=uuid.uuid4().hex,request_id=9999,_mission_mgr_trigger=True))))
-            requests=lambda:[d for d in json_messages('/uav/instruction',start)
-                              if d.get('_mission_mgr_trigger') and d.get('target',{}).get('text')=='busy_test']
-            first=wait(lambda:requests() and requests()[0],5)
-            wait(lambda:any(r['mission_id']==first['mission_id'] and r['request_id']==first['request_id'] and r['status']=='BUSY'
-                            for r in json_messages('/uav/detection_result',start)),2)
-            busy_wall=time.monotonic()
-            wait(lambda:len(requests())>=2,3)
-            elapsed=time.monotonic()-busy_wall
-            assert elapsed<3  # configured request timeout is 5 s, so BUSY was resolved immediately.
-            return dict(seconds_to_next_request=elapsed,configured_timeout=5)
+            rospy.set_param('/stage78/fixture_entered',False)
+            rospy.set_param('/stage78/fixture_hold',True)
+            try:
+                held_id=uuid.uuid4().hex
+                for attempt in range(1,11):
+                    pubs['/uav/instruction'].publish(String(data=json.dumps(dict(target={'text':'lifecycle_busy_barrier'},
+                        mission_id=held_id,request_id=attempt,_mission_mgr_trigger=True))))
+                    observed=wait(lambda:rospy.get_param('/stage78/fixture_entered') or next(
+                        (r for r in reversed(json_messages('/uav/detection_result')) if r['mission_id']==held_id and
+                         r['request_id']==attempt),None),4)
+                    if observed is True:break
+                    assert observed['status']=='BUSY',observed
+                    time.sleep(.12)
+                else:raise AssertionError('fixture detector occupied by previous transaction')
+                start=time.monotonic()
+                pubs['/uav/instruction'].publish(String(data=json.dumps({'target':{'text':'busy_test'}})))
+                requests=lambda:[d for d in json_messages('/uav/instruction',start)
+                    if d.get('_mission_mgr_trigger') and d.get('target',{}).get('text')=='busy_test']
+                first=wait(lambda:requests() and requests()[0],10)
+                wait(lambda:any(r['mission_id']==first['mission_id'] and r['request_id']==first['request_id'] and r['status']=='BUSY'
+                                for r in json_messages('/uav/detection_result',start)),2)
+                busy_wall=time.monotonic()
+                wait(lambda:len(requests())>=2,3)
+                elapsed=time.monotonic()-busy_wall
+                assert elapsed<3  # configured request timeout is 5 s.
+                return dict(seconds_to_next_request=elapsed,configured_timeout=5,detector_busy_confirmed=True)
+            finally:
+                rospy.set_param('/stage78/fixture_hold',False)
         case('manager_fast_busy_clears_pending_before_timeout',manager_fast_busy)
 
         if args.clock=='sim':

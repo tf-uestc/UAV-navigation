@@ -67,6 +67,60 @@ class VisualArrivalTests(unittest.TestCase):
         self.observe_twice(3.)
         self.assertEqual(self.node.phase, "AUTHORIZE")
 
+    def test_color_conflict_rechecks_once_then_advances_scan_under_original_budget(self):
+        n = self.node
+        n.mode = "visual"
+        n.phase = "SETTLE"
+        n.after_stop = ("DETECT", "")
+        n.settled_at = Time.current - 1.
+        n.budget.begin(time.monotonic())
+        n.started = time.monotonic()
+        n.scan_base = 0.
+        n.scan_index = 3
+        n.intended_yaw = np.pi/2
+        n.acquisition_point = (1., 2., 0.)
+        n.flight = (dict(flight_session_id="flight", owns_flight=True, mode="HOLD",
+                         context=None, stop_id=7, stop_confirmed=True), time.monotonic())
+        n.request_detection(time.monotonic())
+
+        def fresh_feedback():
+            n.odom = ((0.,0.,1.6), (0.,0.,0.), np.pi/2, 0., Time.current, time.monotonic())
+            n.flight = (n.flight[0], time.monotonic())
+
+        for attempt in (1, 2):
+            key = n.registry.pending.key
+            result = self.module.DetectionResult(key,n.target,"FAILED",Time.current,Time.current,
+                                                 reason="target_color_unconfirmed")
+            n.on_detection(String(result.to_json()))
+            self.assertIsNone(n.acquisition_point)
+            if attempt == 1:
+                self.assertEqual(n.phase,"RETRY_DETECT")
+                self.assertEqual(len(n.flight_pub.messages),0)
+                Time.current += 1.
+                fresh_feedback()
+                n.tick(time.monotonic())
+                self.assertEqual(n.phase,"WAIT_VLM")
+        self.assertEqual((n.phase,n.after_stop),("BRAKE",("SCAN_NEXT","target_color_unconfirmed")))
+        n.flight[0]["stop_id"] = n.stop_id
+        n.tick(time.monotonic())
+        Time.current += .4
+        fresh_feedback()
+        n.tick(time.monotonic())
+        self.assertEqual((n.phase,n.scan_index,n.budget.calls),("SCAN_TURN",4,2))
+        self.assertEqual(len(n.plan_pub.messages),0)
+        self.assertAlmostEqual(n.intended_yaw,-np.pi/2)
+
+    def test_bad_depth_still_stops_without_scanning_or_planning(self):
+        n = self.node
+        n.budget.begin(time.monotonic())
+        n.settled_at = Time.current
+        n.request_detection(time.monotonic())
+        failure = self.module.DetectionResult(n.registry.pending.key,n.target,"FAILED",
+                        Time.current,Time.current,reason="invalid_target_depth")
+        n.on_detection(String(failure.to_json()))
+        self.assertEqual((n.phase,n.reason),("FAILED","invalid_target_depth"))
+        self.assertEqual(len(n.plan_pub.messages),0)
+
 
 class PoleDepthTests(unittest.TestCase):
     def setUp(self):
@@ -95,6 +149,11 @@ class PoleDepthTests(unittest.TestCase):
         rgb, depth = self.scene(8)
         depth[:, 30:38] = np.nan
         with self.assertRaisesRegex(self.module.DetectionRejected, "invalid_target_depth"):
+            self.detector.detect(rgb, depth, "red pole", self.info)
+
+    def test_empty_color_and_positive_box_require_semantic_confirmation(self):
+        rgb, depth = self.scene(0)
+        with self.assertRaisesRegex(self.module.DetectionRejected, "target_color_unconfirmed"):
             self.detector.detect(rgb, depth, "red pole", self.info)
 
     def test_partial_holes_and_unrelated_closer_surface(self):

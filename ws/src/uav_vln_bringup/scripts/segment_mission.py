@@ -352,19 +352,22 @@ class SegmentMission:
                 return
             now=time.monotonic()
             stamp=rospy.Time.now().to_sec()
-            captured_result=(result.status=='SUCCEEDED' or result.reason=='target_not_found'
+            captured_result=(result.status=='SUCCEEDED' or result.reason in ('target_not_found','target_color_unconfirmed')
                              or result.reason in RETRYABLE_DETECTION)
             if captured_result and result.capture_stamp<self.settled_at:
                 return
             if not self.registry.resolve(result,now,ros_now=stamp,max_age=self.vlm_timeout):
                 return
             if result.status!='SUCCEEDED':
-                if result.reason in RETRYABLE_DETECTION and not self.detection_retried:
+                color_unconfirmed=result.reason=='target_color_unconfirmed'
+                if color_unconfirmed:
+                    self.acquisition_point=None
+                if (color_unconfirmed or result.reason in RETRYABLE_DETECTION) and not self.detection_retried:
                     self.detection_retried=True
                     self.settled_at=stamp
                     self.transition('RETRY_DETECT',6.,result.reason)
                     return
-                if result.reason=='target_not_found':
+                if result.reason=='target_not_found' or color_unconfirmed:
                     self.acquisition_point=None
                     # A cloud reply can arrive after the previous hold has
                     # drifted. Request a new stop and match its confirmation
