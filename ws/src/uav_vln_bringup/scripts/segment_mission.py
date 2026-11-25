@@ -393,9 +393,12 @@ class SegmentMission:
                 return
             if result.status!='SUCCEEDED':
                 color_unconfirmed=result.reason=='target_color_unconfirmed'
+                # A first positive still needs independent confirmation. When its
+                # confirmation is a miss, one fresh frame breaks the tie in place.
+                missed_confirmation=(result.reason=='target_not_found' and self.acquisition_point is not None)
                 if color_unconfirmed:
                     self.acquisition_point=None
-                if (color_unconfirmed or result.reason in RETRYABLE_DETECTION) and not self.detection_retried:
+                if (missed_confirmation or color_unconfirmed or result.reason in RETRYABLE_DETECTION) and not self.detection_retried:
                     self.detection_retried=True
                     self.settled_at=stamp
                     self.transition('RETRY_DETECT',6.,result.reason)
