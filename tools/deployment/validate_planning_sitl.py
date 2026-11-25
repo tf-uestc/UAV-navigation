@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 import time
 
-from ego_planner.msg import GoalStatus
+from ego_planner.msg import Bspline, GoalStatus
 from gazebo_msgs.srv import GetLinkState, SpawnModel
 from geometry_msgs.msg import Point, Pose
 import rospy
@@ -26,7 +26,18 @@ class PlanningTrial(Trial):
         super().__init__(args)
         rospy.Subscriber('/uav/ego/status', GoalStatus, self.ego_status, queue_size=25)
         rospy.Subscriber('/uav/flight/trajectory_ack', String, self.json_cb, 'trajectory_ack', queue_size=40)
+        self.native_splines = rospy.Subscriber('/planning/bspline', Bspline, self.record_spline,
+                                               'native_spline', queue_size=150)
+        self.forwarded_splines = rospy.Subscriber('/uav/planning/trajectory', Bspline, self.record_spline,
+                                                  'forwarded_spline', queue_size=150)
+        self.gateway_decisions = rospy.Subscriber('/uav/planning/trajectory_disposition', String,
+                                                  self.json_cb, 'gateway_disposition', queue_size=150)
         self.world = rospy.ServiceProxy('/gazebo/get_link_state', GetLinkState)
+
+    def record_spline(self, msg, event):
+        self.record(event, dict(planner_session_id=msg.planner_session_id, mission_id=msg.mission_id,
+                               goal_id=msg.goal_id, traj_id=msg.traj_id, emergency=msg.emergency_stop,
+                               start_time_ns=msg.start_time.to_nsec()))
 
     def ego_status(self, msg):
         if msg.mission_id:
@@ -34,6 +45,9 @@ class PlanningTrial(Trial):
                                           status=msg.status, reason=msg.reason))
 
     def configuration(self):
+        self.wait(lambda: all(sub.get_num_connections() for sub in
+                              (self.native_splines, self.forwarded_splines, self.gateway_decisions)),
+                  10., 'planning trajectory and disposition recorders connected')
         grid=rospy.get_param('/ego_planner_node/grid_map')
         fence=rospy.get_param('/uav/segment_config/fence')
         bounds=((-grid['map_size_x']/2,grid['map_size_x']/2),
@@ -107,8 +121,14 @@ class PlanningTrial(Trial):
             return
         # Route fixtures run with the cloud detector disabled.
         standoff = rospy.get_param('/segment_mission/standoff',2.4)
-        target = (start[0]+standoff*math.cos(heading),start[1]+standoff*math.sin(heading),.6)
-        mission = self.new('fixture_set_heading',target=target)
+        def target_at_capture(capture):
+            position, _ = decode(capture.pose.pose)
+            target = (position[0]+standoff*math.cos(heading),
+                      position[1]+standoff*math.sin(heading), .6)
+            self.record('heading_fixture_capture', dict(stamp=capture.header.stamp.to_sec(),
+                        position=position, target=target, heading=heading))
+            return target
+        mission = self.new('fixture_set_heading',target=target_at_capture)
         result = self.wait_phase(mission, ('DONE','FAILED'), 52.)
         assert result['phase']=='DONE' and result['segment_count']==0, result
         end, actual_yaw = decode(self.odom.pose.pose)

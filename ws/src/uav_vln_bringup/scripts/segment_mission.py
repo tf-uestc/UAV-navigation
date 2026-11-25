@@ -75,6 +75,13 @@ class SegmentMission:
         self.arrival = ArrivalTracker(position_tolerance=.23,speed_tolerance=.15,dwell=.45)
         self.fence = rospy.get_param('/uav/segment_config/fence')
         self.height = rospy.get_param('~height',1.6)
+        self.visual_takeoff_height = float(rospy.get_param('~visual_takeoff_height',self.height))
+        if not .8 <= self.visual_takeoff_height <= 2.3:
+            raise ValueError('visual takeoff height outside flight executor limits')
+        self.require_sitl_heading = rospy.get_param('~require_sitl_heading',False)
+        self.heading_sample = None
+        if self.require_sitl_heading:
+            rospy.Subscriber('/uav/sitl/heading_ready',String,self.on_heading_ready,queue_size=1)
         self.standoff = rospy.get_param('~standoff',2.4)
         self.visual_arrival_tolerance = float(rospy.get_param('~visual_arrival_tolerance',.12))
         self.standoff_tolerance = float(rospy.get_param('~standoff_tolerance',.12))
@@ -119,6 +126,30 @@ class SegmentMission:
             detection_retried=self.detection_retried,
             detour_active=bool(self.detour),
             capture_floor=self.settled_at,stop_id=self.stop_id),allow_nan=False)))
+
+    def on_heading_ready(self, msg):
+        data=self.object(msg)
+        stamp=data.get('stamp')
+        counter=data.get('counter')
+        sim_now=rospy.Time.now().to_sec()
+        if type(stamp) not in (float,int) or not math.isfinite(stamp) or not -.02<=sim_now-stamp<=.65:
+            return
+        ready=(data.get('ready') is True and data.get('heading_good') is True
+               and type(counter) is int and 0<=counter<=255)
+        with self.lock:
+            previous=self.heading_sample
+            if previous and sim_now>=previous[3]:
+                if stamp<previous[0] or (stamp==previous[0] and (ready or not previous[1])):
+                    return
+            self.heading_sample=(stamp,ready,time.monotonic(),sim_now)
+
+    def initial_heading_ready(self, now):
+        if self.mode != 'visual' or not self.require_sitl_heading:
+            return True
+        if self.heading_sample is None:
+            return False
+        stamp,ready,received,_=self.heading_sample
+        return ready and 0<=now-received<=1. and -.02<=rospy.Time.now().to_sec()-stamp<=.65
 
     def transition(self, phase, seconds=0., reason=''):
         self.phase,self.deadline,self.reason = phase,time.monotonic()+seconds,reason
@@ -259,7 +290,9 @@ class SegmentMission:
             elif flight.get('owns_flight'):
                 self.brake('PLAN' if self.mode=='manual' else 'DETECT')
             else:
-                self.command_flight('TAKEOFF',height=self.height)
+                self.heading_sample=None
+                takeoff_height=self.visual_takeoff_height if self.mode=='visual' else self.height
+                self.command_flight('TAKEOFF',height=takeoff_height)
                 self.transition('TAKEOFF',34.)
 
     def brake(self, after, reason=''):
@@ -522,6 +555,7 @@ class SegmentMission:
         stamp=rospy.Time.now().to_sec()
         if self.last_ros is not None and stamp<self.last_ros:
             self.occupancy=None
+            self.heading_sample=None
             self.brake('FAILED','ros_clock_reset')
             self.last_ros=stamp
             return
@@ -546,11 +580,12 @@ class SegmentMission:
                 self.transition('FAILED',reason='landing_feedback_timeout')
             return
         if self.phase=='TAKEOFF':
-            if flight.get('mode')=='HOLD' and flight.get('owns_flight'):
+            if flight.get('mode')=='HOLD' and flight.get('owns_flight') and self.initial_heading_ready(now):
                 self.brake('PLAN' if self.mode=='manual' else 'DETECT')
             elif flight.get('mode')=='FAILED' or now>=self.deadline:
                 self.command_flight('LAND')
-                self.transition('FAILED',reason='takeoff_failed')
+                waiting_heading=flight.get('mode')=='HOLD' and flight.get('owns_flight')
+                self.transition('FAILED',reason='takeoff_heading_unavailable' if waiting_heading else 'takeoff_failed')
             return
         if not flight:
             self.registry.cancel()
@@ -584,6 +619,10 @@ class SegmentMission:
                 if stamp>=self.settled_at+.18:
                     after,reason=self.after_stop
                     if after=='DETECT':
+                        if not self.initial_heading_ready(now):
+                            if now>=self.deadline:
+                                self.brake('FAILED','observation_heading_unavailable')
+                            return
                         self.request_detection(now)
                     elif after=='PLAN':
                         self.plan_segment('manual' if self.mode=='manual' else self.kind)

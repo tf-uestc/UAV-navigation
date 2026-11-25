@@ -164,6 +164,7 @@ catkin_install_python(PROGRAMS
   scripts/managed_planner_node.py
   scripts/flight_executor.py
   scripts/segment_mission.py
+  scripts/sitl_heading_readiness.py
   scripts/camera_pose_bridge.py
   scripts/detector_node.py
   scripts/mission_manager.py

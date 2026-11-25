@@ -132,13 +132,16 @@ class Trial:
             return
         count=scenario['calls']
         scenario['calls']+=1
-        stamp=self.odom.header.stamp.to_sec()
+        capture=self.odom
+        stamp=capture.header.stamp.to_sec()
         self.requests.append((time.monotonic(),mission,d['request_id'],stamp,self.flight.get('stop_confirmed')))
         behavior=scenario['behavior']
         if behavior=='silent':
             return
         delay=scenario.get('delay',3.4 if behavior=='late' else .28)
         point=scenario['target']
+        if callable(point):
+            point=point(capture)
         if behavior=='jump' and count:
             point=(point[0],point[1]+3.,point[2])
         reason=''

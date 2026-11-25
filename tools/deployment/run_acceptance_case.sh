@@ -32,12 +32,14 @@ ground() {
  timeout 6 rostopic echo -n 1 /mavros/extended_state | grep -q '^landed_state: 1'
 }
 detect=false
+heading_args=()
 if test "$scenario" = live;then
+ heading_args=(visual_takeoff_height:=1.6 require_sitl_heading:=true)
  detect=true
  source "$UAV_SECRET_ENV"
  test -n "$VLM_API_KEY"
 fi
-roslaunch uav_vln_bringup segment_verified.launch with_detector:="$detect" standoff:="$distance" height:="$height" require_known_space:=true > "$r/launch.log" 2>&1 &
+roslaunch uav_vln_bringup segment_verified.launch with_detector:="$detect" standoff:="$distance" height:="$height" require_known_space:=true "${heading_args[@]}" > "$r/launch.log" 2>&1 &
 launch=$!
 observer="";recorder="";contacts="";moving=""
 cleanup() {
@@ -47,6 +49,7 @@ cleanup() {
   for _ in $(seq 1 20);do if ground >/dev/null 2>&1;then break;fi;sleep 1;done
  fi
  if ground >/dev/null 2>&1;then
+  bash "$entry" status > "$r/postflight-state.json" || true
   kill -TERM "$launch" 2>/dev/null || true;wait "$launch" || true
  else
   echo 'Controller left running because landed state is unverified' >&2

@@ -36,6 +36,7 @@ class ManagedPlanner:
         self.result_pub=rospy.Publisher('/uav/planning/result',String,queue_size=30)
         self.readiness_pub=rospy.Publisher('/uav/planning/readiness',String,queue_size=2,latch=True)
         self.spline_pub=rospy.Publisher('/uav/planning/trajectory',Bspline,queue_size=10)
+        self.disposition_pub=rospy.Publisher('/uav/planning/trajectory_disposition',String,queue_size=30)
         self.preview_pub=rospy.Publisher('/uav/trajectory_preview',Path,queue_size=1,latch=True)
         rospy.Subscriber('/uav/ego/status',GoalStatus,self.on_status,queue_size=30)
         rospy.Subscriber('/planning/bspline',Bspline,self.on_spline,queue_size=10)
@@ -140,10 +141,24 @@ class ManagedPlanner:
             elif msg.status=='NOT_READY':
                 self.revoke('MAP_NOT_READY',msg.reason or 'map_or_odometry_stale')
 
+    def report_retired_stop(self,msg,reason):
+        if msg.emergency_stop:
+            decision=dict(schema_version=1,source='planning_gateway',accepted=False,reason=reason,
+                          gateway_session_id=self.gateway,planner_session_id=msg.planner_session_id,
+                          mission_id=msg.mission_id,goal_id=msg.goal_id,traj_id=msg.traj_id)
+            self.disposition_pub.publish(String(data=json.dumps(decision,allow_nan=False)))
+
     def on_spline(self,msg):
         with self.lock:
-            if not self.active or msg.planner_session_id!=self.session: return
-            if (msg.mission_id,msg.goal_id)!=self.active['key']: return
+            if msg.planner_session_id!=self.session:
+                self.report_retired_stop(msg,'planner_session_mismatch')
+                return
+            if not self.active:
+                self.report_retired_stop(msg,'no_active_goal')
+                return
+            if (msg.mission_id,msg.goal_id)!=self.active['key']:
+                self.report_retired_stop(msg,'active_goal_mismatch')
+                return
             if not self.active['accepted']:
                 self.active['pending']=msg
                 return

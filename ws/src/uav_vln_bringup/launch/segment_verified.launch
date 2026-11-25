@@ -12,6 +12,9 @@
   <arg name="turn_timeout" default="20.0"/>
   <arg name="standoff" default="2.4"/>
   <arg name="height" default="1.6"/>
+  <arg name="visual_takeoff_height" default="$(arg height)"/>
+  <arg name="require_sitl_heading" default="false"/>
+  <node if="$(arg require_sitl_heading)" pkg="uav_vln_bringup" type="sitl_heading_readiness.py" name="sitl_heading_readiness" output="screen"/>
   <arg name="visual_arrival_tolerance" default="0.12"/>
   <arg name="standoff_tolerance" default="0.12"/>
   <rosparam command="load" file="$(find uav_vln_bringup)/config/segment_mission.yaml" ns="/uav/segment_config"/>
@@ -32,6 +35,8 @@
   <node pkg="uav_vln_bringup" type="segment_mission.py" name="segment_mission" output="screen" required="true">
     <param name="standoff" value="$(arg standoff)"/>
     <param name="height" value="$(arg height)"/>
+    <param name="visual_takeoff_height" value="$(arg visual_takeoff_height)"/>
+    <param name="require_sitl_heading" value="$(arg require_sitl_heading)"/>
     <param name="visual_arrival_tolerance" value="$(arg visual_arrival_tolerance)"/>
     <param name="standoff_tolerance" value="$(arg standoff_tolerance)"/>
     <param name="manual_segment_length" value="1.8"/>

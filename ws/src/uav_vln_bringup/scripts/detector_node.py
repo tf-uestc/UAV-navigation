@@ -59,7 +59,7 @@ class DetectorNode:
         rospy.init_node("detector_node")
 
         self.bridge = CvBridge()
-        self.lock = threading.Lock()
+        self.lock = threading.Condition()
 
         # --- Latest sensor data (updated by subscribers) ---
         self.latest_rgb = None
@@ -75,6 +75,9 @@ class DetectorNode:
         self._synchronize_camera = rospy.get_param('~synchronize_camera', False)
         self._max_result_age = rospy.get_param('~max_result_age', 15.)
         self._max_image_age = rospy.get_param('~max_image_age', 1.0)
+        self._post_stop_frame_wait = rospy.get_param('~post_stop_frame_wait', 1.0)
+        if not finite(self._post_stop_frame_wait) or self._post_stop_frame_wait <= 0:
+            raise ValueError("invalid post-stop frame wait")
 
         # --- API key resolution ---
         vlm_api_key = rospy.get_param("~vlm_api_key", "")
@@ -167,6 +170,7 @@ class DetectorNode:
     def _cb_camera(self, rgb, depth, info):
         with self.lock:
             self.latest_rgb, self.latest_depth, self.latest_cam_info = rgb, depth, info
+            self.lock.notify_all()
 
     def _cb_rgb(self, msg):
         with self.lock:
@@ -225,6 +229,16 @@ class DetectorNode:
         bgr = None
         try:
             with self.lock:
+                if capture_after > 0 and getattr(self, "_synchronize_camera", False):
+                    # TimeSynchronizer delivers RGB, depth and intrinsics atomically.
+                    # The first request after braking can precede its next callback.
+                    def post_stop_frame_ready():
+                        return (self.latest_rgb is not None
+                                and self.latest_rgb.header.stamp.to_sec() >= capture_after)
+
+                    remaining = min(self._post_stop_frame_wait, self._max_result_age) - (time.monotonic() - started)
+                    if not self.lock.wait_for(post_stop_frame_ready, timeout=max(0., remaining)):
+                        raise ValueError("post_stop_frame_timeout")
                 rgb_msg, depth_msg, info = self.latest_rgb, self.latest_depth, self.latest_cam_info
             if rgb_msg is None or depth_msg is None or info is None:
                 raise ValueError("sensor_data_unavailable")

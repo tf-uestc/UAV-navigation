@@ -128,6 +128,7 @@ class Runtime:
   assert 1.1<=height<=2.35 and math.isfinite(standoff) and standoff>0
   out=self.root/'logs'/('mission-'+time.strftime('%Y%m%d-%H%M%S'));out.mkdir(parents=True)
   cmd=['/opt/ros/noetic/bin/roslaunch','uav_vln_bringup','segment_verified.launch','require_known_space:=true',
+       'visual_takeoff_height:=1.6','require_sitl_heading:=true',
        'height:='+str(height),'standoff:='+str(standoff)]
   with (out/'launch.log').open('w') as sink:
    proc=subprocess.Popen(cmd,cwd='/tmp',stdout=sink,stderr=subprocess.STDOUT,start_new_session=True)
