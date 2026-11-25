@@ -16,6 +16,7 @@ from mavros_msgs.msg import ExtendedState, State
 from mavros_msgs.srv import CommandBool, SetMode
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Header, String
+from tf.transformations import quaternion_matrix
 
 from navigation_core.bridge import BridgeDecisions, Feedback
 from navigation_core.bspline import BSpline
@@ -47,9 +48,12 @@ class FlightExecutor:
         self.planner_at = 0.
         self.gateway = None
         self.plan_deadline = None
+        self.mission_ack_deadline = None
         self.fence = (rospy.get_param('/uav/segment_config/fence')
                       if rospy.get_param('~segment_fence',False) else None)
         self.state = self.odom = self.landed = None
+        self.previous_ground_stamp = None
+        self.ground_after_stamp = 0.
         self.owned = False
         self.graph = False
         self.graph_at = 0.
@@ -68,6 +72,10 @@ class FlightExecutor:
         self.preview = rospy.Publisher(PREVIEW, PoseStamped, queue_size=1)
         self.status = rospy.Publisher('/uav/flight/status', String, queue_size=5, latch=True)
         self.cancel_pub = rospy.Publisher('/uav/cancel_planning', String, queue_size=5)
+        self.trajectory_ack = rospy.Publisher('/uav/flight/trajectory_ack', String, queue_size=20)
+        self.handover_accel = rospy.get_param('~handover_accel_limit', .8)
+        if not finite(self.handover_accel) or self.handover_accel <= 0:
+            raise ValueError('positive handover acceleration limit required')
         rospy.Subscriber('/mavros/state', State, self.capture, 'state', queue_size=1)
         rospy.Subscriber('/mavros/extended_state', ExtendedState, self.capture, 'landed', queue_size=1)
         rospy.Subscriber('/mavros/local_position/odom', Odometry, self.capture, 'odom', queue_size=1)
@@ -89,7 +97,20 @@ class FlightExecutor:
 
     def capture(self, msg, field):
         with self.lock:
+            if field == 'landed':
+                self.previous_ground_stamp = (
+                    self.landed[0].header.stamp.to_sec()
+                    if self.landed and self.landed[0].landed_state == 1 else None)
+            elif field == 'odom':
+                v = msg.twist.twist.linear
+                if not math.hypot(v.x, v.y, v.z) <= .15:
+                    self.ground_after_stamp = max(self.ground_after_stamp, msg.header.stamp.to_sec())
             setattr(self, field, (msg, time.monotonic()))
+
+    def request_landing(self, fb, wall):
+        if self.bridge.mode != 'LANDING':
+            self.ground_after_stamp = rospy.Time.now().to_sec()
+        self.bridge.command('LAND', fb, wall)
 
     def observe_graph(self):
         master = rosgraph.Master(rospy.get_name())
@@ -126,8 +147,15 @@ class FlightExecutor:
         try:
             p, q = odom.pose.pose.position, odom.pose.pose.orientation
             v = odom.twist.twist.linear
+            # ExtendedState is slower than odometry. Require two distinct
+            # ground reports following the last motion or landing request.
+            ground_stamp = landed.header.stamp.to_sec()
+            grounded = (landed.landed_state == 1 and self.previous_ground_stamp is not None
+                        and self.ground_after_stamp < self.previous_ground_stamp < ground_stamp
+                        and ground_stamp-self.previous_ground_stamp <= 2.5
+                        and -.1 <= stamp-ground_stamp <= 1.5)
             return Feedback((p.x, p.y, p.z), quaternion_yaw((q.x, q.y, q.z, q.w)),
-                            state.connected, state.armed, state.mode, landed.landed_state == 1,
+                            state.connected, state.armed, state.mode, grounded,
                             wall-odom_at, math.sqrt(v.x*v.x + v.y*v.y + v.z*v.z))
         except ValueError:
             return None
@@ -163,6 +191,7 @@ class FlightExecutor:
         if actual is not None:
             self.control.cancel(actual)
         self.gateway = self.plan_deadline = None
+        self.mission_ack_deadline = None
         self.bridge.goal = self.bridge.goal_at = None
         self.stop_id, self.stop_reason, self.stable_since = stop_id, reason, None
         self.turn = None
@@ -171,7 +200,7 @@ class FlightExecutor:
         new_stop = stop_id is not None and stop_id != self.stop_id
         self.revoke(fb, reason, stop_id, cancel_planner)
         if self.bridge.mode in ('PRESTREAM', 'WAIT_ARM', 'WAIT_OFFBOARD', 'CLIMB'):
-            self.bridge.command('LAND', fb, time.monotonic())
+            self.request_landing(fb, time.monotonic())
         elif self.bridge.mode in ('TRACK', 'HOLD'):
             # A distinct stop command creates one new hold anchor, even if
             # already holding after a turn. Ordinary feedback never moves it.
@@ -182,8 +211,14 @@ class FlightExecutor:
     def command(self, msg):
         try:
             data = json.loads(msg.data)
-            seq, command = data['seq'], data['command']
-            if data.get('flight_session_id') != self.session or type(seq) is not int or seq <= 0:
+            command = data['command']
+            if data.get('flight_session_id') != self.session:
+                return
+            if command == 'ACK_STATUS':
+                self.acknowledge_status(data, time.monotonic())
+                return
+            seq = data['seq']
+            if type(seq) is not int or seq <= 0:
                 return
         except (ValueError, TypeError, KeyError, AttributeError):
             return
@@ -197,7 +232,7 @@ class FlightExecutor:
                 return
             if command == 'LAND' and self.owned:
                 self.revoke(fb, 'land_requested', seq)
-                self.bridge.command('LAND', fb, wall)
+                self.request_landing(fb, wall)
             elif command == 'HOVER' and self.owned and self.bridge.mode != 'LANDING':
                 self.hold(fb, 'hold_requested', seq)
             elif command == 'TAKEOFF' and not self.owned and not fb.armed:
@@ -207,6 +242,7 @@ class FlightExecutor:
                 if (self.graph and wall-self.graph_at < 1. and self.pub.get_num_connections()
                         and type(height) in (int, float) and .8 <= height <= 2.3
                         and self.bridge.command(command, fb, wall, height=height)):
+                    self.ground_after_stamp = rospy.Time.now().to_sec()
                     self.owned = True
                     self.stop_id = self.stable_since = None
                     self.stop_reason = ''
@@ -233,8 +269,27 @@ class FlightExecutor:
                 self.highest[(gateway, mission)] = goal
                 self.control.begin(mission, goal, planner, self.bridge.anchor)
                 self.gateway, self.plan_deadline = gateway, wall+8.
+                self.mission_ack_deadline = wall+.7 if data.get('require_status_ack') is True else None
                 self.stop_id = self.stable_since = None
                 self.stop_reason = ''
+
+    def acknowledge_status(self, data, wall):
+        with self.lock:
+            stamp = data.get('status_at')
+            if (self.mission_ack_deadline is not None and wall <= self.mission_ack_deadline
+                    and data.get('context') == list(self.control.buffer.context)
+                    and finite(stamp) and wall-.7 < stamp <= wall):
+                # Both times originate from this executor's monotonic clock.
+                # Replaying a queued acknowledgement cannot extend the lease.
+                self.mission_ack_deadline = max(self.mission_ack_deadline, stamp+.7)
+
+    def check_plan_authority(self, fb, wall):
+        ctx = self.control.buffer.context
+        if ctx and self.mission_ack_deadline is not None and wall > self.mission_ack_deadline:
+            self.hold(fb, 'mission_feedback_timeout')
+        elif ctx and (not self.planner_ready(wall) or self.planner != (self.gateway, ctx[2])
+                      or self.plan_deadline is not None and wall > self.plan_deadline):
+            self.hold(fb, 'planning_heartbeat_or_deadline')
 
     def plan_result(self, msg):
         try:
@@ -260,38 +315,70 @@ class FlightExecutor:
     def spline(self, msg):
         with self.lock:
             context = (msg.mission_id, msg.goal_id, msg.planner_session_id)
+            def acknowledge(accepted, reason, **metrics):
+                self.trajectory_ack.publish(String(data=json.dumps(dict(
+                    flight_session_id=self.session, mission_id=msg.mission_id,
+                    goal_id=msg.goal_id, planner_session_id=msg.planner_session_id,
+                    traj_id=msg.traj_id, accepted=accepted, reason=reason, **metrics))))
             if not self.control.live or self.control.buffer.context != context:
+                acknowledge(False, 'wrong_context')
                 return
             now = rospy.Time.now().to_sec()
             wall = time.monotonic()
             fb = self.feedback(wall, now)
             if (not fb or not fb.armed or fb.mode != 'OFFBOARD' or not self.planner_ready(wall)
                     or self.planner != (self.gateway, context[2])):
+                acknowledge(False, 'execution_unavailable')
                 return
             if msg.emergency_stop:
                 self.hold(fb, 'ego_stop')
+                acknowledge(True, 'emergency_stop')
                 return
-            if msg.traj_id <= self.control.buffer.last_id or len(msg.pos_pts) > 512 or msg.order != 3:
+            if msg.traj_id <= self.control.buffer.last_id:
+                acknowledge(False, 'old_trajectory')
+                return
+            if len(msg.pos_pts) > 512 or msg.order != 3:
+                acknowledge(False, 'invalid_spline')
                 return
             try:
                 curve = BSpline([(p.x, p.y, p.z) for p in msg.pos_pts], msg.knots, msg.order)
                 start = msg.start_time.to_sec()
                 if not 0. < curve.duration <= 60. or not 0. < start <= now+.5 or now >= start+curve.duration:
+                    acknowledge(False, 'invalid_time')
                     return
                 yaw = self.bridge.anchor.yaw
                 points = tuple(Sample(p, v, yaw, t) for t, p, v, _ in curve.samples(.04))
                 if any(not self.inside_fence(point.position) for point in points):
                     self.hold(fb, 'trajectory_outside_fence')
+                    acknowledge(False, 'trajectory_outside_fence')
                     return
                 traj = TimedTrajectory(*context, msg.traj_id, start, points)
                 first = traj.sample(now)
                 ref = self.control.output(now) or self.bridge.anchor
                 if math.dist(first.position, ref.position) > .6 or math.dist(first.position, fb.position) > .75:
                     self.hold(fb, 'discontinuous_trajectory')
+                    acknowledge(False, 'position_discontinuity')
+                    return
+                odom = self.odom[0]
+                v, q = odom.twist.twist.linear, odom.pose.pose.orientation
+                world_velocity = quaternion_matrix((q.x, q.y, q.z, q.w))[:3,:3].dot((v.x, v.y, v.z))
+                # Compare at the takeover instant; allow acceleration between the
+                # measured velocity timestamp and the first new reference.
+                takeover = max(start, now)
+                tolerance = .15 + self.handover_accel * abs(takeover - odom.header.stamp.to_sec())
+                error = math.dist(first.velocity, world_velocity)
+                metrics = dict(velocity_error_mps=error, velocity_tolerance_mps=tolerance)
+                if not error <= tolerance:
+                    self.hold(fb, 'discontinuous_trajectory')
+                    acknowledge(False, 'velocity_discontinuity', **metrics)
                     return
                 if self.control.track(traj, now):
                     self.plan_deadline = None
+                    acknowledge(True, 'accepted', **metrics)
+                else:
+                    acknowledge(False, self.control.buffer.reason)
             except (ValueError, TypeError, IndexError) as exc:
+                acknowledge(False, 'invalid_spline')
                 rospy.logwarn_throttle(2, 'Rejecting invalid spline: %s', exc)
 
     def action(self, action):
@@ -342,6 +429,7 @@ class FlightExecutor:
                 self.last_ros = now
                 fb = self.feedback(wall, now)
                 healthy = fb is not None and fb.pose_age <= .5 and self.graph and wall-self.graph_at < 1.
+                previous_mode = self.bridge.mode
                 if (self.owned and healthy and self.bridge.mode in ('HOLD','TRACK')
                         and not self.inside_fence(fb.position,margin=.25)):
                     self.revoke(fb,'measured_pose_outside_fence')
@@ -351,6 +439,9 @@ class FlightExecutor:
                         self.revoke(fb, 'clock_reset' if clock_reset else 'feedback_or_owner_lost')
                         self.bridge._fail(self.stop_reason)
                 if self.owned and self.bridge.mode == 'FAILED':
+                    if previous_mode != 'FAILED':
+                        self.ground_after_stamp = now
+                        fb = self.feedback(wall, now)
                     # Give PX4 a landing request when feedback permits. With no
                     # setpoint stream PX4 can also apply its own offboard failsafe.
                     if self.state and self.state[0].connected and self.state[0].armed:
@@ -363,10 +454,7 @@ class FlightExecutor:
                     elif fb and fb.landed and not self.actions:
                         self.owned = False
                 elif self.owned and healthy:
-                    ctx = self.control.buffer.context
-                    if ctx and (not self.planner_ready(wall) or self.planner != (self.gateway, ctx[2])
-                                or self.plan_deadline is not None and wall > self.plan_deadline):
-                        self.hold(fb, 'planning_heartbeat_or_deadline')
+                    self.check_plan_authority(fb, wall)
                     if self.control.mode == 'TRACK':
                         ref = self.control.output(now)
                         if self.control.mode == 'TRACK' and ref:
@@ -390,6 +478,7 @@ class FlightExecutor:
                     if decision.mode == 'COMPLETE' and self.actions:
                         self.bridge.mode = 'LANDING'
                     if decision.mode == 'FAILED':
+                        self.ground_after_stamp = now
                         self.revoke(fb, decision.reason)
                     for action in decision.actions:
                         self.action(action)
@@ -417,7 +506,7 @@ class FlightExecutor:
                     next_status = wall+.08
                     active = self.control.buffer.active
                     self.status.publish(String(data=json.dumps(dict(
-                        flight_session_id=self.session, seq=self.sequence, mode=self.bridge.mode,
+                        flight_session_id=self.session, seq=self.sequence, mode=self.bridge.mode, status_at=wall,
                         ready=healthy, owner=self.graph, reason=self.bridge.reason or self.stop_reason,
                         yaw_reference=(self.bridge.goal if self.bridge.mode=='TRACK' else
                                        self.bridge.anchor).yaw if self.bridge.anchor else None,

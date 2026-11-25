@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build isolated installs from this checkout and the three pinned EGO patches.
+# Build isolated installs from this checkout and the pinned EGO patches.
 set -e -o pipefail
 out="$(realpath "$1")"
 ego_source="$(realpath "$2")"
@@ -29,7 +29,7 @@ for name in files:
 (d/'source-overlay-sha256.json').write_text(json.dumps(manifest,indent=2)+'\n')
 PY
 cd "$out/ego-planner"
-for patch in managed-integration.patch known-space-guard.patch dependency-manifest.patch;do
+for patch in managed-integration.patch known-space-guard.patch dependency-manifest.patch depth-pixel.patch;do
  git apply --check "$out/UAV-navigation/external/ego-planner/$patch"
  git apply "$out/UAV-navigation/external/ego-planner/$patch"
 done

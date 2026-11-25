@@ -117,7 +117,12 @@ while not stopped[0] and time.monotonic() < expires and len(observations) < 20 a
     true_err=np.abs(np.hypot(from_gazebo[:,0]-tx,from_gazebo[:,1]-ty)-.05)
     expected=map_from_world @ truth_camera
     camera_delta=historical[:3,3]-expected[:3,3]
+    reconstructed_world = np.linalg.inv(map_from_world) @ historical
     sample=dict(camera_xyz_error_m=camera_delta.tolist(),stamp=stamp.to_sec(),speed_mps=speed,truth_time_offset_s=lag,red_pixels=len(rows),
+                truth_camera_z_m=float(truth_camera[2,3]),estimated_world_camera_z_m=float(reconstructed_world[2,3]),
+                world_camera_z_error_m=float(reconstructed_world[2,3]-truth_camera[2,3]),
+                world_camera_yaw_deg=math.degrees(math.atan2(truth_camera[1,2],truth_camera[0,2])),
+                camera_to_target_horizontal_m=math.hypot(tx-truth_camera[0,3],ty-truth_camera[1,3]),
                 map_surface_error_p95_m=float(np.percentile(err,95)),
                 gazebo_surface_error_p95_m=float(np.percentile(true_err,95)))
     pending.append((stamp,historical,sample))
@@ -126,6 +131,8 @@ result=dict(interrupted=stopped[0],samples=observations,count=len(observations),
       maximum_depth_surface_frame_p95_m=.05,maximum_map_surface_p95_m=.30),
     ground_alignment_transform=map_from_world.tolist() if map_from_world is not None else None)
 if observations:
+    result['world_camera_z_abs_error_p95_m']=float(np.percentile(
+        [abs(s['world_camera_z_error_m']) for s in observations],95))
     result['map_surface_error_p95_of_frame_p95_m']=float(np.percentile(
         [s['map_surface_error_p95_m'] for s in observations],95))
     result['history_exact']=all(s['delayed_tf_max_difference']<1e-8 for s in observations)

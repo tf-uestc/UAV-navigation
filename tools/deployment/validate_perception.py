@@ -23,7 +23,7 @@ from geometry_msgs.msg import TransformStamped
 from mavros_msgs.msg import State
 from sensor_msgs.msg import CameraInfo, Image
 from std_msgs.msg import Header, String
-from tf.transformations import quaternion_from_euler, quaternion_matrix
+from tf.transformations import quaternion_from_euler, quaternion_from_matrix, quaternion_matrix
 
 
 PREFIX = '/iris_depth_camera/camera/'
@@ -117,13 +117,13 @@ class Validation:
         K = [100.,0.,16.,0.,100.,12.,0.,0.,1.]
 
         def send_frame(bgr, values, calibration, position, yaw, stamp=None, skew=0., frame=OPTICAL,
-                       info_frame=OPTICAL, publish_tf=True, encoding='32FC1'):
+                       info_frame=OPTICAL, publish_tf=True, encoding='32FC1', orientation=None):
             stamp = stamp or rospy.Time.now()
             for _ in range(3):
                 if publish_tf:
                     tr = TransformStamped(header=Header(stamp=stamp,frame_id='map'),child_frame_id=OPTICAL)
                     tr.transform.translation.x,tr.transform.translation.y,tr.transform.translation.z = position
-                    q = quaternion_from_euler(0.,0.,yaw)
+                    q = quaternion_from_euler(0.,0.,yaw) if orientation is None else orientation
                     tr.transform.rotation.x,tr.transform.rotation.y,tr.transform.rotation.z,tr.transform.rotation.w = q
                     tf.sendTransform(tr)
                 rgb = bridge.cv2_to_imgmsg(bgr,'bgr8')
@@ -186,6 +186,43 @@ class Validation:
         depth_error = abs(result['point'][2]-baseline['red_target']['depth_median_m'])
         assert depth_error < .05,depth_error
         self.check('captured_image_response_replay',depth_error_m=depth_error)
+
+        # Keep one known world point fixed while changing the camera's height,
+        # viewing direction, and range. Exercise the actual ROS detector+TF path.
+        landmark = np.array([2., -1., .8])
+        width, height = 160, 120
+        cam_k = [120.,0.,79.5,0.,120.,59.5,0.,0.,1.]
+        for yaw_deg, radius, camera_z in ((0,1.5,1.3),(90,2.4,1.6),(180,3.6,2.1),(-90,5.,1.8)):
+            az = math.radians(yaw_deg)
+            position = landmark - np.array([radius*math.cos(az), radius*math.sin(az), 0.])
+            position[2] = camera_z
+            heading = az + math.radians(6.)
+            depression = math.atan2(camera_z-landmark[2],radius) + math.radians(4.)
+            right = np.array([math.sin(heading),-math.cos(heading),0.])
+            forward = np.array([math.cos(depression)*math.cos(heading),
+                                math.cos(depression)*math.sin(heading),-math.sin(depression)])
+            down = np.cross(forward, right)
+            delta = landmark-position
+            z = np.dot(delta,forward)
+            u = round(cam_k[2]+cam_k[0]*np.dot(delta,right)/z)
+            v = round(cam_k[5]+cam_k[4]*np.dot(delta,down)/z)
+            orientation = np.eye(4)
+            orientation[:3,:3] = np.column_stack((right, down, forward))
+            bgr = np.zeros((height,width,3), np.uint8)
+            values = np.full((height,width),z+4.,np.float32)
+            bgr[v-3:v+4,u-1:u+2,2] = 200
+            values[v-3:v+4,u-1:u+2] = z
+            box = [round(1000*x/n) for x,n in ((u-6,width),(v-5,height),(u+7,width),(v+6,height))]
+            fixture(dict(found=True,bbox=box,coordinate_system='normalized_1000'))
+            stamp = send_frame(bgr,values,cam_k,position,0.,orientation=quaternion_from_matrix(orientation))
+            result,_ = self.query('red pole')
+            assert result['status']=='SUCCEEDED' and abs(result['capture_stamp']-stamp)<1e-6,result
+            error = np.array(result['point'])-landmark
+            assert np.linalg.norm(error)<=.05,(yaw_deg,error)
+            self.check('fixed_world_point_from_pose_%d'%yaw_deg,yaw_deg=yaw_deg,
+                       camera_world_position_m=position.tolist(),target_world_position_m=landmark.tolist(),
+                       range_m=radius,optical_depth_m=float(z),reconstructed_m=result['point'],
+                       target_z_error_m=float(error[2]),position_error_m=float(np.linalg.norm(error)))
 
         for name, settings, values, expected in (
             ('no_target',{'reply':{'found':False}},depth,'target_not_found'),

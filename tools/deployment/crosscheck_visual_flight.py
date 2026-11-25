@@ -39,7 +39,10 @@ def audit(case,nominal,expected):
         localization=next((x.get("samples",[]) for x in result["checks"]
                            if x["name"]=="historical_tf_gazebo_and_target_surface"),[])
         latest_surface=localization[-1]["target_surface_error_m"] if localization else None
-        check("final_observation_matches_true_target",latest_surface is not None and latest_surface<=.20,
+        success_ids=[d['request_id'] for _,k,d in trace if k=='detect_result'
+                     and d.get('mission_id')==observed['mission_id'] and d['status']=='SUCCEEDED']
+        check("final_observation_matches_true_target",success_ids and localization and
+              success_ids[-1]==localization[-1].get("request_id") and latest_surface<=.20,
               final_surface_error_m=latest_surface)
         metrics["semantic_outliers_diagnostic"]=sum(x["target_surface_error_m"]>.20 for x in localization)
 
@@ -61,16 +64,33 @@ def audit(case,nominal,expected):
         check("reply_ids_and_capture_times",bool(matched) and all(matched),replies=len(matched))
         done=[tm for tm,kind,data in trace if kind=="mission" and data.get("mission_id")==observed["mission_id"] and data["phase"]=="DONE"]
         if done and odoms:
-            done_time=done[0];done_stamp=min(odoms,key=lambda x:abs(x[0]-done_time))[1]["stamp"]
-            held=[x for x in clearance["samples"] if done_stamp+.5<=x["stamp"]<=done_stamp+9.5]
+            hold=next((x for x in result['checks'] if x['name']=='observed_and_held'),{})
+            start,end=hold.get('start_sim'),hold.get('end_sim')
+            if start is None or end is None:
+                raise ValueError("Missing pre-landing simulation-time hold interval")
+            done_stamp=next(d['observed_sim'] for tm,k,d in trace if tm==done[0] and k=='mission')
+            assert done_stamp<=start<=end
+            held=[x for x in clearance["samples"] if start<=x["stamp"]<=end]
             drift=max((math.dist(x["world_xyz"],held[0]["world_xyz"]) for x in held),default=math.inf)
             span=held[-1]["stamp"]-held[0]["stamp"] if held else 0
             band=max((abs(x["horizontal_distance_m"]-nominal) for x in held),default=math.inf)
-            hold_check=any(x["name"]=="observed_and_held" and x.get("hold_seconds",0)>=10 for x in result["checks"])
-            check("ten_second_hold_gazebo_truth",hold_check and len(held)>=70 and span>=8.4 and drift<=.30 and band<=.20,
+            gap=max((b['stamp']-a['stamp'] for a,b in zip(held,held[1:])),default=math.inf)
+            check("ten_second_hold_gazebo_truth",len(held)>=70 and span>=10 and gap<=.30 and drift<=.30 and band<=.20,
                   samples=len(held),covered_core_seconds=span,world_drift_m=drift,maximum_standoff_error_m=band)
             metrics.update(world_hold_drift_m=drift,world_hold_standoff_error_m=band)
-            flight=[data for tm,kind,data in trace if kind=="flight" and done_time+.5<=tm<=done_time+9.5]
+            flight=[d for _,k,d in trace if k=='flight' and start<=d['observed_sim']<=end]
+            land=[d['observed_sim'] for _,k,d in trace if k=='flight_command' and d.get('command')=='LAND']
+            check('hold_before_land',bool(land) and min(land)>=end)
+            max_speed=max((x['world_speed_mps'] for x in held),default=math.inf)
+            yaw_change=max((abs(math.remainder(x['world_yaw']-held[0]['world_yaw'],2*math.pi))
+                            for x in held),default=math.inf)
+            yaw_errors=[abs(math.remainder(d['yaw']-ref['yaw_reference'],2*math.pi))
+                        for _,d in odoms if start<=d['stamp']<=end
+                        for ref in [min(flight,key=lambda f:abs(f['observed_sim']-d['stamp']))]
+                        if ref.get('yaw_reference') is not None] if flight else []
+            check('hold_speed_and_heading',max_speed<=.15 and yaw_change<=math.radians(10)
+                  and max(yaw_errors,default=math.inf)<=math.radians(10),max_speed_mps=max_speed,
+                  world_yaw_change_deg=math.degrees(yaw_change),max_reference_error_deg=math.degrees(max(yaw_errors,default=math.inf)))
             check("no_trajectory_revival_after_done",bool(flight) and all(data["mode"]=="HOLD" and data.get("context") is None for data in flight))
         else:check("ten_second_hold_gazebo_truth",False,reason="no completed mission")
         minimum=clearance.get("minimum_conservative_clearance_m")

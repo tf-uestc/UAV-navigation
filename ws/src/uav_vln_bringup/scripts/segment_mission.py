@@ -36,6 +36,7 @@ class SegmentMission:
         self.deadline = self.started = 0.
         self.flight = self.planner = self.odom = None
         self.flight_session = None
+        self.acknowledged_status = None
         self.epoch = None
         self.seq = self.goal_id = self.stop_id = 0
         self.goal = self.final_goal = None
@@ -174,6 +175,10 @@ class SegmentMission:
 
     def command_flight(self,command,**fields):
         status = self.flight_status()
+        if not status and command == 'HOVER' and self.flight:
+            # A stop is safe to address to the last known executor session.
+            # A replacement executor rejects that session identifier.
+            status = self.flight[0]
         if not status or status.get('flight_session_id')!=self.flight_session:
             return None
         self.seq += 1
@@ -207,7 +212,7 @@ class SegmentMission:
                 else:
                     self.brake('FAILED','cancelled')
                 return
-            if cmd!='START' or self.phase=='LANDING' or not flight.get('ready') or not self.feedback():
+            if cmd!='START' or self.phase in ('LANDING','WAIT_ABORT_STOP') or not flight.get('ready') or not self.feedback():
                 return
             try:
                 mission=d['mission_id']
@@ -387,13 +392,22 @@ class SegmentMission:
                 return
             try:
                 actual=fb[0]
+                distance=math.dist(actual[:2],result.point[:2])
+                if distance < self.standoff-self.standoff_tolerance:
+                    self.brake('FAILED','observation_too_close')
+                    return
                 heading=math.atan2(result.point[1]-actual[1],result.point[0]-actual[0])
                 if abs(angle_delta(heading,fb[2]))>math.radians(7.):
                     self.target_heading=heading
                     self.brake('ALIGN')
                     return
                 final=observation_goal(actual,result.point,self.height,self.standoff,self.fence)
-                if math.dist(actual[:2],result.point[:2])<=self.standoff+self.standoff_tolerance:
+                if distance<=self.standoff+self.standoff_tolerance:
+                    flight=self.flight_status()
+                    if (flight.get('flight_session_id')!=self.flight_session
+                            or not flight.get('owns_flight') or not self.confirmed_hold(flight)):
+                        self.brake('DETECT','arrival_hold_unconfirmed')
+                        return
                     self.final_goal=actual
                     self.transition('DONE',reason='observation_standoff_reached')
                     return
@@ -513,6 +527,15 @@ class SegmentMission:
             self.registry.cancel()
             self.transition('FAILED',reason='flight_session_changed')
             return
+        if self.phase == 'WAIT_ABORT_STOP':
+            if (flight and flight.get('mode') == 'HOLD' and flight.get('context') is None
+                    and flight.get('stop_confirmed') and
+                    ((self.stop_id is not None and flight.get('stop_id') == self.stop_id)
+                     or flight.get('reason') == 'mission_feedback_timeout')):
+                self.transition('FAILED',reason='flight_feedback_unavailable')
+            elif now >= self.deadline:
+                self.transition('FAILED',reason='flight_feedback_unavailable_stop_unconfirmed')
+            return
         if self.phase=='LANDING':
             if flight and not flight.get('owns_flight') and flight.get('mode')=='COMPLETE':
                 self.transition('LANDED',reason=self.reason)
@@ -526,10 +549,22 @@ class SegmentMission:
                 self.command_flight('LAND')
                 self.transition('FAILED',reason='takeoff_failed')
             return
-        if not flight or not flight.get('owns_flight') or flight.get('mode') in ('FAILED','LANDING','COMPLETE'):
+        if not flight:
+            self.registry.cancel()
+            self.stop_id = self.command_flight('HOVER')
+            self.transition('WAIT_ABORT_STOP', self.settle_timeout, 'flight_feedback_unavailable')
+            return
+        if not flight.get('owns_flight') or flight.get('mode') in ('FAILED','LANDING','COMPLETE'):
             self.registry.cancel()
             self.transition('FAILED',reason='flight_feedback_unavailable')
             return
+        status_at = flight.get('status_at')
+        if (self.phase in ('AUTHORIZE','WAIT_PLAN','TRACK') and self.epoch and status_at is not None
+                and status_at != self.acknowledged_status
+                and flight.get('context') == [self.mission, self.goal_id, self.epoch[1]]):
+            self.flight_pub.publish(String(data=json.dumps(dict(command='ACK_STATUS', status_at=status_at,
+                context=flight['context'], flight_session_id=self.flight_session))))
+            self.acknowledged_status = status_at
         if now-self.started>self.mission_timeout and self.phase not in ('BRAKE','SETTLE'):
             self.brake('FAILED','mission_deadline')
             return
@@ -608,7 +643,7 @@ class SegmentMission:
             ready=self.planner_status()
             if not self.epoch and ready:
                 self.epoch=ready['gateway_session_id'],ready['planner_session_id']
-                self.command_flight('BEGIN',mission_id=self.mission,goal_id=self.goal_id,
+                self.command_flight('BEGIN',mission_id=self.mission,goal_id=self.goal_id,require_status_ack=True,
                     gateway_session_id=self.epoch[0],planner_session_id=self.epoch[1])
             if self.epoch and flight.get('context')==[self.mission,self.goal_id,self.epoch[1]]:
                 self.transition('WAIT_PLAN',9.)

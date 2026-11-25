@@ -17,5 +17,6 @@
   <node pkg="uav_vln_bringup" type="flight_executor.py" name="flight_executor" output="screen" required="true">
     <param name="mock_fcu" value="$(arg mock_fcu)"/>
     <param name="segment_fence" value="$(arg segment_fence)"/>
+    <param name="handover_accel_limit" value="$(arg accel_limit)"/>
   </node>
 </launch>

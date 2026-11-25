@@ -35,6 +35,7 @@ PATTERNS = [
 
 OMNI_MODEL = "qwen3.8-omni-flash"
 API_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+RED_POLE = re.compile(r"红色?(?:的)?(?:竖直|垂直)?(?:杆|柱|立杆)|\bred\s+(?:(?:vertical|upright)\s+)?(?:pole|rod|post)\b", re.I)
 
 
 # ---------------------------------------------------------------------------
@@ -101,7 +102,14 @@ class QwenVLGroundingDetector(Detector):
         bbox = self.parse_response(raw_text, w, h)
 
         x1, y1, x2, y2 = bbox
-        u, v, depth_m, support = self._foreground_depth(depth[y1:y2, x1:x2])
+        mask = None
+        subject = re.split(r"[,，;；。]", target_text, maxsplit=1)[0]
+        if RED_POLE.search(subject):
+            # A loose box around a narrow pole includes the wall behind it.
+            # Use the same red surface cue as the project's RGB-D validation.
+            red, green, blue = rgb[y1:y2, x1:x2].transpose(2, 0, 1)
+            mask = (red > 110) & (red > 1.5*green) & (red > 1.5*blue)
+        u, v, depth_m, support = self._foreground_depth(depth[y1:y2, x1:x2], mask)
         point_camera = self._pixel_to_camera_optical(x1+u, y1+v, depth_m, cam_info.K)
         confidence = support / ((x2-x1)*(y2-y1))
 
@@ -308,12 +316,16 @@ class QwenVLGroundingDetector(Detector):
         return parse_bbox(text, img_w, img_h, coordinate_system, allow_legacy)
 
     @staticmethod
-    def _foreground_depth(patch: np.ndarray):
-        """Pick the closest depth band with enough support and project its pixels."""
+    def _foreground_depth(patch: np.ndarray, mask=None):
+        """Measure the closest supported surface, rejecting ambiguous foreground."""
         positive = np.isfinite(patch)
         positive[positive] = patch[positive] > 0
+        if mask is None:
+            minimum = max(3, int(np.ceil(.10*patch.size)))
+        else:
+            positive &= mask
+            minimum = max(3, int(np.ceil(.5*np.count_nonzero(mask))))
         v, u = np.nonzero(positive)
-        minimum = max(3, int(np.ceil(.10*patch.size)))
         if len(u) < minimum:
             raise DetectionRejected("invalid_target_depth")
         depths = patch[v, u]
@@ -323,6 +335,10 @@ class QwenVLGroundingDetector(Detector):
         for group in np.split(order, splits):
             if len(group) >= minimum:
                 return float(np.median(u[group])), float(np.median(v[group])), float(np.median(depths[group])), len(group)
+            if len(group) >= 3:
+                # A nearer surface with several samples may be the target.
+                # A larger group behind it cannot establish target depth.
+                raise DetectionRejected("invalid_target_depth")
         raise DetectionRejected("invalid_target_depth")
 
     @staticmethod

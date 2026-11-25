@@ -31,6 +31,11 @@ def matrix(position, rotation):
 
 
 class SearchTrial(Trial):
+    def record(self,label,data):
+        if label in ('flight','flight_command','fcu','mission'):
+            data=dict(data,observed_sim=rospy.Time.now().to_sec())
+        super().record(label,data)
+
     def __init__(self, args):
         super().__init__(args)
         if args.live:
@@ -204,17 +209,24 @@ class SearchTrial(Trial):
                                                 rospy.Time.from_sec(captured),rospy.Duration(2.)).transform
             estimated=world_from_map @ matrix(capture_tf.translation,capture_tf.rotation)
             world_target=world_from_map @ np.array([*d['point'],1.])
-            localization.append(dict(capture_stamp=captured,truth_time_delta_s=abs(nearest-captured),
+            localization.append(dict(request_id=d['request_id'],capture_stamp=captured,truth_time_delta_s=abs(nearest-captured),
                                      camera_translation_error_m=float(np.linalg.norm(estimated[:3,3]-truth[:3,3])),
                                      target_surface_error_m=abs(math.dist(world_target[:2],center)-.05)))
         assert localization, 'no time-matched historical TF and Gazebo camera observations'
         self.check('historical_tf_gazebo_and_target_surface', samples=localization)
         assert self.args.standoff-.35<=distance<=self.args.standoff+.35,(distance,self.args.standoff)
-        reference_time=time.monotonic()
-        time.sleep(10.)
-        odom=[d for t,k,d in self.trace if t>=reference_time and k=='odom']
+        hold_start=rospy.Time.now().to_sec()
+        deadline=time.monotonic()+60.
+        # Leave an extra sampling interval at each end for the independent observer.
+        while rospy.Time.now().to_sec()-hold_start < 10.5:
+            assert not rospy.is_shutdown() and time.monotonic()<deadline, 'simulation clock stalled during hold'
+            assert self.flight['mode']=='HOLD' and self.state.armed and self.state.mode=='OFFBOARD', self.flight
+            time.sleep(.04)
+        hold_end=rospy.Time.now().to_sec()
+        odom=[d for _,k,d in self.trace if k=='odom' and hold_start<=d['stamp']<=hold_end]
         assert odom and max(math.dist(d['position'],odom[0]['position']) for d in odom)<.30
-        self.check('observed_and_held', distance_m=distance, hold_seconds=10.)
+        self.check('observed_and_held', distance_m=distance, hold_seconds=hold_end-hold_start,
+                   start_sim=hold_start,end_sim=hold_end)
 
 
 def main():

@@ -38,7 +38,11 @@ def main():
    if a.success and b.success:
     p=a.link_state.pose.position;t=b.pose.position
     distance=math.hypot(p.x-t.x,p.y-t.y)
+    q=a.link_state.pose.orientation
+    v=a.link_state.twist.linear
     samples.append(dict(stamp=rospy.Time.now().to_sec(),world_xyz=[p.x,p.y,p.z],
+       world_yaw=math.atan2(2*(q.w*q.z+q.x*q.y),1-2*(q.y*q.y+q.z*q.z)),
+       world_speed_mps=math.sqrt(v.x*v.x+v.y*v.y+v.z*v.z),
        target_xyz=[t.x,t.y,t.z],horizontal_distance_m=distance,
        conservative_clearance_m=distance-.05-vehicle_radius))
    time.sleep(.10)
