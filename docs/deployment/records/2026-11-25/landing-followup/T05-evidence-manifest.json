@@ -1,0 +1,8 @@
+{
+  "batch": "T05",
+  "attempts": 4,
+  "file": "T05-evidence.tar.gz",
+  "bytes": 32485385,
+  "members": 53,
+  "sha256": "5cf3e5b77963c17d644ef98affa9eb15caa2bbfc6764ea2f9ef22fa6eac71cd6"
+}

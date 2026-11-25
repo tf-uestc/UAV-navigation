@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "projected_depth_m": {
+    "1": 1.0,
+    "3": 5.1,
+    "5": 2.3
+  },
+  "expected_depth_m": {
+    "1": 1.0,
+    "3": 5.1,
+    "5": 2.3
+  },
+  "input_depth_mm": [
+    0,
+    1000,
+    0,
+    0,
+    0,
+    2300,
+    0,
+    0
+  ],
+  "source_sha256": "ea0cd2f640378535a2b2bfd9b27aaa71899690aed9c31e3b047effb54cc45ef2"
+}

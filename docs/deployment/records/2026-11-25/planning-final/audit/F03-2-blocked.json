@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "scenario": "blocked",
+  "checks": {
+    "contact_stream_observed": true,
+    "armed_then_disarmed": true,
+    "all_requested_missions_present": true,
+    "dynamic-e94cdf98/terminal": true,
+    "dynamic-e94cdf98/stopped": true,
+    "dynamic-e94cdf98/measured_hold": true,
+    "dynamic-e94cdf98/acknowledgements": true,
+    "dynamic-e94cdf98/only_accepted_executed": true,
+    "world_samples_present": true,
+    "clearance": true,
+    "world_outcome": true
+  },
+  "details": [
+    {
+      "samples": 38,
+      "center_to_obstacle_surface_m": 0.7005844342616853
+    }
+  ],
+  "physics_coverage": {
+    "passed": true,
+    "checks": {
+      "odom_clock_nondecreasing": true,
+      "brackets_entire_flight": true,
+      "no_gap_of_one_second": true,
+      "count": true,
+      "raw_agrees_with_summary": true,
+      "within_one_second_at_shutdown": true,
+      "positive_control": true,
+      "zero_unexpected_contacts": true,
+      "primary_contact_check": true
+    },
+    "raw_physics_interval": [
+      5.816,
+      37.188
+    ],
+    "armed_flight_conservative_interval": [
+      8.752,
+      36.784
+    ],
+    "top_level_messages": 7844,
+    "flight_messages": 7009,
+    "largest_gap_during_flight_s": 0.0040000000000048885,
+    "arrival_order_reversals": 0,
+    "max_arrival_order_reversal_s": 0.0,
+    "stop_requested_sim": 37.192,
+    "positive_control_pairs": 7720,
+    "unexpected_contact_count": 0
+  },
+  "grader_sha256": "2041f10c203a2903401496a095e76c827bf14d414de0609e2caf7631c621d682",
+  "base_grader_sha256": "2d885deed3afc9bf65f7b0d9c883a411bc91b75c84b0b992f3c06de1e18652e0"
+}

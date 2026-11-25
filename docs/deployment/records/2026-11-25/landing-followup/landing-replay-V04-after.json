@@ -1,0 +1,86 @@
+{
+  "commit": "1581635e9934f0d2964eccb42acb40aad1302996",
+  "original_archive": "V04-evidence.tar.gz",
+  "cases": {
+    "V04-1.5-left45-2": {
+      "trace_sha256": "19402fd86f2b630f85d0e51bab2f4466c12ebfd832ad1337669229d4b34bd576",
+      "comparisons": [
+        {
+          "land_wall_s": 7331661.612872803,
+          "land_observed_sim_s": 63.6091,
+          "first_disarm_wall_s": 19.148771,
+          "original_post_disarm_odom_count": 271,
+          "original_post_disarm_samples_over_0p15": 271,
+          "synthetic_post_disarm_ground_samples": [
+            [
+              19.4956,
+              81
+            ],
+            [
+              20.666,
+              82
+            ]
+          ],
+          "model": "ground_after_disarm",
+          "first_executor_terminal": {
+            "mode": "COMPLETE",
+            "reason": "",
+            "elapsed_wall_s": 20.68,
+            "sim_s": 82.0251
+          },
+          "actions": [
+            [
+              0.0,
+              "AUTO.LAND"
+            ],
+            [
+              19.16,
+              "AUTO.LAND"
+            ],
+            [
+              19.68,
+              "AUTO.LAND"
+            ],
+            [
+              20.2,
+              "AUTO.LAND"
+            ]
+          ]
+        },
+        {
+          "land_wall_s": 7331661.612872803,
+          "land_observed_sim_s": 63.6091,
+          "first_disarm_wall_s": 19.148771,
+          "original_post_disarm_odom_count": 271,
+          "original_post_disarm_samples_over_0p15": 271,
+          "synthetic_post_disarm_ground_samples": [],
+          "model": "no_ground",
+          "first_executor_terminal": {
+            "mode": "FAILED",
+            "reason": "landing_timeout",
+            "elapsed_wall_s": 30.0,
+            "sim_s": 89.8106
+          },
+          "actions": [
+            [
+              0.0,
+              "AUTO.LAND"
+            ],
+            [
+              19.16,
+              "AUTO.LAND"
+            ],
+            [
+              19.68,
+              "AUTO.LAND"
+            ],
+            [
+              20.2,
+              "AUTO.LAND"
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

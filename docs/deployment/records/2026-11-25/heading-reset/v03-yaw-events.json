@@ -1,0 +1,2460 @@
+[
+  {
+    "case": "V03-1.5-front-1",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/03_07_07.ulg",
+    "ulg_sha256": "2b971915759716bf1727e990e4e56b196922ba24a24c74f26399085942c5b1b1",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.136,
+    "armed_s": 9.208,
+    "in_air_s": 11.088,
+    "heading_good_first_s": 30.232,
+    "first_wait_vlm_s": 20.248,
+    "heading_good_before_first_request": false,
+    "pass_heading_gate": false,
+    "late_heading_resets": [
+      {
+        "stamp": 29.224,
+        "counter": 2,
+        "ned_delta_heading_deg": 0.30801117420196533,
+        "quat_stamp": 29.228,
+        "quat_counter": 2,
+        "q_after": [
+          0.6994309425354004,
+          -0.005062446463853121,
+          0.0014579432317987084,
+          0.7146807909011841
+        ],
+        "delta_q_reset": [
+          0.9999964237213135,
+          -4.656613428188905e-10,
+          -2.3283067140944524e-10,
+          0.0026879014912992716
+        ],
+        "estimated_hagl_m": 1.5983772277832031,
+        "phase": "SETTLE",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": 0.1721154042723502,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 0.9152008891105652
+      }
+    ],
+    "gate_samples": [
+      {
+        "request_sim": 20.248,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 21.664,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 29.364,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 37.848,
+        "valid": true,
+        "stable_s": 7.616
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 58,
+      "median": 0.07766373395978121,
+      "minimum": -0.010353487670755612,
+      "maximum": 0.20534760644051175,
+      "abs_p95": 0.19670277380415796
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 32,
+      "median": -0.11374043215514007,
+      "minimum": -0.13843258940013925,
+      "maximum": 0.024969777924610526,
+      "abs_p95": 0.1351655485792591
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 1854,
+      "median": 1.2672011990844112e-06,
+      "minimum": -0.019476018497925907,
+      "maximum": 0.019127692650414474,
+      "abs_p95": 0.0033952475263660624
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.07063890421452804,
+    "final_depth_worst_frame_p95_m": 0.029155936605164027,
+    "in_air_resets": [
+      {
+        "stamp": 29.224,
+        "counter": 2,
+        "ned_delta_heading_deg": 0.30801117420196533,
+        "quat_stamp": 29.228,
+        "quat_counter": 2,
+        "q_after": [
+          0.6994309425354004,
+          -0.005062446463853121,
+          0.0014579432317987084,
+          0.7146807909011841
+        ],
+        "delta_q_reset": [
+          0.9999964237213135,
+          -4.656613428188905e-10,
+          -2.3283067140944524e-10,
+          0.0026879014912992716
+        ],
+        "estimated_hagl_m": 1.5983772277832031,
+        "phase": "SETTLE",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": 0.1721154042723502,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 0.9152008891105652
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 19,
+        "median": 0.4502057623271867,
+        "minimum": 0.39879155153855095,
+        "maximum": 0.672849869177071,
+        "abs_p95": 0.6660997065916888
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 19,
+        "median": 0.5639461944823267,
+        "minimum": 0.512531983693691,
+        "maximum": 0.7865903013322111,
+        "abs_p95": 0.7798401387468289
+      },
+      "translation_xy_m": {
+        "n": 19,
+        "median": 0.04470790495672583,
+        "minimum": 0.013321271318552754,
+        "maximum": 0.07095088238010674,
+        "abs_p95": 0.07066401908367691
+      },
+      "predicted_horizontal_m": {
+        "n": 19,
+        "median": 0.055579993472562886,
+        "minimum": 0.03355404008919228,
+        "maximum": 0.07959965177381903,
+        "abs_p95": 0.0792859983155443
+      },
+      "measured_horizontal_m": {
+        "n": 19,
+        "median": 0.04648996405594499,
+        "minimum": 0.0340623714304897,
+        "maximum": 0.07177608908420695,
+        "abs_p95": 0.07063890421452802
+      },
+      "abs_prediction_gap_m": {
+        "n": 19,
+        "median": 0.0074750588470846036,
+        "minimum": 0.0006182643170260724,
+        "maximum": 0.013614941783114072,
+        "abs_p95": 0.013104300532146958
+      }
+    }
+  },
+  {
+    "case": "V03-1.5-front-2",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/03_10_39.ulg",
+    "ulg_sha256": "7cb7022ffde0d083f56f252b4d48a2f6600594679f0298b7cec15dae0d2a0690",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.18,
+    "armed_s": 9.344,
+    "in_air_s": 11.22,
+    "heading_good_first_s": 35.432,
+    "first_wait_vlm_s": 20.376,
+    "heading_good_before_first_request": false,
+    "pass_heading_gate": false,
+    "late_heading_resets": [
+      {
+        "stamp": 34.424,
+        "counter": 2,
+        "ned_delta_heading_deg": 0.6729243993759155,
+        "quat_stamp": 34.432,
+        "quat_counter": 2,
+        "q_after": [
+          0.6985300183296204,
+          0.0008486495353281498,
+          -0.0031657442450523376,
+          0.7155733108520508
+        ],
+        "delta_q_reset": [
+          0.9999828338623047,
+          0.0,
+          -2.6557248067327066e-10,
+          0.005872339941561222
+        ],
+        "estimated_hagl_m": 1.5922646522521973,
+        "phase": "TRACK",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": 0.14923761200451105,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 0.6163872480392456
+      }
+    ],
+    "gate_samples": [
+      {
+        "request_sim": 20.376,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 21.764,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 30.232,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 39.86,
+        "valid": true,
+        "stable_s": 4.427999999999997
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 56,
+      "median": 0.022703859495919687,
+      "minimum": -0.060227764208121926,
+      "maximum": 0.12981156863227739,
+      "abs_p95": 0.09177589599980962
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 35,
+      "median": 0.23761695561708507,
+      "minimum": 0.1516462925717974,
+      "maximum": 0.27186008665611894,
+      "abs_p95": 0.2674897532566661
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 1658,
+      "median": 4.463726384074107e-05,
+      "minimum": -0.03935047349361298,
+      "maximum": 0.01581809107022991,
+      "abs_p95": 0.0049933049981007
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.05721122952598367,
+    "final_depth_worst_frame_p95_m": 0.01975314594332521,
+    "in_air_resets": [
+      {
+        "stamp": 34.424,
+        "counter": 2,
+        "ned_delta_heading_deg": 0.6729243993759155,
+        "quat_stamp": 34.432,
+        "quat_counter": 2,
+        "q_after": [
+          0.6985300183296204,
+          0.0008486495353281498,
+          -0.0031657442450523376,
+          0.7155733108520508
+        ],
+        "delta_q_reset": [
+          0.9999828338623047,
+          0.0,
+          -2.6557248067327066e-10,
+          0.005872339941561222
+        ],
+        "estimated_hagl_m": 1.5922646522521973,
+        "phase": "TRACK",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": 0.14923761200451105,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 0.6163872480392456
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.35082429514544344,
+        "minimum": 0.17398809188506448,
+        "maximum": 0.7398324222632482,
+        "abs_p95": 0.7392727984088552
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.11320733952835837,
+        "minimum": -0.06362886373202059,
+        "maximum": 0.5022154666461631,
+        "abs_p95": 0.5016558427917701
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.04686520990651574,
+        "minimum": 0.032412199671187185,
+        "maximum": 0.06232533103660492,
+        "abs_p95": 0.058152940867679755
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.05510949377165257,
+        "minimum": 0.043557530721926724,
+        "maximum": 0.068737042422361,
+        "abs_p95": 0.06508910495374019
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.05090658831222084,
+        "minimum": 0.03694565633898902,
+        "maximum": 0.05745014439215869,
+        "abs_p95": 0.05721122952598367
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.006825380234190406,
+        "minimum": 0.0012810700839535824,
+        "maximum": 0.012975718843282386,
+        "abs_p95": 0.012837807818001984
+      }
+    }
+  },
+  {
+    "case": "V03-1.5-left45-1",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/03_12_23.ulg",
+    "ulg_sha256": "bd019e2fcd99d85c0323d606509d5e8c9d8338cf5e6714eb3bcec5c309608233",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.336,
+    "armed_s": 9.044,
+    "in_air_s": 10.964,
+    "heading_good_first_s": 32.58,
+    "first_wait_vlm_s": 20.092,
+    "heading_good_before_first_request": false,
+    "pass_heading_gate": false,
+    "late_heading_resets": [
+      {
+        "stamp": 31.572,
+        "counter": 2,
+        "ned_delta_heading_deg": 0.47093597054481506,
+        "quat_stamp": 31.576,
+        "quat_counter": 2,
+        "q_after": [
+          0.9482045769691467,
+          -0.00160015223082155,
+          -0.0021675480529665947,
+          0.3176489472389221
+        ],
+        "delta_q_reset": [
+          0.9999916553497314,
+          1.1641533570472262e-10,
+          5.820766785236131e-11,
+          0.0041096811182796955
+        ],
+        "estimated_hagl_m": 1.5785245895385742,
+        "phase": "TRACK",
+        "scan_offset": 45,
+        "world_yaw_rate_at_reset_deg_s": 0.17322829465174772,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.279797315597534
+      }
+    ],
+    "gate_samples": [
+      {
+        "request_sim": 20.092,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 24.56,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 25.944,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 29.94,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 38.292,
+        "valid": true,
+        "stable_s": 5.712000000000003
+      },
+      {
+        "request_sim": 45.808,
+        "valid": true,
+        "stable_s": 13.228000000000002
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 63,
+      "median": 0.06229541939023875,
+      "minimum": 0.006523102407101078,
+      "maximum": 0.11302819798291353,
+      "abs_p95": 0.10950064448726948
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 22,
+      "median": 0.08494788919651342,
+      "minimum": 0.07299978925220785,
+      "maximum": 0.09973826917499196,
+      "abs_p95": 0.09883085300712792
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 1834,
+      "median": -6.615327869496923e-05,
+      "minimum": -1.1679502780990845,
+      "maximum": 0.014376101810000819,
+      "abs_p95": 0.013430449589178266
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.06952119166308443,
+    "final_depth_worst_frame_p95_m": 0.024188307899696077,
+    "in_air_resets": [
+      {
+        "stamp": 31.572,
+        "counter": 2,
+        "ned_delta_heading_deg": 0.47093597054481506,
+        "quat_stamp": 31.576,
+        "quat_counter": 2,
+        "q_after": [
+          0.9482045769691467,
+          -0.00160015223082155,
+          -0.0021675480529665947,
+          0.3176489472389221
+        ],
+        "delta_q_reset": [
+          0.9999916553497314,
+          1.1641533570472262e-10,
+          5.820766785236131e-11,
+          0.0041096811182796955
+        ],
+        "estimated_hagl_m": 1.5785245895385742,
+        "phase": "TRACK",
+        "scan_offset": 45,
+        "world_yaw_rate_at_reset_deg_s": 0.17322829465174772,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.279797315597534
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.5712645155146561,
+        "minimum": 0.5144823015523627,
+        "maximum": 0.6593803326425416,
+        "abs_p95": 0.6577281220295049
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.48631662631814265,
+        "minimum": 0.4295344123558493,
+        "maximum": 0.5744324434460282,
+        "abs_p95": 0.5727802328329915
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.06699207963552713,
+        "minimum": 0.023055806532670527,
+        "maximum": 0.08608570650764506,
+        "abs_p95": 0.0844229325017079
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.07809341572352621,
+        "minimum": 0.03543225573584368,
+        "maximum": 0.09311184572087475,
+        "abs_p95": 0.09180392029244333
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.06392596595548916,
+        "minimum": 0.028026247137208332,
+        "maximum": 0.07102081647656301,
+        "abs_p95": 0.06952119166308443
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.014001424902884398,
+        "minimum": 0.006020652284549351,
+        "maximum": 0.023683434091198344,
+        "abs_p95": 0.022360937402623494
+      }
+    }
+  },
+  {
+    "case": "V03-1.5-left45-2",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/03_14_14.ulg",
+    "ulg_sha256": "ce84422b8367d9e807c5902a67dae03524af803b13870ee99a9a08d2df0c332d",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.164,
+    "armed_s": 9.292,
+    "in_air_s": 11.192,
+    "heading_good_first_s": 33.656,
+    "first_wait_vlm_s": 20.416,
+    "heading_good_before_first_request": false,
+    "pass_heading_gate": false,
+    "late_heading_resets": [
+      {
+        "stamp": 32.648,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.0552835613489151,
+        "quat_stamp": 32.652,
+        "quat_counter": 2,
+        "q_after": [
+          0.921897292137146,
+          -0.002972457790747285,
+          0.0001768200017977506,
+          0.3874228000640869
+        ],
+        "delta_q_reset": [
+          0.9999999403953552,
+          -2.3283069916502086e-10,
+          3.492460487475313e-10,
+          -0.00048244011122733355
+        ],
+        "estimated_hagl_m": 1.6183396577835083,
+        "phase": "SETTLE",
+        "scan_offset": 45,
+        "world_yaw_rate_at_reset_deg_s": 0.185754376719804,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.3161604404449463
+      }
+    ],
+    "gate_samples": [
+      {
+        "request_sim": 20.416,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 23.424,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 27.772,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 30.452,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 33.96,
+        "valid": true,
+        "stable_s": 0.30400000000000205
+      },
+      {
+        "request_sim": 42.192,
+        "valid": true,
+        "stable_s": 8.536000000000001
+      },
+      {
+        "request_sim": 50.604,
+        "valid": true,
+        "stable_s": 16.948
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 61,
+      "median": 0.12437070459597521,
+      "minimum": 0.06834659545899058,
+      "maximum": 0.25661424157758006,
+      "abs_p95": 0.2096088545410737
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 33,
+      "median": 0.21641321912807143,
+      "minimum": 0.1841177671382468,
+      "maximum": 0.3130750822963364,
+      "abs_p95": 0.2839414643191219
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 1849,
+      "median": 1.1728984077308269e-06,
+      "minimum": -0.8339908659074808,
+      "maximum": 0.009478778979456592,
+      "abs_p95": 0.007971060233222686
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.07124144641755256,
+    "final_depth_worst_frame_p95_m": 0.02238669004587385,
+    "in_air_resets": [
+      {
+        "stamp": 32.648,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.0552835613489151,
+        "quat_stamp": 32.652,
+        "quat_counter": 2,
+        "q_after": [
+          0.921897292137146,
+          -0.002972457790747285,
+          0.0001768200017977506,
+          0.3874228000640869
+        ],
+        "delta_q_reset": [
+          0.9999999403953552,
+          -2.3283069916502086e-10,
+          3.492460487475313e-10,
+          -0.00048244011122733355
+        ],
+        "estimated_hagl_m": 1.6183396577835083,
+        "phase": "SETTLE",
+        "scan_offset": 45,
+        "world_yaw_rate_at_reset_deg_s": 0.185754376719804,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.3161604404449463
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.7447540841006344,
+        "minimum": 0.694091754291918,
+        "maximum": 0.7630293206505314,
+        "abs_p95": 0.7614241489091625
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.5283408649725629,
+        "minimum": 0.4776785351638466,
+        "maximum": 0.54661610152246,
+        "abs_p95": 0.5450109297810911
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.06422924384036822,
+        "minimum": 0.040199952742635166,
+        "maximum": 0.07136479286307859,
+        "abs_p95": 0.06965965546243266
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.07727232454949387,
+        "minimum": 0.06288429935232473,
+        "maximum": 0.08740636146826741,
+        "abs_p95": 0.08611096594608574
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.060627740491785376,
+        "minimum": 0.05260777171851885,
+        "maximum": 0.07229300809696514,
+        "abs_p95": 0.07124144641755256
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.01545542346270326,
+        "minimum": 0.009362543812632157,
+        "maximum": 0.022139843090990118,
+        "abs_p95": 0.02103365947520591
+      }
+    }
+  },
+  {
+    "case": "V03-1.5-right45-1",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/03_16_01.ulg",
+    "ulg_sha256": "446be642dd7e6112acc2a0896b9902a06a020eefed606770b4020af9529ef2a6",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.352,
+    "armed_s": 9.912,
+    "in_air_s": 11.796,
+    "heading_good_first_s": 33.004,
+    "first_wait_vlm_s": 20.608,
+    "heading_good_before_first_request": false,
+    "pass_heading_gate": false,
+    "late_heading_resets": [
+      {
+        "stamp": 31.996,
+        "counter": 2,
+        "ned_delta_heading_deg": -10.085748672485352,
+        "quat_stamp": 32.0,
+        "quat_counter": 2,
+        "q_after": [
+          0.45273488759994507,
+          0.001294812187552452,
+          0.002123320708051324,
+          0.8916417360305786
+        ],
+        "delta_q_reset": [
+          0.9961292147636414,
+          0.0,
+          -1.1641532182693481e-10,
+          -0.08790117502212524
+        ],
+        "estimated_hagl_m": 1.600130319595337,
+        "phase": "SCAN_TURN",
+        "scan_offset": -45,
+        "world_yaw_rate_at_reset_deg_s": -1.280885650277014,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.4236083030700684
+      }
+    ],
+    "gate_samples": [
+      {
+        "request_sim": 20.608,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 22.692,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 26.78,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 32.996,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 34.58,
+        "valid": true,
+        "stable_s": 1.5760000000000005
+      },
+      {
+        "request_sim": 42.868,
+        "valid": true,
+        "stable_s": 9.864000000000004
+      },
+      {
+        "request_sim": 50.728,
+        "valid": true,
+        "stable_s": 17.724000000000004
+      },
+      {
+        "request_sim": 55.192,
+        "valid": true,
+        "stable_s": 22.188000000000002
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 55,
+      "median": 0.05021292664679322,
+      "minimum": -0.09599200807559782,
+      "maximum": 0.18754233545223542,
+      "abs_p95": 0.17419864562818074
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 47,
+      "median": -0.11827333438051824,
+      "minimum": -0.1540609069528216,
+      "maximum": -0.020662902408673745,
+      "abs_p95": 0.14947784854771554
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 2085,
+      "median": 2.83822010089807e-05,
+      "minimum": -0.987179637102912,
+      "maximum": 1.0112882484540364,
+      "abs_p95": 0.2948363100073434
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.5173627582380508,
+    "final_depth_worst_frame_p95_m": 0.022511040885692012,
+    "in_air_resets": [
+      {
+        "stamp": 31.996,
+        "counter": 2,
+        "ned_delta_heading_deg": -10.085748672485352,
+        "quat_stamp": 32.0,
+        "quat_counter": 2,
+        "q_after": [
+          0.45273488759994507,
+          0.001294812187552452,
+          0.002123320708051324,
+          0.8916417360305786
+        ],
+        "delta_q_reset": [
+          0.9961292147636414,
+          0.0,
+          -1.1641532182693481e-10,
+          -0.08790117502212524
+        ],
+        "estimated_hagl_m": 1.600130319595337,
+        "phase": "SCAN_TURN",
+        "scan_offset": -45,
+        "world_yaw_rate_at_reset_deg_s": -1.280885650277014,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.4236083030700684
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 9.086628712365979,
+        "minimum": 9.043239260586745,
+        "maximum": 9.122334451603933,
+        "abs_p95": 9.118785386242136
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 9.204902046746497,
+        "minimum": 9.161512594967263,
+        "maximum": 9.240607785984452,
+        "abs_p95": 9.237058720622654
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.05322520174656262,
+        "minimum": 0.027911121251441427,
+        "maximum": 0.06889859307210004,
+        "abs_p95": 0.06741821501248571
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.4772074185943072,
+        "minimum": 0.389794490709029,
+        "maximum": 0.5268284605583561,
+        "abs_p95": 0.5203824805633069
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.4745655376651946,
+        "minimum": 0.38885839557684687,
+        "maximum": 0.5212767613038882,
+        "abs_p95": 0.5173627582380508
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.0028394422519448237,
+        "minimum": 0.0009360951321821243,
+        "maximum": 0.008261948195505076,
+        "abs_p95": 0.006473200846706252
+      }
+    }
+  },
+  {
+    "case": "V03-1.5-right45-2",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/03_17_52.ulg",
+    "ulg_sha256": "088a98da41e8c62b3f220b27621a31161083224037b426f8be76199edd634f58",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.196,
+    "armed_s": 10.08,
+    "in_air_s": 11.944,
+    "heading_good_first_s": 31.404,
+    "first_wait_vlm_s": 21.452,
+    "heading_good_before_first_request": false,
+    "pass_heading_gate": false,
+    "late_heading_resets": [
+      {
+        "stamp": 30.396,
+        "counter": 2,
+        "ned_delta_heading_deg": 14.436930656433105,
+        "quat_stamp": 30.4,
+        "quat_counter": 2,
+        "q_after": [
+          0.8651579022407532,
+          -0.0043219514191150665,
+          -1.0447010026837233e-05,
+          0.5014809966087341
+        ],
+        "delta_q_reset": [
+          0.9920743107795715,
+          -1.5279512377563975e-10,
+          2.3283067140944524e-10,
+          0.1256529837846756
+        ],
+        "estimated_hagl_m": 1.5843604803085327,
+        "phase": "SCAN_TURN",
+        "scan_offset": 45,
+        "world_yaw_rate_at_reset_deg_s": 7.3313318127294265,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.3278656005859375
+      }
+    ],
+    "gate_samples": [
+      {
+        "request_sim": 21.452,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 24.264,
+        "valid": false,
+        "stable_s": 0.0
+      },
+      {
+        "request_sim": 31.968,
+        "valid": true,
+        "stable_s": 0.5640000000000001
+      },
+      {
+        "request_sim": 37.048,
+        "valid": true,
+        "stable_s": 5.644000000000002
+      },
+      {
+        "request_sim": 38.508,
+        "valid": true,
+        "stable_s": 7.104000000000003
+      },
+      {
+        "request_sim": 42.728,
+        "valid": true,
+        "stable_s": 11.324000000000002
+      },
+      {
+        "request_sim": 51.436,
+        "valid": true,
+        "stable_s": 20.032
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 45,
+      "median": 0.05070668707804771,
+      "minimum": 0.01370526915960113,
+      "maximum": 0.09200283715929913,
+      "abs_p95": 0.08701797989410237
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 57,
+      "median": 0.1404645330857761,
+      "minimum": 0.060099744259247245,
+      "maximum": 0.18383763040830559,
+      "abs_p95": 0.18115854350817243
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 1504,
+      "median": 6.556470552254723e-05,
+      "minimum": -1.0026857658910728,
+      "maximum": 1.0507903244391912,
+      "abs_p95": 0.4454798117915937
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.5106465403832274,
+    "final_depth_worst_frame_p95_m": 0.03184544913196318,
+    "in_air_resets": [
+      {
+        "stamp": 30.396,
+        "counter": 2,
+        "ned_delta_heading_deg": 14.436930656433105,
+        "quat_stamp": 30.4,
+        "quat_counter": 2,
+        "q_after": [
+          0.8651579022407532,
+          -0.0043219514191150665,
+          -1.0447010026837233e-05,
+          0.5014809966087341
+        ],
+        "delta_q_reset": [
+          0.9920743107795715,
+          -1.5279512377563975e-10,
+          2.3283067140944524e-10,
+          0.1256529837846756
+        ],
+        "estimated_hagl_m": 1.5843604803085327,
+        "phase": "SCAN_TURN",
+        "scan_offset": 45,
+        "world_yaw_rate_at_reset_deg_s": 7.3313318127294265,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.3278656005859375
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": -8.517544915259165,
+        "minimum": -9.567894883976606,
+        "maximum": -8.384383394323692,
+        "abs_p95": 8.72287332424726
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": -8.658009448344941,
+        "minimum": -9.708359417062383,
+        "maximum": -8.524847927409468,
+        "abs_p95": 8.863337857333036
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.06285191340198487,
+        "minimum": 0.033559895130283963,
+        "maximum": 0.07555554752130818,
+        "abs_p95": 0.07507353308098022
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.4423619756834477,
+        "minimum": 0.31401631422177306,
+        "maximum": 0.537986798807653,
+        "abs_p95": 0.5316370451392862
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.42248241788734553,
+        "minimum": 0.274900470830637,
+        "maximum": 0.5173613229582279,
+        "abs_p95": 0.5106465403832275
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.02033647832621016,
+        "minimum": 0.01767652862350788,
+        "maximum": 0.06550978030285137,
+        "abs_p95": 0.026640730663288373
+      }
+    }
+  },
+  {
+    "case": "V03-2.4-front-1",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/02_47_47.ulg",
+    "ulg_sha256": "074c64e33339ac9db00a82ebb8a744ff2bd8d3713864a051a647fcde1a3be7ff",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.152,
+    "armed_s": 9.628,
+    "in_air_s": 11.496,
+    "heading_good_first_s": 18.368,
+    "first_wait_vlm_s": 20.396,
+    "heading_good_before_first_request": true,
+    "pass_heading_gate": true,
+    "late_heading_resets": [],
+    "gate_samples": [
+      {
+        "request_sim": 20.396,
+        "valid": true,
+        "stable_s": 2.0280000000000022
+      },
+      {
+        "request_sim": 22.0,
+        "valid": true,
+        "stable_s": 3.6320000000000014
+      },
+      {
+        "request_sim": 31.196,
+        "valid": true,
+        "stable_s": 12.828000000000003
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 57,
+      "median": 0.09744231119393021,
+      "minimum": 0.04957187760243187,
+      "maximum": 0.15360650540898746,
+      "abs_p95": 0.14452436270252064
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 44,
+      "median": 0.10616150104422672,
+      "minimum": 0.07542048995483697,
+      "maximum": 0.18236195664894694,
+      "abs_p95": 0.17448466658738795
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 1483,
+      "median": 3.03398304026814e-05,
+      "minimum": -0.344310819933213,
+      "maximum": 0.018734109229455953,
+      "abs_p95": 0.004849419713332264
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.03659204914974084,
+    "final_depth_worst_frame_p95_m": 0.02177447516151813,
+    "in_air_resets": [
+      {
+        "stamp": 17.36,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.3453485071659088,
+        "quat_stamp": 17.368,
+        "quat_counter": 2,
+        "q_after": [
+          0.7052595615386963,
+          -0.0013628577580675483,
+          -0.001951209967955947,
+          0.7089452147483826
+        ],
+        "delta_q_reset": [
+          0.9999954700469971,
+          0.0,
+          1.7462298274040222e-10,
+          -0.0030137300491333008
+        ],
+        "estimated_hagl_m": 1.6212526559829712,
+        "phase": "TAKEOFF",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": -0.2034689838987261,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.257753610610962
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.4072730087379597,
+        "minimum": 0.037076389487396,
+        "maximum": 0.4372869866849953,
+        "abs_p95": 0.43492819997693033
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.30111150769373296,
+        "minimum": -0.06908511155683073,
+        "maximum": 0.3311254856407686,
+        "abs_p95": 0.3287666989327036
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.05165757782949064,
+        "minimum": 0.01324911016855182,
+        "maximum": 0.06265677885419886,
+        "abs_p95": 0.0600436541006357
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.044666232751266285,
+        "minimum": 0.01381620824911682,
+        "maximum": 0.05985690988399033,
+        "abs_p95": 0.0571986862282794
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.029356135715773356,
+        "minimum": 0.01523299368628631,
+        "maximum": 0.03768333094451748,
+        "abs_p95": 0.03659204914974084
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.016281126985702922,
+        "minimum": 0.0012284310380908832,
+        "maximum": 0.023849460570778504,
+        "abs_p95": 0.02119239930458641
+      }
+    }
+  },
+  {
+    "case": "V03-2.4-front-2",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/02_49_22.ulg",
+    "ulg_sha256": "63d2ad3c5c8b2ef93c10736d20e15fe4e4328136282c5afeebbbda105778cb31",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.128,
+    "armed_s": 9.46,
+    "in_air_s": 11.356,
+    "heading_good_first_s": 18.228,
+    "first_wait_vlm_s": 20.248,
+    "heading_good_before_first_request": true,
+    "pass_heading_gate": true,
+    "late_heading_resets": [],
+    "gate_samples": [
+      {
+        "request_sim": 20.248,
+        "valid": true,
+        "stable_s": 2.0199999999999996
+      },
+      {
+        "request_sim": 22.028,
+        "valid": true,
+        "stable_s": 3.799999999999997
+      },
+      {
+        "request_sim": 30.376,
+        "valid": true,
+        "stable_s": 12.148
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 52,
+      "median": 0.059857569016514844,
+      "minimum": 0.0367547127747514,
+      "maximum": 0.12494847182423996,
+      "abs_p95": 0.1234063662867328
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 39,
+      "median": 0.09027292513647467,
+      "minimum": 0.04336931580490955,
+      "maximum": 0.1516755761622619,
+      "abs_p95": 0.14825798477674823
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 1441,
+      "median": 3.933842739911597e-05,
+      "minimum": -0.13939949669168072,
+      "maximum": 0.017478670706111643,
+      "abs_p95": 0.004276992991492534
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.04125520345397539,
+    "final_depth_worst_frame_p95_m": 0.021872600118283635,
+    "in_air_resets": [
+      {
+        "stamp": 17.22,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.1387382447719574,
+        "quat_stamp": 17.224,
+        "quat_counter": 2,
+        "q_after": [
+          0.7038325071334839,
+          -0.002083955332636833,
+          -0.0015569152310490608,
+          0.7103612422943115
+        ],
+        "delta_q_reset": [
+          0.9999992847442627,
+          1.1641532182693481e-10,
+          0.0,
+          -0.001210719347000122
+        ],
+        "estimated_hagl_m": 1.608275294303894,
+        "phase": "TAKEOFF",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": -0.1095924990283795,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.63767147064209
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.4116831428963792,
+        "minimum": 0.161627166681086,
+        "maximum": 0.4399912636341128,
+        "abs_p95": 0.4359215987073952
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.3214102177599045,
+        "minimum": 0.07135424154461134,
+        "maximum": 0.3497183384976381,
+        "abs_p95": 0.34564867357092055
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.05292997219635315,
+        "minimum": 0.006941313909138916,
+        "maximum": 0.061152923677198615,
+        "abs_p95": 0.060877444557529956
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.051663511038995774,
+        "minimum": 0.012788045264858425,
+        "maximum": 0.059208841705303696,
+        "abs_p95": 0.05920396652166457
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.035625463708711426,
+        "minimum": 0.017912203654897596,
+        "maximum": 0.041326863781477895,
+        "abs_p95": 0.041255203453975396
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.014793093983839083,
+        "minimum": 0.003982680418317251,
+        "maximum": 0.022413953549564027,
+        "abs_p95": 0.022187588527205558
+      }
+    }
+  },
+  {
+    "case": "V03-2.4-left45-1",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/02_50_58.ulg",
+    "ulg_sha256": "28a69bf313f16e2dccc01b9332a35cadebfda2f24446366859c21b8b89b9f043",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.124,
+    "armed_s": 9.432,
+    "in_air_s": 11.316,
+    "heading_good_first_s": 18.172,
+    "first_wait_vlm_s": 20.52,
+    "heading_good_before_first_request": true,
+    "pass_heading_gate": true,
+    "late_heading_resets": [],
+    "gate_samples": [
+      {
+        "request_sim": 20.52,
+        "valid": true,
+        "stable_s": 2.347999999999999
+      },
+      {
+        "request_sim": 24.716,
+        "valid": true,
+        "stable_s": 6.5440000000000005
+      },
+      {
+        "request_sim": 30.216,
+        "valid": true,
+        "stable_s": 12.044
+      },
+      {
+        "request_sim": 36.316,
+        "valid": true,
+        "stable_s": 18.144000000000002
+      },
+      {
+        "request_sim": 38.856,
+        "valid": true,
+        "stable_s": 20.684
+      },
+      {
+        "request_sim": 43.376,
+        "valid": true,
+        "stable_s": 25.203999999999997
+      },
+      {
+        "request_sim": 53.12,
+        "valid": true,
+        "stable_s": 34.94799999999999
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 58,
+      "median": -0.037659375382745,
+      "minimum": -0.11807321754019995,
+      "maximum": 0.17011918387689207,
+      "abs_p95": 0.12880868176251847
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 39,
+      "median": -0.26163954530247224,
+      "minimum": -0.2941136986586059,
+      "maximum": -0.11471362752556047,
+      "abs_p95": 0.28999860544824685
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 2177,
+      "median": -4.084858545638781e-06,
+      "minimum": -0.977262380808412,
+      "maximum": 1.0027819664612707,
+      "abs_p95": 0.4271904798371217
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.0582289063037876,
+    "final_depth_worst_frame_p95_m": 0.02187116878312742,
+    "in_air_resets": [
+      {
+        "stamp": 17.164,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.28806009888648987,
+        "quat_stamp": 17.172,
+        "quat_counter": 2,
+        "q_after": [
+          0.7039332389831543,
+          -0.0015201966743916273,
+          -0.0022465186193585396,
+          0.7102610468864441
+        ],
+        "delta_q_reset": [
+          0.9999969005584717,
+          -2.3283064365386963e-10,
+          0.0,
+          -0.002513796091079712
+        ],
+        "estimated_hagl_m": 1.62187659740448,
+        "phase": "TAKEOFF",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": -0.2200378999959307,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.2300312519073486
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.16294246426889458,
+        "minimum": 0.14100852124869334,
+        "maximum": 0.22218735304667803,
+        "abs_p95": 0.22067396206671078
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.4245820095713668,
+        "minimum": 0.4026480665511656,
+        "maximum": 0.48382689834915027,
+        "abs_p95": 0.482313507369183
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.05672680567864437,
+        "minimum": 0.020546538484420097,
+        "maximum": 0.0722984566907363,
+        "abs_p95": 0.07059784370222309
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.06008371962951067,
+        "minimum": 0.027631338686563398,
+        "maximum": 0.07511946599149603,
+        "abs_p95": 0.07368882849253167
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.04281156621761006,
+        "minimum": 0.021791584937872328,
+        "maximum": 0.06238501217884252,
+        "abs_p95": 0.0582289063037876
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.01297312919561483,
+        "minimum": 0.005233701767960567,
+        "maximum": 0.02137811454213022,
+        "abs_p95": 0.019159471367504323
+      }
+    }
+  },
+  {
+    "case": "V03-2.4-left45-2",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/02_53_06.ulg",
+    "ulg_sha256": "d68aba2b06a719266d8185a408fcfafdc72b94e7b3aa9416a909441d77790b46",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.18,
+    "armed_s": 10.136,
+    "in_air_s": 12.012,
+    "heading_good_first_s": 18.996,
+    "first_wait_vlm_s": 20.956,
+    "heading_good_before_first_request": true,
+    "pass_heading_gate": true,
+    "late_heading_resets": [],
+    "gate_samples": [
+      {
+        "request_sim": 20.956,
+        "valid": true,
+        "stable_s": 1.9600000000000009
+      },
+      {
+        "request_sim": 26.18,
+        "valid": true,
+        "stable_s": 7.184000000000001
+      },
+      {
+        "request_sim": 27.42,
+        "valid": true,
+        "stable_s": 8.424000000000003
+      },
+      {
+        "request_sim": 31.696,
+        "valid": true,
+        "stable_s": 12.700000000000003
+      },
+      {
+        "request_sim": 40.264,
+        "valid": true,
+        "stable_s": 21.268000000000004
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 33,
+      "median": -0.0017297991010138958,
+      "minimum": -0.07740442103005307,
+      "maximum": 0.023040948609207135,
+      "abs_p95": 0.0764788874944486
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 58,
+      "median": 0.06987096890775035,
+      "minimum": -0.007658152699207221,
+      "maximum": 0.12161059938205199,
+      "abs_p95": 0.1179500283225579
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 1523,
+      "median": -2.5530879412372087e-05,
+      "minimum": -0.9436353290141994,
+      "maximum": 0.020557370523221152,
+      "abs_p95": 0.028032397964900407
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.0833120444223439,
+    "final_depth_worst_frame_p95_m": 0.023754236855007074,
+    "in_air_resets": [
+      {
+        "stamp": 17.988,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.2942517101764679,
+        "quat_stamp": 17.992,
+        "quat_counter": 2,
+        "q_after": [
+          0.7039949297904968,
+          -0.0013979607028886676,
+          -0.0007726398180238903,
+          0.710203230381012
+        ],
+        "delta_q_reset": [
+          0.9999967813491821,
+          -5.820766785236131e-11,
+          1.1641533570472262e-10,
+          -0.002567827934399247
+        ],
+        "estimated_hagl_m": 1.6342723369598389,
+        "phase": "TAKEOFF",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": -0.18025588618287178,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.39422869682312
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.6300537387363221,
+        "minimum": 0.5447209617775854,
+        "maximum": 0.6595922000613825,
+        "abs_p95": 0.6582484436067787
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.5601827698285717,
+        "minimum": 0.4748499928698493,
+        "maximum": 0.5897212311536464,
+        "abs_p95": 0.5883774746990156
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.06739856795219315,
+        "minimum": 0.025845637153466786,
+        "maximum": 0.08975711443761983,
+        "abs_p95": 0.0825741034709599
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.08821281439687939,
+        "minimum": 0.049606557617193646,
+        "maximum": 0.10609608465184255,
+        "abs_p95": 0.09964110272862198
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.07194770101061901,
+        "minimum": 0.039682824855459854,
+        "maximum": 0.08368354231438387,
+        "abs_p95": 0.0833120444223439
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.013640589113327481,
+        "minimum": 0.009923732761733792,
+        "maximum": 0.02241254233745868,
+        "abs_p95": 0.019596384438975937
+      }
+    }
+  },
+  {
+    "case": "V03-2.4-left90-1",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/02_58_24.ulg",
+    "ulg_sha256": "28bca11289738c2100a7d73a2966365e97abfbc0031b3ad0d4cf4bd22916607a",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 7.932,
+    "armed_s": 9.24,
+    "in_air_s": 11.168,
+    "heading_good_first_s": 18.224,
+    "first_wait_vlm_s": 19.98,
+    "heading_good_before_first_request": true,
+    "pass_heading_gate": true,
+    "late_heading_resets": [],
+    "gate_samples": [
+      {
+        "request_sim": 19.98,
+        "valid": true,
+        "stable_s": 1.7560000000000002
+      },
+      {
+        "request_sim": 23.951999999999998,
+        "valid": true,
+        "stable_s": 5.727999999999998
+      },
+      {
+        "request_sim": 26.968,
+        "valid": true,
+        "stable_s": 8.744
+      },
+      {
+        "request_sim": 32.148,
+        "valid": true,
+        "stable_s": 13.924000000000003
+      },
+      {
+        "request_sim": 34.108,
+        "valid": true,
+        "stable_s": 15.883999999999997
+      },
+      {
+        "request_sim": 40.344,
+        "valid": true,
+        "stable_s": 22.12
+      },
+      {
+        "request_sim": 42.968,
+        "valid": true,
+        "stable_s": 24.744000000000003
+      },
+      {
+        "request_sim": 46.8,
+        "valid": true,
+        "stable_s": 28.575999999999997
+      },
+      {
+        "request_sim": 55.488,
+        "valid": true,
+        "stable_s": 37.263999999999996
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 50,
+      "median": 0.060282893425878115,
+      "minimum": 0.01793506472131412,
+      "maximum": 0.1142305406829962,
+      "abs_p95": 0.10869136586554616
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 39,
+      "median": 0.05433815266607667,
+      "minimum": 0.03741429798247964,
+      "maximum": 0.14545741583341965,
+      "abs_p95": 0.11454136137032553
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 2145,
+      "median": -5.1043358411106965e-05,
+      "minimum": -1.4895323216994427,
+      "maximum": 1.1869593905094575,
+      "abs_p95": 0.3788380276914438
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.07240158678355477,
+    "final_depth_worst_frame_p95_m": 0.024215552424993878,
+    "in_air_resets": [
+      {
+        "stamp": 17.216,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.3562870919704437,
+        "quat_stamp": 17.22,
+        "quat_counter": 2,
+        "q_after": [
+          0.704612135887146,
+          -0.0019248592434450984,
+          -0.0007320881122723222,
+          0.7095897793769836
+        ],
+        "delta_q_reset": [
+          0.999995231628418,
+          -1.7462298274040222e-10,
+          1.1641532182693481e-10,
+          -0.003109186887741089
+        ],
+        "estimated_hagl_m": 1.6234381198883057,
+        "phase": "TAKEOFF",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": -0.14180653021354916,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.2926483154296875
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": -0.01546041455752345,
+        "minimum": -0.23122827179412297,
+        "maximum": 0.021136999602305195,
+        "abs_p95": 0.05997118689056164
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": -0.06979856722360012,
+        "minimum": -0.28556642446019964,
+        "maximum": -0.03320115306377147,
+        "abs_p95": 0.1143093395566383
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.0778697892015299,
+        "minimum": 0.05263399018527254,
+        "maximum": 0.1015972471359536,
+        "abs_p95": 0.09776224753317576
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.07780998355493957,
+        "minimum": 0.05237354007408656,
+        "maximum": 0.10186478487376624,
+        "abs_p95": 0.09810290883413827
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.058242040671452396,
+        "minimum": 0.03881865022152096,
+        "maximum": 0.07579843387645868,
+        "abs_p95": 0.07240158678355477
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.020334047043263925,
+        "minimum": 0.005291759883190604,
+        "maximum": 0.026665385223186122,
+        "abs_p95": 0.02609630270860149
+      }
+    }
+  },
+  {
+    "case": "V03-2.4-left90-2",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/03_00_33.ulg",
+    "ulg_sha256": "e3c006c9b3bf4400f1c947fe00b45707e81214c0fbb4e909dee8713e3c7b13f1",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.136,
+    "armed_s": 9.408,
+    "in_air_s": 11.284,
+    "heading_good_first_s": 19.004,
+    "first_wait_vlm_s": 20.252,
+    "heading_good_before_first_request": true,
+    "pass_heading_gate": true,
+    "late_heading_resets": [],
+    "gate_samples": [
+      {
+        "request_sim": 20.252,
+        "valid": true,
+        "stable_s": 1.2479999999999976
+      },
+      {
+        "request_sim": 24.28,
+        "valid": true,
+        "stable_s": 5.276
+      },
+      {
+        "request_sim": 29.668,
+        "valid": true,
+        "stable_s": 10.663999999999998
+      },
+      {
+        "request_sim": 35.768,
+        "valid": true,
+        "stable_s": 16.764
+      },
+      {
+        "request_sim": 37.752,
+        "valid": true,
+        "stable_s": 18.748
+      },
+      {
+        "request_sim": 41.6,
+        "valid": true,
+        "stable_s": 22.596
+      },
+      {
+        "request_sim": 50.616,
+        "valid": true,
+        "stable_s": 31.612
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 52,
+      "median": 0.03152059600773782,
+      "minimum": -0.07590992357782511,
+      "maximum": 0.10320481311359231,
+      "abs_p95": 0.10215419877706608
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 38,
+      "median": -0.0038885335259237763,
+      "minimum": -0.04539139554159988,
+      "maximum": 0.0343519240353487,
+      "abs_p95": 0.04116707390786871
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 2333,
+      "median": -2.7793044381496657e-05,
+      "minimum": -0.9790259904447112,
+      "maximum": 0.9441476053953579,
+      "abs_p95": 0.32987234447638797
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.05024984056819855,
+    "final_depth_worst_frame_p95_m": 0.02758932711026176,
+    "in_air_resets": [
+      {
+        "stamp": 17.996,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.31512823700904846,
+        "quat_stamp": 18.0,
+        "quat_counter": 2,
+        "q_after": [
+          0.7036850452423096,
+          -0.0016652480699121952,
+          -0.00032288156216964126,
+          0.7105100750923157
+        ],
+        "delta_q_reset": [
+          0.9999963045120239,
+          -7.275958308072816e-11,
+          0.0,
+          -0.0027500095311552286
+        ],
+        "estimated_hagl_m": 1.626828908920288,
+        "phase": "TAKEOFF",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": -0.13041825591054015,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.2305898666381836
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.18130018369510026,
+        "minimum": 0.16283661378861325,
+        "maximum": 0.23303621140391328,
+        "abs_p95": 0.22771865960315127
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.18518871722102404,
+        "minimum": 0.16672514731453703,
+        "maximum": 0.23692474492983706,
+        "abs_p95": 0.23160719312907505
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.05834575400429698,
+        "minimum": 0.04317977251131489,
+        "maximum": 0.07677532511218303,
+        "abs_p95": 0.07381057701373701
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.05749165766843865,
+        "minimum": 0.04176247391828109,
+        "maximum": 0.0759257540189465,
+        "abs_p95": 0.073406748290679
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.04335418037775081,
+        "minimum": 0.029538417917648167,
+        "maximum": 0.050563626697861117,
+        "abs_p95": 0.050249840568198555
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.01602327297005031,
+        "minimum": 0.008464525091132248,
+        "maximum": 0.02569242851020387,
+        "abs_p95": 0.023928931292487073
+      }
+    }
+  },
+  {
+    "case": "V03-2.4-right45-1",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/02_54_39.ulg",
+    "ulg_sha256": "c61a269a52bba5656685b2dbff277debc007e3005ee6fd7e1c05a530fa69af9d",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 7.964,
+    "armed_s": 9.484,
+    "in_air_s": 11.352,
+    "heading_good_first_s": 18.272,
+    "first_wait_vlm_s": 20.336,
+    "heading_good_before_first_request": true,
+    "pass_heading_gate": true,
+    "late_heading_resets": [],
+    "gate_samples": [
+      {
+        "request_sim": 20.336,
+        "valid": true,
+        "stable_s": 2.064
+      },
+      {
+        "request_sim": 25.632,
+        "valid": true,
+        "stable_s": 7.360000000000003
+      },
+      {
+        "request_sim": 30.8,
+        "valid": true,
+        "stable_s": 12.528000000000002
+      },
+      {
+        "request_sim": 33.268,
+        "valid": true,
+        "stable_s": 14.996000000000002
+      },
+      {
+        "request_sim": 39.86,
+        "valid": true,
+        "stable_s": 21.588
+      },
+      {
+        "request_sim": 49.204,
+        "valid": true,
+        "stable_s": 30.932000000000002
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 45,
+      "median": 0.10865901607823503,
+      "minimum": 0.01432536588288258,
+      "maximum": 0.20682499053197034,
+      "abs_p95": 0.19150391945465228
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 46,
+      "median": 0.215711288536653,
+      "minimum": 0.1988364528401121,
+      "maximum": 0.23777916967790702,
+      "abs_p95": 0.23630224230181085
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 2044,
+      "median": -6.952806941740164e-06,
+      "minimum": -0.9334345957865651,
+      "maximum": 1.1535205571603342,
+      "abs_p95": 0.22378562667296503
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.059678200371659114,
+    "final_depth_worst_frame_p95_m": 0.021826035498557377,
+    "in_air_resets": [
+      {
+        "stamp": 17.264,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.2103050798177719,
+        "quat_stamp": 17.268,
+        "quat_counter": 2,
+        "q_after": [
+          0.7040019035339355,
+          -0.0015883727464824915,
+          -0.0018561332253739238,
+          0.710193932056427
+        ],
+        "delta_q_reset": [
+          0.9999983310699463,
+          1.1641533570472262e-10,
+          -2.3283067140944524e-10,
+          -0.0018352570477873087
+        ],
+        "estimated_hagl_m": 1.627562165260315,
+        "phase": "TAKEOFF",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": -0.19506513687833388,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.237701654434204
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.5976554357859101,
+        "minimum": 0.5721747872019591,
+        "maximum": 0.8061832871902084,
+        "abs_p95": 0.6752851331968828
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.38194414724925707,
+        "minimum": 0.35646349866530613,
+        "maximum": 0.5904719986535554,
+        "abs_p95": 0.4595738446602298
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.040328011309371706,
+        "minimum": 0.013716758034113216,
+        "maximum": 0.05926381182932946,
+        "abs_p95": 0.0583509552662237
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.045670101896434334,
+        "minimum": 0.024220183459962588,
+        "maximum": 0.060768695189619186,
+        "abs_p95": 0.05891034142429824
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.051413524495097285,
+        "minimum": 0.029313414380203004,
+        "maximum": 0.05971149531200733,
+        "abs_p95": 0.059678200371659114
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.005180975555742807,
+        "minimum": 0.0006183928179891093,
+        "maximum": 0.009566287021366485,
+        "abs_p95": 0.008938110143773933
+      }
+    }
+  },
+  {
+    "case": "V03-2.4-right45-2",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/02_56_33.ulg",
+    "ulg_sha256": "19e396ec2494c4f6031b865c97343d317cef84d43a2358fe960cd5ab5000974a",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 7.924,
+    "armed_s": 9.544,
+    "in_air_s": 11.432,
+    "heading_good_first_s": 18.768,
+    "first_wait_vlm_s": 20.312,
+    "heading_good_before_first_request": true,
+    "pass_heading_gate": true,
+    "late_heading_resets": [],
+    "gate_samples": [
+      {
+        "request_sim": 20.312,
+        "valid": true,
+        "stable_s": 1.5440000000000005
+      },
+      {
+        "request_sim": 24.78,
+        "valid": true,
+        "stable_s": 6.0120000000000005
+      },
+      {
+        "request_sim": 30.08,
+        "valid": true,
+        "stable_s": 11.311999999999998
+      },
+      {
+        "request_sim": 31.792,
+        "valid": true,
+        "stable_s": 13.024000000000001
+      },
+      {
+        "request_sim": 37.388,
+        "valid": true,
+        "stable_s": 18.619999999999997
+      },
+      {
+        "request_sim": 48.756,
+        "valid": true,
+        "stable_s": 29.988
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 46,
+      "median": 0.05970439020482843,
+      "minimum": 0.03416367881283122,
+      "maximum": 0.1247604664064852,
+      "abs_p95": 0.11973001353128154
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 49,
+      "median": 0.07457368070834036,
+      "minimum": 0.04193869807201622,
+      "maximum": 0.17786700224976926,
+      "abs_p95": 0.1669832551428385
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 1926,
+      "median": -4.088957126668902e-06,
+      "minimum": -0.8661142316728103,
+      "maximum": 1.2410907884853088,
+      "abs_p95": 0.1693711086125731
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.05022076721760756,
+    "final_depth_worst_frame_p95_m": 0.02024139733445517,
+    "in_air_resets": [
+      {
+        "stamp": 17.76,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.35641008615493774,
+        "quat_stamp": 17.768,
+        "quat_counter": 2,
+        "q_after": [
+          0.7043894529342651,
+          -0.0009442155715078115,
+          -0.0006741897668689489,
+          0.7098127603530884
+        ],
+        "delta_q_reset": [
+          0.999995231628418,
+          0.0,
+          -1.7462301049597784e-10,
+          -0.003110260237008333
+        ],
+        "estimated_hagl_m": 1.6172221899032593,
+        "phase": "TAKEOFF",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": -0.20714384153031357,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.451293706893921
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.34350481646029607,
+        "minimum": 0.3338946320418472,
+        "maximum": 0.6363185792420438,
+        "abs_p95": 0.4064703920593745
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.2689311357519557,
+        "minimum": 0.25932095133350686,
+        "maximum": 0.5617448985337035,
+        "abs_p95": 0.33189671135103416
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.03545091533329038,
+        "minimum": 0.013999404881215786,
+        "maximum": 0.04867059830514412,
+        "abs_p95": 0.04863822868871831
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.03686371894131024,
+        "minimum": 0.02592381110951439,
+        "maximum": 0.047251027308639476,
+        "abs_p95": 0.046463627681110786
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.04185659884719034,
+        "minimum": 0.034317293113825864,
+        "maximum": 0.051367109010444195,
+        "abs_p95": 0.05022076721760756
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.006298932195633206,
+        "minimum": 8.941462265703304e-05,
+        "maximum": 0.01211796182512078,
+        "abs_p95": 0.01185807615133692
+      }
+    }
+  },
+  {
+    "case": "V03-2.4-right90-1",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/03_02_52.ulg",
+    "ulg_sha256": "75a2db6846d23c3faaf9ceab169f699fdc9af6e9d25a532a2f7d578d75da04d2",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.124,
+    "armed_s": 9.72,
+    "in_air_s": 11.604,
+    "heading_good_first_s": 18.548,
+    "first_wait_vlm_s": 20.392,
+    "heading_good_before_first_request": true,
+    "pass_heading_gate": true,
+    "late_heading_resets": [],
+    "gate_samples": [
+      {
+        "request_sim": 20.392,
+        "valid": true,
+        "stable_s": 1.8440000000000012
+      },
+      {
+        "request_sim": 25.004,
+        "valid": true,
+        "stable_s": 6.456000000000003
+      },
+      {
+        "request_sim": 30.212,
+        "valid": true,
+        "stable_s": 11.664000000000001
+      },
+      {
+        "request_sim": 32.78,
+        "valid": true,
+        "stable_s": 14.232000000000003
+      },
+      {
+        "request_sim": 40.372,
+        "valid": true,
+        "stable_s": 21.824
+      },
+      {
+        "request_sim": 47.756,
+        "valid": true,
+        "stable_s": 29.208000000000002
+      },
+      {
+        "request_sim": 48.964,
+        "valid": true,
+        "stable_s": 30.416
+      },
+      {
+        "request_sim": 52.74,
+        "valid": true,
+        "stable_s": 34.19200000000001
+      },
+      {
+        "request_sim": 61.488,
+        "valid": true,
+        "stable_s": 42.94
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 52,
+      "median": 0.09850568877284616,
+      "minimum": 0.030951791977770426,
+      "maximum": 0.20884417145629186,
+      "abs_p95": 0.15839369934449218
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 48,
+      "median": 0.2320563542209726,
+      "minimum": 0.15906230781826025,
+      "maximum": 0.2755340028190574,
+      "abs_p95": 0.2732866338769213
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 2142,
+      "median": 1.1735753631114676e-05,
+      "minimum": -1.161921273813391,
+      "maximum": 1.2877480389576021,
+      "abs_p95": 0.6965022349908406
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.05497999610408524,
+    "final_depth_worst_frame_p95_m": 0.02168153951561687,
+    "in_air_resets": [
+      {
+        "stamp": 17.54,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.3648829460144043,
+        "quat_stamp": 17.548,
+        "quat_counter": 2,
+        "q_after": [
+          0.7054793834686279,
+          -0.001593573484569788,
+          -0.0012153931893408298,
+          0.7087275981903076
+        ],
+        "delta_q_reset": [
+          0.9999949932098389,
+          0.0,
+          1.1641532182693481e-10,
+          -0.003184199333190918
+        ],
+        "estimated_hagl_m": 1.6333611011505127,
+        "phase": "TAKEOFF",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": -0.20379202815166728,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.2188024520874023
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.2829058718224644,
+        "minimum": 0.22289944700440856,
+        "maximum": 0.5836992409988397,
+        "abs_p95": 0.5638877355120088
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.05084951760150602,
+        "minimum": -0.009156907216549826,
+        "maximum": 0.35164288677788136,
+        "abs_p95": 0.33183138129105033
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.018973764053750453,
+        "minimum": 0.0037998996367313515,
+        "maximum": 0.032461377397886265,
+        "abs_p95": 0.03234540812259799
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.02668339399545798,
+        "minimum": 0.016317344673887884,
+        "maximum": 0.05048978925959402,
+        "abs_p95": 0.04882527954037458
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.03527503177204852,
+        "minimum": 0.016718538208472765,
+        "maximum": 0.05643571170087442,
+        "abs_p95": 0.05497999610408524
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.005681710373471361,
+        "minimum": 0.0002623782532903268,
+        "maximum": 0.011503877104619104,
+        "abs_p95": 0.010415203306346073
+      }
+    }
+  },
+  {
+    "case": "V03-2.4-right90-2",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/03_04_54.ulg",
+    "ulg_sha256": "0d1695131f133e8db6939cd085748ae24f8b62e5841d61ee48f04a4fcc47f114",
+    "ekf2_mag_type": 0,
+    "preflight_checks_pass_s": 8.136,
+    "armed_s": 9.24,
+    "in_air_s": 11.112,
+    "heading_good_first_s": 19.176,
+    "first_wait_vlm_s": 20.036,
+    "heading_good_before_first_request": true,
+    "pass_heading_gate": false,
+    "late_heading_resets": [],
+    "gate_samples": [
+      {
+        "request_sim": 20.036,
+        "valid": true,
+        "stable_s": 0.860000000000003
+      },
+      {
+        "request_sim": 22.288,
+        "valid": true,
+        "stable_s": 3.112000000000002
+      },
+      {
+        "request_sim": 26.856,
+        "valid": true,
+        "stable_s": 7.680000000000003
+      },
+      {
+        "request_sim": 31.916,
+        "valid": true,
+        "stable_s": 12.740000000000002
+      },
+      {
+        "request_sim": 33.608,
+        "valid": true,
+        "stable_s": 14.431999999999999
+      },
+      {
+        "request_sim": 40.08,
+        "valid": true,
+        "stable_s": 20.904
+      },
+      {
+        "request_sim": 41.952,
+        "valid": true,
+        "stable_s": 22.776
+      },
+      {
+        "request_sim": 48.616,
+        "valid": true,
+        "stable_s": 29.44
+      },
+      {
+        "request_sim": 49.884,
+        "valid": true,
+        "stable_s": 30.708000000000002
+      },
+      {
+        "request_sim": 53.836,
+        "valid": true,
+        "stable_s": 34.66
+      },
+      {
+        "request_sim": 62.136,
+        "valid": true,
+        "stable_s": 42.96000000000001
+      }
+    ],
+    "ground_early_yaw_residual_deg": {
+      "n": 50,
+      "median": 0.1090947641207265,
+      "minimum": 0.04024564286044097,
+      "maximum": 0.14918927912995628,
+      "abs_p95": 0.1428687653448449
+    },
+    "ground_after_px4_ready_yaw_residual_deg": {
+      "n": 33,
+      "median": 0.11942148133604746,
+      "minimum": 0.08808195317871537,
+      "maximum": 0.1612806546061165,
+      "abs_p95": 0.14593087819908418
+    },
+    "px4_attitude_versus_mavros_yaw_deg": {
+      "n": 2312,
+      "median": 2.5809935095821857e-06,
+      "minimum": -1.0035735287172827,
+      "maximum": 0.9776192598236833,
+      "abs_p95": 0.40628342018936897
+    },
+    "yaw_aligned_to_imu_gps_events_s": [],
+    "moving_surface_p95_m": 0.06021964052772811,
+    "final_depth_worst_frame_p95_m": 0.020046906886671743,
+    "in_air_resets": [
+      {
+        "stamp": 18.168,
+        "counter": 2,
+        "ned_delta_heading_deg": -0.06363003700971603,
+        "quat_stamp": 18.172,
+        "quat_counter": 2,
+        "q_after": [
+          0.7030556797981262,
+          -0.001988216070458293,
+          -0.0016300370916724205,
+          0.7111301422119141
+        ],
+        "delta_q_reset": [
+          0.9999998807907104,
+          -2.3283064365386963e-10,
+          1.1641532182693481e-10,
+          -0.0005552768707275391
+        ],
+        "estimated_hagl_m": 1.6100891828536987,
+        "phase": "TAKEOFF",
+        "scan_offset": 0,
+        "world_yaw_rate_at_reset_deg_s": -0.0746286918502692,
+        "yaw_gsf_valid_before": false,
+        "yaw_gsf_variance_before": 3.4536941051483154
+      }
+    ],
+    "pose": {
+      "camera_yaw_error_deg": {
+        "n": 20,
+        "median": 0.2964656452889045,
+        "minimum": 0.2290231095128945,
+        "maximum": 0.5716063293147329,
+        "abs_p95": 0.566858627496012
+      },
+      "scoped_late_ground_anchor_residual_deg": {
+        "n": 20,
+        "median": 0.17704416395285705,
+        "minimum": 0.10960162817684704,
+        "maximum": 0.4521848479786854,
+        "abs_p95": 0.44743714615996455
+      },
+      "translation_xy_m": {
+        "n": 20,
+        "median": 0.038793719911800445,
+        "minimum": 0.014606585041700005,
+        "maximum": 0.053007810781715944,
+        "abs_p95": 0.05219574529119323
+      },
+      "predicted_horizontal_m": {
+        "n": 20,
+        "median": 0.04784916349908633,
+        "minimum": 0.0029806972363589316,
+        "maximum": 0.05831046376190434,
+        "abs_p95": 0.05434549569130612
+      },
+      "measured_horizontal_m": {
+        "n": 20,
+        "median": 0.050140566385803206,
+        "minimum": 0.013030906693731085,
+        "maximum": 0.062037887025765605,
+        "abs_p95": 0.0602196405277281
+      },
+      "abs_prediction_gap_m": {
+        "n": 20,
+        "median": 0.00479916335410659,
+        "minimum": 0.0002989008634238857,
+        "maximum": 0.014052273459476274,
+        "abs_p95": 0.010250312657477362
+      }
+    }
+  }
+]

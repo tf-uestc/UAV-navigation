@@ -1,0 +1,151 @@
+{
+  "startup_snapshot_sha256": "059474b146fc6efb728a983b9a89c660a235c2320897acb2fef5fa8ec248e1eb",
+  "matched": 16,
+  "complete": true,
+  "cases": {
+    "V04-2.4-front-1": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-2.4-front-2": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-2.4-left45-1": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-2.4-left45-2": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-2.4-right45-1": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-2.4-right45-2": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-2.4-left90-1": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-2.4-left90-2": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-2.4-right90-1": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-2.4-right90-2": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-1.5-front-1": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-1.5-front-2": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-1.5-left45-1": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-1.5-left45-2": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-1.5-right45-1": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    },
+    "V04-1.5-right45-2": {
+      "startup_complete": true,
+      "same_supervisor_pid": true,
+      "same_start_ticks": true,
+      "same_supervisor_log": true,
+      "same_px4_pid": true,
+      "heading_bridge_configured": true,
+      "same_commit": true
+    }
+  }
+}

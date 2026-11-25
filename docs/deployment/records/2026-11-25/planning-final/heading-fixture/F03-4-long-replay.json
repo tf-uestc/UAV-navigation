@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "mission": "fixture_set_heading-93851b91",
+  "observations": [
+    {
+      "stamp": 52.816,
+      "old_distance_at_delivery_m": 2.405659489871206,
+      "new_distance_at_capture_m": 2.3999999999999995,
+      "new_distance_at_delivery_m": 2.401338244372049
+    },
+    {
+      "stamp": 53.28,
+      "old_distance_at_delivery_m": 2.402918770155615,
+      "new_distance_at_capture_m": 2.3999999999999995,
+      "new_distance_at_delivery_m": 2.397609266957677
+    },
+    {
+      "stamp": 59.548,
+      "old_distance_at_delivery_m": 2.3470781527157665,
+      "new_distance_at_capture_m": 2.3999999999999995,
+      "new_distance_at_delivery_m": 2.398020722306001
+    },
+    {
+      "stamp": 60.748,
+      "old_distance_at_delivery_m": 2.269600664341891,
+      "new_distance_at_capture_m": 2.3999999999999995,
+      "new_distance_at_delivery_m": 2.393370875595557
+    }
+  ]
+}

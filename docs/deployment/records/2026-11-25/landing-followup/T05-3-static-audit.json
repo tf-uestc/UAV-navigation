@@ -1,0 +1,23 @@
+{
+  "primary": true,
+  "contact_stream": true,
+  "ground": true,
+  "handshake": {
+    "passed": true,
+    "checks": {
+      "driver": true,
+      "land_command": true,
+      "distinct_disarmed_ground_reports": true,
+      "normal_controller_completion": true,
+      "mission_landed": true,
+      "no_executor_failure": true
+    },
+    "failed_reasons": [],
+    "ground_report_count": 37,
+    "first_disarmed_s": 9.514365723356605,
+    "first_complete_s": 9.737577127292752,
+    "first_mission_landed_s": 9.754997313022614,
+    "max_reported_speed_after_disarm": 0.18586106565244034,
+    "odom_samples_over_point15": 121
+  }
+}

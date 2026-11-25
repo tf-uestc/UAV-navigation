@@ -1,0 +1,374 @@
+{
+  "rows": [
+    {
+      "request": 1,
+      "raw": "{\"label\":\"\u7ea2\u8272\u7ad6\u76f4\u6746\uff0c\u53ea\u6846\u4f4f\u53ef\u89c1\u7684\u7ea2\u8272\u6746\u4f53\uff0c\u4e0d\u5305\u542b\u5e95\u5ea7\u3001\u9634\u5f71\u6216\u84dd\u8272\u6746\u3002\",\"bbox_2d\":[479,670,500,873]}",
+      "outcome": {
+        "capture_stamp": 21.476,
+        "completed_stamp": 22.812,
+        "status": "SUCCEEDED",
+        "reason": "",
+        "point": [
+          3.570258371950912,
+          -0.03494507360848641,
+          0.30934390927873445
+        ]
+      },
+      "image": "red_pole-bab9e176-1-21.476.png",
+      "depth": "red_pole-bab9e176-1-21476000000-depth.npz",
+      "shape": [
+        480,
+        640,
+        3
+      ],
+      "raw_rgb": {
+        "red_pixels": 922,
+        "components": [
+          {
+            "xyxy_inclusive": [
+              309,
+              322,
+              318,
+              414
+            ],
+            "pixels": 922,
+            "valid_depth_count": 922,
+            "median_depth_m": 3.428741931915283
+          }
+        ]
+      },
+      "jpeg85": {
+        "red_pixels": 1043,
+        "components": [
+          {
+            "xyxy_inclusive": [
+              308,
+              321,
+              319,
+              414
+            ],
+            "pixels": 1043,
+            "valid_depth_count": 1043,
+            "median_depth_m": 3.43095064163208
+          }
+        ]
+      },
+      "search_pose": {
+        "request_id": 1,
+        "mission_id": "red_pole-bab9e176",
+        "floor": 21.364,
+        "measured_yaw": -0.015306505012278598,
+        "position": [
+          0.029125241562724113,
+          -0.029547670856118202,
+          1.5597823858261108
+        ],
+        "response_feedback": "",
+        "heading_mode": "initial",
+        "scan_offset_deg": 0,
+        "stop_confirmed": true
+      },
+      "truth": {
+        "world_xyz": [
+          1.0293776805781105,
+          0.9527665740447202,
+          1.8370520310323448
+        ],
+        "world_yaw": -0.009781396484662617,
+        "world_speed_mps": 0.011604459929381979,
+        "stamp": 21.5,
+        "horizontal_distance_m": 3.5807329098923706
+      }
+    },
+    {
+      "request": 2,
+      "raw": "[]",
+      "outcome": {
+        "capture_stamp": 22.976,
+        "completed_stamp": 23.876,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "point": null
+      },
+      "image": "red_pole-bab9e176-2-22.976.png",
+      "depth": "red_pole-bab9e176-2-22976000000-depth.npz",
+      "shape": [
+        480,
+        640,
+        3
+      ],
+      "raw_rgb": {
+        "red_pixels": 906,
+        "components": [
+          {
+            "xyxy_inclusive": [
+              309,
+              320,
+              318,
+              410
+            ],
+            "pixels": 906,
+            "valid_depth_count": 906,
+            "median_depth_m": 3.466707706451416
+          }
+        ]
+      },
+      "jpeg85": {
+        "red_pixels": 912,
+        "components": [
+          {
+            "xyxy_inclusive": [
+              309,
+              319,
+              319,
+              411
+            ],
+            "pixels": 912,
+            "valid_depth_count": 912,
+            "median_depth_m": 3.466721534729004
+          }
+        ]
+      },
+      "search_pose": {
+        "request_id": 2,
+        "mission_id": "red_pole-bab9e176",
+        "floor": 22.816,
+        "measured_yaw": -0.014824913036476282,
+        "position": [
+          0.005239489953964949,
+          -0.02804717794060707,
+          1.5669156312942505
+        ],
+        "response_feedback": "",
+        "heading_mode": "initial",
+        "scan_offset_deg": 0,
+        "stop_confirmed": true
+      },
+      "truth": {
+        "world_xyz": [
+          1.000078554319576,
+          0.952402082438599,
+          1.8441047893674025
+        ],
+        "world_yaw": -0.009342179377037376,
+        "world_speed_mps": 0.017434196446867504,
+        "stamp": 22.951999999999998,
+        "horizontal_distance_m": 3.610033963954354
+      }
+    },
+    {
+      "request": 3,
+      "raw": "{\"found\":false}",
+      "outcome": {
+        "capture_stamp": 27.476,
+        "completed_stamp": 28.316,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "point": null
+      },
+      "image": "red_pole-bab9e176-3-27.476.png",
+      "depth": "red_pole-bab9e176-3-27476000000-depth.npz",
+      "shape": [
+        480,
+        640,
+        3
+      ],
+      "raw_rgb": {
+        "red_pixels": 0,
+        "components": []
+      },
+      "jpeg85": {
+        "red_pixels": 0,
+        "components": []
+      },
+      "search_pose": {
+        "request_id": 3,
+        "mission_id": "red_pole-bab9e176",
+        "floor": 27.32,
+        "measured_yaw": 0.7720936460505169,
+        "position": [
+          0.002682722406461835,
+          -0.047004781663417816,
+          1.6042892932891846
+        ],
+        "response_feedback": "",
+        "heading_mode": "scan",
+        "scan_offset_deg": 45,
+        "stop_confirmed": true
+      },
+      "truth": {
+        "world_xyz": [
+          1.0026231481678531,
+          0.9209301999533127,
+          1.8772295969970831
+        ],
+        "world_yaw": 0.7785594518530128,
+        "world_speed_mps": 0.020640321638042577,
+        "stamp": 27.5,
+        "horizontal_distance_m": 3.607867531876816
+      }
+    },
+    {
+      "request": 4,
+      "raw": "{\"found\":false}",
+      "outcome": {
+        "capture_stamp": 32.876,
+        "completed_stamp": 34.568,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "point": null
+      },
+      "image": "red_pole-bab9e176-4-32.876.png",
+      "depth": "red_pole-bab9e176-4-32876000000-depth.npz",
+      "shape": [
+        480,
+        640,
+        3
+      ],
+      "raw_rgb": {
+        "red_pixels": 0,
+        "components": []
+      },
+      "jpeg85": {
+        "red_pixels": 0,
+        "components": []
+      },
+      "search_pose": {
+        "request_id": 4,
+        "mission_id": "red_pole-bab9e176",
+        "floor": 32.7,
+        "measured_yaw": -0.8039861654663135,
+        "position": [
+          0.012388958595693111,
+          -0.025290755555033684,
+          1.6719177961349487
+        ],
+        "response_feedback": "",
+        "heading_mode": "scan",
+        "scan_offset_deg": -45,
+        "stop_confirmed": true
+      },
+      "truth": {
+        "world_xyz": [
+          1.0362077263216953,
+          0.9508841956971003,
+          1.9813119637753482
+        ],
+        "world_yaw": -0.8004981674628787,
+        "world_speed_mps": 0.04399977540566322,
+        "stamp": 32.824,
+        "horizontal_distance_m": 3.5739179054091816
+      }
+    },
+    {
+      "request": 5,
+      "raw": "{\"found\":false}",
+      "outcome": {
+        "capture_stamp": 40.376,
+        "completed_stamp": 41.184,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "point": null
+      },
+      "image": "red_pole-bab9e176-5-40.376.png",
+      "depth": "red_pole-bab9e176-5-40376000000-depth.npz",
+      "shape": [
+        480,
+        640,
+        3
+      ],
+      "raw_rgb": {
+        "red_pixels": 0,
+        "components": []
+      },
+      "jpeg85": {
+        "red_pixels": 0,
+        "components": []
+      },
+      "search_pose": {
+        "request_id": 5,
+        "mission_id": "red_pole-bab9e176",
+        "floor": 40.188,
+        "measured_yaw": 1.558178421430813,
+        "position": [
+          0.06992475688457489,
+          -0.039542265236377716,
+          1.7072352170944214
+        ],
+        "response_feedback": "",
+        "heading_mode": "scan",
+        "scan_offset_deg": 90,
+        "stop_confirmed": true
+      },
+      "truth": {
+        "world_xyz": [
+          1.1074410102991465,
+          0.9481940401240393,
+          2.01063159392421
+        ],
+        "world_yaw": 1.5661059890012754,
+        "world_speed_mps": 0.025668149517085702,
+        "stamp": 40.424,
+        "horizontal_distance_m": 3.5027104345900755
+      }
+    },
+    {
+      "request": 6,
+      "raw": "{\"found\": false}",
+      "outcome": {
+        "capture_stamp": 47.976,
+        "completed_stamp": 48.82,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "point": null
+      },
+      "image": "red_pole-bab9e176-6-47.976.png",
+      "depth": "red_pole-bab9e176-6-47976000000-depth.npz",
+      "shape": [
+        480,
+        640,
+        3
+      ],
+      "raw_rgb": {
+        "red_pixels": 0,
+        "components": []
+      },
+      "jpeg85": {
+        "red_pixels": 0,
+        "components": []
+      },
+      "search_pose": {
+        "request_id": 6,
+        "mission_id": "red_pole-bab9e176",
+        "floor": 47.764,
+        "measured_yaw": -1.5896107621981201,
+        "position": [
+          0.06840287148952484,
+          -0.032136060297489166,
+          1.8167918920516968
+        ],
+        "response_feedback": "",
+        "heading_mode": "scan",
+        "scan_offset_deg": -90,
+        "stop_confirmed": true
+      },
+      "truth": {
+        "world_xyz": [
+          1.0600205196845558,
+          0.9335806975329335,
+          2.2151710416047896
+        ],
+        "world_yaw": -1.5782248797863938,
+        "world_speed_mps": 0.015559920292006583,
+        "stamp": 47.944,
+        "horizontal_distance_m": 3.550290019220385
+      }
+    }
+  ],
+  "cloud_logged_count": 6,
+  "red_rule": "R>110, R>1.5*G, R>1.5*B, 8-connected; xyxy inclusive",
+  "depth_bounds_m": [
+    0.2,
+    8
+  ]
+}

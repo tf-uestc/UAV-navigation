@@ -1,0 +1,6 @@
+{
+  "scope": "isolated ROS topics, fake MAVROS services and kinematics",
+  "passed": false,
+  "checks": [],
+  "error": "AssertionError(\"request landing while state reports ground: {'flight_session_id': 'c42fb9a577974be0b6cc5dbdc21132f8', 'seq': 2, 'mode': 'COMPLETE', 'ready': True, 'owner': True, 'reason': 'land_requested', 'yaw_reference': 3.121592653589793, 'context': None, 'trajectory_id': None, 'stop_id': 2, 'stop_confirmed': False, 'owns_flight': False} / (False, 'OFFBOARD', True)\")"
+}

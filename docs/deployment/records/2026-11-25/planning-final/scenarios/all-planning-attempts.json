@@ -1,0 +1,1334 @@
+[
+  {
+    "id": "F03-1-blocked",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 189,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.015110467560589314,
+          0.4246740937232971
+        ],
+        [
+          -0.03668661415576935,
+          -0.00956643559038639
+        ],
+        [
+          1.5105891227722168,
+          1.558661699295044
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 104,
+      "aligned_samples": 104,
+      "max_m": 0.40340411087146394,
+      "rmse_m": 0.2063864840597847
+    },
+    "metrics": [
+      {
+        "name": "dynamic_box_clearance",
+        "minimum_center_to_box_surface_m": 0.6130554208204543
+      },
+      {
+        "name": "dynamic_wall_stopped",
+        "reason": "planner_failed",
+        "peak_tracking_error_m": 0.40340411087146394,
+        "rmse_tracking_m": 0.16520386023785374,
+        "odom_samples": 189,
+        "aligned_samples": 189,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ]
+        ],
+        "endpoint_speed_mps": 0.08358112606830594
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "2919506c979ab946627ecd34f22ad84e4c4e590201c5eaee3cb46264e327dbd9",
+      "observed_pairs": {
+        "iris_landing_pad": 2836,
+        "witness_ground": 7536
+      }
+    }
+  },
+  {
+    "id": "F03-1-dynamic",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 1425,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.0070304726250469685,
+          1.8281749486923218
+        ],
+        [
+          -0.10019516199827194,
+          1.1132549047470093
+        ],
+        [
+          1.5188089609146118,
+          1.9281375408172607
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 651,
+      "aligned_samples": 651,
+      "max_m": 0.4860348043179677,
+      "rmse_m": 0.2701463355614911
+    },
+    "metrics": [
+      {
+        "name": "dynamic_box_clearance",
+        "minimum_center_to_box_surface_m": 0.5099226557261965
+      },
+      {
+        "name": "dynamic_replan_executed",
+        "mode": "settled_detour",
+        "peak_tracking_error_m": 0.4860348043179677,
+        "rmse_tracking_m": 0.18949049776821586,
+        "odom_samples": 1424,
+        "aligned_samples": 1424,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            4,
+            8
+          ]
+        ],
+        "endpoint_speed_mps": 0.037139574508611634
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "4c28cf9f2bf13ab4b5671add6bc0a32067347445aa2b4b6d8b201cd530412604",
+      "observed_pairs": {
+        "iris_landing_pad": 1577,
+        "witness_ground": 17591,
+        "iris_ground_plane": 1020
+      }
+    }
+  },
+  {
+    "id": "F03-1-long",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 2742,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -4.242645740509033,
+          4.309075832366943
+        ],
+        [
+          -1.6638091802597046,
+          -0.013792440295219421
+        ],
+        [
+          1.5198659896850586,
+          1.9849727153778076
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 1811,
+      "aligned_samples": 1811,
+      "max_m": 0.5087490050032668,
+      "rmse_m": 0.2924883703408481
+    },
+    "metrics": [
+      {
+        "name": "position_for_long",
+        "segments": 3,
+        "peak_tracking_error_m": 0.5087490050032668,
+        "rmse_tracking_m": 0.2645533562412626,
+        "odom_samples": 798,
+        "aligned_samples": 798,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "endpoint_speed_mps": 0.0498820388938322
+      },
+      {
+        "name": "beyond_planning_horizon",
+        "segments": 5,
+        "peak_tracking_error_m": 0.4833184850798567,
+        "rmse_tracking_m": 0.2658456201632595,
+        "odom_samples": 1410,
+        "aligned_samples": 1410,
+        "executed_trajectories": [
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            4,
+            14
+          ],
+          [
+            5,
+            16
+          ]
+        ],
+        "endpoint_speed_mps": 0.037508827761844235
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "245dd955aa44cf1796833e15c4c3cd27fbed71b20fd9a4a7a81ddd34c364502c",
+      "observed_pairs": {
+        "iris_landing_pad": 1692,
+        "witness_ground": 29531,
+        "iris_ground_plane": 1190
+      }
+    }
+  },
+  {
+    "id": "F03-1-outside",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 33,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.01857367344200611,
+          -0.008450924418866634
+        ],
+        [
+          -0.033693864941596985,
+          -0.018442818894982338
+        ],
+        [
+          1.5201374292373657,
+          1.529221534729004
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 0,
+      "aligned_samples": 0,
+      "max_m": null,
+      "rmse_m": null
+    },
+    "metrics": [],
+    "raw_contacts": {
+      "file_sha256": "bf128121a85f1e3dfccb4819d19c9664c6dd7b041c6ffe3943e43ea304de7b55",
+      "observed_pairs": {
+        "iris_landing_pad": 5095,
+        "witness_ground": 10363
+      }
+    }
+  },
+  {
+    "id": "F03-1-static",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 1410,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.05905885249376297,
+          1.819562315940857
+        ],
+        [
+          -0.11411149799823761,
+          1.1109626293182373
+        ],
+        [
+          1.5205847024917603,
+          1.9223453998565674
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 590,
+      "aligned_samples": 590,
+      "max_m": 0.5111541828094062,
+      "rmse_m": 0.29654828718127235
+    },
+    "metrics": [
+      {
+        "name": "real_obstacle_bypassed",
+        "minimum_center_to_box_surface_m": 0.7264228576903379
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "dbc4c505dd7416b853d4394fdea1e0655e09460abf76df197a812fec332afe6f",
+      "observed_pairs": {
+        "iris_landing_pad": 1644,
+        "witness_ground": 17592,
+        "iris_ground_plane": 999
+      }
+    }
+  },
+  {
+    "id": "F03-1-straight",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 227,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.018378721550107002,
+          0.9329198598861694
+        ],
+        [
+          -0.04708361253142357,
+          -0.023220112547278404
+        ],
+        [
+          1.520999789237976,
+          1.6592060327529907
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 156,
+      "aligned_samples": 156,
+      "max_m": 0.43314864903024514,
+      "rmse_m": 0.24954369542267124
+    },
+    "metrics": [
+      {
+        "name": "straight",
+        "segments": 1,
+        "peak_tracking_error_m": 0.43314864903024514,
+        "rmse_tracking_m": 0.207287338985792,
+        "odom_samples": 227,
+        "aligned_samples": 227,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ]
+        ],
+        "endpoint_speed_mps": 0.035708228239521106
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "b16dedf072bff2737a118397a85f201abf2434573f02f12610675c8d67087d57",
+      "observed_pairs": {
+        "iris_landing_pad": 2753,
+        "witness_ground": 7892
+      }
+    }
+  },
+  {
+    "id": "F03-2-long",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 2627,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -4.1569061279296875,
+          4.250588417053223
+        ],
+        [
+          -1.5713170766830444,
+          -0.004172320012003183
+        ],
+        [
+          1.5154889822006226,
+          1.9981813430786133
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 1753,
+      "aligned_samples": 1753,
+      "max_m": 0.506687945855621,
+      "rmse_m": 0.3001786630171022
+    },
+    "metrics": [
+      {
+        "name": "position_for_long",
+        "segments": 3,
+        "peak_tracking_error_m": 0.506687945855621,
+        "rmse_tracking_m": 0.2701841820793533,
+        "odom_samples": 773,
+        "aligned_samples": 773,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "endpoint_speed_mps": 0.049228546058093244
+      },
+      {
+        "name": "beyond_planning_horizon",
+        "segments": 5,
+        "peak_tracking_error_m": 0.5024169367921569,
+        "rmse_tracking_m": 0.27343837186807046,
+        "odom_samples": 1367,
+        "aligned_samples": 1367,
+        "executed_trajectories": [
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            4,
+            14
+          ],
+          [
+            5,
+            16
+          ],
+          [
+            5,
+            17
+          ]
+        ],
+        "endpoint_speed_mps": 0.041739628154912736
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "c60e964d4e9203073dfd1064564418a8e8f94ea46dcf12e72664dace28889ef2",
+      "observed_pairs": {
+        "iris_landing_pad": 1631,
+        "witness_ground": 26539,
+        "iris_ground_plane": 629
+      }
+    }
+  },
+  {
+    "id": "F03-2-outside",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 37,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.011888901703059673,
+          -0.009576434269547462
+        ],
+        [
+          -0.03801979869604111,
+          -0.028983449563384056
+        ],
+        [
+          1.5183355808258057,
+          1.5250693559646606
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 0,
+      "aligned_samples": 0,
+      "max_m": null,
+      "rmse_m": null
+    },
+    "metrics": [],
+    "raw_contacts": {
+      "file_sha256": "e94fbd80ff18dfc164835f3c65630655ad7c990ef9d0241a6345a0009de363a8",
+      "observed_pairs": {
+        "iris_landing_pad": 2921,
+        "witness_ground": 6365
+      }
+    }
+  },
+  {
+    "id": "F03-2-static",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 1347,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.04488338530063629,
+          1.8582696914672852
+        ],
+        [
+          -0.08136126399040222,
+          1.1497958898544312
+        ],
+        [
+          1.5280981063842773,
+          1.9415425062179565
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 578,
+      "aligned_samples": 578,
+      "max_m": 0.5146238186351111,
+      "rmse_m": 0.2983644161623947
+    },
+    "metrics": [
+      {
+        "name": "real_obstacle_bypassed",
+        "minimum_center_to_box_surface_m": 0.6974860194517224
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "3b55810df35722325ab7c3783a7081523de2e86725047f5764ef90bb4908a397",
+      "observed_pairs": {
+        "iris_landing_pad": 1675,
+        "witness_ground": 17072,
+        "iris_ground_plane": 926
+      }
+    }
+  },
+  {
+    "id": "F03-2-straight",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 229,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.003986031282693148,
+          0.9654766321182251
+        ],
+        [
+          -0.04991886764764786,
+          -0.018320998176932335
+        ],
+        [
+          1.515416145324707,
+          1.652988076210022
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 159,
+      "aligned_samples": 159,
+      "max_m": 0.4206225371030599,
+      "rmse_m": 0.24680516756497198
+    },
+    "metrics": [
+      {
+        "name": "straight",
+        "segments": 1,
+        "peak_tracking_error_m": 0.4206225371030599,
+        "rmse_tracking_m": 0.20654283508308385,
+        "odom_samples": 228,
+        "aligned_samples": 228,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ]
+        ],
+        "endpoint_speed_mps": 0.02838003101194975
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "bc40ec3ff51c9550703331a075124ef2a5f109c012b35a1acc0d2c59f1d57d36",
+      "observed_pairs": {
+        "iris_landing_pad": 2840,
+        "witness_ground": 7931
+      }
+    }
+  },
+  {
+    "id": "F03-3-long",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 2619,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -4.188610553741455,
+          4.251113414764404
+        ],
+        [
+          -1.6084587574005127,
+          0.01153498888015747
+        ],
+        [
+          1.5080087184906006,
+          2.036105155944824
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 1760,
+      "aligned_samples": 1760,
+      "max_m": 0.4984723438446286,
+      "rmse_m": 0.2980527527217218
+    },
+    "metrics": [
+      {
+        "name": "position_for_long",
+        "segments": 3,
+        "peak_tracking_error_m": 0.49046101771221917,
+        "rmse_tracking_m": 0.2681574069036435,
+        "odom_samples": 777,
+        "aligned_samples": 777,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "endpoint_speed_mps": 0.059057554966109295
+      },
+      {
+        "name": "beyond_planning_horizon",
+        "segments": 5,
+        "peak_tracking_error_m": 0.4984723438446286,
+        "rmse_tracking_m": 0.2720086928108007,
+        "odom_samples": 1368,
+        "aligned_samples": 1368,
+        "executed_trajectories": [
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            4,
+            14
+          ],
+          [
+            5,
+            16
+          ],
+          [
+            5,
+            17
+          ]
+        ],
+        "endpoint_speed_mps": 0.04095834044912261
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "d5a761fe3e1d4224e750b26aa50300fdcac3723e17e59711b2be6774cab0b30f",
+      "observed_pairs": {
+        "iris_landing_pad": 1610,
+        "witness_ground": 27571,
+        "iris_ground_plane": 1082
+      }
+    }
+  },
+  {
+    "id": "F03-3-outside",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 32,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.0034627055283635855,
+          -0.0001013252476695925
+        ],
+        [
+          -0.04226695001125336,
+          -0.0371662974357605
+        ],
+        [
+          1.5162287950515747,
+          1.519850492477417
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 0,
+      "aligned_samples": 0,
+      "max_m": null,
+      "rmse_m": null
+    },
+    "metrics": [],
+    "raw_contacts": {
+      "file_sha256": "8a5f58fd7432987e2ae079a149eda1a54a75ccd685533beb0d805f989f28a235",
+      "observed_pairs": {
+        "iris_landing_pad": 2830,
+        "witness_ground": 6166
+      }
+    }
+  },
+  {
+    "id": "F03-3-static",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": false,
+    "original_crosscheck_failed": [
+      "contact_stream_observed"
+    ],
+    "entire_cruise": {
+      "samples": 1374,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.04855185002088547,
+          1.818114161491394
+        ],
+        [
+          -0.11844761669635773,
+          1.1098418235778809
+        ],
+        [
+          1.5245459079742432,
+          1.9348680973052979
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 580,
+      "aligned_samples": 580,
+      "max_m": 0.4973887271602017,
+      "rmse_m": 0.29424866004294264
+    },
+    "metrics": [
+      {
+        "name": "real_obstacle_bypassed",
+        "minimum_center_to_box_surface_m": 0.7208472604570296
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "77e054abd471aa7db237c5a4e17f3bf21d819f0fa9ecd92028bac46433c36f64",
+      "observed_pairs": {
+        "iris_landing_pad": 1626,
+        "witness_ground": 17971,
+        "iris_ground_plane": 1117
+      }
+    }
+  },
+  {
+    "id": "F03-3-straight",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 228,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.013994025066494942,
+          0.9682410955429077
+        ],
+        [
+          -0.0426388680934906,
+          -0.01476266235113144
+        ],
+        [
+          1.5218462944030762,
+          1.6637901067733765
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 161,
+      "aligned_samples": 161,
+      "max_m": 0.45535727455345215,
+      "rmse_m": 0.26633749315793526
+    },
+    "metrics": [
+      {
+        "name": "straight",
+        "segments": 1,
+        "peak_tracking_error_m": 0.45535727455345215,
+        "rmse_tracking_m": 0.2249888329284858,
+        "odom_samples": 226,
+        "aligned_samples": 226,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ]
+        ],
+        "endpoint_speed_mps": 0.02281536946428307
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "6024ab4d1890731860ad53ea635c9c9e2bb268c372ef9ce61f7ce6e9e4004c49",
+      "observed_pairs": {
+        "iris_landing_pad": 2771,
+        "witness_ground": 7939
+      }
+    }
+  },
+  {
+    "id": "F03-4-long",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": false,
+    "error": "AssertionError({'mission_session_id': 'b57ae0c9a9904e408e37d1050fef1ba1', 'mission_id': 'fixture_set_heading-93851b91', 'phase': 'FAILED', 'reason': 'observation_too_close', 'goal_id': 0, 'goal': None, 'final_goal': None, 'detection_request_id': None, 'intended_yaw': 0.01820798618557706, 'observation_heading_mode': 'initial', 'segment_count': 0, 'scan_offset_deg': 0, 'detection_retried': False, 'detour_active': False, 'capture_floor': 61.784, 'stop_id': 17})",
+    "original_crosscheck": false,
+    "original_crosscheck_failed": [
+      "all_requested_missions_present"
+    ],
+    "entire_cruise": {
+      "samples": 1295,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -4.182494640350342,
+          0.04312239959836006
+        ],
+        [
+          -1.566849946975708,
+          0.010624442249536514
+        ],
+        [
+          1.5195889472961426,
+          2.0206828117370605
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 620,
+      "aligned_samples": 620,
+      "max_m": 0.4944554165467845,
+      "rmse_m": 0.2976830173883502
+    },
+    "metrics": [
+      {
+        "name": "position_for_long",
+        "segments": 3,
+        "peak_tracking_error_m": 0.4944554165467845,
+        "rmse_tracking_m": 0.2685300146496581,
+        "odom_samples": 765,
+        "aligned_samples": 765,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "endpoint_speed_mps": 0.05634702026303699
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "1008328896a9cb94192785f1303789bef6452e479e4a4e5570bb87d83eb7b6a4",
+      "observed_pairs": {
+        "iris_landing_pad": 1531,
+        "witness_ground": 16685,
+        "iris_ground_plane": 1031
+      }
+    }
+  },
+  {
+    "id": "F03-4-outside",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 35,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.01356502529233694,
+          -0.01220222469419241
+        ],
+        [
+          -0.026874592527747154,
+          -0.019823318347334862
+        ],
+        [
+          1.5148487091064453,
+          1.5200570821762085
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 0,
+      "aligned_samples": 0,
+      "max_m": null,
+      "rmse_m": null
+    },
+    "metrics": [],
+    "raw_contacts": {
+      "file_sha256": "07339328d7eea2e7b55064b5cc3d1d0c0ae03e68c2deb2d709a2d36653cd9b13",
+      "observed_pairs": {
+        "iris_landing_pad": 2952,
+        "witness_ground": 6307
+      }
+    }
+  },
+  {
+    "id": "F03-4-static",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 1342,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.03941778466105461,
+          1.8386859893798828
+        ],
+        [
+          -0.11191931366920471,
+          1.1656447649002075
+        ],
+        [
+          1.5257211923599243,
+          1.9299046993255615
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 578,
+      "aligned_samples": 578,
+      "max_m": 0.5196797861338854,
+      "rmse_m": 0.30106129482300936
+    },
+    "metrics": [
+      {
+        "name": "real_obstacle_bypassed",
+        "minimum_center_to_box_surface_m": 0.6857159126624478
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "4a1882ddeb94142055031545737b2f3fb2b2a0338eb0823961f940255a696a36",
+      "observed_pairs": {
+        "iris_landing_pad": 1655,
+        "witness_ground": 17024,
+        "iris_ground_plane": 1029
+      }
+    }
+  },
+  {
+    "id": "F03-4-straight",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 233,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          0.006101760547608137,
+          0.9586625695228577
+        ],
+        [
+          -0.05090157687664032,
+          -0.011862782761454582
+        ],
+        [
+          1.5228126049041748,
+          1.6595771312713623
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 160,
+      "aligned_samples": 160,
+      "max_m": 0.4281262070778333,
+      "rmse_m": 0.25086407278039524
+    },
+    "metrics": [
+      {
+        "name": "straight",
+        "segments": 1,
+        "peak_tracking_error_m": 0.4281262070778333,
+        "rmse_tracking_m": 0.20807136850584634,
+        "odom_samples": 233,
+        "aligned_samples": 233,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ]
+        ],
+        "endpoint_speed_mps": 0.019896301173477272
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "993c521edf28a7acd4f42e1aaa28aae733380a7f2a43e98703883b5bb992920e",
+      "observed_pairs": {
+        "iris_landing_pad": 2858,
+        "witness_ground": 8027
+      }
+    }
+  },
+  {
+    "id": "F03-5-long",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 2597,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -4.168665409088135,
+          4.224726676940918
+        ],
+        [
+          -1.6004931926727295,
+          0.003375384258106351
+        ],
+        [
+          1.5195372104644775,
+          2.022582530975342
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 1755,
+      "aligned_samples": 1755,
+      "max_m": 0.5163608193975515,
+      "rmse_m": 0.30069379268127483
+    },
+    "metrics": [
+      {
+        "name": "position_for_long",
+        "segments": 3,
+        "peak_tracking_error_m": 0.5108652424406056,
+        "rmse_tracking_m": 0.27177485243195365,
+        "odom_samples": 768,
+        "aligned_samples": 768,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "endpoint_speed_mps": 0.06137433893835927
+      },
+      {
+        "name": "beyond_planning_horizon",
+        "segments": 5,
+        "peak_tracking_error_m": 0.5163608193975515,
+        "rmse_tracking_m": 0.2755483721028498,
+        "odom_samples": 1351,
+        "aligned_samples": 1351,
+        "executed_trajectories": [
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            4,
+            14
+          ],
+          [
+            5,
+            16
+          ],
+          [
+            5,
+            17
+          ]
+        ],
+        "endpoint_speed_mps": 0.03698203442242565
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "9a5ca72105348b98be887d5cf96625bf9eff1030a8e1ef4f3b891a8e5f48dc31",
+      "observed_pairs": {
+        "iris_landing_pad": 1625,
+        "witness_ground": 27368,
+        "iris_ground_plane": 1026
+      }
+    }
+  },
+  {
+    "id": "F03-5-outside",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 31,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          0.010635919868946075,
+          0.021786324679851532
+        ],
+        [
+          -0.016610432416200638,
+          -0.007400299422442913
+        ],
+        [
+          1.5147756338119507,
+          1.5235192775726318
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 0,
+      "aligned_samples": 0,
+      "max_m": null,
+      "rmse_m": null
+    },
+    "metrics": [],
+    "raw_contacts": {
+      "file_sha256": "d52db29b63354195ab59fd3c681b4e674ba6318d182d5f31602bf1236bd3a84c",
+      "observed_pairs": {
+        "iris_landing_pad": 4986,
+        "witness_ground": 9588
+      }
+    }
+  },
+  {
+    "id": "F03-5-static",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 1368,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          -0.06985758990049362,
+          1.7972031831741333
+        ],
+        [
+          -0.08343349397182465,
+          1.1204253435134888
+        ],
+        [
+          1.5231678485870361,
+          1.9327751398086548
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 583,
+      "aligned_samples": 583,
+      "max_m": 0.5084275838181177,
+      "rmse_m": 0.2994947298866516
+    },
+    "metrics": [
+      {
+        "name": "real_obstacle_bypassed",
+        "minimum_center_to_box_surface_m": 0.7452566796964664
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "cb2b367f7447f470c6f630bc915b7f0f79c126e6dba9d8adad8ff5eeedb03b0e",
+      "observed_pairs": {
+        "iris_landing_pad": 1606,
+        "witness_ground": 17116,
+        "iris_ground_plane": 977
+      }
+    }
+  },
+  {
+    "id": "F03-5-straight",
+    "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "primary": true,
+    "error": null,
+    "original_crosscheck": true,
+    "original_crosscheck_failed": [],
+    "entire_cruise": {
+      "samples": 227,
+      "outside_count": 0,
+      "ranges_xyz": [
+        [
+          0.018098805099725723,
+          0.9953616261482239
+        ],
+        [
+          -0.03439204767346382,
+          -0.0013190062018111348
+        ],
+        [
+          1.529465675354004,
+          1.653112530708313
+        ]
+      ]
+    },
+    "tracked_setpoint_vs_odom": {
+      "track_mode_samples": 158,
+      "aligned_samples": 158,
+      "max_m": 0.42532574712297594,
+      "rmse_m": 0.24845553331321563
+    },
+    "metrics": [
+      {
+        "name": "straight",
+        "segments": 1,
+        "peak_tracking_error_m": 0.42532574712297594,
+        "rmse_tracking_m": 0.2080097322125568,
+        "odom_samples": 226,
+        "aligned_samples": 226,
+        "executed_trajectories": [
+          [
+            1,
+            1
+          ]
+        ],
+        "endpoint_speed_mps": 0.02042301825133882
+      }
+    ],
+    "raw_contacts": {
+      "file_sha256": "98f23cbe114e2c4a3e75e7bbd204c2b4a8222aa7de2d78303ae168b30b99c206",
+      "observed_pairs": {
+        "iris_landing_pad": 2868,
+        "witness_ground": 7931
+      }
+    }
+  }
+]

@@ -1,0 +1,248 @@
+{
+  "right90-a1": [
+    {
+      "id": 1,
+      "file": "red_pole-7c836647-1-20.116.png",
+      "stamp": 20.116,
+      "reason": "target_not_found",
+      "status": "FAILED",
+      "point": null,
+      "scan": 0,
+      "heading": "initial",
+      "yaw": -0.015874950459344957,
+      "stop_confirmed": true,
+      "reply": {
+        "found": false
+      }
+    },
+    {
+      "id": 2,
+      "file": "red_pole-7c836647-2-24.616.png",
+      "stamp": 24.616,
+      "reason": "target_not_found",
+      "status": "FAILED",
+      "point": null,
+      "scan": 45,
+      "heading": "scan",
+      "yaw": 0.771252464353493,
+      "stop_confirmed": true,
+      "reply": {
+        "found": false
+      }
+    },
+    {
+      "id": 3,
+      "file": "red_pole-7c836647-3-34.320.png",
+      "stamp": 34.32,
+      "reason": "target_not_found",
+      "status": "FAILED",
+      "point": null,
+      "scan": -45,
+      "heading": "scan",
+      "yaw": -0.8043769113600127,
+      "stop_confirmed": true,
+      "reply": {
+        "found": false
+      }
+    },
+    {
+      "id": 4,
+      "file": "red_pole-7c836647-4-40.616.png",
+      "stamp": 40.616,
+      "reason": "",
+      "status": "SUCCEEDED",
+      "point": [
+        -2.6176413130250835,
+        17.14393519495972,
+        -0.27127630714272977
+      ],
+      "scan": 90,
+      "heading": "scan",
+      "yaw": 1.557272511433701,
+      "stop_confirmed": true,
+      "reply": {
+        "label": "\u7ea2\u8272\u7ad6\u76f4\u6746\uff0c\u53ea\u6846\u4f4f\u53ef\u89c1\u7684\u7ea2\u8272\u6746\u4f53\uff0c\u4e0d\u5305\u542b\u5e95\u5ea7\u3001\u9634\u5f71\u6216\u84dd\u8272\u6746\u3002",
+        "bbox_2d": [
+          397,
+          504,
+          418,
+          625
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "file": "red_pole-7c836647-5-42.016.png",
+      "stamp": 42.016,
+      "reason": "invalid_target_depth",
+      "status": "FAILED",
+      "point": null,
+      "scan": 90,
+      "heading": "scan",
+      "yaw": 1.555850866404221,
+      "stop_confirmed": true,
+      "reply": {
+        "label": "\u7ea2\u8272\u7ad6\u76f4\u6746\uff0c\u53ea\u6846\u4f4f\u53ef\u89c1\u7684\u7ea2\u8272\u6746\u4f53\uff0c\u4e0d\u5305\u542b\u5e95\u5ea7\u3001\u9634\u5f71\u6216\u84dd\u8272\u6746\u3002",
+        "bbox_2d": [
+          457,
+          390,
+          468,
+          515
+        ]
+      }
+    }
+  ],
+  "right90-a2": [
+    {
+      "id": 1,
+      "file": "red_pole-a203a48f-1-20.240.png",
+      "stamp": 20.24,
+      "reason": "target_not_found",
+      "status": "FAILED",
+      "point": null,
+      "scan": 0,
+      "heading": "initial",
+      "yaw": -0.011564745425691126,
+      "stop_confirmed": true,
+      "reply": {
+        "found": false
+      }
+    },
+    {
+      "id": 2,
+      "file": "red_pole-a203a48f-2-24.640.png",
+      "stamp": 24.64,
+      "reason": "",
+      "status": "SUCCEEDED",
+      "point": [
+        6.886683305426875,
+        10.917803221792793,
+        -0.30507931170910196
+      ],
+      "scan": 45,
+      "heading": "scan",
+      "yaw": 0.774674372860782,
+      "stop_confirmed": true,
+      "reply": [
+        {
+          "label": "\u7ea2\u8272\u7ad6\u76f4\u6746\uff0c\u53ea\u6846\u4f4f\u53ef\u89c1\u7684\u7ea2\u8272\u6746\u4f53\uff0c\u4e0d\u5305\u542b\u5e95\u5ea7\u3001\u9634\u5f71\u6216\u84dd\u8272\u6746\u3002",
+          "bbox_2d": [
+            319,
+            570,
+            418,
+            644
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "file": "red_pole-a203a48f-3-26.040.png",
+      "stamp": 26.04,
+      "reason": "target_not_found",
+      "status": "FAILED",
+      "point": null,
+      "scan": 45,
+      "heading": "scan",
+      "yaw": 0.7732739445073691,
+      "stop_confirmed": true,
+      "reply": {
+        "found": false
+      }
+    },
+    {
+      "id": 4,
+      "file": "red_pole-a203a48f-4-31.340.png",
+      "stamp": 31.34,
+      "reason": "",
+      "status": "SUCCEEDED",
+      "point": [
+        5.387253028956064,
+        -3.174096493857063,
+        -0.3025430024733977
+      ],
+      "scan": -45,
+      "heading": "scan",
+      "yaw": -0.8014394396160868,
+      "stop_confirmed": true,
+      "reply": {
+        "label": "\u7ea2\u8272\u7ad6\u76f4\u6746\uff0c\u53ea\u6846\u4f4f\u53ef\u89c1\u7684\u7ea2\u8272\u6746\u4f53\uff0c\u4e0d\u5305\u542b\u5e95\u5ea7\u3001\u9634\u5f71\u6216\u84dd\u8272\u6746\u3002",
+        "bbox_2d": [
+          340,
+          719,
+          352,
+          745
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "file": "red_pole-a203a48f-5-32.740.png",
+      "stamp": 32.74,
+      "reason": "",
+      "status": "SUCCEEDED",
+      "point": [
+        5.443546314606026,
+        -2.9586580296415383,
+        0.2104995269695762
+      ],
+      "scan": -45,
+      "heading": "scan",
+      "yaw": -0.799094053161655,
+      "stop_confirmed": true,
+      "reply": [
+        {
+          "label": "\u7ea2\u8272\u7ad6\u76f4\u6746\uff0c\u53ea\u6846\u4f4f\u53ef\u89c1\u7684\u7ea2\u8272\u6746\u4f53\uff0c\u4e0d\u5305\u542b\u5e95\u5ea7\u3001\u9634\u5f71\u6216\u84dd\u8272\u6746\u3002",
+          "bbox_2d": [
+            317,
+            625,
+            349,
+            730
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "file": "red_pole-a203a48f-6-36.840.png",
+      "stamp": 36.84,
+      "reason": "target_not_found",
+      "status": "FAILED",
+      "point": null,
+      "scan": -45,
+      "heading": "target_alignment",
+      "yaw": -0.48257645398412763,
+      "stop_confirmed": true,
+      "reply": {
+        "found": false
+      }
+    },
+    {
+      "id": 7,
+      "file": "red_pole-a203a48f-7-43.440.png",
+      "stamp": 43.44,
+      "reason": "",
+      "status": "SUCCEEDED",
+      "point": [
+        -0.9237036326587413,
+        4.620937117246975,
+        -0.36318540136335953
+      ],
+      "scan": 90,
+      "heading": "scan",
+      "yaw": 1.5607097050267253,
+      "stop_confirmed": true,
+      "reply": [
+        {
+          "bbox_2d": [
+            359,
+            671,
+            403,
+            987
+          ],
+          "label": "\u7ea2\u8272\u7ad6\u76f4\u6746\uff0c\u53ea\u6846\u4f4f\u53ef\u89c1\u7684\u7ea2\u8272\u6746\u4f53\uff0c\u4e0d\u5305\u542b\u5e95\u5ea7\u3001\u9634\u5f71\u6216\u84dd\u8272\u6746\u3002"
+        }
+      ]
+    }
+  ]
+}

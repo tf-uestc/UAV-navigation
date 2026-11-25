@@ -1,0 +1,418 @@
+[
+  {
+    "case": "V04-1.5-front-1",
+    "member_sha256": "325a9ef8ba7a8e41ac2c82e6b98e6fbffe8a3a233ad7e1ccd8c844582af37593",
+    "samples": 7861,
+    "first_good_s": 19.068,
+    "first_request_s": 21.572,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.396,
+        "delta_deg": 0.3921048318294475,
+        "counter": 1
+      },
+      {
+        "s": 18.06,
+        "delta_deg": -0.16504132937045599,
+        "counter": 2
+      }
+    ],
+    "request_count": 6,
+    "frame_count": 6,
+    "valid_requests": 6,
+    "valid_frames": 6,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-1.5-front-2",
+    "member_sha256": "7fd0c0e2609395c8be794e3760aaa29ef8f255efa4b9adb0025481a5cdaaebdd",
+    "samples": 7564,
+    "first_good_s": 20.196,
+    "first_request_s": 22.52,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.412,
+        "delta_deg": -0.06050865252724957,
+        "counter": 1
+      },
+      {
+        "s": 19.188,
+        "delta_deg": -0.06728419351379561,
+        "counter": 2
+      }
+    ],
+    "request_count": 4,
+    "frame_count": 4,
+    "valid_requests": 4,
+    "valid_frames": 4,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-1.5-left45-1",
+    "member_sha256": "58fedb172329061e34209225a4f09bfff26a6f9b615fc64d93b18c79738abe50",
+    "samples": 8763,
+    "first_good_s": 18.812,
+    "first_request_s": 21.196,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.38,
+        "delta_deg": 0.03231704005791533,
+        "counter": 1
+      },
+      {
+        "s": 17.804,
+        "delta_deg": -0.25384419394693547,
+        "counter": 2
+      }
+    ],
+    "request_count": 6,
+    "frame_count": 6,
+    "valid_requests": 6,
+    "valid_frames": 6,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-1.5-left45-2",
+    "member_sha256": "75a8747ec2535ca3a5378e03404945739affe24a5ed5422d97ba92c3a0f71250",
+    "samples": 9892,
+    "first_good_s": 19.34,
+    "first_request_s": 21.524,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.444,
+        "delta_deg": -0.032617568381395894,
+        "counter": 1
+      },
+      {
+        "s": 18.332,
+        "delta_deg": -0.21557797908065968,
+        "counter": 2
+      }
+    ],
+    "request_count": 7,
+    "frame_count": 7,
+    "valid_requests": 7,
+    "valid_frames": 7,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-1.5-right45-1",
+    "member_sha256": "8c030590ee31f2b7365f3091ad2303bb24c6be12452d3fc35812d7d448e17039",
+    "samples": 10115,
+    "first_good_s": 19.316,
+    "first_request_s": 21.656,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.396,
+        "delta_deg": 0.3882013787187852,
+        "counter": 1
+      },
+      {
+        "s": 18.308,
+        "delta_deg": -0.3596134885455646,
+        "counter": 2
+      }
+    ],
+    "request_count": 7,
+    "frame_count": 7,
+    "valid_requests": 7,
+    "valid_frames": 7,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-1.5-right45-2",
+    "member_sha256": "388c53121660106a7cd5d075500321fe3f1501b3dfdf0326515016eafdab21f1",
+    "samples": 9195,
+    "first_good_s": 20.636,
+    "first_request_s": 22.951999999999998,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.396,
+        "delta_deg": 0.3921048318294475,
+        "counter": 1
+      },
+      {
+        "s": 19.628,
+        "delta_deg": -0.16123007047337565,
+        "counter": 2
+      }
+    ],
+    "request_count": 7,
+    "frame_count": 7,
+    "valid_requests": 7,
+    "valid_frames": 7,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-2.4-front-1",
+    "member_sha256": "548bb00c8605b2da41fbb5cc749e4d53faeb9f41c2f76b39533c9fc83acb7372",
+    "samples": 5986,
+    "first_good_s": 19.368,
+    "first_request_s": 21.612,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.384,
+        "delta_deg": -0.06698025009573004,
+        "counter": 1
+      },
+      {
+        "s": 18.36,
+        "delta_deg": -0.1343157100489404,
+        "counter": 2
+      }
+    ],
+    "request_count": 3,
+    "frame_count": 3,
+    "valid_requests": 3,
+    "valid_frames": 3,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-2.4-front-2",
+    "member_sha256": "e3c4ae3d37815d1ab22d31c7fa41210556b94af899d9fb02c8e470341416f07c",
+    "samples": 7437,
+    "first_good_s": 20.048,
+    "first_request_s": 22.472,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.384,
+        "delta_deg": 0.22845632744114516,
+        "counter": 1
+      },
+      {
+        "s": 19.04,
+        "delta_deg": -0.0853159062628425,
+        "counter": 2
+      }
+    ],
+    "request_count": 3,
+    "frame_count": 3,
+    "valid_requests": 3,
+    "valid_frames": 3,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-2.4-left45-1",
+    "member_sha256": "40943f2b08237ce4e4ce19688bee92920f71c89d2d0c8424fc68c7c82ebe72ee",
+    "samples": 7723,
+    "first_good_s": 19.116,
+    "first_request_s": 21.66,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.448,
+        "delta_deg": -0.03626830782782101,
+        "counter": 1
+      },
+      {
+        "s": 18.108,
+        "delta_deg": -0.08498122032340526,
+        "counter": 2
+      }
+    ],
+    "request_count": 5,
+    "frame_count": 5,
+    "valid_requests": 5,
+    "valid_frames": 5,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-2.4-left45-2",
+    "member_sha256": "4f326107fd577ea9a6d407d45be3427641d91879282ea1c93590fd5e5a99ac63",
+    "samples": 8062,
+    "first_good_s": 19.812,
+    "first_request_s": 22.352,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.436,
+        "delta_deg": -0.07067538243670694,
+        "counter": 1
+      },
+      {
+        "s": 18.804,
+        "delta_deg": -0.046226723637699606,
+        "counter": 2
+      }
+    ],
+    "request_count": 6,
+    "frame_count": 6,
+    "valid_requests": 6,
+    "valid_frames": 6,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-2.4-left90-1",
+    "member_sha256": "cdab5ea937f906f379d124def9612ad8f17eb9169e783c9b9ecc791519eed79c",
+    "samples": 9655,
+    "first_good_s": 20.208,
+    "first_request_s": 22.676,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.38,
+        "delta_deg": 0.0591357778339704,
+        "counter": 1
+      },
+      {
+        "s": 19.2,
+        "delta_deg": -0.24783360079689778,
+        "counter": 2
+      }
+    ],
+    "request_count": 9,
+    "frame_count": 9,
+    "valid_requests": 9,
+    "valid_frames": 9,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-2.4-left90-2",
+    "member_sha256": "0268068379a0f04724feee4af7c2b533549765aca62f32abc10479e0fc892e3e",
+    "samples": 9548,
+    "first_good_s": 18.976,
+    "first_request_s": 21.356,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.432,
+        "delta_deg": 0.22712446723341911,
+        "counter": 1
+      },
+      {
+        "s": 17.968,
+        "delta_deg": -0.16616831058350812,
+        "counter": 2
+      }
+    ],
+    "request_count": 9,
+    "frame_count": 9,
+    "valid_requests": 9,
+    "valid_frames": 9,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-2.4-right45-1",
+    "member_sha256": "57e17fb300887bce1a0181ee905e4aadda35a92f0220c654b1000a8148a60677",
+    "samples": 8169,
+    "first_good_s": 18.956,
+    "first_request_s": 21.392,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.428,
+        "delta_deg": -0.120286488153521,
+        "counter": 1
+      },
+      {
+        "s": 17.948,
+        "delta_deg": -0.2593869191388272,
+        "counter": 2
+      }
+    ],
+    "request_count": 6,
+    "frame_count": 6,
+    "valid_requests": 6,
+    "valid_frames": 6,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-2.4-right45-2",
+    "member_sha256": "972f6b1aa6d95ad78bea25a0daf968ea611c34083be84faa31181b7626004fe5",
+    "samples": 8638,
+    "first_good_s": 19.476,
+    "first_request_s": 21.836,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.388,
+        "delta_deg": 0.3882013787187852,
+        "counter": 1
+      },
+      {
+        "s": 18.468,
+        "delta_deg": -0.22961745960004734,
+        "counter": 2
+      }
+    ],
+    "request_count": 6,
+    "frame_count": 6,
+    "valid_requests": 6,
+    "valid_frames": 6,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-2.4-right90-1",
+    "member_sha256": "65febfa0f9e38efb447eccaaa6cf9948fd56b43be786b56d69a443b4a1079c82",
+    "samples": 11937,
+    "first_good_s": 20.14,
+    "first_request_s": 22.54,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.404,
+        "delta_deg": 0.3882013787187852,
+        "counter": 1
+      },
+      {
+        "s": 19.132,
+        "delta_deg": -0.02959520967366525,
+        "counter": 2
+      }
+    ],
+    "request_count": 9,
+    "frame_count": 9,
+    "valid_requests": 9,
+    "valid_frames": 9,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V04-2.4-right90-2",
+    "member_sha256": "5288013f11595ae792d75b6c6c7a1db765d31e2bc2cf6dc9ad502d37c25c2d84",
+    "samples": 9717,
+    "first_good_s": 18.78,
+    "first_request_s": 21.136,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.376,
+        "delta_deg": 0.2674021461298372,
+        "counter": 1
+      },
+      {
+        "s": 17.772,
+        "delta_deg": -0.30635484836855215,
+        "counter": 2
+      }
+    ],
+    "request_count": 8,
+    "frame_count": 8,
+    "valid_requests": 8,
+    "valid_frames": 8,
+    "gate_all": true,
+    "expected_source_gate": true
+  }
+]

@@ -1,0 +1,14 @@
+NumPy: 2.3.5
+UTC: 2026-11-25T02:54:16.307988+00:00
+Python: 3.12.14
+Platform: Windows-11-10.0.26300-SP0
+Source/test SHA256: cfb5a3cd768b9cd0cbee2184dda97672dfb3a752a84cd08de8ae765553540035
+Scope: offline logic and ROS-shaped stand-ins; ROS/PX4/Gazebo not exercised.
+
+test_preserves_data_gap (test_camera_height_audit.CameraHeightAuditTests.test_preserves_data_gap) ... ok
+test_separates_body_and_extrinsic_vertical_error (test_camera_height_audit.CameraHeightAuditTests.test_separates_body_and_extrinsic_vertical_error) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.082s
+
+OK

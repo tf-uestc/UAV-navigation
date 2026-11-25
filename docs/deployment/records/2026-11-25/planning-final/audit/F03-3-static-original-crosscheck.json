@@ -1,0 +1,36 @@
+{
+  "passed": false,
+  "scenario": "static",
+  "checks": {
+    "contact_stream_observed": false,
+    "armed_then_disarmed": true,
+    "all_requested_missions_present": true,
+    "bypass-42bc84a5/terminal": true,
+    "bypass-42bc84a5/reached": true,
+    "bypass-42bc84a5/fence": true,
+    "bypass-42bc84a5/physical_endpoint": true,
+    "bypass-42bc84a5/acknowledgements": true,
+    "bypass-42bc84a5/only_accepted_executed": true,
+    "bypass-42bc84a5/tracked": true,
+    "occupied-d88b3dd9/terminal": true,
+    "occupied-d88b3dd9/stopped": true,
+    "occupied-d88b3dd9/measured_hold": true,
+    "occupied-d88b3dd9/acknowledgements": true,
+    "occupied-d88b3dd9/only_accepted_executed": true,
+    "world_samples_present": true,
+    "clearance": true,
+    "world_outcome": true
+  },
+  "details": [
+    {
+      "mission": "bypass-42bc84a5",
+      "terminal_reason": "destination_reached",
+      "distance_to_goal_m": 0.12093385291469597,
+      "speed_mps": 0.01980765695248896
+    },
+    {
+      "samples": 531,
+      "center_to_obstacle_surface_m": 0.7208472604570296
+    }
+  ]
+}

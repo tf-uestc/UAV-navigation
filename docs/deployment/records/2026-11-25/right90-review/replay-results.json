@@ -1,0 +1,248 @@
+{
+  "right90-a1": [
+    {
+      "request": 1,
+      "capture_stamp": 20.116,
+      "image": "red_pole-7c836647-1-20.116.png",
+      "yaw_deg": -0.9095676612997335,
+      "scan_deg": 0,
+      "phase": "initial",
+      "box": null,
+      "red_pixels": 0,
+      "blue_pixels": 417,
+      "original_reason": "target_not_found",
+      "original_status": "FAILED",
+      "original_map_point": null,
+      "rgb_replay_reason": "target_not_found"
+    },
+    {
+      "request": 2,
+      "capture_stamp": 24.616,
+      "image": "red_pole-7c836647-2-24.616.png",
+      "yaw_deg": 44.18951114651912,
+      "scan_deg": 45,
+      "phase": "scan",
+      "box": null,
+      "red_pixels": 0,
+      "blue_pixels": 0,
+      "original_reason": "target_not_found",
+      "original_status": "FAILED",
+      "original_map_point": null,
+      "rgb_replay_reason": "target_not_found"
+    },
+    {
+      "request": 3,
+      "capture_stamp": 34.32,
+      "image": "red_pole-7c836647-3-34.320.png",
+      "yaw_deg": -46.08740215869745,
+      "scan_deg": -45,
+      "phase": "scan",
+      "box": null,
+      "red_pixels": 0,
+      "blue_pixels": 324,
+      "original_reason": "target_not_found",
+      "original_status": "FAILED",
+      "original_map_point": null,
+      "rgb_replay_reason": "target_not_found"
+    },
+    {
+      "request": 4,
+      "capture_stamp": 40.616,
+      "image": "red_pole-7c836647-4-40.616.png",
+      "yaw_deg": 89.2251424568893,
+      "scan_deg": 90,
+      "phase": "scan",
+      "box": [
+        254,
+        241,
+        268,
+        300
+      ],
+      "red_pixels": 0,
+      "blue_pixels": 0,
+      "original_reason": "",
+      "original_status": "SUCCEEDED",
+      "original_map_point": [
+        -2.6176413130250835,
+        17.14393519495972,
+        -0.27127630714272977
+      ],
+      "boxed_red_pixels": 0,
+      "boxed_blue_pixels": 0,
+      "rgb_replay_reason": "target_color_unconfirmed"
+    },
+    {
+      "request": 5,
+      "capture_stamp": 42.016,
+      "image": "red_pole-7c836647-5-42.016.png",
+      "yaw_deg": 89.14368819673435,
+      "scan_deg": 90,
+      "phase": "scan",
+      "box": [
+        292,
+        187,
+        300,
+        248
+      ],
+      "red_pixels": 0,
+      "blue_pixels": 0,
+      "original_reason": "invalid_target_depth",
+      "original_status": "FAILED",
+      "original_map_point": null,
+      "boxed_red_pixels": 0,
+      "boxed_blue_pixels": 0,
+      "rgb_replay_reason": "target_color_unconfirmed"
+    }
+  ],
+  "right90-a2": [
+    {
+      "request": 1,
+      "capture_stamp": 20.24,
+      "image": "red_pole-a203a48f-1-20.240.png",
+      "yaw_deg": -0.6626111040353261,
+      "scan_deg": 0,
+      "phase": "initial",
+      "box": null,
+      "red_pixels": 0,
+      "blue_pixels": 410,
+      "original_reason": "target_not_found",
+      "original_status": "FAILED",
+      "original_map_point": null,
+      "rgb_replay_reason": "target_not_found"
+    },
+    {
+      "request": 2,
+      "capture_stamp": 24.64,
+      "image": "red_pole-a203a48f-2-24.640.png",
+      "yaw_deg": 44.38557206186669,
+      "scan_deg": 45,
+      "phase": "scan",
+      "box": [
+        204,
+        273,
+        268,
+        310
+      ],
+      "red_pixels": 0,
+      "blue_pixels": 0,
+      "original_reason": "",
+      "original_status": "SUCCEEDED",
+      "original_map_point": [
+        6.886683305426875,
+        10.917803221792793,
+        -0.30507931170910196
+      ],
+      "boxed_red_pixels": 0,
+      "boxed_blue_pixels": 0,
+      "rgb_replay_reason": "target_color_unconfirmed"
+    },
+    {
+      "request": 3,
+      "capture_stamp": 26.04,
+      "image": "red_pole-a203a48f-3-26.040.png",
+      "yaw_deg": 44.305333427705676,
+      "scan_deg": 45,
+      "phase": "scan",
+      "box": null,
+      "red_pixels": 0,
+      "blue_pixels": 0,
+      "original_reason": "target_not_found",
+      "original_status": "FAILED",
+      "original_map_point": null,
+      "rgb_replay_reason": "target_not_found"
+    },
+    {
+      "request": 4,
+      "capture_stamp": 31.34,
+      "image": "red_pole-a203a48f-4-31.340.png",
+      "yaw_deg": -45.919097425331564,
+      "scan_deg": -45,
+      "phase": "scan",
+      "box": [
+        217,
+        345,
+        226,
+        358
+      ],
+      "red_pixels": 0,
+      "blue_pixels": 345,
+      "original_reason": "",
+      "original_status": "SUCCEEDED",
+      "original_map_point": [
+        5.387253028956064,
+        -3.174096493857063,
+        -0.3025430024733977
+      ],
+      "boxed_red_pixels": 0,
+      "boxed_blue_pixels": 0,
+      "rgb_replay_reason": "target_color_unconfirmed"
+    },
+    {
+      "request": 5,
+      "capture_stamp": 32.74,
+      "image": "red_pole-a203a48f-5-32.740.png",
+      "yaw_deg": -45.784716680165474,
+      "scan_deg": -45,
+      "phase": "scan",
+      "box": [
+        202,
+        300,
+        224,
+        351
+      ],
+      "red_pixels": 0,
+      "blue_pixels": 325,
+      "original_reason": "",
+      "original_status": "SUCCEEDED",
+      "original_map_point": [
+        5.443546314606026,
+        -2.9586580296415383,
+        0.2104995269695762
+      ],
+      "boxed_red_pixels": 0,
+      "boxed_blue_pixels": 306,
+      "rgb_replay_reason": "target_color_unconfirmed"
+    },
+    {
+      "request": 6,
+      "capture_stamp": 36.84,
+      "image": "red_pole-a203a48f-6-36.840.png",
+      "yaw_deg": -27.649594105679693,
+      "scan_deg": -45,
+      "phase": "target_alignment",
+      "box": null,
+      "red_pixels": 0,
+      "blue_pixels": 271,
+      "original_reason": "target_not_found",
+      "original_status": "FAILED",
+      "original_map_point": null,
+      "rgb_replay_reason": "target_not_found"
+    },
+    {
+      "request": 7,
+      "capture_stamp": 43.44,
+      "image": "red_pole-a203a48f-7-43.440.png",
+      "yaw_deg": 89.422079143139,
+      "scan_deg": 90,
+      "phase": "scan",
+      "box": [
+        229,
+        322,
+        258,
+        474
+      ],
+      "red_pixels": 0,
+      "blue_pixels": 0,
+      "original_reason": "",
+      "original_status": "SUCCEEDED",
+      "original_map_point": [
+        -0.9237036326587413,
+        4.620937117246975,
+        -0.36318540136335953
+      ],
+      "boxed_red_pixels": 0,
+      "boxed_blue_pixels": 0,
+      "rgb_replay_reason": "target_color_unconfirmed"
+    }
+  ]
+}

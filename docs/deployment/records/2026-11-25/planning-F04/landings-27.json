@@ -1,0 +1,593 @@
+{
+  "F04-evidence.tar.gz": {
+    "total": 23,
+    "executor_landing_timeouts": [
+      "F04-4-straight",
+      "F04-4-static"
+    ],
+    "executor_complete": 21,
+    "mission_landed": 21,
+    "missing_task_landed": [
+      "F04-4-straight",
+      "F04-4-static"
+    ],
+    "trial_status": {
+      "F04-1-straight": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "9840878c9d6659001febf2c0a0ac8f4b9b7da0fb48e08de0ca628e454654eaf8"
+      },
+      "F04-1-static": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "40960c72bfbbb38d618c1e5ff4a075f8cb3714737b02b9fa92335889f9d9be0a"
+      },
+      "F04-1-long": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "b60092c110eff0c896a3294bf3a0d1fef432a171d0ee228bec8a65d50391d4cd"
+      },
+      "F04-1-outside": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "d5f021f39afb18ae3f34564ec47897b884bc2403512bc406bea4c372ca807547"
+      },
+      "F04-2-straight": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "b5d258d8f09a34573c05a9e3e8b5c5ea4a6603ecd18870f5dd0cef333145622a"
+      },
+      "F04-2-static": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "d9789d590ce36912421bffd0a41c4049f97e59c9e82be62e1166b40f5640f151"
+      },
+      "F04-2-long": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "0074920f9a6bed816144d4b07eadc46384b4b83d62933a4f25843fb1ff542498"
+      },
+      "F04-2-outside": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "8afa21f701fa3ce93945c30f4cf75db6db60b383acadd17df11c58a6020a9b53"
+      },
+      "F04-3-straight": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "f527479b2f9c2c331947712b93e6621ab1a564042b032d9056e724f1968ee47e"
+      },
+      "F04-3-static": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "98fbe3a676ce0c18cd1fcb0c17f85d6722986af1f00536471d065340ff2f4d00"
+      },
+      "F04-3-long": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "6a7d51558662d7747ee73a42fdd98292122dc8ee2fd1103b285f242bad6ca04a"
+      },
+      "F04-3-outside": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "0757558e67c2f936f934ffc689dfe8d0a9ece9e8814feb33c3bacfb30d79e1a0"
+      },
+      "F04-4-straight": {
+        "executor_complete": false,
+        "task_landed": false,
+        "trace_sha256": "3b143c0d43a744ed67b5221b761f1340575acd3c8f8922672e57afeb5723ed63"
+      },
+      "F04-4-static": {
+        "executor_complete": false,
+        "task_landed": false,
+        "trace_sha256": "cd19b2cae9ccf14d5a1a8c496a12e8ecbd792a9fd5d6f942430e3d182d0d9759"
+      },
+      "F04-4-long": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "51443a39acdd9966a4bbf5ca65f9d2236f9cd9c58f591c1a44f2b0721b7feecb"
+      },
+      "F04-4-outside": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "cbd35ce5587cdd0f212e7a7604c593f0ccf053118949a9bc0494d796b28ef31e"
+      },
+      "F04-5-straight": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "1f9e1faaf570453503917913bd5c246f3a10217c227b6e96a1a81f5975d8d8e5"
+      },
+      "F04-5-static": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "b7bbe50da461a8bc3e809cd3abc52291fd0487e87be5dfccc52271fa711d8183"
+      },
+      "F04-5-long": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "60c509f986974f304bfc1178c54c8c3f2c811f54e40b44439c6bc427b942e0c3"
+      },
+      "F04-5-outside": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "4a2923f3e809051d68466988767fd9be414f65dbb0473c188411be3d802df1e5"
+      },
+      "F04-1-dynamic": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "91f8bbfafa1a5608f50ef7593641ea0ccbbe7ec953e88278fd31f5196cacc514"
+      },
+      "F04-1-blocked": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "15fce0cebb4705882e1b9a416bd0af23cf2372ccfb0aa896d5ef1f83798e2c37"
+      },
+      "F04-1-unknown": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "371ce59a59cf9cae1f03e1c3b467068505f547217aebd241fc970ca450b87027"
+      }
+    },
+    "details": {
+      "F04-4-straight": {
+        "land_clock_s": 7328781.954801921,
+        "trace_sha256": "3b143c0d43a744ed67b5221b761f1340575acd3c8f8922672e57afeb5723ed63",
+        "end_wall_s": 33.61445620562881,
+        "transitions": {
+          "mission": [
+            {
+              "relative_wall_s": -0.010670285671949387,
+              "state": [
+                "straight-262a9863",
+                "DONE",
+                "destination_reached"
+              ]
+            },
+            {
+              "relative_wall_s": -0.00015321187674999237,
+              "state": [
+                "straight-262a9863",
+                "LANDING",
+                ""
+              ]
+            }
+          ],
+          "flight": [
+            {
+              "relative_wall_s": 0.047876184806227684,
+              "state": [
+                "LANDING",
+                "land_requested",
+                true
+              ]
+            },
+            {
+              "relative_wall_s": 30.086134794168174,
+              "state": [
+                "FAILED",
+                "landing_timeout",
+                true
+              ]
+            },
+            {
+              "relative_wall_s": 31.68597665335983,
+              "state": [
+                "FAILED",
+                "landing_timeout",
+                false
+              ]
+            }
+          ],
+          "fcu": [
+            {
+              "relative_wall_s": 0.5465421099215746,
+              "state": [
+                true,
+                true,
+                "AUTO.LAND"
+              ]
+            },
+            {
+              "relative_wall_s": 21.111623069271445,
+              "state": [
+                true,
+                false,
+                "OFFBOARD"
+              ]
+            },
+            {
+              "relative_wall_s": 22.300776938907802,
+              "state": [
+                true,
+                false,
+                "AUTO.LAND"
+              ]
+            }
+          ]
+        },
+        "FCU_disarm_s": 21.111623069271445,
+        "executor_failure_s": 30.086134794168174,
+        "executor_complete": false,
+        "task_landed": false,
+        "any_armed_after_disarm": false,
+        "post_land_track_or_plan": 0,
+        "trace_contains_timestamped_extended_state": false,
+        "disarm_to_fault_odom_count": 231,
+        "speed_over_point15": 231,
+        "min_speed_mps": 0.21498000738405562,
+        "max_speed_mps": 0.47063252270596356,
+        "last_speed_over_point15_after_land_s": 30.078952210955322,
+        "longest_wall_gap_between_motion_updates_including_edges_s": 0.10070356912910938
+      },
+      "F04-4-static": {
+        "land_clock_s": 7328916.514607838,
+        "trace_sha256": "cd19b2cae9ccf14d5a1a8c496a12e8ecbd792a9fd5d6f942430e3d182d0d9759",
+        "end_wall_s": 42.48516802769154,
+        "transitions": {
+          "flight": [
+            {
+              "relative_wall_s": -0.013443604111671448,
+              "state": [
+                "HOLD",
+                "hold_requested",
+                true
+              ]
+            },
+            {
+              "relative_wall_s": 0.028336601331830025,
+              "state": [
+                "LANDING",
+                "land_requested",
+                true
+              ]
+            },
+            {
+              "relative_wall_s": 30.02686789445579,
+              "state": [
+                "FAILED",
+                "landing_timeout",
+                true
+              ]
+            },
+            {
+              "relative_wall_s": 39.82788205798715,
+              "state": [
+                "FAILED",
+                "landing_timeout",
+                false
+              ]
+            }
+          ],
+          "mission": [
+            {
+              "relative_wall_s": -0.013153448700904846,
+              "state": [
+                "bypass-3e06b634",
+                "DONE",
+                "destination_reached"
+              ]
+            },
+            {
+              "relative_wall_s": -0.00012036412954330444,
+              "state": [
+                "bypass-3e06b634",
+                "LANDING",
+                ""
+              ]
+            },
+            {
+              "relative_wall_s": 40.02712890319526,
+              "state": [
+                "bypass-3e06b634",
+                "FAILED",
+                "landing_feedback_timeout"
+              ]
+            }
+          ],
+          "fcu": [
+            {
+              "relative_wall_s": 0.21698651555925608,
+              "state": [
+                true,
+                true,
+                "AUTO.LAND"
+              ]
+            },
+            {
+              "relative_wall_s": 27.396001044660807,
+              "state": [
+                true,
+                false,
+                "OFFBOARD"
+              ]
+            },
+            {
+              "relative_wall_s": 28.60690489038825,
+              "state": [
+                true,
+                false,
+                "AUTO.LAND"
+              ]
+            }
+          ]
+        },
+        "FCU_disarm_s": 27.396001044660807,
+        "executor_failure_s": 30.02686789445579,
+        "executor_complete": false,
+        "task_landed": false,
+        "any_armed_after_disarm": false,
+        "post_land_track_or_plan": 0,
+        "trace_contains_timestamped_extended_state": false,
+        "disarm_to_fault_odom_count": 66,
+        "speed_over_point15": 66,
+        "min_speed_mps": 0.6523232647311388,
+        "max_speed_mps": 0.7353955764380956,
+        "last_speed_over_point15_after_land_s": 30.01498165074736,
+        "longest_wall_gap_between_motion_updates_including_edges_s": 0.07239259872585535
+      }
+    },
+    "joined_scenario_and_landing": {
+      "passed": 19,
+      "attempted": 23,
+      "failed": [
+        "F04-2-long",
+        "F04-4-straight",
+        "F04-4-static",
+        "F04-1-dynamic"
+      ]
+    }
+  },
+  "F04-supplement-evidence.tar.gz": {
+    "total": 2,
+    "executor_landing_timeouts": [
+      "F04-2-dynamic"
+    ],
+    "executor_complete": 1,
+    "mission_landed": 1,
+    "missing_task_landed": [
+      "F04-2-dynamic"
+    ],
+    "trial_status": {
+      "F04-6-long": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "9bdd6e4672c5ffb168c49c2e33fd267fa8025bc9a887b5d80944b82bc0ca620e"
+      },
+      "F04-2-dynamic": {
+        "executor_complete": false,
+        "task_landed": false,
+        "trace_sha256": "4db5af74f83c1923954595392ddd84ede06b46e1e469a702de9cda9fdc5ae01c"
+      }
+    },
+    "details": {
+      "F04-2-dynamic": {
+        "land_clock_s": 7330095.127077986,
+        "trace_sha256": "4db5af74f83c1923954595392ddd84ede06b46e1e469a702de9cda9fdc5ae01c",
+        "end_wall_s": 35.6271329279989,
+        "transitions": {
+          "mission": [
+            {
+              "relative_wall_s": -0.0001269793137907982,
+              "state": [
+                "dynamic-abb8f69f",
+                "LANDING",
+                ""
+              ]
+            }
+          ],
+          "flight": [
+            {
+              "relative_wall_s": 0.016142206266522408,
+              "state": [
+                "LANDING",
+                "land_requested",
+                true
+              ]
+            },
+            {
+              "relative_wall_s": 30.036119800060987,
+              "state": [
+                "FAILED",
+                "landing_timeout",
+                true
+              ]
+            },
+            {
+              "relative_wall_s": 32.875462972559035,
+              "state": [
+                "FAILED",
+                "landing_timeout",
+                false
+              ]
+            }
+          ],
+          "fcu": [
+            {
+              "relative_wall_s": 0.09602599311619997,
+              "state": [
+                true,
+                true,
+                "AUTO.LAND"
+              ]
+            },
+            {
+              "relative_wall_s": 21.96006805356592,
+              "state": [
+                true,
+                false,
+                "OFFBOARD"
+              ]
+            },
+            {
+              "relative_wall_s": 23.02631267067045,
+              "state": [
+                true,
+                false,
+                "AUTO.LAND"
+              ]
+            }
+          ]
+        },
+        "FCU_disarm_s": 21.96006805356592,
+        "executor_failure_s": 30.036119800060987,
+        "executor_complete": false,
+        "task_landed": false,
+        "any_armed_after_disarm": false,
+        "post_land_track_or_plan": 0,
+        "trace_contains_timestamped_extended_state": false,
+        "disarm_to_fault_odom_count": 229,
+        "speed_over_point15": 229,
+        "min_speed_mps": 0.27522423878944635,
+        "max_speed_mps": 0.6629448894845009,
+        "last_speed_over_point15_after_land_s": 30.033379145897925,
+        "longest_wall_gap_between_motion_updates_including_edges_s": 0.16236334666609764
+      }
+    },
+    "joined_scenario_and_landing": {
+      "passed": 1,
+      "attempted": 2,
+      "failed": [
+        "F04-2-dynamic"
+      ]
+    }
+  },
+  "S04-evidence.tar.gz": {
+    "total": 2,
+    "executor_landing_timeouts": [
+      "S04-1-unknown"
+    ],
+    "executor_complete": 1,
+    "mission_landed": 1,
+    "missing_task_landed": [
+      "S04-1-unknown"
+    ],
+    "trial_status": {
+      "S04-1-offset-box": {
+        "executor_complete": true,
+        "task_landed": true,
+        "trace_sha256": "a91b872b3128ac50fec56f89f3ce797989a58e9b89e220bb0131a2761bde8611"
+      },
+      "S04-1-unknown": {
+        "executor_complete": false,
+        "task_landed": false,
+        "trace_sha256": "4847966a5eab38ea6fc1e7b2618d9bfde9ebd102abbb1c099dd640e0a853878a"
+      }
+    },
+    "details": {
+      "S04-1-unknown": {
+        "land_clock_s": 7332311.283253263,
+        "trace_sha256": "4847966a5eab38ea6fc1e7b2618d9bfde9ebd102abbb1c099dd640e0a853878a",
+        "end_wall_s": 30.927281067706645,
+        "transitions": {
+          "mission": [
+            {
+              "relative_wall_s": -0.014788093976676464,
+              "state": [
+                "fresh_after_recovery-b2928a37",
+                "DONE",
+                "destination_reached"
+              ]
+            },
+            {
+              "relative_wall_s": 0.017489018850028515,
+              "state": [
+                "fresh_after_recovery-b2928a37",
+                "LANDING",
+                ""
+              ]
+            }
+          ],
+          "flight": [
+            {
+              "relative_wall_s": 0.026284913532435894,
+              "state": [
+                "LANDING",
+                "land_requested",
+                true
+              ]
+            },
+            {
+              "relative_wall_s": 30.019931811839342,
+              "state": [
+                "FAILED",
+                "landing_timeout",
+                true
+              ]
+            },
+            {
+              "relative_wall_s": 30.920411785133183,
+              "state": [
+                "FAILED",
+                "landing_timeout",
+                false
+              ]
+            }
+          ],
+          "fcu": [
+            {
+              "relative_wall_s": 0.9804254230111837,
+              "state": [
+                true,
+                true,
+                "AUTO.LAND"
+              ]
+            },
+            {
+              "relative_wall_s": 20.82943523209542,
+              "state": [
+                true,
+                false,
+                "OFFBOARD"
+              ]
+            },
+            {
+              "relative_wall_s": 21.950295434333384,
+              "state": [
+                true,
+                false,
+                "AUTO.LAND"
+              ]
+            }
+          ]
+        },
+        "FCU_disarm_s": 20.82943523209542,
+        "executor_failure_s": 30.019931811839342,
+        "executor_complete": false,
+        "task_landed": false,
+        "any_armed_after_disarm": false,
+        "post_land_track_or_plan": 0,
+        "trace_contains_timestamped_extended_state": false,
+        "disarm_to_fault_odom_count": 243,
+        "speed_over_point15": 243,
+        "min_speed_mps": 0.18248214169608437,
+        "max_speed_mps": 0.6617309345588714,
+        "last_speed_over_point15_after_land_s": 29.97695415467024,
+        "longest_wall_gap_between_motion_updates_including_edges_s": 0.0660451827570796,
+        "ground_contact": {
+          "raw_sha256": "0bc79f1d0a0f44cb2a3ff4abaca25ac2fb2068813bd975c6882616b3e6cb49be",
+          "first_ground_sim_s": 57.288,
+          "first_ground_odom_bracket_wall_s": [
+            3.5249120108783245,
+            3.5605469290167093
+          ],
+          "continuous_ground_from_sim_s": 67.572,
+          "continuous_ground_from_odom_bracket_wall_s": [
+            14.251808857545257,
+            14.281503668054938
+          ],
+          "last_recorded_sim_s": 83.472,
+          "frames_after_land_start": 7408,
+          "continuous_ground_through_recorder_end_s": 15.899999999999991
+        }
+      }
+    },
+    "joined_scenario_and_landing": {
+      "passed": 0,
+      "attempted": 2,
+      "failed": [
+        "S04-1-offset-box",
+        "S04-1-unknown"
+      ]
+    }
+  }
+}

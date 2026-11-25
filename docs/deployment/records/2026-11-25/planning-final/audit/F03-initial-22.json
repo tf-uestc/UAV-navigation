@@ -1,0 +1,260 @@
+{
+  "expected_ordinal_attempts": 22,
+  "attempts": 22,
+  "verified_passing": 21,
+  "by_scenario": {
+    "blocked": {
+      "passed": 1,
+      "attempts": 1
+    },
+    "dynamic": {
+      "passed": 1,
+      "attempts": 1
+    },
+    "long": {
+      "passed": 4,
+      "attempts": 5
+    },
+    "outside": {
+      "passed": 5,
+      "attempts": 5
+    },
+    "static": {
+      "passed": 5,
+      "attempts": 5
+    },
+    "straight": {
+      "passed": 5,
+      "attempts": 5
+    }
+  },
+  "physics_flight_frames": 299444,
+  "total_unexpected_contacts": 0,
+  "max_gap_s": 0.0040000000000048885,
+  "rows": [
+    {
+      "trial": "F03-1-blocked",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 6757,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-1-dynamic",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 17010,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-1-long",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 29009,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-1-outside",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 7509,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-1-static",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 17008,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-1-straight",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 7259,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-2-long",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 26009,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-2-outside",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 5509,
+      "max_gap_s": 0.004000000000001336,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-2-static",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 16508,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-2-straight",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 7010,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-3-long",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 27009,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-3-outside",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 5509,
+      "max_gap_s": 0.004000000000001336,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-3-static",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 17260,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-3-straight",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 7258,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-4-long",
+      "passed": false,
+      "supplementary": false,
+      "raw_passed": false,
+      "formal_failed_checks": [
+        "all_requested_missions_present"
+      ],
+      "physics_messages": 16009,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-4-outside",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 5510,
+      "max_gap_s": 0.004000000000001336,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-4-static",
+      "passed": true,
+      "supplementary": true,
+      "raw_passed": false,
+      "formal_failed_checks": [
+        "contact_stream_observed"
+      ],
+      "physics_messages": 16506,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-4-straight",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 7258,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-5-long",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 26759,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-5-outside",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 7009,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-5-static",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 16510,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    },
+    {
+      "trial": "F03-5-straight",
+      "passed": true,
+      "supplementary": false,
+      "raw_passed": true,
+      "formal_failed_checks": [],
+      "physics_messages": 7259,
+      "max_gap_s": 0.0040000000000048885,
+      "unexpected_contacts": 0
+    }
+  ]
+}

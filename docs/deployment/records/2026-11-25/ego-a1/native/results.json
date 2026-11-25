@@ -1,0 +1,315 @@
+{
+  "stage": "ego",
+  "clock": "wall",
+  "passed": true,
+  "checks": [
+    {
+      "name": "body_velocity_rotates_into_world_at_four_yaws",
+      "passed": true,
+      "seconds": 0.3731067646294832,
+      "details": [
+        0.0,
+        3.1401849173675503e-16,
+        4.440892098500626e-16,
+        3.1401849173675503e-16
+      ]
+    },
+    {
+      "name": "known_obstacle_is_in_world_map_single_depth_input",
+      "passed": true,
+      "seconds": 1.2665994968265295,
+      "details": {
+        "occupied_roi_count": 72,
+        "nearest_x": 1.75
+      }
+    },
+    {
+      "name": "same_fixed_box_newly_visible_face_at_changed_pose",
+      "passed": true,
+      "seconds": 1.1499528493732214,
+      "details": {
+        "world_box_center": [
+          2.0,
+          0.0,
+          2.0
+        ],
+        "camera_body_xyz": [
+          2.0,
+          1.7,
+          2.0
+        ],
+        "yaw_deg": -90.0,
+        "expected_face_y_m": 0.4,
+        "measured_occupied_xyz": [
+          [
+            1.850000023841858,
+            0.44999998807907104,
+            1.75
+          ],
+          [
+            1.850000023841858,
+            0.44999998807907104,
+            1.850000023841858
+          ],
+          [
+            1.850000023841858,
+            0.44999998807907104,
+            1.9500000476837158
+          ],
+          [
+            1.850000023841858,
+            0.44999998807907104,
+            2.049999952316284
+          ],
+          [
+            1.850000023841858,
+            0.44999998807907104,
+            2.1500000953674316
+          ],
+          [
+            1.850000023841858,
+            0.44999998807907104,
+            2.25
+          ],
+          [
+            1.850000023841858,
+            0.44999998807907104,
+            2.3499999046325684
+          ],
+          [
+            1.9500000476837158,
+            0.44999998807907104,
+            1.75
+          ],
+          [
+            1.9500000476837158,
+            0.44999998807907104,
+            1.850000023841858
+          ],
+          [
+            1.9500000476837158,
+            0.44999998807907104,
+            1.9500000476837158
+          ],
+          [
+            1.9500000476837158,
+            0.44999998807907104,
+            2.049999952316284
+          ],
+          [
+            1.9500000476837158,
+            0.44999998807907104,
+            2.1500000953674316
+          ],
+          [
+            1.9500000476837158,
+            0.44999998807907104,
+            2.25
+          ],
+          [
+            1.9500000476837158,
+            0.44999998807907104,
+            2.3499999046325684
+          ],
+          [
+            2.049999952316284,
+            0.44999998807907104,
+            1.75
+          ],
+          [
+            2.049999952316284,
+            0.44999998807907104,
+            1.850000023841858
+          ],
+          [
+            2.049999952316284,
+            0.44999998807907104,
+            1.9500000476837158
+          ],
+          [
+            2.049999952316284,
+            0.44999998807907104,
+            2.049999952316284
+          ],
+          [
+            2.049999952316284,
+            0.44999998807907104,
+            2.1500000953674316
+          ],
+          [
+            2.049999952316284,
+            0.44999998807907104,
+            2.25
+          ],
+          [
+            2.049999952316284,
+            0.44999998807907104,
+            2.3499999046325684
+          ],
+          [
+            2.1500000953674316,
+            0.44999998807907104,
+            1.75
+          ],
+          [
+            2.1500000953674316,
+            0.44999998807907104,
+            1.850000023841858
+          ],
+          [
+            2.1500000953674316,
+            0.44999998807907104,
+            1.9500000476837158
+          ],
+          [
+            2.1500000953674316,
+            0.44999998807907104,
+            2.049999952316284
+          ],
+          [
+            2.1500000953674316,
+            0.44999998807907104,
+            2.1500000953674316
+          ],
+          [
+            2.1500000953674316,
+            0.44999998807907104,
+            2.25
+          ],
+          [
+            2.1500000953674316,
+            0.44999998807907104,
+            2.3499999046325684
+          ]
+        ],
+        "max_face_error_m": 0.04999998211860657,
+        "resolution_m": 0.1
+      }
+    },
+    {
+      "name": "camera_translation_and_90deg_yaw_keep_obstacle_in_world",
+      "passed": true,
+      "seconds": 1.8960646837949753,
+      "details": {
+        "occupied_roi_count": 72,
+        "nearest_y": 1.75
+      }
+    },
+    {
+      "name": "occupied_out_of_bounds_and_ceiling_goals_rejected",
+      "passed": true,
+      "seconds": 0.03307810239493847,
+      "details": null
+    },
+    {
+      "name": "requested_target_heights_are_preserved",
+      "passed": true,
+      "seconds": 0.5358230685815215,
+      "details": [
+        {
+          "requested_z": 1.5,
+          "actual_z": 1.5008275387353716
+        },
+        {
+          "requested_z": 2.0,
+          "actual_z": 2.0000000000000018
+        },
+        {
+          "requested_z": 2.2,
+          "actual_z": 2.199775871151086
+        }
+      ]
+    },
+    {
+      "name": "python_matches_native_uniform_bspline_at_101_times",
+      "passed": true,
+      "seconds": 0.030263058841228485,
+      "details": {
+        "samples": 101,
+        "max_errors": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.220446049250313e-16,
+          2.220446049250313e-16,
+          2.7755575615628914e-17,
+          2.498001805406602e-16,
+          2.498001805406602e-16,
+          3.122502256758253e-17
+        ]
+      }
+    },
+    {
+      "name": "planned_path_avoids_known_obstacle",
+      "passed": true,
+      "seconds": 0.18154747784137726,
+      "details": {
+        "samples": 301,
+        "y_extent": [
+          -0.9788827490535535,
+          -0.0002586227860967487
+        ]
+      }
+    },
+    {
+      "name": "continuous_replans_preserve_every_native_payload",
+      "passed": true,
+      "seconds": 5.862712745554745,
+      "details": {
+        "trajectory_ids": [
+          9,
+          10,
+          11
+        ],
+        "preserved_payload": true
+      }
+    },
+    {
+      "name": "new_obstacle_triggers_native_safety_replanning_or_stop",
+      "passed": true,
+      "seconds": 2.1401007240638137,
+      "details": {
+        "obstacle_center": [
+          2.8736475300406963,
+          1.1695689470241708,
+          2.0000000000000036
+        ],
+        "verified_trajectory_count": 2
+      }
+    },
+    {
+      "name": "real_ego_cancel_stops_and_late_spline_cannot_revive",
+      "passed": true,
+      "seconds": 1.095741817727685,
+      "details": null
+    },
+    {
+      "name": "resume_uses_measured_position_not_old_reference",
+      "passed": true,
+      "seconds": 0.8851633109152317,
+      "details": {
+        "start_error_m": 0.0001720003818265181
+      }
+    },
+    {
+      "name": "lost_depth_odometry_revokes_map_and_does_not_auto_resume",
+      "passed": true,
+      "seconds": 1.6297849351540208,
+      "details": {
+        "wall_seconds_until_not_ready": 0.5917998561635613
+      }
+    },
+    {
+      "name": "real_ego_restart_changes_epoch_and_rejects_old_trajectory",
+      "passed": true,
+      "seconds": 2.2719336468726397,
+      "details": {
+        "old_session": "188e358a-5acd-4ac5-940f-3a153ffb2bec",
+        "new_session": "7c9ea9a7-79ba-4ae4-9fef-adf07772b5ed"
+      }
+    }
+  ],
+  "fatal": null,
+  "flight_master_contacted": false
+}

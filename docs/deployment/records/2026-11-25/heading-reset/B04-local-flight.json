@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "attempt_observations",
+      "mission_id": "red_pole-11c35b67",
+      "terminal": "DONE",
+      "reason": "observation_standoff_reached",
+      "segments": 2,
+      "scans": [
+        45,
+        -45
+      ],
+      "detection_requests": 7,
+      "responses": [
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        }
+      ],
+      "distance_at_terminal_m": 1.5584787658409422,
+      "minimum_horizontal_distance_m": 1.556373424740506,
+      "elapsed_seconds": 44.98201094940305
+    },
+    {
+      "name": "historical_tf_gazebo_and_target_surface",
+      "samples": [
+        {
+          "request_id": 3,
+          "capture_stamp": 30.544,
+          "truth_time_delta_s": 0.023999999999997357,
+          "camera_translation_error_m": 0.08345594502343225,
+          "target_surface_error_m": 0.0009924002793059994
+        },
+        {
+          "request_id": 4,
+          "capture_stamp": 30.74,
+          "truth_time_delta_s": 0.00600000000000378,
+          "camera_translation_error_m": 0.09004088235910906,
+          "target_surface_error_m": 0.004767161219171902
+        },
+        {
+          "request_id": 5,
+          "capture_stamp": 33.44,
+          "truth_time_delta_s": 0.033999999999991815,
+          "camera_translation_error_m": 0.11326021112228891,
+          "target_surface_error_m": 0.011198600255482291
+        },
+        {
+          "request_id": 6,
+          "capture_stamp": 40.548,
+          "truth_time_delta_s": 0.013999999999995794,
+          "camera_translation_error_m": 0.08231542477632098,
+          "target_surface_error_m": 0.0433497779049313
+        },
+        {
+          "request_id": 7,
+          "capture_stamp": 48.248,
+          "truth_time_delta_s": 0.012000000000000455,
+          "camera_translation_error_m": 0.17263030127119405,
+          "target_surface_error_m": 0.01933703899907989
+        }
+      ]
+    },
+    {
+      "name": "observed_and_held",
+      "distance_m": 1.5584787658409422,
+      "hold_seconds": 10.512,
+      "start_sim": 48.44,
+      "end_sim": 58.952
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

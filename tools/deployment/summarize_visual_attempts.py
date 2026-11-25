@@ -294,6 +294,9 @@ def report(roots, patterns):
             raise FileNotFoundError(f'Archive directory does not exist: {root}')
         status={}
         for ledger in root.glob('*-attempts.jsonl'):
+            batch=ledger.name[:-len('-attempts.jsonl')]
+            if not any(fnmatchcase(batch,pattern) for pattern in patterns):
+                continue
             lines=ledger.read_text(encoding='utf-8-sig').splitlines(keepends=True)
             for number,line in enumerate(lines,1):
                 try:
@@ -303,6 +306,8 @@ def report(roots, patterns):
                         ledger_warnings.append(f'{ledger}:{number} unfinished last event')
                         break
                     raise ValueError(f'Invalid ledger at {ledger}:{number}') from None
+                if event['event'] in ('batch','complete'):
+                    continue
                 status[event['label']]=event if event['event']=='finish' else None
         folder=root/'flights'
         labels=set(status) | ({p.name for p in folder.iterdir() if p.is_dir()} if folder.exists() else set())

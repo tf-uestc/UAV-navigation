@@ -1,0 +1,166 @@
+{
+  "commit": "1581635e9934f0d2964eccb42acb40aad1302996",
+  "original_archive": "V03-evidence.tar.gz",
+  "cases": {
+    "V03-2.4-left90-2": {
+      "trace_sha256": "5e3c344cef78e0c5f848d640fc5f62ca28d98e473271305137c89e5d4599e610",
+      "comparisons": [
+        {
+          "land_wall_s": 7324726.849044835,
+          "land_observed_sim_s": 62.4882,
+          "first_disarm_wall_s": 25.201471,
+          "original_post_disarm_odom_count": 116,
+          "original_post_disarm_samples_over_0p15": 116,
+          "synthetic_post_disarm_ground_samples": [
+            [
+              25.5697,
+              84
+            ],
+            [
+              26.814,
+              85
+            ]
+          ],
+          "model": "ground_after_disarm",
+          "first_executor_terminal": {
+            "mode": "COMPLETE",
+            "reason": "",
+            "elapsed_wall_s": 26.84,
+            "sim_s": 85.0397
+          },
+          "actions": [
+            [
+              0.0,
+              "AUTO.LAND"
+            ],
+            [
+              25.24,
+              "AUTO.LAND"
+            ],
+            [
+              25.76,
+              "AUTO.LAND"
+            ],
+            [
+              26.28,
+              "AUTO.LAND"
+            ]
+          ]
+        },
+        {
+          "land_wall_s": 7324726.849044835,
+          "land_observed_sim_s": 62.4882,
+          "first_disarm_wall_s": 25.201471,
+          "original_post_disarm_odom_count": 116,
+          "original_post_disarm_samples_over_0p15": 116,
+          "synthetic_post_disarm_ground_samples": [],
+          "model": "no_ground",
+          "first_executor_terminal": {
+            "mode": "FAILED",
+            "reason": "landing_timeout",
+            "elapsed_wall_s": 30.0,
+            "sim_s": 87.6013
+          },
+          "actions": [
+            [
+              0.0,
+              "AUTO.LAND"
+            ],
+            [
+              25.24,
+              "AUTO.LAND"
+            ],
+            [
+              25.76,
+              "AUTO.LAND"
+            ],
+            [
+              26.28,
+              "AUTO.LAND"
+            ]
+          ]
+        }
+      ]
+    },
+    "V03-1.5-front-1": {
+      "trace_sha256": "bb7082239af086b9094903392f42c8646af03a2eac9a509a4ecc011beedec6f5",
+      "comparisons": [
+        {
+          "land_wall_s": 7325108.648225805,
+          "land_observed_sim_s": 49.5979,
+          "first_disarm_wall_s": 20.722319,
+          "original_post_disarm_odom_count": 232,
+          "original_post_disarm_samples_over_0p15": 232,
+          "synthetic_post_disarm_ground_samples": [
+            [
+              21.0074,
+              68
+            ],
+            [
+              22.1666,
+              69
+            ]
+          ],
+          "model": "ground_after_disarm",
+          "first_executor_terminal": {
+            "mode": "COMPLETE",
+            "reason": "",
+            "elapsed_wall_s": 22.2,
+            "sim_s": 69.0323
+          },
+          "actions": [
+            [
+              0.0,
+              "AUTO.LAND"
+            ],
+            [
+              20.76,
+              "AUTO.LAND"
+            ],
+            [
+              21.28,
+              "AUTO.LAND"
+            ],
+            [
+              21.8,
+              "AUTO.LAND"
+            ]
+          ]
+        },
+        {
+          "land_wall_s": 7325108.648225805,
+          "land_observed_sim_s": 49.5979,
+          "first_disarm_wall_s": 20.722319,
+          "original_post_disarm_odom_count": 232,
+          "original_post_disarm_samples_over_0p15": 232,
+          "synthetic_post_disarm_ground_samples": [],
+          "model": "no_ground",
+          "first_executor_terminal": {
+            "mode": "FAILED",
+            "reason": "landing_timeout",
+            "elapsed_wall_s": 30.0,
+            "sim_s": 75.4564
+          },
+          "actions": [
+            [
+              0.0,
+              "AUTO.LAND"
+            ],
+            [
+              20.76,
+              "AUTO.LAND"
+            ],
+            [
+              21.28,
+              "AUTO.LAND"
+            ],
+            [
+              21.8,
+              "AUTO.LAND"
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

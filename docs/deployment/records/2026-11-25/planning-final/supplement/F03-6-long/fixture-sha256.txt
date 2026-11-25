@@ -1,0 +1,3 @@
+ff20b93254f5a99c50682da11ce1de0cc011995851a9f09ea83b4995cd1835f2  /root/autodl-tmp/uav/validation/goal-20261125/isolated/heading-fixture/validate_planning_sitl.py
+76c0349617866dd0bad9c10316697fa893cf5c27cc885271cfb9b0bdf2fbd8d0  /root/autodl-tmp/uav/validation/goal-20261125/isolated/heading-fixture/validate_segments.py
+fa6e0c4ac22fdde27d986ee423162fed480d98ab5ccee6be014ff1b71c999e2b  /root/autodl-tmp/uav/validation/goal-20261125/isolated/heading-fixture/run_acceptance_case.sh

@@ -1,0 +1,532 @@
+[
+  {
+    "id": "F04-1-long",
+    "commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+    "mission": "beyond_planning_horizon-9767d7f0",
+    "goal_id": 5,
+    "mission_terminal": "DONE",
+    "mission_reason": "destination_reached",
+    "terminal_wall_monotonic": 7327842.108231812,
+    "track_to_first_brake_wall_s": 5.446657,
+    "streams_brake_minus_4_to_plus_0p18": {
+      "odom": {
+        "n": 126,
+        "median_Hz": 31.223124,
+        "max_wall_gap_s": 0.045784,
+        "max_gap_recv_rel_s": [
+          -3.937405,
+          -3.891621
+        ],
+        "header_stamps_at_gap": [
+          109.296,
+          109.332
+        ]
+      },
+      "px4_target": {
+        "n": 42,
+        "median_Hz": 10.006813,
+        "max_wall_gap_s": 0.10898,
+        "max_gap_recv_rel_s": [
+          -3.969214,
+          -3.860235
+        ],
+        "header_stamps_at_gap": [
+          109.264,
+          109.36
+        ]
+      },
+      "setpoint": {
+        "n": 104,
+        "median_Hz": 24.902864,
+        "max_wall_gap_s": 0.051661,
+        "max_gap_recv_rel_s": [
+          -3.958376,
+          -3.906715
+        ],
+        "header_stamps_at_gap": [
+          109.272,
+          109.312
+        ]
+      },
+      "flight": {
+        "n": 52,
+        "median_Hz": 12.443588,
+        "max_wall_gap_s": 0.092265,
+        "max_gap_recv_rel_s": [
+          -3.998439,
+          -3.906175
+        ],
+        "header_stamps_at_gap": [
+          null,
+          null
+        ]
+      },
+      "fcu": {
+        "n": 4,
+        "median_Hz": 0.997628,
+        "max_wall_gap_s": 1.003724,
+        "max_gap_recv_rel_s": [
+          -4.501585,
+          -3.497861
+        ],
+        "header_stamps_at_gap": [
+          null,
+          null
+        ]
+      },
+      "control_status_ack": {
+        "n": 50,
+        "median_Hz": 12.399461,
+        "max_wall_gap_s": 0.121194,
+        "max_gap_recv_rel_s": [
+          -3.988381,
+          -3.867187
+        ],
+        "header_stamps_at_gap": [
+          null,
+          null
+        ]
+      }
+    },
+    "subscriber_cadence_wall_time_base": "Observer receive time, measured per channel",
+    "sha256": {
+      "trace.json": "b60092c110eff0c896a3294bf3a0d1fef432a171d0ee228bec8a65d50391d4cd",
+      "results.json": "60b7951d8aa5b10dc47789cdf5d9fc85f0ab0b14b742ddfb32e0ba95bd6f6ad0",
+      "supervisor.log": "7c10e4de1b7f368d5cc7e6a1415e53b1c55ad57cc52a61b5ba897359cd58dda6",
+      "px4.log": "c3d75d7a31b075660b92c62ba5ba08d681532e0ff60c324d1e8218a45547dde2"
+    },
+    "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-115143/supervisor.log",
+    "px4_outcomes": [
+      "INFO  [logger] Opened full log file: ./log/2026-11-25/03_51_50.ulg",
+      "INFO  [commander] Landing detected",
+      "INFO  [commander] Disarmed by landing"
+    ],
+    "postflight": {
+      "connected": true,
+      "armed": false,
+      "landed": true,
+      "mode": "AUTO.LAND"
+    },
+    "independent_planning": {
+      "passed": true,
+      "details": [
+        {
+          "mission": "beyond_planning_horizon-9767d7f0",
+          "terminal_reason": "destination_reached",
+          "distance_to_goal_m": 0.12593698227776198,
+          "speed_mps": 0.025628449677937645
+        }
+      ]
+    },
+    "physics": {
+      "unexpected": 0,
+      "validated": true
+    },
+    "late_track_or_authorize_count": 0
+  },
+  {
+    "id": "F04-2-long",
+    "commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+    "mission": "beyond_planning_horizon-61a9ca50",
+    "goal_id": 5,
+    "mission_terminal": "FAILED",
+    "mission_reason": "flight_feedback_unavailable",
+    "terminal_wall_monotonic": 7328228.973134314,
+    "track_to_first_brake_wall_s": 4.370951,
+    "streams_brake_minus_4_to_plus_0p18": {
+      "odom": {
+        "n": 102,
+        "median_Hz": 31.538226,
+        "max_wall_gap_s": 0.539381,
+        "max_gap_recv_rel_s": [
+          -0.564778,
+          -0.025397
+        ],
+        "header_stamps_at_gap": [
+          108.572,
+          108.608
+        ]
+      },
+      "px4_target": {
+        "n": 34,
+        "median_Hz": 9.488801,
+        "max_wall_gap_s": 0.599157,
+        "max_gap_recv_rel_s": [
+          -0.564393,
+          0.034764
+        ],
+        "header_stamps_at_gap": [
+          108.576,
+          108.676
+        ]
+      },
+      "setpoint": {
+        "n": 99,
+        "median_Hz": 24.915968,
+        "max_wall_gap_s": 0.120115,
+        "max_gap_recv_rel_s": [
+          -0.089197,
+          0.030918
+        ],
+        "header_stamps_at_gap": [
+          108.596,
+          108.668
+        ]
+      },
+      "flight": {
+        "n": 51,
+        "median_Hz": 12.439039,
+        "max_wall_gap_s": 0.100485,
+        "max_gap_recv_rel_s": [
+          -1.372741,
+          -1.272256
+        ],
+        "header_stamps_at_gap": [
+          null,
+          null
+        ]
+      },
+      "fcu": {
+        "n": 4,
+        "median_Hz": 0.90864,
+        "max_wall_gap_s": 1.628912,
+        "max_gap_recv_rel_s": [
+          -1.529481,
+          0.099431
+        ],
+        "header_stamps_at_gap": [
+          null,
+          null
+        ]
+      },
+      "control_status_ack": {
+        "n": 49,
+        "median_Hz": 12.395199,
+        "max_wall_gap_s": 0.139273,
+        "max_gap_recv_rel_s": [
+          -2.211427,
+          -2.072154
+        ],
+        "header_stamps_at_gap": [
+          null,
+          null
+        ]
+      }
+    },
+    "subscriber_cadence_wall_time_base": "Observer receive time, measured per channel",
+    "sha256": {
+      "trace.json": "0074920f9a6bed816144d4b07eadc46384b4b83d62933a4f25843fb1ff542498",
+      "results.json": "3bf7f6e4aec847728421715b0c3bdb5e70b838da866dfaef16c2a98d6c310506",
+      "supervisor.log": "80fa5b92a4115bf8b6c47c99f2ebb45e9d294020465ccf9c356c5bed651b4fe3",
+      "px4.log": "975c44b38ae9102ccba0450f306125556d87b9f30366320cdd308a3ee1d2a068"
+    },
+    "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-115804/supervisor.log",
+    "px4_outcomes": [
+      "INFO  [logger] Opened full log file: ./log/2026-11-25/03_58_11.ulg",
+      "INFO  [commander] Landing detected",
+      "INFO  [commander] Disarmed by landing"
+    ],
+    "postflight": {
+      "connected": true,
+      "armed": false,
+      "landed": true,
+      "mode": "AUTO.LAND"
+    },
+    "independent_planning": {
+      "passed": false,
+      "details": [
+        {
+          "mission": "beyond_planning_horizon-61a9ca50",
+          "terminal_reason": "flight_feedback_unavailable",
+          "distance_to_goal_m": 0.4612752279613266,
+          "speed_mps": 0.3595822441946895
+        }
+      ]
+    },
+    "physics": {
+      "unexpected": 0,
+      "validated": true
+    },
+    "late_track_or_authorize_count": 0,
+    "repeated_setpoints": {
+      "stamp": 108.596,
+      "count": 12,
+      "wall_span_s": 0.440957,
+      "distinct_positions": 1
+    },
+    "odom_observed_500ms_limit_crossing_rel_s": -0.064778,
+    "observed_event_transitions": [
+      {
+        "rel_s": -0.650262,
+        "topic": "flight",
+        "mode": "TRACK",
+        "seq": 25,
+        "reason": "",
+        "trajectory_id": 16,
+        "context": [
+          "beyond_planning_horizon-61a9ca50",
+          5,
+          "a85fc3d0-09d4-4901-bc0a-1dd9c2be7ea0"
+        ],
+        "stop_id": null,
+        "stop_confirmed": false,
+        "owner": true,
+        "owns_flight": true,
+        "ready": true
+      },
+      {
+        "rel_s": -0.047981,
+        "topic": "plan_result",
+        "reason": "requested",
+        "status": "CANCELLING"
+      },
+      {
+        "rel_s": -0.047346,
+        "topic": "native_spline",
+        "traj_id": 17,
+        "emergency": true
+      },
+      {
+        "rel_s": -0.046963,
+        "topic": "gateway_disposition",
+        "reason": "no_active_goal",
+        "traj_id": 17,
+        "accepted": false
+      },
+      {
+        "rel_s": -0.046621,
+        "topic": "plan_result",
+        "reason": "ego_acknowledged",
+        "status": "CANCELLED"
+      },
+      {
+        "rel_s": -0.040483,
+        "topic": "flight_command",
+        "command": "HOVER",
+        "seq": 26
+      },
+      {
+        "rel_s": -0.040182,
+        "topic": "mission",
+        "phase": "BRAKE",
+        "reason": "trajectory_lost",
+        "stop_id": 26
+      },
+      {
+        "rel_s": -0.00923,
+        "topic": "flight",
+        "mode": "FAILED",
+        "seq": 26,
+        "reason": "feedback_or_owner_lost",
+        "trajectory_id": null,
+        "context": null,
+        "stop_id": null,
+        "stop_confirmed": false,
+        "owner": true,
+        "owns_flight": true,
+        "ready": true
+      },
+      {
+        "rel_s": 0.0,
+        "topic": "mission",
+        "phase": "FAILED",
+        "reason": "flight_feedback_unavailable",
+        "stop_id": 26
+      },
+      {
+        "rel_s": 0.006836,
+        "topic": "flight_command",
+        "command": "LAND",
+        "seq": 27
+      },
+      {
+        "rel_s": 0.007023,
+        "topic": "mission",
+        "phase": "LANDING",
+        "reason": "",
+        "stop_id": 26
+      },
+      {
+        "rel_s": 0.07116,
+        "topic": "flight",
+        "mode": "LANDING",
+        "seq": 27,
+        "reason": "land_requested",
+        "trajectory_id": null,
+        "context": null,
+        "stop_id": 27,
+        "stop_confirmed": false,
+        "owner": true,
+        "owns_flight": true,
+        "ready": true
+      },
+      {
+        "rel_s": 0.099431,
+        "topic": "fcu",
+        "mode": "AUTO.LAND",
+        "armed": true,
+        "connected": true
+      },
+      {
+        "rel_s": 10.574126,
+        "topic": "fcu",
+        "mode": "OFFBOARD",
+        "armed": false,
+        "connected": true
+      },
+      {
+        "rel_s": 11.734051,
+        "topic": "fcu",
+        "mode": "AUTO.LAND",
+        "armed": false,
+        "connected": true
+      },
+      {
+        "rel_s": 11.988569,
+        "topic": "flight",
+        "mode": "COMPLETE",
+        "seq": 27,
+        "reason": "land_requested",
+        "trajectory_id": null,
+        "context": null,
+        "stop_id": 27,
+        "stop_confirmed": false,
+        "owner": true,
+        "owns_flight": false,
+        "ready": true
+      },
+      {
+        "rel_s": 12.027502,
+        "topic": "mission",
+        "phase": "LANDED",
+        "reason": "",
+        "stop_id": 26
+      }
+    ]
+  },
+  {
+    "id": "F04-3-long",
+    "commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+    "mission": "beyond_planning_horizon-bdff74f6",
+    "goal_id": 5,
+    "mission_terminal": "DONE",
+    "mission_reason": "destination_reached",
+    "terminal_wall_monotonic": 7328639.200822013,
+    "track_to_first_brake_wall_s": 7.300923,
+    "streams_brake_minus_4_to_plus_0p18": {
+      "odom": {
+        "n": 100,
+        "median_Hz": 34.089677,
+        "max_wall_gap_s": 0.165526,
+        "max_gap_recv_rel_s": [
+          -5.355443,
+          -5.189917
+        ],
+        "header_stamps_at_gap": [
+          104.624,
+          104.66
+        ]
+      },
+      "px4_target": {
+        "n": 33,
+        "median_Hz": 8.613055,
+        "max_wall_gap_s": 0.208901,
+        "max_gap_recv_rel_s": [
+          -2.200044,
+          -1.991143
+        ],
+        "header_stamps_at_gap": [
+          107.196,
+          107.292
+        ]
+      },
+      "setpoint": {
+        "n": 98,
+        "median_Hz": 24.833055,
+        "max_wall_gap_s": 0.099159,
+        "max_gap_recv_rel_s": [
+          -4.89772,
+          -4.79856
+        ],
+        "header_stamps_at_gap": [
+          104.884,
+          104.928
+        ]
+      },
+      "flight": {
+        "n": 49,
+        "median_Hz": 12.434516,
+        "max_wall_gap_s": 0.176852,
+        "max_gap_recv_rel_s": [
+          -4.975611,
+          -4.798759
+        ],
+        "header_stamps_at_gap": [
+          null,
+          null
+        ]
+      },
+      "fcu": {
+        "n": 4,
+        "median_Hz": 0.801727,
+        "max_wall_gap_s": 1.29213,
+        "max_gap_recv_rel_s": [
+          -5.086031,
+          -3.793901
+        ],
+        "header_stamps_at_gap": [
+          null,
+          null
+        ]
+      },
+      "control_status_ack": {
+        "n": 47,
+        "median_Hz": 12.384235,
+        "max_wall_gap_s": 0.160978,
+        "max_gap_recv_rel_s": [
+          -4.93886,
+          -4.777881
+        ],
+        "header_stamps_at_gap": [
+          null,
+          null
+        ]
+      }
+    },
+    "subscriber_cadence_wall_time_base": "Observer receive time, measured per channel",
+    "sha256": {
+      "trace.json": "6a7d51558662d7747ee73a42fdd98292122dc8ee2fd1103b285f242bad6ca04a",
+      "results.json": "ce91b712387c1218e66cc9e9b0c24c976e598bdd9af81464a00698c7590fdbcb",
+      "supervisor.log": "856701d7d48de383d09837b6ba922eef7e3f36299318ca59a4c22f1a9b91072f",
+      "px4.log": "9a9092e9487a5f8ae99e95f118751b403bbf29bc14d371aff75439cd2ca8c5a6"
+    },
+    "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-120446/supervisor.log",
+    "px4_outcomes": [
+      "INFO  [logger] Opened full log file: ./log/2026-11-25/04_04_52.ulg",
+      "INFO  [commander] Landing detected",
+      "INFO  [commander] Disarmed by landing"
+    ],
+    "postflight": {
+      "connected": true,
+      "armed": false,
+      "landed": true,
+      "mode": "AUTO.LAND"
+    },
+    "independent_planning": {
+      "passed": true,
+      "details": [
+        {
+          "mission": "beyond_planning_horizon-bdff74f6",
+          "terminal_reason": "destination_reached",
+          "distance_to_goal_m": 0.15338561445358703,
+          "speed_mps": 0.0336092985143975
+        }
+      ]
+    },
+    "physics": {
+      "unexpected": 0,
+      "validated": true
+    },
+    "late_track_or_authorize_count": 0
+  }
+]

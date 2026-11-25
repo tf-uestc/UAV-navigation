@@ -1,0 +1,25 @@
+NumPy: 1.17.4
+UTC: 2026-11-25T02:07:03.585506+00:00
+Python: 3.8.10
+Platform: Linux-5.15.0-190-generic-x86_64-with-glibc2.29
+Source/test SHA256: cb37d1c156a1e5fbeb85d3f45258ec6202be2da59126ea0f15f2a2d9d973397e
+Scope: offline logic and ROS-shaped stand-ins; ROS/PX4/Gazebo not exercised.
+
+test_empty_color_and_positive_box_require_semantic_confirmation (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_generic_ambiguous_foreground_rejects_background (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_ground_at_bottom_edge_does_not_hide_supported_foreground (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_partial_holes_and_unrelated_closer_surface (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_pole_surface_and_projection_in_loose_boxes (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_target_pixels_without_depth_cannot_use_the_wall (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_bad_depth_still_stops_without_scanning_or_planning (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_color_conflict_rechecks_once_then_advances_scan_under_original_budget (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_inside_band_stopped (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_missing_stop_confirmation_even_with_low_speed (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_moving_at_reply_requires_stop_and_new_observation (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_outside_band_requires_plan (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_too_close_stops_without_claiming_arrival (test_visual_arrival_depth.VisualArrivalTests) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.295s
+
+OK

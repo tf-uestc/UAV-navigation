@@ -130,6 +130,12 @@ class ArchiveReviewTests(unittest.TestCase):
         self.assertEqual(len(data['ledger_warnings']),1)
         self.assertEqual(data['by_version_total']['abcd']['passed'],1,data)
 
+    def test_shared_archive_handles_planning_batch_metadata(self):
+        ledger=self.root/'F04-attempts.jsonl'
+        ledger.write_text('{"event":"batch"}\n{"event":"complete"}\n',encoding='utf-8')
+        self.check_report()
+        self.assertEqual(report([self.root],['*'])['by_version_total']['abcd']['passed'],1)
+
     def test_false_negative_in_primary_audit_is_visible(self):
         write_json(self.case/'acceptance.json',dict(passed=False,errors=['unexpected']))
         data=self.check_report()

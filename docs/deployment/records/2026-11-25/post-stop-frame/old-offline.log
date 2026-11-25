@@ -1,0 +1,37 @@
+NumPy: 1.24.4
+UTC: 2026-11-25T03:26:50.732645+00:00
+Python: 3.8.10
+Platform: Linux-5.15.0-190-generic-x86_64-with-glibc2.29
+Source/test SHA256: 392459a334a106deed57cfe257e75292e247ad8bce50e8cb6c54d6db54a549b8
+Scope: offline logic and ROS-shaped stand-ins; ROS/PX4/Gazebo not exercised.
+
+test_cached_pre_stop_frame_waits_for_new_acquisition (test_post_stop_frame.PostStopFrameTests) ... FAIL
+test_missing_triplet_wait_is_bounded_by_remaining_result_budget (test_post_stop_frame.PostStopFrameTests) ... FAIL
+
+======================================================================
+FAIL: test_cached_pre_stop_frame_waits_for_new_acquisition (test_post_stop_frame.PostStopFrameTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/isolated/capture-floor/offline/tests/offline/test_post_stop_frame.py", line 42, in test_cached_pre_stop_frame_waits_for_new_acquisition
+    self.fail('Worker returned before an eligible synchronized frame arrived')
+AssertionError: Worker returned before an eligible synchronized frame arrived
+
+======================================================================
+FAIL: test_missing_triplet_wait_is_bounded_by_remaining_result_budget (test_post_stop_frame.PostStopFrameTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/isolated/capture-floor/offline/tests/offline/test_post_stop_frame.py", line 64, in test_missing_triplet_wait_is_bounded_by_remaining_result_budget
+    self.assertEqual((result.reason,result.capture_stamp,result.key.request_id),
+AssertionError: Tuples differ: ('sensor_data_unavailable', 0.0, 1) != ('post_stop_frame_timeout', 0.0, 1)
+
+First differing element 0:
+'sensor_data_unavailable'
+'post_stop_frame_timeout'
+
+- ('sensor_data_unavailable', 0.0, 1)
++ ('post_stop_frame_timeout', 0.0, 1)
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.112s
+
+FAILED (failures=2)

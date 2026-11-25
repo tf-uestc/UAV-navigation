@@ -1,0 +1,39 @@
+test_stale_track_status_sends_stop_before_terminal (test_segment_flight_safety.SafetyTests) ... FAIL
+test_stationary_cancel_requires_post_request_ground_feedback (test_segment_flight_safety.SafetyTests) ... FAIL
+test_takeoff_cancel_ignores_old_ground_during_ascent (test_segment_flight_safety.SafetyTests) ... FAIL
+
+======================================================================
+FAIL: test_stale_track_status_sends_stop_before_terminal (test_segment_flight_safety.SafetyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\��ҵ����\��Ŀ\UAV-navigation-main\sitl-20261125\tests\offline\test_segment_flight_safety.py", line 106, in test_stale_track_status_sends_stop_before_terminal
+    self.assertEqual([c["command"] for c in commands], ["HOVER"])
+AssertionError: Lists differ: [] != ['HOVER']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'HOVER'
+
+- []
++ ['HOVER']
+
+======================================================================
+FAIL: test_stationary_cancel_requires_post_request_ground_feedback (test_segment_flight_safety.SafetyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\��ҵ����\��Ŀ\UAV-navigation-main\sitl-20261125\tests\offline\test_segment_flight_safety.py", line 90, in test_stationary_cancel_requires_post_request_ground_feedback
+    self.assertNotIn("DISARM", node.bridge.tick(fb, self.wall).actions)
+AssertionError: 'DISARM' unexpectedly found in ('DISARM',)
+
+======================================================================
+FAIL: test_takeoff_cancel_ignores_old_ground_during_ascent (test_segment_flight_safety.SafetyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\��ҵ����\��Ŀ\UAV-navigation-main\sitl-20261125\tests\offline\test_segment_flight_safety.py", line 79, in test_takeoff_cancel_ignores_old_ground_during_ascent
+    self.assertNotIn("DISARM", decision.actions, decision)
+AssertionError: 'DISARM' unexpectedly found in ('DISARM',) : Decision(mode='LANDING', reference=Reference(position=(0.0, 0.0, 0.4), yaw=0.0), actions=('DISARM',), reason='')
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.355s
+
+FAILED (failures=3)

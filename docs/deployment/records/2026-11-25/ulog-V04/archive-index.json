@@ -1,0 +1,164 @@
+{
+  "commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+  "unique_logs": 16,
+  "raw_bytes": 242253223,
+  "coldstart_heading_sha256": "0831bef3a115b953db192298fd2104bf377ad1477dbbc1c200642545264d0d74",
+  "archives": [
+    {
+      "name": "V04-px4-ulogs-01.tar.gz",
+      "bytes": 16342174,
+      "sha256": "db827d426a07dd7b7d11d446e36dc2347534685b9db75e68e734087b4d13023d",
+      "verified_members": [
+        {
+          "case": "V04-2.4-front-1",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_32_56.ulg",
+          "member": "V04-2.4-front-1/04_32_56.ulg",
+          "bytes": 10310693,
+          "sha256": "548bb00c8605b2da41fbb5cc749e4d53faeb9f41c2f76b39533c9fc83acb7372",
+          "original_pass": true
+        },
+        {
+          "case": "V04-2.4-front-2",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_34_21.ulg",
+          "member": "V04-2.4-front-2/04_34_21.ulg",
+          "bytes": 12857910,
+          "sha256": "e3c4ae3d37815d1ab22d31c7fa41210556b94af899d9fb02c8e470341416f07c",
+          "original_pass": true
+        },
+        {
+          "case": "V04-2.4-left45-1",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_35_57.ulg",
+          "member": "V04-2.4-left45-1/04_35_57.ulg",
+          "bytes": 13312511,
+          "sha256": "40943f2b08237ce4e4ce19688bee92920f71c89d2d0c8424fc68c7c82ebe72ee",
+          "original_pass": true
+        },
+        {
+          "case": "V04-2.4-left45-2",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_37_37.ulg",
+          "member": "V04-2.4-left45-2/04_37_37.ulg",
+          "bytes": 13930379,
+          "sha256": "4f326107fd577ea9a6d407d45be3427641d91879282ea1c93590fd5e5a99ac63",
+          "original_pass": true
+        }
+      ]
+    },
+    {
+      "name": "V04-px4-ulogs-02.tar.gz",
+      "bytes": 20398862,
+      "sha256": "41998a25ee3c95a4b9d86e7b25cb463f58165dc6740f929ab4034b33ce42982b",
+      "verified_members": [
+        {
+          "case": "V04-2.4-right45-1",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_39_20.ulg",
+          "member": "V04-2.4-right45-1/04_39_20.ulg",
+          "bytes": 14114903,
+          "sha256": "57e17fb300887bce1a0181ee905e4aadda35a92f0220c654b1000a8148a60677",
+          "original_pass": true
+        },
+        {
+          "case": "V04-2.4-right45-2",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_41_05.ulg",
+          "member": "V04-2.4-right45-2/04_41_05.ulg",
+          "bytes": 14944520,
+          "sha256": "972f6b1aa6d95ad78bea25a0daf968ea611c34083be84faa31181b7626004fe5",
+          "original_pass": true
+        },
+        {
+          "case": "V04-2.4-left90-1",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_42_53.ulg",
+          "member": "V04-2.4-left90-1/04_42_53.ulg",
+          "bytes": 16693668,
+          "sha256": "cdab5ea937f906f379d124def9612ad8f17eb9169e783c9b9ecc791519eed79c",
+          "original_pass": true
+        },
+        {
+          "case": "V04-2.4-left90-2",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_44_47.ulg",
+          "member": "V04-2.4-left90-2/04_44_47.ulg",
+          "bytes": 16487332,
+          "sha256": "0268068379a0f04724feee4af7c2b533549765aca62f32abc10479e0fc892e3e",
+          "original_pass": true
+        }
+      ]
+    },
+    {
+      "name": "V04-px4-ulogs-03.tar.gz",
+      "bytes": 21017651,
+      "sha256": "d9aafbd73c382f6a1c2a00c3b1ba2a38050e047b97bacdc5b7e8315bbaffac99",
+      "verified_members": [
+        {
+          "case": "V04-2.4-right90-1",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_46_43.ulg",
+          "member": "V04-2.4-right90-1/04_46_43.ulg",
+          "bytes": 20682760,
+          "sha256": "65febfa0f9e38efb447eccaaa6cf9948fd56b43be786b56d69a443b4a1079c82",
+          "original_pass": false
+        },
+        {
+          "case": "V04-2.4-right90-2",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_49_00.ulg",
+          "member": "V04-2.4-right90-2/04_49_00.ulg",
+          "bytes": 16820353,
+          "sha256": "5288013f11595ae792d75b6c6c7a1db765d31e2bc2cf6dc9ad502d37c25c2d84",
+          "original_pass": true
+        },
+        {
+          "case": "V04-1.5-front-1",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_50_59.ulg",
+          "member": "V04-1.5-front-1/04_50_59.ulg",
+          "bytes": 13552647,
+          "sha256": "325a9ef8ba7a8e41ac2c82e6b98e6fbffe8a3a233ad7e1ccd8c844582af37593",
+          "original_pass": false
+        },
+        {
+          "case": "V04-1.5-front-2",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_52_39.ulg",
+          "member": "V04-1.5-front-2/04_52_39.ulg",
+          "bytes": 13010689,
+          "sha256": "7fd0c0e2609395c8be794e3760aaa29ef8f255efa4b9adb0025481a5cdaaebdd",
+          "original_pass": true
+        }
+      ]
+    },
+    {
+      "name": "V04-px4-ulogs-04.tar.gz",
+      "bytes": 21397812,
+      "sha256": "50d59ff4d2a94e50e8f87ba5baba055de1db5ce3ca65e05ac94610eec8023fa5",
+      "verified_members": [
+        {
+          "case": "V04-1.5-left45-1",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_54_18.ulg",
+          "member": "V04-1.5-left45-1/04_54_18.ulg",
+          "bytes": 15115941,
+          "sha256": "58fedb172329061e34209225a4f09bfff26a6f9b615fc64d93b18c79738abe50",
+          "original_pass": true
+        },
+        {
+          "case": "V04-1.5-left45-2",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_56_10.ulg",
+          "member": "V04-1.5-left45-2/04_56_10.ulg",
+          "bytes": 17069146,
+          "sha256": "75a8747ec2535ca3a5378e03404945739affe24a5ed5422d97ba92c3a0f71250",
+          "original_pass": true
+        },
+        {
+          "case": "V04-1.5-right45-1",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_58_23.ulg",
+          "member": "V04-1.5-right45-1/04_58_23.ulg",
+          "bytes": 17491317,
+          "sha256": "8c030590ee31f2b7365f3091ad2303bb24c6be12452d3fc35812d7d448e17039",
+          "original_pass": true
+        },
+        {
+          "case": "V04-1.5-right45-2",
+          "path": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/05_00_24.ulg",
+          "member": "V04-1.5-right45-2/05_00_24.ulg",
+          "bytes": 15858454,
+          "sha256": "388c53121660106a7cd5d075500321fe3f1501b3dfdf0326515016eafdab21f1",
+          "original_pass": true
+        }
+      ]
+    }
+  ]
+}

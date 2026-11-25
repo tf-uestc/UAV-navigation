@@ -1,0 +1,196 @@
+{
+  "source_run_root": "/root/autodl-tmp/uav/validation/goal-20261125/flights",
+  "attempts": [
+    {
+      "label": "P01-straight",
+      "commit": "294933f200541aaa4d563058eef120adb8aead9a",
+      "results": "P01-straight/result/results.json",
+      "results_sha256": "74c81abc5a96d76a98a0ae2580525ff9036516176438dea58eae4b47b2ded9f5",
+      "runner_passed": true,
+      "audit": "P01-straight/independent-planning.json",
+      "audit_sha256": "00c12d4aff3764a43b3dfd65d5839aec5b85a4563adc1319e973c7f7c8d32d93",
+      "audit_passed": true,
+      "checks": {
+        "contact_stream_observed": true,
+        "armed_then_disarmed": true,
+        "all_requested_missions_present": true,
+        "straight-b892c274/terminal": true,
+        "straight-b892c274/reached": true,
+        "straight-b892c274/fence": true,
+        "straight-b892c274/physical_endpoint": true,
+        "straight-b892c274/acknowledgements": true,
+        "straight-b892c274/only_accepted_executed": true,
+        "straight-b892c274/tracked": true
+      },
+      "details": [
+        {
+          "mission": "straight-b892c274",
+          "terminal_reason": "destination_reached",
+          "distance_to_goal_m": 0.0710917058015523,
+          "speed_mps": 0.022782021847054072
+        }
+      ]
+    },
+    {
+      "label": "P01-outside",
+      "commit": "294933f200541aaa4d563058eef120adb8aead9a",
+      "results": "P01-outside/result/results.json",
+      "results_sha256": "c6e30f3c8153f0e4aaa3d7180ed396118b5bdf9f1ff5af8e9b9a0675b1405425",
+      "runner_passed": true,
+      "audit": "P01-outside/independent-planning.json",
+      "audit_sha256": "6907bd5c41e0e5fbbfc099de8c1ca2093e6dcefd0583ac358094a66d909dda4f",
+      "audit_passed": true,
+      "checks": {
+        "contact_stream_observed": true,
+        "armed_then_disarmed": true,
+        "all_requested_missions_present": true,
+        "outside-e3bee9ea/terminal": true,
+        "outside-e3bee9ea/stopped": true,
+        "outside-e3bee9ea/measured_hold": true,
+        "outside-e3bee9ea/outside": true,
+        "outside-e3bee9ea/acknowledgements": true,
+        "outside-e3bee9ea/only_accepted_executed": true
+      },
+      "details": []
+    },
+    {
+      "label": "P01-static",
+      "commit": "294933f200541aaa4d563058eef120adb8aead9a",
+      "results": "P01-static/result/results.json",
+      "results_sha256": "461d8a403ea456ca64246306a4b57482a767c7a4c569ba401d60688078c9eb7f",
+      "runner_passed": true,
+      "audit": "P01-static/independent-planning.json",
+      "audit_sha256": "204042da55f0eda786888be890dfdc5a100874477d1afad6874210fb3b385375",
+      "audit_passed": true,
+      "checks": {
+        "contact_stream_observed": true,
+        "armed_then_disarmed": true,
+        "all_requested_missions_present": true,
+        "bypass-8f9ed89a/terminal": true,
+        "bypass-8f9ed89a/reached": true,
+        "bypass-8f9ed89a/fence": true,
+        "bypass-8f9ed89a/physical_endpoint": true,
+        "bypass-8f9ed89a/acknowledgements": true,
+        "bypass-8f9ed89a/only_accepted_executed": true,
+        "bypass-8f9ed89a/tracked": true,
+        "occupied-21189a19/terminal": true,
+        "occupied-21189a19/stopped": true,
+        "occupied-21189a19/measured_hold": true,
+        "occupied-21189a19/acknowledgements": true,
+        "occupied-21189a19/only_accepted_executed": true,
+        "world_samples_present": true,
+        "clearance": true,
+        "world_outcome": true
+      },
+      "details": [
+        {
+          "mission": "bypass-8f9ed89a",
+          "terminal_reason": "destination_reached",
+          "distance_to_goal_m": 0.12705089479768586,
+          "speed_mps": 0.03879431636684967
+        },
+        {
+          "samples": 539,
+          "center_to_obstacle_surface_m": 0.6696892180373658
+        }
+      ]
+    },
+    {
+      "label": "P01-long",
+      "commit": "294933f200541aaa4d563058eef120adb8aead9a",
+      "results": "P01-long/result/results.json",
+      "results_sha256": "576bab2d1dafc4a75562cd5bbcd22a61787a1dad0b97617a06583d1649dad2b2",
+      "runner_passed": true,
+      "audit": "P01-long/independent-planning.json",
+      "audit_sha256": "3e6b8e389d24f8bb8f877c05d8fd8a914e9e1652af282386672a3499d9f7afd2",
+      "audit_passed": true,
+      "checks": {
+        "contact_stream_observed": true,
+        "armed_then_disarmed": true,
+        "all_requested_missions_present": true,
+        "beyond_planning_horizon-b706ac4e/terminal": true,
+        "beyond_planning_horizon-b706ac4e/reached": true,
+        "beyond_planning_horizon-b706ac4e/fence": true,
+        "beyond_planning_horizon-b706ac4e/physical_endpoint": true,
+        "beyond_planning_horizon-b706ac4e/beyond_horizon": true,
+        "beyond_planning_horizon-b706ac4e/acknowledgements": true,
+        "beyond_planning_horizon-b706ac4e/only_accepted_executed": true,
+        "beyond_planning_horizon-b706ac4e/tracked": true
+      },
+      "details": [
+        {
+          "mission": "beyond_planning_horizon-b706ac4e",
+          "terminal_reason": "destination_reached",
+          "distance_to_goal_m": 0.1700584272285197,
+          "speed_mps": 0.035694600770005414
+        }
+      ]
+    },
+    {
+      "label": "P01-dynamic",
+      "commit": "294933f200541aaa4d563058eef120adb8aead9a",
+      "results": "P01-dynamic/result/results.json",
+      "results_sha256": "c186a1f22ab0312fb422dae084faae6383ca3e926b152973d51e6094d5c43730",
+      "runner_passed": true,
+      "audit": "P01-dynamic/independent-planning.json",
+      "audit_sha256": "b1c545bb8d2c0dff7f4b2419f0656d91b3101901abb2b863da223cebc8d17a93",
+      "audit_passed": true,
+      "checks": {
+        "contact_stream_observed": true,
+        "armed_then_disarmed": true,
+        "all_requested_missions_present": true,
+        "dynamic-993d7261/terminal": true,
+        "dynamic-993d7261/reached": true,
+        "dynamic-993d7261/fence": true,
+        "dynamic-993d7261/physical_endpoint": true,
+        "dynamic-993d7261/acknowledgements": true,
+        "dynamic-993d7261/only_accepted_executed": true,
+        "dynamic-993d7261/tracked": true,
+        "world_samples_present": true,
+        "clearance": true,
+        "world_outcome": true
+      },
+      "details": [
+        {
+          "mission": "dynamic-993d7261",
+          "terminal_reason": "destination_reached",
+          "distance_to_goal_m": 0.13419492800226115,
+          "speed_mps": 0.041535387216710434
+        },
+        {
+          "samples": 605,
+          "center_to_obstacle_surface_m": 0.4874331696181496
+        }
+      ]
+    },
+    {
+      "label": "P01-blocked",
+      "commit": "294933f200541aaa4d563058eef120adb8aead9a",
+      "results": "P01-blocked/result/results.json",
+      "results_sha256": "560a6c6aaf814c6c73b533a16dde55b087589a8002abe0b1b280d409fdfdb18d",
+      "runner_passed": true,
+      "audit": "P01-blocked/independent-planning.json",
+      "audit_sha256": "e0f6c84cc2d04cc1287d9f5469587d75136ad553ced0acca4ad98d4d3f6eedbd",
+      "audit_passed": true,
+      "checks": {
+        "contact_stream_observed": true,
+        "armed_then_disarmed": true,
+        "all_requested_missions_present": true,
+        "dynamic-d789c29f/terminal": true,
+        "dynamic-d789c29f/stopped": true,
+        "dynamic-d789c29f/measured_hold": true,
+        "dynamic-d789c29f/acknowledgements": true,
+        "dynamic-d789c29f/only_accepted_executed": true,
+        "world_samples_present": true,
+        "clearance": true,
+        "world_outcome": true
+      },
+      "details": [
+        {
+          "samples": 430,
+          "center_to_obstacle_surface_m": 0.5229686133621324
+        }
+      ]
+    }
+  ]
+}

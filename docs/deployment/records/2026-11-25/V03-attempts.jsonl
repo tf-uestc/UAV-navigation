@@ -1,0 +1,32 @@
+{"label": "V03-2.4-front-1", "distance": 2.4, "height": 1.6, "bearing": 0, "expected": 0, "repeat": 1, "start": 1795574857.9877002, "event": "start"}
+{"label": "V03-2.4-front-1", "distance": 2.4, "height": 1.6, "bearing": 0, "expected": 0, "repeat": 1, "start": 1795574857.9877002, "event": "finish", "end": 1795574952.4469497, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-2.4-front-2", "distance": 2.4, "height": 1.6, "bearing": 0, "expected": 0, "repeat": 2, "start": 1795574952.4473526, "event": "start"}
+{"label": "V03-2.4-front-2", "distance": 2.4, "height": 1.6, "bearing": 0, "expected": 0, "repeat": 2, "start": 1795574952.4473526, "event": "finish", "end": 1795575048.1438725, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-2.4-left45-1", "distance": 2.4, "height": 1.6, "bearing": 54, "expected": 45, "repeat": 1, "start": 1795575048.1441152, "event": "start"}
+{"label": "V03-2.4-left45-1", "distance": 2.4, "height": 1.6, "bearing": 54, "expected": 45, "repeat": 1, "start": 1795575048.1441152, "event": "finish", "end": 1795575176.5526922, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-2.4-left45-2", "distance": 2.4, "height": 1.6, "bearing": 54, "expected": 45, "repeat": 2, "start": 1795575176.553097, "event": "start"}
+{"label": "V03-2.4-left45-2", "distance": 2.4, "height": 1.6, "bearing": 54, "expected": 45, "repeat": 2, "start": 1795575176.553097, "event": "finish", "end": 1795575268.8844812, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-2.4-right45-1", "distance": 2.4, "height": 1.6, "bearing": -54, "expected": -45, "repeat": 1, "start": 1795575268.8847935, "event": "start"}
+{"label": "V03-2.4-right45-1", "distance": 2.4, "height": 1.6, "bearing": -54, "expected": -45, "repeat": 1, "start": 1795575268.8847935, "event": "finish", "end": 1795575383.502693, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-2.4-right45-2", "distance": 2.4, "height": 1.6, "bearing": -54, "expected": -45, "repeat": 2, "start": 1795575383.5032084, "event": "start"}
+{"label": "V03-2.4-right45-2", "distance": 2.4, "height": 1.6, "bearing": -54, "expected": -45, "repeat": 2, "start": 1795575383.5032084, "event": "finish", "end": 1795575495.0422337, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-2.4-left90-1", "distance": 2.4, "height": 1.6, "bearing": 103, "expected": 90, "repeat": 1, "start": 1795575495.0425003, "event": "start"}
+{"label": "V03-2.4-left90-1", "distance": 2.4, "height": 1.6, "bearing": 103, "expected": 90, "repeat": 1, "start": 1795575495.0425003, "event": "finish", "end": 1795575623.4626467, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-2.4-left90-2", "distance": 2.4, "height": 1.6, "bearing": 103, "expected": 90, "repeat": 2, "start": 1795575623.4629302, "event": "start"}
+{"label": "V03-2.4-left90-2", "distance": 2.4, "height": 1.6, "bearing": 103, "expected": 90, "repeat": 2, "start": 1795575623.4629302, "event": "finish", "end": 1795575763.1204064, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-2.4-right90-1", "distance": 2.4, "height": 1.6, "bearing": -103, "expected": -90, "repeat": 1, "start": 1795575763.1208868, "event": "start"}
+{"label": "V03-2.4-right90-1", "distance": 2.4, "height": 1.6, "bearing": -103, "expected": -90, "repeat": 1, "start": 1795575763.1208868, "event": "finish", "end": 1795575884.8499136, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-2.4-right90-2", "distance": 2.4, "height": 1.6, "bearing": -103, "expected": -90, "repeat": 2, "start": 1795575884.850344, "event": "start"}
+{"label": "V03-2.4-right90-2", "distance": 2.4, "height": 1.6, "bearing": -103, "expected": -90, "repeat": 2, "start": 1795575884.850344, "event": "finish", "end": 1795576017.6733663, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-1.5-front-1", "distance": 1.5, "height": 1.3, "bearing": 0, "expected": 0, "repeat": 1, "start": 1795576017.673716, "event": "start"}
+{"label": "V03-1.5-front-1", "distance": 1.5, "height": 1.3, "bearing": 0, "expected": 0, "repeat": 1, "start": 1795576017.673716, "event": "finish", "end": 1795576229.390876, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-1.5-front-2", "distance": 1.5, "height": 1.3, "bearing": 0, "expected": 0, "repeat": 2, "start": 1795576229.391241, "event": "start"}
+{"label": "V03-1.5-front-2", "distance": 1.5, "height": 1.3, "bearing": 0, "expected": 0, "repeat": 2, "start": 1795576229.391241, "event": "finish", "end": 1795576333.2908463, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-1.5-left45-1", "distance": 1.5, "height": 1.3, "bearing": 54, "expected": 45, "repeat": 1, "start": 1795576333.2911472, "event": "start"}
+{"label": "V03-1.5-left45-1", "distance": 1.5, "height": 1.3, "bearing": 54, "expected": 45, "repeat": 1, "start": 1795576333.2911472, "event": "finish", "end": 1795576444.5418153, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-1.5-left45-2", "distance": 1.5, "height": 1.3, "bearing": 54, "expected": 45, "repeat": 2, "start": 1795576444.5421283, "event": "start"}
+{"label": "V03-1.5-left45-2", "distance": 1.5, "height": 1.3, "bearing": 54, "expected": 45, "repeat": 2, "start": 1795576444.5421283, "event": "finish", "end": 1795576551.152462, "exit_code": 0, "passed": true, "errors": []}
+{"label": "V03-1.5-right45-1", "distance": 1.5, "height": 1.3, "bearing": -54, "expected": -45, "repeat": 1, "start": 1795576551.1528256, "event": "start"}
+{"label": "V03-1.5-right45-1", "distance": 1.5, "height": 1.3, "bearing": -54, "expected": -45, "repeat": 1, "start": 1795576551.1528256, "event": "finish", "end": 1795576662.0298674, "exit_code": 1, "passed": false, "errors": ["final_observation_matches_true_target", "moving_rgbd"]}
+{"label": "V03-1.5-right45-2", "distance": 1.5, "height": 1.3, "bearing": -54, "expected": -45, "repeat": 2, "start": 1795576662.0302951, "event": "start"}
+{"label": "V03-1.5-right45-2", "distance": 1.5, "height": 1.3, "bearing": -54, "expected": -45, "repeat": 2, "start": 1795576662.0302951, "event": "finish", "end": 1795576746.8284578, "exit_code": 1, "passed": false, "errors": ["mission_completed", "actual_terminal_standoff", "final_observation_matches_true_target", "moving_rgbd", "reply_ids_and_capture_times", "ten_second_hold_gazebo_truth"]}

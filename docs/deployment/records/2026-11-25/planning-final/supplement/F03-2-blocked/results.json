@@ -1,0 +1,144 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "live_fence_inside_map_and_ceiling",
+      "grid_bounds": [
+        [
+          -20.0,
+          20.0
+        ],
+        [
+          -20.0,
+          20.0
+        ],
+        [
+          -0.5,
+          2.5
+        ]
+      ],
+      "fence": {
+        "x_min": -6.0,
+        "x_max": 6.0,
+        "y_min": -4.0,
+        "y_max": 4.0,
+        "z_min": 1.1,
+        "z_max": 2.35
+      },
+      "grid_parameters": {
+        "frame_id": "map",
+        "pose_type": 1,
+        "resolution": 0.1,
+        "map_size_x": 40.0,
+        "map_size_y": 40.0,
+        "map_size_z": 3.5,
+        "local_update_range_x": 5.5,
+        "local_update_range_y": 5.5,
+        "local_update_range_z": 4.5,
+        "obstacles_inflation": 0.349,
+        "local_map_margin": 30,
+        "ground_height": -0.5,
+        "cx": 319.5,
+        "cy": 239.5,
+        "fx": 343.15907310693535,
+        "fy": 343.15907310693535,
+        "use_depth_filter": true,
+        "depth_filter_tolerance": 0.15,
+        "depth_filter_maxdist": 5.0,
+        "depth_filter_mindist": 0.2,
+        "depth_filter_margin": 1,
+        "k_depth_scaling_factor": 1000.0,
+        "skip_pixel": 2,
+        "p_hit": 0.65,
+        "p_miss": 0.35,
+        "p_min": 0.12,
+        "p_max": 0.9,
+        "p_occ": 0.8,
+        "min_ray_length": 0.1,
+        "max_ray_length": 4.5,
+        "virtual_ceil_height": 2.5,
+        "visualization_truncate_height": 2.4,
+        "show_occ_time": false,
+        "enable_independent_cloud": false
+      }
+    },
+    {
+      "name": "dynamic_box_clearance",
+      "minimum_center_to_box_surface_m": 0.7005844342616853
+    },
+    {
+      "name": "dynamic_wall_stopped",
+      "reason": "planner_failed",
+      "ego_reasons": [
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "collision",
+        "emergency_stop_requires_new_goal",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard",
+        "known_space_guard"
+      ],
+      "peak_tracking_error_m": 0.3413234069975746,
+      "rmse_tracking_m": 0.12604718699684148,
+      "odom_samples": 193,
+      "aligned_samples": 193,
+      "executed_trajectories": [
+        [
+          1,
+          1
+        ]
+      ],
+      "trajectory_dispositions": [
+        {
+          "flight_session_id": "1121fbc51fc34056a2e21179ba3f7864",
+          "mission_id": "dynamic-e94cdf98",
+          "goal_id": 1,
+          "planner_session_id": "84e7f75f-01f5-4bda-a0c1-6bc4f37e6ad9",
+          "traj_id": 1,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 0.0033781803443797484,
+          "velocity_tolerance_mps": 0.15979999999999953
+        }
+      ],
+      "endpoint": [
+        0.3417915999889374,
+        -0.04677439481019974,
+        1.5518070459365845
+      ],
+      "endpoint_speed_mps": 0.07836366199264003
+    },
+    {
+      "name": "physics_contact_stream_positive_control_and_no_iris_obstacle_contact",
+      "obstacle_model": "dynamic_test_box",
+      "passed": true,
+      "positive_control_contacts": 7720,
+      "iris_obstacle_contacts": [],
+      "physics_messages": 18438,
+      "start_stamp": 5.424,
+      "end_stamp": 37.192,
+      "last_message_stamp": 37.188
+    }
+  ],
+  "final_armed": false
+}

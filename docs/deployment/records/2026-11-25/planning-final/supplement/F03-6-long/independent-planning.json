@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "scenario": "long",
+  "checks": {
+    "contact_stream_observed": true,
+    "armed_then_disarmed": true,
+    "all_requested_missions_present": true,
+    "beyond_planning_horizon-87d857d6/terminal": true,
+    "beyond_planning_horizon-87d857d6/reached": true,
+    "beyond_planning_horizon-87d857d6/fence": true,
+    "beyond_planning_horizon-87d857d6/physical_endpoint": true,
+    "beyond_planning_horizon-87d857d6/beyond_horizon": true,
+    "beyond_planning_horizon-87d857d6/acknowledgements": true,
+    "beyond_planning_horizon-87d857d6/only_accepted_executed": true,
+    "beyond_planning_horizon-87d857d6/tracked": true
+  },
+  "details": [
+    {
+      "mission": "beyond_planning_horizon-87d857d6",
+      "terminal_reason": "destination_reached",
+      "distance_to_goal_m": 0.14051415235332018,
+      "speed_mps": 0.030584240443548488
+    }
+  ]
+}

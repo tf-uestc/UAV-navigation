@@ -1,0 +1,106 @@
+NumPy: 2.3.5
+UTC: 2026-11-25T01:47:29.905680+00:00
+Python: 3.12.14
+Platform: Windows-11-10.0.26300-SP0
+Source/test SHA256: f2deaa4270af14f2936f6d2ef00873e7fdd9dc47815182aca283840d2db1c18f
+Scope: offline logic and ROS-shaped stand-ins; ROS/PX4/Gazebo not exercised.
+
+test_generic_ambiguous_foreground_rejects_background (test_visual_arrival_depth.PoleDepthTests.test_generic_ambiguous_foreground_rejects_background) ... FAIL
+test_partial_holes_and_unrelated_closer_surface (test_visual_arrival_depth.PoleDepthTests.test_partial_holes_and_unrelated_closer_surface) ... FAIL
+test_pole_surface_and_projection_in_loose_boxes (test_visual_arrival_depth.PoleDepthTests.test_pole_surface_and_projection_in_loose_boxes) ... 
+  test_pole_surface_and_projection_in_loose_boxes (test_visual_arrival_depth.PoleDepthTests.test_pole_surface_and_projection_in_loose_boxes) (width=2) ... FAIL
+  test_pole_surface_and_projection_in_loose_boxes (test_visual_arrival_depth.PoleDepthTests.test_pole_surface_and_projection_in_loose_boxes) (width=8) ... FAIL
+test_target_pixels_without_depth_cannot_use_the_wall (test_visual_arrival_depth.PoleDepthTests.test_target_pixels_without_depth_cannot_use_the_wall) ... FAIL
+test_inside_band_stopped (test_visual_arrival_depth.VisualArrivalTests.test_inside_band_stopped) ... ok
+test_missing_stop_confirmation_even_with_low_speed (test_visual_arrival_depth.VisualArrivalTests.test_missing_stop_confirmation_even_with_low_speed) ... FAIL
+test_moving_at_reply_requires_stop_and_new_observation (test_visual_arrival_depth.VisualArrivalTests.test_moving_at_reply_requires_stop_and_new_observation) ... FAIL
+test_outside_band_requires_plan (test_visual_arrival_depth.VisualArrivalTests.test_outside_band_requires_plan) ... ok
+test_too_close_stops_without_claiming_arrival (test_visual_arrival_depth.VisualArrivalTests.test_too_close_stops_without_claiming_arrival) ... FAIL
+
+======================================================================
+FAIL: test_generic_ambiguous_foreground_rejects_background (test_visual_arrival_depth.PoleDepthTests.test_generic_ambiguous_foreground_rejects_background)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-20261125\tests\offline\test_visual_arrival_depth.py", line 109, in test_generic_ambiguous_foreground_rejects_background
+    with self.assertRaisesRegex(self.module.DetectionRejected, "invalid_target_depth"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: DetectionRejected not raised
+
+======================================================================
+FAIL: test_partial_holes_and_unrelated_closer_surface (test_visual_arrival_depth.PoleDepthTests.test_partial_holes_and_unrelated_closer_surface)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-20261125\tests\offline\test_visual_arrival_depth.py", line 105, in test_partial_holes_and_unrelated_closer_surface
+    self.assertEqual(result.depth_m, 2.)
+AssertionError: 6.0 != 2.0
+
+======================================================================
+FAIL: test_pole_surface_and_projection_in_loose_boxes (test_visual_arrival_depth.PoleDepthTests.test_pole_surface_and_projection_in_loose_boxes) (width=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-20261125\tests\offline\test_visual_arrival_depth.py", line 91, in test_pole_surface_and_projection_in_loose_boxes
+    self.assertEqual(result.depth_m, 2.)
+AssertionError: 6.0 != 2.0
+
+======================================================================
+FAIL: test_pole_surface_and_projection_in_loose_boxes (test_visual_arrival_depth.PoleDepthTests.test_pole_surface_and_projection_in_loose_boxes) (width=8)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-20261125\tests\offline\test_visual_arrival_depth.py", line 91, in test_pole_surface_and_projection_in_loose_boxes
+    self.assertEqual(result.depth_m, 2.)
+AssertionError: 6.0 != 2.0
+
+======================================================================
+FAIL: test_target_pixels_without_depth_cannot_use_the_wall (test_visual_arrival_depth.PoleDepthTests.test_target_pixels_without_depth_cannot_use_the_wall)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-20261125\tests\offline\test_visual_arrival_depth.py", line 97, in test_target_pixels_without_depth_cannot_use_the_wall
+    with self.assertRaisesRegex(self.module.DetectionRejected, "invalid_target_depth"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: DetectionRejected not raised
+
+======================================================================
+FAIL: test_missing_stop_confirmation_even_with_low_speed (test_visual_arrival_depth.VisualArrivalTests.test_missing_stop_confirmation_even_with_low_speed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-20261125\tests\offline\test_visual_arrival_depth.py", line 60, in test_missing_stop_confirmation_even_with_low_speed
+    self.assertEqual(self.node.phase, "BRAKE")
+AssertionError: 'DONE' != 'BRAKE'
+- DONE
++ BRAKE
+
+
+======================================================================
+FAIL: test_moving_at_reply_requires_stop_and_new_observation (test_visual_arrival_depth.VisualArrivalTests.test_moving_at_reply_requires_stop_and_new_observation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-20261125\tests\offline\test_visual_arrival_depth.py", line 55, in test_moving_at_reply_requires_stop_and_new_observation
+    self.assertEqual((self.node.phase, self.node.after_stop[0] if self.node.after_stop else None),
+AssertionError: Tuples differ: ('DONE', None) != ('BRAKE', 'DETECT')
+
+First differing element 0:
+'DONE'
+'BRAKE'
+
+- ('DONE', None)
++ ('BRAKE', 'DETECT')
+
+======================================================================
+FAIL: test_too_close_stops_without_claiming_arrival (test_visual_arrival_depth.VisualArrivalTests.test_too_close_stops_without_claiming_arrival)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-20261125\tests\offline\test_visual_arrival_depth.py", line 50, in test_too_close_stops_without_claiming_arrival
+    self.assertEqual((self.node.phase, self.node.after_stop),
+AssertionError: Tuples differ: ('DONE', None) != ('BRAKE', ('FAILED', 'observation_too_close'))
+
+First differing element 0:
+'DONE'
+'BRAKE'
+
+- ('DONE', None)
++ ('BRAKE', ('FAILED', 'observation_too_close'))
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.754s
+
+FAILED (failures=8)

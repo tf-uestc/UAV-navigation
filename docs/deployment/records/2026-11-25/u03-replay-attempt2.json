@@ -1,0 +1,42 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "name": "foreground_over_background_and_near_outlier",
+      "position_error_m": 0.0
+    },
+    {
+      "name": "different_pose_range_and_millimeter_units",
+      "position_error_m": 0.0
+    },
+    {
+      "name": "native_label_bbox_2d",
+      "world_point": [
+        0.925,
+        1.985,
+        3.0
+      ]
+    },
+    {
+      "name": "native_optional_found",
+      "world_point": [
+        0.925,
+        1.985,
+        3.0
+      ]
+    },
+    {
+      "name": "native_optional_units_array",
+      "world_point": [
+        0.925,
+        1.985,
+        3.0
+      ]
+    },
+    {
+      "name": "captured_image_response_replay",
+      "depth_error_m": 0.0025949478149414062
+    }
+  ],
+  "error": "TypeError('slice indices must be integers or None or have an __index__ method')"
+}

@@ -1,0 +1,20 @@
+{
+  "sim": {
+    "pid": 380110,
+    "start_ticks": "733380753",
+    "marker": "launch_project_rgbd.sh",
+    "log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-133307/supervisor.log"
+  },
+  "mission": {
+    "pid": 381238,
+    "start_ticks": "733381834",
+    "marker": "segment_verified.launch",
+    "log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/mission-20261125-133317/launch.log"
+  },
+  "state": {
+    "connected": true,
+    "armed": false,
+    "landed": true,
+    "mode": "AUTO.LOITER"
+  }
+}

@@ -1,0 +1,777 @@
+{
+  "V03": {
+    "count": 16,
+    "controller_timeouts": [
+      "V03-2.4-left90-2",
+      "V03-1.5-front-1"
+    ],
+    "complete": 14,
+    "mission_landed": 5,
+    "cases": {
+      "V03-2.4-front-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.076111,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            14.133794,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": true,
+        "last_mission_phase": "LANDED",
+        "first_disarmed_wall_s": 11.852747,
+        "last_fcu_armed": false
+      },
+      "V03-2.4-front-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.059109,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            14.495065,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 12.301763,
+        "last_fcu_armed": false
+      },
+      "V03-2.4-left45-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.013626,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            25.527608,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": true,
+        "last_mission_phase": "LANDED",
+        "first_disarmed_wall_s": 15.242919,
+        "last_fcu_armed": false
+      },
+      "V03-2.4-left45-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.011768,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            6.471373,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": true,
+        "last_mission_phase": "LANDED",
+        "first_disarmed_wall_s": 6.377358,
+        "last_fcu_armed": false
+      },
+      "V03-2.4-right45-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.097206,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            15.378151,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 15.336414,
+        "last_fcu_armed": false
+      },
+      "V03-2.4-right45-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.070229,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            12.948892,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": "LANDING",
+        "first_disarmed_wall_s": 11.867546,
+        "last_fcu_armed": false
+      },
+      "V03-2.4-left90-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.032806,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            12.713118,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": "LANDING",
+        "first_disarmed_wall_s": 12.637953,
+        "last_fcu_armed": false
+      },
+      "V03-2.4-left90-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.053876,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            30.05241,
+            "FAILED",
+            "landing_timeout",
+            true
+          ],
+          [
+            36.45169,
+            "FAILED",
+            "landing_timeout",
+            false
+          ]
+        ],
+        "controller_complete": false,
+        "controller_timeout": true,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 25.201471,
+        "last_fcu_armed": false
+      },
+      "V03-2.4-right90-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.05036,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            6.047966,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": "LANDING",
+        "first_disarmed_wall_s": 5.959387,
+        "last_fcu_armed": false
+      },
+      "V03-2.4-right90-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.048502,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            12.845711,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": true,
+        "last_mission_phase": "LANDED",
+        "first_disarmed_wall_s": 11.645937,
+        "last_fcu_armed": false
+      },
+      "V03-1.5-front-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.054058,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            30.053227,
+            "FAILED",
+            "landing_timeout",
+            true
+          ],
+          [
+            34.1128,
+            "FAILED",
+            "landing_timeout",
+            false
+          ]
+        ],
+        "controller_complete": false,
+        "controller_timeout": true,
+        "mission_landed": false,
+        "last_mission_phase": "LANDING",
+        "first_disarmed_wall_s": 20.722319,
+        "last_fcu_armed": false
+      },
+      "V03-1.5-front-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.075415,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            13.052559,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": true,
+        "last_mission_phase": "LANDED",
+        "first_disarmed_wall_s": 11.510733,
+        "last_fcu_armed": false
+      },
+      "V03-1.5-left45-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.096965,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            13.238213,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 11.704756,
+        "last_fcu_armed": false
+      },
+      "V03-1.5-left45-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.040148,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            6.35986,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 6.341915,
+        "last_fcu_armed": false
+      },
+      "V03-1.5-right45-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.072385,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            9.671194,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 9.45203,
+        "last_fcu_armed": false
+      },
+      "V03-1.5-right45-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.036672,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            5.578818,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 5.52904,
+        "last_fcu_armed": false
+      }
+    }
+  },
+  "V04": {
+    "count": 16,
+    "controller_timeouts": [
+      "V04-1.5-left45-2"
+    ],
+    "complete": 15,
+    "mission_landed": 5,
+    "cases": {
+      "V04-2.4-front-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.079604,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            6.553854,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": true,
+        "last_mission_phase": "LANDED",
+        "first_disarmed_wall_s": 6.504302,
+        "last_fcu_armed": false
+      },
+      "V04-2.4-front-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.031508,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            15.021991,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": "LANDING",
+        "first_disarmed_wall_s": 14.943539,
+        "last_fcu_armed": false
+      },
+      "V04-2.4-left45-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.054452,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            11.818897,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 10.925317,
+        "last_fcu_armed": false
+      },
+      "V04-2.4-left45-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.055456,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            11.435962,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 9.739102,
+        "last_fcu_armed": false
+      },
+      "V04-2.4-right45-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.075845,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            12.655057,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 11.253315,
+        "last_fcu_armed": false
+      },
+      "V04-2.4-right45-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.031206,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            15.271817,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": true,
+        "last_mission_phase": "LANDED",
+        "first_disarmed_wall_s": 15.196354,
+        "last_fcu_armed": false
+      },
+      "V04-2.4-left90-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.077734,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            9.831342,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": "LANDING",
+        "first_disarmed_wall_s": 9.535386,
+        "last_fcu_armed": false
+      },
+      "V04-2.4-left90-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.070756,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            10.627928,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": true,
+        "last_mission_phase": "LANDED",
+        "first_disarmed_wall_s": 10.126586,
+        "last_fcu_armed": false
+      },
+      "V04-2.4-right90-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.016536,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            17.074067,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": "LANDING",
+        "first_disarmed_wall_s": 17.072537,
+        "last_fcu_armed": false
+      },
+      "V04-2.4-right90-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.055147,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            6.052556,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": true,
+        "last_mission_phase": "LANDED",
+        "first_disarmed_wall_s": 6.01403,
+        "last_fcu_armed": false
+      },
+      "V04-1.5-front-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.046506,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            16.442375,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 16.365748,
+        "last_fcu_armed": false
+      },
+      "V04-1.5-front-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.041936,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            11.600606,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": "LANDING",
+        "first_disarmed_wall_s": 9.942239,
+        "last_fcu_armed": false
+      },
+      "V04-1.5-left45-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.049107,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            11.066538,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": true,
+        "last_mission_phase": "LANDED",
+        "first_disarmed_wall_s": 10.789871,
+        "last_fcu_armed": false
+      },
+      "V04-1.5-left45-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.012009,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            30.087355,
+            "FAILED",
+            "landing_timeout",
+            true
+          ],
+          [
+            31.288892,
+            "FAILED",
+            "landing_timeout",
+            false
+          ]
+        ],
+        "controller_complete": false,
+        "controller_timeout": true,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 19.148771,
+        "last_fcu_armed": false
+      },
+      "V04-1.5-right45-1": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.046792,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            14.205857,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": null,
+        "first_disarmed_wall_s": 14.141691,
+        "last_fcu_armed": false
+      },
+      "V04-1.5-right45-2": {
+        "land_command_observed": true,
+        "controller_transitions": [
+          [
+            0.006038,
+            "LANDING",
+            "land_requested",
+            true
+          ],
+          [
+            10.04693,
+            "COMPLETE",
+            "land_requested",
+            false
+          ]
+        ],
+        "controller_complete": true,
+        "controller_timeout": false,
+        "mission_landed": false,
+        "last_mission_phase": "LANDING",
+        "first_disarmed_wall_s": 9.338075,
+        "last_fcu_armed": false
+      }
+    }
+  }
+}

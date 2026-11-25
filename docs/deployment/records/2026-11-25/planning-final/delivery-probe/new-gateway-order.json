@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "order": "spline_first",
+      "passed": true,
+      "forwarded": [
+        2
+      ],
+      "gateway_rejections": []
+    },
+    {
+      "order": "status_first",
+      "passed": true,
+      "forwarded": [],
+      "gateway_rejections": [
+        {
+          "schema_version": 1,
+          "source": "planning_gateway",
+          "accepted": false,
+          "reason": "no_active_goal",
+          "gateway_session_id": "gateway",
+          "planner_session_id": "planner-a",
+          "mission_id": "mission",
+          "goal_id": 1,
+          "traj_id": 2
+        }
+      ]
+    },
+    {
+      "order": "retired_epoch",
+      "passed": true,
+      "forwarded": [],
+      "gateway_rejections": [
+        {
+          "schema_version": 1,
+          "source": "planning_gateway",
+          "accepted": false,
+          "reason": "planner_session_mismatch",
+          "gateway_session_id": "gateway",
+          "planner_session_id": "planner-zero",
+          "mission_id": "mission",
+          "goal_id": 1,
+          "traj_id": 2
+        }
+      ]
+    },
+    {
+      "order": "other_goal",
+      "passed": true,
+      "forwarded": [],
+      "gateway_rejections": [
+        {
+          "schema_version": 1,
+          "source": "planning_gateway",
+          "accepted": false,
+          "reason": "active_goal_mismatch",
+          "gateway_session_id": "gateway",
+          "planner_session_id": "planner-a",
+          "mission_id": "mission",
+          "goal_id": 1,
+          "traj_id": 2
+        }
+      ]
+    }
+  ]
+}

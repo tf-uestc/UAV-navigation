@@ -1,0 +1,160 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "negative_ground_height_can_fuse",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 1.964,
+      "images": 28
+    },
+    {
+      "name": "reject_below_map",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.521,
+      "images": 8
+    },
+    {
+      "name": "recover_below_map",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.481,
+      "images": 7
+    },
+    {
+      "name": "reject_above_map",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.521,
+      "images": 8
+    },
+    {
+      "name": "recover_above_map",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.521,
+      "images": 8
+    },
+    {
+      "name": "reject_zero",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.481,
+      "images": 7
+    },
+    {
+      "name": "recover_zero",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.482,
+      "images": 7
+    },
+    {
+      "name": "reject_nan_image",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.521,
+      "images": 7
+    },
+    {
+      "name": "recover_nan_image",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.482,
+      "images": 7
+    },
+    {
+      "name": "reject_bad_quaternion",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.521,
+      "images": 8
+    },
+    {
+      "name": "recover_bad_quaternion",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.482,
+      "images": 7
+    },
+    {
+      "name": "reject_nan_position",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.521,
+      "images": 8
+    },
+    {
+      "name": "recover_nan_position",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.482,
+      "images": 7
+    },
+    {
+      "name": "reject_wrong_frame",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.481,
+      "images": 7
+    },
+    {
+      "name": "recover_wrong_frame",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.521,
+      "images": 8
+    },
+    {
+      "name": "reject_stale",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.481,
+      "images": 7
+    },
+    {
+      "name": "recover_stale",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.521,
+      "images": 8
+    },
+    {
+      "name": "reject_silent",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 1.083,
+      "images": 0
+    },
+    {
+      "name": "recover_silent",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.522,
+      "images": 7
+    },
+    {
+      "name": "reject_freeze",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 1.003,
+      "images": 15
+    },
+    {
+      "name": "recover_freeze",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.482,
+      "images": 7
+    },
+    {
+      "name": "working_height_can_fuse",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.522,
+      "images": 8
+    }
+  ]
+}

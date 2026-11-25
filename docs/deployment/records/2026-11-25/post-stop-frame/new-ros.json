@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "checks": {
+    "subframe_without_depth_info_never_calls_backend": true,
+    "first_qualified_triplet_succeeds": true,
+    "wall_timeout_while_sim_clock_paused": true,
+    "concurrent_request_retains_own_key_and_returns_busy": true,
+    "late_frame_cannot_revive_closed_request": true,
+    "next_request_captures_fresh_frame": true,
+    "stale_eligible_frame_rejected": true,
+    "only_two_model_calls": true
+  },
+  "timeout_wall_s": 1.0032527251169086,
+  "backend_calls": 2,
+  "responses": [
+    {
+      "schema_version": 1,
+      "mission_id": "replay",
+      "request_id": 7,
+      "target_text": "fixture",
+      "status": "SUCCEEDED",
+      "capture_stamp": 51.316,
+      "completed_stamp": 51.435999999,
+      "point": [
+        0.0,
+        0.0,
+        2.0
+      ],
+      "frame_id": "map",
+      "reason": ""
+    },
+    {
+      "schema_version": 1,
+      "mission_id": "replay",
+      "request_id": 8,
+      "target_text": "fixture",
+      "status": "FAILED",
+      "capture_stamp": 0.0,
+      "completed_stamp": 51.435999999,
+      "point": null,
+      "frame_id": "map",
+      "reason": "post_stop_frame_timeout"
+    },
+    {
+      "schema_version": 1,
+      "mission_id": "different-mission",
+      "request_id": 9,
+      "target_text": "fixture",
+      "status": "BUSY",
+      "capture_stamp": 0.0,
+      "completed_stamp": 51.435999999,
+      "point": null,
+      "frame_id": "map",
+      "reason": "detector_busy"
+    },
+    {
+      "schema_version": 1,
+      "mission_id": "replay",
+      "request_id": 10,
+      "target_text": "fixture",
+      "status": "SUCCEEDED",
+      "capture_stamp": 51.415999999,
+      "completed_stamp": 51.435999999,
+      "point": [
+        0.0,
+        0.0,
+        2.0
+      ],
+      "frame_id": "map",
+      "reason": ""
+    },
+    {
+      "schema_version": 1,
+      "mission_id": "replay",
+      "request_id": 11,
+      "target_text": "fixture",
+      "status": "FAILED",
+      "capture_stamp": 51.415999999,
+      "completed_stamp": 53.435999999,
+      "point": null,
+      "frame_id": "map",
+      "reason": "stale image"
+    }
+  ],
+  "python": "3.8.10",
+  "master": "http://127.0.0.1:11327"
+}

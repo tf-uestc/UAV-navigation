@@ -1,0 +1,19 @@
+NumPy: 2.3.5
+UTC: 2026-11-25T02:25:16.308801+00:00
+Python: 3.12.14
+Platform: Windows-11-10.0.26300-SP0
+Source/test SHA256: e449e06d0b024bace4b15644a40d64d21cc36147214076611af2a66ae2cc9292
+Scope: offline logic and ROS-shaped stand-ins; ROS/PX4/Gazebo not exercised.
+
+test_catches_unexpected_contact_in_raw_log (test_visual_attempt_report.ArchiveReviewTests.test_catches_unexpected_contact_in_raw_log) ... ok
+test_detects_missing_ground_probe_and_bad_moving_camera_samples (test_visual_attempt_report.ArchiveReviewTests.test_detects_missing_ground_probe_and_bad_moving_camera_samples) ... ok
+test_false_negative_in_primary_audit_is_visible (test_visual_attempt_report.ArchiveReviewTests.test_false_negative_in_primary_audit_is_visible) ... ok
+test_finished_success_and_started_unfinished_both_in_denominator (test_visual_attempt_report.ArchiveReviewTests.test_finished_success_and_started_unfinished_both_in_denominator) ... ok
+test_rejects_early_landing_and_short_truth_even_if_checker_passed (test_visual_attempt_report.ArchiveReviewTests.test_rejects_early_landing_and_short_truth_even_if_checker_passed) ... ok
+test_rejects_incorrect_auditor_pass_even_if_latest_image_or_localization_missing (test_visual_attempt_report.ArchiveReviewTests.test_rejects_incorrect_auditor_pass_even_if_latest_image_or_localization_missing) ... ok
+test_reports_unfinished_trailing_ledger_record (test_visual_attempt_report.ArchiveReviewTests.test_reports_unfinished_trailing_ledger_record) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.697s
+
+OK

@@ -1,0 +1,60 @@
+--- a/tools/deployment/validate_planning_sitl.py
++++ b/tools/deployment/validate_planning_sitl.py
+@@ -107,8 +107,14 @@
+             return
+         # Route fixtures run with the cloud detector disabled.
+         standoff = rospy.get_param('/segment_mission/standoff',2.4)
+-        target = (start[0]+standoff*math.cos(heading),start[1]+standoff*math.sin(heading),.6)
+-        mission = self.new('fixture_set_heading',target=target)
++        def target_at_capture(capture):
++            position, _ = decode(capture.pose.pose)
++            target = (position[0]+standoff*math.cos(heading),
++                      position[1]+standoff*math.sin(heading), .6)
++            self.record('heading_fixture_capture', dict(stamp=capture.header.stamp.to_sec(),
++                        position=position, target=target, heading=heading))
++            return target
++        mission = self.new('fixture_set_heading',target=target_at_capture)
+         result = self.wait_phase(mission, ('DONE','FAILED'), 52.)
+         assert result['phase']=='DONE' and result['segment_count']==0, result
+         end, actual_yaw = decode(self.odom.pose.pose)
+--- a/tools/deployment/validate_segments.py
++++ b/tools/deployment/validate_segments.py
+@@ -132,13 +132,16 @@
+             return
+         count=scenario['calls']
+         scenario['calls']+=1
+-        stamp=self.odom.header.stamp.to_sec()
++        capture=self.odom
++        stamp=capture.header.stamp.to_sec()
+         self.requests.append((time.monotonic(),mission,d['request_id'],stamp,self.flight.get('stop_confirmed')))
+         behavior=scenario['behavior']
+         if behavior=='silent':
+             return
+         delay=scenario.get('delay',3.4 if behavior=='late' else .28)
+         point=scenario['target']
++        if callable(point):
++            point=point(capture)
+         if behavior=='jump' and count:
+             point=(point[0],point[1]+3.,point[2])
+         reason=''
+--- a/tools/deployment/run_acceptance_case.sh
++++ b/tools/deployment/run_acceptance_case.sh
+@@ -8,6 +8,8 @@
+ expected="$6"
+ root="${UAV_ACCEPTANCE_DIR:?set UAV_ACCEPTANCE_DIR to this experiment directory}"
+ d="${UAV_ACCEPTANCE_BUILD:?set UAV_ACCEPTANCE_BUILD to the isolated install root}"
++fixture="$(cd "$(dirname "$0")" && pwd -P)"
++test "$scenario" = long || { echo 'This test fixture only verifies the long planning route';exit 2; }
+ r="$root/flights/$label"
+ test ! -e "$r" || { echo "Refusing to overwrite a prior flight";exit 2; }
+ mkdir -p "$r"
+@@ -73,7 +75,8 @@
+ else
+  case "$scenario" in
+   straight|long|outside|static|dynamic|blocked)
+-   timeout --signal=INT 360 /usr/bin/python3 -u tools/deployment/validate_planning_sitl.py "$scenario" --repetitions 1 --contacts --out "$r/result" | tee "$r/run.log";;
++   sha256sum "$fixture/validate_planning_sitl.py" "$fixture/validate_segments.py" "$fixture/run_acceptance_case.sh" > "$r/fixture-sha256.txt"
++   timeout --signal=INT 360 /usr/bin/python3 -u "$fixture/validate_planning_sitl.py" "$scenario" --repetitions 1 --contacts --out "$r/result" | tee "$r/run.log";;
+   *) echo 'Unknown acceptance scenario' >&2;exit 2;;
+  esac
+ fi

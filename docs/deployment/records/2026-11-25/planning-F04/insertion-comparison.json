@@ -1,0 +1,92 @@
+{
+  "F03-1-dynamic": {
+    "trace_sha256": "526af2ec27d17a0bc665259bfe7a47027674744482163d61d45838db15293c81",
+    "box_world_center": [
+      2.131941687081385,
+      0.9459879066207258
+    ],
+    "box_size": [
+      0.16,
+      0.36,
+      2.6
+    ],
+    "mission": "dynamic-48dc70b5",
+    "active_goal": 1,
+    "active_traj": 1,
+    "active_flight_mode": "TRACK",
+    "insertion_followup_sim_time_s": 23.084,
+    "odom_wall_offset_s": 0.00361527968198061,
+    "setpoint_wall_offset_s": -0.0006995759904384613,
+    "measured_speed_mps": 0.17944041719384696,
+    "first_sample_gap_to_box_front_m": 0.8673077503211233,
+    "first_sample_body_lateral_minus_box_center_m": -0.03097143864677776,
+    "first_sample_center_clearance_m": 0.8673077503211234,
+    "setpoint_minus_body_map_x_m": 0.30360217912720844,
+    "initial_status": {
+      "wall_after_spawn_s": 0.7524597905576229,
+      "status": "EMERGENCY_STOP",
+      "reason": "collision"
+    },
+    "accepted_emergency_for_inserted_goal": true
+  },
+  "F04-1-dynamic": {
+    "trace_sha256": "91f8bbfafa1a5608f50ef7593641ea0ccbbe7ec953e88278fd31f5196cacc514",
+    "box_world_center": [
+      2.14370537280365,
+      0.9418016151371257
+    ],
+    "box_size": [
+      0.16,
+      0.36,
+      2.6
+    ],
+    "mission": "dynamic-9cb43c22",
+    "active_goal": 1,
+    "active_traj": 1,
+    "active_flight_mode": "TRACK",
+    "insertion_followup_sim_time_s": 23.78,
+    "odom_wall_offset_s": 0.03152038808912039,
+    "setpoint_wall_offset_s": 0.009036058560013771,
+    "measured_speed_mps": 0.132198549456942,
+    "first_sample_gap_to_box_front_m": 0.8992038863237173,
+    "first_sample_body_lateral_minus_box_center_m": -0.00582625739916709,
+    "first_sample_center_clearance_m": 0.8992038863237174,
+    "setpoint_minus_body_map_x_m": 0.2419705542972727,
+    "initial_status": {
+      "wall_after_spawn_s": 0.6737534226849675,
+      "status": "FAILED",
+      "reason": "unknown_trajectory"
+    },
+    "accepted_emergency_for_inserted_goal": false
+  },
+  "F04-2-dynamic": {
+    "trace_sha256": "4db5af74f83c1923954595392ddd84ede06b46e1e469a702de9cda9fdc5ae01c",
+    "box_world_center": [
+      2.1771344108489443,
+      0.9651536269072748
+    ],
+    "box_size": [
+      0.16,
+      0.36,
+      2.6
+    ],
+    "mission": "dynamic-abb8f69f",
+    "active_goal": 1,
+    "active_traj": 1,
+    "active_flight_mode": "TRACK",
+    "insertion_followup_sim_time_s": 24.344,
+    "odom_wall_offset_s": 0.01139529887586832,
+    "setpoint_wall_offset_s": 0.008977237157523632,
+    "measured_speed_mps": 0.16488591062576305,
+    "first_sample_gap_to_box_front_m": 0.9001013687445396,
+    "first_sample_body_lateral_minus_box_center_m": -0.041670186352334326,
+    "first_sample_center_clearance_m": 0.9001013687445397,
+    "setpoint_minus_body_map_x_m": 0.268952677411382,
+    "initial_status": {
+      "wall_after_spawn_s": 0.6857404373586178,
+      "status": "FAILED",
+      "reason": "occupied_trajectory"
+    },
+    "accepted_emergency_for_inserted_goal": false
+  }
+}

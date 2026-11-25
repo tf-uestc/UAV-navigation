@@ -1,0 +1,454 @@
+[
+  {
+    "case": "V03-1.5-front-1",
+    "member_sha256": "2b971915759716bf1727e990e4e56b196922ba24a24c74f26399085942c5b1b1",
+    "samples": 8238,
+    "first_good_s": 30.232,
+    "first_request_s": 20.248,
+    "late_resets": [
+      {
+        "s": 29.224,
+        "delta_deg": 0.3080111959227067,
+        "counter": 2
+      }
+    ],
+    "heading_resets": [
+      {
+        "s": 2.456,
+        "delta_deg": -0.03626830782782101,
+        "counter": 1
+      },
+      {
+        "s": 29.224,
+        "delta_deg": 0.3080111959227067,
+        "counter": 2
+      }
+    ],
+    "request_count": 4,
+    "frame_count": 0,
+    "valid_requests": 1,
+    "valid_frames": 0,
+    "gate_all": false,
+    "expected_source_gate": false
+  },
+  {
+    "case": "V03-1.5-front-2",
+    "member_sha256": "7cb7022ffde0d083f56f252b4d48a2f6600594679f0298b7cec15dae0d2a0690",
+    "samples": 7435,
+    "first_good_s": 35.432,
+    "first_request_s": 20.376,
+    "late_resets": [
+      {
+        "s": 34.424,
+        "delta_deg": 0.6729244310165251,
+        "counter": 2
+      }
+    ],
+    "heading_resets": [
+      {
+        "s": 2.42,
+        "delta_deg": 0.3921048318294475,
+        "counter": 1
+      },
+      {
+        "s": 34.424,
+        "delta_deg": 0.6729244310165251,
+        "counter": 2
+      }
+    ],
+    "request_count": 4,
+    "frame_count": 0,
+    "valid_requests": 1,
+    "valid_frames": 0,
+    "gate_all": false,
+    "expected_source_gate": false
+  },
+  {
+    "case": "V03-1.5-left45-1",
+    "member_sha256": "bd019e2fcd99d85c0323d606509d5e8c9d8338cf5e6714eb3bcec5c309608233",
+    "samples": 8162,
+    "first_good_s": 32.58,
+    "first_request_s": 20.092,
+    "late_resets": [
+      {
+        "s": 31.572,
+        "delta_deg": 0.47093599374367856,
+        "counter": 2
+      }
+    ],
+    "heading_resets": [
+      {
+        "s": 2.436,
+        "delta_deg": 0.18723947085342388,
+        "counter": 1
+      },
+      {
+        "s": 31.572,
+        "delta_deg": 0.47093599374367856,
+        "counter": 2
+      }
+    ],
+    "request_count": 6,
+    "frame_count": 0,
+    "valid_requests": 2,
+    "valid_frames": 0,
+    "gate_all": false,
+    "expected_source_gate": false
+  },
+  {
+    "case": "V03-1.5-left45-2",
+    "member_sha256": "ce84422b8367d9e807c5902a67dae03524af803b13870ee99a9a08d2df0c332d",
+    "samples": 8213,
+    "first_good_s": 33.656,
+    "first_request_s": 20.416,
+    "late_resets": [
+      {
+        "s": 32.648,
+        "delta_deg": -0.05528356448229643,
+        "counter": 2
+      }
+    ],
+    "heading_resets": [
+      {
+        "s": 2.4,
+        "delta_deg": 0.1421909181619651,
+        "counter": 1
+      },
+      {
+        "s": 32.648,
+        "delta_deg": -0.05528356448229643,
+        "counter": 2
+      }
+    ],
+    "request_count": 7,
+    "frame_count": 0,
+    "valid_requests": 2,
+    "valid_frames": 0,
+    "gate_all": false,
+    "expected_source_gate": false
+  },
+  {
+    "case": "V03-1.5-right45-1",
+    "member_sha256": "446be642dd7e6112acc2a0896b9902a06a020eefed606770b4020af9529ef2a6",
+    "samples": 9294,
+    "first_good_s": 33.004,
+    "first_request_s": 20.608,
+    "late_resets": [
+      {
+        "s": 31.996,
+        "delta_deg": -10.085749319027846,
+        "counter": 2
+      }
+    ],
+    "heading_resets": [
+      {
+        "s": 2.452,
+        "delta_deg": -0.032617568381395894,
+        "counter": 1
+      },
+      {
+        "s": 31.996,
+        "delta_deg": -10.085749319027846,
+        "counter": 2
+      }
+    ],
+    "request_count": 8,
+    "frame_count": 0,
+    "valid_requests": 4,
+    "valid_frames": 0,
+    "gate_all": false,
+    "expected_source_gate": false
+  },
+  {
+    "case": "V03-1.5-right45-2",
+    "member_sha256": "088a98da41e8c62b3f220b27621a31161083224037b426f8be76199edd634f58",
+    "samples": 6887,
+    "first_good_s": 31.404,
+    "first_request_s": 21.452,
+    "late_resets": [
+      {
+        "s": 30.396,
+        "delta_deg": 14.436931575068224,
+        "counter": 2
+      }
+    ],
+    "heading_resets": [
+      {
+        "s": 2.376,
+        "delta_deg": 0.09536994472110126,
+        "counter": 1
+      },
+      {
+        "s": 30.396,
+        "delta_deg": 14.436931575068224,
+        "counter": 2
+      }
+    ],
+    "request_count": 7,
+    "frame_count": 0,
+    "valid_requests": 4,
+    "valid_frames": 0,
+    "gate_all": false,
+    "expected_source_gate": false
+  },
+  {
+    "case": "V03-2.4-front-1",
+    "member_sha256": "074c64e33339ac9db00a82ebb8a744ff2bd8d3713864a051a647fcde1a3be7ff",
+    "samples": 6704,
+    "first_good_s": 18.368,
+    "first_request_s": 20.396,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.376,
+        "delta_deg": 0.3882936396334333,
+        "counter": 1
+      },
+      {
+        "s": 17.36,
+        "delta_deg": -0.3453485317422872,
+        "counter": 2
+      }
+    ],
+    "request_count": 3,
+    "frame_count": 0,
+    "valid_requests": 3,
+    "valid_frames": 0,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V03-2.4-front-2",
+    "member_sha256": "63d2ad3c5c8b2ef93c10736d20e15fe4e4328136282c5afeebbbda105778cb31",
+    "samples": 6542,
+    "first_good_s": 18.228,
+    "first_request_s": 20.248,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.508,
+        "delta_deg": 0.0017075472925031877,
+        "counter": 1
+      },
+      {
+        "s": 17.22,
+        "delta_deg": -0.13873825753652366,
+        "counter": 2
+      }
+    ],
+    "request_count": 3,
+    "frame_count": 0,
+    "valid_requests": 3,
+    "valid_frames": 0,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V03-2.4-left45-1",
+    "member_sha256": "28a69bf313f16e2dccc01b9332a35cadebfda2f24446366859c21b8b89b9f043",
+    "samples": 9585,
+    "first_good_s": 18.172,
+    "first_request_s": 20.52,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.38,
+        "delta_deg": 0.3882013787187852,
+        "counter": 1
+      },
+      {
+        "s": 17.164,
+        "delta_deg": -0.28806010663539366,
+        "counter": 2
+      }
+    ],
+    "request_count": 7,
+    "frame_count": 0,
+    "valid_requests": 7,
+    "valid_frames": 0,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V03-2.4-left45-2",
+    "member_sha256": "d68aba2b06a719266d8185a408fcfafdc72b94e7b3aa9416a909441d77790b46",
+    "samples": 7012,
+    "first_good_s": 18.996,
+    "first_request_s": 20.956,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.436,
+        "delta_deg": 0.20402808917352844,
+        "counter": 1
+      },
+      {
+        "s": 17.988,
+        "delta_deg": -0.2942517264788631,
+        "counter": 2
+      }
+    ],
+    "request_count": 5,
+    "frame_count": 0,
+    "valid_requests": 5,
+    "valid_frames": 0,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V03-2.4-left90-1",
+    "member_sha256": "28bca11289738c2100a7d73a2966365e97abfbc0031b3ad0d4cf4bd22916607a",
+    "samples": 9473,
+    "first_good_s": 18.224,
+    "first_request_s": 19.98,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.416,
+        "delta_deg": -0.04015126703591996,
+        "counter": 1
+      },
+      {
+        "s": 17.216,
+        "delta_deg": -0.35628710637848904,
+        "counter": 2
+      }
+    ],
+    "request_count": 9,
+    "frame_count": 0,
+    "valid_requests": 9,
+    "valid_frames": 0,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V03-2.4-left90-2",
+    "member_sha256": "e3c006c9b3bf4400f1c947fe00b45707e81214c0fbb4e909dee8713e3c7b13f1",
+    "samples": 10260,
+    "first_good_s": 19.004,
+    "first_request_s": 20.252,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.444,
+        "delta_deg": 0.07302155241660632,
+        "counter": 1
+      },
+      {
+        "s": 17.996,
+        "delta_deg": -0.31512825303785996,
+        "counter": 2
+      }
+    ],
+    "request_count": 7,
+    "frame_count": 0,
+    "valid_requests": 7,
+    "valid_frames": 0,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V03-2.4-right45-1",
+    "member_sha256": "c61a269a52bba5656685b2dbff277debc007e3005ee6fd7e1c05a530fa69af9d",
+    "samples": 9137,
+    "first_good_s": 18.272,
+    "first_request_s": 20.336,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.2,
+        "delta_deg": 0.3921048318294475,
+        "counter": 1
+      },
+      {
+        "s": 17.264,
+        "delta_deg": -0.21030508638162307,
+        "counter": 2
+      }
+    ],
+    "request_count": 6,
+    "frame_count": 0,
+    "valid_requests": 6,
+    "valid_frames": 0,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V03-2.4-right45-2",
+    "member_sha256": "19e396ec2494c4f6031b865c97343d317cef84d43a2358fe960cd5ab5000974a",
+    "samples": 8565,
+    "first_good_s": 18.768,
+    "first_request_s": 20.312,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.44,
+        "delta_deg": 0.24365694011943498,
+        "counter": 1
+      },
+      {
+        "s": 17.76,
+        "delta_deg": -0.35641010314440214,
+        "counter": 2
+      }
+    ],
+    "request_count": 6,
+    "frame_count": 0,
+    "valid_requests": 6,
+    "valid_frames": 0,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V03-2.4-right90-1",
+    "member_sha256": "75a2db6846d23c3faaf9ceab169f699fdc9af6e9d25a532a2f7d578d75da04d2",
+    "samples": 9559,
+    "first_good_s": 18.548,
+    "first_request_s": 20.392,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.444,
+        "delta_deg": -0.032617568381395894,
+        "counter": 1
+      },
+      {
+        "s": 17.54,
+        "delta_deg": -0.3648829794902294,
+        "counter": 2
+      }
+    ],
+    "request_count": 9,
+    "frame_count": 0,
+    "valid_requests": 9,
+    "valid_frames": 0,
+    "gate_all": true,
+    "expected_source_gate": true
+  },
+  {
+    "case": "V03-2.4-right90-2",
+    "member_sha256": "0d1695131f133e8db6939cd085748ae24f8b62e5841d61ee48f04a4fcc47f114",
+    "samples": 10179,
+    "first_good_s": 19.176,
+    "first_request_s": 20.036,
+    "late_resets": [],
+    "heading_resets": [
+      {
+        "s": 2.4,
+        "delta_deg": 0.3882013787187852,
+        "counter": 1
+      },
+      {
+        "s": 18.168,
+        "delta_deg": -0.0636300423078388,
+        "counter": 2
+      }
+    ],
+    "request_count": 11,
+    "frame_count": 0,
+    "valid_requests": 10,
+    "valid_frames": 0,
+    "gate_all": false,
+    "expected_source_gate": false
+  }
+]

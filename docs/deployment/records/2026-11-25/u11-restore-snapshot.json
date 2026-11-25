@@ -1,0 +1,886 @@
+{
+  "read_utc": "2026-11-25T02:59:25.190189+00:00",
+  "run_root": "/root/autodl-tmp/uav/validation/goal-20261125",
+  "source": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+  "ego_base": "bfda51284c8c1b476043255a8145ef925a3778a5",
+  "source_overlay": {},
+  "install_check": {
+    "passed": true,
+    "python": "/usr/bin/python3",
+    "numpy": "1.17.4",
+    "numpy_file": "/usr/lib/python3/dist-packages/numpy/__init__.py",
+    "opencv": "4.2.0",
+    "opencv_file": "/usr/lib/python3/dist-packages/cv2.cpython-38-x86_64-linux-gnu.so",
+    "packages": {
+      "ego_planner": "/root/autodl-tmp/uav/validation/goal-20261125/install03/ego-install/share/ego_planner",
+      "uav_vln_bringup": "/root/autodl-tmp/uav/validation/goal-20261125/install03/business-install/share/uav_vln_bringup"
+    },
+    "px4_commit": "b8c541dd7277ed735139d7d1bfb829d61fbe29fb"
+  },
+  "launch_parameters_F03_2_straight": {
+    "/ego_planner_node/fsm/require_known_space": "True",
+    "/ego_planner_node/grid_map/enable_independent_cloud": "False",
+    "/ego_planner_node/grid_map/ground_height": "-0.5",
+    "/ego_planner_node/grid_map/map_size_x": "40.0",
+    "/ego_planner_node/grid_map/map_size_y": "40.0",
+    "/ego_planner_node/grid_map/map_size_z": "3.5",
+    "/ego_planner_node/grid_map/obstacles_inflation": "0.349",
+    "/ego_planner_node/grid_map/pose_type": "1",
+    "/ego_planner_node/grid_map/resolution": "0.1",
+    "/ego_planner_node/manager/max_acc": "0.35",
+    "/ego_planner_node/manager/max_vel": "0.32",
+    "/segment_mission/height": "1.6",
+    "/segment_mission/standoff": "2.4",
+    "/segment_mission/standoff_tolerance": "0.12",
+    "/uav/segment_config/fence/x_max": "6.0",
+    "/uav/segment_config/fence/x_min": "-6.0",
+    "/uav/segment_config/fence/y_max": "4.0",
+    "/uav/segment_config/fence/y_min": "-4.0",
+    "/uav/segment_config/fence/z_max": "2.35",
+    "/uav/segment_config/fence/z_min": "1.1"
+  },
+  "live_parameters": {
+    "/ego_planner_node/fsm/require_known_space": true,
+    "/ego_planner_node/grid_map/ground_height": -0.5,
+    "/ego_planner_node/grid_map/map_size_x": 40,
+    "/ego_planner_node/grid_map/map_size_y": 40,
+    "/ego_planner_node/grid_map/map_size_z": 3.5,
+    "/ego_planner_node/grid_map/resolution": 0.1,
+    "/ego_planner_node/grid_map/enable_independent_cloud": false,
+    "/ego_planner_node/grid_map/pose_type": 1,
+    "/ego_planner_node/grid_map/obstacles_inflation": 0.349,
+    "/ego_planner_node/manager/max_vel": 0.32,
+    "/ego_planner_node/manager/max_acc": 0.35,
+    "/segment_mission/standoff": 2.4,
+    "/segment_mission/height": 1.6,
+    "/segment_mission/standoff_tolerance": 0.12,
+    "/uav/segment_config/fence": {
+      "x_min": -6,
+      "x_max": 6,
+      "y_min": -4,
+      "y_max": 4,
+      "z_min": 1.1,
+      "z_max": 2.35
+    },
+    "/use_sim_time": true
+  },
+  "live_publishers": {
+    "/uav/goal_pose": [
+      "/flight_executor"
+    ],
+    "/mavros/setpoint_position/local": [
+      "/flight_executor"
+    ]
+  },
+  "cases": [
+    {
+      "label": "F03-1-blocked",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 46364,
+      "start_ticks": "732225806",
+      "processes": {
+        "PX4": 46862,
+        "GAZEBO": 46545,
+        "MAVROS": 46863
+      },
+      "nodes": {
+        "ego_planner_node": 47483,
+        "flight_executor": 47485,
+        "segment_mission": 47486
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-1-dynamic",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 43789,
+      "start_ticks": "732214706",
+      "processes": {
+        "PX4": 44285,
+        "GAZEBO": 43970,
+        "MAVROS": 44286
+      },
+      "nodes": {
+        "ego_planner_node": 44904,
+        "flight_executor": 44906,
+        "segment_mission": 44907
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-1-long",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 41751,
+      "start_ticks": "732198497",
+      "processes": {
+        "PX4": 42249,
+        "GAZEBO": 41930,
+        "MAVROS": 42250
+      },
+      "nodes": {
+        "ego_planner_node": 42870,
+        "flight_executor": 42872,
+        "segment_mission": 42873
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-1-outside",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 37362,
+      "start_ticks": "732180077",
+      "processes": {
+        "PX4": 37866,
+        "GAZEBO": 37541,
+        "MAVROS": 37867
+      },
+      "nodes": {
+        "ego_planner_node": 38484,
+        "flight_executor": 38486,
+        "segment_mission": 38488
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-1-static",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 39268,
+      "start_ticks": "732187617",
+      "processes": {
+        "PX4": 39770,
+        "GAZEBO": 39447,
+        "MAVROS": 39771
+      },
+      "nodes": {
+        "ego_planner_node": 40389,
+        "flight_executor": 40391,
+        "segment_mission": 40392
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-1-straight",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true,
+        "reused": true
+      },
+      "start_reused": false,
+      "owner_pid": 35456,
+      "start_ticks": "732173705",
+      "processes": {
+        "PX4": 35967,
+        "GAZEBO": 35637,
+        "MAVROS": 35968
+      },
+      "nodes": {
+        "ego_planner_node": 36587,
+        "flight_executor": 36589,
+        "segment_mission": 36590
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-2-long",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 54546,
+      "start_ticks": "732255067",
+      "processes": {
+        "PX4": 55050,
+        "GAZEBO": 54725,
+        "MAVROS": 55051
+      },
+      "nodes": {
+        "ego_planner_node": 55672,
+        "flight_executor": 55675,
+        "segment_mission": 55676
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-2-outside",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 50159,
+      "start_ticks": "732238487",
+      "processes": {
+        "PX4": 50657,
+        "GAZEBO": 50338,
+        "MAVROS": 50658
+      },
+      "nodes": {
+        "ego_planner_node": 51276,
+        "flight_executor": 51278,
+        "segment_mission": 51279
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-2-static",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 52006,
+      "start_ticks": "732243856",
+      "processes": {
+        "PX4": 52520,
+        "GAZEBO": 52187,
+        "MAVROS": 52521
+      },
+      "nodes": {
+        "ego_planner_node": 53139,
+        "flight_executor": 53142,
+        "segment_mission": 53143
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-2-straight",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 48281,
+      "start_ticks": "732232077",
+      "processes": {
+        "PX4": 48779,
+        "GAZEBO": 48460,
+        "MAVROS": 48780
+      },
+      "nodes": {
+        "ego_planner_node": 49400,
+        "flight_executor": 49402,
+        "segment_mission": 49403
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-3-long",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 62876,
+      "start_ticks": "732294440",
+      "processes": {
+        "PX4": 63378,
+        "GAZEBO": 63057,
+        "MAVROS": 63379
+      },
+      "nodes": {
+        "ego_planner_node": 63997,
+        "flight_executor": 63999,
+        "segment_mission": 64000
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-3-outside",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 58499,
+      "start_ticks": "732277324",
+      "processes": {
+        "PX4": 58999,
+        "GAZEBO": 58680,
+        "MAVROS": 59000
+      },
+      "nodes": {
+        "ego_planner_node": 59619,
+        "flight_executor": 59621,
+        "segment_mission": 59622
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-3-static",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 60361,
+      "start_ticks": "732283055",
+      "processes": {
+        "PX4": 60891,
+        "GAZEBO": 60540,
+        "MAVROS": 60892
+      },
+      "nodes": {
+        "ego_planner_node": 61511,
+        "flight_executor": 61513,
+        "segment_mission": 61515
+      },
+      "audit_pass": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-3-straight",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 56596,
+      "start_ticks": "732270780",
+      "processes": {
+        "PX4": 57126,
+        "GAZEBO": 56777,
+        "MAVROS": 57127
+      },
+      "nodes": {
+        "ego_planner_node": 57744,
+        "flight_executor": 57746,
+        "segment_mission": 57747
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-4-long",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 71342,
+      "start_ticks": "732334324",
+      "processes": {
+        "PX4": 71857,
+        "GAZEBO": 71523,
+        "MAVROS": 71858
+      },
+      "nodes": {
+        "ego_planner_node": 72476,
+        "flight_executor": 72478,
+        "segment_mission": 72479
+      },
+      "audit_pass": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-4-outside",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 66877,
+      "start_ticks": "732317234",
+      "processes": {
+        "PX4": 67377,
+        "GAZEBO": 67058,
+        "MAVROS": 67378
+      },
+      "nodes": {
+        "ego_planner_node": 67999,
+        "flight_executor": 68001,
+        "segment_mission": 68002
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-4-static",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 68767,
+      "start_ticks": "732322805",
+      "processes": {
+        "PX4": 69281,
+        "GAZEBO": 68948,
+        "MAVROS": 69282
+      },
+      "nodes": {
+        "ego_planner_node": 69902,
+        "flight_executor": 69904,
+        "segment_mission": 69906
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-4-straight",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 64948,
+      "start_ticks": "732310670",
+      "processes": {
+        "PX4": 65450,
+        "GAZEBO": 65129,
+        "MAVROS": 65451
+      },
+      "nodes": {
+        "ego_planner_node": 66082,
+        "flight_executor": 66084,
+        "segment_mission": 66086
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-5-long",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 79719,
+      "start_ticks": "732371145",
+      "processes": {
+        "PX4": 80217,
+        "GAZEBO": 79898,
+        "MAVROS": 80218
+      },
+      "nodes": {
+        "ego_planner_node": 80851,
+        "flight_executor": 80853,
+        "segment_mission": 80854
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-5-outside",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 75208,
+      "start_ticks": "732352077",
+      "processes": {
+        "PX4": 75708,
+        "GAZEBO": 75387,
+        "MAVROS": 75709
+      },
+      "nodes": {
+        "ego_planner_node": 76329,
+        "flight_executor": 76331,
+        "segment_mission": 76333
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-5-static",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 77145,
+      "start_ticks": "732359740",
+      "processes": {
+        "PX4": 77649,
+        "GAZEBO": 77326,
+        "MAVROS": 77650
+      },
+      "nodes": {
+        "ego_planner_node": 78269,
+        "flight_executor": 78271,
+        "segment_mission": 78272
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "F03-5-straight",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 73296,
+      "start_ticks": "732345407",
+      "processes": {
+        "PX4": 73792,
+        "GAZEBO": 73477,
+        "MAVROS": 73793
+      },
+      "nodes": {
+        "ego_planner_node": 74409,
+        "flight_executor": 74411,
+        "segment_mission": 74412
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "V03-2.4-front-1",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 81898,
+      "start_ticks": "732388103",
+      "processes": {
+        "PX4": 82409,
+        "GAZEBO": 82077,
+        "MAVROS": 82410
+      },
+      "nodes": {
+        "ego_planner_node": 83076,
+        "flight_executor": 83079,
+        "segment_mission": 83081
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "V03-2.4-front-2",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 86259,
+      "start_ticks": "732397566",
+      "processes": {
+        "PX4": 86765,
+        "GAZEBO": 86438,
+        "MAVROS": 86766
+      },
+      "nodes": {
+        "ego_planner_node": 87431,
+        "flight_executor": 87433,
+        "segment_mission": 87436
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "V03-2.4-left45-1",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 90685,
+      "start_ticks": "732407129",
+      "processes": {
+        "PX4": 91201,
+        "GAZEBO": 90864,
+        "MAVROS": 91202
+      },
+      "nodes": {
+        "ego_planner_node": 91866,
+        "flight_executor": 91868,
+        "segment_mission": 91872
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "V03-2.4-left45-2",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 96235,
+      "start_ticks": "732419986",
+      "processes": {
+        "PX4": 96733,
+        "GAZEBO": 96415,
+        "MAVROS": 96734
+      },
+      "nodes": {
+        "ego_planner_node": 97400,
+        "flight_executor": 97402,
+        "segment_mission": 97404
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "V03-2.4-left90-1",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 110963,
+      "start_ticks": "732451821",
+      "processes": {
+        "PX4": 111490,
+        "GAZEBO": 111164,
+        "MAVROS": 111491
+      },
+      "nodes": {},
+      "audit_pass": null,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "V03-2.4-right45-1",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 100673,
+      "start_ticks": "732429239",
+      "processes": {
+        "PX4": 101171,
+        "GAZEBO": 100855,
+        "MAVROS": 101172
+      },
+      "nodes": {
+        "ego_planner_node": 101839,
+        "flight_executor": 101841,
+        "segment_mission": 101844
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    },
+    {
+      "label": "V03-2.4-right45-2",
+      "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+      "source_status": "",
+      "stop_before": {
+        "stopped": true
+      },
+      "start_reused": false,
+      "owner_pid": 105819,
+      "start_ticks": "732440686",
+      "processes": {
+        "PX4": 106340,
+        "GAZEBO": 106001,
+        "MAVROS": 106341
+      },
+      "nodes": {
+        "ego_planner_node": 107009,
+        "flight_executor": 107012,
+        "segment_mission": 107014
+      },
+      "audit_pass": true,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "CMODE(50593792)"
+      }
+    }
+  ]
+}

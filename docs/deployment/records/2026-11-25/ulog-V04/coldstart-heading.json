@@ -1,0 +1,3489 @@
+{
+  "commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+  "ledger_sha256": "4ffb08374f79be0aee1bb940b4ac7c508cd1a147cbf3a9f3266d8c8c63449a5a",
+  "cases": [
+    {
+      "case": "V04-2.4-front-1",
+      "original_pass": true,
+      "start": 1795581166.2422926,
+      "end": 1795581251.5994785,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-123249/supervisor.log",
+      "supervisor_sha256": "549f7f8594c2d971954b30727d73c69892649991feaed0c66b6f6e1309703722",
+      "supervisor_pid": 253322,
+      "supervisor_start_ticks": "733019013",
+      "px4_pid": 253852,
+      "px4_log_sha256": "6daa8bfb9d879502c24e4f75b0aa7b40b7e0918eeed7ccce8aba2854dbd32201",
+      "start_json_sha256": "820604129089b75b4155b8d63b11665e014ab57fe6e947325f4ab71e39ddf466",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_32_56.ulg",
+      "ulg_sha256": "548bb00c8605b2da41fbb5cc749e4d53faeb9f41c2f76b39533c9fc83acb7372",
+      "ulg_bytes": 10310693,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "OFFBOARD"
+      },
+      "trace_sha256": "e7ead51da1dc2d638f62bfdb31c8bd0645ce14491e54fc409a10342bebfbcb23",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 19.368,
+      "in_air_s": 12.376,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 21.612,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-709d4958",
+          "request_s": 21.612,
+          "offset_deg": 0,
+          "floor": 21.428,
+          "stop_confirmed": true,
+          "frame_s": 21.516,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.24,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.144,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-709d4958",
+          "request_s": 23.312,
+          "offset_deg": 0,
+          "floor": 23.064,
+          "stop_confirmed": true,
+          "frame_s": 23.212,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 3.944,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 3.84,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-709d4958",
+          "request_s": 31.744,
+          "offset_deg": 0,
+          "floor": 31.56,
+          "stop_confirmed": true,
+          "frame_s": 31.712,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 12.376,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 12.344,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.384,
+          "sample_s": 2.384,
+          "counter": 1,
+          "delta_deg": -0.06698025009573004,
+          "before_heading_ned_deg": 90.50175503109648,
+          "after_heading_ned_deg": 90.43550902633652,
+          "estimated_hagl_m": 0.07132750004529953,
+          "matching_quaternion_reset_s": null,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 18.36,
+          "sample_s": 18.36,
+          "counter": 2,
+          "delta_deg": -0.1343157100489404,
+          "before_heading_ned_deg": 90.76521591795138,
+          "after_heading_ned_deg": 90.62955470065658,
+          "estimated_hagl_m": 1.621189832687378,
+          "matching_quaternion_reset_s": 18.368,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 3,
+      "moving_rgbd_map_p95": 0.03865974644492339,
+      "terminal_surface_error": 0.0218711034437137,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 106,
+        "covered_core_seconds": 10.451999999999998,
+        "world_drift_m": 0.1428982561416001,
+        "maximum_standoff_error_m": 0.10972204884046555
+      }
+    },
+    {
+      "case": "V04-2.4-front-2",
+      "original_pass": true,
+      "start": 1795581251.5998435,
+      "end": 1795581347.3667128,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-123415/supervisor.log",
+      "supervisor_sha256": "f977aaf6d32a33540105756fa0a8a15e015a68fc28c5e4bc65254da6658e6c34",
+      "supervisor_pid": 258284,
+      "supervisor_start_ticks": "733027535",
+      "px4_pid": 258782,
+      "px4_log_sha256": "16d46cb135cd5db9a579d7da4966f60b39fc0138a25ddac37147008ddf644205",
+      "start_json_sha256": "b0cfa151db7409a3a54181d0b71ff83764eefd62906101abae989a331d9296f5",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_34_21.ulg",
+      "ulg_sha256": "e3c4ae3d37815d1ab22d31c7fa41210556b94af899d9fb02c8e470341416f07c",
+      "ulg_bytes": 12857910,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "OFFBOARD"
+      },
+      "trace_sha256": "e603c511115fda08b4bea3576258ac0cfca4a1cc51936bef820e117546dd2e88",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 20.048,
+      "in_air_s": 12.136,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 22.472,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-bc49c0c2",
+          "request_s": 22.472,
+          "offset_deg": 0,
+          "floor": 22.268,
+          "stop_confirmed": true,
+          "frame_s": 22.364,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.424,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.312,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-bc49c0c2",
+          "request_s": 24.76,
+          "offset_deg": 0,
+          "floor": 24.532,
+          "stop_confirmed": true,
+          "frame_s": 24.668,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 4.712,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 4.616,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-bc49c0c2",
+          "request_s": 35.152,
+          "offset_deg": 0,
+          "floor": 34.96,
+          "stop_confirmed": true,
+          "frame_s": 35.064,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 15.104,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 15.016,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.384,
+          "sample_s": 2.384,
+          "counter": 1,
+          "delta_deg": 0.22845632744114516,
+          "before_heading_ned_deg": 89.80626418867075,
+          "after_heading_ned_deg": 90.0342490729766,
+          "estimated_hagl_m": 0.09436066448688507,
+          "matching_quaternion_reset_s": 2.388,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 19.04,
+          "sample_s": 19.04,
+          "counter": 2,
+          "delta_deg": -0.0853159062628425,
+          "before_heading_ned_deg": 90.77768784337582,
+          "after_heading_ned_deg": 90.69333500712617,
+          "estimated_hagl_m": 1.6159290075302124,
+          "matching_quaternion_reset_s": 19.048,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 3,
+      "moving_rgbd_map_p95": 0.06067897788043773,
+      "terminal_surface_error": 0.04769247334970504,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 101,
+        "covered_core_seconds": 10.376000000000005,
+        "world_drift_m": 0.14220321018088367,
+        "maximum_standoff_error_m": 0.062045224588688
+      }
+    },
+    {
+      "case": "V04-2.4-left45-1",
+      "original_pass": true,
+      "start": 1795581347.3670738,
+      "end": 1795581447.4264047,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-123550/supervisor.log",
+      "supervisor_sha256": "824af842789923884701b2842969b0b34b728b198a08be2f8c9b2a67e3797326",
+      "supervisor_pid": 263623,
+      "supervisor_start_ticks": "733037132",
+      "px4_pid": 264130,
+      "px4_log_sha256": "3758effef68e66eb049ba1d730d527570f30230317c5a162a8f8bbdda386d167",
+      "start_json_sha256": "a676745a8082233285b63341cb0eb6c1221ee3b2a645b952f01ce1b5a8b8ae82",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_35_57.ulg",
+      "ulg_sha256": "40943f2b08237ce4e4ce19688bee92920f71c89d2d0c8424fc68c7c82ebe72ee",
+      "ulg_bytes": 13312511,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "AUTO.LAND"
+      },
+      "trace_sha256": "1c5a48e4817abaa0ff5b47fdd762da7fb9a8554f0c6c231c3b2ca52d0ea62996",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 19.116,
+      "in_air_s": 12.204,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 21.66,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-614465ea",
+          "request_s": 21.66,
+          "offset_deg": 0,
+          "floor": 21.46,
+          "stop_confirmed": true,
+          "frame_s": 21.624,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.544,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 2.504,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-614465ea",
+          "request_s": 26.316,
+          "offset_deg": 45,
+          "floor": 26.076,
+          "stop_confirmed": true,
+          "frame_s": 26.224,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 7.2,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 7.104,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-614465ea",
+          "request_s": 27.516,
+          "offset_deg": 45,
+          "floor": 27.264,
+          "stop_confirmed": true,
+          "frame_s": 27.424,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 8.4,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 8.304,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-614465ea",
+          "request_s": 31.472,
+          "offset_deg": 45,
+          "floor": 31.236,
+          "stop_confirmed": true,
+          "frame_s": 31.424,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 12.352,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 12.304,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-614465ea",
+          "request_s": 40.092,
+          "offset_deg": 0,
+          "floor": 39.892,
+          "stop_confirmed": true,
+          "frame_s": 40.024,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 20.976,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 20.904,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.448,
+          "sample_s": 2.448,
+          "counter": 1,
+          "delta_deg": -0.03626830782782101,
+          "before_heading_ned_deg": 90.73581878376363,
+          "after_heading_ned_deg": 90.69935240378494,
+          "estimated_hagl_m": 0.08284804970026016,
+          "matching_quaternion_reset_s": 2.452,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 18.108,
+          "sample_s": 18.104,
+          "counter": 2,
+          "delta_deg": -0.08498122032340526,
+          "before_heading_ned_deg": 90.83911856477091,
+          "after_heading_ned_deg": 90.75456765303532,
+          "estimated_hagl_m": 1.614687204360962,
+          "matching_quaternion_reset_s": 18.116,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 5,
+      "moving_rgbd_map_p95": 0.08171184538157021,
+      "terminal_surface_error": 0.03148652820420858,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 101,
+        "covered_core_seconds": 10.456000000000003,
+        "world_drift_m": 0.11383993139590855,
+        "maximum_standoff_error_m": 0.0655139702456986
+      }
+    },
+    {
+      "case": "V04-2.4-left45-2",
+      "original_pass": true,
+      "start": 1795581447.426774,
+      "end": 1795581550.2224145,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-123730/supervisor.log",
+      "supervisor_sha256": "984f3fb105b79d1a80465c95623c016e3b6d3b2b6f7dec7fe3807ecb7cc46c28",
+      "supervisor_pid": 269252,
+      "supervisor_start_ticks": "733047118",
+      "px4_pid": 269770,
+      "px4_log_sha256": "d4ee0668f11abea3fb1c31e7842b346a8d984500d441630a3590513b9eecf78b",
+      "start_json_sha256": "85a4d81908bd9b21b28c4d6c4d2801cc9264b01cd91f4d9758a13025130e9670",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_37_37.ulg",
+      "ulg_sha256": "4f326107fd577ea9a6d407d45be3427641d91879282ea1c93590fd5e5a99ac63",
+      "ulg_bytes": 13930379,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "AUTO.LAND"
+      },
+      "trace_sha256": "100804effd6110f3b35cff69c14030f0e07e9e8ce304aef185a9d30b654b37ea",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 19.812,
+      "in_air_s": 12.004,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 22.352,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-642af74b",
+          "request_s": 22.352,
+          "offset_deg": 0,
+          "floor": 22.16,
+          "stop_confirmed": true,
+          "frame_s": 22.296,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.536,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.48,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-642af74b",
+          "request_s": 24.296,
+          "offset_deg": 0,
+          "floor": 23.612,
+          "stop_confirmed": true,
+          "frame_s": 24.196,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 4.48,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 4.384,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-642af74b",
+          "request_s": 29.784,
+          "offset_deg": 45,
+          "floor": 29.54,
+          "stop_confirmed": true,
+          "frame_s": 29.696,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 9.968,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 9.88,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-642af74b",
+          "request_s": 32.644,
+          "offset_deg": 45,
+          "floor": 32.412,
+          "stop_confirmed": true,
+          "frame_s": 32.5,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 12.832,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 12.688,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-642af74b",
+          "request_s": 36.068,
+          "offset_deg": 45,
+          "floor": 35.824,
+          "stop_confirmed": true,
+          "frame_s": 35.996,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 16.256,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 16.184,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-642af74b",
+          "request_s": 44.64,
+          "offset_deg": 0,
+          "floor": 44.456,
+          "stop_confirmed": true,
+          "frame_s": 44.5,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 24.824,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 24.688,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.436,
+          "sample_s": 2.436,
+          "counter": 1,
+          "delta_deg": -0.07067538243670694,
+          "before_heading_ned_deg": 90.8287366772325,
+          "after_heading_ned_deg": 90.75758659664847,
+          "estimated_hagl_m": 0.08920510858297348,
+          "matching_quaternion_reset_s": 2.44,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 18.804,
+          "sample_s": 18.804,
+          "counter": 2,
+          "delta_deg": -0.046226723637699606,
+          "before_heading_ned_deg": 90.8259567902403,
+          "after_heading_ned_deg": 90.77841184342785,
+          "estimated_hagl_m": 1.6132584810256958,
+          "matching_quaternion_reset_s": 18.808,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 6,
+      "moving_rgbd_map_p95": 0.08031014551653244,
+      "terminal_surface_error": 0.0345828617762107,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 99,
+        "covered_core_seconds": 10.396,
+        "world_drift_m": 0.0549933823625844,
+        "maximum_standoff_error_m": 0.08632543981897767
+      }
+    },
+    {
+      "case": "V04-2.4-right45-1",
+      "original_pass": true,
+      "start": 1795581550.2227767,
+      "end": 1795581654.698228,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-123913/supervisor.log",
+      "supervisor_sha256": "7e652337ffc19f428b138d7365a3ae39e7fc3a9019bdb2af4776f379d579cc33",
+      "supervisor_pid": 275046,
+      "supervisor_start_ticks": "733057425",
+      "px4_pid": 275555,
+      "px4_log_sha256": "32cb67e3b011d83c05568533cd2b51e82cc3235b02e5c2fbde0d39cce87ca243",
+      "start_json_sha256": "f0b0ee2ff63bc089609b344d5fc643e0e8283eb3512d42bde14d29e1b5b1b871",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_39_20.ulg",
+      "ulg_sha256": "57e17fb300887bce1a0181ee905e4aadda35a92f0220c654b1000a8148a60677",
+      "ulg_bytes": 14114903,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "AUTO.LAND"
+      },
+      "trace_sha256": "caef0fc9fb68ec090428647098560ecdb4bd7b815738cab2ee5694322ad88a78",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 18.956,
+      "in_air_s": 11.78,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 21.392,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-dbdcc390",
+          "request_s": 21.392,
+          "offset_deg": 0,
+          "floor": 21.2,
+          "stop_confirmed": true,
+          "frame_s": 21.34,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.432,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.384,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-dbdcc390",
+          "request_s": 25.756,
+          "offset_deg": 45,
+          "floor": 25.496,
+          "stop_confirmed": true,
+          "frame_s": 25.64,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 6.8,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 6.68,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-dbdcc390",
+          "request_s": 31.356,
+          "offset_deg": -45,
+          "floor": 31.12,
+          "stop_confirmed": true,
+          "frame_s": 31.244,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 12.4,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 12.288,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-dbdcc390",
+          "request_s": 33.668,
+          "offset_deg": -45,
+          "floor": 33.428,
+          "stop_confirmed": true,
+          "frame_s": 33.64,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 14.712,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 14.68,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-dbdcc390",
+          "request_s": 37.208,
+          "offset_deg": -45,
+          "floor": 36.984,
+          "stop_confirmed": true,
+          "frame_s": 37.14,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 18.248,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 18.184,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-dbdcc390",
+          "request_s": 45.488,
+          "offset_deg": 0,
+          "floor": 45.296,
+          "stop_confirmed": true,
+          "frame_s": 45.44,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 26.528,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 26.48,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.428,
+          "sample_s": 2.428,
+          "counter": 1,
+          "delta_deg": -0.120286488153521,
+          "before_heading_ned_deg": 90.85362588656803,
+          "after_heading_ned_deg": 90.7331618401765,
+          "estimated_hagl_m": 0.08789749443531036,
+          "matching_quaternion_reset_s": 2.436,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 17.948,
+          "sample_s": 17.948,
+          "counter": 2,
+          "delta_deg": -0.2593869191388272,
+          "before_heading_ned_deg": 90.749130822456,
+          "after_heading_ned_deg": 90.48991148307567,
+          "estimated_hagl_m": 1.6175861358642578,
+          "matching_quaternion_reset_s": 17.952,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 6,
+      "moving_rgbd_map_p95": 0.05847139201365729,
+      "terminal_surface_error": 0.004025957347427889,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 103,
+        "covered_core_seconds": 10.380000000000003,
+        "world_drift_m": 0.05388308338438196,
+        "maximum_standoff_error_m": 0.06742735676304834
+      }
+    },
+    {
+      "case": "V04-2.4-right45-2",
+      "original_pass": true,
+      "start": 1795581654.698624,
+      "end": 1795581762.9492662,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-124058/supervisor.log",
+      "supervisor_sha256": "fc1076dda07a42d2c27fe2d4597462e959ccfd4a8cd832d2cff8f60bc87cc787",
+      "supervisor_pid": 280955,
+      "supervisor_start_ticks": "733067864",
+      "px4_pid": 281482,
+      "px4_log_sha256": "8e4e7a9f328f17304e7a6a6102b7f31b426b63293128bcda74ea41fcba2a60db",
+      "start_json_sha256": "0ce64be8c2a823e9efe536f5a58694213f034f4a0e73dacbdc48a42889be1591",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_41_05.ulg",
+      "ulg_sha256": "972f6b1aa6d95ad78bea25a0daf968ea611c34083be84faa31181b7626004fe5",
+      "ulg_bytes": 14944520,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "OFFBOARD"
+      },
+      "trace_sha256": "b9bf3808f796e12feac8e82c8f6810d202dfcd828b63df051af60cb835c7bdb5",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 19.476,
+      "in_air_s": 12.468,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 21.836,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-99d3814c",
+          "request_s": 21.836,
+          "offset_deg": 0,
+          "floor": 21.636,
+          "stop_confirmed": true,
+          "frame_s": 21.756,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.36,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.28,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-99d3814c",
+          "request_s": 26.072,
+          "offset_deg": 45,
+          "floor": 25.84,
+          "stop_confirmed": true,
+          "frame_s": 25.956,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 6.592,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 6.48,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-99d3814c",
+          "request_s": 31.332,
+          "offset_deg": -45,
+          "floor": 31.108,
+          "stop_confirmed": true,
+          "frame_s": 31.256,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 11.856,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 11.776,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-99d3814c",
+          "request_s": 32.568,
+          "offset_deg": -45,
+          "floor": 32.324,
+          "stop_confirmed": true,
+          "frame_s": 32.456,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 13.088,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 12.976,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-99d3814c",
+          "request_s": 36.288,
+          "offset_deg": -45,
+          "floor": 36.02,
+          "stop_confirmed": true,
+          "frame_s": 36.256,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 16.808,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 16.776,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-99d3814c",
+          "request_s": 45.016,
+          "offset_deg": 0,
+          "floor": 44.82,
+          "stop_confirmed": true,
+          "frame_s": 44.956,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 25.536,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 25.48,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.388,
+          "sample_s": 2.388,
+          "counter": 1,
+          "delta_deg": 0.3882013787187852,
+          "before_heading_ned_deg": 90.50066220082927,
+          "after_heading_ned_deg": 90.89050890808609,
+          "estimated_hagl_m": 0.0831296443939209,
+          "matching_quaternion_reset_s": 2.392,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 18.468,
+          "sample_s": 18.468,
+          "counter": 2,
+          "delta_deg": -0.22961745960004734,
+          "before_heading_ned_deg": 90.72800504735315,
+          "after_heading_ned_deg": 90.49834676670064,
+          "estimated_hagl_m": 1.6235096454620361,
+          "matching_quaternion_reset_s": 18.476,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 6,
+      "moving_rgbd_map_p95": 0.08312656355714658,
+      "terminal_surface_error": 0.013938684030039769,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 102,
+        "covered_core_seconds": 10.356000000000002,
+        "world_drift_m": 0.06185621112065338,
+        "maximum_standoff_error_m": 0.08872646767489245
+      }
+    },
+    {
+      "case": "V04-2.4-left90-1",
+      "original_pass": true,
+      "start": 1795581762.949611,
+      "end": 1795581877.2950253,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-124246/supervisor.log",
+      "supervisor_sha256": "5cd1b6971524024cf556e2e08f79b213ea8cf81b9f5aa0231acedc008afdbab6",
+      "supervisor_pid": 286904,
+      "supervisor_start_ticks": "733078691",
+      "px4_pid": 287396,
+      "px4_log_sha256": "2852e3ee71524d0fee29131b0d90103ca8df4fb3f0b9de29b6b02d8208e8345e",
+      "start_json_sha256": "64c1213bf7ba0b97befb075f72bf03364e1387c1d184894ea2b3b150016f03db",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_42_53.ulg",
+      "ulg_sha256": "cdab5ea937f906f379d124def9612ad8f17eb9169e783c9b9ecc791519eed79c",
+      "ulg_bytes": 16693668,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "AUTO.LAND"
+      },
+      "trace_sha256": "02e71bff62e98165a9e703ec2801f16a426e6de7aa10bd059ff4e67a3e092954",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 20.208,
+      "in_air_s": 12.616,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 22.676,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-f0223029",
+          "request_s": 22.676,
+          "offset_deg": 0,
+          "floor": 22.496,
+          "stop_confirmed": true,
+          "frame_s": 22.568,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 2.464,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.36,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-f0223029",
+          "request_s": 27.02,
+          "offset_deg": 45,
+          "floor": 26.768,
+          "stop_confirmed": true,
+          "frame_s": 26.972,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 6.808,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 6.76,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-f0223029",
+          "request_s": 28.64,
+          "offset_deg": 45,
+          "floor": 27.984,
+          "stop_confirmed": true,
+          "frame_s": 28.472,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 8.432,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 8.264,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-f0223029",
+          "request_s": 33.94,
+          "offset_deg": -45,
+          "floor": 33.684,
+          "stop_confirmed": true,
+          "frame_s": 33.868,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 13.728,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 13.656,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-f0223029",
+          "request_s": 35.78,
+          "offset_deg": -45,
+          "floor": 35.128,
+          "stop_confirmed": true,
+          "frame_s": 35.668,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 15.568,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 15.456,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-f0223029",
+          "request_s": 43.124,
+          "offset_deg": 90,
+          "floor": 42.88,
+          "stop_confirmed": true,
+          "frame_s": 42.972,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 22.912,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 22.76,
+            "counter": 2
+          }
+        },
+        {
+          "id": 7,
+          "mission": "red_pole-f0223029",
+          "request_s": 44.352,
+          "offset_deg": 90,
+          "floor": 44.112,
+          "stop_confirmed": true,
+          "frame_s": 44.268,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 24.144,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 24.056,
+            "counter": 2
+          }
+        },
+        {
+          "id": 8,
+          "mission": "red_pole-f0223029",
+          "request_s": 48.492,
+          "offset_deg": 90,
+          "floor": 48.228,
+          "stop_confirmed": true,
+          "frame_s": 48.368,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 28.28,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 28.16,
+            "counter": 2
+          }
+        },
+        {
+          "id": 9,
+          "mission": "red_pole-f0223029",
+          "request_s": 57.776,
+          "offset_deg": 0,
+          "floor": 57.568,
+          "stop_confirmed": true,
+          "frame_s": 57.668,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 37.568,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 37.456,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.38,
+          "sample_s": 2.38,
+          "counter": 1,
+          "delta_deg": 0.0591357778339704,
+          "before_heading_ned_deg": 90.50175503109648,
+          "after_heading_ned_deg": 90.56162163917163,
+          "estimated_hagl_m": 0.07132750004529953,
+          "matching_quaternion_reset_s": null,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 19.2,
+          "sample_s": 19.196,
+          "counter": 2,
+          "delta_deg": -0.24783360079689778,
+          "before_heading_ned_deg": 90.75855648351062,
+          "after_heading_ned_deg": 90.51057280531496,
+          "estimated_hagl_m": 1.624475121498108,
+          "matching_quaternion_reset_s": 19.208,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 9,
+      "moving_rgbd_map_p95": 0.04869092371227957,
+      "terminal_surface_error": 0.012474853233689444,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 100,
+        "covered_core_seconds": 10.440000000000005,
+        "world_drift_m": 0.15625358697381606,
+        "maximum_standoff_error_m": 0.16558393623575896
+      }
+    },
+    {
+      "case": "V04-2.4-left90-2",
+      "original_pass": true,
+      "start": 1795581877.2953522,
+      "end": 1795581992.9391518,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-124440/supervisor.log",
+      "supervisor_sha256": "aec4c3e5ccc38362fa5a86d0b928f72719a926470c06f021eef6c818dcb317d9",
+      "supervisor_pid": 293403,
+      "supervisor_start_ticks": "733090127",
+      "px4_pid": 293910,
+      "px4_log_sha256": "3254b618015192dc1c197d6e8ab5425983f8420969c12caf4ea081d32cd67a8c",
+      "start_json_sha256": "cdf79d4f0d99a3c74c90971d85b4fece870e34e2bc94d8673209b493d3a23154",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_44_47.ulg",
+      "ulg_sha256": "0268068379a0f04724feee4af7c2b533549765aca62f32abc10479e0fc892e3e",
+      "ulg_bytes": 16487332,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "AUTO.LAND"
+      },
+      "trace_sha256": "7835a28395689791286b1d90c82d88515c4d4c44d87a8ef92ab402b742bf436f",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 18.976,
+      "in_air_s": 12.0,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 21.356,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-8cc17e4d",
+          "request_s": 21.356,
+          "offset_deg": 0,
+          "floor": 21.152,
+          "stop_confirmed": true,
+          "frame_s": 21.244,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.376,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.264,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-8cc17e4d",
+          "request_s": 25.732,
+          "offset_deg": 45,
+          "floor": 25.496,
+          "stop_confirmed": true,
+          "frame_s": 25.644,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 6.752,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 6.664,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-8cc17e4d",
+          "request_s": 27.596,
+          "offset_deg": 45,
+          "floor": 26.944,
+          "stop_confirmed": true,
+          "frame_s": 27.548000000000002,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 8.616,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 8.568,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-8cc17e4d",
+          "request_s": 32.928,
+          "offset_deg": -45,
+          "floor": 32.68,
+          "stop_confirmed": true,
+          "frame_s": 32.844,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 13.952,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 13.864,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-8cc17e4d",
+          "request_s": 34.432,
+          "offset_deg": -45,
+          "floor": 33.736,
+          "stop_confirmed": true,
+          "frame_s": 34.248,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 15.456,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 15.272,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-8cc17e4d",
+          "request_s": 41.6,
+          "offset_deg": 90,
+          "floor": 41.352,
+          "stop_confirmed": true,
+          "frame_s": 41.56,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 22.624,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 22.584,
+            "counter": 2
+          }
+        },
+        {
+          "id": 7,
+          "mission": "red_pole-8cc17e4d",
+          "request_s": 43.944,
+          "offset_deg": 90,
+          "floor": 43.684,
+          "stop_confirmed": true,
+          "frame_s": 43.856,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 24.968,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 24.88,
+            "counter": 2
+          }
+        },
+        {
+          "id": 8,
+          "mission": "red_pole-8cc17e4d",
+          "request_s": 47.936,
+          "offset_deg": 90,
+          "floor": 47.684,
+          "stop_confirmed": true,
+          "frame_s": 47.856,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 28.96,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 28.88,
+            "counter": 2
+          }
+        },
+        {
+          "id": 9,
+          "mission": "red_pole-8cc17e4d",
+          "request_s": 56.924,
+          "offset_deg": 0,
+          "floor": 56.74,
+          "stop_confirmed": true,
+          "frame_s": 56.76,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 37.944,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 37.776,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.432,
+          "sample_s": 2.432,
+          "counter": 1,
+          "delta_deg": 0.22712446723341911,
+          "before_heading_ned_deg": 89.80576558486135,
+          "after_heading_ned_deg": 90.03265080871083,
+          "estimated_hagl_m": 0.09408871829509735,
+          "matching_quaternion_reset_s": 2.436,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 17.968,
+          "sample_s": 17.968,
+          "counter": 2,
+          "delta_deg": -0.16616831058350812,
+          "before_heading_ned_deg": 90.73794980278468,
+          "after_heading_ned_deg": 90.57260458335702,
+          "estimated_hagl_m": 1.6174311637878418,
+          "matching_quaternion_reset_s": 17.976,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 9,
+      "moving_rgbd_map_p95": 0.04978806033152704,
+      "terminal_surface_error": 0.017288453851873803,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 101,
+        "covered_core_seconds": 10.424000000000007,
+        "world_drift_m": 0.1036902083877999,
+        "maximum_standoff_error_m": 0.1379836599238411
+      }
+    },
+    {
+      "case": "V04-2.4-right90-1",
+      "original_pass": false,
+      "start": 1795581992.940235,
+      "end": 1795582130.6329298,
+      "errors": [
+        "ten_second_hold_gazebo_truth"
+      ],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-124636/supervisor.log",
+      "supervisor_sha256": "61c255318f10b2b3caf8eda2044e90a9b1b63db67b24b99d762c7005b1c2fce5",
+      "supervisor_pid": 299944,
+      "supervisor_start_ticks": "733101667",
+      "px4_pid": 300461,
+      "px4_log_sha256": "6572ac4309eb93e4bce03dd844a154241d213969fb94074c8d6b7641adfcf4d8",
+      "start_json_sha256": "d8e6e957f85065883971a4f18a649578aee0c466ca24661a5b15001c5ecc6abd",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_46_43.ulg",
+      "ulg_sha256": "65febfa0f9e38efb447eccaaa6cf9948fd56b43be786b56d69a443b4a1079c82",
+      "ulg_bytes": 20682760,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "OFFBOARD"
+      },
+      "trace_sha256": "1f12270cc7050e04ea4eb5167e1178f03ab8f3d5303b626cf3f1f873749e9643",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 20.14,
+      "in_air_s": 12.444,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 22.54,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-f2e73594",
+          "request_s": 22.54,
+          "offset_deg": 0,
+          "floor": 22.328,
+          "stop_confirmed": true,
+          "frame_s": 22.456,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.4,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.312,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-f2e73594",
+          "request_s": 24.508,
+          "offset_deg": 0,
+          "floor": 23.828,
+          "stop_confirmed": true,
+          "frame_s": 24.456,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 4.368,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 4.312,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-f2e73594",
+          "request_s": 29.096,
+          "offset_deg": 45,
+          "floor": 28.852,
+          "stop_confirmed": true,
+          "frame_s": 28.96,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 8.952,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 8.816,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-f2e73594",
+          "request_s": 35.296,
+          "offset_deg": -45,
+          "floor": 35.048,
+          "stop_confirmed": true,
+          "frame_s": 35.256,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 15.152,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 15.112,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-f2e73594",
+          "request_s": 41.888,
+          "offset_deg": 90,
+          "floor": 41.664,
+          "stop_confirmed": true,
+          "frame_s": 41.856,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 21.744,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 21.712,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-f2e73594",
+          "request_s": 51.76,
+          "offset_deg": -90,
+          "floor": 51.532,
+          "stop_confirmed": true,
+          "frame_s": 51.66,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 31.616,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 31.52,
+            "counter": 2
+          }
+        },
+        {
+          "id": 7,
+          "mission": "red_pole-f2e73594",
+          "request_s": 56.66,
+          "offset_deg": -90,
+          "floor": 56.404,
+          "stop_confirmed": true,
+          "frame_s": 56.556,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 36.52,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 36.416,
+            "counter": 2
+          }
+        },
+        {
+          "id": 8,
+          "mission": "red_pole-f2e73594",
+          "request_s": 61.396,
+          "offset_deg": -90,
+          "floor": 61.152,
+          "stop_confirmed": true,
+          "frame_s": 61.356,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 41.256,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 41.216,
+            "counter": 2
+          }
+        },
+        {
+          "id": 9,
+          "mission": "red_pole-f2e73594",
+          "request_s": 69.724,
+          "offset_deg": 0,
+          "floor": 69.52,
+          "stop_confirmed": true,
+          "frame_s": 69.656,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 49.584,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 49.512,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.404,
+          "sample_s": 2.404,
+          "counter": 1,
+          "delta_deg": 0.3882013787187852,
+          "before_heading_ned_deg": 90.50066220082927,
+          "after_heading_ned_deg": 90.89050890808609,
+          "estimated_hagl_m": 0.0831296443939209,
+          "matching_quaternion_reset_s": 2.412,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 19.132,
+          "sample_s": 19.132,
+          "counter": 2,
+          "delta_deg": -0.02959520967366525,
+          "before_heading_ned_deg": 90.7350538025766,
+          "after_heading_ned_deg": 90.70501463060688,
+          "estimated_hagl_m": 1.6154394149780273,
+          "matching_quaternion_reset_s": 19.136,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 9,
+      "moving_rgbd_map_p95": 0.08433923778304979,
+      "terminal_surface_error": 0.03605322946183108,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": false,
+        "samples": 109,
+        "covered_core_seconds": 10.348000000000013,
+        "world_drift_m": 0.15071432366540927,
+        "maximum_standoff_error_m": 0.2098578388193988
+      }
+    },
+    {
+      "case": "V04-2.4-right90-2",
+      "original_pass": true,
+      "start": 1795582130.6332982,
+      "end": 1795582248.8773708,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-124854/supervisor.log",
+      "supervisor_sha256": "3b3503d7bd6f52996099a4af05bc88303925a1a7f6989d04b5b8d5e2d8b89de9",
+      "supervisor_pid": 307440,
+      "supervisor_start_ticks": "733115436",
+      "px4_pid": 307941,
+      "px4_log_sha256": "6c349b8e170477de81f7e39a83df2cb49a1860cbbe3fd99ba24c0a97bd1a7ca1",
+      "start_json_sha256": "b2f3ed8ff0ea5489a573a63bcc69d6d0fe0e8c7021568c5859c697e266fdda61",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_49_00.ulg",
+      "ulg_sha256": "5288013f11595ae792d75b6c6c7a1db765d31e2bc2cf6dc9ad502d37c25c2d84",
+      "ulg_bytes": 16820353,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "OFFBOARD"
+      },
+      "trace_sha256": "75925ad5c8dca04e7d2664fa2a4deffadf8a762321b475d90d5820565f38de53",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 18.78,
+      "in_air_s": 11.752,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 21.136,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-02ee4dc5",
+          "request_s": 21.136,
+          "offset_deg": 0,
+          "floor": 20.948,
+          "stop_confirmed": true,
+          "frame_s": 21.06,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 2.352,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.28,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-02ee4dc5",
+          "request_s": 26.32,
+          "offset_deg": 45,
+          "floor": 26.072,
+          "stop_confirmed": true,
+          "frame_s": 26.26,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 7.536,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 7.48,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-02ee4dc5",
+          "request_s": 32.144,
+          "offset_deg": -45,
+          "floor": 31.896,
+          "stop_confirmed": true,
+          "frame_s": 32.064,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 13.36,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 13.28,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-02ee4dc5",
+          "request_s": 38.696,
+          "offset_deg": 90,
+          "floor": 38.44,
+          "stop_confirmed": true,
+          "frame_s": 38.664,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 19.912,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 19.88,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-02ee4dc5",
+          "request_s": 46.132,
+          "offset_deg": -90,
+          "floor": 45.884,
+          "stop_confirmed": true,
+          "frame_s": 46.06,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 27.352,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 27.28,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-02ee4dc5",
+          "request_s": 47.536,
+          "offset_deg": -90,
+          "floor": 47.296,
+          "stop_confirmed": true,
+          "frame_s": 47.464,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 28.752,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 28.68,
+            "counter": 2
+          }
+        },
+        {
+          "id": 7,
+          "mission": "red_pole-02ee4dc5",
+          "request_s": 51.76,
+          "offset_deg": -90,
+          "floor": 51.5,
+          "stop_confirmed": true,
+          "frame_s": 51.664,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 32.976,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 32.88,
+            "counter": 2
+          }
+        },
+        {
+          "id": 8,
+          "mission": "red_pole-02ee4dc5",
+          "request_s": 60.588,
+          "offset_deg": 0,
+          "floor": 60.396,
+          "stop_confirmed": true,
+          "frame_s": 60.46,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 41.808,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 41.68,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.376,
+          "sample_s": 2.376,
+          "counter": 1,
+          "delta_deg": 0.2674021461298372,
+          "before_heading_ned_deg": 90.16698696930663,
+          "after_heading_ned_deg": 90.43511970555383,
+          "estimated_hagl_m": 0.07896305620670319,
+          "matching_quaternion_reset_s": null,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 17.772,
+          "sample_s": 17.768,
+          "counter": 2,
+          "delta_deg": -0.30635484836855215,
+          "before_heading_ned_deg": 90.66766715622525,
+          "after_heading_ned_deg": 90.36116241722092,
+          "estimated_hagl_m": 1.6167570352554321,
+          "matching_quaternion_reset_s": 17.78,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 8,
+      "moving_rgbd_map_p95": 0.0644738480775985,
+      "terminal_surface_error": 0.015799369547079653,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 103,
+        "covered_core_seconds": 10.472000000000001,
+        "world_drift_m": 0.22764801441490268,
+        "maximum_standoff_error_m": 0.14034514398023124
+      }
+    },
+    {
+      "case": "V04-1.5-front-1",
+      "original_pass": false,
+      "start": 1795582248.8777463,
+      "end": 1795582349.0198236,
+      "errors": [
+        "mission_completed",
+        "actual_terminal_standoff",
+        "final_observation_matches_true_target",
+        "moving_rgbd",
+        "ten_second_hold_gazebo_truth"
+      ],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-125052/supervisor.log",
+      "supervisor_sha256": "662a4e3fc87c437396a8750ff096309c337ffe4c7f47ef6e2e962ccef601a4d9",
+      "supervisor_pid": 314206,
+      "supervisor_start_ticks": "733127273",
+      "px4_pid": 314712,
+      "px4_log_sha256": "5bdc3463034bc0f5448a719046ae3ec5f9687a023c54fe45d83ffd4465cd83e6",
+      "start_json_sha256": "88eb3d709b9cb65d24052ae9a6d85bfaf03e07f9c264478a9c375a0e620d7a61",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_50_59.ulg",
+      "ulg_sha256": "325a9ef8ba7a8e41ac2c82e6b98e6fbffe8a3a233ad7e1ccd8c844582af37593",
+      "ulg_bytes": 13552647,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "OFFBOARD"
+      },
+      "trace_sha256": "da84ef99507f09f69a1fc93f99dac53c8262f2e0cdebdb1d0f355ca1e7b40d4e",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 19.068,
+      "in_air_s": 12.116,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 21.572,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-bab9e176",
+          "request_s": 21.572,
+          "offset_deg": 0,
+          "floor": 21.364,
+          "stop_confirmed": true,
+          "frame_s": 21.476,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.504,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.408,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-bab9e176",
+          "request_s": 23.064,
+          "offset_deg": 0,
+          "floor": 22.816,
+          "stop_confirmed": true,
+          "frame_s": 22.976,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 3.992,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 3.904,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-bab9e176",
+          "request_s": 27.584,
+          "offset_deg": 45,
+          "floor": 27.32,
+          "stop_confirmed": true,
+          "frame_s": 27.476,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 8.512,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 8.408,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-bab9e176",
+          "request_s": 32.96,
+          "offset_deg": -45,
+          "floor": 32.7,
+          "stop_confirmed": true,
+          "frame_s": 32.876,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 13.888,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 13.808,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-bab9e176",
+          "request_s": 40.42,
+          "offset_deg": 90,
+          "floor": 40.188,
+          "stop_confirmed": true,
+          "frame_s": 40.376,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 21.352,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 21.304,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-bab9e176",
+          "request_s": 48.008,
+          "offset_deg": -90,
+          "floor": 47.764,
+          "stop_confirmed": true,
+          "frame_s": 47.976,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 28.936,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 28.904,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.396,
+          "sample_s": 2.396,
+          "counter": 1,
+          "delta_deg": 0.3921048318294475,
+          "before_heading_ned_deg": 90.504186578441,
+          "after_heading_ned_deg": 90.89671071985246,
+          "estimated_hagl_m": 0.07279258966445923,
+          "matching_quaternion_reset_s": 2.4,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 18.06,
+          "sample_s": 18.06,
+          "counter": 2,
+          "delta_deg": -0.16504132937045599,
+          "before_heading_ned_deg": 90.87223815205631,
+          "after_heading_ned_deg": 90.7078354987341,
+          "estimated_hagl_m": 1.6256822347640991,
+          "matching_quaternion_reset_s": 18.064,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 6,
+      "moving_rgbd_map_p95": null,
+      "terminal_surface_error": null,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": false,
+        "samples": null,
+        "covered_core_seconds": null,
+        "world_drift_m": null,
+        "maximum_standoff_error_m": null
+      }
+    },
+    {
+      "case": "V04-1.5-front-2",
+      "original_pass": true,
+      "start": 1795582349.0201943,
+      "end": 1795582448.603523,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-125232/supervisor.log",
+      "supervisor_sha256": "97c49b5b1329aad43211baaded9b39bd6f43ad38dce4033f25dac2e08fdcf4fa",
+      "supervisor_pid": 319798,
+      "supervisor_start_ticks": "733137306",
+      "px4_pid": 320290,
+      "px4_log_sha256": "ef449f7637280b16b2fcf5213c2376ab6b54ab04fdcd7a9f74974a945e97b89e",
+      "start_json_sha256": "b7f3938cab1a1d56f89391ab28561d3a718e0d85fd81409dfc532cda1b05b6e9",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_52_39.ulg",
+      "ulg_sha256": "7fd0c0e2609395c8be794e3760aaa29ef8f255efa4b9adb0025481a5cdaaebdd",
+      "ulg_bytes": 13010689,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "AUTO.LAND"
+      },
+      "trace_sha256": "a2ddea55b22064623968eded2828aa185a8664a7238848c5dccf5ee382f05bc5",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 20.196,
+      "in_air_s": 12.3,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 22.52,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-b19587a3",
+          "request_s": 22.52,
+          "offset_deg": 0,
+          "floor": 22.324,
+          "stop_confirmed": true,
+          "frame_s": 22.448,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.32,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.248,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-b19587a3",
+          "request_s": 24.288,
+          "offset_deg": 0,
+          "floor": 24.068,
+          "stop_confirmed": true,
+          "frame_s": 24.248,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 4.088,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 4.048,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-b19587a3",
+          "request_s": 32.88,
+          "offset_deg": 0,
+          "floor": 32.66,
+          "stop_confirmed": true,
+          "frame_s": 32.848,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 12.68,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 12.648,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-b19587a3",
+          "request_s": 40.552,
+          "offset_deg": 0,
+          "floor": 40.352,
+          "stop_confirmed": true,
+          "frame_s": 40.452,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 20.352,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 20.256,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.412,
+          "sample_s": 2.412,
+          "counter": 1,
+          "delta_deg": -0.06050865252724957,
+          "before_heading_ned_deg": 90.73317550055485,
+          "after_heading_ned_deg": 90.6727351565894,
+          "estimated_hagl_m": 0.08148843795061111,
+          "matching_quaternion_reset_s": 2.42,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 19.188,
+          "sample_s": 19.188,
+          "counter": 2,
+          "delta_deg": -0.06728419351379561,
+          "before_heading_ned_deg": 90.8050017698667,
+          "after_heading_ned_deg": 90.73741021784025,
+          "estimated_hagl_m": 1.6150689125061035,
+          "matching_quaternion_reset_s": 19.192,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 4,
+      "moving_rgbd_map_p95": 0.017799309023669548,
+      "terminal_surface_error": 0.008329581113131673,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 109,
+        "covered_core_seconds": 10.519999999999996,
+        "world_drift_m": 0.1372476297377347,
+        "maximum_standoff_error_m": 0.019166214206987497
+      }
+    },
+    {
+      "case": "V04-1.5-left45-1",
+      "original_pass": true,
+      "start": 1795582448.603886,
+      "end": 1795582559.7857273,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-125412/supervisor.log",
+      "supervisor_sha256": "909ea9a27caedde62c3ce644bf62ef07fa991ea71d8c7e1500bc9851533a3937",
+      "supervisor_pid": 325333,
+      "supervisor_start_ticks": "733147255",
+      "px4_pid": 325877,
+      "px4_log_sha256": "ffbb99bccf575f7a330537cfb485ef851b9c03def78d311ff552f4302d15f9e6",
+      "start_json_sha256": "17cd878a22ef0786244b7862e6b5e06102d0b9e363438e70314bfb272e0fc474",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_54_18.ulg",
+      "ulg_sha256": "58fedb172329061e34209225a4f09bfff26a6f9b615fc64d93b18c79738abe50",
+      "ulg_bytes": 15115941,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "AUTO.LAND"
+      },
+      "trace_sha256": "755c92fa698258c26160ab5454f5ee2d4663ef91b8aea740c49ba76dffc8656a",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 18.812,
+      "in_air_s": 11.86,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 21.196,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-d6a993e8",
+          "request_s": 21.196,
+          "offset_deg": 0,
+          "floor": 21.016,
+          "stop_confirmed": true,
+          "frame_s": 21.12,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.384,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.304,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-d6a993e8",
+          "request_s": 25.708,
+          "offset_deg": 45,
+          "floor": 25.48,
+          "stop_confirmed": true,
+          "frame_s": 25.62,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 6.896,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 6.808,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-d6a993e8",
+          "request_s": 27.14,
+          "offset_deg": 45,
+          "floor": 26.9,
+          "stop_confirmed": true,
+          "frame_s": 26.924,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 8.328,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 8.112,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-d6a993e8",
+          "request_s": 31.692,
+          "offset_deg": 45,
+          "floor": 31.452,
+          "stop_confirmed": true,
+          "frame_s": 31.62,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 12.88,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 12.808,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-d6a993e8",
+          "request_s": 40.568,
+          "offset_deg": 0,
+          "floor": 40.38,
+          "stop_confirmed": true,
+          "frame_s": 40.52,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 21.752,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 21.704,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-d6a993e8",
+          "request_s": 50.168,
+          "offset_deg": 0,
+          "floor": 49.96,
+          "stop_confirmed": true,
+          "frame_s": 50.024,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 31.352,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 31.208,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.38,
+          "sample_s": 2.38,
+          "counter": 1,
+          "delta_deg": 0.03231704005791533,
+          "before_heading_ned_deg": 90.50392020106337,
+          "after_heading_ned_deg": 90.53697148645706,
+          "estimated_hagl_m": 0.07896306365728378,
+          "matching_quaternion_reset_s": null,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 17.804,
+          "sample_s": 17.804,
+          "counter": 2,
+          "delta_deg": -0.25384419394693547,
+          "before_heading_ned_deg": 90.78375305135879,
+          "after_heading_ned_deg": 90.5301754482329,
+          "estimated_hagl_m": 1.6251710653305054,
+          "matching_quaternion_reset_s": 17.808,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 6,
+      "moving_rgbd_map_p95": 0.0677793619476674,
+      "terminal_surface_error": 0.0025719715944913304,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 107,
+        "covered_core_seconds": 10.467999999999996,
+        "world_drift_m": 0.06319779641802976,
+        "maximum_standoff_error_m": 0.039163942218025216
+      }
+    },
+    {
+      "case": "V04-1.5-left45-2",
+      "original_pass": true,
+      "start": 1795582559.78609,
+      "end": 1795582693.2180936,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-125603/supervisor.log",
+      "supervisor_sha256": "57f9ae167011f75e2535dc010b11732942b4812fb1e2afbbc91301b0a220c0ca",
+      "supervisor_pid": 331505,
+      "supervisor_start_ticks": "733158381",
+      "px4_pid": 332021,
+      "px4_log_sha256": "6c1eb617ffa9e01003efc8aa28a87629ac0cf21856e8e674b9b07cd81bcc032c",
+      "start_json_sha256": "7666dde9777855c48108f31d919eb217cbacc30f501f36633492d6b16d1b26c1",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_56_10.ulg",
+      "ulg_sha256": "75a8747ec2535ca3a5378e03404945739affe24a5ed5422d97ba92c3a0f71250",
+      "ulg_bytes": 17069146,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "AUTO.LAND"
+      },
+      "trace_sha256": "19402fd86f2b630f85d0e51bab2f4466c12ebfd832ad1337669229d4b34bd576",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 19.34,
+      "in_air_s": 12.404,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 21.524,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-dce4e7be",
+          "request_s": 21.524,
+          "offset_deg": 0,
+          "floor": 21.328,
+          "stop_confirmed": true,
+          "frame_s": 21.464,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.184,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.12,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-dce4e7be",
+          "request_s": 24.104,
+          "offset_deg": 0,
+          "floor": 23.436,
+          "stop_confirmed": true,
+          "frame_s": 24.064,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 4.76,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 4.72,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-dce4e7be",
+          "request_s": 28.18,
+          "offset_deg": 45,
+          "floor": 27.96,
+          "stop_confirmed": true,
+          "frame_s": 28.064,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 8.832,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 8.72,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-dce4e7be",
+          "request_s": 30.02,
+          "offset_deg": 45,
+          "floor": 29.796,
+          "stop_confirmed": true,
+          "frame_s": 29.964,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 10.672,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 10.616,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-dce4e7be",
+          "request_s": 34.032,
+          "offset_deg": 45,
+          "floor": 33.788,
+          "stop_confirmed": true,
+          "frame_s": 33.964,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 14.688,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 14.616,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-dce4e7be",
+          "request_s": 42.628,
+          "offset_deg": 0,
+          "floor": 42.444,
+          "stop_confirmed": true,
+          "frame_s": 42.564,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 23.28,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 23.216,
+            "counter": 2
+          }
+        },
+        {
+          "id": 7,
+          "mission": "red_pole-dce4e7be",
+          "request_s": 51.804,
+          "offset_deg": 0,
+          "floor": 51.572,
+          "stop_confirmed": true,
+          "frame_s": 51.764,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 32.456,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.008,
+            "continuous_valid_s": 32.416,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.444,
+          "sample_s": 2.444,
+          "counter": 1,
+          "delta_deg": -0.032617568381395894,
+          "before_heading_ned_deg": 90.73577780262862,
+          "after_heading_ned_deg": 90.7026855360999,
+          "estimated_hagl_m": 0.08920511603355408,
+          "matching_quaternion_reset_s": 2.448,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 18.332,
+          "sample_s": 18.332,
+          "counter": 2,
+          "delta_deg": -0.21557797908065968,
+          "before_heading_ned_deg": 90.90671694698653,
+          "after_heading_ned_deg": 90.68996089367617,
+          "estimated_hagl_m": 1.6329760551452637,
+          "matching_quaternion_reset_s": 18.336,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 7,
+      "moving_rgbd_map_p95": 0.05594650047574448,
+      "terminal_surface_error": 0.012324062973595486,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 107,
+        "covered_core_seconds": 10.420000000000002,
+        "world_drift_m": 0.08059451296983666,
+        "maximum_standoff_error_m": 0.03853836417906842
+      }
+    },
+    {
+      "case": "V04-1.5-right45-1",
+      "original_pass": true,
+      "start": 1795582693.2186844,
+      "end": 1795582814.2918773,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-125816/supervisor.log",
+      "supervisor_sha256": "1fd9b168fc6f92a5fec440ec5c48004e1d68f503558a25ee92b1d3d5ff7b6834",
+      "supervisor_pid": 338317,
+      "supervisor_start_ticks": "733171716",
+      "px4_pid": 338823,
+      "px4_log_sha256": "625f83ee9aeb5e7b82977850dda3c4e939d133aa33bee05ffccf73b84b328744",
+      "start_json_sha256": "9f7b3e400134e7e5afd3a7362e97821e2cef9e8a8315af88c5987ec08a29bcfe",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/04_58_23.ulg",
+      "ulg_sha256": "8c030590ee31f2b7365f3091ad2303bb24c6be12452d3fc35812d7d448e17039",
+      "ulg_bytes": 17491317,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "OFFBOARD"
+      },
+      "trace_sha256": "a5bc4384371ede5cbb49b7ec6687631d6a02e8d33ed82ad1a0639b98c2f107b8",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 19.316,
+      "in_air_s": 12.284,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 21.656,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-e9f51ebf",
+          "request_s": 21.656,
+          "offset_deg": 0,
+          "floor": 21.468,
+          "stop_confirmed": true,
+          "frame_s": 21.636,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.336,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.32,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-e9f51ebf",
+          "request_s": 26.368,
+          "offset_deg": 45,
+          "floor": 26.136,
+          "stop_confirmed": true,
+          "frame_s": 26.336,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 7.048,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 7.016,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-e9f51ebf",
+          "request_s": 32.06,
+          "offset_deg": -45,
+          "floor": 31.828,
+          "stop_confirmed": true,
+          "frame_s": 32.036,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 12.744,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 12.72,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-e9f51ebf",
+          "request_s": 33.44,
+          "offset_deg": -45,
+          "floor": 33.18,
+          "stop_confirmed": true,
+          "frame_s": 33.336,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 14.12,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 14.016,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-e9f51ebf",
+          "request_s": 38.012,
+          "offset_deg": -45,
+          "floor": 37.78,
+          "stop_confirmed": true,
+          "frame_s": 37.936,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 18.696,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 18.616,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-e9f51ebf",
+          "request_s": 49.04,
+          "offset_deg": 0,
+          "floor": 48.816,
+          "stop_confirmed": true,
+          "frame_s": 48.936,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 29.72,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 29.616,
+            "counter": 2
+          }
+        },
+        {
+          "id": 7,
+          "mission": "red_pole-e9f51ebf",
+          "request_s": 57.94,
+          "offset_deg": 0,
+          "floor": 57.736,
+          "stop_confirmed": true,
+          "frame_s": 57.84,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 38.624,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 38.52,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.396,
+          "sample_s": 2.396,
+          "counter": 1,
+          "delta_deg": 0.3882013787187852,
+          "before_heading_ned_deg": 90.50066220082927,
+          "after_heading_ned_deg": 90.89050890808609,
+          "estimated_hagl_m": 0.0831296443939209,
+          "matching_quaternion_reset_s": 2.4,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 18.308,
+          "sample_s": 18.308,
+          "counter": 2,
+          "delta_deg": -0.3596134885455646,
+          "before_heading_ned_deg": 90.86663056674773,
+          "after_heading_ned_deg": 90.50670008805557,
+          "estimated_hagl_m": 1.6211118698120117,
+          "matching_quaternion_reset_s": 18.312,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 7,
+      "moving_rgbd_map_p95": 0.05321720446100606,
+      "terminal_surface_error": 0.014294277892769158,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 105,
+        "covered_core_seconds": 10.395999999999994,
+        "world_drift_m": 0.16397986876675913,
+        "maximum_standoff_error_m": 0.0453938833542058
+      }
+    },
+    {
+      "case": "V04-1.5-right45-2",
+      "original_pass": true,
+      "start": 1795582814.2922852,
+      "end": 1795582928.2410402,
+      "errors": [],
+      "supervisor": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-130017/supervisor.log",
+      "supervisor_sha256": "05b336709534bdab92157725e6e064841d70eb9f999d2b14f037feb7577d4ad5",
+      "supervisor_pid": 345013,
+      "supervisor_start_ticks": "733183817",
+      "px4_pid": 345511,
+      "px4_log_sha256": "e068050c9bebfdf4ff5a3ad4d6fd455b86745bae2da5f2a393b4d6610b172f42",
+      "start_json_sha256": "9388928a448772bba347a834032f4cc5c951cbc7e0de57174e11e5501388dbc7",
+      "ulg": "/root/autodl-tmp/uav/validation/u11-clean-2LR48q/PX4-Autopilot/build/px4_sitl_default/rootfs/log/2026-11-25/05_00_24.ulg",
+      "ulg_sha256": "388c53121660106a7cd5d075500321fe3f1501b3dfdf0326515016eafdab21f1",
+      "ulg_bytes": 15858454,
+      "postflight_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true,
+        "mode": "AUTO.LAND"
+      },
+      "trace_sha256": "e2ba531afc2ed05ffb6857a7b477927834883b4330755ba06c4112bbfd139ac0",
+      "initial_mag_mode": 0,
+      "heading_good_first_s": 20.636,
+      "in_air_s": 12.42,
+      "fcu_armed_ulog": true,
+      "final_fcu_arming_state": 1,
+      "first_request_s": 22.951999999999998,
+      "requests": [
+        {
+          "id": 1,
+          "mission": "red_pole-1eb0434e",
+          "request_s": 22.951999999999998,
+          "offset_deg": 0,
+          "floor": 22.748,
+          "stop_confirmed": true,
+          "frame_s": 22.876,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 2.312,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 2.24,
+            "counter": 2
+          }
+        },
+        {
+          "id": 2,
+          "mission": "red_pole-1eb0434e",
+          "request_s": 27.084,
+          "offset_deg": 45,
+          "floor": 26.832,
+          "stop_confirmed": true,
+          "frame_s": 26.98,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 6.448,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 6.344,
+            "counter": 2
+          }
+        },
+        {
+          "id": 3,
+          "mission": "red_pole-1eb0434e",
+          "request_s": 32.356,
+          "offset_deg": -45,
+          "floor": 32.136,
+          "stop_confirmed": true,
+          "frame_s": 32.276,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 11.72,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 11.64,
+            "counter": 2
+          }
+        },
+        {
+          "id": 4,
+          "mission": "red_pole-1eb0434e",
+          "request_s": 33.72,
+          "offset_deg": -45,
+          "floor": 33.492,
+          "stop_confirmed": true,
+          "frame_s": 33.68,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 13.08,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 13.04,
+            "counter": 2
+          }
+        },
+        {
+          "id": 5,
+          "mission": "red_pole-1eb0434e",
+          "request_s": 37.592,
+          "offset_deg": -45,
+          "floor": 37.364,
+          "stop_confirmed": true,
+          "frame_s": 37.476,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 16.952,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 16.84,
+            "counter": 2
+          }
+        },
+        {
+          "id": 6,
+          "mission": "red_pole-1eb0434e",
+          "request_s": 46.72,
+          "offset_deg": 0,
+          "floor": 46.524,
+          "stop_confirmed": true,
+          "frame_s": 46.676,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 26.08,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 26.04,
+            "counter": 2
+          }
+        },
+        {
+          "id": 7,
+          "mission": "red_pole-1eb0434e",
+          "request_s": 54.588,
+          "offset_deg": 0,
+          "floor": 54.356,
+          "stop_confirmed": true,
+          "frame_s": 54.48,
+          "request_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.0,
+            "continuous_valid_s": 33.952,
+            "counter": 2
+          },
+          "frame_gate": {
+            "pass_gate": true,
+            "heading_good": true,
+            "sample_age_s": 0.004,
+            "continuous_valid_s": 33.84,
+            "counter": 2
+          }
+        }
+      ],
+      "resets": [
+        {
+          "stamp": 2.396,
+          "sample_s": 2.396,
+          "counter": 1,
+          "delta_deg": 0.3921048318294475,
+          "before_heading_ned_deg": 90.504186578441,
+          "after_heading_ned_deg": 90.89671071985246,
+          "estimated_hagl_m": 0.07279258966445923,
+          "matching_quaternion_reset_s": 2.4,
+          "phase": null,
+          "offset_deg": null
+        },
+        {
+          "stamp": 19.628,
+          "sample_s": 19.628,
+          "counter": 2,
+          "delta_deg": -0.16123007047337565,
+          "before_heading_ned_deg": 90.6434677959959,
+          "after_heading_ned_deg": 90.4825007278262,
+          "estimated_hagl_m": 1.6153690814971924,
+          "matching_quaternion_reset_s": 19.632,
+          "phase": "TAKEOFF",
+          "offset_deg": 0
+        }
+      ],
+      "resets_after_first_request": [],
+      "gate_verified_all_requests": true,
+      "gate_verified_all_recorded_frames": true,
+      "frames_with_timestamp": 7,
+      "moving_rgbd_map_p95": 0.06727779515085792,
+      "terminal_surface_error": 0.02039027465668937,
+      "landed_disarmed": true,
+      "hold": {
+        "passed": true,
+        "samples": 105,
+        "covered_core_seconds": 10.420000000000002,
+        "world_drift_m": 0.13220579166049984,
+        "maximum_standoff_error_m": 0.01703720009606502
+      }
+    }
+  ]
+}

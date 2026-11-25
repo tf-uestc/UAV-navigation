@@ -1,0 +1,110 @@
+{
+  "stage": "lifecycle",
+  "clock": "sim",
+  "passed": false,
+  "checks": [
+    {
+      "name": "real_detector_ids_and_fast_busy",
+      "passed": false,
+      "seconds": 8.08942423388362,
+      "error": "AssertionError('condition timed out after 8.0s')",
+      "trace": "Traceback (most recent call last):\n  File \"isolated/lifecycle-harness-02/run_stage78.py\", line 206, in case\n    details=fn()\n  File \"isolated/lifecycle-harness-02/run_stage78.py\", line 267, in transport\n    rs=wait(lambda:[r for r in json_messages('/uav/detection_result',start) if r['mission_id']==m and r['status']=='SUCCEEDED'])\n  File \"isolated/lifecycle-harness-02/run_stage78.py\", line 45, in wait\n    raise AssertionError('condition timed out after %.1fs'%timeout)\nAssertionError: condition timed out after 8.0s\n"
+    },
+    {
+      "name": "spline_before_ack_is_buffered_then_forwarded",
+      "passed": true,
+      "seconds": 0.04266296047717333,
+      "details": {
+        "schema_version": 1,
+        "mission_id": "20535855bc914465b04ec4c7b55419ec",
+        "goal_id": 1,
+        "gateway_session_id": "f936f10632ed4fd9894e0f4943fd0f64",
+        "frame_id": "map",
+        "goal": [
+          3.0,
+          0.0,
+          2.0
+        ]
+      }
+    },
+    {
+      "name": "cancel_rejects_late_spline",
+      "passed": true,
+      "seconds": 0.27530030347406864,
+      "details": null
+    },
+    {
+      "name": "cancel_before_request_and_delayed_old_cancel_are_isolated",
+      "passed": true,
+      "seconds": 0.287109000608325,
+      "details": null
+    },
+    {
+      "name": "map_not_ready_then_ready_same_request",
+      "passed": true,
+      "seconds": 0.3351840814575553,
+      "details": null
+    },
+    {
+      "name": "bounded_planner_timeout_sends_cancel",
+      "passed": true,
+      "seconds": 0.5176592376083136,
+      "details": null
+    },
+    {
+      "name": "manager_rejects_wrong_task_and_latched_path",
+      "passed": true,
+      "seconds": 6.548510454595089,
+      "details": "Old task and unidentified latched Path could not complete plan wait."
+    },
+    {
+      "name": "manager_permanent_not_ready_has_bounded_retries",
+      "passed": true,
+      "seconds": 6.30979467369616,
+      "details": {
+        "requests": 1
+      }
+    },
+    {
+      "name": "task_A_to_B_old_failure_is_ignored",
+      "passed": true,
+      "seconds": 9.764586610719562,
+      "details": null
+    },
+    {
+      "name": "ego_restart_session_does_not_replay_active_goal",
+      "passed": true,
+      "seconds": 0.34565543942153454,
+      "details": null
+    },
+    {
+      "name": "gateway_restart_rejects_latched_old_request",
+      "passed": true,
+      "seconds": 1.8314463142305613,
+      "details": "Old latched request rejected by new gateway session."
+    },
+    {
+      "name": "manager_restart_reused_request_number_rejects_old_mission",
+      "passed": true,
+      "seconds": 5.838360867463052,
+      "details": null
+    },
+    {
+      "name": "manager_fast_busy_clears_pending_before_timeout",
+      "passed": false,
+      "seconds": 4.15572309307754,
+      "error": "AssertionError('condition timed out after 4.0s')",
+      "trace": "Traceback (most recent call last):\n  File \"isolated/lifecycle-harness-02/run_stage78.py\", line 206, in case\n    details=fn()\n  File \"isolated/lifecycle-harness-02/run_stage78.py\", line 412, in manager_fast_busy\n    wait(lambda:rospy.get_param('/stage78/fixture_entered'),4)\n  File \"isolated/lifecycle-harness-02/run_stage78.py\", line 45, in wait\n    raise AssertionError('condition timed out after %.1fs'%timeout)\nAssertionError: condition timed out after 4.0s\n"
+    },
+    {
+      "name": "paused_ros_clock_keeps_wall_deadlines",
+      "passed": true,
+      "seconds": 4.885425617918372,
+      "details": {
+        "wall_seconds_until_hover": 0.8815484801307321
+      }
+    }
+  ],
+  "fatal": null,
+  "flight_master_contacted": false
+}

@@ -1,0 +1,123 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "unknown_never_tracks_and_exits_after_one_observation"
+    },
+    {
+      "name": "known_free",
+      "segments": 1,
+      "peak_tracking_error_m": 0.39592622795421745,
+      "rmse_tracking_m": 0.17469490848180438,
+      "odom_samples": 201,
+      "aligned_samples": 201,
+      "executed_trajectories": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "trajectory_dispositions": [
+        {
+          "flight_session_id": "c0c3f7ade64445129e7b997ed1b8f066",
+          "mission_id": "known_free-ef4b0383",
+          "goal_id": 1,
+          "planner_session_id": "1d7305fb-5d68-4746-b2da-c62f11bcb0c3",
+          "traj_id": 3,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 0.000315050160157298,
+          "velocity_tolerance_mps": 0.15420000000000014
+        },
+        {
+          "flight_session_id": "c0c3f7ade64445129e7b997ed1b8f066",
+          "mission_id": "known_free-ef4b0383",
+          "goal_id": 1,
+          "planner_session_id": "1d7305fb-5d68-4746-b2da-c62f11bcb0c3",
+          "traj_id": 4,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 4.467533519465915e-05,
+          "velocity_tolerance_mps": 0.15420000000000014
+        }
+      ],
+      "endpoint": [
+        0.6550071239471436,
+        -0.031552888453006744,
+        1.7069380283355713
+      ],
+      "endpoint_speed_mps": 0.050767037036487994
+    },
+    {
+      "name": "occupied_goal_rejected",
+      "reason": "invalid_or_occupied_goal"
+    },
+    {
+      "name": "stale_map_cannot_authorize_translation",
+      "reason": "planning_authorization_timeout"
+    },
+    {
+      "name": "restored_input_does_not_revive_old_mission_or_replayed_spline"
+    },
+    {
+      "name": "fresh_after_recovery",
+      "segments": 1,
+      "peak_tracking_error_m": 0.40340258439643356,
+      "rmse_tracking_m": 0.18434631629339956,
+      "odom_samples": 233,
+      "aligned_samples": 233,
+      "executed_trajectories": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ]
+      ],
+      "trajectory_dispositions": [
+        {
+          "flight_session_id": "c0c3f7ade64445129e7b997ed1b8f066",
+          "mission_id": "fresh_after_recovery-41bb32a3",
+          "goal_id": 1,
+          "planner_session_id": "1d7305fb-5d68-4746-b2da-c62f11bcb0c3",
+          "traj_id": 6,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 0.0003430715476422511,
+          "velocity_tolerance_mps": 0.15419999999999767
+        },
+        {
+          "flight_session_id": "c0c3f7ade64445129e7b997ed1b8f066",
+          "mission_id": "fresh_after_recovery-41bb32a3",
+          "goal_id": 1,
+          "planner_session_id": "1d7305fb-5d68-4746-b2da-c62f11bcb0c3",
+          "traj_id": 7,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 4.447149893183801e-05,
+          "velocity_tolerance_mps": 0.15559999999999938
+        }
+      ],
+      "endpoint": [
+        1.1066279411315918,
+        -0.05735979229211807,
+        1.7850419282913208
+      ],
+      "endpoint_speed_mps": 0.05701561440873874
+    },
+    {
+      "name": "new_explicit_mission_can_execute_after_fresh_fusion"
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

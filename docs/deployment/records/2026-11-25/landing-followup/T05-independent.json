@@ -1,0 +1,102 @@
+[
+  {
+    "label": "T05-1-unknown",
+    "passed": true,
+    "driver_exit": 0,
+    "primary": true,
+    "physics_contacts": true,
+    "postflight_ground": true,
+    "handshake": {
+      "driver": true,
+      "land_command": true,
+      "distinct_disarmed_ground_reports": true,
+      "normal_controller_completion": true,
+      "mission_landed": true,
+      "no_executor_failure": true
+    },
+    "disarm_s": 10.97132963128388,
+    "complete_s": 11.416750073432922,
+    "mission_landed_s": 11.4212777139619,
+    "failures": [],
+    "distinct_ground_reports_before_complete": 3,
+    "samples_over_point15_before_complete": 13,
+    "odom_samples_before_complete": 13,
+    "after_disarm_over_point15": 135,
+    "max_speed_after_disarm": 0.2214864801588646
+  },
+  {
+    "label": "T05-2-straight",
+    "passed": true,
+    "driver_exit": 0,
+    "primary": true,
+    "physics_contacts": true,
+    "postflight_ground": true,
+    "handshake": {
+      "driver": true,
+      "land_command": true,
+      "distinct_disarmed_ground_reports": true,
+      "normal_controller_completion": true,
+      "mission_landed": true,
+      "no_executor_failure": true
+    },
+    "disarm_s": 5.344949849881232,
+    "complete_s": 5.352894955314696,
+    "mission_landed_s": 5.370856199413538,
+    "failures": [],
+    "distinct_ground_reports_before_complete": 1,
+    "samples_over_point15_before_complete": 0,
+    "odom_samples_before_complete": 0,
+    "after_disarm_over_point15": 0,
+    "max_speed_after_disarm": 0.10113887203565099
+  },
+  {
+    "label": "T05-3-static",
+    "passed": true,
+    "driver_exit": 0,
+    "primary": true,
+    "physics_contacts": true,
+    "postflight_ground": true,
+    "handshake": {
+      "driver": true,
+      "land_command": true,
+      "distinct_disarmed_ground_reports": true,
+      "normal_controller_completion": true,
+      "mission_landed": true,
+      "no_executor_failure": true
+    },
+    "disarm_s": 9.514365723356605,
+    "complete_s": 9.737577127292752,
+    "mission_landed_s": 9.754997313022614,
+    "failures": [],
+    "distinct_ground_reports_before_complete": 2,
+    "samples_over_point15_before_complete": 0,
+    "odom_samples_before_complete": 6,
+    "after_disarm_over_point15": 121,
+    "max_speed_after_disarm": 0.18586106565244034
+  },
+  {
+    "label": "T05-4-dynamic",
+    "passed": true,
+    "driver_exit": 0,
+    "primary": true,
+    "physics_contacts": true,
+    "postflight_ground": true,
+    "handshake": {
+      "driver": true,
+      "land_command": true,
+      "distinct_disarmed_ground_reports": true,
+      "normal_controller_completion": true,
+      "mission_landed": true,
+      "no_executor_failure": true
+    },
+    "disarm_s": 12.003051552921534,
+    "complete_s": 12.48521318193525,
+    "mission_landed_s": 12.525109047070146,
+    "failures": [],
+    "distinct_ground_reports_before_complete": 3,
+    "samples_over_point15_before_complete": 6,
+    "odom_samples_before_complete": 14,
+    "after_disarm_over_point15": 183,
+    "max_speed_after_disarm": 0.37105218934053713
+  }
+]

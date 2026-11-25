@@ -1,0 +1,10 @@
+{
+  "backend": "local_rgb_fixture",
+  "flight_exit": 0,
+  "cloud_calls": 0,
+  "loopback_guard_active": true,
+  "backend_ready": true,
+  "external_connection_attempts_denied": 0,
+  "observed_frames": 7,
+  "positive_frames": 5
+}

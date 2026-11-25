@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "case": "accepted_first",
+      "passed": true,
+      "dispositions": [
+        {
+          "flight_session_id": "isolated-executor",
+          "mission_id": "test",
+          "goal_id": 1,
+          "planner_session_id": "epoch",
+          "traj_id": 1,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 5.551115123125783e-17,
+          "velocity_tolerance_mps": 0.15
+        },
+        {
+          "flight_session_id": "isolated-executor",
+          "mission_id": "test",
+          "goal_id": 1,
+          "planner_session_id": "epoch",
+          "traj_id": 1,
+          "accepted": false,
+          "reason": "old_trajectory"
+        }
+      ],
+      "stops": []
+    },
+    {
+      "case": "discontinuous_replan",
+      "passed": true,
+      "dispositions": [
+        {
+          "flight_session_id": "isolated-executor",
+          "mission_id": "test",
+          "goal_id": 1,
+          "planner_session_id": "epoch",
+          "traj_id": 1,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 5.551115123125783e-17,
+          "velocity_tolerance_mps": 0.15
+        },
+        {
+          "flight_session_id": "isolated-executor",
+          "mission_id": "test",
+          "goal_id": 1,
+          "planner_session_id": "epoch",
+          "traj_id": 2,
+          "accepted": false,
+          "reason": "velocity_discontinuity",
+          "velocity_error_mps": 0.5,
+          "velocity_tolerance_mps": 0.15
+        }
+      ],
+      "stops": [
+        "discontinuous_trajectory"
+      ]
+    }
+  ]
+}

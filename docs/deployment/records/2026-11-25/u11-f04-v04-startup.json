@@ -1,0 +1,2761 @@
+{
+  "collected_utc": "2026-11-25T05:02:47.414602+00:00",
+  "expected_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+  "complete": true,
+  "frozen_installation_verified": true,
+  "counts": {
+    "F04": {
+      "planned": 23,
+      "observed": 23,
+      "full_startup_evidence": 23
+    },
+    "V04": {
+      "planned": 16,
+      "observed": 16,
+      "full_startup_evidence": 16
+    }
+  },
+  "missing_labels": [],
+  "invalid_or_unexpected_ledger_records": {
+    "F04": 0,
+    "V04": 0
+  },
+  "distinct_supervisor_identities": 39,
+  "distinct_supervisor_logs": 39,
+  "distinct_launch_pids": {
+    "PX4": 39,
+    "GAZEBO": 39,
+    "MAVROS": 39
+  },
+  "reused_numeric_launch_pids": {
+    "PX4": {},
+    "GAZEBO": {},
+    "MAVROS": {}
+  },
+  "installation": {
+    "build": "/root/autodl-tmp/uav/validation/goal-20261125/install04",
+    "git_business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+    "ego_base": "bfda51284c8c1b476043255a8145ef925a3778a5",
+    "source_overlay_entry_count": 0,
+    "package_paths": {
+      "uav_vln_bringup": "/root/autodl-tmp/uav/validation/goal-20261125/install04/business-install/share/uav_vln_bringup",
+      "ego_planner": "/root/autodl-tmp/uav/validation/goal-20261125/install04/ego-install/share/ego_planner"
+    },
+    "runner_checks_both_resolved_package_paths_before_launch": true,
+    "installed_files": {
+      "runtime_entry": {
+        "path": "/root/autodl-tmp/uav/validation/goal-20261125/install04/UAV-navigation/tools/deployment/uav_runtime.sh",
+        "present": true,
+        "sha256": "ed680b4736305b0e2123970bff4489ea54760b08aac8158a0d6c43ac39af6a45"
+      },
+      "case_runner": {
+        "path": "/root/autodl-tmp/uav/validation/goal-20261125/install04/UAV-navigation/tools/deployment/run_acceptance_case.sh",
+        "present": true,
+        "sha256": "39cc1cb2000764f829eb85bee4b190f02772c9399a37e1c12a8efb456ceca771"
+      },
+      "business_package": {
+        "path": "/root/autodl-tmp/uav/validation/goal-20261125/install04/business-install/share/uav_vln_bringup/package.xml",
+        "present": true,
+        "sha256": "decc1a8aa06b4bd9d700901054a2ce24544b924d2d6eebf224b63b044a72aa79"
+      },
+      "ego_package": {
+        "path": "/root/autodl-tmp/uav/validation/goal-20261125/install04/ego-install/share/ego_planner/package.xml",
+        "present": true,
+        "sha256": "d8cff4e455a7abde1aed4cd83283d1edf4b75f068f66f28a45b41575fa31e113"
+      },
+      "installed_launch": {
+        "path": "/root/autodl-tmp/uav/validation/goal-20261125/install04/business-install/share/uav_vln_bringup/launch/segment_verified.launch",
+        "present": true,
+        "sha256": "15c62841f7e614de91bb0b8f93cb579efff61cdb7c96753fe931ab547fb6a2bd"
+      },
+      "installed_heading_node": {
+        "path": "/root/autodl-tmp/uav/validation/goal-20261125/install04/business-install/lib/uav_vln_bringup/sitl_heading_readiness.py",
+        "present": true,
+        "sha256": "ea68cd0bb649ce9a7d899ca6d3dce408d174d0c8e17f23e7c080543f0e86bc6d"
+      },
+      "heading_source": {
+        "path": "/root/autodl-tmp/uav/validation/goal-20261125/install04/UAV-navigation/ws/src/uav_vln_bringup/scripts/sitl_heading_readiness.py",
+        "present": true,
+        "sha256": "ea68cd0bb649ce9a7d899ca6d3dce408d174d0c8e17f23e7c080543f0e86bc6d"
+      }
+    },
+    "heading_installed_body_matches_source": true,
+    "heading_bridge": {
+      "node": "/sitl_heading_readiness",
+      "output_topic": "/uav/sitl/heading_ready",
+      "px4_uorb_input": "vehicle_local_position.heading_good_for_control",
+      "listener_and_topics_identified_in_installed_code": true
+    }
+  },
+  "cases": [
+    {
+      "label": "F04-1-straight",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 192964,
+      "supervisor_start_ticks": 732754202,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-114842/supervisor.log",
+        "supervisor_pid_file": 192964,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 193466,
+          "GAZEBO": 193145,
+          "MAVROS": 193467
+        },
+        "mavros_node_pids": [
+          193680
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          194084
+        ],
+        "ego_planner_node": [
+          194085
+        ],
+        "flight_executor": [
+          194087
+        ],
+        "segment_mission": [
+          194088
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-1-static",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 195123,
+      "supervisor_start_ticks": 732761016,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-114950/supervisor.log",
+        "supervisor_pid_file": 195123,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 195631,
+          "GAZEBO": 195302,
+          "MAVROS": 195632
+        },
+        "mavros_node_pids": [
+          195894
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          196250
+        ],
+        "ego_planner_node": [
+          196251
+        ],
+        "flight_executor": [
+          196253
+        ],
+        "segment_mission": [
+          196254
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-1-long",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 197840,
+      "supervisor_start_ticks": 732772317,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-115143/supervisor.log",
+        "supervisor_pid_file": 197840,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 198326,
+          "GAZEBO": 198021,
+          "MAVROS": 198327
+        },
+        "mavros_node_pids": [
+          198532
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          198944
+        ],
+        "ego_planner_node": [
+          198945
+        ],
+        "flight_executor": [
+          198947
+        ],
+        "segment_mission": [
+          198949
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-1-outside",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 200125,
+      "supervisor_start_ticks": 732787539,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-115415/supervisor.log",
+        "supervisor_pid_file": 200125,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 200618,
+          "GAZEBO": 200304,
+          "MAVROS": 200619
+        },
+        "mavros_node_pids": [
+          200815
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          201238
+        ],
+        "ego_planner_node": [
+          201239
+        ],
+        "flight_executor": [
+          201241
+        ],
+        "segment_mission": [
+          201242
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-2-straight",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 202208,
+      "supervisor_start_ticks": 732793668,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-115516/supervisor.log",
+        "supervisor_pid_file": 202208,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 202714,
+          "GAZEBO": 202401,
+          "MAVROS": 202715
+        },
+        "mavros_node_pids": [
+          202946
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          203346
+        ],
+        "ego_planner_node": [
+          203348
+        ],
+        "flight_executor": [
+          203350
+        ],
+        "segment_mission": [
+          203351
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-2-static",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 204351,
+      "supervisor_start_ticks": 732799814,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-115618/supervisor.log",
+        "supervisor_pid_file": 204351,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 204855,
+          "GAZEBO": 204533,
+          "MAVROS": 204856
+        },
+        "mavros_node_pids": [
+          205124
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          205475
+        ],
+        "ego_planner_node": [
+          205476
+        ],
+        "flight_executor": [
+          205478
+        ],
+        "segment_mission": [
+          205479
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-2-long",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 207086,
+      "supervisor_start_ticks": 732810476,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-115804/supervisor.log",
+        "supervisor_pid_file": 207086,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 207589,
+          "GAZEBO": 207265,
+          "MAVROS": 207590
+        },
+        "mavros_node_pids": [
+          207794
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          208210
+        ],
+        "ego_planner_node": [
+          208211
+        ],
+        "flight_executor": [
+          208213
+        ],
+        "segment_mission": [
+          208214
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-2-outside",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 209318,
+      "supervisor_start_ticks": 732826185,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-120041/supervisor.log",
+        "supervisor_pid_file": 209318,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 209812,
+          "GAZEBO": 209500,
+          "MAVROS": 209813
+        },
+        "mavros_node_pids": [
+          210020
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          210434
+        ],
+        "ego_planner_node": [
+          210435
+        ],
+        "flight_executor": [
+          210437
+        ],
+        "segment_mission": [
+          210438
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-3-straight",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 211408,
+      "supervisor_start_ticks": 732832258,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-120142/supervisor.log",
+        "supervisor_pid_file": 211408,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 211922,
+          "GAZEBO": 211605,
+          "MAVROS": 211923
+        },
+        "mavros_node_pids": [
+          212190
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          212541
+        ],
+        "ego_planner_node": [
+          212542
+        ],
+        "flight_executor": [
+          212544
+        ],
+        "segment_mission": [
+          212545
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-3-static",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 213536,
+      "supervisor_start_ticks": 732839149,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-120251/supervisor.log",
+        "supervisor_pid_file": 213536,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 214041,
+          "GAZEBO": 213717,
+          "MAVROS": 214042
+        },
+        "mavros_node_pids": [
+          214245
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          214660
+        ],
+        "ego_planner_node": [
+          214661
+        ],
+        "flight_executor": [
+          214663
+        ],
+        "segment_mission": [
+          214664
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-3-long",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 216346,
+      "supervisor_start_ticks": 732850674,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-120446/supervisor.log",
+        "supervisor_pid_file": 216346,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 216869,
+          "GAZEBO": 216528,
+          "MAVROS": 216870
+        },
+        "mavros_node_pids": [
+          217115
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          217488
+        ],
+        "ego_planner_node": [
+          217489
+        ],
+        "flight_executor": [
+          217491
+        ],
+        "segment_mission": [
+          217492
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-3-outside",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 218798,
+      "supervisor_start_ticks": 732867447,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-120734/supervisor.log",
+        "supervisor_pid_file": 218798,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 219308,
+          "GAZEBO": 218979,
+          "MAVROS": 219309
+        },
+        "mavros_node_pids": [
+          219496
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          219926
+        ],
+        "ego_planner_node": [
+          219927
+        ],
+        "flight_executor": [
+          219929
+        ],
+        "segment_mission": [
+          219930
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-4-straight",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 220980,
+      "supervisor_start_ticks": 732874628,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-120845/supervisor.log",
+        "supervisor_pid_file": 220980,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 221482,
+          "GAZEBO": 221159,
+          "MAVROS": 221483
+        },
+        "mavros_node_pids": [
+          221739
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          222102
+        ],
+        "ego_planner_node": [
+          222103
+        ],
+        "flight_executor": [
+          222105
+        ],
+        "segment_mission": [
+          222106
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-4-static",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 223184,
+      "supervisor_start_ticks": 732883488,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-121014/supervisor.log",
+        "supervisor_pid_file": 223184,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 223694,
+          "GAZEBO": 223365,
+          "MAVROS": 223695
+        },
+        "mavros_node_pids": [
+          223960
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          224312
+        ],
+        "ego_planner_node": [
+          224313
+        ],
+        "flight_executor": [
+          224315
+        ],
+        "segment_mission": [
+          224317
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-4-long",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 226016,
+      "supervisor_start_ticks": 732897906,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-121238/supervisor.log",
+        "supervisor_pid_file": 226016,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 226540,
+          "GAZEBO": 226199,
+          "MAVROS": 226541
+        },
+        "mavros_node_pids": [
+          226887
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          227176
+        ],
+        "ego_planner_node": [
+          227178
+        ],
+        "flight_executor": [
+          227180
+        ],
+        "segment_mission": [
+          227181
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-4-outside",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 228468,
+      "supervisor_start_ticks": 732913392,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-121513/supervisor.log",
+        "supervisor_pid_file": 228468,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 228990,
+          "GAZEBO": 228651,
+          "MAVROS": 228991
+        },
+        "mavros_node_pids": [
+          229205
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          229610
+        ],
+        "ego_planner_node": [
+          229611
+        ],
+        "flight_executor": [
+          229614
+        ],
+        "segment_mission": [
+          229615
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-5-straight",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 230698,
+      "supervisor_start_ticks": 732919325,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-121612/supervisor.log",
+        "supervisor_pid_file": 230698,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 231200,
+          "GAZEBO": 230881,
+          "MAVROS": 231201
+        },
+        "mavros_node_pids": [
+          231409
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          231823
+        ],
+        "ego_planner_node": [
+          231824
+        ],
+        "flight_executor": [
+          231826
+        ],
+        "segment_mission": [
+          231827
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-5-static",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 232827,
+      "supervisor_start_ticks": 732925873,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-121718/supervisor.log",
+        "supervisor_pid_file": 232827,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 233331,
+          "GAZEBO": 233010,
+          "MAVROS": 233332
+        },
+        "mavros_node_pids": [
+          233595
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          233954
+        ],
+        "ego_planner_node": [
+          233955
+        ],
+        "flight_executor": [
+          233957
+        ],
+        "segment_mission": [
+          233958
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-5-long",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 235633,
+      "supervisor_start_ticks": 732936504,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-121904/supervisor.log",
+        "supervisor_pid_file": 235633,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 236130,
+          "GAZEBO": 235815,
+          "MAVROS": 236131
+        },
+        "mavros_node_pids": [
+          236387
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          236752
+        ],
+        "ego_planner_node": [
+          236753
+        ],
+        "flight_executor": [
+          236756
+        ],
+        "segment_mission": [
+          236757
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-5-outside",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 237959,
+      "supervisor_start_ticks": 732951977,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-122139/supervisor.log",
+        "supervisor_pid_file": 237959,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 238461,
+          "GAZEBO": 238140,
+          "MAVROS": 238462
+        },
+        "mavros_node_pids": [
+          238730
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          239082
+        ],
+        "ego_planner_node": [
+          239083
+        ],
+        "flight_executor": [
+          239085
+        ],
+        "segment_mission": [
+          239086
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-1-dynamic",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 240070,
+      "supervisor_start_ticks": 732957961,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-122239/supervisor.log",
+        "supervisor_pid_file": 240070,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 240571,
+          "GAZEBO": 240251,
+          "MAVROS": 240572
+        },
+        "mavros_node_pids": [
+          240783
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          241190
+        ],
+        "ego_planner_node": [
+          241191
+        ],
+        "flight_executor": [
+          241193
+        ],
+        "segment_mission": [
+          241194
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-1-blocked",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 243068,
+      "supervisor_start_ticks": 732968890,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-122428/supervisor.log",
+        "supervisor_pid_file": 243068,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 243570,
+          "GAZEBO": 243251,
+          "MAVROS": 243571
+        },
+        "mavros_node_pids": [
+          243851
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          244204
+        ],
+        "ego_planner_node": [
+          244205
+        ],
+        "flight_executor": [
+          244207
+        ],
+        "segment_mission": [
+          244209
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "F04-1-unknown",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 245252,
+      "supervisor_start_ticks": 732974935,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-122529/supervisor.log",
+        "supervisor_pid_file": 245252,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 245774,
+          "GAZEBO": 245437,
+          "MAVROS": 245775
+        },
+        "mavros_node_pids": [
+          246000
+        ]
+      },
+      "roslaunch_node_pids": {
+        "camera_pose_bridge": [
+          246386
+        ],
+        "ego_planner_node": [
+          246387
+        ],
+        "flight_executor": [
+          246389
+        ],
+        "segment_mission": [
+          246390
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": false,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-2.4-front-1",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 253322,
+      "supervisor_start_ticks": 733019013,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-123249/supervisor.log",
+        "supervisor_pid_file": 253322,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 253852,
+          "GAZEBO": 253505,
+          "MAVROS": 253853
+        },
+        "mavros_node_pids": [
+          254061
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          254516
+        ],
+        "camera_pose_bridge": [
+          254517
+        ],
+        "ego_planner_node": [
+          254518
+        ],
+        "flight_executor": [
+          254521
+        ],
+        "detector_node": [
+          254523
+        ],
+        "segment_mission": [
+          254524
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": true,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-2.4-front-2",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 258284,
+      "supervisor_start_ticks": 733027535,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-123415/supervisor.log",
+        "supervisor_pid_file": 258284,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 258782,
+          "GAZEBO": 258463,
+          "MAVROS": 258783
+        },
+        "mavros_node_pids": [
+          259085
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          259446
+        ],
+        "camera_pose_bridge": [
+          259449
+        ],
+        "ego_planner_node": [
+          259451
+        ],
+        "flight_executor": [
+          259454
+        ],
+        "detector_node": [
+          259455
+        ],
+        "segment_mission": [
+          259457
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": true,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-2.4-left45-1",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 263623,
+      "supervisor_start_ticks": 733037132,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-123550/supervisor.log",
+        "supervisor_pid_file": 263623,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 264130,
+          "GAZEBO": 263808,
+          "MAVROS": 264131
+        },
+        "mavros_node_pids": [
+          264374
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          264796
+        ],
+        "camera_pose_bridge": [
+          264797
+        ],
+        "ego_planner_node": [
+          264798
+        ],
+        "flight_executor": [
+          264800
+        ],
+        "detector_node": [
+          264802
+        ],
+        "segment_mission": [
+          264803
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": true,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-2.4-left45-2",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 269252,
+      "supervisor_start_ticks": 733047118,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-123730/supervisor.log",
+        "supervisor_pid_file": 269252,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 269770,
+          "GAZEBO": 269431,
+          "MAVROS": 269771
+        },
+        "mavros_node_pids": [
+          270010
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          270440
+        ],
+        "camera_pose_bridge": [
+          270441
+        ],
+        "ego_planner_node": [
+          270442
+        ],
+        "flight_executor": [
+          270444
+        ],
+        "detector_node": [
+          270445
+        ],
+        "segment_mission": [
+          270446
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": true,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-2.4-right45-1",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 275046,
+      "supervisor_start_ticks": 733057425,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-123913/supervisor.log",
+        "supervisor_pid_file": 275046,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 275555,
+          "GAZEBO": 275227,
+          "MAVROS": 275556
+        },
+        "mavros_node_pids": [
+          275795
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          276220
+        ],
+        "camera_pose_bridge": [
+          276221
+        ],
+        "ego_planner_node": [
+          276224
+        ],
+        "flight_executor": [
+          276226
+        ],
+        "detector_node": [
+          276229
+        ],
+        "segment_mission": [
+          276230
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": true,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-2.4-right45-2",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 280955,
+      "supervisor_start_ticks": 733067864,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-124058/supervisor.log",
+        "supervisor_pid_file": 280955,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 281482,
+          "GAZEBO": 281136,
+          "MAVROS": 281483
+        },
+        "mavros_node_pids": [
+          281726
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          282147
+        ],
+        "camera_pose_bridge": [
+          282149
+        ],
+        "ego_planner_node": [
+          282151
+        ],
+        "flight_executor": [
+          282153
+        ],
+        "detector_node": [
+          282154
+        ],
+        "segment_mission": [
+          282155
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": true,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-2.4-left90-1",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 286904,
+      "supervisor_start_ticks": 733078691,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-124246/supervisor.log",
+        "supervisor_pid_file": 286904,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 287396,
+          "GAZEBO": 287085,
+          "MAVROS": 287397
+        },
+        "mavros_node_pids": [
+          287689
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          288060
+        ],
+        "camera_pose_bridge": [
+          288061
+        ],
+        "ego_planner_node": [
+          288065
+        ],
+        "flight_executor": [
+          288067
+        ],
+        "detector_node": [
+          288068
+        ],
+        "segment_mission": [
+          288070
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": true,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-2.4-left90-2",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 293403,
+      "supervisor_start_ticks": 733090127,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-124440/supervisor.log",
+        "supervisor_pid_file": 293403,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 293910,
+          "GAZEBO": 293582,
+          "MAVROS": 293911
+        },
+        "mavros_node_pids": [
+          294139
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          294578
+        ],
+        "camera_pose_bridge": [
+          294586
+        ],
+        "ego_planner_node": [
+          294588
+        ],
+        "flight_executor": [
+          294616
+        ],
+        "detector_node": [
+          294670
+        ],
+        "segment_mission": [
+          294672
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": true,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-2.4-right90-1",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 299944,
+      "supervisor_start_ticks": 733101667,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-124636/supervisor.log",
+        "supervisor_pid_file": 299944,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 300461,
+          "GAZEBO": 300125,
+          "MAVROS": 300462
+        },
+        "mavros_node_pids": [
+          300704
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          301127
+        ],
+        "camera_pose_bridge": [
+          301128
+        ],
+        "ego_planner_node": [
+          301129
+        ],
+        "flight_executor": [
+          301132
+        ],
+        "detector_node": [
+          301134
+        ],
+        "segment_mission": [
+          301136
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": true,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-2.4-right90-2",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 307440,
+      "supervisor_start_ticks": 733115436,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-124854/supervisor.log",
+        "supervisor_pid_file": 307440,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 307941,
+          "GAZEBO": 307624,
+          "MAVROS": 307942
+        },
+        "mavros_node_pids": [
+          308197
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          308607
+        ],
+        "camera_pose_bridge": [
+          308608
+        ],
+        "ego_planner_node": [
+          308609
+        ],
+        "flight_executor": [
+          308613
+        ],
+        "detector_node": [
+          308614
+        ],
+        "segment_mission": [
+          308615
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.6,
+        "require_sitl_heading": true,
+        "standoff": 2.4,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-1.5-front-1",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 314206,
+      "supervisor_start_ticks": 733127273,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-125052/supervisor.log",
+        "supervisor_pid_file": 314206,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 314712,
+          "GAZEBO": 314387,
+          "MAVROS": 314713
+        },
+        "mavros_node_pids": [
+          314957
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          315373
+        ],
+        "camera_pose_bridge": [
+          315374
+        ],
+        "ego_planner_node": [
+          315375
+        ],
+        "flight_executor": [
+          315377
+        ],
+        "detector_node": [
+          315378
+        ],
+        "segment_mission": [
+          315379
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.3,
+        "require_sitl_heading": true,
+        "standoff": 1.5,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-1.5-front-2",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 319798,
+      "supervisor_start_ticks": 733137306,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-125232/supervisor.log",
+        "supervisor_pid_file": 319798,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 320290,
+          "GAZEBO": 319979,
+          "MAVROS": 320291
+        },
+        "mavros_node_pids": [
+          320545
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          320955
+        ],
+        "camera_pose_bridge": [
+          320958
+        ],
+        "ego_planner_node": [
+          320959
+        ],
+        "flight_executor": [
+          320964
+        ],
+        "detector_node": [
+          320965
+        ],
+        "segment_mission": [
+          320966
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.3,
+        "require_sitl_heading": true,
+        "standoff": 1.5,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-1.5-left45-1",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 325333,
+      "supervisor_start_ticks": 733147255,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-125412/supervisor.log",
+        "supervisor_pid_file": 325333,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 325877,
+          "GAZEBO": 325514,
+          "MAVROS": 325878
+        },
+        "mavros_node_pids": [
+          326138
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          326543
+        ],
+        "camera_pose_bridge": [
+          326545
+        ],
+        "ego_planner_node": [
+          326546
+        ],
+        "flight_executor": [
+          326548
+        ],
+        "detector_node": [
+          326549
+        ],
+        "segment_mission": [
+          326550
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.3,
+        "require_sitl_heading": true,
+        "standoff": 1.5,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-1.5-left45-2",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 331505,
+      "supervisor_start_ticks": 733158381,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-125603/supervisor.log",
+        "supervisor_pid_file": 331505,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 332021,
+          "GAZEBO": 331686,
+          "MAVROS": 332022
+        },
+        "mavros_node_pids": [
+          332290
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          332686
+        ],
+        "camera_pose_bridge": [
+          332688
+        ],
+        "ego_planner_node": [
+          332689
+        ],
+        "flight_executor": [
+          332691
+        ],
+        "detector_node": [
+          332693
+        ],
+        "segment_mission": [
+          332694
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.3,
+        "require_sitl_heading": true,
+        "standoff": 1.5,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-1.5-right45-1",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 338317,
+      "supervisor_start_ticks": 733171716,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-125816/supervisor.log",
+        "supervisor_pid_file": 338317,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 338823,
+          "GAZEBO": 338498,
+          "MAVROS": 338824
+        },
+        "mavros_node_pids": [
+          339036
+        ]
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          339516
+        ],
+        "camera_pose_bridge": [
+          339518
+        ],
+        "ego_planner_node": [
+          339519
+        ],
+        "flight_executor": [
+          339521
+        ],
+        "detector_node": [
+          339522
+        ],
+        "segment_mission": [
+          339523
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.3,
+        "require_sitl_heading": true,
+        "standoff": 1.5,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    },
+    {
+      "label": "V04-1.5-right45-2",
+      "business_commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+      "clean_source": true,
+      "start_reused": false,
+      "startup_state": {
+        "connected": true,
+        "armed": false,
+        "landed": true
+      },
+      "supervisor_pid": 345013,
+      "supervisor_start_ticks": 733183817,
+      "supervisor": {
+        "supervisor_log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/sim-20261125-130017/supervisor.log",
+        "supervisor_pid_file": 345013,
+        "supervisor_pid_matches": true,
+        "launch_pids": {
+          "PX4": 345511,
+          "GAZEBO": 345194,
+          "MAVROS": 345512
+        },
+        "mavros_node_pids": []
+      },
+      "roslaunch_node_pids": {
+        "sitl_heading_readiness": [
+          346178
+        ],
+        "camera_pose_bridge": [
+          346179
+        ],
+        "ego_planner_node": [
+          346180
+        ],
+        "flight_executor": [
+          346183
+        ],
+        "detector_node": [
+          346184
+        ],
+        "segment_mission": [
+          346187
+        ]
+      },
+      "launch_parameters": {
+        "height": 1.3,
+        "require_sitl_heading": true,
+        "standoff": 1.5,
+        "visual_takeoff_height": 1.6
+      },
+      "checks": {
+        "ledger_start_unique": true,
+        "ledger_finish_unique": true,
+        "clean_source_at_start": true,
+        "expected_commit_at_start": true,
+        "stopped_before": true,
+        "fresh_start": true,
+        "started_on_ground_disarmed": true,
+        "supervisor_pid_verified": true,
+        "supervisor_ticks_saved": true,
+        "all_supervisor_roles_seen": true,
+        "business_nodes_seen": true,
+        "heading_gate_policy_observed": true,
+        "heading_node_as_configured": true,
+        "mission_height_as_scheduled": true,
+        "takeoff_height_as_scheduled": true,
+        "standoff_as_scheduled": true,
+        "unique_supervisor_identity_and_log": true
+      },
+      "complete_startup_evidence": true
+    }
+  ],
+  "scope": "Startup and logged ROS launch parameters only. PID in MAVROS supervisor field is the roslaunch child; mavros_node_pids comes separately from mavros.log. Numeric PID reuse over time is reported separately from supervisor PID/start-tick identity. Flight acceptance and measured flight altitude use their independent trial records."
+}

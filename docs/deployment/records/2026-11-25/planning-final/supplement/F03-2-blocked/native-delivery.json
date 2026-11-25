@@ -1,0 +1,47 @@
+{
+  "passed": false,
+  "collision_warning_missions": [
+    "dynamic-e94cdf98"
+  ],
+  "native_emergency_recorded": true,
+  "dispositions": [
+    {
+      "native": {
+        "planner_session_id": "84e7f75f-01f5-4bda-a0c1-6bc4f37e6ad9",
+        "mission_id": "dynamic-e94cdf98",
+        "goal_id": 1,
+        "traj_id": 1,
+        "emergency": false,
+        "start_time_ns": 21872000000
+      },
+      "gateway_forwarded": true,
+      "executor_ack": {
+        "flight_session_id": "1121fbc51fc34056a2e21179ba3f7864",
+        "mission_id": "dynamic-e94cdf98",
+        "goal_id": 1,
+        "planner_session_id": "84e7f75f-01f5-4bda-a0c1-6bc4f37e6ad9",
+        "traj_id": 1,
+        "accepted": true,
+        "reason": "accepted",
+        "velocity_error_mps": 0.0033781803443797484,
+        "velocity_tolerance_mps": 0.15979999999999953
+      },
+      "gateway_rejection": null,
+      "accounted": true
+    },
+    {
+      "native": {
+        "planner_session_id": "84e7f75f-01f5-4bda-a0c1-6bc4f37e6ad9",
+        "mission_id": "dynamic-e94cdf98",
+        "goal_id": 1,
+        "traj_id": 2,
+        "emergency": true,
+        "start_time_ns": 25152000000
+      },
+      "gateway_forwarded": false,
+      "executor_ack": null,
+      "gateway_rejection": null,
+      "accounted": false
+    }
+  ]
+}

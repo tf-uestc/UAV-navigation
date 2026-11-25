@@ -1,0 +1,75 @@
+{
+  "passed": false,
+  "error": "AssertionError({'mission_session_id': 'ec0f6ccdba6d4016b248dcdadbd81ba2', 'mission_id': 'red_pole-eca29bbf', 'phase': 'FAILED', 'reason': 'target_not_found', 'goal_id': 2, 'goal': [1.3943202946221926, -1.4919460370305577, 1.3], 'final_goal': [1.3943202946221926, -1.4919460370305577, 1.3], 'detection_request_id': None, 'intended_yaw': -2.561176232560106, 'observation_heading_mode': 'scan', 'segment_count': 2, 'scan_offset_deg': -90, 'detection_retried': False, 'detour_active': False, 'capture_floor': 69.416, 'stop_id': 21})",
+  "checks": [
+    {
+      "name": "attempt_observations",
+      "mission_id": "red_pole-eca29bbf",
+      "terminal": "FAILED",
+      "reason": "target_not_found",
+      "segments": 2,
+      "scans": [
+        45,
+        -45,
+        45,
+        -45,
+        90,
+        -90
+      ],
+      "detection_requests": 11,
+      "responses": [
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "SUCCEEDED",
+          "reason": ""
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        },
+        {
+          "status": "FAILED",
+          "reason": "target_not_found"
+        }
+      ],
+      "distance_at_terminal_m": 1.5297560083913049,
+      "minimum_horizontal_distance_m": 1.2972240971408804,
+      "elapsed_seconds": 71.78435858618468
+    },
+    {
+      "name": "landed_disarmed"
+    }
+  ],
+  "final_armed": false
+}

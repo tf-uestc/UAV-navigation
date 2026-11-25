@@ -1,0 +1,27 @@
+{
+  "reused": false,
+  "owner": {
+    "pid": 381238,
+    "start_ticks": "733381834",
+    "marker": "segment_verified.launch",
+    "log": "/root/autodl-tmp/uav/validation/goal-20261125/install04/logs/mission-20261125-133317/launch.log"
+  },
+  "mission_status": {
+    "mission_session_id": "62e578b4278048679b61e073440a2dc2",
+    "mission_id": null,
+    "phase": "IDLE",
+    "reason": "",
+    "goal_id": 0,
+    "goal": null,
+    "final_goal": null,
+    "detection_request_id": null,
+    "intended_yaw": null,
+    "observation_heading_mode": "initial",
+    "segment_count": 0,
+    "scan_offset_deg": 0,
+    "detection_retried": false,
+    "detour_active": false,
+    "capture_floor": null,
+    "stop_id": 0
+  }
+}

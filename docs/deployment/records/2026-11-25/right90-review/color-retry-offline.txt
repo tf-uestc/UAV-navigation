@@ -1,0 +1,25 @@
+NumPy: 2.3.5
+UTC: 2026-11-25T02:05:03.943594+00:00
+Python: 3.12.14
+Platform: Windows-11-10.0.26300-SP0
+Source/test SHA256: 01d69a778436b89bb404e9ff4f77be862c300cec45b1812e01b43c665f12cae5
+Scope: offline logic and ROS-shaped stand-ins; ROS/PX4/Gazebo not exercised.
+
+test_empty_color_and_positive_box_require_semantic_confirmation (test_visual_arrival_depth.PoleDepthTests.test_empty_color_and_positive_box_require_semantic_confirmation) ... ok
+test_generic_ambiguous_foreground_rejects_background (test_visual_arrival_depth.PoleDepthTests.test_generic_ambiguous_foreground_rejects_background) ... ok
+test_ground_at_bottom_edge_does_not_hide_supported_foreground (test_visual_arrival_depth.PoleDepthTests.test_ground_at_bottom_edge_does_not_hide_supported_foreground) ... ok
+test_partial_holes_and_unrelated_closer_surface (test_visual_arrival_depth.PoleDepthTests.test_partial_holes_and_unrelated_closer_surface) ... ok
+test_pole_surface_and_projection_in_loose_boxes (test_visual_arrival_depth.PoleDepthTests.test_pole_surface_and_projection_in_loose_boxes) ... ok
+test_target_pixels_without_depth_cannot_use_the_wall (test_visual_arrival_depth.PoleDepthTests.test_target_pixels_without_depth_cannot_use_the_wall) ... ok
+test_bad_depth_still_stops_without_scanning_or_planning (test_visual_arrival_depth.VisualArrivalTests.test_bad_depth_still_stops_without_scanning_or_planning) ... ok
+test_color_conflict_rechecks_once_then_advances_scan_under_original_budget (test_visual_arrival_depth.VisualArrivalTests.test_color_conflict_rechecks_once_then_advances_scan_under_original_budget) ... ok
+test_inside_band_stopped (test_visual_arrival_depth.VisualArrivalTests.test_inside_band_stopped) ... ok
+test_missing_stop_confirmation_even_with_low_speed (test_visual_arrival_depth.VisualArrivalTests.test_missing_stop_confirmation_even_with_low_speed) ... ok
+test_moving_at_reply_requires_stop_and_new_observation (test_visual_arrival_depth.VisualArrivalTests.test_moving_at_reply_requires_stop_and_new_observation) ... ok
+test_outside_band_requires_plan (test_visual_arrival_depth.VisualArrivalTests.test_outside_band_requires_plan) ... ok
+test_too_close_stops_without_claiming_arrival (test_visual_arrival_depth.VisualArrivalTests.test_too_close_stops_without_claiming_arrival) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.453s
+
+OK

@@ -1,0 +1,11 @@
+test_missing_abort_ack_is_reported_as_unconfirmed (test_segment_flight_safety.SafetyTests) ... ok
+test_normal_landing_rejects_airborne_then_accepts_ground (test_segment_flight_safety.SafetyTests) ... ok
+test_only_recent_round_trip_for_active_goal_keeps_plan_alive (test_segment_flight_safety.SafetyTests) ... ok
+test_stale_track_status_sends_stop_before_terminal (test_segment_flight_safety.SafetyTests) ... ok
+test_stationary_cancel_requires_post_request_ground_feedback (test_segment_flight_safety.SafetyTests) ... ok
+test_takeoff_cancel_ignores_old_ground_during_ascent (test_segment_flight_safety.SafetyTests) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.550s
+
+OK

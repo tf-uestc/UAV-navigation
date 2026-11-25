@@ -1,0 +1,8 @@
+{
+  "/mavros/setpoint_position/local": [
+    "/flight_executor"
+  ],
+  "/uav/goal_pose": [
+    "/flight_executor"
+  ]
+}

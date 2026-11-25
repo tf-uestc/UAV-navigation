@@ -1,0 +1,107 @@
+{
+  "trace_sha256": "a91b872b3128ac50fec56f89f3ce797989a58e9b89e220bb0131a2761bde8611",
+  "active": {
+    "mission": "dynamic-4795a31b",
+    "goal": 1,
+    "session": "7df6b474-081a-49d3-96ed-5874a48399f4",
+    "trajectory": 1
+  },
+  "order": 3,
+  "control_points": 9,
+  "knots": 13,
+  "start_sim_s": 21.228,
+  "frame_world_xyz_yaw": [
+    [
+      0.9760914374455978,
+      0.969851792949272,
+      1.6662925419376842
+    ],
+    -0.008053763469647833
+  ],
+  "frame_odom_xyz_yaw": [
+    [
+      -0.015220729634165764,
+      -0.028193306177854538,
+      1.5165218114852905
+    ],
+    -0.015464755195613893
+  ],
+  "frame_observed_sim_s": 19.896,
+  "frame_odom_sim_s": 19.876,
+  "frame_observation_offset_s": 0.019999999999999574,
+  "world_minus_odom_yaw_rad": 0.00741099172596606,
+  "box_center_xy_m": [
+    2.116091437445598,
+    1.269851792949272
+  ],
+  "box_size_xyz_m": [
+    0.16,
+    0.36,
+    2.6
+  ],
+  "intended_y_shift_from_measured_world_origin_m": 0.30000000000000004,
+  "setpoint_sample_sim_s": 23.96,
+  "setpoint_xyz_odom_m": [
+    0.3799510210891456,
+    -0.02800709319687212,
+    1.5110276205150885
+  ],
+  "last_odom_speed_before_insertion_mps": 0.13869889223388193,
+  "last_setpoint_reconstruction_difference_m": 1.9887827467721158e-05,
+  "nominal_inflation_m": 0.349,
+  "planar_transform_cuts": [
+    {
+      "x_plane_m": 2.036091437445598,
+      "spline_time_s": 4.428770424304455,
+      "after_last_setpoint_sim_s": 1.6967704243044555,
+      "world_xyz_m": [
+        2.036091437445598,
+        0.9772463159110254,
+        1.7003506643268373
+      ],
+      "center_lateral_offset_m": 0.2926054770382467,
+      "lateral_edge_gap_m": 0.11260547703824669,
+      "within_box_height": true
+    },
+    {
+      "x_plane_m": 2.116091437445598,
+      "spline_time_s": 4.627853426411283,
+      "after_last_setpoint_sim_s": 1.8958534264112838,
+      "world_xyz_m": [
+        2.1160914374455975,
+        0.9778375451524843,
+        1.7055059685697822
+      ],
+      "center_lateral_offset_m": 0.29201424779678775,
+      "lateral_edge_gap_m": 0.11201424779678776,
+      "within_box_height": true
+    },
+    {
+      "x_plane_m": 2.196091437445598,
+      "spline_time_s": 4.832905984400101,
+      "after_last_setpoint_sim_s": 2.100905984400102,
+      "world_xyz_m": [
+        2.1960914374455975,
+        0.9784402080594446,
+        1.7107193435042616
+      ],
+      "center_lateral_offset_m": 0.29141158488982744,
+      "lateral_edge_gap_m": 0.11141158488982744,
+      "within_box_height": true
+    }
+  ],
+  "translation_only_center_crossing": {
+    "x_plane_m": 2.116091437445598,
+    "spline_time_s": 4.627783169191069,
+    "after_last_setpoint_sim_s": 1.8957831691910698,
+    "world_xyz_m": [
+      2.1160914374455975,
+      0.9693888712124752,
+      1.7055041621222573
+    ],
+    "center_lateral_offset_m": 0.3004629217367969,
+    "lateral_edge_gap_m": 0.1204629217367969,
+    "within_box_height": true
+  },
+  "within_nominal_inflation_at_center": true
+}

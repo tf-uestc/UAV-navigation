@@ -1,0 +1,6 @@
+{
+  "scope": "isolated ROS topics, fake MAVROS services and kinematics",
+  "passed": false,
+  "checks": [],
+  "error": "OSError(98, 'Address already in use')"
+}

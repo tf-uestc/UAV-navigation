@@ -1,0 +1,6 @@
+{
+  "scope": "isolated ROS topics, fake MAVROS services and kinematics",
+  "passed": false,
+  "checks": [],
+  "error": "ModuleNotFoundError(\"No module named 'navigation_core'\")"
+}

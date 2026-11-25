@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "checks": {
+    "primary_landed_and_passed": true,
+    "prior_failure_only_conservative_end": true,
+    "post_landing_stop_is_between_odom_samples": true,
+    "raw_physics_reaches_post_disarm_stop": true,
+    "direct_ground_contact_in_every_final_frame": true
+  },
+  "disarm_bracketing_odom": [
+    73.72,
+    73.752
+  ],
+  "directly_recorded_stop_after_landing": 73.74,
+  "contact_frames_last_second": 251,
+  "frames_with_body_on_ground": 251,
+  "sources": {
+    "validate_planning_sitl.py": "76195163db5ef4ae3b9457c869e9587a3e463e8636a5e450190ccb1bd793e07c",
+    "validate_segments.py": "5d09838ee2b7d4c257283892dbf0959704ae6b60bcd8d7bec28d7559a9842461",
+    "observe_physics_contacts.py": "5d5ec31fc4a7175c4fe0724094f3d4577db5a343f6871bd424ab908b3cfc8b19"
+  }
+}

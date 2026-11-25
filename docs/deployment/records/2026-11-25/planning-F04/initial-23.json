@@ -1,0 +1,2873 @@
+{
+  "commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+  "original_count": 23,
+  "trials": [
+    {
+      "label": "F04-1-straight",
+      "original": true,
+      "scenario": "straight",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 2881,
+          "positive_control": 8027
+        },
+        "raw_sha256": "e4a984bd3a00fa9c253d66b4ec6612cabb5b47b9c69f4f4382f99b0ba8a142e0",
+        "unique_frames": 8137,
+        "interval": [
+          5.276,
+          37.82
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "straight-ee2a1b1b",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.05319437826822125,
+            "nearest_odom_speed_mps": 0.026949828078575447,
+            "segments": 1,
+            "planned_requests": 1,
+            "tracked": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 227,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          7.756,
+          36.756,
+          36.788
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "9840878c9d6659001febf2c0a0ac8f4b9b7da0fb48e08de0ca628e454654eaf8"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "straight",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-1-static",
+      "original": true,
+      "scenario": "static",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true,
+        "obstacle_outcome": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1757,
+          "positive_control": 17782,
+          "iris_ground_plane": 969
+        },
+        "raw_sha256": "35b637e4b302ba4411baca96f748a3c1e9949c07b6e1fa489da6ebb6a52aaaa8",
+        "unique_frames": 17894,
+        "interval": [
+          5.216,
+          76.788
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "occupied-277a4404",
+            "observed": "FAILED",
+            "reason": "planner_rejected",
+            "goal_error_m": 0.7704942436088457,
+            "nearest_odom_speed_mps": 0.03136281729735142,
+            "segments": 0,
+            "planned_requests": 1,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          },
+          {
+            "mission": "bypass-8ebe250d",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.13214098797585597,
+            "nearest_odom_speed_mps": 0.02710720752936029,
+            "segments": 3,
+            "planned_requests": 3,
+            "tracked": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 1426,
+          "outside": 0
+        },
+        "obstacle": {
+          "samples": 524,
+          "center_to_surface_m": 0.7129340535345797,
+          "stayed_before_wall": false,
+          "finished_beyond_box": true
+        },
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.716,
+          76.716,
+          76.744
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "40960c72bfbbb38d618c1e5ff4a075f8cb3714737b02b9fa92335889f9d9be0a"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "real_occupied_goal_rejected",
+        "real_obstacle_bypassed",
+        "landed_disarmed",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-1-long",
+      "original": true,
+      "scenario": "long",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1744,
+          "positive_control": 29289,
+          "iris_ground_plane": 1074
+        },
+        "raw_sha256": "a85ca1d7d73bf16fa5b57276ec0dfbcf2ec50ea08366ac8b0a540175ca1f684a",
+        "unique_frames": 29418,
+        "interval": [
+          5.732,
+          123.4
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "beyond_planning_horizon-9767d7f0",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.12593698227776198,
+            "nearest_odom_speed_mps": 0.025628449677937645,
+            "segments": 5,
+            "planned_requests": 5,
+            "tracked": [
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                12
+              ],
+              [
+                4,
+                14
+              ],
+              [
+                5,
+                16
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true,
+              "crosses_local_horizon": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 2794,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.7,
+          122.692,
+          122.732
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "b60092c110eff0c896a3294bf3a0d1fef432a171d0ee228bec8a65d50391d4cd"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "fixture_set_heading_in_place",
+        "position_for_long",
+        "fixture_set_heading_in_place",
+        "beyond_planning_horizon",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-1-outside",
+      "original": true,
+      "scenario": "outside",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 2981,
+          "positive_control": 6423
+        },
+        "raw_sha256": "19bfeb93662dc0e14b18957b8dae583c311381d90026351c797e46f97f319778",
+        "unique_frames": 6539,
+        "interval": [
+          5.84,
+          31.992
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.004000000000001336,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "outside-a5f94d5d",
+            "observed": "FAILED",
+            "reason": "outside_fence",
+            "goal_error_m": 6.475829797954683,
+            "nearest_odom_speed_mps": 0.021417679393768683,
+            "segments": 0,
+            "planned_requests": 0,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "no_planner_request": true,
+              "outside_fence_reason": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 38,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.712,
+          30.708,
+          30.744
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "d5f021f39afb18ae3f34564ec47897b884bc2403512bc406bea4c372ca807547"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "outside_fence",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-2-straight",
+      "original": true,
+      "scenario": "straight",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 2359,
+          "positive_control": 6882
+        },
+        "raw_sha256": "cfbdba40e4ce2d24ce98de80ffb1f5d65af78b70db037cc41cd1342cf8220487",
+        "unique_frames": 7005,
+        "interval": [
+          5.752,
+          33.768
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 250,
+        "frames_in_recorder_last_second": 250,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "straight-508f6d04",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.06934389536549447,
+            "nearest_odom_speed_mps": 0.026410291753718864,
+            "segments": 1,
+            "planned_requests": 1,
+            "tracked": [
+              [
+                1,
+                1
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 233,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.716,
+          33.716,
+          33.744
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "b5d258d8f09a34573c05a9e3e8b5c5ea4a6603ecd18870f5dd0cef333145622a"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "straight",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-2-static",
+      "original": true,
+      "scenario": "static",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true,
+        "obstacle_outcome": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1716,
+          "positive_control": 17036,
+          "iris_ground_plane": 580
+        },
+        "raw_sha256": "43c49dbe78a4ff99b8e0944742b419a85856289189c5681fbc6bb0dfc5c5310a",
+        "unique_frames": 17179,
+        "interval": [
+          5.08,
+          73.792
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "occupied-aaed10f9",
+            "observed": "FAILED",
+            "reason": "planner_rejected",
+            "goal_error_m": 0.7492365846944918,
+            "nearest_odom_speed_mps": 0.02689503460949087,
+            "segments": 0,
+            "planned_requests": 1,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          },
+          {
+            "mission": "bypass-1cc389a9",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.1346301614234705,
+            "nearest_odom_speed_mps": 0.02690072651241104,
+            "segments": 3,
+            "planned_requests": 3,
+            "tracked": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 1468,
+          "outside": 0
+        },
+        "obstacle": {
+          "samples": 542,
+          "center_to_surface_m": 0.6799789703100786,
+          "stayed_before_wall": false,
+          "finished_beyond_box": true
+        },
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          7.716,
+          73.712,
+          73.748
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "d9789d590ce36912421bffd0a41c4049f97e59c9e82be62e1166b40f5640f151"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "real_occupied_goal_rejected",
+        "real_obstacle_bypassed",
+        "landed_disarmed",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-2-long",
+      "original": true,
+      "scenario": "long",
+      "F04_tool_passed": false,
+      "F04_tool_failed": [
+        "beyond_planning_horizon-61a9ca50/reached",
+        "beyond_planning_horizon-61a9ca50/physical_endpoint",
+        "runner_primary"
+      ],
+      "independent": false,
+      "agreement": true,
+      "behavior_and_physics_passed": false,
+      "flags": {
+        "terminal_and_tracking": false,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": false,
+      "terminal_disarmed": true,
+      "observer_exit": 1,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1693,
+          "positive_control": 28183,
+          "iris_ground_plane": 1175
+        },
+        "raw_sha256": "6628ec6c2ae4ec5dc2ebf3e960f6ee85d2f89771fdeafeb20215e72416c04c93",
+        "unique_frames": 28306,
+        "interval": [
+          5.788,
+          119.008
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 250,
+        "frames_in_recorder_last_second": 250,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "beyond_planning_horizon-61a9ca50",
+            "observed": "FAILED",
+            "reason": "flight_feedback_unavailable",
+            "goal_error_m": 0.4612752279613266,
+            "nearest_odom_speed_mps": 0.3595822441946895,
+            "segments": 5,
+            "planned_requests": 5,
+            "tracked": [
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                12
+              ],
+              [
+                4,
+                14
+              ],
+              [
+                5,
+                16
+              ]
+            ],
+            "checks": {
+              "expected_terminal": false,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": false,
+              "crosses_local_horizon": true
+            },
+            "passed": false
+          }
+        ],
+        "fence": {
+          "count": 2657,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.744,
+          117.744,
+          117.776
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "0074920f9a6bed816144d4b07eadc46384b4b83d62933a4f25843fb1ff542498"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "fixture_set_heading_in_place",
+        "position_for_long",
+        "fixture_set_heading_in_place",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-2-outside",
+      "original": true,
+      "scenario": "outside",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 2908,
+          "positive_control": 6348
+        },
+        "raw_sha256": "43029c2eef0a6ae2eee220ff218cda81f251eefd4b9598f6b79b3797fb9a2498",
+        "unique_frames": 6457,
+        "interval": [
+          5.236,
+          31.06
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.004000000000001336,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "outside-d3087945",
+            "observed": "FAILED",
+            "reason": "outside_fence",
+            "goal_error_m": 6.511249772620372,
+            "nearest_odom_speed_mps": 0.02367147675058856,
+            "segments": 0,
+            "planned_requests": 0,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "no_planner_request": true,
+              "outside_fence_reason": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 36,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          7.712,
+          29.716,
+          29.748
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "8afa21f701fa3ce93945c30f4cf75db6db60b383acadd17df11c58a6020a9b53"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "outside_fence",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-3-straight",
+      "original": true,
+      "scenario": "straight",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 2901,
+          "positive_control": 7974
+        },
+        "raw_sha256": "342acd83baea336d12ec9dce0eb8c5cfa7f0fb50aa25a4fabd1f86d980a3ef70",
+        "unique_frames": 8118,
+        "interval": [
+          5.32,
+          37.788
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "straight-f8a70b00",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.07778445528668536,
+            "nearest_odom_speed_mps": 0.021235262951372503,
+            "segments": 1,
+            "planned_requests": 1,
+            "tracked": [
+              [
+                1,
+                1
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 231,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          7.72,
+          36.724,
+          36.752
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "f527479b2f9c2c331947712b93e6621ab1a564042b032d9056e724f1968ee47e"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "straight",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-3-static",
+      "original": true,
+      "scenario": "static",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true,
+        "obstacle_outcome": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1669,
+          "positive_control": 17380,
+          "iris_ground_plane": 1003
+        },
+        "raw_sha256": "f536b4be5e1119aed49bf350dd8d38947344268dbe5fb9db78accb0ce3ca48a2",
+        "unique_frames": 17506,
+        "interval": [
+          5.148,
+          75.168
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "occupied-f32cbd64",
+            "observed": "FAILED",
+            "reason": "planner_rejected",
+            "goal_error_m": 0.7186992270851278,
+            "nearest_odom_speed_mps": 0.02214148469089548,
+            "segments": 0,
+            "planned_requests": 1,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          },
+          {
+            "mission": "bypass-9c943fad",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.14410533199738151,
+            "nearest_odom_speed_mps": 0.041246929320312306,
+            "segments": 3,
+            "planned_requests": 3,
+            "tracked": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 1386,
+          "outside": 0
+        },
+        "obstacle": {
+          "samples": 527,
+          "center_to_surface_m": 0.6647264003853183,
+          "stayed_before_wall": false,
+          "finished_beyond_box": true
+        },
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          7.744,
+          74.744,
+          74.772
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "98fbe3a676ce0c18cd1fcb0c17f85d6722986af1f00536471d065340ff2f4d00"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "real_occupied_goal_rejected",
+        "real_obstacle_bypassed",
+        "landed_disarmed",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-3-long",
+      "original": true,
+      "scenario": "long",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1644,
+          "positive_control": 28372,
+          "iris_ground_plane": 1214
+        },
+        "raw_sha256": "61910ea52c178c4e0342d595a8e1c41b6fd9d6f3c5703c0569ea340188509ab2",
+        "unique_frames": 28523,
+        "interval": [
+          5.128,
+          119.216
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "beyond_planning_horizon-bdff74f6",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.15338561445358703,
+            "nearest_odom_speed_mps": 0.0336092985143975,
+            "segments": 5,
+            "planned_requests": 5,
+            "tracked": [
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                12
+              ],
+              [
+                4,
+                14
+              ],
+              [
+                5,
+                16
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true,
+              "crosses_local_horizon": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 2690,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          7.724,
+          117.724,
+          117.76
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "6a7d51558662d7747ee73a42fdd98292122dc8ee2fd1103b285f242bad6ca04a"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "fixture_set_heading_in_place",
+        "position_for_long",
+        "fixture_set_heading_in_place",
+        "beyond_planning_horizon",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-3-outside",
+      "original": true,
+      "scenario": "outside",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 4944,
+          "positive_control": 9728
+        },
+        "raw_sha256": "13627be26f7f4208e085a4c353cc5de77fef8172d037bc73c2947cb10b044270",
+        "unique_frames": 9889,
+        "interval": [
+          5.024,
+          44.576
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "outside-017b6315",
+            "observed": "FAILED",
+            "reason": "outside_fence",
+            "goal_error_m": 6.49276489610299,
+            "nearest_odom_speed_mps": 0.02454210520604417,
+            "segments": 0,
+            "planned_requests": 0,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "no_planner_request": true,
+              "outside_fence_reason": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 38,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.708,
+          35.712,
+          35.74
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "0757558e67c2f936f934ffc689dfe8d0a9ece9e8814feb33c3bacfb30d79e1a0"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "outside_fence",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-4-straight",
+      "original": true,
+      "scenario": "straight",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 5182,
+          "positive_control": 12283
+        },
+        "raw_sha256": "14a2a97dd23fd3e19a677271fc5e0bde15cd5ec3966fe26e978c8bb4bbab1d6f",
+        "unique_frames": 12412,
+        "interval": [
+          5.2,
+          54.844
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "straight-262a9863",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.09622472667208437,
+            "nearest_odom_speed_mps": 0.038949515015514684,
+            "segments": 1,
+            "planned_requests": 1,
+            "tracked": [
+              [
+                1,
+                1
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 232,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.728,
+          45.728,
+          45.756
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "3b143c0d43a744ed67b5221b761f1340575acd3c8f8922672e57afeb5723ed63"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "straight",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-4-static",
+      "original": true,
+      "scenario": "static",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true,
+        "obstacle_outcome": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1576,
+          "positive_control": 23323,
+          "iris_ground_plane": 4073
+        },
+        "raw_sha256": "359268bab2dcb65da32cdae9d41ddc0f48a4536d6f84370556a65d5bd4f80896",
+        "unique_frames": 23450,
+        "interval": [
+          5.192,
+          98.988
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "occupied-8ce02bc4",
+            "observed": "FAILED",
+            "reason": "planner_rejected",
+            "goal_error_m": 0.7442974780039049,
+            "nearest_odom_speed_mps": 0.03245225356746623,
+            "segments": 0,
+            "planned_requests": 1,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          },
+          {
+            "mission": "bypass-3e06b634",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.13360806968010083,
+            "nearest_odom_speed_mps": 0.04093631908522719,
+            "segments": 3,
+            "planned_requests": 3,
+            "tracked": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 1399,
+          "outside": 0
+        },
+        "obstacle": {
+          "samples": 528,
+          "center_to_surface_m": 0.7388626810798201,
+          "stayed_before_wall": false,
+          "finished_beyond_box": true
+        },
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          7.732,
+          88.728,
+          88.764
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "cd19b2cae9ccf14d5a1a8c496a12e8ecbd792a9fd5d6f942430e3d182d0d9759"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "real_occupied_goal_rejected",
+        "real_obstacle_bypassed",
+        "landed_disarmed",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-4-long",
+      "original": true,
+      "scenario": "long",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1612,
+          "positive_control": 26976,
+          "iris_ground_plane": 584
+        },
+        "raw_sha256": "bbabed6454dccbe3d863bb3115e3651d157f991863cb28853617b490a5a25c7f",
+        "unique_frames": 27114,
+        "interval": [
+          5.328,
+          113.78
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "beyond_planning_horizon-b647b915",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.1429306594822377,
+            "nearest_odom_speed_mps": 0.04491562031753975,
+            "segments": 5,
+            "planned_requests": 5,
+            "tracked": [
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                12
+              ],
+              [
+                4,
+                14
+              ],
+              [
+                5,
+                16
+              ],
+              [
+                5,
+                17
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true,
+              "crosses_local_horizon": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 2675,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          7.728,
+          113.72,
+          113.76
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "51443a39acdd9966a4bbf5ca65f9d2236f9cd9c58f591c1a44f2b0721b7feecb"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "fixture_set_heading_in_place",
+        "position_for_long",
+        "fixture_set_heading_in_place",
+        "beyond_planning_horizon",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-4-outside",
+      "original": true,
+      "scenario": "outside",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 2906,
+          "positive_control": 6334
+        },
+        "raw_sha256": "9c35502687bcfecf90d5a9aae795e247dbf7bd37ecb9d187ac655559675cc73c",
+        "unique_frames": 6469,
+        "interval": [
+          5.516,
+          31.388
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.004000000000001336,
+        "confirmed_body_ground_frames_in_recorder_last_second": 249,
+        "frames_in_recorder_last_second": 249,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "outside-b3a37b57",
+            "observed": "FAILED",
+            "reason": "outside_fence",
+            "goal_error_m": 6.521243768179635,
+            "nearest_odom_speed_mps": 0.026483335013143844,
+            "segments": 0,
+            "planned_requests": 0,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "no_planner_request": true,
+              "outside_fence_reason": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 39,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.744,
+          30.744,
+          30.776
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "cbd35ce5587cdd0f212e7a7604c593f0ccf053118949a9bc0494d796b28ef31e"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "outside_fence",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-5-straight",
+      "original": true,
+      "scenario": "straight",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 2912,
+          "positive_control": 8194
+        },
+        "raw_sha256": "f55b14d936aef7e13a75bb9ae024f4d50fdc7991bc453627541683b2de5bb354",
+        "unique_frames": 8315,
+        "interval": [
+          5.8,
+          39.056
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "straight-7fc9e227",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.10756898669608175,
+            "nearest_odom_speed_mps": 0.03933235825698412,
+            "segments": 1,
+            "planned_requests": 1,
+            "tracked": [
+              [
+                1,
+                1
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 244,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.756,
+          37.756,
+          37.788
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "1f9e1faaf570453503917913bd5c246f3a10217c227b6e96a1a81f5975d8d8e5"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "straight",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-5-static",
+      "original": true,
+      "scenario": "static",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true,
+        "obstacle_outcome": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1776,
+          "positive_control": 17145,
+          "iris_ground_plane": 656
+        },
+        "raw_sha256": "3ed189c5b54b547da2319ec87306b8dfb83713568fd432b10de50c90c4908796",
+        "unique_frames": 17262,
+        "interval": [
+          5.792,
+          74.836
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "occupied-db8d530f",
+            "observed": "FAILED",
+            "reason": "planner_rejected",
+            "goal_error_m": 0.7571889117840357,
+            "nearest_odom_speed_mps": 0.02141595943089459,
+            "segments": 0,
+            "planned_requests": 1,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          },
+          {
+            "mission": "bypass-f43d8fd7",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.11605871711870072,
+            "nearest_odom_speed_mps": 0.02324704278318943,
+            "segments": 3,
+            "planned_requests": 3,
+            "tracked": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 1462,
+          "outside": 0
+        },
+        "obstacle": {
+          "samples": 546,
+          "center_to_surface_m": 0.6857477383444571,
+          "stayed_before_wall": false,
+          "finished_beyond_box": true
+        },
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.752,
+          74.752,
+          74.784
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "b7bbe50da461a8bc3e809cd3abc52291fd0487e87be5dfccc52271fa711d8183"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "real_occupied_goal_rejected",
+        "real_obstacle_bypassed",
+        "landed_disarmed",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-5-long",
+      "original": true,
+      "scenario": "long",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1722,
+          "positive_control": 27629,
+          "iris_ground_plane": 539
+        },
+        "raw_sha256": "c51e7dbf79b5e07ff457e2175f2948dd0390ec7dd63d09483cbec8d6cdb48cd2",
+        "unique_frames": 27748,
+        "interval": [
+          5.78,
+          116.768
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "beyond_planning_horizon-a07d52e4",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.15089974523525893,
+            "nearest_odom_speed_mps": 0.02259820681000682,
+            "segments": 5,
+            "planned_requests": 5,
+            "tracked": [
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                12
+              ],
+              [
+                4,
+                14
+              ],
+              [
+                5,
+                16
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true,
+              "crosses_local_horizon": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 2753,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.672,
+          116.676,
+          116.708
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "60c509f986974f304bfc1178c54c8c3f2c811f54e40b44439c6bc427b942e0c3"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "fixture_set_heading_in_place",
+        "position_for_long",
+        "fixture_set_heading_in_place",
+        "beyond_planning_horizon",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-5-outside",
+      "original": true,
+      "scenario": "outside",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 2879,
+          "positive_control": 6319
+        },
+        "raw_sha256": "82f306511d68828114efe47c2411871712c6bb146f09ca3847658ed8409a41e5",
+        "unique_frames": 6437,
+        "interval": [
+          5.84,
+          31.584
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.004000000000001336,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "outside-82ec4ec4",
+            "observed": "FAILED",
+            "reason": "outside_fence",
+            "goal_error_m": 6.477735525845677,
+            "nearest_odom_speed_mps": 0.03432729201064227,
+            "segments": 0,
+            "planned_requests": 0,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "no_planner_request": true,
+              "outside_fence_reason": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 39,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.728,
+          30.724,
+          30.756
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "4a2923f3e809051d68466988767fd9be414f65dbb0473c188411be3d802df1e5"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "outside_fence",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-1-dynamic",
+      "original": true,
+      "scenario": "dynamic",
+      "F04_tool_passed": false,
+      "F04_tool_failed": [
+        "native_delivery"
+      ],
+      "independent": false,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true,
+        "obstacle_outcome": true,
+        "native_dispositions": true,
+        "measured_hold_then_guarded_resume": true,
+        "required_emergency_evidence_or_continuous_bypass": false
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1695,
+          "positive_control": 17537,
+          "iris_ground_plane": 567
+        },
+        "raw_sha256": "47c6e763a02f18d17b0079fbb6a6fc5a225e80f3328a530f3afc6fe92cd3b73f",
+        "unique_frames": 17659,
+        "interval": [
+          5.216,
+          75.848
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "dynamic-9cb43c22",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.09316331119539642,
+            "nearest_odom_speed_mps": 0.014588788425187845,
+            "segments": 4,
+            "planned_requests": 4,
+            "tracked": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                4,
+                7
+              ],
+              [
+                4,
+                8
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 1530,
+          "outside": 0
+        },
+        "obstacle": {
+          "samples": 743,
+          "center_to_surface_m": 0.4997027001406736,
+          "stayed_before_wall": false,
+          "finished_beyond_box": true
+        },
+        "delivery": {
+          "mission": "dynamic-9cb43c22",
+          "after_insertion_status": [
+            {
+              "offset_wall_s": 0.6738,
+              "last_wall_s": 0.6738,
+              "observations": 1,
+              "status": "FAILED",
+              "reason": "unknown_trajectory",
+              "goal": 1
+            },
+            {
+              "offset_wall_s": 11.0073,
+              "last_wall_s": 11.0073,
+              "observations": 1,
+              "status": "ACCEPTED",
+              "reason": "",
+              "goal": 2
+            },
+            {
+              "offset_wall_s": 17.2738,
+              "last_wall_s": 17.2738,
+              "observations": 1,
+              "status": "CANCELLED",
+              "reason": "requested",
+              "goal": 2
+            },
+            {
+              "offset_wall_s": 26.2739,
+              "last_wall_s": 26.2739,
+              "observations": 1,
+              "status": "ACCEPTED",
+              "reason": "",
+              "goal": 3
+            },
+            {
+              "offset_wall_s": 34.7979,
+              "last_wall_s": 34.7979,
+              "observations": 1,
+              "status": "CANCELLED",
+              "reason": "requested",
+              "goal": 3
+            },
+            {
+              "offset_wall_s": 43.8108,
+              "last_wall_s": 43.8108,
+              "observations": 1,
+              "status": "ACCEPTED",
+              "reason": "",
+              "goal": 4
+            },
+            {
+              "offset_wall_s": 50.014,
+              "last_wall_s": 50.014,
+              "observations": 1,
+              "status": "CANCELLED",
+              "reason": "requested",
+              "goal": 4
+            }
+          ],
+          "first_measured_hold": {
+            "offset_wall_s": 2.150963340885937,
+            "speed_mps": 0.09042683012480124
+          },
+          "guarded_resume_sequences": [
+            {
+              "braked_s": 0.7651697536930442,
+              "guard_reason": "unknown_trajectory",
+              "confirmed_hold_s": 2.150963340885937,
+              "hold_speed_mps": 0.09042683012480124,
+              "resumed_s": 11.087105618789792,
+              "new_goal": 2
+            }
+          ],
+          "matching_collision_stop_packets": [],
+          "packets": [
+            {
+              "session": "c1d8d11a-1e2d-463c-8b93-8b96799d28d3",
+              "goal": 1,
+              "traj": 1,
+              "native_spline": {
+                "offset_wall_s": -2.7858,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "forwarded_spline": {
+                "offset_wall_s": -2.777,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "trajectory_ack": {
+                "offset_wall_s": -2.7613,
+                "reason": "accepted",
+                "emergency": null,
+                "accepted": true
+              }
+            },
+            {
+              "session": "c1d8d11a-1e2d-463c-8b93-8b96799d28d3",
+              "goal": 2,
+              "traj": 3,
+              "native_spline": {
+                "offset_wall_s": 11.0099,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "forwarded_spline": {
+                "offset_wall_s": 11.0147,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "trajectory_ack": {
+                "offset_wall_s": 11.0222,
+                "reason": "accepted",
+                "emergency": null,
+                "accepted": true
+              }
+            },
+            {
+              "session": "c1d8d11a-1e2d-463c-8b93-8b96799d28d3",
+              "goal": 2,
+              "traj": 4,
+              "native_spline": {
+                "offset_wall_s": 17.2737,
+                "reason": null,
+                "emergency": true,
+                "accepted": null
+              },
+              "gateway_disposition": {
+                "offset_wall_s": 17.2743,
+                "reason": "no_active_goal",
+                "emergency": null,
+                "accepted": false
+              }
+            },
+            {
+              "session": "c1d8d11a-1e2d-463c-8b93-8b96799d28d3",
+              "goal": 3,
+              "traj": 5,
+              "native_spline": {
+                "offset_wall_s": 26.2779,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "forwarded_spline": {
+                "offset_wall_s": 26.2999,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "trajectory_ack": {
+                "offset_wall_s": 26.3769,
+                "reason": "accepted",
+                "emergency": null,
+                "accepted": true
+              }
+            },
+            {
+              "session": "c1d8d11a-1e2d-463c-8b93-8b96799d28d3",
+              "goal": 3,
+              "traj": 6,
+              "native_spline": {
+                "offset_wall_s": 34.7976,
+                "reason": null,
+                "emergency": true,
+                "accepted": null
+              },
+              "gateway_disposition": {
+                "offset_wall_s": 34.7979,
+                "reason": "no_active_goal",
+                "emergency": null,
+                "accepted": false
+              }
+            },
+            {
+              "session": "c1d8d11a-1e2d-463c-8b93-8b96799d28d3",
+              "goal": 4,
+              "traj": 7,
+              "native_spline": {
+                "offset_wall_s": 43.822,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "forwarded_spline": {
+                "offset_wall_s": 43.8413,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "trajectory_ack": {
+                "offset_wall_s": 43.8818,
+                "reason": "accepted",
+                "emergency": null,
+                "accepted": true
+              }
+            },
+            {
+              "session": "c1d8d11a-1e2d-463c-8b93-8b96799d28d3",
+              "goal": 4,
+              "traj": 8,
+              "native_spline": {
+                "offset_wall_s": 48.9917,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "forwarded_spline": {
+                "offset_wall_s": 48.9941,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "trajectory_ack": {
+                "offset_wall_s": 48.9969,
+                "reason": "accepted",
+                "emergency": null,
+                "accepted": true
+              }
+            },
+            {
+              "session": "c1d8d11a-1e2d-463c-8b93-8b96799d28d3",
+              "goal": 4,
+              "traj": 9,
+              "native_spline": {
+                "offset_wall_s": 50.0138,
+                "reason": null,
+                "emergency": true,
+                "accepted": null
+              },
+              "gateway_disposition": {
+                "offset_wall_s": 50.0142,
+                "reason": "no_active_goal",
+                "emergency": null,
+                "accepted": false
+              }
+            }
+          ]
+        },
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          7.748,
+          75.748,
+          75.78
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "91f8bbfafa1a5608f50ef7593641ea0ccbbe7ec953e88278fd31f5196cacc514"
+      },
+      "frozen_native_delivery": {
+        "passed": false,
+        "outcome": "delivery_evidence_incomplete",
+        "original_exit": 1,
+        "original_pass": false,
+        "accounted_all_actual_packets": true,
+        "emergency_collision_status_observed": false,
+        "native_emergency_observed": true,
+        "emergency_delivery_exercised": false,
+        "primary_mode": "guarded_detour",
+        "post_insertion_replans_tracked": []
+      },
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "dynamic_box_clearance",
+        "dynamic_replan_executed",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-1-blocked",
+      "original": true,
+      "scenario": "blocked",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true,
+        "obstacle_outcome": true,
+        "native_dispositions": true,
+        "required_emergency_evidence_or_continuous_bypass": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 2326,
+          "positive_control": 6328
+        },
+        "raw_sha256": "137b8365b2516e8232309bcef91e5b3bdf2a703d387d2cf2da60bf7f2707785e",
+        "unique_frames": 6438,
+        "interval": [
+          6.032,
+          31.78
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.004000000000001336,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "dynamic-6116bbbb",
+            "observed": "FAILED",
+            "reason": "planner_failed",
+            "goal_error_m": 1.4412889102026498,
+            "nearest_odom_speed_mps": 0.08488849805800122,
+            "segments": 1,
+            "planned_requests": 1,
+            "tracked": [
+              [
+                1,
+                1
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "confirmed_stop": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 186,
+          "outside": 0
+        },
+        "obstacle": {
+          "samples": 38,
+          "center_to_surface_m": 0.6798761859855375,
+          "stayed_before_wall": true,
+          "finished_beyond_box": false
+        },
+        "delivery": {
+          "mission": "dynamic-6116bbbb",
+          "after_insertion_status": [
+            {
+              "offset_wall_s": 0.7558,
+              "last_wall_s": 0.7558,
+              "observations": 1,
+              "status": "EMERGENCY_STOP",
+              "reason": "collision",
+              "goal": 1
+            },
+            {
+              "offset_wall_s": 0.7559,
+              "last_wall_s": 0.7559,
+              "observations": 1,
+              "status": "FAILED",
+              "reason": "emergency_stop_requires_new_goal",
+              "goal": 1
+            }
+          ],
+          "first_measured_hold": {
+            "offset_wall_s": 2.2486851792782545,
+            "speed_mps": 0.07441375110859885
+          },
+          "guarded_resume_sequences": [],
+          "matching_collision_stop_packets": [
+            {
+              "goal": 1,
+              "trajectory": 2,
+              "planner_session": "d55c0756-35a7-4d6b-aa57-0eaff5bb1c3c",
+              "warning_s": 0.7558,
+              "native_s": 0.7561,
+              "executor_accepted": null,
+              "gateway_rejection": "no_active_goal"
+            }
+          ],
+          "packets": [
+            {
+              "session": "d55c0756-35a7-4d6b-aa57-0eaff5bb1c3c",
+              "goal": 1,
+              "traj": 1,
+              "native_spline": {
+                "offset_wall_s": -2.887,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "forwarded_spline": {
+                "offset_wall_s": -2.8689,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "trajectory_ack": {
+                "offset_wall_s": -2.8549,
+                "reason": "accepted",
+                "emergency": null,
+                "accepted": true
+              }
+            },
+            {
+              "session": "d55c0756-35a7-4d6b-aa57-0eaff5bb1c3c",
+              "goal": 1,
+              "traj": 2,
+              "native_spline": {
+                "offset_wall_s": 0.7561,
+                "reason": null,
+                "emergency": true,
+                "accepted": null
+              },
+              "gateway_disposition": {
+                "offset_wall_s": 0.7571,
+                "reason": "no_active_goal",
+                "emergency": null,
+                "accepted": false
+              }
+            }
+          ]
+        },
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.74,
+          31.744,
+          31.772
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "15fce0cebb4705882e1b9a416bd0af23cf2372ccfb0aa896d5ef1f83798e2c37"
+      },
+      "frozen_native_delivery": {
+        "passed": true,
+        "outcome": "emergency_packet_observed_and_disposed",
+        "original_exit": 0,
+        "original_pass": true,
+        "accounted_all_actual_packets": true,
+        "emergency_collision_status_observed": true,
+        "native_emergency_observed": true,
+        "emergency_delivery_exercised": true,
+        "primary_mode": null,
+        "post_insertion_replans_tracked": []
+      },
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "dynamic_box_clearance",
+        "dynamic_wall_stopped",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-1-unknown",
+      "original": true,
+      "scenario": "unknown",
+      "F04_tool_passed": false,
+      "F04_tool_failed": [
+        "fresh_after_recovery/terminal"
+      ],
+      "independent": true,
+      "agreement": false,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true,
+        "recovery_then_land_no_revival": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 3470,
+          "positive_control": 15104
+        },
+        "raw_sha256": "06e1c26b9e6c008560cc9e137173b9219357d1bb0e4552b7b02e16bdaa4b950e",
+        "unique_frames": 15244,
+        "interval": [
+          5.684,
+          66.656
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "outside_view-f4ba6f00",
+            "observed": "FAILED",
+            "reason": "unknown_trajectory",
+            "goal_error_m": 0.8606498973083758,
+            "nearest_odom_speed_mps": 0.024342107036094147,
+            "segments": 0,
+            "planned_requests": 2,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "observe_once_unknown": true
+            },
+            "passed": true
+          },
+          {
+            "mission": "known_free-4e15887c",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.1279199346193853,
+            "nearest_odom_speed_mps": 0.05655635083066199,
+            "segments": 1,
+            "planned_requests": 1,
+            "tracked": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          },
+          {
+            "mission": "occupied-47d132bb",
+            "observed": "FAILED",
+            "reason": "planner_rejected",
+            "goal_error_m": 1.1934744355492546,
+            "nearest_odom_speed_mps": 0.040137042895640004,
+            "segments": 0,
+            "planned_requests": 1,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true
+            },
+            "passed": true
+          },
+          {
+            "mission": "stale_map-e41e012c",
+            "observed": "FAILED",
+            "reason": "planning_authorization_timeout",
+            "goal_error_m": 0.546079312382372,
+            "nearest_odom_speed_mps": 0.059644641190129875,
+            "segments": 0,
+            "planned_requests": 0,
+            "tracked": [],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "never_tracked": true,
+              "no_planner_request": true
+            },
+            "passed": true
+          },
+          {
+            "mission": "fresh_after_recovery-6d013d53",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.18100770324924803,
+            "nearest_odom_speed_mps": 0.048469912653302936,
+            "segments": 1,
+            "planned_requests": 1,
+            "tracked": [
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                7
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 1015,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": {
+          "fresh_mission": "fresh_after_recovery-6d013d53",
+          "fresh_phase_order": [
+            [
+              7329802.361512162,
+              "BRAKE",
+              ""
+            ],
+            [
+              7329802.43838639,
+              "SETTLE",
+              ""
+            ],
+            [
+              7329803.60367388,
+              "AUTHORIZE",
+              ""
+            ],
+            [
+              7329803.724821748,
+              "WAIT_PLAN",
+              ""
+            ],
+            [
+              7329803.805373764,
+              "TRACK",
+              ""
+            ],
+            [
+              7329808.541432728,
+              "BRAKE",
+              ""
+            ],
+            [
+              7329808.621646635,
+              "SETTLE",
+              ""
+            ],
+            [
+              7329809.786910532,
+              "DONE",
+              "destination_reached"
+            ],
+            [
+              7329809.801436178,
+              "LANDING",
+              ""
+            ],
+            [
+              7329820.706518368,
+              "LANDED",
+              ""
+            ]
+          ],
+          "land_commands": [
+            7329809.801103639
+          ],
+          "done_before_first_land": true,
+          "old_contexts_between_stale_and_fresh": [],
+          "old_track_or_plan_after_done": [],
+          "first_disarmed_after_landing": 7329819.680482694
+        },
+        "disarm_bracket_sim_s": [
+          9.692,
+          64.692,
+          64.724
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "371ce59a59cf9cae1f03e1c3b467068505f547217aebd241fc970ca450b87027"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "unknown_never_tracks_and_exits_after_one_observation",
+        "known_free",
+        "occupied_goal_rejected",
+        "stale_map_cannot_authorize_translation",
+        "restored_input_does_not_revive_old_mission_or_replayed_spline",
+        "fresh_after_recovery",
+        "new_explicit_mission_can_execute_after_fresh_fusion",
+        "landed_disarmed"
+      ]
+    }
+  ]
+}

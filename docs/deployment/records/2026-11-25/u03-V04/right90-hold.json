@@ -1,0 +1,618 @@
+[
+  {
+    "label": "V03-2.4-right90-1",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "capture_id": 9,
+    "last_capture_sim_s": 61.46,
+    "completed_sim_s": 62.444,
+    "done_sim_s": 62.444,
+    "from_capture_to_done_s": 0.9840000000000018,
+    "reported_distance_at_terminal_m": 2.4568290418476786,
+    "done_odometry": {
+      "measured": {
+        "position": [
+          -0.17516809701919556,
+          -1.1172256469726562,
+          1.7420276403427124
+        ],
+        "yaw": -1.8149541738064379,
+        "speed": 0.053018908234338316,
+        "stamp": 62.448
+      },
+      "closest_dt_s": 0.003999999999997783,
+      "mission_position": [
+        -0.17618100345134735,
+        -1.1172171831130981,
+        1.7407996654510498
+      ]
+    },
+    "done_setpoint": {
+      "setpoint": {
+        "position": [
+          -0.16329094767570496,
+          -1.1177539825439453,
+          1.6882318258285522
+        ],
+        "yaw": -1.8149433325303208,
+        "stamp": 62.448
+      },
+      "closest_dt_s": 0.003999999999997783
+    },
+    "done_truth": {
+      "sim_s": 62.404,
+      "from_hold_start_s": -0.1039999999999992,
+      "range_m": 2.4559582112309766,
+      "z_m": 2.103367682100446,
+      "yaw_deg": -103.51776217708391,
+      "speed_mps": 0.013341953332839131,
+      "closest_dt_s": 0.03999999999999915,
+      "radial_velocity_mps": 0.012085679968771601
+    },
+    "capture_truth": {
+      "sim_s": 61.44,
+      "from_hold_start_s": -1.068000000000005,
+      "range_m": 2.4472869994917503,
+      "z_m": 2.0991010051276926,
+      "yaw_deg": -103.5090841812335,
+      "speed_mps": 0.020798426400655014,
+      "closest_dt_s": 0.020000000000003126,
+      "odom": {
+        "position": [
+          -0.17046141624450684,
+          -1.123763084411621,
+          1.7268439531326294
+        ],
+        "yaw": -1.8150983213059895,
+        "speed": 0.02916904035174608,
+        "stamp": 61.444
+      }
+    },
+    "final_cloud_point_map": [
+      -0.7833109556429464,
+      -3.4434692543055303,
+      0.399233259342771
+    ],
+    "original_surface_error_m": 0.03129040880874648,
+    "estimated_world_point": [
+      0.2756528021301241,
+      -2.476810059142227,
+      0.5381620028375949
+    ],
+    "true_center_world": [
+      0.20018244156164522,
+      -2.5277259479979106,
+      0.12
+    ],
+    "estimated_target_horizontal_offset_m": 0.09103956866275528,
+    "estimated_target_radial_offset_m": 0.06830022496530422,
+    "independent_surface_error_m": 0.04103956866275528,
+    "final_production_distance_m": 2.4041745938211836,
+    "projected_distance_m": 2.3948463860904905,
+    "raw_frame_tilt_range_m": -0.009328207730693094,
+    "cloud_point_versus_rod_axis_range_m": 0.06819210700339484,
+    "body_localization_range_m": -0.007080281862908766,
+    "estimate_to_true_axis_m": 2.4630384930938853,
+    "true_minus_production_m": 0.05178361740979298,
+    "pre_land_window": {
+      "start_sim_s": 62.508,
+      "end_sim_s": 73.016,
+      "n": 116,
+      "first": {
+        "sim_s": 62.512,
+        "from_hold_start_s": 0.003999999999997783,
+        "range_m": 2.457161528696658,
+        "z_m": 2.1029960563709156,
+        "yaw_deg": -103.51424560150849,
+        "speed_mps": 0.013075025792284131
+      },
+      "last": {
+        "sim_s": 72.932,
+        "from_hold_start_s": 10.424,
+        "range_m": 2.490974209005612,
+        "z_m": 1.8865823291283368,
+        "yaw_deg": -103.72554187777872,
+        "speed_mps": 0.0402371847698159
+      },
+      "minimum": {
+        "sim_s": 62.512,
+        "from_hold_start_s": 0.003999999999997783,
+        "range_m": 2.457161528696658,
+        "z_m": 2.1029960563709156,
+        "yaw_deg": -103.51424560150849,
+        "speed_mps": 0.013075025792284131
+      },
+      "maximum": {
+        "sim_s": 72.932,
+        "from_hold_start_s": 10.424,
+        "range_m": 2.490974209005612,
+        "z_m": 1.8865823291283368,
+        "yaw_deg": -103.72554187777872,
+        "speed_mps": 0.0402371847698159
+      },
+      "max_outward_displacement_from_first_m": 0.033535580035599595,
+      "tangential_at_max_m": -0.03677805277238997,
+      "vertical_at_max_m": -0.2164137272425788,
+      "true_max_three_dimensional_drift_m": 0.22206341804331053,
+      "true_z_range_m": [
+        1.8865823291283368,
+        2.1029960563709156
+      ],
+      "yaw_max_change_deg": 0.2112962762702283,
+      "target_center_max_motion_m": 0.0,
+      "sp_count": 302,
+      "setpoint_max_displacement_m": 0.0,
+      "max_two_dim_odom_to_setpoint_m": 0.05328830303063029,
+      "outside_samples": 0,
+      "first_sample_outside": null,
+      "last_sample_outside": null,
+      "estimated_outside_spans": []
+    }
+  },
+  {
+    "label": "V03-2.4-right90-2",
+    "commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+    "capture_id": 11,
+    "last_capture_sim_s": 62.064,
+    "completed_sim_s": 63.216,
+    "done_sim_s": 63.22,
+    "from_capture_to_done_s": 1.1559999999999988,
+    "reported_distance_at_terminal_m": 2.4571688192709864,
+    "done_odometry": {
+      "measured": {
+        "position": [
+          -0.18248523771762848,
+          -1.1527024507522583,
+          1.7520854473114014
+        ],
+        "yaw": -1.8233698432922028,
+        "speed": 0.05823444416455724,
+        "stamp": 63.22
+      },
+      "closest_dt_s": 0.0,
+      "mission_position": [
+        -0.18320204317569733,
+        -1.153476357460022,
+        1.750497817993164
+      ]
+    },
+    "done_setpoint": {
+      "setpoint": {
+        "position": [
+          -0.17491745948791504,
+          -1.1487411260604858,
+          1.6972781419754028
+        ],
+        "yaw": -1.8234996172848095,
+        "stamp": 63.248
+      },
+      "closest_dt_s": 0.027999999999998693
+    },
+    "done_truth": {
+      "sim_s": 63.192,
+      "from_hold_start_s": -0.11999999999999744,
+      "range_m": 2.4543209134417157,
+      "z_m": 1.9767421966722225,
+      "yaw_deg": -104.09018286075342,
+      "speed_mps": 0.02775788536945212,
+      "closest_dt_s": 0.027999999999998693,
+      "radial_velocity_mps": 0.026050779254610152
+    },
+    "capture_truth": {
+      "sim_s": 62.016,
+      "from_hold_start_s": -1.2959999999999994,
+      "range_m": 2.426176017921954,
+      "z_m": 1.976051148099573,
+      "yaw_deg": -104.07017966704105,
+      "speed_mps": 0.024962598938999606,
+      "closest_dt_s": 0.04800000000000182,
+      "odom": {
+        "position": [
+          -0.18701699376106262,
+          -1.1577426195144653,
+          1.7389436960220337
+        ],
+        "yaw": -1.8231315937025458,
+        "speed": 0.03246425633213876,
+        "stamp": 62.052
+      }
+    },
+    "final_cloud_point_map": [
+      -0.794817626192707,
+      -3.4593746340139075,
+      0.4802608505684911
+    ],
+    "original_surface_error_m": 0.0073648488669097595,
+    "estimated_world_point": [
+      0.26330469834779924,
+      -2.4925513209717858,
+      0.5374552975489357
+    ],
+    "true_center_world": [
+      0.20018223629024035,
+      -2.5277261492256162,
+      0.12
+    ],
+    "estimated_target_horizontal_offset_m": 0.07226142649363096,
+    "estimated_target_radial_offset_m": 0.0498665862981532,
+    "independent_surface_error_m": 0.022261426493630956,
+    "final_production_distance_m": 2.3856320930108685,
+    "projected_distance_m": 2.376805230878868,
+    "raw_frame_tilt_range_m": -0.008826862132000457,
+    "cloud_point_versus_rod_axis_range_m": 0.05000300055942963,
+    "body_localization_range_m": 0.027512682003417943,
+    "estimate_to_true_axis_m": 2.4268082314382977,
+    "true_minus_production_m": 0.06868882043084712,
+    "pre_land_window": {
+      "start_sim_s": 63.312,
+      "end_sim_s": 73.86,
+      "n": 115,
+      "first": {
+        "sim_s": 63.4,
+        "from_hold_start_s": 0.08800000000000097,
+        "range_m": 2.4598057191196783,
+        "z_m": 1.9758904795149088,
+        "yaw_deg": -104.09483036129683,
+        "speed_mps": 0.02867701915726435
+      },
+      "last": {
+        "sim_s": 73.784,
+        "from_hold_start_s": 10.472000000000008,
+        "range_m": 2.4884638393339076,
+        "z_m": 1.7579727778905336,
+        "yaw_deg": -104.22555941337768,
+        "speed_mps": 0.023147429536129967
+      },
+      "minimum": {
+        "sim_s": 69.436,
+        "from_hold_start_s": 6.124000000000009,
+        "range_m": 2.4065453993138983,
+        "z_m": 1.93652787133816,
+        "yaw_deg": -104.14980645102249,
+        "speed_mps": 0.03303196738423173
+      },
+      "maximum": {
+        "sim_s": 73.784,
+        "from_hold_start_s": 10.472000000000008,
+        "range_m": 2.4884638393339076,
+        "z_m": 1.7579727778905336,
+        "yaw_deg": -104.22555941337768,
+        "speed_mps": 0.023147429536129967
+      },
+      "max_outward_displacement_from_first_m": 0.028066181970158404,
+      "tangential_at_max_m": -0.05606329989193401,
+      "vertical_at_max_m": -0.21791770162437518,
+      "true_max_three_dimensional_drift_m": 0.2267574229135734,
+      "true_z_range_m": [
+        1.7579727778905336,
+        1.9795167145790171
+      ],
+      "yaw_max_change_deg": 0.13746793265650487,
+      "target_center_max_motion_m": 0.0,
+      "sp_count": 294,
+      "setpoint_max_displacement_m": 0.0,
+      "max_two_dim_odom_to_setpoint_m": 0.05980780567048656,
+      "outside_samples": 0,
+      "first_sample_outside": null,
+      "last_sample_outside": null,
+      "estimated_outside_spans": []
+    }
+  },
+  {
+    "label": "V04-2.4-right90-1",
+    "commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+    "capture_id": 9,
+    "last_capture_sim_s": 69.656,
+    "completed_sim_s": 71.052,
+    "done_sim_s": 71.056,
+    "from_capture_to_done_s": 1.3999999999999915,
+    "reported_distance_at_terminal_m": 2.569472381348288,
+    "done_odometry": {
+      "measured": {
+        "position": [
+          -0.18284231424331665,
+          -1.0412884950637817,
+          1.7300918102264404
+        ],
+        "yaw": -1.840218623572423,
+        "speed": 0.024520757492572924,
+        "stamp": 71.06
+      },
+      "closest_dt_s": 0.0040000000000048885,
+      "mission_position": [
+        -0.1835820972919464,
+        -1.0429389476776123,
+        1.7296826839447021
+      ]
+    },
+    "done_setpoint": {
+      "setpoint": {
+        "position": [
+          -0.18132029473781586,
+          -1.0354021787643433,
+          1.7070629596710205
+        ],
+        "yaw": -1.8405941518145414,
+        "stamp": 71.04
+      },
+      "closest_dt_s": 0.015999999999991132
+    },
+    "done_truth": {
+      "sim_s": 71.032,
+      "from_hold_start_s": -0.12000000000000455,
+      "range_m": 2.5646598314412428,
+      "z_m": 1.8891857362461604,
+      "yaw_deg": -105.12065670385569,
+      "speed_mps": 0.06551186792779848,
+      "closest_dt_s": 0.02400000000000091,
+      "radial_velocity_mps": 0.04605387551006489
+    },
+    "capture_truth": {
+      "sim_s": 69.64,
+      "from_hold_start_s": -1.5120000000000005,
+      "range_m": 2.5051078673890235,
+      "z_m": 1.927830845107634,
+      "yaw_deg": -105.09970804594816,
+      "speed_mps": 0.023140117589581084,
+      "closest_dt_s": 0.016000000000005343,
+      "odom": {
+        "position": [
+          -0.19533808529376984,
+          -1.0709627866744995,
+          1.7319293022155762
+        ],
+        "yaw": -1.8405778470692415,
+        "speed": 0.019965979063157575,
+        "stamp": 69.66
+      }
+    },
+    "final_cloud_point_map": [
+      -0.774284702670976,
+      -3.4626617701126445,
+      0.4783315301846205
+    ],
+    "original_surface_error_m": 0.03605322946183108,
+    "estimated_world_point": [
+      0.27572191027022463,
+      -2.494327429252878,
+      0.5384301119956674
+    ],
+    "true_center_world": [
+      0.20018340302109927,
+      -2.527725010474131,
+      0.12
+    ],
+    "estimated_target_horizontal_offset_m": 0.08259215767163595,
+    "estimated_target_radial_offset_m": 0.05025300628456333,
+    "independent_surface_error_m": 0.03259215767163595,
+    "final_production_distance_m": 2.4907806216956425,
+    "projected_distance_m": 2.4822578617471502,
+    "raw_frame_tilt_range_m": -0.008522759948492276,
+    "cloud_point_versus_rod_axis_range_m": 0.05040745525698487,
+    "body_localization_range_m": 0.03199451443710766,
+    "estimate_to_true_axis_m": 2.532665317004135,
+    "true_minus_production_m": 0.07387920974560025,
+    "pre_land_window": {
+      "start_sim_s": 71.152,
+      "end_sim_s": 81.656,
+      "n": 109,
+      "first": {
+        "sim_s": 71.204,
+        "from_hold_start_s": 0.0519999999999925,
+        "range_m": 2.57254040181626,
+        "z_m": 1.881308832986566,
+        "yaw_deg": -105.13192187964843,
+        "speed_mps": 0.06707352521286412
+      },
+      "last": {
+        "sim_s": 81.552,
+        "from_hold_start_s": 10.400000000000006,
+        "range_m": 2.5224395354828375,
+        "z_m": 1.8325049942885236,
+        "yaw_deg": -105.50874950439771,
+        "speed_mps": 0.020283343975989052
+      },
+      "minimum": {
+        "sim_s": 78.812,
+        "from_hold_start_s": 7.659999999999997,
+        "range_m": 2.506459705249545,
+        "z_m": 1.7810017668170526,
+        "yaw_deg": -105.39783028430593,
+        "speed_mps": 0.029940191061590755
+      },
+      "maximum": {
+        "sim_s": 73.416,
+        "from_hold_start_s": 2.263999999999996,
+        "range_m": 2.6098578388193987,
+        "z_m": 1.7731350335445715,
+        "yaw_deg": -105.2363227501485,
+        "speed_mps": 0.03811486149261568
+      },
+      "max_outward_displacement_from_first_m": 0.036701726865282,
+      "tangential_at_max_m": -0.05438765447309131,
+      "vertical_at_max_m": -0.10817379944199446,
+      "true_max_three_dimensional_drift_m": 0.15071432366540927,
+      "true_z_range_m": [
+        1.7563845771284365,
+        1.881308832986566
+      ],
+      "yaw_max_change_deg": 0.3768276247492824,
+      "target_center_max_motion_m": 0.0,
+      "sp_count": 282,
+      "setpoint_max_displacement_m": 0.0,
+      "max_two_dim_odom_to_setpoint_m": 0.07409623881368264,
+      "outside_samples": 24,
+      "first_sample_outside": {
+        "sim_s": 72.124,
+        "from_hold_start_s": 0.9719999999999942,
+        "range_m": 2.6001028957455645,
+        "z_m": 1.8291118756828395,
+        "yaw_deg": -105.18054549074924,
+        "speed_mps": 0.06653457824615433
+      },
+      "last_sample_outside": {
+        "sim_s": 74.384,
+        "from_hold_start_s": 3.2319999999999993,
+        "range_m": 2.600168500033218,
+        "z_m": 1.7581663185674314,
+        "yaw_deg": -105.24222292266865,
+        "speed_mps": 0.026679314668086783
+      },
+      "estimated_outside_spans": [
+        {
+          "sign": 1,
+          "start_s": 72.11758190897841,
+          "end_s": 74.39225469128739
+        }
+      ]
+    }
+  },
+  {
+    "label": "V04-2.4-right90-2",
+    "commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+    "capture_id": 8,
+    "last_capture_sim_s": 60.46,
+    "completed_sim_s": 63.7,
+    "done_sim_s": 63.704,
+    "from_capture_to_done_s": 3.2439999999999998,
+    "reported_distance_at_terminal_m": 2.4904328426588895,
+    "done_odometry": {
+      "measured": {
+        "position": [
+          -0.177194282412529,
+          -1.0921605825424194,
+          1.7552863359451294
+        ],
+        "yaw": -1.8191500902662787,
+        "speed": 0.06878102764827407,
+        "stamp": 63.712
+      },
+      "closest_dt_s": 0.008000000000002672,
+      "mission_position": [
+        -0.1769905984401703,
+        -1.09128737449646,
+        1.757190227508545
+      ]
+    },
+    "done_setpoint": {
+      "setpoint": {
+        "position": [
+          -0.18661105632781982,
+          -1.10096275806427,
+          1.6951549053192139
+        ],
+        "yaw": -1.8191639543115632,
+        "stamp": 63.712
+      },
+      "closest_dt_s": 0.008000000000002672
+    },
+    "done_truth": {
+      "sim_s": 63.7,
+      "from_hold_start_s": -0.047999999999994714,
+      "range_m": 2.4909386343869677,
+      "z_m": 2.0877012282846388,
+      "yaw_deg": -103.98779569975687,
+      "speed_mps": 0.03546585877980728,
+      "closest_dt_s": 0.003999999999997783,
+      "radial_velocity_mps": -0.013882547853244467
+    },
+    "capture_truth": {
+      "sim_s": 60.5,
+      "from_hold_start_s": -3.2479999999999976,
+      "range_m": 2.4778978492896533,
+      "z_m": 2.1230476647268985,
+      "yaw_deg": -103.92967561251338,
+      "speed_mps": 0.03407578811730089,
+      "closest_dt_s": 0.03999999999999915,
+      "odom": {
+        "position": [
+          -0.17513085901737213,
+          -1.1093761920928955,
+          1.7370598316192627
+        ],
+        "yaw": -1.8192863914383985,
+        "speed": 0.03085614704969807,
+        "stamp": 60.472
+      }
+    },
+    "final_cloud_point_map": [
+      -0.7976823877614043,
+      -3.458805685876843,
+      0.3851987842418889
+    ],
+    "original_surface_error_m": 0.015799369547079653,
+    "estimated_world_point": [
+      0.2730724101134948,
+      -2.4947411101479733,
+      0.5272886774668416
+    ],
+    "true_center_world": [
+      0.20018253080254378,
+      -2.5277258896353145,
+      0.12
+    ],
+    "estimated_target_horizontal_offset_m": 0.08000581343748425,
+    "estimated_target_radial_offset_m": 0.0499490876194913,
+    "independent_surface_error_m": 0.03000581343748425,
+    "final_production_distance_m": 2.4475296223033163,
+    "projected_distance_m": 2.4379962937988497,
+    "raw_frame_tilt_range_m": -0.009533328504466532,
+    "cloud_point_versus_rod_axis_range_m": 0.05006082781163057,
+    "body_localization_range_m": 0.002881512776487405,
+    "estimate_to_true_axis_m": 2.4880571216104803,
+    "true_minus_production_m": 0.043409012083651444,
+    "pre_land_window": {
+      "start_sim_s": 63.748,
+      "end_sim_s": 74.284,
+      "n": 103,
+      "first": {
+        "sim_s": 63.784,
+        "from_hold_start_s": 0.036000000000001364,
+        "range_m": 2.4898791674013108,
+        "z_m": 2.0862720038384848,
+        "yaw_deg": -103.98952852186585,
+        "speed_mps": 0.03489985654726546
+      },
+      "last": {
+        "sim_s": 74.256,
+        "from_hold_start_s": 10.508000000000003,
+        "range_m": 2.5389200647000894,
+        "z_m": 1.8687073201579012,
+        "yaw_deg": -104.20932672861572,
+        "speed_mps": 0.010461650259838686
+      },
+      "minimum": {
+        "sim_s": 66.924,
+        "from_hold_start_s": 3.176000000000009,
+        "range_m": 2.4664277013801055,
+        "z_m": 2.068604679122157,
+        "yaw_deg": -104.03052094918499,
+        "speed_mps": 0.016073710305749746
+      },
+      "maximum": {
+        "sim_s": 73.884,
+        "from_hold_start_s": 10.136000000000003,
+        "range_m": 2.5403451439802307,
+        "z_m": 1.8715460536202022,
+        "yaw_deg": -104.20890380845961,
+        "speed_mps": 0.010526816034770516
+      },
+      "max_outward_displacement_from_first_m": 0.050072019527696666,
+      "tangential_at_max_m": -0.04678091401831568,
+      "vertical_at_max_m": -0.21472595021828256,
+      "true_max_three_dimensional_drift_m": 0.2276480144149027,
+      "true_z_range_m": [
+        1.8687073201579012,
+        2.0862720038384848
+      ],
+      "yaw_max_change_deg": 0.2381034584509181,
+      "target_center_max_motion_m": 0.0,
+      "sp_count": 274,
+      "setpoint_max_displacement_m": 0.0,
+      "max_two_dim_odom_to_setpoint_m": 0.04284569402611663,
+      "outside_samples": 0,
+      "first_sample_outside": null,
+      "last_sample_outside": null,
+      "estimated_outside_spans": []
+    }
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "known_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+  "cases": 16,
+  "frames": 319,
+  "moving_failed": [
+    "V03-1.5-right45-1",
+    "V03-1.5-right45-2"
+  ],
+  "logged_cloud_calls": 101,
+  "official_pass": 14,
+  "verified_pass": 14,
+  "known_heading_before_first_request": 10,
+  "one_second_heading_gate": 9,
+  "estimated_height": {
+    "n": 319,
+    "camera_z_m": [
+      1.5062971950078934,
+      2.2656436806872264
+    ],
+    "range_m": [
+      1.4125258958533202,
+      3.4659352255548583
+    ],
+    "yaw_deg": [
+      -104.27219095429919,
+      103.19493880317872
+    ],
+    "sim_time_s": [
+      25.896,
+      74.364
+    ],
+    "truth_dt_s": [
+      0.008000000000002672,
+      0.05200000000000671
+    ],
+    "camera_z_abs_p95_m": 0.23159355271474918,
+    "body_z_abs_p95_m": 0.23130875139789714,
+    "camera_minus_body_abs_p95_m": 0.001116423735365157,
+    "body_matched_n": 319,
+    "level_origin_sensitivity_abs_p95_m": 0.035758858206519556,
+    "tilt_sensitivity_abs_p95_m": 0.006724013394223261
+  }
+}

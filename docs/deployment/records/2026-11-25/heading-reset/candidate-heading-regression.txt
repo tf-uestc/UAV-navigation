@@ -1,0 +1,15 @@
+test_duplicate_cannot_refresh_wall_timestamp_or_promote_reset (test_sitl_heading_readiness.HeadingGuardTests.test_duplicate_cannot_refresh_wall_timestamp_or_promote_reset) ... ok
+test_ignores_missing_future_or_stale_telemetry (test_sitl_heading_readiness.HeadingGuardTests.test_ignores_missing_future_or_stale_telemetry) ... ok
+test_invalid_health_and_counter_never_open_gate (test_sitl_heading_readiness.HeadingGuardTests.test_invalid_health_and_counter_never_open_gate) ... ok
+test_late_good_cannot_override_a_newer_fault_or_revive_same_stamp (test_sitl_heading_readiness.HeadingGuardTests.test_late_good_cannot_override_a_newer_fault_or_revive_same_stamp) ... ok
+test_managed_takeoff_uses_visual_height_but_preserves_cruise_height (test_sitl_heading_readiness.HeadingGuardTests.test_managed_takeoff_uses_visual_height_but_preserves_cruise_height) ... ok
+test_new_task_and_restart_discard_previous_valid_sample (test_sitl_heading_readiness.HeadingGuardTests.test_new_task_and_restart_discard_previous_valid_sample) ... ok
+test_no_heading_sample_times_out_lands_and_never_requests_detection (test_sitl_heading_readiness.HeadingGuardTests.test_no_heading_sample_times_out_lands_and_never_requests_detection) ... ok
+test_requires_continuous_fresh_good_samples_and_reset_restarts_wait (test_sitl_heading_readiness.HeadingGuardTests.test_requires_continuous_fresh_good_samples_and_reset_restarts_wait) ... ok
+test_telemetry_parser_matches_px4_print_and_rejects_unknown (test_sitl_heading_readiness.HeadingGuardTests.test_telemetry_parser_matches_px4_print_and_rejects_unknown) ... ok
+test_valid_and_stable_heading_releases_into_original_stop_phase (test_sitl_heading_readiness.HeadingGuardTests.test_valid_and_stable_heading_releases_into_original_stop_phase) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.337s
+
+OK

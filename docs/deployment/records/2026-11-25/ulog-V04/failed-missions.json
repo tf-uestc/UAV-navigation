@@ -1,0 +1,118 @@
+{
+  "V04-2.4-right90-1": {
+    "terminal": [
+      {
+        "phase": "DONE",
+        "reason": "observation_standoff_reached",
+        "goal_id": 1,
+        "scan_offset_deg": 0,
+        "observed_sim": 71.056
+      }
+    ],
+    "detector": [
+      {
+        "request_id": 1,
+        "status": "FAILED",
+        "reason": "target_color_unconfirmed",
+        "capture_stamp": 22.456
+      },
+      {
+        "request_id": 2,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "capture_stamp": 24.456
+      },
+      {
+        "request_id": 3,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "capture_stamp": 28.96
+      },
+      {
+        "request_id": 4,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "capture_stamp": 35.256
+      },
+      {
+        "request_id": 5,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "capture_stamp": 41.856
+      },
+      {
+        "request_id": 6,
+        "status": "SUCCEEDED",
+        "reason": "",
+        "capture_stamp": 51.66
+      },
+      {
+        "request_id": 7,
+        "status": "SUCCEEDED",
+        "reason": "",
+        "capture_stamp": 56.556
+      },
+      {
+        "request_id": 8,
+        "status": "SUCCEEDED",
+        "reason": "",
+        "capture_stamp": 61.356
+      },
+      {
+        "request_id": 9,
+        "status": "SUCCEEDED",
+        "reason": "",
+        "capture_stamp": 69.656
+      }
+    ]
+  },
+  "V04-1.5-front-1": {
+    "terminal": [
+      {
+        "phase": "FAILED",
+        "reason": "target_not_found",
+        "goal_id": 0,
+        "scan_offset_deg": -90,
+        "observed_sim": 50.12
+      }
+    ],
+    "detector": [
+      {
+        "request_id": 1,
+        "status": "SUCCEEDED",
+        "reason": "",
+        "capture_stamp": 21.476
+      },
+      {
+        "request_id": 2,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "capture_stamp": 22.976
+      },
+      {
+        "request_id": 3,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "capture_stamp": 27.476
+      },
+      {
+        "request_id": 4,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "capture_stamp": 32.876
+      },
+      {
+        "request_id": 5,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "capture_stamp": 40.376
+      },
+      {
+        "request_id": 6,
+        "status": "FAILED",
+        "reason": "target_not_found",
+        "capture_stamp": 47.976
+      }
+    ]
+  }
+}

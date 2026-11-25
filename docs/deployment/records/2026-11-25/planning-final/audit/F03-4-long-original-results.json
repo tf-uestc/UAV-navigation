@@ -1,0 +1,161 @@
+{
+  "passed": false,
+  "error": "AssertionError({'mission_session_id': 'b57ae0c9a9904e408e37d1050fef1ba1', 'mission_id': 'fixture_set_heading-93851b91', 'phase': 'FAILED', 'reason': 'observation_too_close', 'goal_id': 0, 'goal': None, 'final_goal': None, 'detection_request_id': None, 'intended_yaw': 0.01820798618557706, 'observation_heading_mode': 'initial', 'segment_count': 0, 'scan_offset_deg': 0, 'detection_retried': False, 'detour_active': False, 'capture_floor': 61.784, 'stop_id': 17})",
+  "checks": [
+    {
+      "name": "live_fence_inside_map_and_ceiling",
+      "grid_bounds": [
+        [
+          -20.0,
+          20.0
+        ],
+        [
+          -20.0,
+          20.0
+        ],
+        [
+          -0.5,
+          2.5
+        ]
+      ],
+      "fence": {
+        "x_min": -6.0,
+        "x_max": 6.0,
+        "y_min": -4.0,
+        "y_max": 4.0,
+        "z_min": 1.1,
+        "z_max": 2.35
+      },
+      "grid_parameters": {
+        "frame_id": "map",
+        "pose_type": 1,
+        "resolution": 0.1,
+        "map_size_x": 40.0,
+        "map_size_y": 40.0,
+        "map_size_z": 3.5,
+        "local_update_range_x": 5.5,
+        "local_update_range_y": 5.5,
+        "local_update_range_z": 4.5,
+        "obstacles_inflation": 0.349,
+        "local_map_margin": 30,
+        "ground_height": -0.5,
+        "cx": 319.5,
+        "cy": 239.5,
+        "fx": 343.15907310693535,
+        "fy": 343.15907310693535,
+        "use_depth_filter": true,
+        "depth_filter_tolerance": 0.15,
+        "depth_filter_maxdist": 5.0,
+        "depth_filter_mindist": 0.2,
+        "depth_filter_margin": 1,
+        "k_depth_scaling_factor": 1000.0,
+        "skip_pixel": 2,
+        "p_hit": 0.65,
+        "p_miss": 0.35,
+        "p_min": 0.12,
+        "p_max": 0.9,
+        "p_occ": 0.8,
+        "min_ray_length": 0.1,
+        "max_ray_length": 4.5,
+        "virtual_ceil_height": 2.5,
+        "visualization_truncate_height": 2.4,
+        "show_occ_time": false,
+        "enable_independent_cloud": false
+      }
+    },
+    {
+      "name": "fixture_set_heading_in_place",
+      "heading_degrees": -161.96899238022388
+    },
+    {
+      "name": "position_for_long",
+      "segments": 3,
+      "peak_tracking_error_m": 0.4944554165467845,
+      "rmse_tracking_m": 0.2685300146496581,
+      "odom_samples": 765,
+      "aligned_samples": 765,
+      "executed_trajectories": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "trajectory_dispositions": [
+        {
+          "flight_session_id": "b912a98f59ae47ad8c43428ceaf21f06",
+          "mission_id": "position_for_long-22f584c6",
+          "goal_id": 1,
+          "planner_session_id": "ee5979b5-fbd4-4593-9420-86c780b7f59b",
+          "traj_id": 1,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 0.005379386608027484,
+          "velocity_tolerance_mps": 0.1639999999999997
+        },
+        {
+          "flight_session_id": "b912a98f59ae47ad8c43428ceaf21f06",
+          "mission_id": "position_for_long-22f584c6",
+          "goal_id": 2,
+          "planner_session_id": "ee5979b5-fbd4-4593-9420-86c780b7f59b",
+          "traj_id": 3,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 0.004074990071921465,
+          "velocity_tolerance_mps": 0.16260000000000047
+        },
+        {
+          "flight_session_id": "b912a98f59ae47ad8c43428ceaf21f06",
+          "mission_id": "position_for_long-22f584c6",
+          "goal_id": 3,
+          "planner_session_id": "ee5979b5-fbd4-4593-9420-86c780b7f59b",
+          "traj_id": 5,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 0.002688272959308462,
+          "velocity_tolerance_mps": 0.15280000000000094
+        },
+        {
+          "flight_session_id": "b912a98f59ae47ad8c43428ceaf21f06",
+          "mission_id": "position_for_long-22f584c6",
+          "goal_id": 3,
+          "planner_session_id": "ee5979b5-fbd4-4593-9420-86c780b7f59b",
+          "traj_id": 6,
+          "accepted": true,
+          "reason": "accepted",
+          "velocity_error_mps": 7.415354787978996e-05,
+          "velocity_tolerance_mps": 0.1569999999999986
+        }
+      ],
+      "endpoint": [
+        -4.167056560516357,
+        -1.3492251634597778,
+        1.7826334238052368
+      ],
+      "endpoint_speed_mps": 0.05634702026303699
+    },
+    {
+      "name": "physics_contact_stream_positive_control_and_no_iris_obstacle_contact",
+      "obstacle_model": "dynamic_test_box",
+      "passed": true,
+      "positive_control_contacts": 16685,
+      "iris_obstacle_contacts": [],
+      "physics_messages": 36044,
+      "start_stamp": 4.776,
+      "end_stamp": 72.408,
+      "last_message_stamp": 72.408
+    }
+  ],
+  "final_armed": false
+}

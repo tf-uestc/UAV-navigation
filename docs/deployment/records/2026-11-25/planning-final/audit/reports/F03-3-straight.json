@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "scenario": "straight",
+  "checks": {
+    "contact_stream_observed": true,
+    "armed_then_disarmed": true,
+    "all_requested_missions_present": true,
+    "straight-58315743/terminal": true,
+    "straight-58315743/reached": true,
+    "straight-58315743/fence": true,
+    "straight-58315743/physical_endpoint": true,
+    "straight-58315743/acknowledgements": true,
+    "straight-58315743/only_accepted_executed": true,
+    "straight-58315743/tracked": true
+  },
+  "details": [
+    {
+      "mission": "straight-58315743",
+      "terminal_reason": "destination_reached",
+      "distance_to_goal_m": 0.08714963322543676,
+      "speed_mps": 0.02250488094572551
+    }
+  ],
+  "physics_coverage": {
+    "passed": true,
+    "checks": {
+      "odom_clock_nondecreasing": true,
+      "brackets_entire_flight": true,
+      "no_gap_of_one_second": true,
+      "count": true,
+      "raw_agrees_with_summary": true,
+      "within_one_second_at_shutdown": true,
+      "positive_control": true,
+      "zero_unexpected_contacts": true,
+      "primary_contact_check": true
+    },
+    "raw_physics_interval": [
+      5.144,
+      37.424
+    ],
+    "armed_flight_conservative_interval": [
+      7.752,
+      36.78
+    ],
+    "top_level_messages": 8071,
+    "flight_messages": 7258,
+    "largest_gap_during_flight_s": 0.0040000000000048885,
+    "arrival_order_reversals": 1,
+    "max_arrival_order_reversal_s": 0.003999999999997783,
+    "stop_requested_sim": 37.424,
+    "positive_control_pairs": 7939,
+    "unexpected_contact_count": 0
+  },
+  "grader_sha256": "2041f10c203a2903401496a095e76c827bf14d414de0609e2caf7631c621d682",
+  "base_grader_sha256": "2d885deed3afc9bf65f7b0d9c883a411bc91b75c84b0b992f3c06de1e18652e0"
+}

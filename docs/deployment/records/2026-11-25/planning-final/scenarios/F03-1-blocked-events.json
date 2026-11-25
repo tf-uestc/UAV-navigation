@@ -1,0 +1,1594 @@
+{
+  "obstacle": {
+    "center": [
+      2.127593736667831,
+      0.9557796922323635
+    ],
+    "size": [
+      0.16,
+      22.0,
+      6.0
+    ],
+    "first_trajectory_id": 1
+  },
+  "mission": "dynamic-7283d7f8",
+  "confirmed_hold_after_warning": {
+    "wall_s": 2.435667690820992,
+    "speed_mps": 0.06496692207040324,
+    "stop_id": 5,
+    "reason": "hold_requested"
+  },
+  "events": [
+    {
+      "wall_s": -5.159542016685009,
+      "source": "mission",
+      "nearest_odom_stamp": 18.992,
+      "measured_speed_mps": 0.027729386716668712,
+      "position": [
+        -0.01414477452635765,
+        -0.01888144575059414,
+        1.5118926763534546
+      ],
+      "goal_id": 0,
+      "phase": "BRAKE",
+      "reason": ""
+    },
+    {
+      "wall_s": -5.025449905544519,
+      "source": "mission",
+      "nearest_odom_stamp": 19.128,
+      "measured_speed_mps": 0.02710087164668961,
+      "position": [
+        -0.014742819592356682,
+        -0.022151509299874306,
+        1.51370108127594
+      ],
+      "goal_id": 0,
+      "phase": "SETTLE",
+      "reason": ""
+    },
+    {
+      "wall_s": -3.7334234910085797,
+      "source": "mission",
+      "nearest_odom_stamp": 20.128,
+      "measured_speed_mps": 0.02394401763950797,
+      "position": [
+        -0.014113202691078186,
+        -0.018228476867079735,
+        1.5108990669250488
+      ],
+      "goal_id": 1,
+      "phase": "AUTHORIZE",
+      "reason": ""
+    },
+    {
+      "wall_s": -3.612145971506834,
+      "source": "mission",
+      "nearest_odom_stamp": 20.228,
+      "measured_speed_mps": 0.02104349920942744,
+      "position": [
+        -0.01428134273737669,
+        -0.01778009906411171,
+        1.5128432512283325
+      ],
+      "goal_id": 1,
+      "phase": "WAIT_PLAN",
+      "reason": ""
+    },
+    {
+      "wall_s": -3.6108969785273075,
+      "source": "ego_status",
+      "nearest_odom_stamp": 20.228,
+      "measured_speed_mps": 0.02104349920942744,
+      "position": [
+        -0.01428134273737669,
+        -0.01778009906411171,
+        1.5128432512283325
+      ],
+      "goal_id": 1,
+      "status": "ACCEPTED",
+      "reason": ""
+    },
+    {
+      "wall_s": -3.610232056118548,
+      "source": "plan_result",
+      "nearest_odom_stamp": 20.228,
+      "measured_speed_mps": 0.02104349920942744,
+      "position": [
+        -0.01428134273737669,
+        -0.01778009906411171,
+        1.5128432512283325
+      ],
+      "goal_id": 1,
+      "status": "ACCEPTED",
+      "reason": ""
+    },
+    {
+      "wall_s": -3.5551004549488425,
+      "source": "plan_result",
+      "nearest_odom_stamp": 20.26,
+      "measured_speed_mps": 0.020067278282539167,
+      "position": [
+        -0.014449910260736942,
+        -0.017502661794424057,
+        1.5142875909805298
+      ],
+      "goal_id": 1,
+      "traj_id": 1,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "wall_s": -3.5546157909557223,
+      "source": "spline",
+      "nearest_odom_stamp": 20.26,
+      "measured_speed_mps": 0.020067278282539167,
+      "position": [
+        -0.014449910260736942,
+        -0.017502661794424057,
+        1.5142875909805298
+      ],
+      "goal_id": 1,
+      "traj_id": 1,
+      "emergency": false
+    },
+    {
+      "wall_s": -3.536411492154002,
+      "source": "trajectory_ack",
+      "nearest_odom_stamp": 20.288,
+      "measured_speed_mps": 0.01990937123314494,
+      "position": [
+        -0.01461338996887207,
+        -0.017220016568899155,
+        1.5155290365219116
+      ],
+      "goal_id": 1,
+      "traj_id": 1,
+      "reason": "accepted",
+      "accepted": true,
+      "velocity_error_mps": 0.004235979712191723,
+      "velocity_tolerance_mps": 0.15559999999999938
+    },
+    {
+      "wall_s": -3.4641742538660765,
+      "source": "flight",
+      "nearest_odom_stamp": 20.356,
+      "measured_speed_mps": 0.01994743380964355,
+      "position": [
+        -0.014925127848982811,
+        -0.016645381227135658,
+        1.5176236629486084
+      ],
+      "goal_id": 1,
+      "traj_id": 1
+    },
+    {
+      "wall_s": -3.4252926064655185,
+      "source": "mission",
+      "nearest_odom_stamp": 20.388,
+      "measured_speed_mps": 0.02097042019149876,
+      "position": [
+        -0.015024352818727493,
+        -0.016403857618570328,
+        1.518258810043335
+      ],
+      "goal_id": 1,
+      "phase": "TRACK",
+      "reason": ""
+    },
+    {
+      "wall_s": 0.7444992698729038,
+      "source": "ego_status",
+      "nearest_odom_stamp": 23.788,
+      "measured_speed_mps": 0.2691691229964856,
+      "position": [
+        0.27061447501182556,
+        -0.02040015161037445,
+        1.5302307605743408
+      ],
+      "goal_id": 1,
+      "status": "EMERGENCY_STOP",
+      "reason": "collision"
+    },
+    {
+      "wall_s": 0.7447921158745885,
+      "source": "ego_status",
+      "nearest_odom_stamp": 23.788,
+      "measured_speed_mps": 0.2691691229964856,
+      "position": [
+        0.27061447501182556,
+        -0.02040015161037445,
+        1.5302307605743408
+      ],
+      "goal_id": 1,
+      "status": "FAILED",
+      "reason": "emergency_stop_requires_new_goal"
+    },
+    {
+      "wall_s": 0.7452874034643173,
+      "source": "plan_result",
+      "nearest_odom_stamp": 23.788,
+      "measured_speed_mps": 0.2691691229964856,
+      "position": [
+        0.27061447501182556,
+        -0.02040015161037445,
+        1.5302307605743408
+      ],
+      "goal_id": 1,
+      "status": "FAILED",
+      "reason": "emergency_stop_requires_new_goal"
+    },
+    {
+      "wall_s": 0.7458525504916906,
+      "source": "mission",
+      "nearest_odom_stamp": 23.788,
+      "measured_speed_mps": 0.2691691229964856,
+      "position": [
+        0.27061447501182556,
+        -0.02040015161037445,
+        1.5302307605743408
+      ],
+      "goal_id": 1,
+      "phase": "BRAKE",
+      "reason": "planner_failed"
+    },
+    {
+      "wall_s": 0.7783201290294528,
+      "source": "mission",
+      "nearest_odom_stamp": 23.828,
+      "measured_speed_mps": 0.27487819428188875,
+      "position": [
+        0.28166884183883667,
+        -0.019879985600709915,
+        1.5314390659332275
+      ],
+      "goal_id": 1,
+      "phase": "SETTLE",
+      "reason": "planner_failed"
+    },
+    {
+      "wall_s": 2.677434280514717,
+      "source": "mission",
+      "nearest_odom_stamp": 25.256,
+      "measured_speed_mps": 0.08358112606830594,
+      "position": [
+        0.40763750672340393,
+        -0.00956643559038639,
+        1.558661699295044
+      ],
+      "goal_id": 1,
+      "phase": "FAILED",
+      "reason": "planner_failed"
+    },
+    {
+      "wall_s": 2.7442992348223925,
+      "source": "mission",
+      "nearest_odom_stamp": 25.288,
+      "measured_speed_mps": 0.08620663318954429,
+      "position": [
+        0.4054149091243744,
+        -0.009575290605425835,
+        1.558555006980896
+      ],
+      "goal_id": 1,
+      "phase": "LANDING",
+      "reason": ""
+    },
+    {
+      "wall_s": 7.47889968007803,
+      "source": "ego_status",
+      "nearest_odom_stamp": 29.356,
+      "measured_speed_mps": 1.0287378978968662,
+      "position": [
+        0.4169720411300659,
+        0.008188956417143345,
+        -0.5561875104904175
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 7.578910746611655,
+      "source": "ego_status",
+      "nearest_odom_stamp": 29.428,
+      "measured_speed_mps": 1.0408537392929467,
+      "position": [
+        0.41771963238716125,
+        0.008703041821718216,
+        -0.5578956007957458
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 7.678956678137183,
+      "source": "ego_status",
+      "nearest_odom_stamp": 29.492,
+      "measured_speed_mps": 1.058594797875594,
+      "position": [
+        0.41827118396759033,
+        0.00910510215908289,
+        -0.5617504119873047
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 7.778889337554574,
+      "source": "ego_status",
+      "nearest_odom_stamp": 29.592,
+      "measured_speed_mps": 1.1144656447927421,
+      "position": [
+        0.4186888337135315,
+        0.009271932765841484,
+        -0.5914440155029297
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 7.878845527768135,
+      "source": "ego_status",
+      "nearest_odom_stamp": 29.692,
+      "measured_speed_mps": 1.1785132108055842,
+      "position": [
+        0.4186047613620758,
+        0.008973075076937675,
+        -0.6494783759117126
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 7.979009449481964,
+      "source": "ego_status",
+      "nearest_odom_stamp": 29.76,
+      "measured_speed_mps": 1.2064029949092365,
+      "position": [
+        0.4182443916797638,
+        0.008567738346755505,
+        -0.6957370638847351
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 8.07889427896589,
+      "source": "ego_status",
+      "nearest_odom_stamp": 29.828,
+      "measured_speed_mps": 1.2104549705868322,
+      "position": [
+        0.419116735458374,
+        0.007051310036331415,
+        -0.7064778804779053
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 8.17886624764651,
+      "source": "ego_status",
+      "nearest_odom_stamp": 29.924,
+      "measured_speed_mps": 1.2360560176548523,
+      "position": [
+        0.42036500573158264,
+        0.0044524106197059155,
+        -0.7290142774581909
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 8.278833393007517,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.028,
+      "measured_speed_mps": 1.293310696740182,
+      "position": [
+        0.42121681571006775,
+        0.0014183585299178958,
+        -0.784474790096283
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 8.378970798105001,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.088,
+      "measured_speed_mps": 1.3226133942499898,
+      "position": [
+        0.42140936851501465,
+        -0.0004870592674706131,
+        -0.8316769003868103
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 8.4788899095729,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.188,
+      "measured_speed_mps": 1.343814191553998,
+      "position": [
+        0.42126694321632385,
+        -0.0027285257820039988,
+        -0.9014647006988525
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 8.578832534141839,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.256,
+      "measured_speed_mps": 1.334904348733491,
+      "position": [
+        0.4210246801376343,
+        -0.002413650043308735,
+        -0.9154907464981079
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 8.678859926760197,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.36,
+      "measured_speed_mps": 1.358039896002133,
+      "position": [
+        0.4203947186470032,
+        -0.0021318974904716015,
+        -0.9599472284317017
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 8.778950236737728,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.428,
+      "measured_speed_mps": 1.3855753177537784,
+      "position": [
+        0.41974058747291565,
+        -0.0020652019884437323,
+        -1.0092360973358154
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 8.878865339793265,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.524,
+      "measured_speed_mps": 1.4106931402447511,
+      "position": [
+        0.418666809797287,
+        -0.0022348668426275253,
+        -1.0915355682373047
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 8.978867314755917,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.588,
+      "measured_speed_mps": 1.4118103289413058,
+      "position": [
+        0.41814014315605164,
+        -0.002197020221501589,
+        -1.139894962310791
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 9.078952373936772,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.688,
+      "measured_speed_mps": 1.3950583493252673,
+      "position": [
+        0.41865089535713196,
+        -0.0010595448547974229,
+        -1.1734321117401123
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 9.178818804211915,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.756,
+      "measured_speed_mps": 1.4089321953736726,
+      "position": [
+        0.41878655552864075,
+        -0.0005280054756440222,
+        -1.2101274728775024
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 9.279040776193142,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.856,
+      "measured_speed_mps": 1.4377715224735588,
+      "position": [
+        0.4186824858188629,
+        -9.973028500098735e-05,
+        -1.291416883468628
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 9.378901072777808,
+      "source": "ego_status",
+      "nearest_odom_stamp": 30.96,
+      "measured_speed_mps": 1.4488663796588195,
+      "position": [
+        0.41827353835105896,
+        2.1895248210057616e-06,
+        -1.3839662075042725
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 9.479089341126382,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.028,
+      "measured_speed_mps": 0.7979096402044514,
+      "position": [
+        0.4185951352119446,
+        0.0011206043418496847,
+        -1.4007458686828613
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 9.578903487883508,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.092,
+      "measured_speed_mps": 0.783201604586203,
+      "position": [
+        0.41993165016174316,
+        0.0026402948424220085,
+        -1.3905867338180542
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 9.678856666199863,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.188,
+      "measured_speed_mps": 0.7628093202115771,
+      "position": [
+        0.4218750298023224,
+        0.004937048070132732,
+        -1.3940553665161133
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 9.779105387628078,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.26,
+      "measured_speed_mps": 0.7517981399595149,
+      "position": [
+        0.42326563596725464,
+        0.00660850340500474,
+        -1.407073736190796
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 9.87892878241837,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.356,
+      "measured_speed_mps": 0.7404151731974478,
+      "position": [
+        0.42502492666244507,
+        0.00880989246070385,
+        -1.435415267944336
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 9.97892314940691,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.428,
+      "measured_speed_mps": 0.7200277287711028,
+      "position": [
+        0.4247182309627533,
+        0.0083911819383502,
+        -1.4193105697631836
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 10.078804393298924,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.488,
+      "measured_speed_mps": 0.7033764536297936,
+      "position": [
+        0.42428410053253174,
+        0.007801647763699293,
+        -1.4055957794189453
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 10.17885051947087,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.56,
+      "measured_speed_mps": 0.6894985481471818,
+      "position": [
+        0.4240705072879791,
+        0.007507679983973503,
+        -1.4018737077713013
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 10.278768005780876,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.66,
+      "measured_speed_mps": 0.6728518646611095,
+      "position": [
+        0.424111545085907,
+        0.007650949526578188,
+        -1.4120591878890991
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 10.378881751559675,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.756,
+      "measured_speed_mps": 0.6620150883562724,
+      "position": [
+        0.4245629906654358,
+        0.008362582884728909,
+        -1.4343656301498413
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 10.479010742157698,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.824,
+      "measured_speed_mps": 0.6447546842309526,
+      "position": [
+        0.42441701889038086,
+        0.0070821852423250675,
+        -1.4163235425949097
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 10.578833039849997,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.928,
+      "measured_speed_mps": 0.6241561880046365,
+      "position": [
+        0.42437195777893066,
+        0.005466127768158913,
+        -1.3975226879119873
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 10.67896418645978,
+      "source": "ego_status",
+      "nearest_odom_stamp": 31.988,
+      "measured_speed_mps": 0.6142034070787807,
+      "position": [
+        0.4245404601097107,
+        0.004912405740469694,
+        -1.3959907293319702
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 10.778896139934659,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.056,
+      "measured_speed_mps": 0.6044332850277846,
+      "position": [
+        0.4248989522457123,
+        0.004710334353148937,
+        -1.4026384353637695
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 10.878860116004944,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.156,
+      "measured_speed_mps": 0.5942596971897889,
+      "position": [
+        0.4256504774093628,
+        0.005042788106948137,
+        -1.4217580556869507
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 10.978909363038838,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.228,
+      "measured_speed_mps": 0.5782192043598401,
+      "position": [
+        0.4249882996082306,
+        0.0041175661608576775,
+        -1.4011263847351074
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 11.078969998285174,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.324,
+      "measured_speed_mps": 0.5577107553546311,
+      "position": [
+        0.424076110124588,
+        0.0030718971975147724,
+        -1.3792178630828857
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 11.178957656025887,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.388,
+      "measured_speed_mps": 0.5475914869752584,
+      "position": [
+        0.42373713850975037,
+        0.0028109054546803236,
+        -1.3753606081008911
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 11.278986277990043,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.488,
+      "measured_speed_mps": 0.5362488728514159,
+      "position": [
+        0.42359304428100586,
+        0.0030544274486601353,
+        -1.38267982006073
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 11.378832616843283,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.556,
+      "measured_speed_mps": 0.5305063739825818,
+      "position": [
+        0.42367982864379883,
+        0.003559119300916791,
+        -1.3939300775527954
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 11.478860097005963,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.628,
+      "measured_speed_mps": 0.5160185198794955,
+      "position": [
+        0.421329528093338,
+        0.0029451604932546616,
+        -1.3735984563827515
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 11.578846228308976,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.724,
+      "measured_speed_mps": 0.4969276245392663,
+      "position": [
+        0.4178583025932312,
+        0.0023130299523472786,
+        -1.3513764142990112
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 11.678843296132982,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.788,
+      "measured_speed_mps": 0.48795395973792843,
+      "position": [
+        0.4158985912799835,
+        0.0023201212752610445,
+        -1.3470441102981567
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 11.77900493144989,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.888,
+      "measured_speed_mps": 0.4766604754778418,
+      "position": [
+        0.41322046518325806,
+        0.0029267296195030212,
+        -1.352942943572998
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 11.878969852812588,
+      "source": "ego_status",
+      "nearest_odom_stamp": 32.956,
+      "measured_speed_mps": 0.4714215001964544,
+      "position": [
+        0.41185861825942993,
+        0.0036526923067867756,
+        -1.3625415563583374
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 11.978910826146603,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.028,
+      "measured_speed_mps": 0.45700922808413297,
+      "position": [
+        0.41130104660987854,
+        0.003046714933589101,
+        -1.3418548107147217
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 12.078925521112978,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.128,
+      "measured_speed_mps": 0.4398569924556226,
+      "position": [
+        0.411003440618515,
+        0.002266291528940201,
+        -1.318656086921692
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 12.178915075026453,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.192,
+      "measured_speed_mps": 0.43117463331814493,
+      "position": [
+        0.41090700030326843,
+        0.002149998676031828,
+        -1.3131787776947021
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 12.278907475061715,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.292,
+      "measured_speed_mps": 0.4206112071844263,
+      "position": [
+        0.4108017086982727,
+        0.0026134003419429064,
+        -1.3164746761322021
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 12.378886876627803,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.356,
+      "measured_speed_mps": 0.4157395668792392,
+      "position": [
+        0.41073644161224365,
+        0.0032281300518661737,
+        -1.3240447044372559
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 12.478914867155254,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.428,
+      "measured_speed_mps": 0.4019255576418625,
+      "position": [
+        0.4091572165489197,
+        0.002520182868465781,
+        -1.3019769191741943
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 12.579076402820647,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.528,
+      "measured_speed_mps": 0.3853086360205955,
+      "position": [
+        0.4066683053970337,
+        0.0015413654036819935,
+        -1.2769763469696045
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 12.67907442431897,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.628,
+      "measured_speed_mps": 0.3732173468928321,
+      "position": [
+        0.40426531434059143,
+        0.001316211884841323,
+        -1.2679120302200317
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 12.778879441320896,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.692,
+      "measured_speed_mps": 0.3673219243815049,
+      "position": [
+        0.40290704369544983,
+        0.0016184730920940638,
+        -1.2693144083023071
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 12.878870695829391,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.756,
+      "measured_speed_mps": 0.36246044115773274,
+      "position": [
+        0.4016341269016266,
+        0.002201384399086237,
+        -1.2747520208358765
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 12.978915449231863,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.86,
+      "measured_speed_mps": 0.343095846563238,
+      "position": [
+        0.39880648255348206,
+        0.00021214981097728014,
+        -1.2413831949234009
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 13.079029413871467,
+      "source": "ego_status",
+      "nearest_odom_stamp": 33.928,
+      "measured_speed_mps": 0.33229482524469006,
+      "position": [
+        0.3970908224582672,
+        -0.0008734238799661398,
+        -1.2262264490127563
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 13.17886327020824,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.024,
+      "measured_speed_mps": 0.31960213023883405,
+      "position": [
+        0.39441540837287903,
+        -0.0018946647178381681,
+        -1.2153713703155518
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 13.279059441760182,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.092,
+      "measured_speed_mps": 0.3140831057791003,
+      "position": [
+        0.3928118944168091,
+        -0.0021403320133686066,
+        -1.2151966094970703
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 13.378867327235639,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.188,
+      "measured_speed_mps": 0.3049349209719715,
+      "position": [
+        0.3907686173915863,
+        -0.00230789789929986,
+        -1.2128338813781738
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 13.478880000300705,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.26,
+      "measured_speed_mps": 0.2918139418471036,
+      "position": [
+        0.3901711106300354,
+        -0.0032474438194185495,
+        -1.1860774755477905
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 13.578825836069882,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.36,
+      "measured_speed_mps": 0.2767031768875933,
+      "position": [
+        0.38909974694252014,
+        -0.0038359053432941437,
+        -1.1655104160308838
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 13.67931070830673,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.428,
+      "measured_speed_mps": 0.2686921543525914,
+      "position": [
+        0.38812848925590515,
+        -0.0038596417289227247,
+        -1.158246636390686
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 13.778903979808092,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.488,
+      "measured_speed_mps": 0.2628383091595666,
+      "position": [
+        0.3871178925037384,
+        -0.0036279396153986454,
+        -1.1566176414489746
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 13.878809983842075,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.556,
+      "measured_speed_mps": 0.25749600168571274,
+      "position": [
+        0.3859313130378723,
+        -0.003173555713146925,
+        -1.1583040952682495
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 13.978844265453517,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.656,
+      "measured_speed_mps": 0.23937871810690145,
+      "position": [
+        0.3866352438926697,
+        -0.0018515901174396276,
+        -1.1246408224105835
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 14.078773046843708,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.724,
+      "measured_speed_mps": 0.22948720444039364,
+      "position": [
+        0.38698866963386536,
+        -0.0007668049656786025,
+        -1.108502745628357
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 14.178764638490975,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.828,
+      "measured_speed_mps": 0.21725714282014377,
+      "position": [
+        0.38704392313957214,
+        0.001308802398853004,
+        -1.0945054292678833
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 14.278873871080577,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.888,
+      "measured_speed_mps": 0.2104967509018099,
+      "position": [
+        0.3867949843406677,
+        0.0027257672045379877,
+        -1.0915255546569824
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 14.378857773728669,
+      "source": "ego_status",
+      "nearest_odom_stamp": 34.992,
+      "measured_speed_mps": 0.2008751438635595,
+      "position": [
+        0.3865174651145935,
+        0.00443672388792038,
+        -1.0850242376327515
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 14.479050324298441,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.088,
+      "measured_speed_mps": 0.1837410905272609,
+      "position": [
+        0.38813284039497375,
+        0.003960132598876953,
+        -1.0494407415390015
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 14.578853105194867,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.156,
+      "measured_speed_mps": 0.17562438022212906,
+      "position": [
+        0.38862407207489014,
+        0.004048892296850681,
+        -1.0360289812088013
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 14.678907494992018,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.256,
+      "measured_speed_mps": 0.1647160637396836,
+      "position": [
+        0.38878291845321655,
+        0.004668443463742733,
+        -1.0240193605422974
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 14.778950344771147,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.328,
+      "measured_speed_mps": 0.15903923098946504,
+      "position": [
+        0.3885016441345215,
+        0.005338126793503761,
+        -1.0212056636810303
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 14.87908052932471,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.424,
+      "measured_speed_mps": 0.1454322054392905,
+      "position": [
+        0.3892909288406372,
+        0.005873650778084993,
+        -0.9981533885002136
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 14.978888437151909,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.492,
+      "measured_speed_mps": 0.13471495313020498,
+      "position": [
+        0.39017677307128906,
+        0.006038059014827013,
+        -0.9786067008972168
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 15.078904737718403,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.556,
+      "measured_speed_mps": 0.12675902305576756,
+      "position": [
+        0.39065247774124146,
+        0.0064707305282354355,
+        -0.9648074507713318
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 15.17893706727773,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.66,
+      "measured_speed_mps": 0.11568964972729119,
+      "position": [
+        0.3906228244304657,
+        0.007617493625730276,
+        -0.9515692591667175
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 15.27881501428783,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.724,
+      "measured_speed_mps": 0.10988662161798571,
+      "position": [
+        0.3902147710323334,
+        0.008565100841224194,
+        -0.9475312232971191
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 15.374445518478751,
+      "source": "mission",
+      "nearest_odom_stamp": 35.828,
+      "measured_speed_mps": 0.09688501961058438,
+      "position": [
+        0.3910508453845978,
+        0.009340868331491947,
+        -0.9235965609550476
+      ],
+      "goal_id": 1,
+      "phase": "LANDED",
+      "reason": ""
+    },
+    {
+      "wall_s": 15.378926967270672,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.828,
+      "measured_speed_mps": 0.09688501961058438,
+      "position": [
+        0.3910508453845978,
+        0.009340868331491947,
+        -0.9235965609550476
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 15.47891638893634,
+      "source": "ego_status",
+      "nearest_odom_stamp": 35.956,
+      "measured_speed_mps": 0.0802991450421778,
+      "position": [
+        0.39258524775505066,
+        0.009892716072499752,
+        -0.8891420364379883
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 15.59540422912687,
+      "source": "ego_status",
+      "nearest_odom_stamp": 36.06,
+      "measured_speed_mps": 0.07105912768812,
+      "position": [
+        0.39254865050315857,
+        0.010968473739922047,
+        -0.8736358284950256
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.382743064314127,
+      "source": "ego_status",
+      "nearest_odom_stamp": 36.156,
+      "measured_speed_mps": 0.06390765672332382,
+      "position": [
+        0.3916778266429901,
+        0.012332205660641193,
+        -0.8661410808563232
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.39189193211496,
+      "source": "ego_status",
+      "nearest_odom_stamp": 36.66,
+      "measured_speed_mps": 0.03500818775494435,
+      "position": [
+        0.393349826335907,
+        0.0092227878049016,
+        -0.7534768581390381
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.391897609457374,
+      "source": "ego_status",
+      "nearest_odom_stamp": 36.66,
+      "measured_speed_mps": 0.03500818775494435,
+      "position": [
+        0.393349826335907,
+        0.0092227878049016,
+        -0.7534768581390381
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.391901837661862,
+      "source": "ego_status",
+      "nearest_odom_stamp": 36.66,
+      "measured_speed_mps": 0.03500818775494435,
+      "position": [
+        0.393349826335907,
+        0.0092227878049016,
+        -0.7534768581390381
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.39190530218184,
+      "source": "ego_status",
+      "nearest_odom_stamp": 36.66,
+      "measured_speed_mps": 0.03500818775494435,
+      "position": [
+        0.393349826335907,
+        0.0092227878049016,
+        -0.7534768581390381
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.391908606514335,
+      "source": "ego_status",
+      "nearest_odom_stamp": 36.66,
+      "measured_speed_mps": 0.03500818775494435,
+      "position": [
+        0.393349826335907,
+        0.0092227878049016,
+        -0.7534768581390381
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.391911975108087,
+      "source": "ego_status",
+      "nearest_odom_stamp": 36.66,
+      "measured_speed_mps": 0.03500818775494435,
+      "position": [
+        0.393349826335907,
+        0.0092227878049016,
+        -0.7534768581390381
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.391915123909712,
+      "source": "ego_status",
+      "nearest_odom_stamp": 36.66,
+      "measured_speed_mps": 0.03500818775494435,
+      "position": [
+        0.393349826335907,
+        0.0092227878049016,
+        -0.7534768581390381
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.478968751616776,
+      "source": "ego_status",
+      "nearest_odom_stamp": 36.988,
+      "measured_speed_mps": 0.048796730496291976,
+      "position": [
+        0.39145052433013916,
+        0.007667792961001396,
+        -0.6955607533454895
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.57898892927915,
+      "source": "ego_status",
+      "nearest_odom_stamp": 37.124,
+      "measured_speed_mps": 0.060512471278019626,
+      "position": [
+        0.3917927145957947,
+        0.006264280062168837,
+        -0.6576345562934875
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    },
+    {
+      "wall_s": 16.678948507644236,
+      "source": "ego_status",
+      "nearest_odom_stamp": 37.224,
+      "measured_speed_mps": 0.06721039769487974,
+      "position": [
+        0.39067262411117554,
+        0.005829810164868832,
+        -0.638898491859436
+      ],
+      "goal_id": 1,
+      "status": "NOT_READY",
+      "reason": "known_space_guard"
+    }
+  ]
+}

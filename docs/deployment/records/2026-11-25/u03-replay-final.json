@@ -1,0 +1,191 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "foreground_over_background_and_near_outlier",
+      "position_error_m": 0.0
+    },
+    {
+      "name": "different_pose_range_and_millimeter_units",
+      "position_error_m": 0.0
+    },
+    {
+      "name": "native_label_bbox_2d",
+      "world_point": [
+        0.925,
+        1.985,
+        3.0
+      ]
+    },
+    {
+      "name": "native_optional_found",
+      "world_point": [
+        0.925,
+        1.985,
+        3.0
+      ]
+    },
+    {
+      "name": "native_optional_units_array",
+      "world_point": [
+        0.925,
+        1.985,
+        3.0
+      ]
+    },
+    {
+      "name": "captured_image_response_replay",
+      "depth_error_m": 0.0025949478149414062
+    },
+    {
+      "name": "fixed_world_point_from_pose_0",
+      "yaw_deg": 0,
+      "camera_world_position_m": [
+        0.5,
+        -1.0,
+        1.3
+      ],
+      "target_world_position_m": [
+        2.0,
+        -1.0,
+        0.8
+      ],
+      "range_m": 1.5,
+      "optical_depth_m": 1.5696920269262211,
+      "reconstructed_m": [
+        2.0008635080467707,
+        -0.9935103108997089,
+        0.8037229511578299
+      ],
+      "target_z_error_m": 0.0037229511578298347,
+      "position_error_m": 0.007531405983537321
+    },
+    {
+      "name": "fixed_world_point_from_pose_90",
+      "yaw_deg": 90,
+      "camera_world_position_m": [
+        1.9999999999999998,
+        -3.4,
+        1.6
+      ],
+      "target_world_position_m": [
+        2.0,
+        -1.0,
+        0.8
+      ],
+      "range_m": 2.4,
+      "optical_depth_m": 2.511507243081954,
+      "reconstructed_m": [
+        1.989616497242392,
+        -0.9986183415323073,
+        0.8059567067767471
+      ],
+      "target_z_error_m": 0.005956706776747089,
+      "position_error_m": 0.012050247518733584
+    },
+    {
+      "name": "fixed_world_point_from_pose_180",
+      "yaw_deg": 180,
+      "camera_world_position_m": [
+        5.6,
+        -1.0000000000000004,
+        2.1
+      ],
+      "target_world_position_m": [
+        2.0,
+        -1.0,
+        0.8
+      ],
+      "range_m": 3.6,
+      "optical_depth_m": 3.800171763003246,
+      "reconstructed_m": [
+        1.9971804728049198,
+        -1.012482432854248,
+        0.8092915305989203
+      ],
+      "target_z_error_m": 0.009291530598920295,
+      "position_error_m": 0.01581434173259454
+    },
+    {
+      "name": "fixed_world_point_from_pose_-90",
+      "yaw_deg": -90,
+      "camera_world_position_m": [
+        1.9999999999999998,
+        4.0,
+        1.8
+      ],
+      "target_world_position_m": [
+        2.0,
+        -1.0,
+        0.8
+      ],
+      "range_m": 5.0,
+      "optical_depth_m": 5.060180079362068,
+      "reconstructed_m": [
+        1.995839880256233,
+        -1.0030848662182104,
+        0.8096180913087765
+      ],
+      "target_z_error_m": 0.009618091308776444,
+      "position_error_m": 0.010923858122966309
+    },
+    {
+      "name": "no_target",
+      "reason": "target_not_found"
+    },
+    {
+      "name": "wrong_units",
+      "reason": "invalid_bbox_response"
+    },
+    {
+      "name": "native_empty_detection_list",
+      "reason": "target_not_found"
+    },
+    {
+      "name": "contradictory_absence",
+      "reason": "invalid_bbox_response"
+    },
+    {
+      "name": "two_native_objects",
+      "reason": "invalid_bbox_response"
+    },
+    {
+      "name": "native_wrong_units",
+      "reason": "invalid_bbox_response"
+    },
+    {
+      "name": "invalid_depth",
+      "reason": "invalid_target_depth"
+    },
+    {
+      "name": "network_failure",
+      "reason": "api_network_error"
+    },
+    {
+      "name": "timeout",
+      "reason": "api_timeout"
+    },
+    {
+      "name": "empty_api_content",
+      "reason": "invalid_api_response"
+    },
+    {
+      "name": "expired_reply",
+      "reason": "detection_expired"
+    },
+    {
+      "name": "delayed_detection_uses_captured_tf"
+    },
+    {
+      "name": "unpaired_depth_never_calls_api",
+      "reason": "stale image"
+    },
+    {
+      "name": "camera_info_frame_mismatch"
+    },
+    {
+      "name": "missing_historical_tf_never_calls_api"
+    }
+  ],
+  "error": null
+}

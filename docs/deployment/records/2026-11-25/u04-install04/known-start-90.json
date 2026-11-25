@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "forward_path_out_of_current_body_into_observed_space",
+      "passed": true
+    },
+    {
+      "name": "unknown_outside_start_body_still_rejected",
+      "passed": true,
+      "reason": "unknown_trajectory"
+    },
+    {
+      "name": "inflated_occupancy_inside_body_is_never_exempted",
+      "passed": true,
+      "reason": "invalid_or_occupied_goal"
+    }
+  ],
+  "yaw_degrees": 90.0
+}

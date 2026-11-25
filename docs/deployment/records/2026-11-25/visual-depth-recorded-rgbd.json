@@ -1,0 +1,48 @@
+{
+  "scope": "Three archived static captures, cached normalized box; offline RGB-D depth replay only",
+  "reference": "2026-11-09/step10/fixed-image-response.json",
+  "rows": [
+    {
+      "frame": "before",
+      "folder": "docs\\deployment\\records\\2026-11-02\\step56-2026-11-02\\before",
+      "bbox": [
+        266,
+        172,
+        296,
+        248
+      ],
+      "depth_m": 4.8460588455200195,
+      "median_reference_m": 4.843285083770752,
+      "deviation_m": 0.002773761749267578,
+      "support_ratio": 0.19517543859649122
+    },
+    {
+      "frame": "after",
+      "folder": "docs\\deployment\\records\\2026-11-02\\step56-2026-11-02\\after",
+      "bbox": [
+        266,
+        172,
+        296,
+        248
+      ],
+      "depth_m": 4.846048355102539,
+      "median_reference_m": 4.843317985534668,
+      "deviation_m": 0.0027303695678710938,
+      "support_ratio": 0.1956140350877193
+    },
+    {
+      "frame": "clean-start-validation",
+      "folder": "docs\\deployment\\records\\2026-11-02\\step56-2026-11-02\\clean-start-validation",
+      "bbox": [
+        266,
+        172,
+        296,
+        248
+      ],
+      "depth_m": 4.846138000488281,
+      "median_reference_m": 4.843404769897461,
+      "deviation_m": 0.0027332305908203125,
+      "support_ratio": 0.1956140350877193
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "negative_ground_height_can_fuse",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 2.526,
+      "images": 33
+    },
+    {
+      "name": "reject_below_map",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.5,
+      "images": 7
+    },
+    {
+      "name": "recover_below_map",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.5,
+      "images": 7
+    },
+    {
+      "name": "reject_above_map",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.48,
+      "images": 7
+    },
+    {
+      "name": "recover_above_map",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.487,
+      "images": 5
+    },
+    {
+      "name": "reject_zero",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.533,
+      "images": 7
+    },
+    {
+      "name": "recover_zero",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.502,
+      "images": 7
+    },
+    {
+      "name": "reject_nan_image",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.478,
+      "images": 7
+    },
+    {
+      "name": "recover_nan_image",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.519,
+      "images": 6
+    },
+    {
+      "name": "reject_bad_quaternion",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.5,
+      "images": 6
+    },
+    {
+      "name": "recover_bad_quaternion",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.56,
+      "images": 7
+    },
+    {
+      "name": "reject_nan_position",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.521,
+      "images": 7
+    },
+    {
+      "name": "recover_nan_position",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.523,
+      "images": 8
+    },
+    {
+      "name": "reject_wrong_frame",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.458,
+      "images": 5
+    },
+    {
+      "name": "recover_wrong_frame",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.537,
+      "images": 8
+    },
+    {
+      "name": "reject_stale",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.5,
+      "images": 7
+    },
+    {
+      "name": "recover_stale",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.683,
+      "images": 8
+    },
+    {
+      "name": "reject_silent",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 1.017,
+      "images": 0
+    },
+    {
+      "name": "recover_silent",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.481,
+      "images": 7
+    },
+    {
+      "name": "reject_freeze",
+      "passed": true,
+      "ready": false,
+      "elapsed_s": 0.919,
+      "images": 12
+    },
+    {
+      "name": "recover_freeze",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.499,
+      "images": 5
+    },
+    {
+      "name": "working_height_can_fuse",
+      "passed": true,
+      "ready": true,
+      "elapsed_s": 0.5,
+      "images": 6
+    }
+  ]
+}

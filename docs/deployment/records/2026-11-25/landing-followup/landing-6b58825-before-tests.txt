@@ -1,0 +1,52 @@
+test_disarmed_airborne_duplicates_or_rearming_cannot_complete_landing (candidate_fixture_test_segment_flight_safety.SafetyTests) ... ok
+test_disarmed_landing_completes_after_two_new_ground_reports_despite_residual_speed (candidate_fixture_test_segment_flight_safety.SafetyTests) ... FAIL
+test_missing_abort_ack_is_reported_as_unconfirmed (candidate_fixture_test_segment_flight_safety.SafetyTests) ... ok
+test_normal_landing_rejects_airborne_then_accepts_ground (candidate_fixture_test_segment_flight_safety.SafetyTests) ... ok
+test_only_recent_round_trip_for_active_goal_keeps_plan_alive (candidate_fixture_test_segment_flight_safety.SafetyTests) ... ok
+test_stale_ground_and_unconfirmed_airborne_still_timeout (candidate_fixture_test_segment_flight_safety.SafetyTests) ... ok
+test_stale_track_status_sends_stop_before_terminal (candidate_fixture_test_segment_flight_safety.SafetyTests) ... ok
+test_stationary_cancel_requires_post_request_ground_feedback (candidate_fixture_test_segment_flight_safety.SafetyTests) ... ok
+test_takeoff_cancel_ignores_old_ground_during_ascent (candidate_fixture_test_segment_flight_safety.SafetyTests) ... ok
+test_failed_business_mission_can_finish_cleanup_with_its_own_acknowledgements (candidate_fixture_test_landing_acceptance.LandingAcceptance) ... FAIL
+test_idle_fixture_requires_no_landing_mission (candidate_fixture_test_landing_acceptance.LandingAcceptance) ... ok
+test_physical_landing_does_not_hide_executor_failure (candidate_fixture_test_landing_acceptance.LandingAcceptance) ... FAIL
+
+======================================================================
+FAIL: test_disarmed_landing_completes_after_two_new_ground_reports_despite_residual_speed (candidate_fixture_test_segment_flight_safety.SafetyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-land-20261125\tests\offline\test_segment_flight_safety.py", line 163, in test_disarmed_landing_completes_after_two_new_ground_reports_despite_residual_speed
+    self.assertEqual((status["mode"], status["owns_flight"]), ("COMPLETE", False))
+AssertionError: Tuples differ: ('LANDING', True) != ('COMPLETE', False)
+
+First differing element 0:
+'LANDING'
+'COMPLETE'
+
+- ('LANDING', True)
++ ('COMPLETE', False)
+
+======================================================================
+FAIL: test_failed_business_mission_can_finish_cleanup_with_its_own_acknowledgements (candidate_fixture_test_landing_acceptance.LandingAcceptance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-land-20261125\tests\offline\test_landing_acceptance.py", line 57, in test_failed_business_mission_can_finish_cleanup_with_its_own_acknowledgements
+    t.stop_and_land()
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-20261125\tools\deployment\validate_segments.py", line 205, in stop_and_land
+    self.wait(lambda: not self.flight.get('owns_flight') and not self.state.armed
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-land-20261125\tests\offline\test_landing_acceptance.py", line 45, in wait
+    self.assertFalse(predicate())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_physical_landing_does_not_hide_executor_failure (candidate_fixture_test_landing_acceptance.LandingAcceptance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\毕业论文\项目\UAV-navigation-main\sitl-land-20261125\tests\offline\test_landing_acceptance.py", line 68, in test_physical_landing_does_not_hide_executor_failure
+    t.stop_and_land()
+AssertionError: AssertionError not raised
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.472s
+
+FAILED (failures=3)

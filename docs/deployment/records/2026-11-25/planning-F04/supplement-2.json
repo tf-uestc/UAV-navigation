@@ -1,0 +1,469 @@
+{
+  "commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+  "original_count": 0,
+  "trials": [
+    {
+      "label": "F04-6-long",
+      "original": false,
+      "scenario": "long",
+      "F04_tool_passed": true,
+      "F04_tool_failed": [],
+      "independent": true,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1685,
+          "positive_control": 29834,
+          "iris_ground_plane": 1269
+        },
+        "raw_sha256": "85d90c5cd6fd0f9ad29e401caf1dfb3e1aa704d546362e013e0e47aa4944d90d",
+        "unique_frames": 29962,
+        "interval": [
+          5.968,
+          125.812
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "beyond_planning_horizon-d8efcd65",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.13751126686492626,
+            "nearest_odom_speed_mps": 0.024310550589111756,
+            "segments": 5,
+            "planned_requests": 5,
+            "tracked": [
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                12
+              ],
+              [
+                4,
+                14
+              ],
+              [
+                5,
+                16
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true,
+              "crosses_local_horizon": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 2767,
+          "outside": 0
+        },
+        "obstacle": null,
+        "delivery": null,
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.748,
+          125.748,
+          125.78
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "9bdd6e4672c5ffb168c49c2e33fd267fa8025bc9a887b5d80944b82bc0ca620e"
+      },
+      "frozen_native_delivery": null,
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "fixture_set_heading_in_place",
+        "position_for_long",
+        "fixture_set_heading_in_place",
+        "beyond_planning_horizon",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    },
+    {
+      "label": "F04-2-dynamic",
+      "original": false,
+      "scenario": "dynamic",
+      "F04_tool_passed": false,
+      "F04_tool_failed": [
+        "native_delivery"
+      ],
+      "independent": false,
+      "agreement": true,
+      "behavior_and_physics_passed": true,
+      "flags": {
+        "terminal_and_tracking": true,
+        "fenced": true,
+        "physical_flight_coverage": true,
+        "ground_samples": true,
+        "last_fcu_disarmed": true,
+        "single_frozen_source": true,
+        "positive_control_summary_matches": true,
+        "obstacle_outcome": true,
+        "native_dispositions": true,
+        "measured_hold_then_guarded_resume": true,
+        "required_emergency_evidence_or_continuous_bypass": false
+      },
+      "primary_passed": true,
+      "terminal_disarmed": true,
+      "observer_exit": 0,
+      "contacts": {
+        "contact_pairs": {
+          "iris_landing_pad": 1656,
+          "positive_control": 23626,
+          "iris_ground_plane": 4079
+        },
+        "raw_sha256": "036733e0c3dec6d1c39c2c54f86d980135cd882aac977768da93649b883864f5",
+        "unique_frames": 23756,
+        "interval": [
+          5.764,
+          100.784
+        ],
+        "unexpected": {},
+        "conservative_full_span": true,
+        "independent_resolved_ground_shutdown": false,
+        "maximum_covered_gap_s": 0.0040000000000048885,
+        "confirmed_body_ground_frames_in_recorder_last_second": 251,
+        "frames_in_recorder_last_second": 251,
+        "last_physics_frame_body_ground": true,
+        "summary_positive_count_agrees": true,
+        "F04_coverage_agrees": true
+      },
+      "trace": {
+        "missions": [
+          {
+            "mission": "dynamic-abb8f69f",
+            "observed": "DONE",
+            "reason": "destination_reached",
+            "goal_error_m": 0.10777646515108447,
+            "nearest_odom_speed_mps": 0.026726962515313177,
+            "segments": 4,
+            "planned_requests": 4,
+            "tracked": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                4,
+                7
+              ]
+            ],
+            "checks": {
+              "expected_terminal": true,
+              "only_accepted_tracks": true,
+              "actually_tracked": true,
+              "endpoint": true
+            },
+            "passed": true
+          }
+        ],
+        "fence": {
+          "count": 1488,
+          "outside": 0
+        },
+        "obstacle": {
+          "samples": 729,
+          "center_to_surface_m": 0.48455217442379467,
+          "stayed_before_wall": false,
+          "finished_beyond_box": true
+        },
+        "delivery": {
+          "mission": "dynamic-abb8f69f",
+          "after_insertion_status": [
+            {
+              "offset_wall_s": 0.6857,
+              "last_wall_s": 0.6857,
+              "observations": 1,
+              "status": "FAILED",
+              "reason": "occupied_trajectory",
+              "goal": 1
+            },
+            {
+              "offset_wall_s": 10.5265,
+              "last_wall_s": 10.5265,
+              "observations": 1,
+              "status": "ACCEPTED",
+              "reason": "",
+              "goal": 2
+            },
+            {
+              "offset_wall_s": 16.8161,
+              "last_wall_s": 16.8161,
+              "observations": 1,
+              "status": "CANCELLED",
+              "reason": "requested",
+              "goal": 2
+            },
+            {
+              "offset_wall_s": 25.8148,
+              "last_wall_s": 25.8148,
+              "observations": 1,
+              "status": "ACCEPTED",
+              "reason": "",
+              "goal": 3
+            },
+            {
+              "offset_wall_s": 33.6075,
+              "last_wall_s": 33.6075,
+              "observations": 1,
+              "status": "CANCELLED",
+              "reason": "requested",
+              "goal": 3
+            },
+            {
+              "offset_wall_s": 42.4282,
+              "last_wall_s": 42.4282,
+              "observations": 1,
+              "status": "ACCEPTED",
+              "reason": "",
+              "goal": 4
+            },
+            {
+              "offset_wall_s": 48.5882,
+              "last_wall_s": 48.5882,
+              "observations": 1,
+              "status": "CANCELLED",
+              "reason": "requested",
+              "goal": 4
+            },
+            {
+              "offset_wall_s": 54.4043,
+              "last_wall_s": 73.8044,
+              "observations": 195,
+              "status": "NOT_READY",
+              "reason": "known_space_guard",
+              "goal": 4
+            }
+          ],
+          "first_measured_hold": {
+            "offset_wall_s": 2.2461800733581185,
+            "speed_mps": 0.06859611019673399
+          },
+          "guarded_resume_sequences": [
+            {
+              "braked_s": 0.7093398058786988,
+              "guard_reason": "planner_stop",
+              "confirmed_hold_s": 2.2461800733581185,
+              "hold_speed_mps": 0.06859611019673399,
+              "resumed_s": 10.606252947822213,
+              "new_goal": 2
+            }
+          ],
+          "matching_collision_stop_packets": [],
+          "packets": [
+            {
+              "session": "d46cbef3-9e84-466a-b4a8-1fcf609890ee",
+              "goal": 1,
+              "traj": 1,
+              "native_spline": {
+                "offset_wall_s": -2.9149,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "forwarded_spline": {
+                "offset_wall_s": -2.9024,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "trajectory_ack": {
+                "offset_wall_s": -2.8873,
+                "reason": "accepted",
+                "emergency": null,
+                "accepted": true
+              }
+            },
+            {
+              "session": "d46cbef3-9e84-466a-b4a8-1fcf609890ee",
+              "goal": 2,
+              "traj": 3,
+              "native_spline": {
+                "offset_wall_s": 10.53,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "forwarded_spline": {
+                "offset_wall_s": 10.545,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "trajectory_ack": {
+                "offset_wall_s": 10.5942,
+                "reason": "accepted",
+                "emergency": null,
+                "accepted": true
+              }
+            },
+            {
+              "session": "d46cbef3-9e84-466a-b4a8-1fcf609890ee",
+              "goal": 2,
+              "traj": 4,
+              "native_spline": {
+                "offset_wall_s": 16.8158,
+                "reason": null,
+                "emergency": true,
+                "accepted": null
+              },
+              "gateway_disposition": {
+                "offset_wall_s": 16.8167,
+                "reason": "no_active_goal",
+                "emergency": null,
+                "accepted": false
+              }
+            },
+            {
+              "session": "d46cbef3-9e84-466a-b4a8-1fcf609890ee",
+              "goal": 3,
+              "traj": 5,
+              "native_spline": {
+                "offset_wall_s": 25.8157,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "forwarded_spline": {
+                "offset_wall_s": 25.8338,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "trajectory_ack": {
+                "offset_wall_s": 25.8504,
+                "reason": "accepted",
+                "emergency": null,
+                "accepted": true
+              }
+            },
+            {
+              "session": "d46cbef3-9e84-466a-b4a8-1fcf609890ee",
+              "goal": 3,
+              "traj": 6,
+              "native_spline": {
+                "offset_wall_s": 33.6077,
+                "reason": null,
+                "emergency": true,
+                "accepted": null
+              },
+              "gateway_disposition": {
+                "offset_wall_s": 33.6081,
+                "reason": "no_active_goal",
+                "emergency": null,
+                "accepted": false
+              }
+            },
+            {
+              "session": "d46cbef3-9e84-466a-b4a8-1fcf609890ee",
+              "goal": 4,
+              "traj": 7,
+              "native_spline": {
+                "offset_wall_s": 42.4374,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "forwarded_spline": {
+                "offset_wall_s": 42.4431,
+                "reason": null,
+                "emergency": false,
+                "accepted": null
+              },
+              "trajectory_ack": {
+                "offset_wall_s": 42.4543,
+                "reason": "accepted",
+                "emergency": null,
+                "accepted": true
+              }
+            },
+            {
+              "session": "d46cbef3-9e84-466a-b4a8-1fcf609890ee",
+              "goal": 4,
+              "traj": 8,
+              "native_spline": {
+                "offset_wall_s": 48.5885,
+                "reason": null,
+                "emergency": true,
+                "accepted": null
+              },
+              "gateway_disposition": {
+                "offset_wall_s": 48.5897,
+                "reason": "no_active_goal",
+                "emergency": null,
+                "accepted": false
+              }
+            }
+          ]
+        },
+        "unknown_recovery": null,
+        "disarm_bracket_sim_s": [
+          8.716,
+          90.712,
+          90.748
+        ],
+        "last_connected_disarmed": true,
+        "sha256": "4db5af74f83c1923954595392ddd84ede06b46e1e469a702de9cda9fdc5ae01c"
+      },
+      "frozen_native_delivery": {
+        "passed": false,
+        "outcome": "delivery_evidence_incomplete",
+        "original_exit": 1,
+        "original_pass": false,
+        "accounted_all_actual_packets": true,
+        "emergency_collision_status_observed": false,
+        "native_emergency_observed": true,
+        "emergency_delivery_exercised": false,
+        "primary_mode": "guarded_detour",
+        "post_insertion_replans_tracked": []
+      },
+      "runtime_checks": [
+        "live_fence_inside_map_and_ceiling",
+        "dynamic_box_clearance",
+        "dynamic_replan_executed",
+        "physics_contact_stream_positive_control_and_no_iris_obstacle_contact"
+      ]
+    }
+  ]
+}

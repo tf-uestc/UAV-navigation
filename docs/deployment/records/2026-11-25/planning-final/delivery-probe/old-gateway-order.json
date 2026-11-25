@@ -1,0 +1,31 @@
+{
+  "passed": false,
+  "rows": [
+    {
+      "order": "spline_first",
+      "passed": true,
+      "forwarded": [
+        2
+      ],
+      "gateway_rejections": []
+    },
+    {
+      "order": "status_first",
+      "passed": false,
+      "forwarded": [],
+      "gateway_rejections": []
+    },
+    {
+      "order": "retired_epoch",
+      "passed": false,
+      "forwarded": [],
+      "gateway_rejections": []
+    },
+    {
+      "order": "other_goal",
+      "passed": false,
+      "forwarded": [],
+      "gateway_rejections": []
+    }
+  ]
+}

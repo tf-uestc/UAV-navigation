@@ -1,0 +1,68 @@
+{
+  "passed": false,
+  "scenario": "static",
+  "checks": {
+    "contact_stream_observed": false,
+    "armed_then_disarmed": true,
+    "all_requested_missions_present": true,
+    "bypass-794ba2da/terminal": true,
+    "bypass-794ba2da/reached": true,
+    "bypass-794ba2da/fence": true,
+    "bypass-794ba2da/physical_endpoint": true,
+    "bypass-794ba2da/acknowledgements": true,
+    "bypass-794ba2da/only_accepted_executed": true,
+    "bypass-794ba2da/tracked": true,
+    "occupied-5ea706be/terminal": true,
+    "occupied-5ea706be/stopped": true,
+    "occupied-5ea706be/measured_hold": true,
+    "occupied-5ea706be/acknowledgements": true,
+    "occupied-5ea706be/only_accepted_executed": true,
+    "world_samples_present": true,
+    "clearance": true,
+    "world_outcome": true
+  },
+  "details": [
+    {
+      "mission": "bypass-794ba2da",
+      "terminal_reason": "destination_reached",
+      "distance_to_goal_m": 0.13576863438241907,
+      "speed_mps": 0.022444491507087688
+    },
+    {
+      "samples": 555,
+      "center_to_obstacle_surface_m": 0.6857159126624478
+    }
+  ],
+  "physics_coverage": {
+    "passed": false,
+    "checks": {
+      "odom_clock_nondecreasing": true,
+      "brackets_entire_flight": false,
+      "no_gap_of_one_second": true,
+      "count": true,
+      "raw_agrees_with_summary": true,
+      "within_one_second_at_shutdown": true,
+      "positive_control": true,
+      "zero_unexpected_contacts": true,
+      "primary_contact_check": true
+    },
+    "raw_physics_interval": [
+      5.156,
+      73.74
+    ],
+    "armed_flight_conservative_interval": [
+      7.72,
+      73.752
+    ],
+    "top_level_messages": 17147,
+    "flight_messages": 16506,
+    "largest_gap_during_flight_s": 0.0040000000000048885,
+    "arrival_order_reversals": 0,
+    "max_arrival_order_reversal_s": 0.0,
+    "stop_requested_sim": 73.74,
+    "positive_control_pairs": 17024,
+    "unexpected_contact_count": 0
+  },
+  "grader_sha256": "2041f10c203a2903401496a095e76c827bf14d414de0609e2caf7631c621d682",
+  "base_grader_sha256": "2d885deed3afc9bf65f7b0d9c883a411bc91b75c84b0b992f3c06de1e18652e0"
+}

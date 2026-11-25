@@ -1,0 +1,46 @@
+{
+  "trial": "V03-1.5-right45-2",
+  "source_commit": "3b4412a27fe996a7dd73946c65c645ddd8a4c2f3",
+  "trace_sha256": "5010bf2f663613d69f2de157987c38d26373e3fd4a4c27171cbc6d1a2911d089",
+  "request": {
+    "mission_id": "red_pole-b5f44c2d",
+    "request_id": 7,
+    "capture_stamp": 51.22,
+    "completed_stamp": 51.44,
+    "status": "FAILED",
+    "reason": "capture_before_observation"
+  },
+  "states": [
+    {
+      "phase": "WAIT_VLM",
+      "observed_sim": 51.436,
+      "capture_floor": 51.236,
+      "stop_id": 10
+    },
+    {
+      "phase": "FAILED",
+      "observed_sim": 51.44,
+      "capture_floor": 51.236,
+      "stop_id": 10
+    }
+  ],
+  "rgb_observer_frames": [
+    "red_pole-b5f44c2d-7-51.316.png",
+    "red_pole-b5f44c2d-7-51.416.png"
+  ],
+  "request_observation": {
+    "request_id": 7,
+    "mission_id": "red_pole-b5f44c2d",
+    "floor": 51.236,
+    "measured_yaw": -1.1770798350233338,
+    "position": [
+      0.5616981983184814,
+      -1.1800870895385742,
+      1.5432246923446655
+    ],
+    "response_feedback": "",
+    "heading_mode": "initial",
+    "scan_offset_deg": 0,
+    "stop_confirmed": true
+  }
+}

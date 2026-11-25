@@ -1,0 +1,314 @@
+NumPy: 1.24.4
+UTC: 2026-11-25T05:29:53.992087+00:00
+Python: 3.8.10
+Platform: Linux-5.15.0-190-generic-x86_64-with-glibc2.29
+Source/test SHA256: 05617147ed04570dacc61f5e52dce851eef67f2b4a73492504c34578285a15d0
+Scope: offline logic and ROS-shaped stand-ins; ROS/PX4/Gazebo not exercised.
+
+test_cancel_preempts_each_takeoff_phase (test_bridge_decisions.BridgeTests) ... ok
+test_climb_gets_full_deadline_after_mode_confirmation (test_bridge_decisions.BridgeTests) ... ok
+test_direct_goal_offset_applied_once (test_bridge_decisions.BridgeTests) ... ok
+test_hold_detects_mode_loss_and_landing_has_deadline (test_bridge_decisions.BridgeTests) ... ok
+test_hover_anchor_and_yaw_are_latched (test_bridge_decisions.BridgeTests) ... ok
+test_invalid_frame_quaternion_stale_and_clock (test_bridge_decisions.BridgeTests) ... ok
+test_landing_requires_landed_and_disarmed (test_bridge_decisions.BridgeTests) ... ok
+test_no_airborne_takeoff_or_motor_stop (test_bridge_decisions.BridgeTests) ... ok
+test_takeoff_requires_feedback_not_service_sent (test_bridge_decisions.BridgeTests) ... ok
+test_timeout_holds_actual_not_takeoff_target (test_bridge_decisions.BridgeTests) ... ok
+test_trajectory_not_shortened_and_explicit_resume (test_bridge_decisions.BridgeTests) ... ok
+test_bezier_independent_polynomial (test_bspline_math.BSplineTests) ... ok
+test_invalid (test_bspline_math.BSplineTests) ... ok
+test_nonuniform (test_bspline_math.BSplineTests) ... ok
+test_uniform_domain_and_velocity (test_bspline_math.BSplineTests) ... ok
+test_preserves_data_gap (test_camera_height_audit.CameraHeightAuditTests) ... ok
+test_separates_body_and_extrinsic_vertical_error (test_camera_height_audit.CameraHeightAuditTests) ... ok
+test_invalid (test_contracts.ContractTests) ... ok
+test_mission_scopes_ids (test_contracts.ContractTests) ... ok
+test_roundtrip (test_contracts.ContractTests) ... ok
+test_cancel_and_safety_dominate_late_output (test_control_ownership.OwnershipTests) ... ok
+test_hold_is_latched_and_resume_new_trajectory (test_control_ownership.OwnershipTests) ... ok
+test_no_pause_means_no_competing_hold (test_control_ownership.OwnershipTests) ... ok
+test_busy_and_failed_are_terminal (test_detection_lifecycle.LifecycleTests) ... ok
+test_immediate_callback_after_registration (test_detection_lifecycle.LifecycleTests) ... ok
+test_old_task_and_duplicate (test_detection_lifecycle.LifecycleTests) ... ok
+test_timeout_once_and_cancel (test_detection_lifecycle.LifecycleTests) ... ok
+test_wrong_target_age_and_future_do_not_consume (test_detection_lifecycle.LifecycleTests) ... ok
+test_bad_point_and_unsynced_frames_release_worker (test_detector_node.DetectorNodeTests) ... ok
+test_busy_identifies_incoming_not_active_request (test_detector_node.DetectorNodeTests) ... ok
+test_busy_publication_releases_request_lock (test_detector_node.DetectorNodeTests) ... ok
+test_historical_tf_failure_never_uses_latest (test_detector_node.DetectorNodeTests) ... ok
+test_model_parser_uses_declared_protocol (test_detector_node.DetectorNodeTests) ... ok
+test_result_keeps_business_id_when_legacy_seq_changes (test_detector_node.DetectorNodeTests) ... ok
+test_failed_business_mission_can_finish_cleanup_with_its_own_acknowledgements (test_landing_acceptance.LandingAcceptance) ... ok
+test_idle_fixture_requires_no_landing_mission (test_landing_acceptance.LandingAcceptance) ... ok
+test_physical_landing_does_not_hide_executor_failure (test_landing_acceptance.LandingAcceptance) ... ok
+test_blocked_corridor_stages_around_inflated_box (test_local_detour.LocalDetourTests) ... ok
+test_clear_and_occupied_endpoints_leave_original_goal (test_local_detour.LocalDetourTests) ... ok
+test_restricted_fence_uses_available_side_or_returns_no_detour (test_local_detour.LocalDetourTests) ... ok
+test_arrival_needs_fresh_speed_and_dwell (test_mission_node.MissionNodeTests) ... ok
+test_fast_busy_does_not_wait_whole_timeout (test_mission_node.MissionNodeTests) ... ok
+test_hover_clears_and_latches_heading_position (test_mission_node.MissionNodeTests) ... ok
+test_invalid_pose_does_not_replace_valid_anchor (test_mission_node.MissionNodeTests) ... ok
+test_legacy_target_cannot_hijack_and_old_task_rejected (test_mission_node.MissionNodeTests) ... ok
+test_no_pause_does_not_publish_competing_hold (test_mission_node.MissionNodeTests) ... ok
+test_not_ready_exits_after_bounded_wait (test_mission_node.MissionNodeTests) ... ok
+test_result_after_deadline_consumes_timeout_once (test_mission_node.MissionNodeTests) ... ok
+test_ros_clock_reset_cancels_task (test_mission_node.MissionNodeTests) ... ok
+test_small_refinement_keeps_live_path_when_not_paused (test_mission_node.MissionNodeTests) ... ok
+test_api_timeout_and_late_result (test_offline_pipeline.PipelineReplayTests) ... ok
+test_busy_recovers_once (test_offline_pipeline.PipelineReplayTests) ... ok
+test_cancel_drops_detector_and_late_path (test_offline_pipeline.PipelineReplayTests) ... ok
+test_latency_cases_keep_correct_request (test_offline_pipeline.PipelineReplayTests) ... ok
+test_normal_approach_and_ten_seconds_final_hold (test_offline_pipeline.PipelineReplayTests) ... ok
+test_old_task_cannot_control_new_task (test_offline_pipeline.PipelineReplayTests) ... ok
+test_pause_refine_resume (test_offline_pipeline.PipelineReplayTests) ... ok
+test_plan_deadline (test_offline_pipeline.PipelineReplayTests) ... ok
+test_ros_clock_reset_revokes_old_playback (test_offline_pipeline.PipelineReplayTests) ... ok
+test_target_jump_is_not_forwarded (test_offline_pipeline.PipelineReplayTests) ... ok
+test_trace_connects_business_ids_and_owner (test_offline_pipeline.PipelineReplayTests) ... ok
+test_array_adapter_does_not_guess_or_repair_coordinates (test_perception_contracts.PerceptionTests) ... ok
+test_array_adapter_rejects_ambiguous_or_bare_arrays (test_perception_contracts.PerceptionTests) ... ok
+test_depth_units_invalid_and_input_immutable (test_perception_contracts.PerceptionTests) ... ok
+test_explicit_coordinate_systems (test_perception_contracts.PerceptionTests) ... ok
+test_missing_multibox_not_found_invalid (test_perception_contracts.PerceptionTests) ... ok
+test_no_target_envelope_preserved_without_inventing_a_box (test_perception_contracts.PerceptionTests) ... ok
+test_single_explicit_object_array_preserves_coordinate_contract (test_perception_contracts.PerceptionTests) ... ok
+test_singleton_not_found_stays_explicitly_absent (test_perception_contracts.PerceptionTests) ... ok
+test_snapshot_and_calibration (test_perception_contracts.PerceptionTests) ... ok
+test_cancelled_job_cannot_publish (test_planner_node.PlannerNodeTests) ... ok
+test_latest_pending_survives_old_failure (test_planner_node.PlannerNodeTests) ... ok
+test_cached_pre_stop_frame_waits_for_new_acquisition (test_post_stop_frame.PostStopFrameTests) ... ok
+test_missing_triplet_wait_is_bounded_by_remaining_result_budget (test_post_stop_frame.PostStopFrameTests) ... ok
+test_adapter_real_spline_domain (test_ros_trajectory_wrappers.RosTrajectoryTests) ... ok
+test_cancelled_follower_rejects_late_path (test_ros_trajectory_wrappers.RosTrajectoryTests) ... ok
+test_follower_endpoint_holds_without_cache_mutation (test_ros_trajectory_wrappers.RosTrajectoryTests) ... ok
+test_planner_preserves_yaw_and_absolute_time (test_ros_trajectory_wrappers.RosTrajectoryTests) ... ok
+test_search_heading_and_pause_do_not_bank_yaw_rate (test_ros_trajectory_wrappers.RosTrajectoryTests) ... ok
+test_disarmed_airborne_duplicates_or_rearming_cannot_complete_landing (test_segment_flight_safety.SafetyTests) ... ok
+test_disarmed_landing_completes_after_two_new_ground_reports_despite_residual_speed (test_segment_flight_safety.SafetyTests) ... ok
+test_missing_abort_ack_is_reported_as_unconfirmed (test_segment_flight_safety.SafetyTests) ... ok
+test_normal_landing_rejects_airborne_then_accepts_ground (test_segment_flight_safety.SafetyTests) ... ok
+test_only_recent_round_trip_for_active_goal_keeps_plan_alive (test_segment_flight_safety.SafetyTests) ... ok
+test_stale_ground_and_unconfirmed_airborne_still_timeout (test_segment_flight_safety.SafetyTests) ... ok
+test_stale_track_status_sends_stop_before_terminal (test_segment_flight_safety.SafetyTests) ... ok
+test_stationary_cancel_requires_post_request_ground_feedback (test_segment_flight_safety.SafetyTests) ... ok
+test_takeoff_cancel_ignores_old_ground_during_ascent (test_segment_flight_safety.SafetyTests) ... ok
+test_duplicate_cannot_refresh_wall_timestamp_or_promote_reset (test_sitl_heading_readiness.HeadingGuardTests) ... ok
+test_ignores_missing_future_or_stale_telemetry (test_sitl_heading_readiness.HeadingGuardTests) ... ok
+test_invalid_health_and_counter_never_open_gate (test_sitl_heading_readiness.HeadingGuardTests) ... ok
+test_late_good_cannot_override_a_newer_fault_or_revive_same_stamp (test_sitl_heading_readiness.HeadingGuardTests) ... ok
+test_managed_takeoff_uses_visual_height_but_preserves_cruise_height (test_sitl_heading_readiness.HeadingGuardTests) ... ok
+test_new_task_and_restart_discard_previous_valid_sample (test_sitl_heading_readiness.HeadingGuardTests) ... ok
+test_no_heading_sample_times_out_lands_and_never_requests_detection (test_sitl_heading_readiness.HeadingGuardTests) ... ok
+test_requires_continuous_fresh_good_samples_and_reset_restarts_wait (test_sitl_heading_readiness.HeadingGuardTests) ... ok
+test_telemetry_parser_matches_px4_print_and_rejects_unknown (test_sitl_heading_readiness.HeadingGuardTests) ... ok
+test_valid_and_stable_heading_releases_into_original_stop_phase (test_sitl_heading_readiness.HeadingGuardTests) ... ok
+test_launch_and_package_xml (test_smoke.SmokeTests) ... ok
+test_python38_grammar (test_smoke.SmokeTests) ... ok
+test_transport_copies_and_changes_seq (test_smoke.SmokeTests) ... ok
+test_arrival_speed_dwell_and_clock_reset (test_target_and_goal.TargetTests) ... ok
+test_bounded_search_pattern (test_target_and_goal.TargetTests) ... ok
+test_estimate_age_jump_and_deadband (test_target_and_goal.TargetTests) ... ok
+test_ground_object_and_standoff (test_target_and_goal.TargetTests) ... ok
+test_expired_and_bad_times (test_trajectory_execution.TrajectoryTests) ... ok
+test_future_switch_and_cancel (test_trajectory_execution.TrajectoryTests) ... ok
+test_immutable_endpoint_hold (test_trajectory_execution.TrajectoryTests) ... ok
+test_late_and_reset (test_trajectory_execution.TrajectoryTests) ... ok
+test_empty_color_and_positive_box_require_semantic_confirmation (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_generic_ambiguous_foreground_rejects_background (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_ground_at_bottom_edge_does_not_hide_supported_foreground (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_partial_holes_and_unrelated_closer_surface (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_pole_surface_and_projection_in_loose_boxes (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_target_pixels_without_depth_cannot_use_the_wall (test_visual_arrival_depth.PoleDepthTests) ... ok
+test_bad_depth_still_stops_without_scanning_or_planning (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_color_conflict_rechecks_once_then_advances_scan_under_original_budget (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_inside_band_stopped (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_missing_stop_confirmation_even_with_low_speed (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_moving_at_reply_requires_stop_and_new_observation (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_outside_band_requires_plan (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_too_close_stops_without_claiming_arrival (test_visual_arrival_depth.VisualArrivalTests) ... ok
+test_catches_unexpected_contact_in_raw_log (test_visual_attempt_report.ArchiveReviewTests) ... ERROR
+test_detects_missing_ground_probe_and_bad_moving_camera_samples (test_visual_attempt_report.ArchiveReviewTests) ... ERROR
+test_false_negative_in_primary_audit_is_visible (test_visual_attempt_report.ArchiveReviewTests) ... ERROR
+test_finished_success_and_started_unfinished_both_in_denominator (test_visual_attempt_report.ArchiveReviewTests) ... ERROR
+test_rejects_early_landing_and_short_truth_even_if_checker_passed (test_visual_attempt_report.ArchiveReviewTests) ... ERROR
+test_rejects_incorrect_auditor_pass_even_if_latest_image_or_localization_missing (test_visual_attempt_report.ArchiveReviewTests) ... ok
+test_reports_unfinished_trailing_ledger_record (test_visual_attempt_report.ArchiveReviewTests) ... ERROR
+test_complete_native_envelope_still_uses_depth_and_camera_contract (test_vlm_protocol.VlmProtocolTests) ... ok
+test_connection_read_and_http_failures_stay_distinct (test_vlm_protocol.VlmProtocolTests) ... ok
+test_contradictory_absence_and_duplicate_fields_are_format_errors (test_vlm_protocol.VlmProtocolTests) ... ok
+test_empty_content_is_api_failure_not_target_absence (test_vlm_protocol.VlmProtocolTests) ... ok
+test_explicit_legacy_opt_in_is_preserved_without_weakening_default (test_vlm_protocol.VlmProtocolTests) ... ok
+test_fences_and_supported_absence_shapes_do_not_require_a_guessed_box (test_vlm_protocol.VlmProtocolTests) ... ok
+test_format_feedback_changes_hint_but_does_not_retry_or_relax_parser (test_vlm_protocol.VlmProtocolTests) ... ok
+test_native_and_canonical_absence_and_explicit_metadata_remain_distinct (test_vlm_protocol.VlmProtocolTests) ... ok
+test_native_contract_never_applies_to_another_model_or_pixel_units (test_vlm_protocol.VlmProtocolTests) ... ok
+test_native_empty_list_is_explicit_no_detection_only_for_native_protocol (test_vlm_protocol.VlmProtocolTests) ... ok
+test_native_grounding_has_explicit_units_at_multiple_image_sizes (test_vlm_protocol.VlmProtocolTests) ... ok
+test_native_optional_found_and_matching_units_are_compatible (test_vlm_protocol.VlmProtocolTests) ... ok
+test_native_rejects_ambiguous_or_conflicting_envelopes (test_vlm_protocol.VlmProtocolTests) ... ok
+test_nonfinite_and_invalid_found_never_become_absence (test_vlm_protocol.VlmProtocolTests) ... ok
+test_protocol_is_explicit_system_instruction_and_image_remains_user_data (test_vlm_protocol.VlmProtocolTests) ... ok
+test_truncated_api_completion_is_invalid_api_response (test_vlm_protocol.VlmProtocolTests) ... ok
+test_bounded_not_ready (test_wait_and_retry.WaitTests) ... ok
+test_call_budget_time_and_count (test_wait_and_retry.WaitTests) ... ok
+test_deadline_exact_cancel (test_wait_and_retry.WaitTests) ... ok
+test_ready_retry_and_matching_completion (test_wait_and_retry.WaitTests) ... ok
+test_hold_pi (test_yaw_policy.YawTests) ... ok
+test_quaternion_sign_and_invalid (test_yaw_policy.YawTests) ... ok
+test_shortest_wrap_and_rate (test_yaw_policy.YawTests) ... ok
+
+======================================================================
+ERROR: test_catches_unexpected_contact_in_raw_log (test_visual_attempt_report.ArchiveReviewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 17, in png_shape
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 111, in test_catches_unexpected_contact_in_raw_log
+    row=self.check_report()['attempts'][0]
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 81, in check_report
+    return report([self.root],['V*'])
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 312, in report
+    rows.append(inspect(folder/label,m,status.get(label)))
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 220, in inspect
+    images,frames=inspect_frames(case/'images',requests,replies)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 66, in inspect_frames
+    shape=png_shape(folder/name)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 19, in png_shape
+    import cv2
+ModuleNotFoundError: No module named 'cv2'
+
+======================================================================
+ERROR: test_detects_missing_ground_probe_and_bad_moving_camera_samples (test_visual_attempt_report.ArchiveReviewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 17, in png_shape
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 120, in test_detects_missing_ground_probe_and_bad_moving_camera_samples
+    row=self.check_report()['attempts'][0]
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 81, in check_report
+    return report([self.root],['V*'])
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 312, in report
+    rows.append(inspect(folder/label,m,status.get(label)))
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 220, in inspect
+    images,frames=inspect_frames(case/'images',requests,replies)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 66, in inspect_frames
+    shape=png_shape(folder/name)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 19, in png_shape
+    import cv2
+ModuleNotFoundError: No module named 'cv2'
+
+======================================================================
+ERROR: test_false_negative_in_primary_audit_is_visible (test_visual_attempt_report.ArchiveReviewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 17, in png_shape
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 135, in test_false_negative_in_primary_audit_is_visible
+    data=self.check_report()
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 81, in check_report
+    return report([self.root],['V*'])
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 312, in report
+    rows.append(inspect(folder/label,m,status.get(label)))
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 220, in inspect
+    images,frames=inspect_frames(case/'images',requests,replies)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 66, in inspect_frames
+    shape=png_shape(folder/name)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 19, in png_shape
+    import cv2
+ModuleNotFoundError: No module named 'cv2'
+
+======================================================================
+ERROR: test_finished_success_and_started_unfinished_both_in_denominator (test_visual_attempt_report.ArchiveReviewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 17, in png_shape
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 86, in test_finished_success_and_started_unfinished_both_in_denominator
+    r=self.check_report()
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 81, in check_report
+    return report([self.root],['V*'])
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 312, in report
+    rows.append(inspect(folder/label,m,status.get(label)))
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 220, in inspect
+    images,frames=inspect_frames(case/'images',requests,replies)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 66, in inspect_frames
+    shape=png_shape(folder/name)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 19, in png_shape
+    import cv2
+ModuleNotFoundError: No module named 'cv2'
+
+======================================================================
+ERROR: test_rejects_early_landing_and_short_truth_even_if_checker_passed (test_visual_attempt_report.ArchiveReviewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 17, in png_shape
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 104, in test_rejects_early_landing_and_short_truth_even_if_checker_passed
+    row=self.check_report()['attempts'][0]
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 81, in check_report
+    return report([self.root],['V*'])
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 312, in report
+    rows.append(inspect(folder/label,m,status.get(label)))
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 220, in inspect
+    images,frames=inspect_frames(case/'images',requests,replies)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 66, in inspect_frames
+    shape=png_shape(folder/name)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 19, in png_shape
+    import cv2
+ModuleNotFoundError: No module named 'cv2'
+
+======================================================================
+ERROR: test_reports_unfinished_trailing_ledger_record (test_visual_attempt_report.ArchiveReviewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 17, in png_shape
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 129, in test_reports_unfinished_trailing_ledger_record
+    data=self.check_report()
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tests/offline/test_visual_attempt_report.py", line 81, in check_report
+    return report([self.root],['V*'])
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 312, in report
+    rows.append(inspect(folder/label,m,status.get(label)))
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 220, in inspect
+    images,frames=inspect_frames(case/'images',requests,replies)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 66, in inspect_frames
+    shape=png_shape(folder/name)
+  File "/root/autodl-tmp/uav/validation/goal-20261125/install05-landing/UAV-navigation/tools/deployment/summarize_visual_attempts.py", line 19, in png_shape
+    import cv2
+ModuleNotFoundError: No module named 'cv2'
+
+----------------------------------------------------------------------
+Ran 152 tests in 0.939s
+
+FAILED (errors=6)

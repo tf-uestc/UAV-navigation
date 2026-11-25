@@ -1,0 +1,38 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "name": "foreground_over_background_and_near_outlier",
+      "position_error_m": 0.0
+    },
+    {
+      "name": "different_pose_range_and_millimeter_units",
+      "position_error_m": 0.0
+    },
+    {
+      "name": "native_label_bbox_2d",
+      "world_point": [
+        0.925,
+        1.985,
+        3.0
+      ]
+    },
+    {
+      "name": "native_optional_found",
+      "world_point": [
+        0.925,
+        1.985,
+        3.0
+      ]
+    },
+    {
+      "name": "native_optional_units_array",
+      "world_point": [
+        0.925,
+        1.985,
+        3.0
+      ]
+    }
+  ],
+  "error": "AssertionError({'schema_version': 1, 'mission_id': 'perception-550e796749e0468cba4a6fe7dd4e5329', 'request_id': 142, 'target_text': 'captured_scene_with_recorded_cloud_reply', 'status': 'FAILED', 'capture_stamp': 1795571635.9684122, 'completed_stamp': 1795571636.0962136, 'point': None, 'frame_id': 'map', 'reason': 'invalid_target_depth'})"
+}

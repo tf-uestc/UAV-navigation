@@ -1,0 +1,671 @@
+{
+  "batch": "V03",
+  "total": 101,
+  "attempts": {
+    "V03-2.4-front-1": {
+      "source": "flights/V03-2.4-front-1/launch.log",
+      "sha256": "f3fcbfcbef875c5ee55af9fbf99e2e0de5f7224982f3bc4f6e0a40f50c4dbe2e",
+      "count": 3,
+      "models": {
+        "qwen3.8-omni-flash": 3
+      },
+      "query_markers": [
+        {
+          "line": 137,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "1195608979882d83d259e75c347f07be07ab323b0f5f54c4ddb5f21ec2d0c350"
+        },
+        {
+          "line": 139,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "94ceddfc9754a3411789a79065741923e4317ce0df1d5a15162c64860271f00e"
+        },
+        {
+          "line": 141,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "8712a02711a42087afc6b984502d9019742c43ac75663c1bb88509f04e04f55a"
+        }
+      ]
+    },
+    "V03-2.4-front-2": {
+      "source": "flights/V03-2.4-front-2/launch.log",
+      "sha256": "a5bd3f0a613e0ebb06bd2447c6c69c9d4e3c3724eb3664fdd3d01734ae7f8ed2",
+      "count": 3,
+      "models": {
+        "qwen3.8-omni-flash": 3
+      },
+      "query_markers": [
+        {
+          "line": 133,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "92d0a98733a5ab125cb646b75c5bfc638bfd22ba228a2f1d9f1a6664f0059d40"
+        },
+        {
+          "line": 135,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "302bb6d51296c91adcfa306be902e9c47adf0a068dadb6c303dc25e8603f2f52"
+        },
+        {
+          "line": 137,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "ae351d6cdd40f08594bed510b0289fc46db5ef1ea63afa586ddf6a9ab5377903"
+        }
+      ]
+    },
+    "V03-2.4-left45-1": {
+      "source": "flights/V03-2.4-left45-1/launch.log",
+      "sha256": "c87c501554a9eb9d1d7b7c37ccf107ba8cc73413542d0e46349cf099945a548d",
+      "count": 7,
+      "models": {
+        "qwen3.8-omni-flash": 7
+      },
+      "query_markers": [
+        {
+          "line": 506,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "830eb9b6774db2e7a9ca00fc8a6c8b1e0a3a44c8493a30cc54be4668cc769d76"
+        },
+        {
+          "line": 508,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "d1b8a6f218e754966e17cbc7c37be39223e283103601fa034457dececadedd95"
+        },
+        {
+          "line": 510,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "27697df841cd3dde38e876027ab4ad6f82b2e746832f31cb4f5146bf930990d3"
+        },
+        {
+          "line": 512,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "44979a962d1114018eed9d7dd27965aede809db37768fe3abb2d3757504a1d14"
+        },
+        {
+          "line": 514,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4940acea005a7a153dda9f2de311f28c87f9e8c0b8ca447f31c6325a8f13f3c5"
+        },
+        {
+          "line": 516,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "2a2e5e60e2556235e99b1283e13071d3a9d03ae5267a38ae4f6a4709851cb008"
+        },
+        {
+          "line": 518,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "b887d156b1ae9ec2d21a42f5fa37a73a6d5eff39247e448699fa0cfc13ba408f"
+        }
+      ]
+    },
+    "V03-2.4-left45-2": {
+      "source": "flights/V03-2.4-left45-2/launch.log",
+      "sha256": "0ba6392ea722715722ed5155ca58dea2078d93cd014b27cb370beea92d798326",
+      "count": 5,
+      "models": {
+        "qwen3.8-omni-flash": 5
+      },
+      "query_markers": [
+        {
+          "line": 787,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "c93e40cdc3b1e3e078b9e9e05a9ff35d6203f7e1800f3a27a4fb160c76472558"
+        },
+        {
+          "line": 789,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "9821fc9c86beee6228b2171c022c2568b930b834c0ea5a6b158a7ba28b7dda36"
+        },
+        {
+          "line": 791,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "c636b469eee42f8999f1dabf8a6c3b19aff3aa8a7915455284df4d6c15231da9"
+        },
+        {
+          "line": 793,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "199f089fc2e10875f9f44c1c03862e90808cba90741e8a6f94e2b2e4c69aaf45"
+        },
+        {
+          "line": 795,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "5185c605819362073cf14104ada5624c60d73f2ea51f15bb851f3d03272676a4"
+        }
+      ]
+    },
+    "V03-2.4-right45-1": {
+      "source": "flights/V03-2.4-right45-1/launch.log",
+      "sha256": "d55632149a625d6fc270cfda170b6be9d8d99b01cdb1b7dade7fb0a9152dee21",
+      "count": 6,
+      "models": {
+        "qwen3.8-omni-flash": 6
+      },
+      "query_markers": [
+        {
+          "line": 946,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "325f5338d167b664f7487ff0382442d190eaad16f7b4a9098517741968bab16d"
+        },
+        {
+          "line": 948,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "e6e13a495377c038cb344b8a80c20f9cdac6cbd1304de146e60563508755860f"
+        },
+        {
+          "line": 950,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "c4430ac653d8501b323e63b80a618fc27420f179d1a6394d69476215a759dc9e"
+        },
+        {
+          "line": 952,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "27d07e0423bf1fef774226dfaabbbec381cd13cd1a51ef7b533d44bfb568f9e8"
+        },
+        {
+          "line": 954,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "1fcf2da750de1095c45357c9c4e2bfba4ce2ed8256aa92b6ae1776d066d68c77"
+        },
+        {
+          "line": 956,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "7cfc0fc26952b9e67ca183c281882165fb008511e6ef16a392ba8821bc35e04e"
+        }
+      ]
+    },
+    "V03-2.4-right45-2": {
+      "source": "flights/V03-2.4-right45-2/launch.log",
+      "sha256": "4deef7de67c890be66d82621ae0986618ee9d528ba25a7dba032d886afcb100f",
+      "count": 6,
+      "models": {
+        "qwen3.8-omni-flash": 6
+      },
+      "query_markers": [
+        {
+          "line": 919,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4817ecaa21b5569124e83e7ac5df401316a9bb9c309d25c5c22b97dc45ba6c88"
+        },
+        {
+          "line": 921,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4e177399dd0a18dd75698ba05c057e740a17ae3cfa06450aa6e7aa4f62b7cd46"
+        },
+        {
+          "line": 923,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "345fdf5213a349324a16eb9aa435d5837459bf4f74672742691aae9b3aa52772"
+        },
+        {
+          "line": 925,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "0e0da0ab673b205d035d938c6850339a239591705146738613c26ad6907b15cc"
+        },
+        {
+          "line": 927,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "3bb4e1830d2a65c70f06d1a376e6d04a4ccec8d700af11f38df6d6d1b31abc1c"
+        },
+        {
+          "line": 929,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "9ec470559f7dc16602d8abfd5857befbf9143d48732ddd4bdd24b698744cfd6c"
+        }
+      ]
+    },
+    "V03-2.4-left90-1": {
+      "source": "flights/V03-2.4-left90-1/launch.log",
+      "sha256": "8e012eb317a9311c739b637d5e0e795a49e6aadca22cb84918faa33da1cbf808",
+      "count": 9,
+      "models": {
+        "qwen3.8-omni-flash": 9
+      },
+      "query_markers": [
+        {
+          "line": 348,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "b86980dc86f1ab812deb06b468ce484ef894d422111ce70919127c823af820af"
+        },
+        {
+          "line": 350,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "a51a113bbd9fb8ad7569cd380d0e76a9f7a09b365b827896239167fc01cd5033"
+        },
+        {
+          "line": 352,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "922d1b2c95955aaa98c42f0b7d6d66e155cfb17038854e413bea44644b2076cd"
+        },
+        {
+          "line": 354,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "62593e755d090e0b49402b4c07d0ad07fb051424330c50131376405d25d934a8"
+        },
+        {
+          "line": 356,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "0642284747db472375b6d32ec08e29e43fe4a315abd6016db08dd773690349cd"
+        },
+        {
+          "line": 358,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4257f34894749eee0a30a0a918038151353dc721c4210c9b73447c5a9059df22"
+        },
+        {
+          "line": 360,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "41ab431bc6a5a841b8ab64957ed47d3520aaf9f09e6974f8ef24eecffe0e4058"
+        },
+        {
+          "line": 362,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "3342ad2866c8f01fce505ff78ced7ce10f0f259f2257a5580792515d0af9eb67"
+        },
+        {
+          "line": 364,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "804eff9b1376415c18d1a896bb7c8a3dc3a4c0cf2ce9f54dc0bf7e812b1bcd48"
+        }
+      ]
+    },
+    "V03-2.4-left90-2": {
+      "source": "flights/V03-2.4-left90-2/launch.log",
+      "sha256": "8a86a9930eec04d9af93083a69f0f7ba186de8ac97c58d8935c4a11c3b9ef5d5",
+      "count": 7,
+      "models": {
+        "qwen3.8-omni-flash": 7
+      },
+      "query_markers": [
+        {
+          "line": 540,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "51437a0300ab294d90754a4d47654a7f3851258b30e61d3de50b41c1dde115f6"
+        },
+        {
+          "line": 542,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "07b4f2b71db513eabadcd636f853db9db2bcd810a95ced0e72fe471439ede471"
+        },
+        {
+          "line": 544,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4989db577ef2047917e03411a7de95b035bb5e1ff483b05148397bd7cad6a907"
+        },
+        {
+          "line": 546,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "2efdddf3fe7ddaaab3425ce7f7086e2a18995ddd23d06686fcf075f7f1362766"
+        },
+        {
+          "line": 548,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "8863369241684153627eb6497167347e364ca84378fffe75ade0b3919345cb0e"
+        },
+        {
+          "line": 550,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "a695d1daa532772a5e152dd0418c21da6a7aaba0973bcfe6bc91c5d0c76835ea"
+        },
+        {
+          "line": 552,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "f321016a38f0e8553d0f56c43e630d7e174e94baa635a9727bfbf812fcd44a8e"
+        }
+      ]
+    },
+    "V03-2.4-right90-1": {
+      "source": "flights/V03-2.4-right90-1/launch.log",
+      "sha256": "fcf915d3e12ff671db1063c287edd6117855459a5af9292ab3f0c1ef97f29bd6",
+      "count": 9,
+      "models": {
+        "qwen3.8-omni-flash": 9
+      },
+      "query_markers": [
+        {
+          "line": 406,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "f0ec2fc4e6bd64100873dcbf80f923a75e2c7b1d6e9921d2e52c58f2b141bb6c"
+        },
+        {
+          "line": 408,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "f27d34497a54976753c727112551a96ba75b9acea00c97b159c07c62aee2245b"
+        },
+        {
+          "line": 410,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "40413380ed66771aea62d3010c273cc854577487d594d50946fe0c45911a82d0"
+        },
+        {
+          "line": 412,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "f3ea8328ce9d57bf0baacee3a7efae02ab4f1f5c581c17080910e8bf75ba6808"
+        },
+        {
+          "line": 414,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4bde16c46c06e9a654c05c9e7803e859ff8da993f7ee70708c30c2220a9d6ac4"
+        },
+        {
+          "line": 416,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4c8f23f5cfc415294ac49140832ecbaf5bd42bd595ff07ad89ab6a32b8acd4be"
+        },
+        {
+          "line": 418,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "0093db21d160eead8eb9e5c2fbe27e95d93bdb692cf552f82a7712657d3bc05d"
+        },
+        {
+          "line": 420,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "a07347ed49fe92cd9b153b76b0b1a4c815293c6d99991733c6be4425ac9f7024"
+        },
+        {
+          "line": 422,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "717f51840885ca215e7adfe0813c5b3bf065f80502ce76238f7a7036b6b11394"
+        }
+      ]
+    },
+    "V03-2.4-right90-2": {
+      "source": "flights/V03-2.4-right90-2/launch.log",
+      "sha256": "35dd6851ac5f15f7975c5291c0de3c081f84b4d62dec2732ca72773d245f16f3",
+      "count": 11,
+      "models": {
+        "qwen3.8-omni-flash": 11
+      },
+      "query_markers": [
+        {
+          "line": 387,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "af7c72d8d0311e612fd07e5cc11f1d7d23cbe61859f71e0c58d9f1d517306ed0"
+        },
+        {
+          "line": 389,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "d986598fec17f3d5a0cbb3db77b29f7443d7810c5aa34b8f6e4cfd608057fe45"
+        },
+        {
+          "line": 391,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "8705144edcedac4d1e79d94c563bf8de548208be80aba4415471f3740db4ecee"
+        },
+        {
+          "line": 393,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "d76e7d8784d90491acbfabbcff5c7805df3c44a0b7a7c41d691225261e89846d"
+        },
+        {
+          "line": 395,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "f46c1be21f4893e6271d748f156a05f1a8bd264c30a180a0826ab9b60739f423"
+        },
+        {
+          "line": 397,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "2c89d4db94012ec8343a3a4fbb1235b3785cfb23632794ee01c04d834022b7b3"
+        },
+        {
+          "line": 399,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4527001c5071cad844f19e024b49b6369eceebfe76ab1ed7f38da6e8ca98b816"
+        },
+        {
+          "line": 401,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "2093cdb2167a81c27ac7dbfaf59e643ab55c35027f148be4e1b57012eda5ba47"
+        },
+        {
+          "line": 403,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "262260f11006ede89618722dbca4b8ab6bfbe6fb5cc26dc3a1ea76892aa43796"
+        },
+        {
+          "line": 405,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "5e3e025769e4a5ab523de17413d3d2bfc78ca5157d1100e6ac037e03f5226b76"
+        },
+        {
+          "line": 407,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "0b28798b3adc9dc5b40c92990086db08fde1c5f220b32c3cf359a8598c608067"
+        }
+      ]
+    },
+    "V03-1.5-front-1": {
+      "source": "flights/V03-1.5-front-1/launch.log",
+      "sha256": "5d86d37315c3458e212e6e97c403c68e20d52231939eb6204c42e4ef1ce7aff6",
+      "count": 4,
+      "models": {
+        "qwen3.8-omni-flash": 4
+      },
+      "query_markers": [
+        {
+          "line": 399,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "783c9da567d9ffdb87d77e4e4c17c406507c639852278adc8f2d7824784b2159"
+        },
+        {
+          "line": 401,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "25d010e01fcb942506081b3596e86227231df734bcacd66d626251416671f167"
+        },
+        {
+          "line": 403,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "875047ef48947ea3e747727b015860003e4a3628d5e2a788b1ce0ccb3b2ce849"
+        },
+        {
+          "line": 405,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "1b5b309aff8b3038458e432fb5e9756273fc4957f215a76ff1a02b4794c688ec"
+        }
+      ]
+    },
+    "V03-1.5-front-2": {
+      "source": "flights/V03-1.5-front-2/launch.log",
+      "sha256": "7fb99ba37bea7ed2827a07b5e32b588b1d5de26e4266b78d53418829f3ad5d55",
+      "count": 4,
+      "models": {
+        "qwen3.8-omni-flash": 4
+      },
+      "query_markers": [
+        {
+          "line": 709,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "3c4ba9d941aecc3da98a764402ce02251ea44793082553e1827fa3c3d76108ce"
+        },
+        {
+          "line": 711,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "102f578ff7b36f9133e1d10587083b9a45f5b73a05119a1b3df11378556aeb1e"
+        },
+        {
+          "line": 713,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "598ec94b9a6dd05bd3f734a2b99a453279242c4f84269986eb9a1c92ec7ef346"
+        },
+        {
+          "line": 715,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "feeb4fa443f162b875d58f56af5f54985c35ed09afdea77e124676cdfcfa28a9"
+        }
+      ]
+    },
+    "V03-1.5-left45-1": {
+      "source": "flights/V03-1.5-left45-1/launch.log",
+      "sha256": "44f494b83156e1b416951ff069d95605b10df6a106e942c5e7299cdfccc59a8a",
+      "count": 6,
+      "models": {
+        "qwen3.8-omni-flash": 6
+      },
+      "query_markers": [
+        {
+          "line": 770,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "3dac8945f80e0ff708044bf4fd85ea77a75a01609f79384bea9a0cfd5ca5901f"
+        },
+        {
+          "line": 772,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "85c3da4364db89d054999351a20e4267d377dc11fc12d3a1c1e22492a92b8c4c"
+        },
+        {
+          "line": 774,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "1349eb20346568cc97d915464ea6d6100cd7871eefefdb0e9f3a11809e3102a5"
+        },
+        {
+          "line": 776,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "f322c8fac0b95048c04b1bf2461951eb348be6110d1f097b8294590a6a55149a"
+        },
+        {
+          "line": 778,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "25b97dba9b7ebe7a6520188e750f58c7b89cb6c365e5600ce377ffa734f762a6"
+        },
+        {
+          "line": 780,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "740c94d7442005670d9ee768fd35d3e0885cbe9203680f2f03d0a74050774398"
+        }
+      ]
+    },
+    "V03-1.5-left45-2": {
+      "source": "flights/V03-1.5-left45-2/launch.log",
+      "sha256": "f575585c46326c8bf8e467c88bc4e0b63a752fa81a5c14fb9003a95ddc7e318e",
+      "count": 7,
+      "models": {
+        "qwen3.8-omni-flash": 7
+      },
+      "query_markers": [
+        {
+          "line": 1494,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "93cd50afaff23b37044cbef545b4e0761932e01a05b7766c60d142dbd53d72fe"
+        },
+        {
+          "line": 1496,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "42107c83b1592070b9d88584b21ddc82f680500fbf0a7ff6dcb90d4083063ddc"
+        },
+        {
+          "line": 1498,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4ff0a2127ff66c2b2fc5b4305c0534d82ce5ed0ef1a61a8977ce1e046b5fba23"
+        },
+        {
+          "line": 1500,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "44d5712644c4e64dcb44e78d0900aca5807c59eafc72e0e7c99137ed6fe3a94c"
+        },
+        {
+          "line": 1502,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "5243d6981a02f1ce59f43057f417659035d0aac48028410037f5aad41056bb22"
+        },
+        {
+          "line": 1504,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "7927b80f5d3f95f24c75dd96cf6019d685873e4a3820dd0419240c2bbc93894c"
+        },
+        {
+          "line": 1506,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "1ae448f9a6cdc2f4441ac107c70d50b90064bbdbfa32337f7aa85e66007a508d"
+        }
+      ]
+    },
+    "V03-1.5-right45-1": {
+      "source": "flights/V03-1.5-right45-1/launch.log",
+      "sha256": "20ec41737f71818651ecfabe8e9a073447c1d15e7751ca0ad84321bf00db1e45",
+      "count": 8,
+      "models": {
+        "qwen3.8-omni-flash": 8
+      },
+      "query_markers": [
+        {
+          "line": 540,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "d2c7bc1bc49ca80c75a00955e366966e2bf7ff381e96b40499cb916e451b87e2"
+        },
+        {
+          "line": 542,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "113464b32ec1c203936a53d8c63f2afdab848d63dcdddc70043e4779ae51e365"
+        },
+        {
+          "line": 544,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4090499cff636c8ffdd51031719e4d511eab8dea2211c7dbf3b94b90edb9b948"
+        },
+        {
+          "line": 546,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "c13d3e8cb49a7000060aa05a6c05ce52b83d6cf67e6cd7ed272347f2a6c6158c"
+        },
+        {
+          "line": 548,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "0e6e6c1e0f0dfd59c3ea39bb7458dc5b7341ea6d7c488fc9cd30588efee4bdfd"
+        },
+        {
+          "line": 550,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "d237843a0c7e98d03112550ed0a8cba978904abbb483d059c7210edff6b886a6"
+        },
+        {
+          "line": 552,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "984798f031538c93e764b7731549388dc119f819ef2054dc5a633c7ccf84387a"
+        },
+        {
+          "line": 554,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "4169c8e5c43f7f195a55a1a79b570a5c03c4aa128e5377b0d15f1ce3b52f0bdd"
+        }
+      ]
+    },
+    "V03-1.5-right45-2": {
+      "source": "flights/V03-1.5-right45-2/launch.log",
+      "sha256": "4154bc332a595a4782c4bc4448f318f37dcafda2bdf3b866d0cbbf31b026624f",
+      "count": 6,
+      "models": {
+        "qwen3.8-omni-flash": 6
+      },
+      "query_markers": [
+        {
+          "line": 139,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "f1370e3b5a4b82f7f1795b2ae746b1d4b036297027aa505c93a07e80384f080a"
+        },
+        {
+          "line": 141,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "a806dd8e1323c883f8e061dd57dd6bf93dd132ec3bef66627276132d8e60b195"
+        },
+        {
+          "line": 143,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "c0e356f7f04de0cdedea94fb2661d9873b84e4c5f57e67c9b8f607a55ab2d76d"
+        },
+        {
+          "line": 145,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "8000fc0129c839df3bbb53ea298d8f4850ff99415c6406151e83dc41745a3d88"
+        },
+        {
+          "line": 147,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "3190255f81448931764c866a032aa1885632f434552a1e688c697808e85ae5af"
+        },
+        {
+          "line": 149,
+          "model": "qwen3.8-omni-flash",
+          "line_sha256": "709f7be8e23d63039605672469523664a2d70058ad35801dbcc68f1e45fd9760"
+        }
+      ]
+    }
+  }
+}

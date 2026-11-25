@@ -1,0 +1,82 @@
+[
+  {
+    "case": "front-a1",
+    "reached": true,
+    "pre_land_sim_seconds": 8.600000000000001,
+    "legacy_window_samples_after_land": 9,
+    "world_dz_old_window_m": -0.32710448130654446,
+    "matched_odom_dz_old_window_m": -0.3046727180480957,
+    "pre_land_world_drift_m": 0.14315443877056608
+  },
+  {
+    "case": "front-a2",
+    "reached": true,
+    "pre_land_sim_seconds": 8.600000000000001,
+    "legacy_window_samples_after_land": 9,
+    "world_dz_old_window_m": -0.17807829387821572,
+    "matched_odom_dz_old_window_m": -0.24962568283081055,
+    "pre_land_world_drift_m": 0.14554599472712076
+  },
+  {
+    "case": "left45-a1",
+    "reached": true,
+    "pre_land_sim_seconds": 8.5,
+    "legacy_window_samples_after_land": 11,
+    "world_dz_old_window_m": -0.39326947226862186,
+    "matched_odom_dz_old_window_m": -0.3827691078186035,
+    "pre_land_world_drift_m": 0.09369044431570768
+  },
+  {
+    "case": "left45-a2",
+    "reached": true,
+    "pre_land_sim_seconds": 8.740000000000002,
+    "legacy_window_samples_after_land": 7,
+    "world_dz_old_window_m": -0.1047926883951853,
+    "matched_odom_dz_old_window_m": -0.17023682594299316,
+    "pre_land_world_drift_m": 0.19817220049049059
+  },
+  {
+    "case": "left90-a1",
+    "reached": true,
+    "pre_land_sim_seconds": 8.428000000000004,
+    "legacy_window_samples_after_land": 11,
+    "world_dz_old_window_m": -0.5379310405071858,
+    "matched_odom_dz_old_window_m": -0.42980527877807617,
+    "pre_land_world_drift_m": 0.1545218591573958
+  },
+  {
+    "case": "left90-a2",
+    "reached": true,
+    "pre_land_sim_seconds": 9.072000000000003,
+    "legacy_window_samples_after_land": 4,
+    "world_dz_old_window_m": -0.1242696884113812,
+    "matched_odom_dz_old_window_m": -0.04964447021484375,
+    "pre_land_world_drift_m": 0.1389798017089698
+  },
+  {
+    "case": "right45-a1",
+    "reached": true,
+    "pre_land_sim_seconds": 8.467999999999996,
+    "legacy_window_samples_after_land": 11,
+    "world_dz_old_window_m": -0.40917717624080674,
+    "matched_odom_dz_old_window_m": -0.35882556438446045,
+    "pre_land_world_drift_m": 0.08649315899465863
+  },
+  {
+    "case": "right45-a2",
+    "reached": true,
+    "pre_land_sim_seconds": 8.304000000000002,
+    "legacy_window_samples_after_land": 12,
+    "world_dz_old_window_m": -0.5387183994859801,
+    "matched_odom_dz_old_window_m": -0.5066688060760498,
+    "pre_land_world_drift_m": 0.07060921894902827
+  },
+  {
+    "case": "right90-a1",
+    "reached": false
+  },
+  {
+    "case": "right90-a2",
+    "reached": false
+  }
+]

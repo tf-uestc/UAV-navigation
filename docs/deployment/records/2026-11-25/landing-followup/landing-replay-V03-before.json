@@ -1,0 +1,198 @@
+{
+  "commit": "6b58825f8e715d6ac902303b812976ed20693e6e",
+  "original_archive": "V03-evidence.tar.gz",
+  "cases": {
+    "V03-2.4-left90-2": {
+      "trace_sha256": "5e3c344cef78e0c5f848d640fc5f62ca28d98e473271305137c89e5d4599e610",
+      "comparisons": [
+        {
+          "land_wall_s": 7324726.849044835,
+          "land_observed_sim_s": 62.4882,
+          "first_disarm_wall_s": 25.201471,
+          "original_post_disarm_odom_count": 116,
+          "original_post_disarm_samples_over_0p15": 116,
+          "synthetic_post_disarm_ground_samples": [
+            [
+              25.5697,
+              84
+            ],
+            [
+              26.814,
+              85
+            ],
+            [
+              28.0608,
+              86
+            ],
+            [
+              29.2763,
+              87
+            ]
+          ],
+          "model": "ground_after_disarm",
+          "first_executor_terminal": {
+            "mode": "FAILED",
+            "reason": "landing_timeout",
+            "elapsed_wall_s": 30.0,
+            "sim_s": 87.6013
+          },
+          "actions": [
+            [
+              0.0,
+              "AUTO.LAND"
+            ],
+            [
+              25.24,
+              "AUTO.LAND"
+            ],
+            [
+              25.76,
+              "AUTO.LAND"
+            ],
+            [
+              26.28,
+              "AUTO.LAND"
+            ]
+          ]
+        },
+        {
+          "land_wall_s": 7324726.849044835,
+          "land_observed_sim_s": 62.4882,
+          "first_disarm_wall_s": 25.201471,
+          "original_post_disarm_odom_count": 116,
+          "original_post_disarm_samples_over_0p15": 116,
+          "synthetic_post_disarm_ground_samples": [],
+          "model": "no_ground",
+          "first_executor_terminal": {
+            "mode": "FAILED",
+            "reason": "landing_timeout",
+            "elapsed_wall_s": 30.0,
+            "sim_s": 87.6013
+          },
+          "actions": [
+            [
+              0.0,
+              "AUTO.LAND"
+            ],
+            [
+              25.24,
+              "AUTO.LAND"
+            ],
+            [
+              25.76,
+              "AUTO.LAND"
+            ],
+            [
+              26.28,
+              "AUTO.LAND"
+            ]
+          ]
+        }
+      ]
+    },
+    "V03-1.5-front-1": {
+      "trace_sha256": "bb7082239af086b9094903392f42c8646af03a2eac9a509a4ecc011beedec6f5",
+      "comparisons": [
+        {
+          "land_wall_s": 7325108.648225805,
+          "land_observed_sim_s": 49.5979,
+          "first_disarm_wall_s": 20.722319,
+          "original_post_disarm_odom_count": 232,
+          "original_post_disarm_samples_over_0p15": 232,
+          "synthetic_post_disarm_ground_samples": [
+            [
+              21.0074,
+              68
+            ],
+            [
+              22.1666,
+              69
+            ],
+            [
+              23.3875,
+              70
+            ],
+            [
+              24.6775,
+              71
+            ],
+            [
+              25.8899,
+              72
+            ],
+            [
+              27.0787,
+              73
+            ],
+            [
+              28.3559,
+              74
+            ],
+            [
+              29.4848,
+              75
+            ]
+          ],
+          "model": "ground_after_disarm",
+          "first_executor_terminal": {
+            "mode": "FAILED",
+            "reason": "landing_timeout",
+            "elapsed_wall_s": 30.0,
+            "sim_s": 75.4564
+          },
+          "actions": [
+            [
+              0.0,
+              "AUTO.LAND"
+            ],
+            [
+              20.76,
+              "AUTO.LAND"
+            ],
+            [
+              21.28,
+              "AUTO.LAND"
+            ],
+            [
+              21.8,
+              "AUTO.LAND"
+            ]
+          ]
+        },
+        {
+          "land_wall_s": 7325108.648225805,
+          "land_observed_sim_s": 49.5979,
+          "first_disarm_wall_s": 20.722319,
+          "original_post_disarm_odom_count": 232,
+          "original_post_disarm_samples_over_0p15": 232,
+          "synthetic_post_disarm_ground_samples": [],
+          "model": "no_ground",
+          "first_executor_terminal": {
+            "mode": "FAILED",
+            "reason": "landing_timeout",
+            "elapsed_wall_s": 30.0,
+            "sim_s": 75.4564
+          },
+          "actions": [
+            [
+              0.0,
+              "AUTO.LAND"
+            ],
+            [
+              20.76,
+              "AUTO.LAND"
+            ],
+            [
+              21.28,
+              "AUTO.LAND"
+            ],
+            [
+              21.8,
+              "AUTO.LAND"
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

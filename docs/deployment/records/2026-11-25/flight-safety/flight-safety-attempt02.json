@@ -1,0 +1,29 @@
+{
+  "scope": "isolated ROS topics, fake MAVROS services and kinematics",
+  "passed": true,
+  "checks": [
+    {
+      "name": "cancel_climb_rejects_stale_landed_and_disarms_after_touchdown",
+      "cancel_height_m": 0.22400000000000003,
+      "disarms": [
+        {
+          "wall": 7320727.39732648,
+          "height": 0.0
+        }
+      ]
+    },
+    {
+      "name": "one_way_status_loss_revokes_old_trajectory",
+      "measured_revoke_delay_s": 0.6770577281713486,
+      "reported_reason": "mission_feedback_timeout",
+      "motion_after_delayed_spline_m": 0.0,
+      "cancellation": {
+        "schema_version": 1,
+        "mission_id": "feedback-loss",
+        "through_goal_id": 1,
+        "gateway_session_id": "stage9-gateway"
+      },
+      "terminal_reason": "flight_feedback_unavailable"
+    }
+  ]
+}
