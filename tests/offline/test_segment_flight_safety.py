@@ -127,6 +127,78 @@ class SafetyTests(unittest.TestCase):
         fb = self.sensors(0)
         self.assertIn("DISARM", node.bridge.tick(fb, self.wall).actions)
 
+    def start_landing(self):
+        node = self.executor
+        node.owned = True
+        self.sensors(.35, ground=False)
+        node.command(String(json.dumps(dict(command="LAND", seq=1, flight_session_id=node.session))))
+
+    def state(self, armed, connected=True):
+        self.executor.capture(SimpleNamespace(connected=connected, armed=armed, mode="AUTO.LAND"), "state")
+
+    def control_tick(self):
+        node = self.executor
+        node.graph, node.graph_at = True, self.wall
+        ros = node.run.__globals__["rospy"]
+        with patch.object(ros, "is_shutdown", side_effect=(False, True)), patch("time.sleep"):
+            node.run()
+        return json.loads(node.status.messages[-1].data)
+
+    def test_disarmed_landing_completes_after_two_new_ground_reports_despite_residual_speed(self):
+        self.start_landing()
+        node = self.executor
+        self.advance(20.829)
+        self.state(False)
+        self.sensors(.62)
+        self.assertEqual(self.control_tick()["mode"], "LANDING")
+        self.advance(1.)
+        self.state(False)
+        self.sensors(.65)
+        self.assertEqual(self.control_tick()["mode"], "LANDING")
+        self.advance(1.)
+        self.state(False)
+        self.sensors(.60)
+        self.assertFalse(node.feedback(self.wall, Time.current).landed)
+        status = self.control_tick()
+        self.assertEqual((status["mode"], status["owns_flight"]), ("COMPLETE", False))
+        self.assertFalse(node.actions)
+
+    def test_disarmed_airborne_duplicates_or_rearming_cannot_complete_landing(self):
+        self.start_landing()
+        self.state(False)
+        self.advance(.3)
+        self.sensors(.6)
+        self.sensors(.6)  # repeated stamp is not a second observation
+        self.assertEqual(self.control_tick()["mode"], "LANDING")
+        self.advance(.2)
+        self.sensors(.6, ground=False)
+        self.assertEqual(self.control_tick()["mode"], "LANDING")
+        self.advance(.4)
+        self.sensors(.6)
+        self.assertEqual(self.control_tick()["mode"], "LANDING")
+        self.advance(.4)
+        self.state(True)
+        self.sensors(.6)
+        self.assertEqual(self.control_tick()["mode"], "LANDING")
+        self.assertFalse(self.executor.actions)
+
+    def test_stale_ground_and_unconfirmed_airborne_still_timeout(self):
+        self.start_landing()
+        self.state(False)
+        for _ in range(2):
+            self.advance(.3)
+            self.sensors(.6)
+        self.advance(1.7)
+        self.state(False)
+        self.sensors(.6, update_ground=False)
+        self.assertEqual(self.control_tick()["mode"], "LANDING")
+        self.advance(28.)
+        self.state(False)
+        self.sensors(.6, ground=False)
+        status = self.control_tick()
+        self.assertEqual((status["mode"], status["reason"]), ("FAILED", "landing_timeout"))
+        self.assertFalse(self.executor.actions)
+
     def test_only_recent_round_trip_for_active_goal_keeps_plan_alive(self):
         from navigation_core.control import Reference
         node, mission = self.executor, self.mission
