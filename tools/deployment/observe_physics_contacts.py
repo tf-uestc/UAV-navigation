@@ -15,7 +15,7 @@ class PhysicsContacts:
   assert rospy.get_param('/use_sim_time') is True
   self.started=rospy.Time.now().to_sec()
   self.sink=(self.out/'physics-contacts.txt').open('w')
-  self.proc=subprocess.Popen(['stdbuf','-oL','gz','topic','-e','/gazebo/default/physics/contacts','-d','160'],
+  self.proc=subprocess.Popen(['stdbuf','-oL','gz','topic','-e','/gazebo/default/physics/contacts'],
                              stdout=self.sink,stderr=subprocess.STDOUT)
   time.sleep(.5)
   pose=Pose(position=Point(-10.,-10.,.55));pose.orientation.w=1.
@@ -39,7 +39,14 @@ class PhysicsContacts:
   path=self.out/'physics-contacts.txt';text=path.read_text() if path.exists() else ''
   pairs=self.pairs(text)
   positive=sum('contact_witness' in x+y and 'ground' in x+y for x,y in pairs)
-  bad=[(x,y) for x,y in pairs if 'iris_depth_camera' in x+y and self.obstacle_model in x+y]
+  bad=[]
+  for x,y in pairs:
+   iris_x='iris_depth_camera::' in x
+   iris_y='iris_depth_camera::' in y
+   if iris_x==iris_y:continue
+   other=y if iris_x else x
+   if not any(name in other.split('::') for name in ('ground_plane','landing_pad')):
+    bad.append((x,y))
   stamps=[float(s)+int(ns)*1e-9 for s,ns in re.findall(r'\btime\s*\{\s*sec:\s*(\d+)\s*nsec:\s*(\d+)\s*\}',text)]
   report=dict(obstacle_model=self.obstacle_model,passed=positive>0 and not bad and len(stamps)>=100 and finished-max(stamps,default=-1)<1.,
    positive_control_contacts=positive,iris_obstacle_contacts=bad[:10],physics_messages=len(stamps),

@@ -11,6 +11,8 @@ from _support import Header, IdleThread, Point, PoseStamped, SCRIPTS, String, Ti
 
 def load_components():
     modules = ros_modules()
+    # The exercised callbacks never convert spline velocities.
+    modules["tf.transformations"].quaternion_matrix = None
     modules["sensor_msgs"].point_cloud2 = object()
     modules["sensor_msgs.msg"].PointCloud2 = object
     for name, classes in {

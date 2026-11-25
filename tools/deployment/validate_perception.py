@@ -204,8 +204,8 @@ class Validation:
             down = np.cross(forward, right)
             delta = landmark-position
             z = np.dot(delta,forward)
-            u = round(cam_k[2]+cam_k[0]*np.dot(delta,right)/z)
-            v = round(cam_k[5]+cam_k[4]*np.dot(delta,down)/z)
+            u = int(round(cam_k[2]+cam_k[0]*np.dot(delta,right)/z))
+            v = int(round(cam_k[5]+cam_k[4]*np.dot(delta,down)/z))
             orientation = np.eye(4)
             orientation[:3,:3] = np.column_stack((right, down, forward))
             bgr = np.zeros((height,width,3), np.uint8)

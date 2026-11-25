@@ -480,6 +480,29 @@ try:
             return dict(occupied_roi_count=len(pts),nearest_x=float(np.min(pts[:,0])))
         case('known_obstacle_is_in_world_map_single_depth_input',map_geometry)
 
+        def same_box_other_face():
+            # The positive-y face was occluded at the first camera pose. It can
+            # only be freshly measured after moving to the other side.
+            fixture.position=np.array([2.,1.7,2.]);fixture.yaw=-math.pi/2
+            start=time.monotonic()
+            def observed():
+                msgs=messages('/grid_map/occupancy',start)
+                if not msgs:return None
+                xyz=cloud_xyz(msgs[-1])
+                roi=xyz[(abs(xyz[:,0]-2.)<.2)&(abs(xyz[:,2]-2.)<.35)&(abs(xyz[:,1]-.4)<.18)]
+                return roi if len(roi)>12 else None
+            try:
+                pts=wait(observed,10)
+                error=float(np.max(abs(pts[:,1]-.4)))
+                resolution=rospy.get_param('/ego_planner_node/grid_map/resolution')
+                assert error<=resolution+.05,(error,resolution)
+                return dict(world_box_center=[2.,0.,2.],camera_body_xyz=fixture.position.tolist(),
+                            yaw_deg=-90.,expected_face_y_m=.4,measured_occupied_xyz=pts.tolist(),
+                            max_face_error_m=error,resolution_m=resolution)
+            finally:
+                fixture.position=np.array([0.,0.,2.]);fixture.yaw=0.
+        case('same_fixed_box_newly_visible_face_at_changed_pose',same_box_other_face)
+
         def rotated_map():
             fixture.position=np.array([.2,.1,2.]);fixture.yaw=math.pi/2
             fixture.obstacles.append(([0.,2.,2.],[.8,.6,1.]))

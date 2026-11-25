@@ -335,9 +335,13 @@ class QwenVLGroundingDetector(Detector):
         for group in np.split(order, splits):
             if len(group) >= minimum:
                 return float(np.median(u[group])), float(np.median(v[group])), float(np.median(depths[group])), len(group)
-            if len(group) >= 3:
-                # A nearer surface with several samples may be the target.
-                # A larger group behind it cannot establish target depth.
+            # Ground just inside a box edge can form one-pixel depth bands.
+            # Weak foreground in the interior (or on the matched color) is
+            # ambiguous, so a larger group behind it cannot establish depth.
+            gu, gv = u[group], v[group]
+            interior = ((gu >= .1*patch.shape[1]) & (gu < .9*patch.shape[1])
+                        & (gv >= .1*patch.shape[0]) & (gv < .9*patch.shape[0]))
+            if (len(group) if mask is not None else np.count_nonzero(interior)) >= 3:
                 raise DetectionRejected("invalid_target_depth")
         raise DetectionRejected("invalid_target_depth")
 

@@ -25,8 +25,8 @@ export ROS_MASTER_URI=http://127.0.0.1:11311 ROS_IP=127.0.0.1
 cd "$d/UAV-navigation"
 git rev-parse HEAD > "$r/commit.txt"
 git status --short > "$r/source-status.txt"
-test "$(rospack find ego_planner)" = "$d/ego-install/share/ego_planner"
-test "$(rospack find uav_vln_bringup)" = "$d/business-install/share/uav_vln_bringup"
+test "$(realpath "$(rospack find ego_planner)")" = "$(realpath "$d/ego-install/share/ego_planner")"
+test "$(realpath "$(rospack find uav_vln_bringup)")" = "$(realpath "$d/business-install/share/uav_vln_bringup")"
 ground() {
  timeout 6 rostopic echo -n 1 /mavros/state | grep -q '^armed: False'
  timeout 6 rostopic echo -n 1 /mavros/extended_state | grep -q '^landed_state: 1'
@@ -70,14 +70,12 @@ if test "$scenario" = live;then
  timeout --signal=INT 805 /usr/bin/python3 -u tools/deployment/validate_search_sitl.py --yaw 0 --bearing "$bearing" --expected "$expected" --standoff "$distance" --mission-timeout 720 --out "$r/result" | tee "$r/run.log"
 elif test "$scenario" = unknown;then
  timeout --signal=INT 245 /usr/bin/python3 -u tools/deployment/validate_unknown_sitl.py --out "$r/result" | tee "$r/run.log"
-elif test "$scenario" = dynamic;then
- timeout --signal=INT 245 /usr/bin/python3 -u tools/deployment/validate_planning_sitl.py dynamic --contacts --out "$r/result" | tee "$r/run.log"
-elif test "$scenario" = routes;then
- timeout --signal=INT 1400 /usr/bin/python3 -u tools/deployment/validate_planning_sitl.py routes --repetitions 5 --contacts --out "$r/result" | tee "$r/run.log"
-elif test "$scenario" = static;then
- timeout --signal=INT 245 /usr/bin/python3 -u tools/deployment/validate_segments.py --obstacle --yaw 0 --out "$r/result" | tee "$r/run.log"
 else
- echo 'Unknown acceptance scenario' >&2;exit 2
+ case "$scenario" in
+  straight|long|outside|static|dynamic|blocked)
+   timeout --signal=INT 360 /usr/bin/python3 -u tools/deployment/validate_planning_sitl.py "$scenario" --repetitions 1 --contacts --out "$r/result" | tee "$r/run.log";;
+  *) echo 'Unknown acceptance scenario' >&2;exit 2;;
+ esac
 fi
 ground
 if test -n "$moving";then wait "$moving";moving="";fi

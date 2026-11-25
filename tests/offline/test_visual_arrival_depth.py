@@ -108,3 +108,10 @@ class PoleDepthTests(unittest.TestCase):
         rgb, depth = self.scene(8)
         with self.assertRaisesRegex(self.module.DetectionRejected, "invalid_target_depth"):
             self.detector.detect(rgb, depth, "fixture", self.info)
+
+    def test_ground_at_bottom_edge_does_not_hide_supported_foreground(self):
+        rgb, depth = self.scene(20)
+        for i in range(3):
+            depth[-1-i] = .5*(i+1)
+        result = self.detector.detect(rgb, depth, "fixture", self.info)
+        self.assertEqual(result.depth_m, 2.)
