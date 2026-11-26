@@ -77,6 +77,7 @@ class Trial:
 
     def landed_cb(self,msg):
         self.landed=msg
+        self.record('extended_state', dict(landed_state=msg.landed_state, stamp=msg.header.stamp.to_sec()))
 
     def odom_cb(self,msg):
         self.odom=msg
@@ -200,10 +201,38 @@ class Trial:
         return mission
 
     def stop_and_land(self):
-        if self.flight and self.flight.get('owns_flight'):
+        flight, mission = self.flight or {}, self.mission or {}
+        if not flight.get('owns_flight') and mission.get('phase') != 'LANDING':
+            if flight.get('mode') == 'FAILED':
+                raise AssertionError('Executor failed: '+str(flight.get('reason')))
+            return
+        start_seq = flight.get('seq', 0)
+        start_index = len(self.trace)
+        send_land = flight.get('owns_flight') and mission.get('phase') != 'LANDING'
+        self.record('landing_cleanup', dict(mission_id=mission.get('mission_id'),
+                    prior_phase=mission.get('phase'), prior_reason=mission.get('reason'),
+                    flight_session_id=flight.get('flight_session_id')))
+        if send_land:
             self.send('LAND')
-            self.wait(lambda: not self.flight.get('owns_flight') and not self.state.armed
-                      and self.landed.landed_state==1,40,'landed and disarmed')
+
+        def confirmed():
+            f, m = self.flight or {}, self.mission or {}
+            if not (self.state and self.state.connected and not self.state.armed
+                    and self.landed and self.landed.landed_state == 1 and not f.get('owns_flight')):
+                return False
+            if f.get('flight_session_id') != flight.get('flight_session_id'):
+                raise AssertionError('Executor session changed during landing')
+            failed = next((d for _, kind, d in self.trace[start_index:] if kind == 'flight'
+                           and d.get('flight_session_id') == flight.get('flight_session_id')
+                           and d.get('mode') == 'FAILED'), None)
+            if failed or flight.get('mode') == 'FAILED' or f.get('mode') == 'FAILED':
+                source = failed or (flight if flight.get('mode') == 'FAILED' else f)
+                raise AssertionError('Executor failed during landing: '+str(source.get('reason')))
+            return (f.get('mode') == 'COMPLETE' and (not send_land or f.get('seq', 0) > start_seq)
+                    and m.get('mission_session_id') == mission.get('mission_session_id')
+                    and m.get('mission_id') == mission.get('mission_id') and m.get('phase') == 'LANDED')
+
+        self.wait(confirmed, 40, 'grounded, disarmed, executor COMPLETE and mission LANDED')
 
     def initial(self):
         self.wait(lambda:self.mission and self.flight and self.flight['ready'] and

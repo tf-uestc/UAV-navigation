@@ -54,6 +54,7 @@ class FlightExecutor:
         self.state = self.odom = self.landed = None
         self.previous_ground_stamp = None
         self.ground_after_stamp = 0.
+        self.disarmed_landing_stamp = None
         self.owned = False
         self.graph = False
         self.graph_at = 0.
@@ -97,6 +98,7 @@ class FlightExecutor:
 
     def capture(self, msg, field):
         with self.lock:
+            wall = time.monotonic()
             if field == 'landed':
                 self.previous_ground_stamp = (
                     self.landed[0].header.stamp.to_sec()
@@ -105,11 +107,17 @@ class FlightExecutor:
                 v = msg.twist.twist.linear
                 if not math.hypot(v.x, v.y, v.z) <= .15:
                     self.ground_after_stamp = max(self.ground_after_stamp, msg.header.stamp.to_sec())
-            setattr(self, field, (msg, time.monotonic()))
+            elif field == 'state':
+                if self.bridge.mode != 'LANDING' or not self.owned or not msg.connected or msg.armed:
+                    self.disarmed_landing_stamp = None
+                elif self.disarmed_landing_stamp is None or not self.state or wall-self.state[1] > 2.5:
+                    self.disarmed_landing_stamp = rospy.Time.now().to_sec()
+            setattr(self, field, (msg, wall))
 
     def request_landing(self, fb, wall):
         if self.bridge.mode != 'LANDING':
             self.ground_after_stamp = rospy.Time.now().to_sec()
+            self.disarmed_landing_stamp = None
         self.bridge.command('LAND', fb, wall)
 
     def observe_graph(self):
@@ -130,7 +138,7 @@ class FlightExecutor:
                 self.graph, self.graph_at = allowed, time.monotonic()
             time.sleep(.25)
 
-    def feedback(self, wall, stamp):
+    def feedback(self, wall, stamp, *, confirm_disarmed_landing=False):
         if not (self.state and self.odom and self.landed):
             return None
         state, state_at = self.state
@@ -147,11 +155,15 @@ class FlightExecutor:
         try:
             p, q = odom.pose.pose.position, odom.pose.pose.orientation
             v = odom.twist.twist.linear
-            # ExtendedState is slower than odometry. Require two distinct
-            # ground reports following the last motion or landing request.
+            # Commands retain the motion guard. Only a completed motor shutdown
+            # can use two new FCU ground reports despite residual odometry speed.
             ground_stamp = landed.header.stamp.to_sec()
+            ground_after = self.ground_after_stamp
+            if (confirm_disarmed_landing and self.owned and self.bridge.mode == 'LANDING'
+                    and not state.armed and self.disarmed_landing_stamp is not None):
+                ground_after = min(ground_after, self.disarmed_landing_stamp)
             grounded = (landed.landed_state == 1 and self.previous_ground_stamp is not None
-                        and self.ground_after_stamp < self.previous_ground_stamp < ground_stamp
+                        and ground_after < self.previous_ground_stamp < ground_stamp
                         and ground_stamp-self.previous_ground_stamp <= 2.5
                         and -.1 <= stamp-ground_stamp <= 1.5)
             return Feedback((p.x, p.y, p.z), quaternion_yaw((q.x, q.y, q.z, q.w)),
@@ -427,7 +439,7 @@ class FlightExecutor:
                 if self.last_ros != now:
                     self.clock_advanced_at = wall
                 self.last_ros = now
-                fb = self.feedback(wall, now)
+                fb = self.feedback(wall, now, confirm_disarmed_landing=True)
                 healthy = fb is not None and fb.pose_age <= .5 and self.graph and wall-self.graph_at < 1.
                 previous_mode = self.bridge.mode
                 if (self.owned and healthy and self.bridge.mode in ('HOLD','TRACK')
