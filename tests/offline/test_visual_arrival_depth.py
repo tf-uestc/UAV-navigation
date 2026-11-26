@@ -67,6 +67,57 @@ class VisualArrivalTests(unittest.TestCase):
         self.observe_twice(3.)
         self.assertEqual(self.node.phase, "AUTHORIZE")
 
+    def acquisition_reply(self, found):
+        n = self.node
+        Time.current += 1.
+        now = time.monotonic()
+        n.odom = ((0., 0., 1.6), (0., 0., 0.), 0., 0., Time.current, now)
+        n.flight = (dict(flight_session_id="flight", owns_flight=True, mode="HOLD",
+                         context=None, stop_id=n.stop_id, stop_confirmed=True), now)
+        if n.budget.calls == 0:
+            n.settled_at = Time.current - .2
+            n.request_detection(now)
+        else:
+            n.tick(now)
+        self.assertEqual(n.phase, "WAIT_VLM")
+        key = n.registry.pending.key
+        result = self.module.DetectionResult(key, n.target, "SUCCEEDED" if found else "FAILED",
+                                             Time.current, Time.current,
+                                             (3.429, 0., .6) if found else None,
+                                             reason="" if found else "target_not_found")
+        n.on_detection(String(result.to_json()))
+
+    def test_one_missed_confirmation_keeps_view_and_checks_again(self):
+        n = self.node
+        n.started = time.monotonic()
+        n.budget.begin(n.started)
+        self.acquisition_reply(True)
+        self.assertEqual(n.phase, "CONFIRM_TARGET")
+        self.acquisition_reply(False)
+        self.assertEqual(n.phase, "RETRY_DETECT")
+        self.assertFalse(n.flight_pub.messages)
+        self.acquisition_reply(True)
+        self.assertEqual((n.phase, n.budget.calls), ("AUTHORIZE", 3))
+
+    def test_second_missed_confirmation_clears_target_and_searches(self):
+        n = self.node
+        n.started = time.monotonic()
+        n.budget.begin(n.started)
+        self.acquisition_reply(True)
+        self.acquisition_reply(False)
+        self.acquisition_reply(False)
+        self.assertEqual((n.phase, n.after_stop), ("BRAKE", ("SCAN_NEXT", "target_not_found")))
+        self.assertIsNone(n.acquisition_point)
+        self.assertEqual(n.budget.calls, 3)
+
+    def test_first_explicit_miss_keeps_original_scan_policy(self):
+        n = self.node
+        n.started = time.monotonic()
+        n.budget.begin(n.started)
+        self.acquisition_reply(False)
+        self.assertEqual((n.phase, n.after_stop), ("BRAKE", ("SCAN_NEXT", "target_not_found")))
+        self.assertEqual(n.budget.calls, 1)
+
     def test_color_conflict_rechecks_once_then_advances_scan_under_original_budget(self):
         n = self.node
         n.mode = "visual"
